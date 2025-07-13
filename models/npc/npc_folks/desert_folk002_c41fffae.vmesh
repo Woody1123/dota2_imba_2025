@@ -1,0 +1,2233 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CRenderMesh"
+	m_sceneObjects = 
+	[
+		{
+			m_vMinBounds = 
+			[
+				-22.729923,
+				-59.927086,
+				0.294561,
+			]
+			m_vMaxBounds = 
+			[
+				45.292572,
+				59.927078,
+				199.974533,
+			]
+			m_drawCalls = 
+			[
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 232
+					m_nStartIndex = 0
+					m_nIndexCount = 1002
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 78.750740
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 0
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"materials/models/items/kunkka/comm_boots/comm_boots.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 0
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 436
+					m_nStartIndex = 0
+					m_nIndexCount = 1884
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 106.975433
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 1
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"materials/models/items/kunkka/claddish_gloves/claddish_gloves.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 1
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 401
+					m_nStartIndex = 0
+					m_nIndexCount = 1908
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 28.997490
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 2
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"materials/models/heroes/tuskarr/tusk_hat_color.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 2
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 1074
+					m_nStartIndex = 0
+					m_nIndexCount = 4926
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 92.908707
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 3
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"materials/models/items/juggernaut/cape_tusks_color.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 3
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 2324
+					m_nStartIndex = 0
+					m_nIndexCount = 11556
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 158.557861
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 4
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"models/npc/npc_folks/chef_folk_001.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 4
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+			]
+			m_vTintColor = 
+			[
+				0.000000,
+				0.000000,
+				0.000000,
+				0.000000,
+			]
+		},
+	]
+	m_constraints = 
+	[
+	]
+	m_skeleton = 
+	{
+		m_bones = 
+		[
+			{
+				m_boneName = "pelvis"
+				m_parentName = ""
+				m_invBindPose = 
+				[
+					0.000000,
+					0.000000,
+					1.000000,
+					-96.450684,
+					1.000000,
+					0.000000,
+					0.000000,
+					-13.729720,
+					0.000000,
+					1.000000,
+					0.000000,
+					-0.000000,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.185940,
+						-2.410030,
+						0.000000,
+					]
+					m_vecSize = 
+					[
+						46.936543,
+						32.549778,
+						28.912186,
+					]
+				}
+				m_flSphereRadius = 55.986084
+			},
+			{
+				m_boneName = "spine_0"
+				m_parentName = "pelvis"
+				m_invBindPose = 
+				[
+					-0.128166,
+					-0.000000,
+					0.991753,
+					-100.137924,
+					0.991753,
+					0.000000,
+					0.128166,
+					-27.704967,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000003,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						10.579269,
+						-0.174721,
+						-0.874708,
+					]
+					m_vecSize = 
+					[
+						36.927933,
+						31.170467,
+						26.900541,
+					]
+				}
+				m_flSphereRadius = 51.351620
+			},
+			{
+				m_boneName = "spine_1"
+				m_parentName = "spine_0"
+				m_invBindPose = 
+				[
+					-0.128166,
+					-0.000000,
+					0.991753,
+					-111.320221,
+					0.991753,
+					0.000000,
+					0.128166,
+					-27.704966,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000004,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						13.810524,
+						-1.803700,
+						0.960793,
+					]
+					m_vecSize = 
+					[
+						35.739586,
+						32.296349,
+						28.736042,
+					]
+				}
+				m_flSphereRadius = 58.162994
+			},
+			{
+				m_boneName = "spine_2"
+				m_parentName = "spine_1"
+				m_invBindPose = 
+				[
+					-0.233193,
+					-0.000000,
+					0.972431,
+					-118.849648,
+					0.972431,
+					0.000000,
+					0.233193,
+					-40.610245,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000004,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						9.030724,
+						-1.986767,
+						-2.806028,
+					]
+					m_vecSize = 
+					[
+						36.368240,
+						32.595242,
+						34.896233,
+					]
+				}
+				m_flSphereRadius = 51.410957
+			},
+			{
+				m_boneName = "spine_3"
+				m_parentName = "spine_2"
+				m_invBindPose = 
+				[
+					0.263827,
+					-0.000000,
+					0.964570,
+					-139.345612,
+					0.964570,
+					0.000000,
+					-0.263827,
+					30.215456,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000008,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-3.003273,
+						6.368302,
+						-0.002701,
+					]
+					m_vecSize = 
+					[
+						36.094521,
+						35.923470,
+						32.092903,
+					]
+				}
+				m_flSphereRadius = 45.925743
+			},
+			{
+				m_boneName = "clavicle_L"
+				m_parentName = "spine_3"
+				m_invBindPose = 
+				[
+					-0.010061,
+					0.989868,
+					-0.141634,
+					9.951741,
+					0.999846,
+					0.012000,
+					0.012843,
+					-8.892027,
+					0.014412,
+					-0.141483,
+					-0.989836,
+					149.426605,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-4.428862,
+						3.154922,
+						11.820835,
+					]
+					m_vecSize = 
+					[
+						27.763800,
+						32.973747,
+						32.356983,
+					]
+				}
+				m_flSphereRadius = 51.895039
+			},
+			{
+				m_boneName = "clavicle_R"
+				m_parentName = "spine_3"
+				m_invBindPose = 
+				[
+					0.010061,
+					0.989868,
+					0.141634,
+					-9.951720,
+					-0.999846,
+					0.012000,
+					-0.012843,
+					8.892023,
+					-0.014412,
+					-0.141483,
+					0.989836,
+					-149.426605,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						5.352108,
+						-3.111996,
+						-14.461052,
+					]
+					m_vecSize = 
+					[
+						34.522526,
+						33.016674,
+						34.997215,
+					]
+				}
+				m_flSphereRadius = 53.920387
+			},
+			{
+				m_boneName = "arm_upper_L"
+				m_parentName = "clavicle_L"
+				m_invBindPose = 
+				[
+					-0.086868,
+					0.385699,
+					-0.918526,
+					127.426598,
+					0.984616,
+					0.173554,
+					-0.020241,
+					-7.622381,
+					0.151607,
+					-0.906154,
+					-0.394842,
+					78.198509,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						27.236172,
+						2.395384,
+						-0.964420,
+					]
+					m_vecSize = 
+					[
+						37.858402,
+						18.315029,
+						14.261463,
+					]
+				}
+				m_flSphereRadius = 65.849747
+			},
+			{
+				m_boneName = "arm_upper_R"
+				m_parentName = "clavicle_R"
+				m_invBindPose = 
+				[
+					0.086868,
+					0.385699,
+					0.918526,
+					-127.426598,
+					-0.984616,
+					0.173555,
+					0.020241,
+					7.622396,
+					-0.151608,
+					-0.906154,
+					0.394842,
+					-78.198494,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-24.933483,
+						-4.137552,
+						3.589340,
+					]
+					m_vecSize = 
+					[
+						40.161060,
+						21.907026,
+						16.913910,
+					]
+				}
+				m_flSphereRadius = 65.849716
+			},
+			{
+				m_boneName = "arm_lower_L"
+				m_parentName = "arm_upper_L"
+				m_invBindPose = 
+				[
+					0.380925,
+					0.422167,
+					-0.822600,
+					78.328362,
+					0.912092,
+					-0.025693,
+					0.409180,
+					-49.749096,
+					0.151607,
+					-0.906154,
+					-0.394842,
+					78.198502,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						13.214491,
+						2.994335,
+						-0.964432,
+					]
+					m_vecSize = 
+					[
+						33.138092,
+						19.503838,
+						14.261459,
+					]
+				}
+				m_flSphereRadius = 47.493088
+			},
+			{
+				m_boneName = "arm_lower_R"
+				m_parentName = "arm_upper_R"
+				m_invBindPose = 
+				[
+					-0.380925,
+					0.422167,
+					0.822600,
+					-78.328377,
+					-0.912092,
+					-0.025693,
+					-0.409180,
+					49.749100,
+					-0.151607,
+					-0.906154,
+					0.394842,
+					-78.198509,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-10.355606,
+						-5.789330,
+						0.964420,
+					]
+					m_vecSize = 
+					[
+						35.996971,
+						22.298836,
+						14.261463,
+					]
+				}
+				m_flSphereRadius = 47.493088
+			},
+			{
+				m_boneName = "hand_L"
+				m_parentName = "arm_lower_L"
+				m_invBindPose = 
+				[
+					0.279813,
+					0.373309,
+					-0.884503,
+					58.482224,
+					-0.106775,
+					-0.903488,
+					-0.415100,
+					83.766960,
+					-0.954098,
+					0.210594,
+					-0.212947,
+					23.376717,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.675655,
+						-0.053551,
+						1.501243,
+					]
+					m_vecSize = 
+					[
+						24.390659,
+						14.440521,
+						15.955443,
+					]
+				}
+				m_flSphereRadius = 27.608738
+			},
+			{
+				m_boneName = "hand_R"
+				m_parentName = "arm_lower_R"
+				m_invBindPose = 
+				[
+					-0.279813,
+					0.373309,
+					0.884503,
+					-58.482250,
+					0.106775,
+					-0.903488,
+					0.415100,
+					-83.766953,
+					0.954098,
+					0.210594,
+					0.212948,
+					-23.376724,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.675663,
+						0.053543,
+						-1.501237,
+					]
+					m_vecSize = 
+					[
+						24.390663,
+						14.440521,
+						15.955453,
+					]
+				}
+				m_flSphereRadius = 27.608740
+			},
+			{
+				m_boneName = "finger_pinky_meta_L"
+				m_parentName = "hand_L"
+				m_invBindPose = 
+				[
+					-0.022648,
+					0.269777,
+					-0.962656,
+					68.272202,
+					0.237662,
+					-0.933847,
+					-0.267295,
+					69.734505,
+					-0.971084,
+					-0.234841,
+					-0.042966,
+					29.176291,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						6.822674,
+						3.901844,
+						-3.181194,
+					]
+					m_vecSize = 
+					[
+						9.562260,
+						8.880306,
+						8.424036,
+					]
+				}
+				m_flSphereRadius = 17.950836
+			},
+			{
+				m_boneName = "finger_pinky_meta_R"
+				m_parentName = "hand_R"
+				m_invBindPose = 
+				[
+					0.022649,
+					0.269777,
+					0.962657,
+					-68.272202,
+					-0.237663,
+					-0.933847,
+					0.267295,
+					-69.734489,
+					0.971084,
+					-0.234841,
+					0.042966,
+					-29.176296,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-6.822670,
+						-3.901829,
+						3.181195,
+					]
+					m_vecSize = 
+					[
+						9.562263,
+						8.880314,
+						8.424041,
+					]
+				}
+				m_flSphereRadius = 17.950834
+			},
+			{
+				m_boneName = "leg_upper_R"
+				m_parentName = "pelvis"
+				m_invBindPose = 
+				[
+					-0.027388,
+					0.120196,
+					0.992372,
+					-90.845131,
+					0.979153,
+					-0.196656,
+					0.050842,
+					-23.139576,
+					0.201267,
+					0.973077,
+					-0.112304,
+					21.589451,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-13.837936,
+						-6.858202,
+						12.982315,
+					]
+					m_vecSize = 
+					[
+						47.246346,
+						32.191879,
+						25.914917,
+					]
+				}
+				m_flSphereRadius = 62.234360
+			},
+			{
+				m_boneName = "leg_upper_L"
+				m_parentName = "pelvis"
+				m_invBindPose = 
+				[
+					0.027388,
+					0.120196,
+					-0.992373,
+					90.845154,
+					-0.979154,
+					-0.196656,
+					-0.050842,
+					23.139584,
+					-0.201267,
+					0.973077,
+					0.112304,
+					-21.589447,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						12.231434,
+						4.019915,
+						-12.058838,
+					]
+					m_vecSize = 
+					[
+						44.082417,
+						29.353601,
+						24.991440,
+					]
+				}
+				m_flSphereRadius = 57.352367
+			},
+			{
+				m_boneName = "neck_0"
+				m_parentName = "spine_3"
+				m_invBindPose = 
+				[
+					0.667453,
+					-0.000000,
+					0.744652,
+					-126.414688,
+					0.744652,
+					0.000000,
+					-0.667453,
+					97.015099,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000011,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-6.608345,
+						1.951794,
+						-2.274755,
+					]
+					m_vecSize = 
+					[
+						26.110374,
+						27.225277,
+						29.713383,
+					]
+				}
+				m_flSphereRadius = 37.064125
+			},
+			{
+				m_boneName = "finger_pinky_0_L"
+				m_parentName = "finger_pinky_meta_L"
+				m_invBindPose = 
+				[
+					-0.070608,
+					0.179698,
+					-0.981185,
+					67.228416,
+					0.223180,
+					-0.955858,
+					-0.191120,
+					65.226456,
+					-0.972217,
+					-0.232475,
+					0.027386,
+					23.587030,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-10.239491,
+						4.049389,
+						5.762301,
+					]
+					m_vecSize = 
+					[
+						21.358402,
+						12.509815,
+						17.622826,
+					]
+				}
+				m_flSphereRadius = 35.580448
+			},
+			{
+				m_boneName = "finger_middle_0_L"
+				m_parentName = "hand_L"
+				m_invBindPose = 
+				[
+					0.212922,
+					0.220830,
+					-0.951787,
+					57.557758,
+					-0.042282,
+					-0.971129,
+					-0.234777,
+					74.549210,
+					-0.976154,
+					0.090233,
+					-0.197438,
+					31.644577,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.569521,
+						3.397438,
+						0.566466,
+					]
+					m_vecSize = 
+					[
+						10.750700,
+						6.277702,
+						4.877425,
+					]
+				}
+				m_flSphereRadius = 13.543023
+			},
+			{
+				m_boneName = "finger_index_0_L"
+				m_parentName = "hand_L"
+				m_invBindPose = 
+				[
+					0.334481,
+					0.146642,
+					-0.930923,
+					57.263458,
+					-0.339792,
+					-0.902609,
+					-0.264269,
+					79.829956,
+					-0.879013,
+					0.404714,
+					-0.252078,
+					20.140762,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-5.359631,
+						3.897881,
+						1.217914,
+					]
+					m_vecSize = 
+					[
+						16.375362,
+						6.235397,
+						5.829827,
+					]
+				}
+				m_flSphereRadius = 23.319126
+			},
+			{
+				m_boneName = "finger_ring_0_L"
+				m_parentName = "hand_L"
+				m_invBindPose = 
+				[
+					0.050831,
+					0.123128,
+					-0.991088,
+					69.299133,
+					0.094171,
+					-0.988540,
+					-0.117982,
+					63.920292,
+					-0.994258,
+					-0.087334,
+					-0.061843,
+					27.151300,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.450743,
+						3.499216,
+						0.950548,
+					]
+					m_vecSize = 
+					[
+						11.403616,
+						6.934843,
+						7.835770,
+					]
+				}
+				m_flSphereRadius = 14.789187
+			},
+			{
+				m_boneName = "finger_thumb_0_L"
+				m_parentName = "hand_L"
+				m_invBindPose = 
+				[
+					0.723156,
+					-0.093582,
+					-0.684315,
+					49.232956,
+					-0.648681,
+					0.248220,
+					-0.719444,
+					64.675369,
+					0.237188,
+					0.964173,
+					0.118797,
+					-61.318901,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-1.539791,
+						2.610298,
+						-2.334320,
+					]
+					m_vecSize = 
+					[
+						15.923725,
+						8.444641,
+						11.653625,
+					]
+				}
+				m_flSphereRadius = 20.417042
+			},
+			{
+				m_boneName = "finger_ring_0_R"
+				m_parentName = "hand_R"
+				m_invBindPose = 
+				[
+					-0.050831,
+					0.123128,
+					0.991088,
+					-69.299133,
+					-0.094171,
+					-0.988541,
+					0.117982,
+					-63.920277,
+					0.994257,
+					-0.087335,
+					0.061844,
+					-27.151306,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.450737,
+						-3.499203,
+						-0.950543,
+					]
+					m_vecSize = 
+					[
+						11.403618,
+						6.934845,
+						7.835771,
+					]
+				}
+				m_flSphereRadius = 14.789190
+			},
+			{
+				m_boneName = "finger_thumb_0_R"
+				m_parentName = "hand_R"
+				m_invBindPose = 
+				[
+					-0.723156,
+					-0.093582,
+					0.684315,
+					-49.232944,
+					0.648681,
+					0.248220,
+					0.719444,
+					-64.675385,
+					-0.237188,
+					0.964173,
+					-0.118797,
+					61.318871,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						1.539814,
+						-3.116428,
+						2.334303,
+					]
+					m_vecSize = 
+					[
+						15.923721,
+						7.938511,
+						11.653631,
+					]
+				}
+				m_flSphereRadius = 20.417057
+			},
+			{
+				m_boneName = "finger_index_0_R"
+				m_parentName = "hand_R"
+				m_invBindPose = 
+				[
+					-0.334481,
+					0.146642,
+					0.930924,
+					-57.263462,
+					0.339792,
+					-0.902609,
+					0.264269,
+					-79.829948,
+					0.879013,
+					0.404714,
+					0.252078,
+					-20.140768,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.816912,
+						-3.897869,
+						-1.217905,
+					]
+					m_vecSize = 
+					[
+						10.198805,
+						6.235401,
+						5.829824,
+					]
+				}
+				m_flSphereRadius = 13.028904
+			},
+			{
+				m_boneName = "finger_middle_0_R"
+				m_parentName = "hand_R"
+				m_invBindPose = 
+				[
+					-0.212922,
+					0.220830,
+					0.951787,
+					-57.557751,
+					0.042282,
+					-0.971129,
+					0.234777,
+					-74.549194,
+					0.976154,
+					0.090233,
+					0.197438,
+					-31.644592,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.569506,
+						-3.397430,
+						-0.566465,
+					]
+					m_vecSize = 
+					[
+						10.750700,
+						6.277695,
+						4.877424,
+					]
+				}
+				m_flSphereRadius = 13.543003
+			},
+			{
+				m_boneName = "finger_pinky_0_R"
+				m_parentName = "finger_pinky_meta_R"
+				m_invBindPose = 
+				[
+					0.070608,
+					0.179697,
+					0.981185,
+					-67.228416,
+					-0.223180,
+					-0.955858,
+					0.191120,
+					-65.226440,
+					0.972217,
+					-0.232475,
+					-0.027386,
+					-23.587034,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						10.239504,
+						-4.049387,
+						-5.762303,
+					]
+					m_vecSize = 
+					[
+						21.358412,
+						12.509821,
+						17.622829,
+					]
+				}
+				m_flSphereRadius = 35.580467
+			},
+			{
+				m_boneName = "leg_lower_R"
+				m_parentName = "leg_upper_R"
+				m_invBindPose = 
+				[
+					0.221525,
+					0.066463,
+					0.972887,
+					-59.023804,
+					0.954158,
+					-0.220689,
+					-0.202184,
+					-8.464884,
+					0.201267,
+					0.973077,
+					-0.112304,
+					21.589453,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-23.832462,
+						-6.008119,
+						2.559337,
+					]
+					m_vecSize = 
+					[
+						36.645092,
+						23.445438,
+						16.034332,
+					]
+				}
+				m_flSphereRadius = 60.735584
+			},
+			{
+				m_boneName = "leg_lower_L"
+				m_parentName = "leg_upper_L"
+				m_invBindPose = 
+				[
+					-0.221525,
+					0.066463,
+					-0.972887,
+					59.023815,
+					-0.954159,
+					-0.220689,
+					0.202184,
+					8.464881,
+					-0.201267,
+					0.973077,
+					0.112304,
+					-21.589449,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						23.832468,
+						6.008114,
+						-4.663530,
+					]
+					m_vecSize = 
+					[
+						36.645103,
+						23.445446,
+						18.138527,
+					]
+				}
+				m_flSphereRadius = 60.735600
+			},
+			{
+				m_boneName = "neck_1"
+				m_parentName = "neck_0"
+				m_invBindPose = 
+				[
+					0.332084,
+					-0.000000,
+					0.943250,
+					-160.619843,
+					0.943250,
+					0.000000,
+					-0.332084,
+					38.539444,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000009,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						8.970169,
+						0.320629,
+						0.663300,
+					]
+					m_vecSize = 
+					[
+						16.150665,
+						18.683487,
+						15.997499,
+					]
+				}
+				m_flSphereRadius = 31.598763
+			},
+			{
+				m_boneName = "finger_pinky_1_L"
+				m_parentName = "finger_pinky_0_L"
+				m_invBindPose = 
+				[
+					0.046937,
+					-0.409269,
+					-0.911206,
+					89.848030,
+					0.227082,
+					-0.883955,
+					0.408727,
+					16.784527,
+					-0.972744,
+					-0.226103,
+					0.051447,
+					21.455788,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						3.264736,
+						0.011401,
+						-1.939682,
+					]
+					m_vecSize = 
+					[
+						5.621571,
+						2.570346,
+						3.207979,
+					]
+				}
+				m_flSphereRadius = 10.276110
+			},
+			{
+				m_boneName = "finger_middle_1_L"
+				m_parentName = "finger_middle_0_L"
+				m_invBindPose = 
+				[
+					0.093516,
+					-0.350493,
+					-0.931885,
+					86.969749,
+					-0.138984,
+					-0.931417,
+					0.336370,
+					32.287666,
+					-0.985869,
+					0.098061,
+					-0.135815,
+					26.863239,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						4.307400,
+						2.205638,
+						0.054375,
+					]
+					m_vecSize = 
+					[
+						5.020916,
+						2.500133,
+						1.954346,
+					]
+				}
+				m_flSphereRadius = 9.798280
+			},
+			{
+				m_boneName = "finger_index_1_L"
+				m_parentName = "finger_index_0_L"
+				m_invBindPose = 
+				[
+					0.176310,
+					-0.485349,
+					-0.856359,
+					86.584229,
+					-0.496387,
+					-0.795106,
+					0.348435,
+					32.195656,
+					-0.850009,
+					0.363653,
+					-0.381106,
+					31.316481,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						4.305458,
+						3.166289,
+						0.204679,
+					]
+					m_vecSize = 
+					[
+						4.546646,
+						3.333953,
+						1.617199,
+					]
+				}
+				m_flSphereRadius = 9.475178
+			},
+			{
+				m_boneName = "finger_ring_1_L"
+				m_parentName = "finger_ring_0_L"
+				m_invBindPose = 
+				[
+					0.050759,
+					-0.302588,
+					-0.951769,
+					86.622177,
+					0.064315,
+					-0.950029,
+					0.305465,
+					31.041742,
+					-0.996638,
+					-0.076718,
+					-0.028761,
+					24.145651,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						3.856571,
+						1.146514,
+						-1.087399,
+					]
+					m_vecSize = 
+					[
+						5.431782,
+						3.260564,
+						3.710553,
+					]
+				}
+				m_flSphereRadius = 10.102283
+			},
+			{
+				m_boneName = "finger_thumb_1_L"
+				m_parentName = "finger_thumb_0_L"
+				m_invBindPose = 
+				[
+					0.633223,
+					-0.076627,
+					-0.770167,
+					53.695103,
+					-0.733436,
+					0.258395,
+					-0.628732,
+					58.539768,
+					0.247185,
+					0.962995,
+					0.107421,
+					-60.538986,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-9.628313,
+						-4.242188,
+						-4.419838,
+					]
+					m_vecSize = 
+					[
+						20.596155,
+						15.361485,
+						13.978989,
+					]
+				}
+				m_flSphereRadius = 34.251858
+			},
+			{
+				m_boneName = "finger_ring_1_R"
+				m_parentName = "finger_ring_0_R"
+				m_invBindPose = 
+				[
+					-0.050759,
+					-0.302588,
+					0.951769,
+					-86.622177,
+					-0.064315,
+					-0.950029,
+					-0.305465,
+					-31.041737,
+					0.996638,
+					-0.076718,
+					0.028761,
+					-24.145653,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-3.856564,
+						-1.146502,
+						1.087399,
+					]
+					m_vecSize = 
+					[
+						5.431782,
+						3.260572,
+						3.710551,
+					]
+				}
+				m_flSphereRadius = 10.102275
+			},
+			{
+				m_boneName = "finger_thumb_1_R"
+				m_parentName = "finger_thumb_0_R"
+				m_invBindPose = 
+				[
+					-0.633223,
+					-0.076627,
+					0.770167,
+					-53.695099,
+					0.733436,
+					0.258395,
+					0.628732,
+					-58.539780,
+					-0.247185,
+					0.962996,
+					-0.107421,
+					60.538986,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						9.628323,
+						4.242188,
+						4.419827,
+					]
+					m_vecSize = 
+					[
+						20.596157,
+						15.361488,
+						13.979000,
+					]
+				}
+				m_flSphereRadius = 34.251873
+			},
+			{
+				m_boneName = "finger_index_1_R"
+				m_parentName = "finger_index_0_R"
+				m_invBindPose = 
+				[
+					-0.176310,
+					-0.485349,
+					0.856359,
+					-86.584221,
+					0.496387,
+					-0.795106,
+					-0.348435,
+					-32.195663,
+					0.850008,
+					0.363653,
+					0.381106,
+					-31.316479,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-4.305435,
+						-3.166298,
+						-0.204675,
+					]
+					m_vecSize = 
+					[
+						4.546646,
+						3.333946,
+						1.617204,
+					]
+				}
+				m_flSphereRadius = 9.475169
+			},
+			{
+				m_boneName = "finger_middle_1_R"
+				m_parentName = "finger_middle_0_R"
+				m_invBindPose = 
+				[
+					-0.093516,
+					-0.350494,
+					0.931885,
+					-86.969757,
+					0.138984,
+					-0.931418,
+					-0.336371,
+					-32.287651,
+					0.985869,
+					0.098061,
+					0.135816,
+					-26.863237,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-4.307400,
+						-2.205632,
+						-0.054371,
+					]
+					m_vecSize = 
+					[
+						5.020916,
+						2.500134,
+						1.954344,
+					]
+				}
+				m_flSphereRadius = 9.798276
+			},
+			{
+				m_boneName = "finger_pinky_1_R"
+				m_parentName = "finger_pinky_0_R"
+				m_invBindPose = 
+				[
+					-0.046937,
+					-0.409269,
+					0.911206,
+					-89.848015,
+					-0.227083,
+					-0.883955,
+					-0.408727,
+					-16.784519,
+					0.972744,
+					-0.226103,
+					-0.051447,
+					-21.455799,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-3.264721,
+						-0.011395,
+						1.939679,
+					]
+					m_vecSize = 
+					[
+						5.621571,
+						2.570340,
+						3.207980,
+					]
+				}
+				m_flSphereRadius = 10.276095
+			},
+			{
+				m_boneName = "ankle_R"
+				m_parentName = "leg_lower_R"
+				m_invBindPose = 
+				[
+					-0.633708,
+					0.269620,
+					0.725065,
+					-1.471086,
+					-0.672319,
+					0.271643,
+					-0.688620,
+					22.246584,
+					-0.382625,
+					-0.923859,
+					0.009128,
+					-17.479086,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-7.106976,
+						1.430886,
+						-1.463084,
+					]
+					m_vecSize = 
+					[
+						23.944962,
+						17.456230,
+						10.232348,
+					]
+				}
+				m_flSphereRadius = 33.423901
+			},
+			{
+				m_boneName = "ankle_L"
+				m_parentName = "leg_lower_L"
+				m_invBindPose = 
+				[
+					0.633709,
+					0.269620,
+					-0.725065,
+					1.471077,
+					0.672319,
+					0.271643,
+					0.688620,
+					-22.246578,
+					0.382625,
+					-0.923859,
+					-0.009128,
+					17.479090,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						7.106973,
+						-0.954833,
+						1.463085,
+					]
+					m_vecSize = 
+					[
+						23.944965,
+						17.932278,
+						10.232340,
+					]
+				}
+				m_flSphereRadius = 33.423908
+			},
+			{
+				m_boneName = "head"
+				m_parentName = "neck_1"
+				m_invBindPose = 
+				[
+					0.000000,
+					-0.000000,
+					1.000000,
+					-174.112000,
+					1.000000,
+					0.000000,
+					-0.000000,
+					-20.440393,
+					-0.000000,
+					1.000000,
+					0.000000,
+					-0.000007,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.261314,
+						-0.267067,
+						-0.006944,
+					]
+					m_vecSize = 
+					[
+						25.601219,
+						16.976095,
+						16.986851,
+					]
+				}
+				m_flSphereRadius = 26.997753
+			},
+			{
+				m_boneName = "finger_pinky_2_L"
+				m_parentName = "finger_pinky_1_L"
+				m_invBindPose = 
+				[
+					0.157399,
+					-0.745062,
+					-0.648157,
+					84.942093,
+					0.177139,
+					-0.624392,
+					0.760761,
+					-21.817284,
+					-0.971518,
+					-0.234557,
+					0.033700,
+					23.163425,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						1.702091,
+						-0.245996,
+						-2.098655,
+					]
+					m_vecSize = 
+					[
+						3.565739,
+						2.071298,
+						2.938401,
+					]
+				}
+				m_flSphereRadius = 7.584260
+			},
+			{
+				m_boneName = "finger_middle_2_L"
+				m_parentName = "finger_middle_1_L"
+				m_invBindPose = 
+				[
+					-0.000748,
+					-0.691368,
+					-0.722502,
+					88.985237,
+					-0.151780,
+					-0.714053,
+					0.683441,
+					-3.699787,
+					-0.988414,
+					0.110173,
+					-0.104402,
+					24.063484,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.093552,
+						1.988722,
+						0.077567,
+					]
+					m_vecSize = 
+					[
+						4.980080,
+						1.951624,
+						1.777345,
+					]
+				}
+				m_flSphereRadius = 5.605131
+			},
+			{
+				m_boneName = "finger_index_2_L"
+				m_parentName = "finger_index_1_L"
+				m_invBindPose = 
+				[
+					-0.079540,
+					-0.773986,
+					-0.628187,
+					89.194351,
+					-0.514336,
+					-0.507954,
+					0.690971,
+					-7.393318,
+					-0.853892,
+					0.378059,
+					-0.357687,
+					28.968176,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						1.035988,
+						2.609266,
+						0.126171,
+					]
+					m_vecSize = 
+					[
+						4.879936,
+						3.116739,
+						1.555912,
+					]
+				}
+				m_flSphereRadius = 6.511416
+			},
+			{
+				m_boneName = "finger_ring_2_L"
+				m_parentName = "finger_ring_1_L"
+				m_invBindPose = 
+				[
+					0.090328,
+					-0.724749,
+					-0.683067,
+					86.572495,
+					0.027773,
+					-0.683770,
+					0.729168,
+					-12.702610,
+					-0.995525,
+					-0.084835,
+					-0.041635,
+					25.476227,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						0.306892,
+						0.252293,
+						-1.049691,
+					]
+					m_vecSize = 
+					[
+						5.700310,
+						1.461365,
+						3.724483,
+					]
+				}
+				m_flSphereRadius = 6.625821
+			},
+			{
+				m_boneName = "finger_thumb_2_L"
+				m_parentName = "finger_thumb_1_L"
+				m_invBindPose = 
+				[
+					0.643619,
+					-0.087943,
+					-0.760277,
+					47.232307,
+					-0.723634,
+					0.253546,
+					-0.641926,
+					59.552853,
+					0.249218,
+					0.963317,
+					0.099549,
+					-59.979637,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-3.879471,
+						1.391344,
+						0.418610,
+					]
+					m_vecSize = 
+					[
+						8.841736,
+						5.549955,
+						3.856979,
+					]
+				}
+				m_flSphereRadius = 13.407597
+			},
+			{
+				m_boneName = "finger_ring_2_R"
+				m_parentName = "finger_ring_1_R"
+				m_invBindPose = 
+				[
+					-0.090328,
+					-0.724749,
+					0.683067,
+					-86.572495,
+					-0.027773,
+					-0.683770,
+					-0.729169,
+					12.702618,
+					0.995525,
+					-0.084835,
+					0.041635,
+					-25.476231,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.306877,
+						-0.252296,
+						1.049692,
+					]
+					m_vecSize = 
+					[
+						5.700317,
+						1.461365,
+						3.724480,
+					]
+				}
+				m_flSphereRadius = 6.625815
+			},
+			{
+				m_boneName = "finger_thumb_2_R"
+				m_parentName = "finger_thumb_1_R"
+				m_invBindPose = 
+				[
+					-0.643619,
+					-0.087943,
+					0.760277,
+					-47.232307,
+					0.723633,
+					0.253546,
+					0.641926,
+					-59.552856,
+					-0.249218,
+					0.963318,
+					-0.099549,
+					59.979633,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						3.879482,
+						-1.391340,
+						-0.418613,
+					]
+					m_vecSize = 
+					[
+						8.841736,
+						5.549955,
+						3.856979,
+					]
+				}
+				m_flSphereRadius = 13.407610
+			},
+			{
+				m_boneName = "finger_index_2_R"
+				m_parentName = "finger_index_1_R"
+				m_invBindPose = 
+				[
+					0.079539,
+					-0.773986,
+					0.628187,
+					-89.194351,
+					0.514337,
+					-0.507954,
+					-0.690971,
+					7.393322,
+					0.853892,
+					0.378059,
+					0.357687,
+					-28.968184,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-1.035984,
+						-2.609278,
+						-0.126169,
+					]
+					m_vecSize = 
+					[
+						4.879932,
+						3.116743,
+						1.555916,
+					]
+				}
+				m_flSphereRadius = 6.511422
+			},
+			{
+				m_boneName = "finger_middle_2_R"
+				m_parentName = "finger_middle_1_R"
+				m_invBindPose = 
+				[
+					0.000748,
+					-0.691369,
+					0.722502,
+					-88.985245,
+					0.151780,
+					-0.714053,
+					-0.683441,
+					3.699791,
+					0.988414,
+					0.110173,
+					0.104402,
+					-24.063488,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.093544,
+						-1.988733,
+						-0.077560,
+					]
+					m_vecSize = 
+					[
+						4.980080,
+						1.951624,
+						1.777348,
+					]
+				}
+				m_flSphereRadius = 5.605150
+			},
+			{
+				m_boneName = "finger_pinky_2_R"
+				m_parentName = "finger_pinky_1_R"
+				m_invBindPose = 
+				[
+					-0.157400,
+					-0.745062,
+					0.648157,
+					-84.942078,
+					-0.177139,
+					-0.624392,
+					-0.760761,
+					21.817287,
+					0.971518,
+					-0.234557,
+					-0.033700,
+					-23.163429,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-1.702076,
+						0.245991,
+						2.098659,
+					]
+					m_vecSize = 
+					[
+						3.565731,
+						2.071297,
+						2.938399,
+					]
+				}
+				m_flSphereRadius = 7.584247
+			},
+			{
+				m_boneName = "ball_R"
+				m_parentName = "ankle_R"
+				m_invBindPose = 
+				[
+					-0.966726,
+					0.252730,
+					0.039605,
+					23.201979,
+					-0.037603,
+					0.012747,
+					-0.999211,
+					6.024103,
+					-0.253036,
+					-0.967453,
+					-0.002819,
+					-20.809132,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-3.497081,
+						-2.972536,
+						-0.981990,
+					]
+					m_vecSize = 
+					[
+						15.978683,
+						7.947941,
+						7.754190,
+					]
+				}
+				m_flSphereRadius = 19.584385
+			},
+			{
+				m_boneName = "ball_L"
+				m_parentName = "ankle_L"
+				m_invBindPose = 
+				[
+					0.966726,
+					0.252730,
+					-0.039605,
+					-23.201988,
+					0.037603,
+					0.012747,
+					0.999212,
+					-6.024071,
+					0.253036,
+					-0.967453,
+					0.002819,
+					20.809134,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						3.497079,
+						2.972574,
+						0.981959,
+					]
+					m_vecSize = 
+					[
+						15.978698,
+						7.947947,
+						7.754202,
+					]
+				}
+				m_flSphereRadius = 19.584393
+			},
+		]
+		m_boneParents = 
+		[
+		]
+		m_nBoneWeightCount = 4
+	}
+	m_attachments = 
+	[
+	]
+	m_hitboxsets = 
+	[
+		{
+			key = "default"
+			value = 
+			{
+				m_name = "default"
+				m_nNameHash = 1977497166
+				m_HitBoxes = 
+				[
+					{
+						m_name = "select_low"
+						m_sSurfaceProperty = ""
+						m_sBoneName = "pelvis"
+						m_nBoneNameHash = 162587645
+						m_nGroupId = 0
+						m_cRenderColor = 
+						[
+							0,
+							0,
+							0,
+							0,
+						]
+						m_nHitBoxIndex = 0
+						m_vMinBounds = 
+						[
+							-97.147171,
+							-60.763561,
+							-79.276260,
+						]
+						m_vMaxBounds = 
+						[
+							95.648430,
+							64.256622,
+							79.276260,
+						]
+						m_bTranslationOnly = false
+						m_bVisible = false
+						m_bSelected = false
+					},
+					{
+						m_name = "select_high"
+						m_sSurfaceProperty = ""
+						m_sBoneName = "pelvis"
+						m_nBoneNameHash = 162587645
+						m_nGroupId = 0
+						m_cRenderColor = 
+						[
+							0,
+							0,
+							0,
+							0,
+						]
+						m_nHitBoxIndex = 1
+						m_vMinBounds = 
+						[
+							-97.147171,
+							-26.502880,
+							-39.069714,
+						]
+						m_vMaxBounds = 
+						[
+							95.648430,
+							28.026428,
+							39.069714,
+						]
+						m_bTranslationOnly = false
+						m_bVisible = false
+						m_bSelected = false
+					},
+				]
+				m_SourceFilename = ""
+			}
+		},
+	]
+	m_morphSet = null
+}

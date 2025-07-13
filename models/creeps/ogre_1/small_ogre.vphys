@@ -1,0 +1,150 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_nFlags = 0
+	m_nRefCounter = 0
+	m_bonesHash = 
+	[
+		104719390,
+	]
+	m_boneNames = 
+	[
+		"spine1",
+	]
+	m_indexNames = 
+	[
+		0,
+	]
+	m_indexHash = 
+	[
+		0,
+	]
+	m_bindPose = 
+	[
+		
+		[
+			-0.118990,
+			-0.000000,
+			-0.992895,
+			-5.675581,
+			0.000000,
+			1.000000,
+			-0.000000,
+			0.000014,
+			0.992895,
+			0.000000,
+			-0.118990,
+			114.691093,
+		],
+	]
+	m_parts = 
+	[
+		
+		{
+			m_nFlags = 0
+			m_flMass = 0.000000
+			m_rnShape = 
+			{
+				m_spheres = 
+				[
+				]
+				m_capsules = 
+				[
+					
+					{
+						m_nCollisionAttributeIndex = 0
+						m_nSurfacePropertyIndex = 0
+						m_UserFriendlyName = ""
+						m_Capsule = 
+						{
+							m_vCenter = 
+							[
+								
+								[
+									3.360000,
+									-0.000000,
+									-0.000000,
+								],
+								
+								[
+									4.300000,
+									-0.000000,
+									-0.000000,
+								],
+							]
+							m_flRadius = 39.599998
+						}
+					},
+				]
+				m_hulls = 
+				[
+				]
+				m_meshes = 
+				[
+				]
+				m_CollisionAttributeIndices = 
+				[
+				]
+			}
+			m_nSurfacepropertyIndices = 
+			[
+			]
+			m_nCollisionAttributeIndex = 0
+			m_nReserved = 0
+			m_flInertiaScale = 1.000000
+			m_flLinearDamping = 0.000000
+			m_flAngularDamping = 0.000000
+			m_bOverrideMassCenter = false
+			m_vMassCenterOverride = 
+			[
+				0.000000,
+				0.000000,
+				0.000000,
+			]
+		},
+	]
+	m_constraints2 = 
+	[
+	]
+	m_joints = 
+	[
+	]
+	m_pFeModel = null
+	m_boneParents = 
+	[
+		0,
+	]
+	m_surfacePropertyHashes = 
+	[
+		1977497166,
+	]
+	m_collisionAttributes = 
+	[
+		
+		{
+			m_CollisionGroup = 1977497166
+			m_InteractAs = 
+			[
+			]
+			m_InteractWith = 
+			[
+			]
+			m_InteractExclude = 
+			[
+			]
+			m_CollisionGroupString = "default"
+			m_InteractAsStrings = 
+			[
+			]
+			m_InteractWithStrings = 
+			[
+			]
+			m_InteractExcludeStrings = 
+			[
+			]
+		},
+	]
+	m_debugPartNames = 
+	[
+	]
+	m_embeddedKeyvalues = ""
+}

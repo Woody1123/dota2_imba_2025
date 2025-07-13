@@ -1,0 +1,290 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Luna: Lucent Beam
+    // =================================================================================================================
+    "imba_luna_lucent_beam"
+    {
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "ting/hero_luna.lua"
+        "AbilityTextureName"             "luna_lucent_beam"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"                "1"
+        "AbilitySound"                   "Hero_Luna.LucentBeam.Target"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "800"
+        "AbilityCastPoint"               "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "6.0 6.0 6.0 6.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "90 100 110 120"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.5" // Mostly about the damage
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_luna_4"
+            "LinkedSpecialBonus"    "special_bonus_imba_luna_2"
+            "r_radius"              "325"
+            "enemy_count"           "2"
+            "v_radius"              "500"
+            "v_duration"            "2.0"
+        }
+    }
+    // =================================================================================================================
+    // Luna: Moon Glaives
+    // =================================================================================================================
+    "imba_luna_moon_glaive"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_luna.lua"
+        "AbilityTextureName"       "luna_moon_glaive"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilitySound"             "Hero_Luna.MoonGlaive.Impact"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "range"                       "500"
+            "bounces"                     "3 4 5 6"
+            "damage_reduction_percent"    "25"
+            "range_bonus"                 "10"
+        }
+    }
+    // =================================================================================================================
+    // Luna: Lunar Blessing
+    // =================================================================================================================
+    "imba_luna_lunar_blessing"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_luna.lua"
+        "AbilityTextureName"       "luna_lunar_blessing"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "HasScepterUpgrade"        "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_luna_6"
+            "bonus_all"             "10 20 30 40"
+            "bonus_night_vision"    "250 500 750 1000"
+            "stat"                  "2"
+            "p_radius"              "600"
+            "cd"                    "4"
+            "heal"                  "24"
+        }
+    }
+    // =================================================================================================================
+    // Luna: Lunar Grace
+    // =================================================================================================================
+    "imba_luna_lunar_grace"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_luna.lua"
+        "AbilityTextureName"       "luna_lunar_grace"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityCastRange"         "900"
+        "MaxLevel"                 "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "40"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Luna: Eclipse
+    // =================================================================================================================
+    "imba_luna_eclipse"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_luna.lua"
+        "AbilityTextureName"       "luna_eclipse"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"          "2"
+        "AbilitySound"             "Hero_Luna.Eclipse.Cast"
+        "HasScepterUpgrade"        "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.5"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "130 120 110"
+        "AOERadius"                "675"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "150 200 250"
+        "AbilityCastRange"         "1000"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_luna_8"
+            "beam_interval"         "0.6"
+            "LinkedSpecialBonus"    "special_bonus_imba_luna_5"
+            "night_duration"        "4.0"
+            "move_sp"               "20"
+            "mag"                   "20"
+        }
+    }
+    // -3秒月光cd
+    "special_bonus_imba_luna_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_lucent_beam"
+        }
+        "AbilityValues"
+        {
+            "value"    "3"
+        }
+    }
+    // 月蚀可以点地释放,+100月光伤害
+    "special_bonus_imba_luna_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_lucent_beam"
+        }
+        "AbilityValues"
+        {
+            "value"    "100"
+        }
+    }
+    // 月之祝福视野共享队友
+    "special_bonus_imba_luna_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_lunar_blessing"
+        }
+        "AbilityValues"
+        {
+            "value"    "50"
+        }
+    }
+    // 0.4全月光眩晕
+    "special_bonus_imba_luna_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_lucent_beam"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.4"
+        }
+    }
+    // +300月蚀范围
+    "special_bonus_imba_luna_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_eclipse"
+        }
+        "AbilityValues"
+        {
+            "value"    "500"
+        }
+    }
+    // 2000光环范围
+    "special_bonus_imba_luna_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_lunar_blessing"
+        }
+        "AbilityValues"
+        {
+            "value"    "1000"
+        }
+    }
+    // 月蚀cd-25
+    "special_bonus_imba_luna_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_eclipse"
+        }
+        "AbilityValues"
+        {
+            "value"    "30"
+        }
+    }
+    // 月蚀月光数量
+    "special_bonus_imba_luna_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_luna_eclipse"
+        }
+        "AbilityValues"
+        {
+            "value"    "6"
+        }
+    }
+}

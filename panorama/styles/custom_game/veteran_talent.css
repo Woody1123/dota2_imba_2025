@@ -1,0 +1,382 @@
+/* Prettified by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io */
+
+.V_ROOT
+{
+	width: 10%;
+	height: 15%;
+	margin-left:18.5%;
+	margin-top:85%;
+}
+
+.Veteran_Talent_text
+{
+	horizontal-align:center;
+	vertical-align:center;
+	height:100px;
+	width:39px;
+	font-size:40px;
+	color:#000000;
+	text-shadow: 3px 2px #000000;
+}
+
+#Veteran_Talent
+{
+	width: 85%;
+	height: 85%;
+	background-size: 100% 100%;
+	background-image:url("s2r://panorama/images/custom_game/hud/map_unlock_support_psd_png.vtex");
+}
+
+#veteran_data_ROOT
+{
+	width: 1500px;
+	height: 800px;
+	background-size: 100% 100%;
+	box-shadow: #000000cc 0px 0px 10px 3px;
+	background-image: url("s2r://panorama/images/custom_game/hud/gallery_background_png_png.vtex");
+	vertical-align: top;
+	horizontal-align: center;
+	margin-top: 180px;
+	visibility: collapse;
+}
+
+#veteran_top_Button
+{
+	flow-children: right;
+}
+
+.button_Veteran_class
+{
+	width: 200px;
+	height: 60px;
+	margin-left: 20px;
+	background-color: #00000077;
+}
+
+.button_Veteran_class1
+{
+	background-color: #bd4949;
+	box-shadow: #000000cc 0px 0px 10px 0px;
+}
+
+.button_Veteran_text
+{
+	color: #ffffff;
+	text-shadow: 2px 2px #000000;
+	font-size: 30px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.veteran_text
+{
+	color: #ffffff;
+	text-shadow: 1px 1px 0px 3 #000000;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
+	horizontal-align: center;
+	text-overflow: shrink;
+	font-family: Radiance, FZKai-Z03, TH Sarabun New, YDYGO 540;
+}
+
+.veteran_talent_close
+{
+	width: 50px;
+	height: 50px;
+	margin-left: 1500px;
+	margin-top: 50px;
+	vertical-align: top;
+	background-image: url("s2r://panorama/images/custom_game/hud/x_close_png_png.vtex");
+	background-size: 100% 100%;
+}
+
+#veteran_talent_BG
+{
+	width: 1700px;
+	height: 1000px;
+	margin-top: 140px;
+	background-size: 100% 100%;
+}
+
+#veteran_talent_ROOT
+{
+	width: 1700px;
+	height: 750px;
+	background-image: url("s2r://panorama/images/custom_game/hud2/b5_png.vtex");
+	background-size: 100% 100%;
+	vertical-align: top;
+	horizontal-align: center;
+	margin-top: 150px;
+	visibility: collapse;
+}
+
+#veteran_talent_view_1
+{
+	margin-left: 0px;
+}
+
+#veteran_talent_view_2
+{
+	margin-left: 300px;
+}
+
+#veteran_talent_view_3
+{
+	margin-left: 600px;
+}
+
+#veteran_talent_view_4
+{
+	margin-left: 900px;
+}
+
+#veteran_talent_view_5
+{
+	margin-left: 1200px;
+}
+
+.talent_ability_root
+{
+	width: 250px;
+	height: 300px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	background-image: url("s2r://panorama/images/custom_game/hud2/contentbox_04_png.vtex");
+	background-size: 100% 100%;
+}
+
+.talent_ability
+{
+	width: 300px;
+	height: 250px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 40px;
+}
+
+.abil
+{
+	width: 200px;
+	height: 200px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 20px;
+}
+
+.level
+{
+	width: 35px;
+	height: 30px;
+	background-size: 100% 100%;
+	horizontal-align:center;
+	margin-top: 240px;
+	z-index: 1;
+}
+
+#veteran_talent_view_title
+{
+	width: 700px;
+	height: 200px;
+	margin-top:-100px;
+	background-image: url("s2r://panorama/images/custom_game/hud2/b1_png.vtex");
+	background-size: 100% 100%;
+}
+
+#veteran_talent_view_title
+{
+	width: 700px;
+	height: 200px;
+	margin-top:-100px;
+	background-image: url("s2r://panorama/images/custom_game/hud2/b1_png.vtex");
+	background-size: 100% 100%;
+}
+
+#veteran_title
+{
+	width: 200px;
+	height: 100px;
+	margin-top:10px;
+	font-size:50px;
+	horizontal-align: center;
+	color: #FF0000;
+}
+
+#veteran_tip
+{
+	width: 600px;
+	height: 120px;
+	margin-top:60px;
+	margin-left:30px;
+	font-size:35px;
+	color:#000000;
+}
+
+#back_level
+{
+	horizontal-align: left;
+	background-image: url("s2r://panorama/images/custom_game/hud2/arrow 6_png.vtex");
+}
+
+#next_level
+{
+	horizontal-align: right;
+	background-image: url("s2r://panorama/images/custom_game/hud2/arrow 4_png.vtex");
+}
+
+.veteran_talent_ability_level
+{
+	color: #ffffff;
+	text-shadow: 2px 2px #000000;
+	font-size: 40px;
+	margin-top: 230px;
+	horizontal-align: center;
+}
+
+.veteran_r
+{
+	background-size: 100% 100%;
+	horizontal-align: center;
+}
+
+#veteran_talent_view_ability
+{
+	margin-top: 120px;
+	width:1430px;
+	height: 450px;
+}
+
+#veteran_talent_view_confirm
+{
+	margin-top: 350px;
+	width:900px;
+	height: 80px;
+	background-image: url("s2r://panorama/images/custom_game/hud2/notice 4_png.vtex");
+	background-size: 100% 100%;
+}
+
+#veteran_talent_point_view
+{
+	width: 150px;
+	height: 50px;
+	background-size: 100% 100%;
+	horizontal-align:left;
+	margin-left:20px;
+	margin-top: 20px;
+	font-size:35px;
+	z-index: 1;
+	color: #000000;
+	text-shadow: 0px 1px #000000;
+	background-size: 100% 100%;
+}
+
+#veteran_talent_point_text
+{
+	width: 60px;
+	height: 50px;
+	background-size: 100% 100%;
+	margin-left: 180px;
+	margin-top: 20px;
+	font-size:32px;
+	z-index: 1;
+	background-size: 100% 100%;
+	color: #FF0000;
+	text-shadow: 3px 2px #000000;
+}
+
+#SureButton
+{
+	width: 150px;
+	height: 80px;
+	background-size: 100% 100%;
+	margin-top: 0px;
+	margin-left: 300px;
+	font-size:35px;
+	z-index: 1;
+	background-image: url("s2r://panorama/images/custom_game/hud2/button copy_png.vtex");
+	background-size: 100% 100%;
+}
+
+#BuyButton
+{
+	width: 150px;
+	height: 80px;
+	background-size: 100% 100%;
+	margin-left: 500px;
+	margin-top: 1px;
+	font-size:35px;
+	z-index: 1;
+	background-image: url("s2r://panorama/images/custom_game/hud2/button copy_png.vtex");
+	background-size: 100% 100%;
+}
+
+#ReButton
+{
+	width: 150px;
+	height: 80px;
+	background-size: 100% 100%;
+	margin-left: 700px;
+	margin-top: 5px;
+	font-size:35px;
+	z-index: 1;
+	background-image: url("s2r://panorama/images/custom_game/hud2/button copy_png.vtex");
+	background-size: 100% 100%;
+}
+
+.veteran_talent_use_button
+{
+	horizontal-align: center;
+	vertical-align:center;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+}
+
+#veteran_talent_view_1_text
+{
+	horizontal-align: center;
+	margin-top:10px;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+	font-size:35px;
+}
+
+#veteran_talent_view_2_text
+{
+	horizontal-align: center;
+	margin-top:10px;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+	font-size:35px;
+}
+
+#veteran_talent_view_3_text
+{
+	horizontal-align: center;
+	margin-top:10px;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+	font-size:35px;
+}
+
+#veteran_talent_view_4_text
+{
+	horizontal-align: center;
+	margin-top:10px;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+	font-size:35px;
+}
+
+#veteran_talent_view_5_text
+{
+	horizontal-align: center;
+	margin-top:10px;
+	color: #DC143C;
+	text-shadow: 3px 2px #000000;
+	font-size:35px;
+}
+

@@ -1,0 +1,1216 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_nFlags = 0
+	m_nRefCounter = 0
+	m_bonesHash = 
+	[
+	]
+	m_boneNames = 
+	[
+	]
+	m_indexNames = 
+	[
+	]
+	m_indexHash = 
+	[
+	]
+	m_bindPose = 
+	[
+	]
+	m_parts = 
+	[
+	]
+	m_constraints2 = 
+	[
+	]
+	m_joints = 
+	[
+	]
+	m_pFeModel = 
+	{
+		m_CtrlHash = 
+		[
+			835639901,
+			2149748905,
+			3661245470,
+			4141552625,
+			1467603682,
+			2280251772,
+			2485818814,
+			1363184840,
+			3154603657,
+			1324697808,
+		]
+		m_CtrlName = 
+		[
+			resource:"cloth_flail_r0c0",
+			resource:"$clothcloth_flail_r0c1",
+			resource:"cloth_flail_r1c0",
+			resource:"$clothcloth_flail_r1c1",
+			resource:"cloth_flail_r2c0",
+			resource:"$clothcloth_flail_r2c1",
+			resource:"cloth_flail_r3c0",
+			resource:"$clothcloth_flail_r3c1",
+			resource:"cloth_flail_r4c0",
+			resource:"$clothcloth_flail_r4c1",
+		]
+		m_nStaticNodeFlags = 3840
+		m_nDynamicNodeFlags = 3888
+		m_flLocalForce = 1.000000
+		m_flLocalRotation = 0.000000
+		m_nNodeCount = 10
+		m_nStaticNodes = 2
+		m_nRotLockStaticNodes = 2
+		m_nSimdTriCount1 = 0
+		m_nSimdTriCount2 = 0
+		m_nSimdQuadCount1 = 0
+		m_nSimdQuadCount2 = 0
+		m_nQuadCount1 = 0
+		m_nQuadCount2 = 0
+		m_nCollisionSphereInclusiveCount = 0
+		m_nTreeDepth = 3
+		m_nFitMatrixCount1 = 0
+		m_nFitMatrixCount2 = 0
+		m_nSimdFitMatrixCount1 = 0
+		m_nSimdFitMatrixCount2 = 0
+		m_nRopeCount = 0
+		m_Ropes = 
+		[
+		]
+		m_NodeBases = 
+		[
+			
+			{
+				nNode = 2
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+				]
+				nNodeX0 = 2
+				nNodeX1 = 3
+				nNodeY0 = 0
+				nNodeY1 = 4
+				qAdjust = 
+				[
+					0.500000,
+					0.500000,
+					-0.500000,
+					-0.500000,
+				]
+			},
+			
+			{
+				nNode = 4
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+				]
+				nNodeX0 = 4
+				nNodeX1 = 5
+				nNodeY0 = 2
+				nNodeY1 = 6
+				qAdjust = 
+				[
+					0.500000,
+					0.500000,
+					-0.500000,
+					-0.500000,
+				]
+			},
+			
+			{
+				nNode = 6
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+				]
+				nNodeX0 = 6
+				nNodeX1 = 7
+				nNodeY0 = 4
+				nNodeY1 = 8
+				qAdjust = 
+				[
+					0.500000,
+					0.500000,
+					-0.500000,
+					-0.500000,
+				]
+			},
+			
+			{
+				nNode = 8
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+				]
+				nNodeX0 = 8
+				nNodeX1 = 9
+				nNodeY0 = 6
+				nNodeY1 = 8
+				qAdjust = 
+				[
+					0.500000,
+					0.500000,
+					-0.500000,
+					-0.500000,
+				]
+			},
+		]
+		m_SimdNodeBases = 
+		[
+			
+			{
+				nNode = 
+				[
+					4,
+					4,
+					4,
+					4,
+				]
+				nNodeX0 = 
+				[
+					4,
+					4,
+					4,
+					4,
+				]
+				nNodeX1 = 
+				[
+					5,
+					5,
+					5,
+					5,
+				]
+				nNodeY0 = 
+				[
+					2,
+					2,
+					2,
+					2,
+				]
+				nNodeY1 = 
+				[
+					6,
+					6,
+					6,
+					6,
+				]
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+					0,
+				]
+				qAdjust = 
+				{
+					x = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					y = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					z = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+					w = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+				}
+			},
+			
+			{
+				nNode = 
+				[
+					6,
+					6,
+					6,
+					6,
+				]
+				nNodeX0 = 
+				[
+					6,
+					6,
+					6,
+					6,
+				]
+				nNodeX1 = 
+				[
+					7,
+					7,
+					7,
+					7,
+				]
+				nNodeY0 = 
+				[
+					4,
+					4,
+					4,
+					4,
+				]
+				nNodeY1 = 
+				[
+					8,
+					8,
+					8,
+					8,
+				]
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+					0,
+				]
+				qAdjust = 
+				{
+					x = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					y = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					z = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+					w = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+				}
+			},
+			
+			{
+				nNode = 
+				[
+					8,
+					2,
+					2,
+					2,
+				]
+				nNodeX0 = 
+				[
+					8,
+					2,
+					2,
+					2,
+				]
+				nNodeX1 = 
+				[
+					9,
+					3,
+					3,
+					3,
+				]
+				nNodeY0 = 
+				[
+					6,
+					0,
+					0,
+					0,
+				]
+				nNodeY1 = 
+				[
+					8,
+					4,
+					4,
+					4,
+				]
+				nDummy = 
+				[
+					0,
+					0,
+					0,
+					0,
+				]
+				qAdjust = 
+				{
+					x = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					y = 
+					[
+						0.500000,
+						0.500000,
+						0.500000,
+						0.500000,
+					]
+					z = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+					w = 
+					[
+						-0.500000,
+						-0.500000,
+						-0.500000,
+						-0.500000,
+					]
+				}
+			},
+		]
+		m_Quads = 
+		[
+		]
+		m_SimdQuads = 
+		[
+		]
+		m_SimdTris = 
+		[
+		]
+		m_SimdRods = 
+		[
+			
+			{
+				nNode = 
+				[
+					5,
+					4,
+					1,
+					0,
+					7,
+					6,
+					3,
+					2,
+				]
+				f4MaxDist = 
+				[
+					10.026520,
+					10.026520,
+					6.871318,
+					6.871321,
+				]
+				f4MinDist = 
+				[
+					0.501326,
+					0.501326,
+					0.343566,
+					0.343566,
+				]
+				f4Weight0 = 
+				[
+					0.500000,
+					0.500000,
+					0.000000,
+					0.000000,
+				]
+				f4RelaxationFactor = 
+				[
+					1.000000,
+					1.000000,
+					1.000000,
+					1.000000,
+				]
+			},
+			
+			{
+				nNode = 
+				[
+					7,
+					6,
+					3,
+					2,
+					9,
+					8,
+					5,
+					4,
+				]
+				f4MaxDist = 
+				[
+					9.716487,
+					9.716487,
+					12.440430,
+					12.440430,
+				]
+				f4MinDist = 
+				[
+					0.485824,
+					0.485824,
+					0.622022,
+					0.622022,
+				]
+				f4Weight0 = 
+				[
+					0.750000,
+					0.750000,
+					0.500000,
+					0.500000,
+				]
+				f4RelaxationFactor = 
+				[
+					1.000000,
+					1.000000,
+					1.000000,
+					1.000000,
+				]
+			},
+			
+			{
+				nNode = 
+				[
+					8,
+					6,
+					4,
+					2,
+					9,
+					7,
+					5,
+					3,
+				]
+				f4MaxDist = 
+				[
+					20.000000,
+					20.000000,
+					20.000000,
+					20.000000,
+				]
+				f4MinDist = 
+				[
+					1.000000,
+					1.000000,
+					1.000000,
+					1.000000,
+				]
+				f4Weight0 = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				f4RelaxationFactor = 
+				[
+					1.000000,
+					1.000000,
+					1.000000,
+					1.000000,
+				]
+			},
+		]
+		m_InitPose = 
+		[
+			
+			[
+				38.357410,
+				-48.452200,
+				96.028200,
+				0.000000,
+				-0.263476,
+				0.378692,
+				-0.328554,
+				-0.824151,
+			],
+			
+			[
+				38.357410,
+				-68.452190,
+				96.028200,
+				0.000000,
+				-0.263476,
+				0.378692,
+				-0.328554,
+				-0.824151,
+			],
+			
+			[
+				41.806410,
+				-46.081070,
+				101.477700,
+				0.000000,
+				-0.262154,
+				0.382171,
+				-0.327013,
+				-0.823579,
+			],
+			
+			[
+				41.806410,
+				-66.081070,
+				101.477700,
+				0.000000,
+				-0.262154,
+				0.382171,
+				-0.327013,
+				-0.823579,
+			],
+			
+			[
+				48.016590,
+				-41.839360,
+				111.387600,
+				0.000000,
+				-0.259305,
+				0.382001,
+				-0.331031,
+				-0.822955,
+			],
+			
+			[
+				48.016590,
+				-61.839360,
+				111.387600,
+				0.000000,
+				-0.259305,
+				0.382001,
+				-0.331031,
+				-0.822955,
+			],
+			
+			[
+				53.008710,
+				-38.440170,
+				119.391100,
+				0.000000,
+				-0.262581,
+				0.381975,
+				-0.326601,
+				-0.823697,
+			],
+			
+			[
+				53.008710,
+				-58.440170,
+				119.391100,
+				0.000000,
+				-0.262581,
+				0.381975,
+				-0.326601,
+				-0.823697,
+			],
+			
+			[
+				57.839020,
+				-35.157210,
+				127.156400,
+				0.000000,
+				-0.259874,
+				0.378712,
+				-0.324294,
+				-0.826967,
+			],
+			
+			[
+				57.839020,
+				-55.157210,
+				127.156400,
+				0.000000,
+				-0.259874,
+				0.378712,
+				-0.324294,
+				-0.826967,
+			],
+		]
+		m_Rods = 
+		[
+			
+			{
+				nNode = 
+				[
+					0,
+					2,
+				]
+				flMaxDist = 6.871321
+				flMinDist = 0.343566
+				flWeight0 = 0.000000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					1,
+					3,
+				]
+				flMaxDist = 6.871318
+				flMinDist = 0.343566
+				flWeight0 = 0.000000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					2,
+					3,
+				]
+				flMaxDist = 20.000004
+				flMinDist = 1.000000
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					2,
+					4,
+				]
+				flMaxDist = 12.440433
+				flMinDist = 0.622022
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					3,
+					5,
+				]
+				flMaxDist = 12.440434
+				flMinDist = 0.622022
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					4,
+					5,
+				]
+				flMaxDist = 20.000000
+				flMinDist = 1.000000
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					4,
+					6,
+				]
+				flMaxDist = 10.026516
+				flMinDist = 0.501326
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					5,
+					7,
+				]
+				flMaxDist = 10.026516
+				flMinDist = 0.501326
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					6,
+					8,
+				]
+				flMaxDist = 9.716487
+				flMinDist = 0.485824
+				flWeight0 = 0.750000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					7,
+					9,
+				]
+				flMaxDist = 9.716487
+				flMinDist = 0.485824
+				flWeight0 = 0.750000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					6,
+					7,
+				]
+				flMaxDist = 20.000000
+				flMinDist = 1.000000
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+			
+			{
+				nNode = 
+				[
+					8,
+					9,
+				]
+				flMaxDist = 20.000000
+				flMinDist = 1.000000
+				flWeight0 = 0.500000
+				flRelaxationFactor = 1.000000
+			},
+		]
+		m_AxialEdges = 
+		[
+		]
+		m_NodeInvMasses = 
+		[
+			0.000000,
+			0.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			0.333333,
+			0.333333,
+		]
+		m_CtrlOffsets = 
+		[
+		]
+		m_CtrlOsOffsets = 
+		[
+			
+			{
+				nCtrlParent = 0
+				nCtrlChild = 1
+			},
+			
+			{
+				nCtrlParent = 2
+				nCtrlChild = 3
+			},
+			
+			{
+				nCtrlParent = 4
+				nCtrlChild = 5
+			},
+			
+			{
+				nCtrlParent = 6
+				nCtrlChild = 7
+			},
+			
+			{
+				nCtrlParent = 8
+				nCtrlChild = 9
+			},
+		]
+		m_FollowNodes = 
+		[
+			
+			{
+				nParentNode = 0
+				nChildNode = 2
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 3
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 4
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 5
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 6
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 7
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 8
+				flWeight = 0.100000
+			},
+			
+			{
+				nParentNode = 0
+				nChildNode = 9
+				flWeight = 0.100000
+			},
+		]
+		m_CollisionSpheres = 
+		[
+		]
+		m_CollisionPlanes = 
+		[
+		]
+		m_NodeIntegrator = 
+		[
+			
+			{
+				flPointDamping = 6.000000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 6.000000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.751000
+				flAnimationForceAttraction = 0.900000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.250333
+				flAnimationForceAttraction = 0.300000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+			
+			{
+				flPointDamping = 0.250333
+				flAnimationForceAttraction = 0.300000
+				flAnimationVertexAttraction = 0.400000
+				flGravity = 500.000000
+			},
+		]
+		m_SpringIntegrator = 
+		[
+		]
+		m_SimdSpringIntegrator = 
+		[
+		]
+		m_WorldCollisionParams = 
+		[
+			
+			{
+				flWorldFriction = 0.300000
+				flGroundFriction = 0.000000
+				nListBegin = 0
+				nListEnd = 2
+			},
+		]
+		m_LegacyStretchForce = 
+		[
+			0.000000,
+			0.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+			1.000000,
+		]
+		m_NodeCollisionRadii = 
+		[
+		]
+		m_LocalRotation = 
+		[
+		]
+		m_LocalForce = 
+		[
+		]
+		m_TaperedCapsuleStretches = 
+		[
+		]
+		m_TaperedCapsuleRigids = 
+		[
+		]
+		m_SphereRigids = 
+		[
+		]
+		m_WorldCollisionNodes = 
+		[
+			9,
+			8,
+		]
+		m_TreeParents = 
+		[
+			11,
+			11,
+			10,
+			10,
+			9,
+			9,
+			8,
+			8,
+			12,
+			12,
+			13,
+			13,
+			14,
+			14,
+			65535,
+		]
+		m_TreeCollisionMasks = 
+		[
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+			65535,
+		]
+		m_TreeChildren = 
+		[
+			
+			{
+				nChild = 
+				[
+					7,
+					6,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					4,
+					5,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					3,
+					2,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					0,
+					1,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					9,
+					8,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					10,
+					11,
+				]
+			},
+			
+			{
+				nChild = 
+				[
+					13,
+					12,
+				]
+			},
+		]
+		m_FreeNodes = 
+		[
+			3,
+			5,
+			7,
+			9,
+		]
+		m_FitMatrices = 
+		[
+		]
+		m_SimdFitMatrices = 
+		[
+		]
+		m_FitWeights = 
+		[
+		]
+		m_ReverseOffsets = 
+		[
+		]
+		m_AnimStrayRadii = 
+		[
+		]
+		m_SimdAnimStrayRadii = 
+		[
+		]
+		m_CtrlSoftOffsets = 
+		[
+		]
+		m_JiggleBones = 
+		[
+		]
+		m_SourceElems = 
+		[
+			0,
+			0,
+			0,
+			0,
+		]
+		m_GoalDampedSpringIntegrators = 
+		[
+		]
+		m_Tris = 
+		[
+		]
+		m_nTriCount1 = 0
+		m_nTriCount2 = 0
+		m_nReserved = 
+		[
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+		]
+		m_flWindage = 0.000000
+		m_flWindDrag = 0.000000
+		m_flDefaultSurfaceStretch = 0.000000
+		m_flDefaultThreadStretch = 0.000000
+		m_flDefaultGravityScale = 1.000000
+		m_flDefaultVelAirDrag = 0.000000
+		m_flDefaultExpAirDrag = 0.000000
+		m_flDefaultVelQuadAirDrag = 0.000000
+		m_flDefaultExpQuadAirDrag = 0.000000
+		m_flDefaultVelRodAirDrag = 0.000000
+		m_flDefaultExpRodAirDrag = 0.000000
+		m_flRodVelocitySmoothRate = 0.000000
+		m_flQuadVelocitySmoothRate = 0.000000
+		m_flAddWorldCollisionRadius = 2.000000
+		m_flDefaultVolumetricSolveAmount = 0.000000
+		m_nRodVelocitySmoothIterations = 0
+		m_nQuadVelocitySmoothIterations = 0
+	}
+	m_boneParents = 
+	[
+	]
+	m_surfacePropertyHashes = 
+	[
+	]
+	m_collisionAttributes = 
+	[
+	]
+	m_debugPartNames = 
+	[
+	]
+	m_embeddedKeyvalues = resource:""
+}

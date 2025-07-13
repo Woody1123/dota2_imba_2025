@@ -1,0 +1,243 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Ursa: Earthshock
+    // =================================================================================================================
+    "imba_ursa_earthshock"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "ursa_earthshock"
+        "ScriptFile"                "mb/hero_ursa.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"           "1"
+        "AbilitySound"              "Hero_Ursa.Earthshock"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "0"
+        "AbilityCastPoint"          "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "5"
+        "AbilityDuration"           "4.0"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"             "75 125 175 225"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "85"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityCastGestureSlot"    "DEFAULT"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_ursa_4"
+            "movement_slow"         "-10 -25 -40 -55"
+            "hop_distance"          "250"
+            "hop_duration"          "0.25"
+            "hop_height"            "83"
+            "overpower_charging"    "1 2 3 4"
+            "bonus_strength"        "5 10 15 20"
+            "movement_speed"        "10 20 30 40"
+            "model_scale"           "10"
+        }
+    }
+    // =================================================================================================================
+    // Ursa: Overpower
+    // =================================================================================================================
+    "imba_ursa_overpower"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "ursa_overpower"
+        "ScriptFile"                "mb/hero_ursa.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+        "AbilitySound"              "Hero_Ursa.Overpower"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_3"
+        "AbilityCastGestureSlot"    "DEFAULT"
+        "AbilityCastRange"          "0"
+        "AbilityCastPoint"          "0.2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "9"
+        "AbilityDuration"           "20"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "55 60 65 70"
+        "AbilityValues"
+        {
+            "max_attacks"               "5 10 15 20"
+            "attack_speed_bonus_pct"    "400 450 500 550"
+            "kill_bouns_pct"            "50"
+        }
+    }
+    // =================================================================================================================
+    // Ursa: Fury Swipes
+    // =================================================================================================================
+    "imba_ursa_fury_swipes"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "ursa_fury_swipes"
+        "ScriptFile"               "mb/hero_ursa.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "HasShardUpgrade"          "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "bonus_reset_time"           "8 12 16 20"
+            "bonus_reset_time_roshan"    "10"
+            "LinkedSpecialBonus"         "special_bonus_imba_ursa_1"
+            "bleeding_chance"            "10 15 20 25"
+            "bleeding_duration"          "4.0"
+            "shard_counts"               "6"
+            "shard_duration"             "1.0"
+            "maim_base"                  "15"
+            "maim_stacking"              "15"
+        }
+    }
+    // ================================================================================================================
+    // Ursa: Enrage
+    // =================================================================================================================
+    "imba_ursa_enrage"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "ursa_enrage"
+        "ScriptFile"                "mb/hero_ursa.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"           "1"
+        "AbilitySound"              "Hero_Ursa.Enrage"
+        "HasScepterUpgrade"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_4"
+        "AbilityCastGestureSlot"    "DEFAULT"
+        "AbilityCastRange"          "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "40 35 30"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "0 0 0"
+        "AbilityValues"
+        {
+            "damage_reduction"           "70"
+            "LinkedSpecialBonus"         "special_bonus_imba_ursa_6"
+            "LinkedSpecialBonus"         "special_bonus_imba_ursa_3"
+            "RequiresScepter"            "1"
+            "hp_pct"                     "6"
+            "autocast_hp_pct"            "35 40 45"
+            "autocast_timer_duration"    "50"
+        }
+    }
+    // + Fury Swipes Damage
+    "special_bonus_imba_ursa_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ursa_fury_swipes"
+        }
+        "AbilityValues"
+        {
+            "value"    "12"
+        }
+    }
+    // Overpower Auto Cast
+    "special_bonus_imba_ursa_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // +2s ursa enrage duration
+    "special_bonus_imba_ursa_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ursa_enrage"
+        }
+        "AbilityValues"
+        {
+            "value"    "2.0"
+        }
+    }
+    // AoE Earthshock
+    "special_bonus_imba_ursa_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ursa_earthshock"
+        }
+        "AbilityValues"
+        {
+            "value"    "480"
+        }
+    }
+    // + Overpower Attacks
+    "special_bonus_imba_ursa_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "3"
+        }
+    }
+    // +30% Status Resistance
+    "special_bonus_imba_ursa_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ursa_enrage"
+        }
+        "AbilityValues"
+        {
+            "value"    "30"
+        }
+    }
+}

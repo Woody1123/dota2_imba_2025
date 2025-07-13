@@ -1,0 +1,307 @@
+"DOTAAbilities"
+{
+    // 大鹏坠击拳
+    "imba_marci_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "marci_companion_run"
+        "ScriptFile"                     "ting/hero_marci.lua"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_AOE"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilitySound"                   "Hero_Huskar.Inner_Vitality"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "700"
+        "AbilityCastPoint"               "0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "12 11 10 9"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "75"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.0" // already gets credit for the healing
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_tiny/tiny_toss_blur.vpcf"
+            "particle"    "particles/creatures/ogre/ogre_melee_smash.vpcf"
+            "particle"    "particles/units/heroes/hero_marci/marci_dispose_land_aoe.vpcf"
+            "particle"    "particles/units/heroes/hero_huskar/huskar_inner_fire_ring_b.vpcf"
+            "particle"    "particles/units/heroes/hero_huskar/huskar_inner_fire_rays.vpcf"
+        }
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "radius"       "400"
+            "range"        "700"
+            "damage"       "120 160 200 240"
+            "base_stun"    "1.5"
+            "h"            "120"
+        }
+    }
+    // 鹰击
+    "imba_marci_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "yingji"
+        "ScriptFile"                     "ting/hero_marci.lua"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AUTOCAST|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_TREE"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilitySound"                   "Hero_Huskar.Inner_Vitality"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "700"
+        "AbilityCastPoint"               "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "12 11 10 9"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "50"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.0" // already gets credit for the healing
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_tiny/tiny_toss_blur.vpcf"
+            "particle"    "particles/units/heroes/hero_sandking/sandking_epicenter_pulse.vpcf"
+            "particle"    "particles/econ/items/windrunner/windranger_arcana/windranger_arcana_spell_powershot.vpcf"
+        }
+        "HasScepterUpgrade"              "1"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_marci_t1"
+            "jump_movespeed"        "30 35 40 45"
+            "duration"              "3.5"
+            "range"                 "700"
+            "damage"                "100 150 200 250"
+        }
+    }
+    // 龙拳
+    "imba_marci_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "longquan"
+        "ScriptFile"                     "ting/hero_marci.lua"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilitySound"                   "Hero_Huskar.Inner_Vitality"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "600"
+        "AbilityCastPoint"               "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "6 5 4 3"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "25"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.0" // already gets credit for the healing
+        "precache"
+        {
+            "particle"    "particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf"
+            "particle"    "particles/status_fx/status_effect_omnislash.vpcf"
+        }
+        "AbilityValues"
+        {
+            "distance"    "270"
+            "width"       "200 210 220 230"
+            "damage"      "60 70 80 90"
+            "att"         "15 20 25 30"
+            "asp"         "10 15 20 25"
+            "ev"          "10"
+            "smax"        "4"
+            "duration"    "5"
+            "d_dis"       "800"
+        }
+    }
+    // 大招
+    "imba_marci_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "marci_unleash"
+        "ScriptFile"               "ting/hero_marci.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.2"
+        "LinkedTalents"
+        {
+            "special_bonus_imba_marci_t2"    "1"
+            "special_bonus_imba_marci_t8"    "1"
+        }
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "30"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "75 100 125 150"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_marci/marci_unleash_cast_rings.vpcf"
+            "particle"    "particles/units/heroes/hero_marci/marci_unleash_buff.vpcf"
+            "particle"    "particles/units/heroes/hero_marci/marci_unleash_attack.vpcf"
+            "particle"    "particles/units/heroes/hero_marci/marci_unleash_pulse.vpcf"
+        }
+        "HasShardUpgrade"          "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_marci_t2"
+            "LinkedSpecialBonus"    "special_bonus_imba_marci_t8"
+            "duration"              "20"
+            "chance"                "30"
+            "crit"                  "190"
+            "aoe_damage"            "30"
+            "heal"                  "5 7 9"
+            "radius"                "400"
+        }
+    }
+    // 玛西被动
+    // =================================================================================================================
+    // marci_4
+    // =================================================================================================================
+    "imba_marci_4"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_marci.lua"
+        "AbilityTextureName"       "marci_ex"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                 "3"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_spirit_form_ambient.vpcf"
+            "particle"    "particles/econ/courier/courier_greevil_white/courier_greevil_white_ambient_3.vpcf"
+        }
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityValues"
+        {
+            "duration"         "7"
+            "damage"           "300 400 500"
+            "stun_duration"    "1.5"
+            "armor"            "10 20 30"
+            "distance"         "2500"
+            "width"            "450"
+        }
+    }
+    // 鹰击作用范围
+    "special_bonus_imba_marci_t1"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_2"
+        }
+    }
+    // 大招攻速增加
+    "special_bonus_imba_marci_t2"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_5"
+        }
+    }
+    // 翱翔高空视野增加
+    "special_bonus_imba_marci_t3"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_2"
+        }
+    }
+    // 增加buff时间
+    "special_bonus_imba_marci_t4"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "50"
+        }
+    }
+    // 龙拳冲击距离
+    "special_bonus_imba_marci_t5"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_1"
+        }
+    }
+    // 鹰击抓人
+    "special_bonus_imba_marci_t6"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_2"
+        }
+    }
+    // 鹰击不能被普通攻击
+    "special_bonus_imba_marci_t7"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_2"
+        }
+    }
+    // 大招刷新间隔
+    "special_bonus_imba_marci_t8"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "imba_marci_5"
+        }
+    }
+}

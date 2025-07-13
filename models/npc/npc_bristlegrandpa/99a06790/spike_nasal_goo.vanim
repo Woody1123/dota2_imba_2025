@@ -1,0 +1,3830 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_name = resource:""
+	m_frameData = 
+	[
+		
+		{
+			m_fileName = resource:""
+			m_nFrames = 31
+			m_nFramesPerBlock = 0
+			m_frameblockArray = 
+			[
+				
+				{
+					m_nStartFrame = 0
+					m_nEndFrame = 30
+					m_segmentIndexArray = 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+					]
+				},
+			]
+			m_usageDifferences = 
+			{
+				m_boneArray = 
+				[
+					
+					{
+						m_name = resource:"toeBase_R_parentConstraint1"
+						m_parent = resource:"toeBase_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"ankle_R_pointConstraint1"
+						m_parent = resource:"ankle_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"ankle_R_orientConstraint1"
+						m_parent = resource:"ankle_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"knee_R_parentConstraint1"
+						m_parent = resource:"knee_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"thigh_R_parentConstraint1"
+						m_parent = resource:"thigh_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill915_0_parentConstraint1"
+						m_parent = resource:"quill915_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint4"
+						m_parent = resource:"quill915_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill713_0_parentConstraint1"
+						m_parent = resource:"quill713_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint6"
+						m_parent = resource:"quill713_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill612_0_parentConstraint1"
+						m_parent = resource:"quill612_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint3"
+						m_parent = resource:"quill612_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill814_0_parentConstraint1"
+						m_parent = resource:"quill814_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint5"
+						m_parent = resource:"quill814_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Cloth_flail_R4C0_parentConstraint1"
+						m_parent = resource:"Cloth_flail_R4C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Cloth_flail_R3C0_parentConstraint1"
+						m_parent = resource:"Cloth_flail_R3C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Cloth_flail_R2C0_parentConstraint1"
+						m_parent = resource:"Cloth_flail_R2C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Cloth_flail_R1C0_parentConstraint1"
+						m_parent = resource:"Cloth_flail_R1C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Cloth_flail_R0C0_parentConstraint1"
+						m_parent = resource:"Cloth_flail_R0C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"mace_1_parentConstraint1"
+						m_parent = resource:"mace_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"wrist_R_pointConstraint1"
+						m_parent = resource:"wrist_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"wrist_R_orientConstraint1"
+						m_parent = resource:"wrist_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"elbow_R_parentConstraint1"
+						m_parent = resource:"elbow_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"bicep_R_parentConstraint1"
+						m_parent = resource:"bicep_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"clavicle_R_parentConstraint1"
+						m_parent = resource:"clavicle_R"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"L_ear3_1_parentConstraint1"
+						m_parent = resource:"L_ear3_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"L_ear3_0_parentConstraint1"
+						m_parent = resource:"L_ear3_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"jaw7_0_parentConstraint1"
+						m_parent = resource:"jaw7_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"R_ear4_1_parentConstraint1"
+						m_parent = resource:"R_ear4_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"R_ear4_0_parentConstraint1"
+						m_parent = resource:"R_ear4_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Head_1_parentConstraint1"
+						m_parent = resource:"Head_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"necklace2_2_parentConstraint1"
+						m_parent = resource:"necklace2_2"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"necklace2_1_parentConstraint1"
+						m_parent = resource:"necklace2_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"necklace2_0_parentConstraint1"
+						m_parent = resource:"necklace2_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Head_0_parentConstraint1"
+						m_parent = resource:"Head_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill28_0_parentConstraint1"
+						m_parent = resource:"quill28_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint7"
+						m_parent = resource:"quill28_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill10_0_parentConstraint1"
+						m_parent = resource:"quill10_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill410_0_parentConstraint1"
+						m_parent = resource:"quill410_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"tail_R0C0"
+						m_parent = resource:"quill511_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"tail_R1C0"
+						m_parent = resource:"tail_R0C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"tail_R2C0"
+						m_parent = resource:"tail_R1C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"tail_R3C0"
+						m_parent = resource:"tail_R2C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"tail_R4C0"
+						m_parent = resource:"tail_R3C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill511_0_parentConstraint1"
+						m_parent = resource:"quill511_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill39_0_parentConstraint1"
+						m_parent = resource:"quill39_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"joint8"
+						m_parent = resource:"quill39_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"index_1_L_parentConstraint1"
+						m_parent = resource:"index_1_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"index_0_L_parentConstraint1"
+						m_parent = resource:"index_0_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"thumb_1_L_parentConstraint1"
+						m_parent = resource:"thumb_1_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"thumb_0_L_parentConstraint1"
+						m_parent = resource:"thumb_0_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"mid_1_L_parentConstraint1"
+						m_parent = resource:"mid_1_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"mid_0_L_parentConstraint1"
+						m_parent = resource:"mid_0_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"wrist_L_pointConstraint1"
+						m_parent = resource:"wrist_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"wrist_L_orientConstraint1"
+						m_parent = resource:"wrist_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"elbow_L_parentConstraint1"
+						m_parent = resource:"elbow_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"bicep_L_parentConstraint1"
+						m_parent = resource:"bicep_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"clavicle_L_parentConstraint1"
+						m_parent = resource:"clavicle_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Spine_3_parentConstraint1"
+						m_parent = resource:"Spine_3"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill28_top_right_parentConstraint1"
+						m_parent = resource:"quill28_top_right"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill410_piston_top_parentConstraint1"
+						m_parent = resource:"quill410_piston_top"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill10_piston_bot_parentConstraint1"
+						m_parent = resource:"quill10_piston_bot"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"quill39_mid_parentConstraint1"
+						m_parent = resource:"quill39_mid"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Spine_2_parentConstraint1"
+						m_parent = resource:"Spine_2"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Spine_1_parentConstraint1"
+						m_parent = resource:"Spine_1"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"ankle_L_pointConstraint1"
+						m_parent = resource:"ankle_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"ankle_L_orientConstraint1"
+						m_parent = resource:"ankle_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"knee_L_parentConstraint1"
+						m_parent = resource:"knee_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"thigh_L_parentConstraint1"
+						m_parent = resource:"thigh_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"belt_cloth1_0_parentConstraint1"
+						m_parent = resource:"belt_cloth1_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Root_0_parentConstraint1"
+						m_parent = resource:"Root_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Root_0_orientConstraint1"
+						m_parent = resource:"Root_0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+				]
+				m_morphArray = 
+				[
+				]
+				m_userArray = 
+				[
+					
+					{
+						m_name = resource:"blendParent1"
+						m_nType = 0
+					},
+					
+					{
+						m_name = resource:"toeSDK_RW0"
+						m_nType = 0
+					},
+					
+					{
+						m_name = resource:"fk_ankleControl_RW1"
+						m_nType = 0
+					},
+					
+					{
+						m_name = resource:"toeSDK_LW0"
+						m_nType = 0
+					},
+					
+					{
+						m_name = resource:"fk_ankleControl_LW1"
+						m_nType = 0
+					},
+				]
+				m_bHasRotationBitArray = 
+				#[
+					FF FF FF FF FF FF FF 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+				]
+				m_bHasMovementBitArray = 
+				#[
+					FF FF FF FF FF FF FF 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+				]
+				m_bHasMorphBitArray = 
+				#[
+					FF FF FF 7F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+				]
+				m_bHasUserBitArray = 
+				#[
+				]
+			}
+		},
+	]
+	m_animArray = 
+	[
+		
+		{
+			m_name = resource:"spike_nasal_goo"
+			m_flags = 
+			{
+				m_bLooping = false
+				m_bAllZeros = false
+				m_bHidden = false
+				m_bDelta = false
+				m_bLegacyWorldspace = false
+			}
+			fps = 30.000000
+			m_pData = 
+			{
+				m_fileName = resource:""
+				m_nFrames = 31
+				m_nFramesPerBlock = 0
+				m_frameblockArray = 
+				[
+					
+					{
+						m_nStartFrame = 0
+						m_nEndFrame = 30
+						m_segmentIndexArray = 
+						[
+							0,
+							1,
+							2,
+							3,
+							4,
+							5,
+							6,
+							7,
+							8,
+							9,
+							10,
+							11,
+							12,
+							13,
+							14,
+							15,
+							16,
+							17,
+						]
+					},
+				]
+				m_usageDifferences = 
+				{
+					m_boneArray = 
+					[
+						
+						{
+							m_name = resource:"toeBase_R_parentConstraint1"
+							m_parent = resource:"toeBase_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"ankle_R_pointConstraint1"
+							m_parent = resource:"ankle_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"ankle_R_orientConstraint1"
+							m_parent = resource:"ankle_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"knee_R_parentConstraint1"
+							m_parent = resource:"knee_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"thigh_R_parentConstraint1"
+							m_parent = resource:"thigh_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill915_0_parentConstraint1"
+							m_parent = resource:"quill915_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint4"
+							m_parent = resource:"quill915_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill713_0_parentConstraint1"
+							m_parent = resource:"quill713_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint6"
+							m_parent = resource:"quill713_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill612_0_parentConstraint1"
+							m_parent = resource:"quill612_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint3"
+							m_parent = resource:"quill612_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill814_0_parentConstraint1"
+							m_parent = resource:"quill814_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint5"
+							m_parent = resource:"quill814_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Cloth_flail_R4C0_parentConstraint1"
+							m_parent = resource:"Cloth_flail_R4C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Cloth_flail_R3C0_parentConstraint1"
+							m_parent = resource:"Cloth_flail_R3C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Cloth_flail_R2C0_parentConstraint1"
+							m_parent = resource:"Cloth_flail_R2C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Cloth_flail_R1C0_parentConstraint1"
+							m_parent = resource:"Cloth_flail_R1C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Cloth_flail_R0C0_parentConstraint1"
+							m_parent = resource:"Cloth_flail_R0C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"mace_1_parentConstraint1"
+							m_parent = resource:"mace_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"wrist_R_pointConstraint1"
+							m_parent = resource:"wrist_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"wrist_R_orientConstraint1"
+							m_parent = resource:"wrist_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"elbow_R_parentConstraint1"
+							m_parent = resource:"elbow_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"bicep_R_parentConstraint1"
+							m_parent = resource:"bicep_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"clavicle_R_parentConstraint1"
+							m_parent = resource:"clavicle_R"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"L_ear3_1_parentConstraint1"
+							m_parent = resource:"L_ear3_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"L_ear3_0_parentConstraint1"
+							m_parent = resource:"L_ear3_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"jaw7_0_parentConstraint1"
+							m_parent = resource:"jaw7_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"R_ear4_1_parentConstraint1"
+							m_parent = resource:"R_ear4_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"R_ear4_0_parentConstraint1"
+							m_parent = resource:"R_ear4_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Head_1_parentConstraint1"
+							m_parent = resource:"Head_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"necklace2_2_parentConstraint1"
+							m_parent = resource:"necklace2_2"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"necklace2_1_parentConstraint1"
+							m_parent = resource:"necklace2_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"necklace2_0_parentConstraint1"
+							m_parent = resource:"necklace2_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Head_0_parentConstraint1"
+							m_parent = resource:"Head_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill28_0_parentConstraint1"
+							m_parent = resource:"quill28_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint7"
+							m_parent = resource:"quill28_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill10_0_parentConstraint1"
+							m_parent = resource:"quill10_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill410_0_parentConstraint1"
+							m_parent = resource:"quill410_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"tail_R0C0"
+							m_parent = resource:"quill511_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"tail_R1C0"
+							m_parent = resource:"tail_R0C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"tail_R2C0"
+							m_parent = resource:"tail_R1C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"tail_R3C0"
+							m_parent = resource:"tail_R2C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"tail_R4C0"
+							m_parent = resource:"tail_R3C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill511_0_parentConstraint1"
+							m_parent = resource:"quill511_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill39_0_parentConstraint1"
+							m_parent = resource:"quill39_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"joint8"
+							m_parent = resource:"quill39_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"index_1_L_parentConstraint1"
+							m_parent = resource:"index_1_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"index_0_L_parentConstraint1"
+							m_parent = resource:"index_0_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"thumb_1_L_parentConstraint1"
+							m_parent = resource:"thumb_1_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"thumb_0_L_parentConstraint1"
+							m_parent = resource:"thumb_0_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"mid_1_L_parentConstraint1"
+							m_parent = resource:"mid_1_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"mid_0_L_parentConstraint1"
+							m_parent = resource:"mid_0_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"wrist_L_pointConstraint1"
+							m_parent = resource:"wrist_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"wrist_L_orientConstraint1"
+							m_parent = resource:"wrist_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"elbow_L_parentConstraint1"
+							m_parent = resource:"elbow_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"bicep_L_parentConstraint1"
+							m_parent = resource:"bicep_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"clavicle_L_parentConstraint1"
+							m_parent = resource:"clavicle_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Spine_3_parentConstraint1"
+							m_parent = resource:"Spine_3"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill28_top_right_parentConstraint1"
+							m_parent = resource:"quill28_top_right"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill410_piston_top_parentConstraint1"
+							m_parent = resource:"quill410_piston_top"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill10_piston_bot_parentConstraint1"
+							m_parent = resource:"quill10_piston_bot"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"quill39_mid_parentConstraint1"
+							m_parent = resource:"quill39_mid"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Spine_2_parentConstraint1"
+							m_parent = resource:"Spine_2"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Spine_1_parentConstraint1"
+							m_parent = resource:"Spine_1"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"ankle_L_pointConstraint1"
+							m_parent = resource:"ankle_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"ankle_L_orientConstraint1"
+							m_parent = resource:"ankle_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"knee_L_parentConstraint1"
+							m_parent = resource:"knee_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"thigh_L_parentConstraint1"
+							m_parent = resource:"thigh_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"belt_cloth1_0_parentConstraint1"
+							m_parent = resource:"belt_cloth1_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Root_0_parentConstraint1"
+							m_parent = resource:"Root_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Root_0_orientConstraint1"
+							m_parent = resource:"Root_0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+					]
+					m_morphArray = 
+					[
+					]
+					m_userArray = 
+					[
+						
+						{
+							m_name = resource:"blendParent1"
+							m_nType = 0
+						},
+						
+						{
+							m_name = resource:"toeSDK_RW0"
+							m_nType = 0
+						},
+						
+						{
+							m_name = resource:"fk_ankleControl_RW1"
+							m_nType = 0
+						},
+						
+						{
+							m_name = resource:"toeSDK_LW0"
+							m_nType = 0
+						},
+						
+						{
+							m_name = resource:"fk_ankleControl_LW1"
+							m_nType = 0
+						},
+					]
+					m_bHasRotationBitArray = 
+					#[
+						FF FF FF FF FF FF FF 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+						00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+					]
+					m_bHasMovementBitArray = 
+					#[
+						FF FF FF FF FF FF FF 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+						00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+					]
+					m_bHasMorphBitArray = 
+					#[
+						FF FF FF 7F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+					]
+					m_bHasUserBitArray = 
+					#[
+					]
+				}
+			}
+			m_movementArray = 
+			[
+			]
+			m_eventArray = 
+			[
+			]
+			m_activityArray = 
+			[
+				
+				{
+					m_name = resource:"ACT_DOTA_CAST1_STATUE"
+					m_nActivity = 0
+					m_nFlags = 0
+					m_nWeight = 1
+				},
+				
+				{
+					m_name = resource:"spike"
+					m_nActivity = 0
+					m_nFlags = 0
+					m_nWeight = 1
+				},
+			]
+			m_hierarchyArray = 
+			[
+				
+				{
+					m_sBone = resource:"Cloth_flail_R4C0"
+					m_sNewParent = resource:""
+					m_nStartFrame = 0
+					m_nPeakFrame = 0
+					m_nTailFrame = 30
+					m_nEndFrame = 30
+				},
+			]
+			m_IKRuleArray = 
+			[
+			]
+			m_IKRuleZeroFrameArray = 
+			[
+			]
+			framestalltime = 0.000000
+			m_vecRootMin = 
+			[
+				-47.505470,
+				0.000000,
+				43.446990,
+			]
+			m_vecRootMax = 
+			[
+				20.351410,
+				8.762886,
+				59.920330,
+			]
+			m_vecBoneWorldMin = 
+			[
+				
+				[
+					-47.505470,
+					0.000000,
+					43.446990,
+				],
+				
+				[
+					-48.694440,
+					-10.576950,
+					38.573220,
+				],
+				
+				[
+					-51.029950,
+					-36.484130,
+					14.706320,
+				],
+				
+				[
+					-73.834550,
+					-33.351670,
+					6.494505,
+				],
+				
+				[
+					-55.854550,
+					0.607862,
+					56.931620,
+				],
+				
+				[
+					-69.248340,
+					1.378983,
+					69.573590,
+				],
+				
+				[
+					-68.878120,
+					16.729400,
+					28.154960,
+				],
+				
+				[
+					-70.862820,
+					38.393580,
+					38.994320,
+				],
+				
+				[
+					-84.548230,
+					-4.661411,
+					24.939590,
+				],
+				
+				[
+					-99.832780,
+					36.271000,
+					59.116570,
+				],
+				
+				[
+					-79.443680,
+					0.310933,
+					73.538800,
+				],
+				
+				[
+					-87.547640,
+					-12.087040,
+					64.927360,
+				],
+				
+				[
+					-90.516300,
+					-18.165590,
+					63.725350,
+				],
+				
+				[
+					-83.395610,
+					-31.702140,
+					43.679810,
+				],
+				
+				[
+					-64.676060,
+					-46.132200,
+					36.848310,
+				],
+				
+				[
+					-60.276530,
+					-55.145000,
+					30.818500,
+				],
+				
+				[
+					-48.596590,
+					-80.827960,
+					20.902050,
+				],
+				
+				[
+					-46.925990,
+					-97.729980,
+					13.731190,
+				],
+				
+				[
+					-60.883420,
+					-127.133800,
+					23.139990,
+				],
+				
+				[
+					-64.133170,
+					-111.397700,
+					40.856810,
+				],
+				
+				[
+					-73.559000,
+					-115.602300,
+					41.628650,
+				],
+				
+				[
+					-89.292420,
+					-12.471930,
+					75.499740,
+				],
+				
+				[
+					-98.348300,
+					-17.299740,
+					75.263150,
+				],
+				
+				[
+					-100.393300,
+					-27.035830,
+					77.821240,
+				],
+				
+				[
+					-98.936560,
+					-34.913590,
+					74.803830,
+				],
+				
+				[
+					-97.612950,
+					-17.533310,
+					69.086730,
+				],
+				
+				[
+					-97.462260,
+					-7.592034,
+					76.398160,
+				],
+				
+				[
+					-96.233260,
+					-0.215385,
+					75.635400,
+				],
+				
+				[
+					-90.711260,
+					-17.564240,
+					69.815440,
+				],
+				
+				[
+					-82.262090,
+					-19.338630,
+					63.419140,
+				],
+				
+				[
+					-73.405590,
+					-20.951550,
+					57.005580,
+				],
+				
+				[
+					-95.228550,
+					2.219353,
+					76.364590,
+				],
+				
+				[
+					-111.397600,
+					-11.623100,
+					42.762810,
+				],
+				
+				[
+					-103.166900,
+					22.675540,
+					31.239510,
+				],
+				
+				[
+					-113.785000,
+					20.905410,
+					44.807150,
+				],
+				
+				[
+					-78.063190,
+					17.830610,
+					58.283860,
+				],
+				
+				[
+					-90.157500,
+					22.269100,
+					21.603310,
+				],
+				
+				[
+					-74.236470,
+					11.605460,
+					62.586680,
+				],
+				
+				[
+					-67.186320,
+					16.199230,
+					59.197700,
+				],
+				
+				[
+					-52.049000,
+					18.261550,
+					39.641750,
+				],
+				
+				[
+					-25.179070,
+					6.690554,
+					32.629880,
+				],
+				
+				[
+					-37.445800,
+					6.431216,
+					37.152320,
+				],
+				
+				[
+					-2.875877,
+					12.826790,
+					10.539090,
+				],
+				
+				[
+					2.574629,
+					26.041690,
+					6.492827,
+				],
+				
+				[
+					-27.621080,
+					-6.646413,
+					30.208040,
+				],
+				
+				[
+					-62.920990,
+					-39.572620,
+					3.042237,
+				],
+				
+				[
+					-15.035680,
+					-7.074538,
+					34.335040,
+				],
+				
+				[
+					-7.834889,
+					-13.960360,
+					30.191940,
+				],
+				
+				[
+					-22.454740,
+					-3.941205,
+					41.764720,
+				],
+				
+				[
+					-20.996110,
+					-13.001850,
+					47.449460,
+				],
+				
+				[
+					-14.319020,
+					-2.885040,
+					25.798600,
+				],
+				
+				[
+					-7.094600,
+					-8.205128,
+					18.182620,
+				],
+				
+				[
+					15.980750,
+					29.405370,
+					3.043262,
+				],
+				
+				[
+					-111.397600,
+					-11.623150,
+					42.762750,
+				],
+				
+				[
+					-113.784900,
+					20.905480,
+					44.806850,
+				],
+				
+				[
+					-103.166900,
+					22.675510,
+					31.239490,
+				],
+				
+				[
+					-90.157530,
+					22.269160,
+					21.603060,
+				],
+				
+				[
+					-38.422190,
+					-25.128480,
+					-10.966790,
+				],
+			]
+			m_vecBoneWorldMax = 
+			[
+				
+				[
+					20.351410,
+					8.762886,
+					59.920330,
+				],
+				
+				[
+					13.823170,
+					-1.275140,
+					55.024110,
+				],
+				
+				[
+					-10.710040,
+					-12.365710,
+					31.837310,
+				],
+				
+				[
+					-36.624790,
+					-16.600770,
+					33.181270,
+				],
+				
+				[
+					27.485600,
+					8.860753,
+					73.343380,
+				],
+				
+				[
+					41.271660,
+					9.967051,
+					89.185360,
+				],
+				
+				[
+					7.944248,
+					35.899590,
+					90.882070,
+				],
+				
+				[
+					22.824760,
+					47.487550,
+					91.852640,
+				],
+				
+				[
+					18.441970,
+					16.436280,
+					109.682600,
+				],
+				
+				[
+					55.950980,
+					57.523360,
+					117.505400,
+				],
+				
+				[
+					51.360410,
+					11.403960,
+					99.036140,
+				],
+				
+				[
+					47.687290,
+					-3.213649,
+					107.884600,
+				],
+				
+				[
+					42.445960,
+					-9.154409,
+					106.852200,
+				],
+				
+				[
+					19.095870,
+					-13.704550,
+					102.258700,
+				],
+				
+				[
+					-2.680713,
+					-38.139530,
+					94.844460,
+				],
+				
+				[
+					-0.245611,
+					-48.034210,
+					89.554400,
+				],
+				
+				[
+					12.297340,
+					-43.416240,
+					102.092400,
+				],
+				
+				[
+					18.696050,
+					-36.852160,
+					105.383200,
+				],
+				
+				[
+					4.635954,
+					-31.182250,
+					125.292300,
+				],
+				
+				[
+					16.186460,
+					-38.132580,
+					128.464600,
+				],
+				
+				[
+					22.261090,
+					-48.917130,
+					115.607200,
+				],
+				
+				[
+					70.740980,
+					5.557955,
+					105.002000,
+				],
+				
+				[
+					95.842100,
+					5.395796,
+					122.321100,
+				],
+				
+				[
+					95.074120,
+					-4.261496,
+					122.011700,
+				],
+				
+				[
+					91.152290,
+					-11.001210,
+					120.541800,
+				],
+				
+				[
+					100.360100,
+					5.029232,
+					124.540300,
+				],
+				
+				[
+					94.840230,
+					15.156790,
+					122.190300,
+				],
+				
+				[
+					92.248960,
+					22.995820,
+					122.735600,
+				],
+				
+				[
+					78.417100,
+					2.315461,
+					108.610200,
+				],
+				
+				[
+					71.893100,
+					-0.945972,
+					106.304300,
+				],
+				
+				[
+					64.048940,
+					-6.128029,
+					110.882200,
+				],
+				
+				[
+					60.936920,
+					17.849160,
+					114.232200,
+				],
+				
+				[
+					50.092050,
+					5.271391,
+					127.111800,
+				],
+				
+				[
+					42.174110,
+					36.534840,
+					126.536200,
+				],
+				
+				[
+					56.501080,
+					36.482940,
+					137.012200,
+				],
+				
+				[
+					39.793080,
+					25.130490,
+					99.330960,
+				],
+				
+				[
+					21.972940,
+					38.322620,
+					111.849800,
+				],
+				
+				[
+					58.137110,
+					26.040470,
+					92.608180,
+				],
+				
+				[
+					51.519570,
+					30.537370,
+					93.686700,
+				],
+				
+				[
+					33.424390,
+					49.226780,
+					102.188300,
+				],
+				
+				[
+					50.510160,
+					37.400870,
+					110.395400,
+				],
+				
+				[
+					23.130350,
+					16.924240,
+					52.936110,
+				],
+				
+				[
+					28.476720,
+					33.995330,
+					33.252790,
+				],
+				
+				[
+					2.576576,
+					26.043910,
+					6.496775,
+				],
+				
+				[
+					28.755160,
+					5.102889,
+					50.780950,
+				],
+				
+				[
+					-40.835740,
+					-17.734780,
+					20.409500,
+				],
+				
+				[
+					62.500550,
+					33.093430,
+					120.555700,
+				],
+				
+				[
+					68.357320,
+					33.340140,
+					126.892000,
+				],
+				
+				[
+					56.356550,
+					27.228030,
+					112.093900,
+				],
+				
+				[
+					60.667890,
+					18.991730,
+					114.222400,
+				],
+				
+				[
+					61.939030,
+					42.064170,
+					121.371300,
+				],
+				
+				[
+					62.771490,
+					47.857160,
+					125.628800,
+				],
+				
+				[
+					15.982720,
+					29.407670,
+					3.047164,
+				],
+				
+				[
+					50.091960,
+					5.271381,
+					127.111800,
+				],
+				
+				[
+					56.501090,
+					36.482920,
+					137.012300,
+				],
+				
+				[
+					42.174110,
+					36.534830,
+					126.536200,
+				],
+				
+				[
+					21.972950,
+					38.322800,
+					111.849800,
+				],
+				
+				[
+					21.711710,
+					2.809417,
+					65.653410,
+				],
+			]
+			m_sequenceParams = 
+			{
+				m_flFadeInTime = 0.200000
+				m_flFadeOutTime = 0.200000
+			}
+		},
+	]
+	m_decoderArray = 
+	[
+		
+		{
+			m_szName = resource:"CCompressedStaticFloat"
+			m_nVersion = 0
+			m_nType = 1
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullFloat"
+			m_nVersion = 0
+			m_nType = 1
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticFullVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedAnimVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedDeltaVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticQuaternion"
+			m_nVersion = 0
+			m_nType = 4
+		},
+		
+		{
+			m_szName = resource:"CCompressedAnimQuaternion"
+			m_nVersion = 0
+			m_nType = 4
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticChar"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullChar"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullShort"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticBool"
+			m_nVersion = 0
+			m_nType = 6
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullBool"
+			m_nVersion = 0
+			m_nType = 6
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticColor32"
+			m_nVersion = 0
+			m_nType = 9
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullColor32"
+			m_nVersion = 0
+			m_nType = 9
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector2D"
+			m_nVersion = 0
+			m_nType = 25
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector2D"
+			m_nVersion = 0
+			m_nType = 25
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector4D"
+			m_nVersion = 0
+			m_nType = 27
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector4D"
+			m_nVersion = 0
+			m_nType = 27
+		},
+	]
+	m_nMaxUniqueFrameIndex = 408
+	m_segmentArray = 
+	[
+		
+		{
+			m_nUniqueFrameIndex = 0
+			m_nLocalElementMasks = 1753
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				06 00 03 00 0A 00 A4 0E 00 00 06 00 07 00 08 00 09 00 0B 00 0E 00 11 00 12 00 13 00 B2 F8 AF C1
+				00 00 00 00 6B AE 6F 42 2E B3 AC C1 80 3D 40 BF FC 19 09 42 10 BF E1 C0 71 17 81 41 9C 6C 11 42
+				A0 33 FD C0 DE A1 9D C1 42 D2 03 42 A8 94 C7 41 42 7E B9 41 B8 6B EC 41 80 22 C5 3F 4A 70 9C C1
+				80 15 5E 3F A8 34 E3 C1 00 00 00 B7 00 00 00 36 80 1B E7 40 00 28 81 BC 00 74 38 BD D0 2C 51 41
+				00 68 13 BD 00 C0 AA BD 38 91 28 41 00 1C F6 BD 00 00 71 BA AB 5A CA C1 96 53 AF 40 2D E4 5B 42
+				7C C2 B0 C1 00 28 0C BF B8 F1 0E 42 40 24 D3 C0 FD B0 86 41 16 EB 16 42 98 28 05 C1 18 23 A4 C1
+				24 2F 06 42 64 89 D6 41 E9 6B C4 41 A8 E6 F7 41 70 22 C5 3F 4E 70 9C C1 00 16 5E 3F B4 34 E3 C1
+				00 00 00 37 00 00 00 37 40 41 C7 40 00 B0 7D BC 00 90 3D BD 10 64 34 41 00 F8 12 BD 00 8C A5 BD
+				C0 58 11 41 00 1C F6 BD 00 00 06 BA A9 6A E7 C1 C8 34 0C 41 1E D7 4D 42 AC F0 B7 C1 80 64 C9 3E
+				F2 14 13 42 28 31 D6 C0 B4 B1 93 41 30 9F 18 42 F8 47 0F C1 96 CE A4 C1 DE 82 0C 42 10 65 E2 41
+				6E BD D5 41 D0 61 FF 41 80 22 C5 3F 48 70 9C C1 80 16 5E 3F B3 34 E3 C1 00 00 00 37 00 00 00 37
+				D0 B6 C0 40 00 38 7E BC 00 68 3E BD 18 74 2E 41 00 EC 15 BD 00 6E A7 BD 20 92 0C 41 00 20 F6 BD
+				00 00 E1 B9 6E DA 08 C2 D0 D9 EE 40 FE F3 48 42 E6 1B BB C1 10 31 08 C0 BE 0E 13 42 70 B8 E8 C0
+				AA 9B 86 41 D2 19 1F 42 98 37 06 C1 62 40 B9 C1 0C 5C 05 42 84 3A E3 41 07 49 DB 41 56 9D 0B 42
+				20 22 C5 3F 4A 70 9C C1 80 16 5E 3F A6 34 E3 C1 00 00 80 B7 00 00 00 00 08 84 DB 40 00 A0 7E BC
+				00 98 3A BD 70 B5 46 41 00 24 15 BD 00 4C A9 BD 70 1F 20 41 00 18 F6 BD 00 C0 4A BA 63 88 20 C2
+				FC D5 99 40 3B 83 45 42 B4 02 C1 C1 40 78 03 C0 9C 62 12 42 D0 5A F8 C0 FE CB 89 41 F3 A1 1F 42
+				A8 44 10 C1 ED E2 BE C1 F7 A3 06 42 BC A3 E4 41 A8 90 E0 41 79 CB 0F 42 40 22 C5 3F 4B 70 9C C1
+				00 16 5E 3F B5 34 E3 C1 00 00 80 B7 00 00 80 36 C8 44 0A 41 00 18 7E BC 00 A0 32 BD 6C 53 7A 41
+				00 22 14 BD 00 00 AC BD 98 B9 49 41 00 1A F6 BD 00 00 C5 BA E2 EE 2F C2 A8 1A 2B 40 CE 36 44 42
+				5C 30 C9 C1 90 5A C3 BF 01 7A 10 42 F0 C9 03 C1 E9 3A 8E 41 A8 D7 1F 42 00 9C 25 C1 4B BD C3 C1
+				6F 28 07 42 54 80 E7 41 C5 D3 E1 41 36 0A 15 42 80 22 C5 3F 4B 70 9C C1 00 16 5E 3F B4 34 E3 C1
+				00 00 00 00 00 00 00 36 DD 59 21 41 00 22 7E BC 00 10 2C BD 76 0E 92 41 40 F5 13 BD 00 F8 AD BD
+				08 67 6B 41 00 1D F6 BD 00 C0 08 BB F7 F8 36 C2 EA 4F B7 3F A8 57 44 42 54 CC C5 C1 80 18 10 3E
+				F1 18 19 42 50 FF E4 C0 90 CD 9D 41 CE 3E 20 42 40 35 25 C1 2F E9 BF C1 28 91 14 42 0C E0 F3 41
+				3A 77 ED 41 FA A3 0C 42 00 22 C5 3F 46 70 9C C1 C0 15 5E 3F A9 34 E3 C1 00 00 00 37 00 00 00 00
+				DE DD 30 41 00 19 7F BC 00 A0 27 BD C8 19 A0 41 80 4C 14 BD 00 3C AF BD 10 05 81 41 00 18 F6 BD
+				00 40 23 BB 04 15 3C C2 4F 65 D6 3E A6 B5 44 42 D8 39 CF C1 80 26 35 BF 14 C7 13 42 90 DA 08 C1
+				B4 4E 9B 41 73 D6 1F 42 E8 59 31 C1 0E 4F CB C1 B6 CE 11 42 F0 5A EC 41 4C 82 F2 41 72 23 15 42
+				C0 22 C5 3F 4C 70 9C C1 C0 15 5E 3F AA 34 E3 C1 00 00 80 B7 00 00 00 00 C2 41 22 41 00 1A 7F BC
+				00 18 2C BD 60 E2 92 41 00 B0 15 BD 00 BC AD BD 70 BC 6C 41 00 18 F6 BD 00 40 0A BB 9A 05 3E C2
+				00 00 00 00 EC 4B 45 42 E2 C5 D2 C1 00 AA 82 BF B0 FA 12 42 90 82 08 C1 BD 4B 97 41 20 E2 22 42
+				D0 66 3F C1 F8 36 D5 C1 FE 40 0E 42 F4 CD F0 41 AF 5F EC 41 22 79 1B 42 80 22 C5 3F 45 70 9C C1
+				00 16 5E 3F A8 34 E3 C1 00 00 00 37 00 00 80 37 B4 CF 21 41 00 48 7E BC 00 70 2C BD 6B 7C 92 41
+				20 5F 16 BD 00 E8 AD BD CC 18 6C 41 00 1E F6 BD 00 80 09 BB 1F 11 35 C2 00 00 00 00 58 09 4A 42
+				38 23 C7 C1 00 69 CF BF 35 ED 1C 42 80 4E DD C0 3E D1 94 41 62 5C 28 42 E8 F3 26 C1 84 1E DD C1
+				22 5F 13 42 E4 F2 FC 41 91 1B EF 41 DE 28 16 42 40 22 C5 3F 48 70 9C C1 40 16 5E 3F B4 34 E3 C1
+				00 00 00 B7 00 00 C0 B6 CB 47 53 41 00 DC 7F BC 00 D8 1D BD 34 40 BF 41 80 68 15 BD 00 10 B2 BD
+				14 20 9A 41 00 1C F6 BD 00 00 5C BB 77 E8 B9 C1 00 00 00 00 B7 C9 2D 42 DA ED CE C1 80 EA 33 BE
+				7E 3D 19 42 D0 EF 01 C1 DD 40 A3 41 BA 7C 21 42 84 24 34 C1 0D DB D3 C1 4C BA 1B 42 38 73 F5 41
+				11 94 FE 41 34 A1 13 42 A0 22 C5 3F 4C 70 9C C1 80 15 5E 3F 20 32 E9 C1 00 00 00 00 00 00 80 B7
+				E4 AA 6E 41 00 F0 68 BC 00 A1 0F BD 6C 00 D8 41 00 D6 12 BD 00 1A B4 BD 23 12 AE 41 00 1C F6 BD
+				00 90 84 BB 75 9C 95 3F EE F6 61 40 8F 08 44 42 7A 62 C7 C1 A0 1F EB BF 79 D8 1B 42 C0 41 ED C0
+				ED C0 95 41 F9 9B 26 42 B4 91 21 C1 7C 79 DF C1 3F E8 15 42 50 F5 F8 41 F5 25 F8 41 79 9E 16 42
+				80 22 C5 3F 4A 70 9C C1 80 16 5E 3F 96 3C E3 C1 00 00 80 B7 00 00 00 36 38 45 36 41 00 20 80 BC
+				00 90 11 BD 28 19 A5 41 00 64 12 BD 00 D8 B0 BD 07 10 85 41 00 0E F6 BD 00 80 2A BB 83 52 3A 41
+				C4 CD A1 40 4B 3F 4A 42 16 BF CA C1 C0 B2 45 3F A8 68 18 42 40 7E F0 C0 4F 3A A4 41 34 FE 1E 42
+				4C 54 38 C1 9C 98 C9 C1 5C E6 1B 42 F8 F9 F7 41 B1 DB F7 41 0A 96 0F 42 C0 22 C5 3F 4C 70 9C C1
+				80 16 5E 3F 74 72 ED C1 00 00 80 37 00 00 80 B5 D8 99 F2 40 00 20 28 BC 80 6D 19 BD E8 BE 5B 41
+				00 F8 12 BD 00 C6 AA BD 76 1E 31 41 00 24 F6 BD 00 00 8D BA CD D5 81 41 08 55 B7 40 43 89 4B 42
+				2A CA C0 C1 60 C2 2C 3F 07 61 18 42 A0 75 D5 C0 8A D1 9C 41 CF 13 1E 42 40 BF 29 C1 AB 76 C0 C1
+				C1 B9 17 42 00 0E F4 41 FA DF E7 41 F5 C1 08 42 60 22 C5 3F 45 70 9C C1 80 17 5E 3F 52 EE F2 C1
+				00 00 C0 37 00 00 00 37 1C 19 20 41 00 00 4F BC 00 66 25 BD 20 DF 90 41 00 20 12 BD 00 04 AF BD
+				F0 82 69 41 00 1C F6 BD 00 00 07 BB F7 55 96 41 06 62 C3 40 40 2C 4C 42 E8 C3 BD C1 00 C0 92 3B
+				52 40 10 42 60 58 EC C0 C8 8B 92 41 24 D1 18 42 A0 A4 20 C1 16 06 B6 C1 B2 FF 0E 42 3C F5 E0 41
+				D4 C2 D8 41 FE 54 05 42 00 21 C5 3F 18 70 9C C1 00 09 5E 3F C4 72 F3 C1 00 00 00 00 00 00 00 B7
+				5E 59 52 41 00 00 82 BC 00 80 1E BD 7C 68 BE 41 00 90 14 BD 00 04 B3 BD 78 73 99 41 00 1A F6 BD
+				00 C0 5B BB 62 20 9F 41 4E DC C7 40 88 7C 4C 42 8A 0E B3 C1 E0 A7 C5 BF 14 34 0C 42 28 78 DB C0
+				50 A9 7B 41 CE 1C 19 42 7C 40 0D C1 2A E9 B1 C1 D2 83 01 42 30 E3 D5 41 C6 BD BE 41 14 E6 01 42
+				C0 2B C3 3F 64 24 9C C1 80 39 4D 3F 45 32 EE C1 00 00 80 37 00 00 00 B7 90 45 7B 41 00 20 7D BC
+				60 74 13 BD F0 76 E3 41 00 60 13 BD 40 EE B6 BD E0 51 B7 41 00 18 F6 BD 00 D0 8F BB AE CF A2 41
+				5B B4 CA 40 60 9E 4C 42 94 97 AC C1 C0 47 4F BF CC 19 09 42 80 B1 D7 C0 46 12 7C 41 A0 26 13 42
+				B0 BF 03 C1 85 7F 9F C1 82 F2 00 42 8C 9E CA 41 43 DC B3 41 D0 BC EF 41 A0 D7 BD 3F 5B 56 9B C1
+				00 6F 1F 3F 15 7D E7 C1 00 00 00 B7 00 00 40 37 28 36 8E 41 00 10 7F BC 00 E8 09 BD 82 BF 00 42
+				00 F8 0D BD 00 3E B9 BD 8C 85 CF 41 00 1C F6 BD 00 80 AA BB C5 B5 A1 41 10 9E CD 40 2D 83 49 42
+				3E 92 B0 C1 A0 56 67 BF 90 70 05 42 00 63 E1 C0 8A F2 74 41 2C 4C 13 42 80 E0 0F C1 FA 5E A1 C1
+				00 DA F7 41 30 55 CA 41 62 D1 AD 41 48 61 F8 41 40 F6 B5 3F A3 25 9A C1 00 6F B7 3E AC 34 E3 C1
+				00 00 00 37 00 00 00 00 30 4B A1 41 00 E0 7D BC 00 18 FF BC FC 04 12 42 00 4E 0C BD 00 B8 BB BD
+				CE 5B EB 41 00 14 F6 BD 00 C0 CA BB B1 E6 9C 41 F7 24 D0 40 64 CB 43 42 F8 E3 A8 C1 80 8A 15 3F
+				E2 FB 0D 42 80 01 BC C0 DE 73 87 41 8C 9D 12 42 A8 B1 03 C1 9E 39 97 C1 5E E8 07 42 50 77 D0 41
+				8F F6 B4 41 9C 3F E3 41 60 74 AC 3F 12 B6 98 C1 00 88 20 3D B1 34 E3 C1 00 00 C0 B7 00 00 00 B7
+				24 30 9F 41 00 D0 7D BC 00 C8 00 BD 5C 1D 10 42 00 3C 0A BD 00 D6 B9 BD 68 49 E8 41 00 24 F6 BD
+				00 00 C7 BB 59 FF 91 41 7E 39 D1 40 BC B4 40 42 30 96 B0 C1 80 DC 58 BE 0B 88 06 42 38 F1 EB C0
+				FA 0A 84 41 95 9E 0F 42 B8 FF 09 C1 D8 DA 9A C1 C5 80 03 42 00 16 C7 41 EC 73 B8 41 BE DB EE 41
+				A0 13 A2 3F D9 24 97 C1 00 41 9E BE A7 34 E3 C1 00 00 00 00 00 00 00 B7 AC 65 9B 41 00 A0 7C BC
+				00 E8 02 BD 84 AE 0C 42 00 A0 0A BD 00 B4 B7 BD E8 BF E2 41 00 18 F6 BD 00 00 C1 BB A9 6A 47 41
+				5F A0 C7 40 A8 8F 42 42 92 24 B0 C1 B0 1F 8A BF 3E 88 05 42 80 6C F9 C0 5E 19 80 41 1E 90 0F 42
+				A8 C8 00 C1 9E C3 9E C1 EC 52 02 42 84 89 C2 41 BE DD BB 41 48 10 F1 41 80 AB 97 3F 8C 92 95 C1
+				80 89 28 BF AE 34 E3 C1 00 00 C0 B7 00 00 A0 37 E4 0C 85 41 00 20 6A BC 00 B0 00 BD 5C D1 F0 41
+				00 44 13 BD 00 28 B4 BD 5C 11 C2 41 00 1E F6 BD 00 40 9B BB 9C 40 B8 3F 89 EF AF 40 2D 2E 47 42
+				10 9C AE C1 40 FE 16 BF 68 B5 07 42 F0 90 D1 C0 CF 44 77 41 1A 4D 14 42 00 41 10 C1 D2 07 A0 C1
+				78 50 FA 41 C6 D8 CD 41 00 10 AC 41 94 10 F5 41 40 2A 8E 3F F7 22 94 C1 80 37 7A BF A2 34 E3 C1
+				00 00 80 37 00 00 00 37 F8 36 5F 41 00 10 88 BC 00 1C 02 BD 19 F9 C9 41 00 50 14 BD 00 64 B3 BD
+				68 C4 A2 41 00 20 F6 BD 00 00 6F BB 85 40 32 C1 98 24 91 40 1E 44 4D 42 DC 17 A7 C1 C0 84 4E BF
+				90 8D 0D 42 B8 2B C2 C0 16 DD 7D 41 5C A0 14 42 00 A4 F0 C0 33 03 9F C1 7A 0D 04 42 AA 54 CD 41
+				D6 AF B5 41 E8 25 E8 41 D8 4F 86 3F 5E F3 92 C1 00 D8 9E BF AC 34 E3 C1 00 00 00 00 00 00 C0 B6
+				30 07 48 41 00 A0 8F BC 00 38 07 BD 59 FB B4 41 00 10 14 BD 00 E0 B1 BD 32 DA 91 41 00 24 F6 BD
+				00 80 47 BB 83 CE AB C1 4B E8 64 40 EA 7A 53 42 66 F3 AF C1 C0 A9 94 BF B4 8F 05 42 F0 56 EA C0
+				B0 F1 76 41 AA 41 12 42 D0 11 08 C1 A0 91 A1 C1 28 C7 FB 41 60 27 C7 41 8C 40 B3 41 64 2D F6 41
+				38 FA 80 3F 20 25 92 C1 80 C2 B5 BF B4 34 E3 C1 00 00 00 37 00 00 00 36 58 63 2D 41 00 E8 99 BC
+				00 30 0F BD 20 DF 9C 41 00 D0 13 BD 00 C8 AF BD 20 D8 7C 41 00 18 F6 BD 00 80 1B BB 45 F8 CD C1
+				CB 8F 36 40 4D 70 58 42 60 E5 AB C1 00 15 AD 3E BC 4C 0B 42 D0 BB C8 C0 9C 3A 85 41 00 4A 12 42
+				30 5B 09 C1 1E 11 99 C1 76 26 05 42 60 B2 CE 41 01 8F B3 41 48 F5 E8 41 60 0A 7E 3F 70 D9 91 C1
+				00 2C BE BF B0 34 E3 C1 00 00 00 00 00 00 00 B7 38 9A 24 41 00 24 93 BC 00 E4 25 BD 5A F5 94 41
+				00 58 13 BD 80 54 AF BD 6C 18 70 41 00 18 F6 BD 00 E0 0D BB F4 75 CC C1 0C 71 15 40 2D 57 5C 42
+				D8 F1 B0 C1 00 28 A3 BE F9 0B 06 42 A0 D6 E2 C0 F8 08 80 41 0F A3 11 42 D8 B9 10 C1 EC 5A 9D C1
+				DE 24 FF 41 74 22 CA 41 34 78 B1 41 02 E6 F3 41 A0 36 84 3F 40 A2 92 C1 40 DC A7 BF B6 34 E3 C1
+				00 00 00 37 00 00 80 36 AC CC 32 41 00 CC 86 BC 00 98 24 BD 44 D2 A1 41 00 54 15 BD 00 08 B0 BD
+				2B 69 82 41 00 0C F6 BD 00 40 25 BB DE 6B C8 C1 9D 57 EC 3F D6 3B 60 42 A4 6F A9 C1 60 4C CD BF
+				E8 68 0A 42 48 22 DA C0 0E 57 76 41 42 B9 13 42 C0 A6 E9 C0 28 9E A2 C1 32 A4 01 42 58 9E C7 41
+				00 92 B8 41 00 C9 ED 41 88 3F 91 3F 30 9A 94 C1 00 B9 5F BF AE 34 E3 C1 00 00 00 37 00 00 80 36
+				4C 0F 33 41 00 CC 89 BC 00 B0 24 BD 02 0F A2 41 00 70 14 BD 00 54 B0 BD 72 9A 82 41 00 18 F6 BD
+				00 C0 25 BB 95 BD C2 C1 99 BE B0 3F 1F 17 64 42 B4 74 AD C1 40 CE 15 BF D0 B6 08 42 E0 85 D7 C0
+				40 F1 7D 41 8C E7 12 42 00 A4 07 C1 F0 83 9E C1 C2 DE 00 42 C8 43 CB 41 B6 CE B2 41 5C 2A F0 41
+				C8 13 A2 3F DC 24 97 C1 00 40 9E BE AD 34 E3 C1 00 00 80 B7 00 00 00 36 50 7A 12 41 00 00 7F BC
+				00 90 30 BD 04 98 84 41 00 20 15 BD 00 6C AD BD 86 B6 55 41 00 18 F6 BD 00 80 DF BA 77 34 BC C1
+				6A 85 6C 3F A5 F3 67 42 B4 D7 AF C1 00 FC 3E BF D0 5D 06 42 40 CF ED C0 34 85 80 41 88 84 10 42
+				A0 AF 05 C1 64 FA 9D C1 AA D6 01 42 34 FF C5 41 3E 36 B8 41 90 01 F1 41 C0 F4 B2 3F 7A B1 99 C1
+				00 CE 83 3E AF 34 E3 C1 00 00 00 00 00 00 00 37 30 5F EF 40 00 60 7E BC 00 00 38 BD D8 AA 58 41
+				00 98 12 BD 00 86 AB BD C0 9D 2E 41 00 18 F6 BD 00 80 87 BA FB A6 B5 C1 02 64 EE 3E 22 D3 6B 42
+				60 9A B0 C1 00 64 12 BF F3 F5 05 42 40 59 E7 C0 92 C7 7E 41 49 6D 11 42 10 A2 0C C1 CE 44 9E C1
+				02 A0 FF 41 70 85 C8 41 7D 7F B3 41 E6 B1 F3 41 E0 F4 BF 3F 1E A8 9B C1 00 98 31 3F AC 34 E3 C1
+				00 00 80 B7 00 00 C0 36 90 BC CE 40 00 B0 7D BC 00 98 3C BD D8 25 3B 41 00 94 13 BD 00 04 A9 BD
+				88 CE 16 41 00 18 F6 BD 00 80 21 BA B2 F8 AF C1 00 00 00 00 6B AE 6F 42 2E B3 AC C1 80 3D 40 BF
+				01 1A 09 42 00 BF E1 C0 70 17 81 41 9D 6C 11 42 B0 33 FD C0 E0 A1 9D C1 43 D2 03 42 A4 94 C7 41
+				48 7E B9 41 BA 6B EC 41 60 22 C5 3F 48 70 9C C1 00 15 5E 3F B6 34 E3 C1 00 00 00 37 00 00 40 37
+				B0 1B E7 40 00 18 81 BC 00 78 38 BD E8 2C 51 41 00 70 13 BD 00 C0 AA BD 54 91 28 41 00 18 F6 BD
+				00 00 72 BA 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 31
+			m_nLocalElementMasks = 31041
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 01 00 0C 00 0F 00 10 00 15 00 17 00 18 00 19 00 1A 00 1B 00 80 FC 08 40
+				EA 35 26 C1 98 97 B5 C0 CE 9A 09 C1 00 00 00 37 00 00 80 B6 DC A9 7C C1 E4 17 06 C1 00 D2 06 C0
+				56 EC AB C1 A0 17 BA 40 40 F6 AB 41 A7 08 A2 41 00 00 00 B7 00 00 00 B7 00 00 80 36 7A B9 1C C1
+				00 1E 01 40 6E 65 07 41 00 00 00 00 00 00 80 B6 20 5D B6 3F 00 00 C0 B6 E0 33 EB C0 00 00 80 36
+				0A B5 1A 41 00 20 00 40 6C A4 04 41 00 00 00 00 00 00 80 36 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 32
+			m_nLocalElementMasks = 10393600
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				06 00 03 00 0A 00 A4 0E 14 00 16 00 1C 00 20 00 21 00 22 00 23 00 24 00 25 00 2A 00 C0 33 FC 40
+				C0 3B CC BF D0 38 94 3F FD CB C8 41 00 68 86 3F 80 CE 48 3F 19 2A 85 41 00 00 80 B6 C0 A0 AF C0
+				C6 89 93 C1 6E F1 E8 C1 50 90 FE 40 FA 0C 2C C2 C0 88 16 C1 80 5C C3 41 62 D1 C1 C1 1C F5 11 C1
+				AC 82 C5 41 EA 53 CE C1 90 D7 89 40 F0 45 CE C0 B2 C4 50 C2 E0 F4 D0 C0 90 3A B4 40 70 22 C5 3F
+				45 70 9C 41 80 16 5E 3F 40 8A 0E 42 00 00 80 36 00 00 80 36 90 97 36 41 D9 39 8E C1 20 6E 89 40
+				E1 E2 C8 41 A0 F3 95 3F 00 E9 FC 3E 94 6E 73 41 00 37 2A BE 00 CD B4 C0 7D F0 9F C1 06 70 FB C1
+				30 93 DB 40 F2 06 2B C2 B4 16 17 C1 CC 6D 9D 41 F2 47 DE C1 48 FF 2C C1 D0 FD CD 41 42 94 D2 C1
+				6C 6B 8C 40 10 EE F7 C0 BD 71 5B C2 18 C5 DF C0 80 E6 50 40 60 22 C5 3F 4F 70 9C 41 00 15 5E 3F
+				3F 8A 0E 42 00 00 80 B6 00 00 00 B7 F8 F9 80 41 A8 01 5A C1 14 72 0C 41 39 F0 C8 41 E8 0B 9F 3F
+				00 D0 5F 3D 0A 56 59 41 60 1B B6 BE 30 B2 BA C0 58 CA B4 C1 FE BB 05 C2 70 7F EE 40 52 BA 20 C2
+				64 BF EB C0 40 6C 67 41 40 28 04 C2 92 5D 3D C1 D8 AE EF 41 98 D8 D4 C1 34 D9 8C 40 E0 D7 08 C1
+				2E 4F 66 C2 94 75 C0 C0 40 BC EC 3F 70 22 C5 3F 46 70 9C 41 00 15 5E 3F 41 8A 0E 42 00 00 80 36
+				00 00 00 00 D0 78 4F 41 10 00 90 C1 BA CA 13 41 65 B7 C5 41 30 CD B9 3F 40 27 DC BF 5E 25 29 41
+				80 9C 34 BF E0 94 C5 C0 76 FB 8F C1 2E 27 0B C2 40 D4 FB 40 AE 37 0F C2 44 76 0A C1 28 26 52 41
+				44 5F FC C1 AC 8D 67 C1 64 98 04 42 25 B1 D3 C1 30 C0 7F 40 20 12 FC C0 EC 04 63 C2 7C EA 22 C1
+				C0 3F 57 40 70 22 C5 3F 49 70 9C 41 00 16 5E 3F 41 8A 0E 42 00 00 00 36 00 00 00 00 A0 1C D0 40
+				67 5A A9 C1 E8 5C 01 41 D0 80 B5 41 40 5D E5 3F 00 69 74 C0 20 11 08 41 80 16 72 BF E0 0D CD C0
+				50 6C 76 C1 4C BB 0F C2 68 85 12 41 82 1D 0C C2 5A 7D 22 C1 04 AC 82 41 F8 3C DB C1 06 9D 68 C1
+				C2 46 04 42 7A 5C D0 C1 78 84 54 40 F0 26 D1 C0 31 34 5E C2 26 ED 3E C1 F0 4B D3 40 80 22 C5 3F
+				4C 70 9C 41 00 16 5E 3F 42 8A 0E 42 00 00 C0 36 00 00 00 37 E0 07 8A 40 8A 32 BB C1 58 30 87 40
+				2C 4B A4 41 90 E1 EA 3F 70 4A 8B C0 38 0E 08 41 E0 1B 72 BF 90 0E CD C0 E0 26 62 C1 70 49 15 C2
+				C0 CF 17 41 6E 56 12 C2 80 E6 47 C1 40 3A A2 41 EC 3C C1 C1 6C 98 63 C1 D0 DE EF 41 FC 6B CD C1
+				60 19 37 40 60 A7 B3 C0 DA F2 5B C2 E4 E8 50 C1 10 19 04 41 80 22 C5 3F 4B 70 9C 41 00 16 5E 3F
+				72 F1 19 42 00 00 00 B6 00 00 20 B7 B0 97 D9 40 9B B3 CF C1 C0 61 5B C0 EC 68 99 41 50 03 D5 3F
+				40 61 86 C0 90 0E 08 41 A0 1B 72 BF 90 0E CD C0 80 03 6B C1 70 4A 18 C2 20 C6 2F 41 8C A8 17 C2
+				9E 38 45 C1 2C 1F C8 41 28 36 A8 C1 E6 B6 3D C1 18 33 D7 41 E0 7A CC C1 88 DF 2C 40 20 F4 AA C0
+				63 54 5B C2 02 69 37 C1 D0 1F 33 41 80 22 C5 3F 48 70 9C 41 80 15 5E 3F 72 F1 19 42 00 00 00 00
+				00 00 00 B7 E0 5C 79 41 32 67 B9 C1 42 2D 97 C1 70 B2 8F 41 10 00 B0 3F 40 B2 6C C0 40 10 08 41
+				80 18 72 BF 30 0E CD C0 D8 76 65 C1 9C BC 1A C2 98 54 3B 41 1C D0 1F C2 D2 89 57 C1 30 D9 CF 41
+				9C 36 AA C1 52 CC 37 C1 1C 7D CB 41 BC D6 CB C1 80 C9 25 40 70 3B A5 C0 B6 6D 5D C2 C8 CA 46 C1
+				78 18 23 41 80 22 C5 3F 4A 70 9C 41 C0 15 5E 3F 73 F1 19 42 00 00 00 36 00 00 00 B7 B4 96 A3 41
+				68 09 79 C1 3A 1E DA C1 E0 A6 8B 41 E0 F9 9B 3F 40 25 56 C0 20 11 08 41 A0 16 72 BF D8 0D CD C0
+				C0 5E 51 C1 12 E5 1E C2 8C A7 25 41 14 DE 17 C2 AA F1 67 C1 42 E4 C1 41 00 94 A9 C1 56 EF 55 C1
+				32 E2 D5 41 C8 F3 CA C1 58 41 20 40 D8 23 9E C0 CC D9 5B C2 18 73 5E C1 EC 7F 22 41 00 00 C6 3F
+				3B 74 9C 41 40 17 5E 3F 78 F1 19 42 00 00 00 B6 00 00 80 B6 E0 68 D6 40 81 E2 E0 C1 46 E4 51 C1
+				AC C0 93 41 A0 4B C1 3F A0 4F 7D C0 38 11 08 41 60 16 72 BF 00 0E CD C0 70 C2 20 C1 CC 58 1E C2
+				30 D3 20 41 88 49 00 C2 E8 EC 50 C1 AC 61 B4 41 98 96 93 C1 44 9F 64 C1 14 BE F4 41 C0 42 C9 C1
+				D0 4E 1E 40 30 3C 92 C0 50 10 53 C2 D4 66 6B C1 00 69 59 41 80 12 73 40 D0 99 A1 41 00 16 5E 3F
+				75 F1 19 42 00 00 00 00 00 00 80 B6 40 AF CB 40 B4 9A 27 C1 20 D0 AA 3F 00 02 B1 41 00 6C 81 3D
+				00 B8 D4 BC 30 11 08 41 80 16 72 BF F0 0D CD C0 4C 98 1A C1 2C 5C 1C C2 98 EE 67 41 5C C2 E0 C1
+				C0 58 17 C1 BC 53 B0 41 7C 27 89 C1 7E 27 4B C1 EC 6D 14 42 30 4F C1 C1 F0 6E 19 40 20 E6 42 C0
+				3F E7 4D C2 74 38 44 C1 F0 94 8E 41 10 C5 C1 40 02 C3 A6 41 00 16 5E 3F 71 F1 19 42 00 00 00 36
+				00 00 00 B7 64 2E 38 41 C0 D8 07 41 80 41 57 C0 D0 EE C4 41 80 FE 57 3E 00 3C 8B 3D 30 11 08 41
+				80 16 72 BF F0 0D CD C0 00 22 D4 BD 25 BD 15 C2 28 CA 55 41 4E 8A 9C C1 C4 98 15 C1 F0 5E B5 41
+				C0 28 C8 C0 68 D5 42 C1 C0 05 1C 42 B6 27 B3 C1 40 03 F7 3F 00 C2 5D BF 5D C7 2D C2 34 2D 78 C1
+				BC 5C C5 41 C0 BE 7A 40 FA DF A1 41 80 16 5E 3F 3B 8A 0E 42 00 00 C0 B6 00 00 00 36 EE 59 53 C1
+				48 1D 2A 41 E0 B9 7B C0 D2 B6 C9 41 00 86 7D BD 80 4F 51 3F 48 11 08 41 40 16 72 BF E0 0D CD C0
+				00 24 1F C0 9A F0 14 C2 48 73 7A 41 80 38 A9 C1 C8 BA 0F C1 0C 46 D4 41 E0 C3 E1 C0 00 73 24 C1
+				12 29 14 42 0C AD B0 C1 00 4E F4 3F 80 37 0D BF A0 10 30 C2 00 3B 4B C1 6C C1 CA 41 F0 87 32 40
+				99 4B 9F 41 00 15 5E 3F 3A 8A 0E 42 00 00 80 B6 00 00 80 36 00 3D FC C0 38 82 79 C0 84 9A 84 C1
+				98 BB C9 41 00 02 E5 BD 80 E6 4B 3F 24 11 08 41 60 16 72 BF D0 0D CD C0 A0 4C 46 C0 14 0F 0F C2
+				10 78 5C 41 52 44 B7 C1 88 D1 2B C1 98 4E FD 41 B8 FF D8 C0 F0 FD 16 C1 8C EF F4 41 18 3E B2 C1
+				30 C4 FE 3F 80 28 42 BF 49 8F 2C C2 58 D0 48 C1 20 1E C3 41 60 3B F3 3F 19 43 9D 41 00 16 5E 3F
+				3A 8A 0E 42 00 00 00 00 00 00 80 B6 80 63 5A C0 84 94 8B 41 44 DA 1E 41 6E D6 C9 41 00 67 17 BE
+				80 AF 34 3F 2C 11 08 41 40 16 72 BF E0 0D CD C0 40 8C 8D C0 2F 7E 05 C2 38 DA 50 41 A4 69 CF C1
+				28 61 3B C1 68 94 08 42 1C 1D 07 C1 84 E8 0B C1 E8 96 DF 41 A2 F9 B3 C1 08 86 05 40 00 D8 7E BF
+				AA CD 2D C2 64 9F 45 C1 78 67 AE 41 A0 22 C5 3F 4C 70 9C 41 00 16 5E 3F 3A 8A 0E 42 00 00 80 B6
+				00 00 00 00 80 A7 59 C1 48 C3 77 41 A6 08 99 41 76 D2 C9 41 00 AE 22 BE 80 49 37 3F 44 11 08 41
+				A0 16 72 BF E0 0D CD C0 D0 FD 52 C0 1C 8B F6 C1 70 3E 14 41 1C B6 BF C1 18 0D 56 C1 E8 E8 FB 41
+				78 75 EE C0 98 5E 26 C1 4C 12 E6 41 0C 4F B4 C1 40 C1 06 40 C0 66 85 BF 42 C7 24 C2 80 2F 62 C1
+				74 01 A0 41 40 22 C5 3F 49 70 9C 41 80 17 5E 3F 39 8A 0E 42 00 00 C0 36 00 00 80 B6 78 63 8B C1
+				5C 2D 91 C1 F0 93 0D 41 26 D6 C9 41 80 20 28 BE 00 F7 33 3F 2C 11 08 41 00 16 72 BF D0 0D CD C0
+				C8 CD 95 C0 0E 17 E5 C1 F0 9D 19 41 D2 32 B9 C1 24 C6 2D C1 38 89 E1 41 6C 1B 03 C1 24 F5 29 C1
+				4A F9 05 42 7C 70 B4 C1 30 3D 07 40 C0 BF 87 BF D2 EA 22 C2 D4 0E 48 C1 F8 C2 9A 41 40 22 C5 3F
+				48 70 9C 41 00 16 5E 3F 3A 8A 0E 42 00 00 C0 B6 00 00 00 00 80 98 48 BF 90 0C F9 C0 00 26 F0 40
+				0C 03 CA 41 00 E9 D7 BD 00 4A 0D 3F 30 11 08 41 40 16 72 BF F0 0D CD C0 A0 DD 82 C0 9E 71 E6 C1
+				80 3F 0D 41 12 1A AC C1 40 B6 29 C1 8C DE C0 41 20 1A 04 C1 94 7C 4E C1 FC 98 15 42 E4 6C B3 C1
+				80 0B FD 3F 00 65 68 BF EF ED 21 C2 F4 54 5A C1 90 C8 96 41 60 22 C5 3F 4C 70 9C 41 00 16 5E 3F
+				3C 8A 0E 42 00 00 C0 36 00 00 00 37 20 D7 0C 40 E8 EC 08 C1 D0 9F AB 40 F4 32 CA 41 00 30 B8 3B
+				00 91 9E 3E 20 11 08 41 40 16 72 BF E0 0D CD C0 00 B6 53 C0 A2 56 E1 C1 B8 73 2B 41 36 91 97 C1
+				DC 93 FD C0 DC 8C BC 41 D8 5A A8 C0 A8 76 1E C1 5C F1 1E 42 9C 66 B1 C1 00 39 DE 3F 80 6F 1E BF
+				49 3D 1B C2 0C 33 3B C1 4C 7D AE 41 60 22 C5 3F 48 70 9C 41 80 15 5E 3F 3D 8A 0E 42 00 00 80 36
+				00 00 00 00 C8 B9 D7 40 A8 28 FF C0 40 57 46 40 FC 41 CA 41 00 FE AF 3D 00 7C 0E 3E 38 11 08 41
+				60 18 72 BF E0 0D CD C0 30 2E 30 C0 FF D8 DC C1 B8 D9 3E 41 B0 A0 A3 C1 D2 39 07 C1 38 2F CD 41
+				38 F0 DE C0 66 C1 11 C1 C6 84 1B 42 60 39 B0 C1 40 4C CE 3F 00 38 EB BE 18 9B 1D C2 56 6B 47 C1
+				D4 FA A7 41 80 22 C5 3F 43 70 9C 41 00 16 5E 3F 38 8A 0E 42 00 00 00 00 00 00 80 36 00 F7 14 BF
+				50 BC CF C0 C0 5D 87 BF 0A 2F CA 41 80 4A 6A 3E 00 8E 7D 3E 34 11 08 41 40 16 72 BF F0 0D CD C0
+				58 2E 90 C0 7F 60 DB C1 F0 55 44 41 24 C0 C4 C1 E2 2E 14 C1 0C 91 E5 41 CC A2 1F C1 FA 9F 02 C1
+				94 19 0B 42 6C D0 B5 C1 30 56 FD 3F 40 BB 9C BF 95 40 26 C2 DE D4 40 C1 44 EB 97 41 80 22 C5 3F
+				49 70 9C 41 80 15 5E 3F 3A 8A 0E 42 00 00 00 00 00 00 00 37 B8 9D 96 40 10 32 AD C0 00 B4 F6 BF
+				C2 D7 C9 41 80 8B D8 3E 00 22 14 3F 34 11 08 41 40 16 72 BF C0 0D CD C0 A8 3D 1B C1 56 AF EA C1
+				28 A9 03 41 52 A7 FB C1 EC EC 47 C1 78 21 E5 41 5E 81 68 C1 58 04 2F C1 B4 9E E2 41 5C D3 C0 C1
+				88 88 3D 40 40 EF 45 C0 DE CE 36 C2 4C 8F 34 C1 68 66 5F 41 F0 1A C5 3F EC 6F 9C 41 00 18 5E 3F
+				38 8A 0E 42 00 00 00 B6 00 00 80 36 A0 90 01 40 40 AA 16 C0 C0 E9 21 C0 77 43 C9 41 80 EE 02 3F
+				00 FA 75 3F 2C 11 08 41 E0 16 72 BF 00 0E CD C0 FD CC 7C C1 8C 27 E9 C1 D0 03 F4 40 A3 B8 1A C2
+				F8 65 21 C1 74 40 D8 41 B2 E8 9F C1 80 C8 17 C1 A0 B4 C9 41 88 C0 C9 C1 D0 35 8B 40 C0 D0 AA C0
+				A0 C2 47 C2 80 42 E3 C0 D0 DD 16 41 78 22 C5 3F 49 70 9C 41 00 16 5E 3F 39 8A 0E 42 00 00 80 B6
+				00 00 00 00 C4 C9 1E C1 40 39 A0 3F 60 33 1F C0 B0 AA C8 41 80 88 FC 3E C0 05 A3 3F 6B 10 08 41
+				40 18 72 BF 30 0E CD C0 3E 0C AF C1 9A 0A EA C1 60 F6 9B 40 F3 41 33 C2 F8 25 0B C1 9C CD 9E 41
+				92 A3 E4 C1 C4 EB 2C C1 80 20 C3 41 0C A0 CD C1 00 A2 B5 40 D0 CE E3 C0 7B BB 56 C2 A8 E4 81 C0
+				80 AD FC 3F 32 59 57 40 23 D1 A7 41 00 FC 41 3F 38 8A 0E 42 00 00 00 36 00 00 00 00 F0 7B 39 C1
+				F0 FE E8 40 20 C7 F1 3F E4 7D C8 41 C0 73 E4 3E C0 BC AE 3F 1D 0F 08 41 C0 1A 72 BF 50 0E CD C0
+				8A 93 C8 C1 78 0F E9 C1 20 E7 57 40 BB 1A 2B C2 00 21 C8 C0 44 00 82 41 46 FB 00 C2 68 3A 3A C1
+				0C A4 D6 41 D0 4A CE C1 00 7F C8 40 50 FF F9 C0 B0 FD 59 C2 C0 C3 90 BF C0 37 9A 3F 90 B3 A5 40
+				E5 1F B3 41 80 0D 26 3F 3A 8A 0E 42 00 00 00 B6 00 00 80 36 58 82 3A 40 00 7C E3 BF 60 DD DB 3F
+				55 B1 C8 41 00 0A E5 3E 80 B6 A3 3F DA 0E 08 41 40 1B 72 BF 70 0E CD C0 0E AB C4 C1 C2 0D EA C1
+				60 29 54 40 F6 68 20 C2 58 76 C4 C0 20 7F 4F 41 7C 53 0E C2 54 30 53 C1 F8 4D EF 41 6A 63 CE C1
+				E8 47 C5 40 B0 11 F8 C0 E7 9D 5A C2 F0 2D 04 C0 00 00 0A BC EC FF 56 40 75 C8 A7 41 00 12 42 3F
+				3C 8A 0E 42 00 00 00 B6 00 00 20 37 40 A2 08 40 C0 2D 0A 40 10 99 93 40 2D D7 C8 41 80 6F 04 3F
+				80 7A 97 3F 20 1C 08 41 40 02 72 BF 90 0B CD C0 9C C4 B0 C1 F2 FA E6 C1 F0 8A 9C 40 90 C5 13 C2
+				C8 07 BA C0 68 BA 51 41 94 60 06 C2 7C B3 4B C1 BA BE 03 42 1F 98 CE C1 D0 C1 BC 40 80 C7 F2 C0
+				7E 09 57 C2 60 26 60 C0 C0 00 FE 3F 58 22 C5 3F 4C 70 9C 41 80 15 5E 3F 3B 8A 0E 42 00 00 00 36
+				00 00 00 37 7D 67 2C 41 00 1A 09 3F AC 17 0C 41 06 EC C8 41 80 78 22 3F 80 A0 8A 3F DE 52 16 41
+				80 97 57 BF 80 D5 C9 C0 1E FA AF C1 C2 50 EB C1 C0 C1 93 40 0C 1D 19 C2 50 4D DD C0 F0 97 67 41
+				5E CD 01 C2 44 F7 52 C1 20 A5 FA 41 2A C4 CE C1 D8 D0 B0 40 00 F8 EA C0 CC E0 56 C2 58 13 82 C0
+				60 07 0E 40 C8 11 C5 3F 74 6F 9C 41 00 18 5E 3F 3F 8A 0E 42 00 00 C0 B6 00 00 00 36 10 79 E8 40
+				30 A5 10 C1 2C 56 2A 41 B8 ED C8 41 40 51 47 3F 80 12 7B 3F 66 EC 38 41 40 4A 17 BF A0 04 C2 C0
+				A5 F2 AA C1 A0 3B E9 C1 50 32 D2 40 C9 F8 24 C2 F0 A7 EB C0 4C C4 90 41 F5 F7 F0 C1 B8 F2 2D C1
+				08 DE E6 41 7A CA CE C1 E8 25 A3 40 30 76 E1 C0 32 3D 56 C2 50 CE 91 C0 00 A6 3A 40 88 13 C5 3F
+				8D 6F 9C 41 00 17 5E 3F 3C 8A 0E 42 00 00 00 00 00 00 40 37 88 62 32 41 08 BE 5E C1 78 43 75 40
+				74 DF C8 41 C0 F5 6C 3F 80 52 61 3F B8 C6 63 41 80 4D 8F BE 30 56 B8 C0 45 A8 9E C1 B2 5F EC C1
+				50 E5 CB 40 AA 19 2D C2 94 9B 19 C1 30 55 AB 41 D4 4D D6 C1 CC 91 2B C1 1C 5C CB 41 5A A0 CE C1
+				E8 8A 95 40 10 66 D7 C0 F0 D0 53 C2 90 B6 C2 C0 20 C6 6C 40 D0 1C C5 3F 05 70 9C 41 80 16 5E 3F
+				3C 8A 0E 42 00 00 00 00 00 00 C0 36 F0 33 FC 40 C0 3B CC BF 80 38 94 3F FC CB C8 41 20 68 86 3F
+				00 CE 48 3F 1A 2A 85 41 00 00 00 00 E0 A0 AF C0 C6 89 93 C1 6E F1 E8 C1 30 90 FE 40 FA 0C 2C C2
+				C4 88 16 C1 80 5C C3 41 63 D1 C1 C1 24 F5 11 C1 AC 82 C5 41 EC 53 CE C1 90 D7 89 40 E0 45 CE C0
+				B4 C4 50 C2 E8 F4 D0 C0 90 3A B4 40 80 22 C5 3F 46 70 9C 41 00 16 5E 3F 42 8A 0E 42 00 00 C0 36
+				00 00 C0 36 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 63
+			m_nLocalElementMasks = 257097728
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 1E 00 1F 00 26 00 29 00 2D 00 2E 00 2F 00 30 00 31 00 32 00 60 BA 29 41
+				00 00 80 B6 00 00 40 36 FC 83 03 41 00 00 80 B6 18 5C 6A 41 CC 9A 09 41 00 00 00 37 00 00 80 B6
+				78 FC 08 40 E2 35 26 41 A8 97 B5 C0 0D EE 63 C1 00 00 80 B6 00 00 80 35 84 1B 6F 41 C8 74 89 BF
+				80 AC E0 BE 7E 84 19 41 00 00 C0 36 00 00 C0 36 60 3C E3 40 1A B3 A2 40 E8 1D DD C0 37 13 14 41
+				00 00 C0 36 00 00 80 B6 5C 54 55 41 DA D2 A6 C0 00 C5 ED 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 64
+			m_nLocalElementMasks = 65568
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				02 00 03 00 02 00 18 00 0A 00 1D 00 8E 49 40 80 00 00 88 48 00 00 60 00 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 65
+			m_nLocalElementMasks = 2415919104
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 03 00 32 00 33 00 34 00 39 00 7C 12 23 41 00 00 80 B5 00 00 C0 36 0F EE 63 41 00 00
+				00 36 00 00 80 B6 60 CC AC C2 00 00 80 B6 0E 4A 07 C2 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 66
+			m_nLocalElementMasks = 14680198
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				05 00 03 00 08 00 48 06 02 00 03 00 04 00 05 00 0D 00 27 00 28 00 2B 00 41 8A 0E C2 00 00 00 37
+				00 00 00 B6 34 A8 D9 C1 00 00 40 B7 00 00 00 00 00 F6 30 BF 00 00 00 36 88 81 59 41 36 A6 85 41
+				00 00 00 36 00 00 00 00 EB 3B D5 C1 00 00 00 00 00 00 C0 36 F6 3B D5 41 00 00 80 36 00 00 C0 B6
+				B4 34 E3 41 00 00 00 00 00 00 84 B7 35 A8 D9 41 00 00 00 B6 00 00 C0 35 00 00 00 00 00 00 00 00
+				00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+				00 00 00 00 00 00 00 00 40 01 00 81 C0 00 00 81 80 00 10 80 06 B0 B8 AC 59 9F 40 80 30 80 40 00
+				20 80 00 00 E0 80 C0 80 00 00 60 80 40 00 00 01 18 01 60 00 80 00 50 80 40 01 80 80 00 00 80 81
+				40 01 24 80 06 B4 DA B0 16 A4 00 00 28 80 40 80 20 82 80 80 20 00 80 80 40 00 60 80 40 80 40 80
+				68 00 60 80 20 00 2C 80 C0 01 80 80 20 80 40 80 40 01 20 00 D5 B5 33 B3 7A A6 40 00 40 80 40 80
+				00 81 80 80 A0 80 C0 81 00 00 60 00 80 81 40 80 88 01 80 00 80 00 1C 80 C0 02 80 80 80 00 C0 81
+				00 01 10 80 4F B7 97 B4 59 A8 C0 80 20 80 60 00 60 81 00 81 20 80 20 00 40 80 A0 00 C0 00 80 00
+				48 01 40 80 40 00 22 80 80 02 80 80 20 00 60 81 40 00 00 00 2D B8 4F B5 35 A9 40 80 10 00 40 00
+				A0 80 00 81 60 80 E0 80 40 80 20 80 80 80 00 81 48 01 5A 40 00 00 22 80 80 01 40 80 20 00 E0 80
+				80 00 20 00 8F B8 D6 B5 E0 A9 40 00 20 80 40 80 20 81 00 81 20 01 C0 81 C0 80 20 80 00 00 00 00
+				08 00 5A 40 60 00 4C 80 80 01 80 00 80 00 20 81 00 01 30 80 DA B8 3F B6 69 AA 40 00 00 00 80 80
+				A0 80 80 80 60 80 80 80 40 00 60 00 00 00 80 00 08 00 5A 40 40 00 0C 00 C0 01 80 80 60 00 80 81
+				80 00 10 00 F8 B8 69 B6 A1 AA C0 80 40 80 40 80 20 01 80 80 E0 80 40 81 C0 80 60 01 60 82 80 80
+				78 80 5A 40 60 00 0C 80 C0 01 80 80 80 00 40 81 40 00 60 80 F8 B8 69 B6 A1 AA 40 00 18 80 40 80
+				20 81 80 81 60 80 00 82 40 00 20 80 40 80 00 01 88 01 5A 40 80 80 18 80 80 01 C0 80 20 80 C0 80
+				40 00 00 00 F8 B8 69 B6 A1 AA C0 00 20 00 40 00 9F B9 00 00 A0 80 A0 80 40 80 90 00 A0 80 00 81
+				48 01 5A 40 80 00 68 00 18 C2 40 80 A0 00 A7 C0 80 00 10 80 F9 B8 68 B6 68 A8 5B 24 10 00 02 9B
+				6D 9B 00 00 70 80 C0 80 40 80 20 00 C0 80 00 00 C8 00 20 02 20 00 18 00 C0 01 80 80 20 00 A0 80
+				80 00 00 00 FB B8 60 B6 37 2A 4C 2E 10 00 11 A5 CE BC 80 00 C0 80 00 00 40 80 00 00 20 80 80 80
+				88 00 A0 01 40 80 08 00 00 01 20 80 20 00 40 81 A0 00 60 80 FF B8 50 B6 3E 33 5D 34 00 00 05 AB
+				61 BF 80 80 C0 00 C0 80 00 00 80 00 80 80 80 80 C8 00 20 02 20 00 08 00 00 01 C0 80 40 00 40 81
+				80 00 40 80 02 B9 43 B6 EA 35 9D 36 00 00 52 AD 9F BF 80 82 20 80 40 00 60 80 20 80 E0 80 40 80
+				C8 00 E0 01 00 00 20 00 C0 00 E0 80 60 00 00 82 E0 00 20 80 03 B9 40 B6 74 36 24 37 10 80 BF AD
+				28 BD 00 81 60 80 00 81 80 80 60 00 C0 80 80 00 48 00 20 01 20 80 48 80 80 00 40 81 20 00 C0 81
+				80 00 00 00 03 B9 3F B6 AA 36 59 37 10 80 E9 AD 05 B8 00 01 20 80 40 80 20 00 E0 00 40 80 40 80
+				48 01 60 02 40 00 68 80 C0 00 40 81 40 00 60 81 A0 00 40 80 00 B9 4B B6 99 34 53 35 10 80 48 AC
+				40 80 80 01 A0 80 40 81 60 80 A0 00 80 80 80 00 08 01 E0 01 40 00 90 80 00 01 C0 80 60 80 60 82
+				E0 00 30 00 FB B8 60 B6 6C 2A 66 2E 40 80 26 A5 A0 80 00 00 20 00 40 81 40 00 60 00 40 80 80 81
+				08 01 20 02 20 80 60 80 C0 01 20 80 60 00 E0 81 A0 00 10 00 F8 B8 6C B6 FF AC 99 A6 30 80 50 1D
+				20 00 00 01 20 81 40 81 A0 80 A0 80 80 81 80 80 08 01 E0 01 40 00 10 80 C0 00 40 80 20 80 60 81
+				C0 00 10 80 F8 B8 6C B6 D3 AC ED A5 20 00 C4 1C E0 80 80 00 60 80 40 80 40 80 00 00 40 80 40 80
+				88 01 E0 01 00 00 08 00 00 02 00 81 40 00 00 81 80 00 40 00 F8 B8 6B B6 69 AC 4C A4 20 80 EA 1A
+				20 80 00 00 20 00 40 82 40 81 10 80 E0 81 00 00 08 01 C0 01 20 00 48 80 C0 01 80 80 90 00 C0 81
+				C0 00 20 80 F8 B8 6A B6 D2 AB AB A0 30 80 84 17 40 00 80 80 60 80 C0 87 40 00 08 00 C0 87 40 80
+				C8 00 A0 01 80 00 B8 80 80 00 80 80 40 00 80 82 C0 00 60 00 F8 B8 6A B6 FB AA 8A 99 20 00 68 10
+				40 81 80 80 E0 80 16 19 40 00 A0 00 6D 19 40 00 A8 00 A0 01 20 80 08 00 40 02 40 80 80 00 00 81
+				80 00 20 80 F8 B8 69 B6 A1 AA C0 80 00 00 40 00 00 81 80 80 20 00 9C 3A 40 80 90 00 0B 3B 80 00
+				08 01 E0 00 20 80 78 80 C0 00 C0 80 40 00 00 82 C0 00 20 00 C3 B8 1F B6 3E AA 00 00 00 00 20 80
+				20 82 80 00 60 80 9C 3E C0 80 20 00 0B 3F 40 00 C8 01 C0 00 60 00 08 80 C0 01 80 80 20 00 80 80
+				40 00 40 00 31 B8 55 B5 3C A9 00 01 40 80 00 00 20 80 00 00 60 80 97 3A 80 80 40 00 05 3B C0 00
+				88 01 20 00 20 80 68 80 80 00 00 81 60 00 80 80 C0 00 80 80 AC B6 29 B4 B7 A7 00 01 40 80 80 80
+				A0 80 80 80 A0 80 40 00 80 80 40 00 00 00 00 00 08 01 80 00 20 00 08 80 C0 00 00 81 50 80 80 00
+				40 00 50 00 88 B4 80 B1 B9 A4 00 00 00 00 40 00 E0 80 00 01 60 81 A0 8A 40 80 40 00 F0 8A 40 00
+				48 01 80 00 00 00 08 00 C0 81 00 00 40 00 80 81 00 01 30 00 61 B0 27 AD 09 A0 80 00 40 80 40 80
+				20 81 80 80 20 80 40 87 40 80 60 00 60 87 40 00 F8 00 A0 00 60 00 08 00 40 00 40 80 40 80 60 80
+				80 00 20 00 20 00 00 00 C0 80 00 00 20 80 00 00 40 00 80 80 40 80 80 81 40 80 20 00 A0 80 80 00
+				00 01 A0 80 20 80 08 80 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 97
+			m_nLocalElementMasks = 1627389952
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				06 00 03 00 05 00 56 07 2C 00 35 00 36 00 37 00 38 00 F5 4A 88 41 00 00 80 B6 6C 2E 2B C1 4C 35
+				C2 41 8E EE CE C1 FC 53 C7 41 F4 22 FB 41 50 08 75 C0 68 E1 18 42 8C 92 98 41 70 94 7C C0 AE 9F
+				51 42 40 AE AD BF 60 E9 59 C0 A6 7C 3C 42 22 7D 88 41 E0 E6 CE 3F 50 95 28 C1 30 AC C4 41 C4 11
+				E1 C1 70 8E C6 41 52 78 04 42 48 CF A2 C0 84 10 21 42 4C 75 9A 41 84 A2 8A C0 28 E8 42 42 80 71
+				9D BF A8 B8 7A C0 04 0A 43 42 94 54 87 41 21 EF 54 40 B0 DE 25 C1 84 56 C7 41 10 1D EF C1 14 01
+				D8 41 D2 56 0E 42 94 B7 A8 C0 1A 23 38 42 60 DD 92 41 D0 82 33 C0 C6 A5 2C 42 C0 38 E8 BF 08 80
+				36 C0 6A C1 4A 42 30 E7 84 41 04 30 9E 40 98 64 23 C1 3C 78 D4 41 0C 22 F9 C1 94 AC C4 41 50 30
+				15 42 4C 3E E6 C0 E4 DA 3F 42 B0 42 91 41 F8 7A 7A C0 22 1B 1D 42 40 19 EB BF 08 98 BE C0 14 33
+				4B 42 B2 BD 81 41 77 42 CA 40 B0 64 21 C1 88 3D D5 41 5C C2 FF C1 42 49 CB 41 72 72 0F 42 98 B6
+				DC C0 02 73 3B 42 2C 94 8F 41 08 E5 87 C0 53 BE 25 42 20 7B 27 C0 38 CB BD C0 85 60 4C 42 E2 86
+				7D 41 3F 42 EA 40 30 08 20 C1 D4 E7 CF 41 BC 9F 04 C2 7A 1A D2 41 2E 72 04 42 34 ED D8 C0 6A 30
+				2F 42 64 B7 8B 41 84 61 A9 C0 51 D4 37 42 20 35 78 C0 8C D4 BB C0 FD DD 4C 42 60 48 78 41 31 0E
+				01 41 68 14 1F C1 50 E8 D0 41 74 32 06 C2 E2 F5 E1 41 DC 00 01 42 A0 1A 9F C0 8C F1 1D 42 98 00
+				99 41 B8 F4 83 C0 85 05 49 42 E0 48 26 C0 D0 34 63 C0 4C 94 52 42 F6 B0 73 41 77 54 0A 41 20 62
+				1E C1 64 C9 D3 41 E4 0C 08 C2 82 43 E7 41 00 98 F4 41 18 8D 95 C0 B3 5A 1B 42 C8 A4 8E 41 88 83
+				97 C0 4D 95 52 42 20 DC 87 C0 C8 39 8A C0 CD 56 51 42 72 B7 71 41 D5 0C 0E 41 D0 1D 1E C1 74 F5
+				CF 41 54 23 0D C2 FA 90 DC 41 70 5F F8 41 90 D9 C8 C0 0E 24 21 42 C0 AE 8A 41 1C F9 C0 C0 A5 45
+				49 42 30 6B 95 C0 54 3B B4 C0 0A 56 50 42 70 B7 71 41 D7 0C 0E 41 CC 1D 1E C1 44 DA D9 41 A4 50
+				0E C2 CF B3 CC 41 3E E8 0A 42 1C F6 E1 C0 DA 3A 27 42 0C 19 9A 41 FC 49 B0 C0 82 0C 34 42 00 91
+				F9 BF 64 41 C6 C0 C0 3F 53 42 6E B7 71 41 DB 0C 0E 41 D4 1D 1E C1 BC 4D D9 41 BC A7 0B C2 45 5E
+				F0 41 C0 8A 0D 42 FC C9 AA C0 CC E6 3F 42 EC 8F 8C 41 E8 B0 2F C0 EE D1 28 42 80 ED 64 C0 60 90
+				5C C0 9A 79 55 42 77 B7 71 41 D5 0C 0E 41 D4 1D 1E C1 B4 B6 E0 41 12 73 0D C2 9A 9B D5 41 60 E7
+				15 42 08 98 E2 C0 0F 3A 3F 42 78 47 92 41 18 91 6F C0 E1 24 1D 42 60 79 09 C0 20 44 B8 C0 23 5A
+				54 42 6D B7 71 41 D6 0C 0E 41 C8 1D 1E C1 C8 7B D1 41 F9 90 0A C2 C8 58 F1 41 92 56 0B 42 B8 EC
+				AC C0 BA 0A 3B 42 A4 AB 8D 41 78 CB 31 C0 66 04 2E 42 50 C6 58 C0 F8 0B 2F C0 EE 94 54 42 74 B7
+				71 41 D6 0C 0E 41 CC 1D 1E C1 CC 0B CD 41 28 0B 05 C2 82 BF E1 41 14 A3 03 42 9C 88 A6 C0 CF DF
+				21 42 80 4C 99 41 58 66 74 C0 5F CF 43 42 00 C7 0A C0 20 A0 44 C0 25 6D 50 42 70 B7 71 41 DB 0C
+				0E 41 C8 1D 1E C1 E8 EC C8 41 DC 02 F6 C1 44 A1 DB 41 54 0E F8 41 B0 7A 8F C0 CC 9E 19 42 50 E2
+				94 41 CC AD 85 C0 EC 0D 52 42 60 6A 2C C0 88 A8 56 C0 FA D0 48 42 72 B7 71 41 D5 0C 0E 41 D0 1D
+				1E C1 9C B5 C4 41 9A 1B E6 C1 4C 59 B9 41 0C 1A 01 42 50 90 C5 C0 3A 44 1B 42 6C 81 98 41 D8 63
+				CC C0 6C 0B 46 42 C0 D9 CA BF 68 93 B5 C0 C4 98 3F 42 76 B7 71 41 DA 0C 0E 41 C4 1D 1E C1 C8 48
+				BE 41 13 02 D3 C1 30 05 BE 41 3C 09 08 42 1C 69 BA C0 FC 11 2D 42 78 62 93 41 FC 5A 8B C0 3E 76
+				37 42 80 50 A6 BF 68 02 87 C0 4C 7C 3B 42 45 B7 71 41 25 0D 0E 41 C0 1D 1E C1 58 02 B9 41 8E CF
+				D6 C1 00 9D B8 41 1E 88 0B 42 80 F1 FE C0 6E 9A 3D 42 2C 59 89 41 28 A7 97 C0 56 79 26 42 C0 A7
+				0B C0 60 F7 A2 C0 78 51 39 42 EE B6 71 41 D9 0D 0E 41 B4 1D 1E C1 B0 B1 BA 41 2E 8D D3 C1 54 EA
+				C5 41 54 D4 15 42 90 98 BB C0 34 52 41 42 80 1C 92 41 50 A3 26 C0 FC 03 1F 42 80 A5 F3 BE 98 E7
+				27 C0 A8 30 3E 42 6B B6 71 41 BE 0E 0E 41 A8 1D 1E C1 88 65 BD 41 EC 42 D0 C1 4A F0 CD 41 98 85
+				0B 42 BC 1D A2 C0 43 47 42 42 30 4B 89 41 30 03 29 C0 6D C3 29 42 40 FA 0D C0 C0 20 3F C0 CD 1C
+				3C 42 00 B6 71 41 8A 0F 0E 41 A0 1D 1E C1 CC C3 C3 41 96 B1 CC C1 B8 19 CD 41 BA 0B 05 42 8C D4
+				81 C0 D0 1E 33 42 5C 69 8C 41 F8 E7 3E C0 A4 DB 3A 42 F0 50 0C C0 30 C0 5A C0 B0 9D 3B 42 BC B5
+				71 41 02 10 0E 41 90 1D 1E C1 86 DA B6 41 72 5D D8 C1 D4 D6 B5 41 C6 2C FE 41 58 12 D5 C0 82 B8
+				1C 42 4E A4 93 41 98 44 CE C0 54 FA 46 42 C0 8E DC BF 3C F8 9F C0 AA F3 39 42 CE B5 71 41 E2 0F
+				0E 41 9C 1D 1E C1 36 74 C1 41 23 B8 D1 C1 1C BC BA 41 F7 B5 00 42 40 03 92 C0 CC 1D 13 42 CE 3E
+				A4 41 74 9C 9B C0 CA 14 4E 42 00 9E E8 BD D0 5F 7E C0 C6 D8 3C 42 58 B6 71 41 E9 0E 0E 41 B0 1D
+				1E C1 D8 3C BE 41 C0 EC D2 C1 04 A7 BE 41 90 0C FD 41 30 CE AB C0 02 45 20 42 EC 67 90 41 D8 F1
+				AB C0 8E 1C 49 42 80 D4 04 C0 20 F3 94 C0 16 15 3A 42 6F B7 71 41 D9 0C 0E 41 CC 1D 1E C1 A8 67
+				B9 41 A4 6F D4 C1 78 0E C5 41 BC 5D 08 42 A0 2A B2 C0 00 28 2D 42 20 9C 94 41 A0 EB 6A C0 0C 1E
+				38 42 00 D7 8F BF 30 A3 44 C0 C6 1B 3D 42 1C 25 75 41 64 7E 07 41 88 97 1E C1 DC B9 B8 41 C2 44
+				D5 C1 C6 AC C2 41 96 28 0B 42 00 3F DC C0 EF D9 3F 42 D4 C6 88 41 80 54 77 C0 37 19 28 42 40 25
+				11 C0 60 F8 80 C0 C5 BD 3A 42 A4 4E 7D 41 2C 4F EB 40 30 FD 1F C1 08 55 C6 41 AC 86 CE C1 10 5A
+				BC 41 86 6F 15 42 C8 64 B9 C0 C2 CE 41 42 D4 AE 91 41 00 8B 43 C0 DA 76 1E 42 80 A1 29 BF 38 C7
+				8C C0 1A D2 3B 42 11 3E 83 41 80 20 B7 40 F0 3E 22 C1 00 35 BC 41 B8 06 D4 C1 50 ED BE 41 E4 7A
+				0E 42 20 9B D4 C0 20 E5 3C 42 AC 15 8E 41 D0 04 72 C0 9C E5 26 42 40 B4 BD BF 40 1A 84 C0 3A 6E
+				3B 42 90 CB 86 41 10 76 71 40 F4 2C 25 C1 14 E6 BF 41 26 EC CF C1 C0 0F C9 41 50 69 05 42 C0 3C
+				9A C0 72 A8 31 42 0C 6B 8D 41 D0 EA 5E C0 2A F9 39 42 E0 4A 04 C0 E0 B8 64 C0 32 8E 3B 42 4A 71
+				88 41 78 CC E1 3F CC 58 28 C1 14 75 BB 41 0E 90 D3 C1 FE B5 C3 41 60 E8 FB 41 20 19 A7 C0 8F 20
+				21 42 5C 4A 8F 41 18 64 9C C0 F9 0C 4A 42 E0 26 0D C0 10 C3 80 C0 79 D1 3A 42 F5 4A 88 41 00 00
+				40 B6 6C 2E 2B C1 48 35 C2 41 90 EE CE C1 02 54 C7 41 F0 22 FB 41 20 08 75 C0 69 E1 18 42 8C 92
+				98 41 60 94 7C C0 B1 9F 51 42 40 AE AD BF 60 E9 59 C0 A7 7C 3C 42 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 128
+			m_nLocalElementMasks = 15
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 3A 00 3B 00 3C 00 3D 00 3E 00 3F 00 40 00 14 3D FE 48 F8 2E 7C B8 94 6D
+				36 97 00 40 CC 65 00 40 3D AC 81 7A 3D B1 1D 38 40 03 8D 3C D2 33 62 49 81 3F 57 45 5B 37 C9 3E
+				2E 3F 00 45 67 2C 7C CA 7D 72 ED 97 00 40 72 6C 00 40 78 9B 56 78 F0 C4 5A 3C 83 03 8D 3F 08 34
+				39 4A 33 3F 13 40 F0 3C A7 3A 93 40 C0 40 79 29 2D 28 61 05 62 5A 00 40 A3 71 00 40 4C 9D 29 72
+				1F C6 77 40 AC 03 A5 42 28 34 B6 4A 04 3F 78 3B BE 45 29 3C C9 3F 71 39 69 27 57 2C 60 05 03 5E
+				00 40 A2 7A 00 40 EB 9E 7E 6E 41 C9 9F 44 E8 00 9D 44 8B 33 CA 46 AE 3E 81 28 C9 64 4B 42 36 3F
+				6D 30 C5 26 69 31 BA 07 58 5F 00 C0 C2 01 00 C0 99 A2 29 6A 4B CA 2C C5 FB 7A 16 C9 6E 32 0F 3F
+				E8 3D 50 2E 04 6E 45 59 98 3F 8C 2A 70 26 E5 2C BD 08 5D 5F 00 C0 8C 7A 00 40 35 A5 41 68 77 D1
+				67 C5 DD 76 6F CC BD 31 AE 39 46 3D F1 36 AA 6E 9F 5E 58 40 11 28 70 25 E6 2E 39 0A 63 5F 00 C0
+				4C 7A 00 40 AE A6 FC 63 27 CF 16 C6 2C 75 9D CE 80 31 B4 37 00 3D B5 36 CF 63 01 58 0C 41 4E 26
+				9A 24 A7 30 EC 0B CD 5E 00 C0 A1 7B 00 40 EB A7 BF 5E D0 CB A4 C6 E9 73 54 D0 54 31 45 36 CB 3C
+				EA 30 AE 52 2B 4D 72 41 A8 25 88 24 46 31 D5 0C 4A 5E 00 C0 B9 7C 00 40 97 A8 5F 5C F5 C9 DA C6
+				6D 73 02 D1 48 31 B8 35 C2 3C 0C 39 9A 3F 6C 45 AC 40 81 2A 62 24 06 33 34 0A 81 5C 00 C0 F2 01
+				00 C0 B7 A8 BA 5F 53 C8 1B C8 90 75 02 D0 92 31 97 37 90 3D 8B 45 19 26 87 37 94 3C 6F 3F 01 25
+				79 28 35 07 B2 5C 00 40 DB 7C 00 40 C2 9E 36 6F BA D5 08 CD ED 7D 32 CB A8 32 8E 3F F8 40 39 4A
+				70 1C A2 33 C7 37 44 53 48 26 FF 3E D8 04 5D 55 00 40 95 66 00 40 7D AE A0 78 28 C0 EB 45 EB 07
+				FB 50 6C 33 18 47 23 44 DF 48 11 0B 14 2F 76 36 66 58 B6 26 4E 45 73 0E 58 59 00 40 BF 4C 00 40
+				46 3D CC 07 5E 34 BE 44 A0 09 AA 51 88 33 AE 48 BA 44 E8 4A 9D 16 0D 38 44 36 51 59 A8 26 81 46
+				8C 0B 7E 5A 00 40 D6 58 00 40 E7 3E D9 0A 55 34 C1 44 A6 09 9E 51 7F 33 B9 48 A0 44 11 48 BC 19
+				DB 33 30 36 C4 59 94 26 1A 47 D4 09 35 5B 00 40 9D 5F 00 40 15 40 22 0D 21 34 C9 44 AB 09 93 51
+				76 33 C0 48 82 44 C2 45 61 21 95 33 24 36 FD 59 92 26 4F 47 33 08 B8 5B 00 40 28 65 00 40 D9 40
+				DF 0A 39 33 C9 44 AC 09 91 51 74 33 C1 48 7E 44 BF 44 DE 22 6E 31 1F 36 15 5A 91 26 3E 47 B6 06
+				A7 5C 00 40 C8 69 00 40 BF 41 3F 09 80 31 CA 44 AD 09 90 51 73 33 C3 48 7A 44 91 46 4A 2B 17 3B
+				03 36 F7 59 F5 26 C1 46 78 06 A3 5D 00 40 D0 6B 00 40 60 42 97 08 67 2F AD 44 16 0A A0 51 71 33
+				38 49 81 44 B9 44 F0 35 41 3D DB 35 91 59 AC 27 16 46 1C 07 69 5E 00 40 BA 6B 00 40 90 42 E3 08
+				6D 2D 78 44 D6 0A BF 51 6E 33 17 4A 8D 44 2F 49 36 32 AD 46 EC 35 D1 58 0B 28 AA 45 ED 06 3A 5F
+				00 40 FA 6B 00 40 BA 42 D0 09 E3 2B 5B 44 3E 0B D1 51 72 33 B5 4A 80 44 AB 42 34 42 13 48 67 37
+				F8 55 4F 26 DA DE D1 79 67 BE 00 40 9B 6F 00 40 BD 41 0B 05 1B 2D AE 44 7A 0A C7 51 B6 33 FC 4A
+				46 44 29 43 B6 4B CA 4D 2B 3A 5F 50 3D 22 72 DB A1 6F EF B1 00 40 22 74 00 40 E1 AB B2 7B C4 BC
+				75 45 AB 08 AE 51 4B 34 45 4B EE 43 6D 45 66 61 73 52 BB 3C A3 49 6C 1D F5 D6 BF 62 31 A4 00 40
+				36 71 00 40 31 35 F2 21 4E 18 69 46 7A 06 91 51 FA 34 87 4B 82 43 93 47 8E 6C 9D 5C 45 3E E2 43
+				7F 19 07 D7 19 5D 0A AB 00 40 68 7B 00 40 7E 34 74 13 E7 20 42 47 8C 04 71 51 8A 35 B8 4B 13 43
+				B2 45 12 6B 4C 5F BF 3E 77 41 E8 17 0A D0 8A 5F B5 AA 00 40 2E 7A 00 40 53 34 C4 02 4D 2A BC 47
+				74 03 50 51 C2 35 D0 4B AE 42 1F 4B 00 62 32 57 82 3E D7 41 06 19 77 CC 3C 64 E1 A9 00 40 DE 74
+				00 40 BA AD E8 77 E7 B1 22 47 FB 02 25 50 A6 35 B7 4B 47 42 F1 40 AA 59 7F 43 F4 3D D8 42 08 1C
+				DD C9 93 66 98 A7 00 40 D5 72 00 40 E0 AD DA 77 42 B1 2B 45 9D 02 49 4D 64 35 64 4B C9 41 95 3E
+				A0 3E 95 39 5F 3D 45 44 54 20 5E C6 22 69 55 A4 00 40 3D 70 00 40 2D D2 1C 08 93 4F 41 42 73 02
+				56 49 08 35 EC 4A 3C 41 3D 48 A4 37 A6 3D FB 3C EC 45 5E 25 5B C2 8A 6B A8 A0 00 40 1B 6D 00 40
+				53 D2 DB 07 86 50 CC 3E 8C 02 D7 44 9E 34 62 4A A6 40 75 48 30 34 6F 3F E6 3C 93 47 7E 2A 42 BE
+				8E 6D 1C 9D 00 40 8B 69 00 40 74 D2 54 07 83 51 3E 3B DD 02 5F 40 32 34 D8 49 0F 40 E8 48 3D 34
+				67 3E 14 3D FE 48 F8 2E 7C B8 94 6D 36 97 00 40 CC 65 00 40 3D AC 81 7A 3D B1 1D 38 40 03 8D 3C
+				D2 33 62 49 81 3F 57 45 5B 37 C9 3E 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 159
+			m_nLocalElementMasks = 248
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 41 00 42 00 43 00 44 00 45 00 46 00 47 00 C2 44 98 36 88 3E C7 44 8F 37
+				49 3F 2B 44 C6 36 1F 3F 85 3A FF 65 02 42 63 2E 9C 18 71 6A 20 1D E0 B6 01 45 00 40 6A 60 00 40
+				CC 37 B3 37 CD 39 EA 3E 1F 43 F8 47 43 3A 26 3C B7 40 5C 3A 06 69 2F 42 95 2A 07 16 9F 6D 02 1D
+				59 B1 97 3F 00 40 02 72 00 40 29 35 5A 3A FD 35 CF 3E 5D 49 91 4F 13 36 C6 3D B6 3F 3D 3A D1 6A
+				2E 42 3F 27 18 13 F6 70 C6 1B 6E AF 48 3A 00 40 4A 78 00 40 9D 28 3E 3F 57 2C FC 39 02 59 4E 65
+				AC 27 41 48 B1 43 F0 39 3E 69 44 41 36 F2 29 A5 62 10 2D 69 B7 CE 28 CE 00 40 0F 6D 00 40 7C 25
+				EC 3B 2D 2E E0 47 AA 64 AD 6E 62 20 FF 3D 1A 51 61 39 10 66 CE 3F 9C ED 45 A4 64 0E 47 6B AD D1
+				E1 D8 00 40 B4 5E 00 40 E0 25 13 32 47 39 86 45 E4 65 F6 6B 57 27 92 31 7B 57 F3 38 CD 63 D4 3E
+				CC EB 14 A4 9F 0D 52 67 84 DA A4 E2 00 40 85 65 00 40 34 33 AD 2B 50 48 7A 46 75 62 E8 62 4C 42
+				B1 2B B9 54 CA 38 1E 63 7E 3E CC EB 14 A4 9F 0D 84 66 74 DC 2A E5 00 40 3C 6E 00 40 3A 37 EE 2E
+				00 40 DD 41 5C 5B 94 61 AE 3E 2E 30 42 4D AC 38 AA 62 42 3E CC EB 14 A4 9F 0D 44 69 2B D9 BC E4
+				00 40 E3 70 00 40 F0 38 5B 2B 04 42 C3 3F 46 4C A9 57 0D 41 D9 2D 87 4C 96 38 1B 62 14 3E CD EB
+				15 A4 9F 0D 26 6B E2 D6 04 E4 00 40 67 70 00 40 DC 40 6F 2B D6 47 C1 41 86 31 33 37 AD 52 A2 28
+				60 46 B5 38 22 61 DD 3D 87 ED 24 A5 EC 0D C6 6A 96 D6 D2 E7 00 40 D9 5A 00 40 D9 58 39 2B 34 51
+				55 45 FB 1C 90 1E 03 71 53 1D 12 40 3D 39 F9 5C 06 3D C8 F0 A2 A5 04 0F 06 69 91 D4 2B E6 00 40
+				00 40 00 40 B5 40 A3 1B 13 64 02 4A 1B 16 97 0E 29 69 E8 0A 03 4E F0 39 24 56 FE 39 F0 12 E5 1C
+				71 63 FA 52 58 DF 18 D8 00 40 5B 6C 00 40 9D 41 03 24 E1 58 43 4C 63 18 9F 1C DF 57 33 10 AC 49
+				0F 3A 14 55 A6 39 EF 12 E6 1C 70 63 7A 59 04 CA 2B DC 00 40 00 40 00 40 AF 37 8E 26 A9 4E 43 49
+				82 1D B8 1E 76 49 22 18 19 4A 11 3A C8 55 08 3A F0 12 E6 1C 71 63 2D 58 04 C8 1C E3 00 40 00 40
+				00 40 F8 38 20 2B AF 47 C9 47 4F 21 AD 22 81 45 A6 20 56 4A 12 3A 94 56 79 3A F0 12 E5 1C 72 63
+				52 57 DE C6 EB E5 00 40 00 40 00 40 67 36 9E 2C 9E 46 9E 45 73 28 14 23 EB 41 F6 29 30 4E 12 3A
+				BC 56 90 3A C1 12 9C 1C 96 63 AA 56 CE C6 D7 E5 00 40 00 40 00 40 40 41 74 32 83 41 4F 4B 99 2B
+				23 30 BE 45 A1 30 97 45 12 3A CB 56 99 3A 51 12 DF 1B F4 63 BC 56 0E C7 37 E6 00 40 00 40 00 40
+				B1 43 0E 34 73 3C 6B 43 35 37 B2 3A A3 44 A9 37 3B 3F 2F 3A 35 56 CD 39 D1 11 DB 1A 76 64 F3 52
+				91 CD 5A E8 00 40 3C 4D 00 40 3B 4F 30 38 E6 3D DB 4C 64 35 8E 3E 10 4F 4C 36 FB 35 62 3A 18 55
+				5E 38 6A 11 C2 19 07 65 C8 4E AF D2 12 EA 00 40 E4 56 00 40 29 4D 4E 3C DD 35 B2 42 9E 3B 2C 48
+				07 48 A0 3C 86 33 7A 3A 7A 54 9D 37 3C 11 C2 18 99 65 95 4C 45 D6 5F ED 00 40 4F 60 00 40 98 49
+				25 3F B3 31 54 44 64 44 29 55 CB 42 F9 3F BF 34 B3 3A 02 57 0A 39 65 11 0C 18 20 66 54 48 1F DC
+				A6 EF 00 40 1F 78 00 40 AA 3B 9E 40 2C 2D 00 40 08 56 E0 62 B2 37 A1 44 E9 3E FC 3A C9 5C CD 3C
+				9E 14 A7 16 86 65 E4 48 DB D9 7E EB 00 C0 34 0B 00 C0 EF 35 1E 47 EC 27 E9 4A ED 5C 71 6A 23 35
+				29 47 37 3C E6 3A 45 63 F6 41 F0 1B 48 14 C0 63 D6 52 9A C6 57 E2 00 C0 70 73 00 40 35 30 76 42
+				73 27 19 4A 38 5B 03 6E 43 2D 00 45 CD 41 7A 3A 42 68 C4 46 48 24 3C 12 52 62 60 5F 8D BE 9D D6
+				00 40 FD 7F 00 40 E7 34 9D 3C A8 32 1A 4C EE 57 38 65 8A 35 78 3B CA 43 35 3A 33 6A E2 48 72 29
+				E9 11 87 62 25 61 8C C1 57 D2 00 40 8F 76 00 40 1B 38 10 3A 08 34 E5 44 DC 4D B3 5D C0 36 9A 3A
+				5A 42 3C 3A 01 6A 86 48 04 2B F2 12 F0 63 40 60 F5 C5 C6 D1 00 40 4E 6F 00 40 7E 3E A5 38 81 3B
+				44 48 10 41 DF 4B B4 41 64 38 25 41 4D 3A 79 69 93 47 C4 2B 03 14 5E 65 E4 60 AD C5 37 CF 00 40
+				9A 65 00 40 F9 45 49 34 B9 3F C1 47 12 3A B6 41 8F 43 EF 33 FC 42 61 3A B5 68 41 46 16 2C 1A 15
+				C6 66 D6 61 82 C5 64 CB 00 40 91 61 00 40 61 4A 7C 34 66 41 8F 47 D5 32 AD 3B 06 4A 0E 33 75 3F
+				73 3A CB 67 C1 44 5E 2C 3B 16 1F 68 70 62 64 C6 67 C6 00 40 DF 5F 00 40 40 4A 34 34 49 40 AF 47
+				7B 33 33 3B E8 49 39 33 BA 3E 7F 3A D9 66 46 43 02 2D 67 17 5D 69 42 1D E6 B7 40 3F 00 40 57 60
+				00 40 C2 44 98 36 88 3E C7 44 8F 37 49 3F 2B 44 C6 36 1F 3F 85 3A FF 65 02 42 63 2E 9C 18 71 6A
+				20 1D E0 B6 01 45 00 40 6A 60 00 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 190
+			m_nLocalElementMasks = 3968
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 48 00 49 00 4A 00 4B 00 4C 00 4D 00 4E 00 B5 13 FF 47 18 2A A4 46 D3 4B
+				6B 63 CE EE 5E 28 F9 56 B3 3F 1E 35 D7 32 CA 3F D6 2F 53 2A 12 40 D4 3F 89 3F 1E 43 78 A0 2C F1
+				68 10 4E 4A 81 2D A4 46 D3 4B 6B 63 6F AF EA D7 63 7B C1 3F 6D 3A E2 41 7A 3F 6B 09 B4 3C 12 40
+				D4 3F 89 3F 5F 5A 43 A5 89 D1 46 11 3A 50 AA 2D A4 46 D3 4B 6B 63 34 B6 67 D5 33 74 BD 3F 4F 39
+				FF 3E 89 3F 08 1A 51 20 12 40 D4 3F 89 3F 72 44 CF 9C BC ED BA 1B 42 53 CF 2E A4 46 D3 4B 6B 63
+				AB B8 2A D4 DA 70 BC 3F B7 38 5F 3D A8 3F 4F 21 E8 21 12 40 D4 3F 89 3F D0 43 DD 90 5C F1 69 2A
+				9F 50 E7 33 A4 46 D3 4B 6B 63 08 B9 4B D4 5F 6D BE 3F 93 38 F3 3D C3 3F 18 24 92 2A 12 40 D4 3F
+				89 3F 18 EC 8F 8D AE C5 AC 36 10 47 A4 37 A4 46 D3 4B 6B 63 D7 B9 F3 D1 01 6B BF 3F AE 37 64 3D
+				CE 3F 9D 23 2B 2D 12 40 D4 3F 89 3F EA EA 86 92 67 C5 AF 3B E3 41 7D 38 A4 46 D3 4B 6B 63 AE BD
+				1A CB 54 6D BF 3F E2 36 48 3A D1 3F 25 22 48 2A 12 40 D4 3F 89 3F 3D F0 67 97 BB C5 56 3E D4 40
+				4A 37 A4 46 D3 4B 6B 63 28 C6 52 C1 69 91 BE 3F B3 3A 14 36 C3 3F 85 1F 2B 1D 12 40 D4 3F 89 3F
+				AF 24 59 48 29 0E 99 3F BA 41 12 36 A4 46 D3 4B 6B 63 18 CE 98 C7 4A 92 BF 3F 85 3D E9 33 BF 3F
+				95 21 B6 12 12 40 D4 3F 89 3F 64 2C 52 46 B5 1D CD 34 98 61 89 31 A4 46 D3 4B 6B 63 15 D3 71 B9
+				1C 92 C0 3F 8A 35 CD 37 D4 3F 6A 20 46 1F 12 40 D4 3F 89 3F FA 0A C8 49 71 18 7A 44 EA 66 D5 35
+				A4 46 D3 4B 6B 63 3C C0 02 DC 3A 62 BF 3F 72 20 4F 55 E8 3F 99 1C 64 3B 12 40 D4 3F 89 3F 43 4A
+				E5 90 EF F1 9D 1D 40 27 55 27 A4 46 D3 4B 6B 63 62 98 40 6C 07 B6 E2 3F 37 75 19 42 FB 3F D3 4A
+				DC 40 12 40 D4 3F 89 3F AB F5 E2 9E 9F B6 6A 0D 6D 3B AB 37 A4 46 D3 4B 6B 63 77 9E FA 45 89 C4
+				4B 93 5E 6E E8 3F 22 40 47 5A 6B 4A 12 40 D4 3F 89 3F 9D 67 B6 EE 73 39 7A 08 FB 3A B1 37 A4 46
+				D3 4B 6B 63 F8 A9 CD 25 A9 D3 D3 3F 39 20 9F 70 00 40 69 3D 08 5A 12 40 D4 3F 89 3F 2F F7 CC 68
+				71 42 69 06 96 3A E6 37 A4 46 D3 4B 6B 63 7F C4 34 9C 90 39 C3 3F EC 37 93 24 D5 3F FF 2E 91 15
+				12 40 D4 3F 89 3F E2 D4 15 EC 38 36 A4 06 FB 39 FF 38 A4 46 D3 4B 6B 63 28 D7 C1 9A C3 10 C4 3F
+				C4 3E BC 37 DA 3F F3 38 D0 13 12 40 D4 3F 89 3F 4E D1 37 F1 E0 4B D7 06 40 39 8F 39 A4 46 D3 4B
+				6B 63 D6 E3 05 56 B6 A6 C2 3F AD 46 B1 4B FF F2 20 C0 8B 2A 12 40 D4 3F 89 3F 09 6A 40 21 8C 37
+				C0 07 62 33 DF 36 A4 46 D3 4B 6B 63 95 CC A6 58 E6 AE C0 3F D4 42 9D 4F 53 F6 20 C0 41 1F 12 40
+				D4 3F 89 3F EB 23 56 B2 5D 72 68 08 C3 2E 1C 36 A4 46 D3 4B 6B 63 41 C7 68 59 AE B0 C0 3F 0D 43
+				7E 4C 34 EF 21 C0 C4 11 12 40 D4 3F 89 3F DD 2B 0B AC F2 63 8B 01 9A 31 68 37 A4 46 D3 4B 6B 63
+				F1 C7 A4 2C 2D 51 C0 3F 17 40 31 4D 52 F0 A1 73 18 C0 12 40 D4 3F 89 3F 47 38 66 B1 CF 54 D8 38
+				71 AE 94 F5 A4 46 D3 4B 6B 63 BE EA 50 3A 15 4D BF 3F 8C 13 49 4E EC 3F 27 0A D9 39 12 40 D4 3F
+				89 3F 29 37 F8 D5 EB D5 60 3E 93 99 00 F3 A4 46 D3 4B 6B 63 BC FA 9F 42 3B 48 C2 3F CD 05 20 35
+				DC 3F D2 23 C9 27 12 40 D4 3F 89 3F A9 2C 0F C8 23 E8 C8 12 6F 3A C1 08 A4 46 D3 4B 6B 63 70 FD
+				1B 40 D4 49 BF 3F 5C 04 DE 2C D9 3F 6F 2B AD 24 12 40 D4 3F 89 3F A0 2B 71 C1 0E E6 83 1C 0D 3C
+				8B 0A A4 46 D3 4B 6B 63 50 FB E0 31 C2 50 BA 3F EF 04 3F 21 D5 3F 91 2F 95 21 12 40 D4 3F 89 3F
+				58 27 34 C3 01 E8 71 18 C1 3D 4E 0E A4 46 D3 4B 6B 63 B3 F4 68 2A 95 56 B8 3F 39 24 93 0E D8 3F
+				06 38 7A 1C 12 40 D4 3F 89 3F 2B 0A 92 1C B0 31 AD 12 89 3C AE 12 A4 46 D3 4B 6B 63 59 E3 E0 B3
+				8E 89 BB 3F 83 2B 1E 25 CA 3F 10 2B E4 0F 12 40 D4 3F 89 3F BA 20 12 16 F9 2E CC 0F 6C 3F 90 17
+				A4 46 D3 4B 6B 63 F1 8B 7E 66 4A AC BC 3F 01 2C FD 1A D0 3F 05 30 1D 14 12 40 D4 3F 89 3F D0 19
+				D4 0B C8 37 E7 0F 2C 43 75 1B A4 46 D3 4B 6B 63 F8 EE F5 24 57 55 BD 3F 1B 3B E9 36 C3 3F 10 2F
+				22 0A 12 40 D4 3F 89 3F 77 0F D5 0E 6A 2B BB 10 E7 45 5E 20 A4 46 D3 4B 6B 63 83 F2 37 2E 70 51
+				BE 3F 7D 3A 8F 3D E1 3F 0A 3E D9 27 12 40 D4 3F 89 3F 72 2D 73 91 10 EE 3D 12 24 47 7F 25 A4 46
+				D3 4B 6B 63 47 F3 98 28 0C 53 C1 3F CF 3A 3F 41 B2 3F F3 24 89 31 12 40 D4 3F 89 3F FF 4C 62 98
+				7E E5 B5 13 FF 47 18 2A A4 46 D3 4B 6B 63 CE EE 5E 28 F9 56 B3 3F 1E 35 D7 32 CA 3F D6 2F 53 2A
+				12 40 D4 3F 89 3F 1E 43 78 A0 2C F1 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 221
+			m_nLocalElementMasks = 30720
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 4F 00 50 00 51 00 52 00 53 00 54 00 55 00 2C 4A 5D 49 C6 59 43 49 06 39
+				57 48 DF 99 6E 6C E3 1B A3 41 07 47 E6 36 00 40 00 40 00 40 A1 DF F4 74 83 64 58 3E CB 3C F6 43
+				06 4A 0D 48 A9 57 84 42 97 28 73 47 DF 99 6E 6C E3 1B A3 41 07 47 E6 36 95 40 FF 3F 7A 40 A1 DF
+				F4 74 83 64 58 3E CB 3C F6 43 C6 49 D1 46 A4 55 3B 3E E8 19 DB 45 DF 99 6E 6C E3 1B A3 41 07 47
+				E6 36 3F 41 FE 3F 05 41 A1 DF F4 74 83 64 58 3E CB 3C F6 43 7A 49 80 45 9A 53 4C 40 D9 19 0A 42
+				DF 99 6E 6C E3 1B A3 41 07 47 E6 36 DD 41 00 40 88 41 A1 DF F4 74 83 64 58 3E CB 3C F6 43 29 49
+				E6 43 69 51 7B 41 D3 25 A6 3E DF 99 6E 6C E3 1B A3 41 07 47 E6 36 54 42 01 40 E9 41 A1 DF F4 74
+				83 64 58 3E CB 3C F6 43 D5 48 CC 41 F6 4E 70 40 2E 2C 6C 3D 07 9B E5 69 3D 1B DE 3E 48 49 1C 37
+				82 42 02 40 0F 42 77 E2 AF 70 BA 6C 7B 41 B7 3B D3 4D 67 49 F4 3C 48 4B D5 3F 23 2A 30 3C 08 9B
+				E5 69 3D 1B DE 3E 48 49 1C 37 82 42 01 40 0F 42 77 E2 AF 70 BA 6C 7B 41 B7 3B D3 4D 61 4A 3E 36
+				9E 47 2D 3F 58 29 1B 3B 08 9B E5 69 3D 1B DE 3E 48 49 1C 37 82 42 00 40 0F 42 77 E2 AF 70 BA 6C
+				7B 41 B7 3B D3 4D BF 4A D4 32 27 46 D2 3E 97 29 8B 3A 08 9B E5 69 3D 1B DE 3E 48 49 1C 37 81 42
+				1F 40 10 42 77 E2 AF 70 BA 6C 7B 41 B7 3B D3 4D 15 4B 62 35 1F 47 39 40 7A 29 C4 3A 08 9B E5 69
+				3D 1B DE 3E 48 49 1C 37 7C 41 E6 63 E2 42 77 E2 AF 70 BA 6C 7B 41 B7 3B D3 4D ED 4C 3D 39 65 4A
+				26 46 04 29 BC 3B 08 9B E5 69 3D 1B DE 3E 48 49 1C 37 F1 40 4E 6C 68 41 77 E2 AF 70 BA 6C 7B 41
+				B7 3B D3 4D F9 4B 65 45 AC 4E 8F 4B 64 28 C1 3C 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 91 6F
+				5F 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 D2 4B C8 46 A7 4F 28 4D 14 27 C0 3C 87 9F DD 57 6D 20
+				BD 33 EA 5C 4A 3C E6 40 92 6F 5E 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 34 4C C7 44 A2 4F 14 4D
+				5A 26 A8 3C 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 92 6F 5F 40 B2 D6 8D 4B C9 74 71 61 0A 57
+				E4 51 A0 4C 7E 42 94 4F C2 4C 31 26 87 3C 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 91 6F 5F 40
+				B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 AF 4C 2C 42 94 4F BA 4C E6 25 85 3C 87 9F DD 57 6D 20 BD 33
+				EA 5C 4A 3C E6 40 92 6F 5F 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 BE 4C DE 41 92 4F BB 4C EF 25
+				80 3C 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 92 6F 5F 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51
+				02 4D 92 40 F4 4E CD 4C FA 27 FA 3C 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 93 6F 5F 40 B2 D6
+				8D 4B C9 74 71 61 0A 57 E4 51 5E 4D B4 3E DE 4D FD 4C EE 2B F6 3D 87 9F DD 57 6D 20 BD 33 EA 5C
+				4A 3C E6 40 93 6F 5F 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 88 4D BC 3D 4C 4D 3F 4D F9 2F D4 3E
+				87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 92 6F 5F 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 3F 4D
+				37 3F 2D 4E 96 4C FE 31 D4 40 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C E6 40 8C 6F 5F 40 B2 D6 8D 4B
+				C9 74 71 61 0A 57 E4 51 71 4C A3 42 66 50 CC 4A AF 35 2E 44 87 9F DD 57 6D 20 BD 33 EA 5C 4A 3C
+				12 41 C8 68 7D 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 41 4B 9A 46 55 53 1D 49 EA 3C CC 46 87 9F
+				DD 57 6D 20 BD 33 EA 5C 4A 3C 3B 41 DC 58 96 40 B2 D6 8D 4B C9 74 71 61 0A 57 E4 51 12 4A C4 49
+				1D 56 90 48 04 44 1D 48 82 9F F6 57 62 20 C8 33 D0 5C 43 3C 17 41 02 48 73 40 B2 D6 A8 4B CB 74
+				66 61 F5 56 DF 51 8B 49 00 4B AE 57 AB 48 91 47 2F 48 31 16 45 71 FA 1C 90 42 17 39 20 34 D4 40
+				34 40 46 40 26 D5 AF 6C 70 73 F3 50 A8 39 49 4A 9A 49 DF 4A 37 58 A9 48 66 47 93 47 31 16 45 71
+				FA 1C 90 42 17 39 20 34 A6 40 24 40 34 40 26 D5 AF 6C 70 73 F3 50 A8 39 49 4A B1 49 A4 4A 9E 58
+				84 48 9D 45 51 47 31 16 45 71 FA 1C 90 42 17 39 20 34 80 40 19 40 27 40 26 D5 AF 6C 70 73 F3 50
+				A8 39 49 4A CE 49 57 4A EE 58 68 48 C1 42 5F 47 31 16 45 71 FA 1C 90 42 17 39 20 34 5F 40 12 40
+				1C 40 26 D5 AF 6C 70 73 F3 50 A8 39 49 4A ED 49 01 4A 33 59 79 48 56 3F AA 47 31 16 45 71 FA 1C
+				90 42 17 39 20 34 40 40 0C 40 13 40 26 D5 AF 6C 70 73 F3 50 A8 39 49 4A 0E 4A AA 49 77 59 C9 48
+				E6 3B 0D 48 35 16 4C 71 F8 1C 8F 42 22 39 22 34 21 40 07 40 0A 40 2E D5 B6 6C 65 73 E5 50 AA 39
+				44 4A 2C 4A 5D 49 C6 59 43 49 06 39 57 48 DF 99 6E 6C E3 1B A3 41 07 47 E6 36 00 40 00 40 00 40
+				A1 DF F4 74 83 64 58 3E CB 3C F6 43 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 252
+			m_nLocalElementMasks = 491520
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 56 00 57 00 58 00 59 00 5A 00 5B 00 5C 00 00 C0 30 01 00 C0 61 32 75 3E
+				2C 42 00 40 00 40 00 40 00 40 00 40 00 40 4B 49 AA 34 D0 42 4D 4A 23 34 55 42 4D 4A 23 34 55 42
+				C7 3F FD 7D CE 3F E8 32 01 3B 8B 41 0E 40 90 3B EF 3F 00 40 00 40 00 40 3B 3C CD 35 4D 45 93 4B
+				ED 31 42 42 93 4B ED 31 42 42 7D 3F 0A 7C 94 3F 90 33 7D 37 EA 40 1F 40 F7 38 D9 3F 00 40 00 40
+				00 40 1D 39 0B 3B 32 49 EA 4A E4 2F DC 40 EA 4A E4 2F DC 40 0B BF 2B 7E 07 3F C5 34 EC 32 1B 40
+				55 40 1D 4D 9D 3F 00 40 00 40 00 40 A2 32 39 4B 11 58 9D 4C 98 31 6F 45 9D 4C 98 31 6F 45 3A BE
+				F0 75 95 3E 52 36 28 30 93 3F B3 40 AA 60 3F 3F 00 40 00 40 00 40 F7 34 A4 61 C7 5B DE 4C 55 34
+				92 46 DE 4C 55 34 92 46 42 BD 5E 71 11 3E 00 38 7A 30 65 3F 10 41 6A 5F DE 3E 00 40 00 40 00 40
+				F0 2E B4 63 E0 55 BB 4D 99 35 CD 46 BB 4D 99 35 CD 46 1A BC 16 6D 90 3D EF 39 1D 31 2E 3F 76 41
+				06 5C 72 3E 00 40 00 40 00 40 43 2F 22 5E 80 4D F3 4B 56 38 AF 44 F3 4B 56 38 AF 44 1D BB E0 69
+				36 3D 0A 3C BC 31 E7 3E DE 41 F4 56 07 3E 00 40 00 40 00 40 6B 32 79 58 03 4D 2F 4C 99 36 F1 45
+				2F 4C 99 36 F1 45 B2 BA 9E 68 15 3D 33 3E F1 31 91 3E 3B 42 A8 50 A7 3D 00 40 00 40 00 40 E8 36
+				84 44 90 4B 25 4E 09 37 BB 46 25 4E 09 37 BB 46 B2 BA 9E 68 15 3D 0D 40 6F 20 6E 3E 3F 42 21 3D
+				A1 3D 00 40 00 40 00 40 17 4A BB 2D ED 3E 19 4E 9D 3B 7D 47 19 4E 9D 3B 7D 47 B2 BA 9E 68 15 3D
+				48 41 27 10 58 3F 27 42 F4 2C CB 3D 00 40 00 40 00 40 61 59 06 1F 2A 2D 77 4A D1 3D D4 45 77 4A
+				D1 3D D4 45 AE BA 1F 68 1D 3D B8 43 BE 17 60 3F A6 42 5B 2E 86 3D 00 40 00 40 00 40 7A 65 EF 24
+				B7 1D EF 4A E8 46 0C 4A EF 4A E8 46 0C 4A A4 BA 08 67 30 3D 77 47 70 29 D1 3D 44 43 76 31 34 3D
+				00 40 00 40 00 40 34 65 A0 2A 2D 2A AA 48 77 46 38 47 AA 48 77 46 38 47 9A BA EF 65 42 3D F3 4A
+				0A 3C 11 3B EA 43 96 34 C6 3C 00 40 00 40 00 40 9E 60 9B 2E 56 2C 4C 49 03 47 00 47 4C 49 03 47
+				00 47 96 BA 6E 65 4B 3D 70 4C 7E 44 20 39 7C 44 FA 35 34 3C 00 40 00 40 00 40 13 60 B7 2F 51 31
+				67 49 A0 44 93 47 67 49 A0 44 93 47 96 BA 6E 65 4B 3D 7B 4C 5E 44 37 38 B0 44 C6 35 F7 38 00 40
+				00 40 00 40 A5 58 35 34 C7 32 31 4C 75 45 BA 49 31 4C 75 45 BA 49 96 BA 6E 65 4B 3D 87 4C 3B 44
+				3C 37 89 44 60 35 AD 32 00 40 00 40 00 40 C7 56 88 3E 19 3F 84 4A 0A 45 CE 48 84 4A 0A 45 CE 48
+				96 BA 6E 65 4B 3D 90 4C 1F 44 75 36 61 44 F5 34 9F 2C 00 40 00 40 00 40 4E 48 4C 43 D7 45 F8 4B
+				A9 44 B5 49 F8 4B A9 44 B5 49 96 BA 6E 65 4B 3D 94 4C 12 44 24 36 9C 44 AE 34 FC 29 00 40 00 40
+				00 40 C9 48 27 4B C9 48 FF 47 4E 48 AE 48 FF 47 4E 48 AE 48 6F BB 2E 68 85 3D 33 4C 82 40 91 38
+				94 45 B9 34 1B 2D 00 40 00 40 00 40 51 44 A9 4B 22 4F A2 47 EB 45 89 4A A2 47 EB 45 89 4A 38 BD
+				12 6E 37 3E DA 4B 9F 38 F9 3D 06 47 1B 35 FA 33 00 40 00 40 00 40 78 3C D3 4F CD 56 7C 47 F2 42
+				7A 4A 7C 47 F2 42 7A 4A DC BE AC 73 25 3F 2A 4C D3 30 4E 43 6A 48 A4 35 DF 3A 00 40 00 40 00 40
+				F2 29 E0 53 79 5B 2D 4C 86 3E C6 46 2D 4C 86 3E C6 46 8F BF 21 76 A5 3F 86 4C 50 2D B0 45 54 49
+				EE 35 0F 3E 00 40 00 40 00 40 F9 2D 32 5A 48 5B 2D 4B 31 39 62 42 2D 4B 31 39 62 42 8D BF 15 75
+				A7 3F 86 4C AB 2D A5 45 FD 49 B5 36 09 3E 00 40 00 40 00 40 3A 2E A6 58 E7 5A 74 4D 36 30 FF 3E
+				74 4D 36 30 FF 3E 8B BF C4 72 AA 3F 84 4C 99 2E 87 45 BB 4A 87 38 E0 3D 00 40 00 40 00 40 04 33
+				E4 51 0F 51 BA 4D D2 2F D7 3A BA 4D D2 2F D7 3A 88 BF 65 70 AE 3F 81 4C F0 2F 5B 45 59 4B A2 3A
+				A4 3D 00 40 00 40 00 40 48 3A 73 46 41 4C 41 4E 24 2E 51 3C 41 4E 24 2E 51 3C 87 BF 4F 6F B0 3F
+				7A 4C 81 31 26 45 9F 4B 3E 3C 71 3D 00 40 00 40 00 40 CF 47 43 3A 1B 47 B9 4C AF 30 BC 3E B9 4C
+				AF 30 BC 3E 96 BF 1F 71 B6 3F A8 49 BD 33 5F 44 65 4A 4E 3D 99 3D 00 40 00 40 00 40 35 4A B9 34
+				96 43 5E 4D E8 30 AD 3E 5E 4D E8 30 AD 3E B9 BF 6C 75 C8 3F BD 42 02 37 20 43 52 47 49 3E 3E 3E
+				00 40 00 40 00 40 4D 4F 06 2F AF 3F 69 4B EA 30 E3 3F 69 4B EA 30 E3 3F E1 BF 80 7A E3 3F 1C 3A
+				D3 3A 47 42 7A 43 2B 3F 23 3F 00 40 00 40 00 40 E4 4E 5B 30 C9 40 32 4C 13 32 43 41 32 4C 13 32
+				43 41 00 C0 30 01 00 C0 61 32 75 3E 2C 42 00 40 00 40 00 40 00 40 00 40 00 40 4B 49 AA 34 D0 42
+				4D 4A 23 34 55 42 4D 4A 23 34 55 42 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 283
+			m_nLocalElementMasks = 7864320
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 5D 00 5E 00 5F 00 60 00 61 00 62 00 63 00 8E 4A FF 1D A7 3F 28 4A D5 34
+				28 42 BE E1 E9 69 0F 6D 65 50 FD AC 93 E0 00 40 91 56 00 40 0D 25 D2 61 4B 59 58 44 C0 55 E6 5D
+				C5 4B FA 1B 43 3F B7 45 55 39 DA 37 B5 D8 63 6D F3 73 10 4C 69 AE 23 DA 00 40 BF 5C 00 40 15 1B
+				04 58 83 4D A1 46 72 54 82 57 C7 4A 11 1A 13 3E E3 45 17 3F B2 34 BB 71 7A D3 C4 6F 7B 49 CA AD
+				3C D4 00 40 9A 59 00 40 BE 17 DC 50 DB 47 05 49 59 55 E7 52 94 4D BE 1B 11 42 D4 3B 86 57 C3 2A
+				85 73 F1 D3 C8 71 99 51 69 B4 C7 D9 00 40 E3 59 00 40 60 1D 41 4B CA 42 79 4D DD 5C 15 52 1C 4E
+				51 1E 1A 43 E8 3E 89 45 B3 12 23 D6 19 73 7A 6D 42 54 BF C3 BB EB 00 40 F2 64 00 40 B9 1D 6C 45
+				B8 3C 5E 4F E9 66 BB 52 01 4F 89 1F 1B 43 8A C5 41 57 25 13 21 D8 A4 73 E7 67 B7 4C AD C8 F2 F9
+				00 40 D3 67 00 40 3A 19 AA 45 85 3A 94 4F 0A 6A 5F 53 BE 4C 05 22 82 41 D9 5C 59 17 8F 6D B8 D8
+				3F 74 2C 64 AD 41 08 CC 27 FE 00 40 56 6B 00 40 56 1A 52 45 4B 36 29 4E 8D 6D 41 55 4A 4D 67 20
+				AB 42 9D 48 A4 08 09 68 24 D9 9D 74 DF 60 B7 01 47 38 1A 4D 00 40 EA 6A 00 40 27 1C 69 46 B4 30
+				DF 4C 55 70 B9 56 63 4F E7 20 EF 42 8D 32 24 3C B4 2B 0E DB B5 73 0F 5D 75 02 AF 32 77 4B 00 40
+				E4 68 00 40 F4 1D 2C 47 40 2E 27 4C 71 71 1D 57 89 4F 42 25 AE 43 3D 46 87 23 BF 37 AC EF 9C 69
+				A9 5C A6 34 E8 C4 AD F7 00 40 26 7E 00 40 92 1E BD 45 D6 37 E0 4A C4 6B 74 5B 99 4B 36 27 FE 42
+				21 4F E5 12 07 4D C3 DC 1B DB 61 6E 87 42 92 BE EE F0 00 C0 EB 6C 00 40 16 15 2D 4E 5C 3A 11 51
+				4E 51 44 66 1E 4D 2E 30 F5 46 EB 2D 84 0C FB 43 19 DA 85 D4 70 76 B2 4F C0 A9 77 F5 00 40 79 7E
+				00 40 9C 1F 21 56 E3 3B 57 44 60 50 4D 70 36 4A 9D 2F CB 44 06 33 C0 25 7D 3F 29 D6 EB CF FF 78
+				84 4E D2 AE 42 F8 00 C0 A6 76 00 40 8B 29 3D 51 B4 43 92 3E 98 55 7F 71 C4 4A 2A 30 6C 44 42 30
+				D0 31 15 32 2E D2 EF CB DB 7A 13 4F 71 B0 C7 F8 00 C0 B3 09 00 C0 B5 2D CB 52 F8 4E D0 3B 66 59
+				DD 71 03 4B D5 2D F4 44 4B 34 B9 38 AE 32 5B D0 3E CA 8A 7B D9 4E DC B0 67 F9 00 C0 6A 09 00 C0
+				72 2D A4 52 9D 51 35 3A 8D 5B 02 72 41 4E C9 2E 54 46 03 39 C6 36 0A 35 5B D0 3E CA 8A 7B E2 4E
+				18 B2 34 FA 00 C0 61 09 00 C0 C7 2D 40 53 9D 51 84 39 64 5C 1A 72 66 4C 4C 2E DC 45 C2 44 6E 3E
+				4E 42 5B D0 3E CA 8A 7B 51 4F 12 B3 68 FA 00 C0 CA 76 00 40 8B 2E 3A 53 88 52 26 39 AF 5C 3A 72
+				09 4E FE 2D 5D 46 1F 49 B4 44 5C 45 5B D0 3E CA 8A 7B DC 4F 0C B4 10 FB 00 C0 83 0A 00 C0 30 2F
+				25 51 85 52 B6 39 68 5C 7C 72 EE 49 73 31 60 46 41 51 48 43 35 52 5B D0 3E CA 8A 7B 8A 50 9E B4
+				03 FC 00 C0 EF 0C 00 C0 2B 2F 8B 4D 79 51 06 3B D7 5B D7 72 0C 4A 23 2F 43 48 47 4B A3 4F F6 4F
+				5B D0 3E CA 8A 7B DE 51 41 B3 57 FB 00 C0 85 0D 00 C0 FC 2B 20 4B 75 50 1D 3C 07 5B F5 72 E4 49
+				37 2C 3E 48 C7 4A 6B 55 B1 4C 68 D0 45 CA 86 7B E9 55 74 AA C0 F3 00 C0 62 07 00 C0 F4 20 C1 4A
+				DF 50 FB 3C D6 58 87 72 7E 4D F7 27 79 43 25 46 54 5D DB 39 07 E1 AC D3 B7 73 36 5E A5 AD 7A E9
+				00 40 BC 79 00 40 95 14 0A 50 5A 50 2C 3E 39 55 50 72 6A 4B C7 22 7C 3F 22 48 63 61 0D 33 53 F1
+				DE D9 E4 69 D9 5D 60 B7 1B E3 00 40 60 6C 00 40 FD 0D 51 55 3A 53 14 3F 52 53 30 73 C3 4C 74 1A
+				A0 3B 22 43 3A 5F 00 2F 77 F1 5F D8 B8 6A 0C 5C 29 B0 46 DE 00 40 F9 60 00 40 C1 0D FA 55 45 58
+				C5 3E F5 54 AE 74 FA 4B 24 1A 8A 37 62 4B 1A 50 11 2B 88 F1 F5 D5 69 6C B9 59 6F AF 84 DD 00 40
+				69 5F 00 40 C8 19 14 53 B2 61 CB 3D 1F 57 8F 75 DC 4C 99 18 D5 38 2E 49 67 46 AD 2A C7 F2 89 D0
+				3C 71 AF 52 E7 B1 9B DC 00 40 3E 64 00 40 B0 2A 7D 4A C0 69 AB 3D A9 57 A4 74 FD 4B DD 1A 8F 3B
+				C3 48 78 37 AA 36 BC F1 7E 73 61 4D 35 4D FC B3 FE D8 00 40 10 67 00 40 81 35 CC 45 39 6A 87 3E
+				8C 57 CD 71 99 4C 18 1B 57 3B CF 4B 7A 32 27 3E F6 EE EF 72 11 52 88 4D 90 BA E7 D6 00 40 DB 6C
+				00 40 23 39 A4 43 24 66 F9 3F 0B 57 84 6D 03 4B 07 1B 02 3D 50 4C 98 2D D9 43 C8 EA 50 71 DF 5A
+				33 4E B0 BC C0 D7 00 40 B2 6B 00 40 F0 34 08 49 C6 62 9E 41 68 56 47 68 1E 4C 21 1C 24 3E E7 4C
+				0A 2F 53 44 06 E6 F1 6D DE 64 31 4E FF B6 04 DE 00 40 EF 63 00 40 C7 2B AC 55 EC 5D 27 43 E6 55
+				C8 62 8E 4A FF 1D A7 3F 28 4A D5 34 28 42 BE E1 E9 69 0F 6D 65 50 FD AC 93 E0 00 40 91 56 00 40
+				0D 25 D2 61 4C 59 58 44 C0 55 E6 5D 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 314
+			m_nLocalElementMasks = 125829120
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 64 00 65 00 66 00 67 00 68 00 69 00 6A 00 00 40 F7 6F 00 40 DB 37 66 02
+				AA 36 52 39 58 3D 4B 39 03 3F 02 35 0E 48 96 3D 4A CE 81 76 00 40 89 4F 00 40 A4 29 28 D2 E6 BB
+				00 40 E3 78 00 40 67 BA CC 7D 5D B1 5C 39 8B 38 D8 3D 62 3D ED 22 AE 47 D3 37 33 C8 0B 76 00 40
+				37 47 00 40 CC 29 B4 D5 F9 BA 00 40 14 7C 00 40 3D BC 42 7D 9B AA E6 39 49 33 AE 42 75 3C 9F 18
+				4C 47 13 34 BF C4 76 75 00 40 2F 42 00 40 FB 29 E9 D8 22 BA 00 40 27 78 00 40 7C 26 54 06 37 3B
+				C5 3A 02 2F 39 47 7F 3C 10 19 51 47 58 33 49 C5 68 75 00 40 2F 42 00 40 2E 2A DC DB 5E B9 00 40
+				D7 6F 00 40 E6 25 56 0D AD 3A 79 3B F7 2C 07 4B 9A 3C 39 1A 5E 47 CF 32 B3 C5 5E 75 00 40 2F 42
+				00 40 61 2A 81 DE AE B8 00 40 F4 71 00 40 66 27 4B 0D EC 38 4A 3B DD 2C 57 4D BF 3C D9 1B 6F 47
+				9A 32 DD C5 5A 75 00 40 2F 42 00 40 79 2A A5 DF 62 B8 00 40 EF 6D 00 40 4E 28 C4 0F EF 38 5A 3A
+				6F 2D 5F 4E 23 3D 30 20 97 47 9A 32 DD C5 5A 75 00 40 2F 42 00 40 79 2A A6 DF 62 B8 00 40 55 6A
+				00 40 ED 28 E1 11 FA 38 24 39 96 2E B4 4E B6 3D 92 26 C9 47 9A 32 DD C5 5A 75 00 40 2F 42 00 40
+				79 2A A6 DF 62 B8 00 40 91 68 00 40 45 29 DB 12 1A 39 0D 38 65 30 20 4E 02 3E DF 29 DE 47 9D 32
+				E0 C5 59 75 00 40 33 42 00 40 78 2A 9F DF 65 B8 00 40 A4 6B 00 40 3A 2D F6 0F 6D 38 A0 36 58 36
+				6D 4D B4 3D 78 26 C8 47 EE 35 CB C9 09 74 00 40 FB 46 00 40 2E 2A B2 D7 09 BC 00 C0 EC 0A 00 C0
+				F1 AD 67 74 21 B8 DF 34 F1 40 F9 4C 62 3B B7 0C AC 46 65 3A 58 CD 15 70 00 40 C2 4B 00 40 C4 29
+				15 CE 41 C2 00 C0 9E 74 00 40 43 AC 8D 5F 2A C2 B9 33 69 4B 14 4C 1F 3D FD 1F 96 47 F4 3B F4 CC
+				73 6B 00 40 C3 4B 00 40 90 29 CC CB 9E C6 00 C0 05 08 00 C0 46 AB D7 57 A0 C3 83 33 E3 50 55 4A
+				03 3F 02 35 0E 48 A2 3C BA CC 4A 69 00 40 C2 4B 00 40 63 29 8B CA AA C8 00 C0 54 7A 00 40 AA AA
+				43 55 23 C4 78 32 55 52 D0 46 BA 3E DB 31 03 48 BE 3C D5 CC 4D 69 00 40 EA 4B 00 40 4C 29 BC C9
+				E4 C8 00 C0 19 04 00 C0 51 AA 2D 54 56 C4 04 30 E1 53 2E 42 72 3E B7 2E F7 47 FE 3C 11 CD 54 69
+				00 40 41 4C 00 40 3A 29 12 C9 14 C9 00 C0 5B 03 00 C0 22 AA D6 53 75 C4 A2 2D 5E 55 46 3E 72 3E
+				BC 2E F7 47 3D 3D 4C CD 5B 69 00 40 98 4C 00 40 2E 29 9F C8 34 C9 00 C0 0C 03 00 C0 08 AA B6 53
+				A5 C4 93 2C 11 56 A2 3C 74 3E C8 2E F7 47 5A 3D 67 CD 5F 69 00 40 BF 4C 00 40 29 29 75 C8 3F C9
+				00 C0 D2 7B 00 40 BB A9 AF 52 43 C5 A0 2C B5 52 E5 3D 75 3E D8 2E F7 47 F0 3C 6F CD 25 6A 00 40
+				98 4C 00 40 43 29 1E C9 76 C8 00 C0 91 79 00 40 3D A9 F4 50 42 C6 60 2D CF 4A 32 41 77 3E EA 2E
+				F7 47 04 3C 78 CD F9 6B 00 40 41 4C 00 40 79 29 AC CA 94 C6 00 C0 BD 77 00 40 3E A9 76 50 EE C6
+				36 2F 96 41 76 45 78 3E F9 2E F8 47 04 3B 71 CD 2B 6E 00 40 EA 4B 00 40 AA 29 89 CC 48 C4 00 C0
+				D8 75 00 40 E8 AA 28 54 20 C6 C9 30 43 3A 80 48 79 3E 03 2F F8 47 65 3A 58 CD 16 70 00 40 C3 4B
+				00 40 C4 29 16 CE 40 C2 00 C0 67 0A 00 C0 DB AD 53 5E 6E C3 5D 31 6F 34 DB 49 79 3E 04 2F F8 47
+				60 3A 4F CD 3D 71 00 40 EB 4B 00 40 CA 29 EC CE 0D C1 00 C0 53 7A 00 40 C5 B0 A3 6C 1D C0 FE 31
+				A4 2E CA 4A BB 3B 90 10 E6 46 B9 3A 65 CD D2 71 00 40 4E 4C 00 40 C9 29 44 CF 80 C0 00 40 09 7E
+				00 40 DE B2 BD 78 C5 BD 91 32 3C 2A 44 4B 88 3C 79 19 56 47 38 3B 88 CD 2E 72 00 40 C9 4C 00 40
+				C7 29 69 CF 34 C0 00 40 9E 78 00 40 98 B3 06 7E F9 BC D0 32 7F 28 65 4B 1E 3E 12 2B E4 47 A4 3B
+				A6 CD A7 72 00 40 3A 4D 00 40 C5 29 A9 CF C6 BF 00 40 06 77 00 40 9F B3 A6 7E CA BC 2A 32 83 2A
+				CF 49 03 3F 02 35 0E 48 02 3C C1 CD 64 73 00 40 A8 4D 00 40 C2 29 21 D0 0C BF 00 40 E1 75 00 40
+				FA B3 02 7F 38 BC FE 30 65 2F C3 45 03 3F 03 35 0E 48 6F 3C E3 CD 3D 74 00 40 29 4E 00 40 BC 29
+				AC D0 33 BE 00 40 DF 74 00 40 91 B4 4C 7F 55 BB 4E 30 35 35 70 40 03 3F 04 35 0E 48 DB 3C 06 CE
+				14 75 00 40 AA 4E 00 40 B5 29 37 D1 5B BD 00 40 AB 73 00 40 36 3A E2 00 49 35 68 30 E0 39 13 3B
+				03 3F 03 35 0E 48 3A 3D 28 CE CE 75 00 40 1B 4F 00 40 AD 29 B1 D1 9E BC 00 40 0D 72 00 40 FC 38
+				82 01 05 36 D8 33 11 3C 02 39 03 3F 02 35 0E 48 7D 3D 40 CE 50 76 00 40 6B 4F 00 40 A6 29 07 D2
+				18 BC 00 40 F7 6F 00 40 DB 37 66 02 AA 36 52 39 58 3D 4B 39 03 3F 02 35 0E 48 96 3D 4A CE 81 76
+				00 40 89 4F 00 40 A4 29 28 D2 E6 BB 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 345
+			m_nLocalElementMasks = 2013265920
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 2C 05 6B 00 6C 00 6D 00 6E 00 6F 00 70 00 71 00 00 40 08 48 00 40 7D 22 28 D4
+				66 78 00 40 89 4F 00 40 03 3F 02 35 0E 48 70 44 97 5B 50 41 2C 45 09 5B 7B 40 2C 45 09 5B 7B 40
+				00 40 8B 43 00 40 CA 20 F9 D2 93 77 00 40 A6 4D 00 40 03 3F 02 35 0E 48 B5 39 D4 5F 39 49 21 46
+				15 5C C7 3F 21 46 15 5C C7 3F 00 40 D9 40 00 40 48 1F 76 D2 DB 76 00 40 83 4C 00 40 03 3F 02 35
+				0E 48 B7 38 78 66 D0 4D C1 44 FB 5B C0 3E C1 44 FB 5B C0 3E 00 40 D9 40 00 40 68 1E 45 D3 93 76
+				00 40 82 4C 00 40 03 3F 02 35 0E 48 38 39 57 72 E5 5B F5 47 FC 5B 46 41 F5 47 FC 5B 46 41 00 40
+				D9 40 00 40 E8 1D 4F D4 7F 76 00 40 83 4C 00 40 03 3F 02 35 0E 48 21 DB 1A 78 08 3C E4 47 27 5B
+				30 41 E4 47 27 5B 30 41 00 40 D9 40 00 40 BF 1D D3 D4 80 76 00 40 83 4C 00 40 03 3F 02 35 0E 48
+				F8 D6 8E 78 65 33 37 48 E0 59 74 40 37 48 E0 59 74 40 00 40 D9 40 00 40 BF 1D D3 D4 80 76 00 40
+				82 4C 00 40 03 3F 02 35 0E 48 CB 2F 10 7D 1C 4F 8B 45 C6 5B C9 3E 8B 45 C6 5B C9 3E 00 40 D9 40
+				00 40 BF 1D D3 D4 80 76 00 40 82 4C 00 40 03 3F 02 35 0E 48 12 32 6A 78 8D 4D 19 46 AD 59 D9 3F
+				19 46 AD 59 D9 3F 00 40 DD 40 00 40 C1 1D D8 D4 82 76 00 40 89 4C 00 40 03 3F 02 35 0E 48 C2 34
+				EA 66 D3 4B 21 48 66 59 BB 3F 21 48 66 59 BB 3F 00 40 8B 45 00 40 AE 20 D4 DA 74 78 00 40 C2 54
+				00 40 03 3F 02 35 0E 48 6E 41 FA 4E B3 3A 89 48 C7 5C 07 40 89 48 C7 5C 07 40 00 40 39 4A 00 40
+				F1 75 6E 25 F6 61 00 40 D5 5C 00 40 03 3F 02 35 0E 48 FF 4A A5 37 FD 25 F9 44 BD 5A 5D 3F F9 44
+				BD 5A 5D 3F 00 40 39 4A 00 40 06 75 26 28 11 64 00 40 D5 5C 00 40 03 3F 02 35 0E 48 4C 55 2F 32
+				EC 12 81 47 64 5C A6 40 81 47 64 5C A6 40 00 40 39 4A 00 40 73 74 91 29 42 65 00 40 D5 5C 00 40
+				03 3F 02 35 0E 48 63 58 1F 39 3E 1E A4 44 FC 5A 43 3E A4 44 FC 5A 43 3E 00 40 90 4A 00 40 FB 73
+				FF 29 04 66 00 40 38 5D 00 40 03 3F 02 35 0E 48 5E 54 10 3F FF 20 43 45 28 5C 2A 3E 43 45 28 5C
+				2A 3E 00 40 4F 4B 00 40 94 73 5B 2A A6 66 00 40 12 5E 00 40 03 3F 02 35 0E 48 E9 54 C4 41 EA 25
+				5E 45 BB 5A 30 3F 5E 45 BB 5A 30 3F 00 40 0D 4C 00 40 4D 73 9B 2A 14 67 00 40 EA 5E 00 40 03 3F
+				02 35 0E 48 22 4E B3 47 B6 28 B1 48 85 5B 9B 40 B1 48 85 5B 9B 40 00 40 63 4C 00 40 33 73 B3 2A
+				3D 67 00 40 4C 5F 00 40 03 3F 02 35 0E 48 E5 4F 38 53 42 34 CC 46 4E 5B 2B 40 CC 46 4E 5B 2B 40
+				00 40 26 4C 00 40 67 73 0C 2A CD 66 00 40 1B 5F 00 40 03 3F 02 35 0E 48 E6 43 0A 59 3B 3D 87 48
+				27 5A 06 40 87 48 27 5A 06 40 00 40 94 4B 00 40 F9 73 8A 28 A1 65 00 40 96 5E 00 40 03 3F 02 35
+				0E 48 F5 45 51 5F 41 3E E8 44 B8 5C 7B 3E E8 44 B8 5C 7B 3E 00 40 DE 4A 00 40 D9 74 CD 26 F0 63
+				00 40 CD 5D 00 40 03 3F 02 35 0E 48 4A 43 CD 5F C4 44 DD 44 E3 59 D4 3F DD 44 E3 59 D4 3F 00 40
+				39 4A 00 40 F2 75 6D 25 F5 61 00 40 D4 5C 00 40 03 3F 02 35 0E 48 93 3E B7 66 4B 4F D8 44 A2 59
+				1E 41 D8 44 A2 59 1E 41 00 40 D3 49 00 40 F0 76 C0 24 41 60 00 40 B2 5B 00 40 03 3F 02 35 0E 48
+				18 30 DB 6E 09 5D A9 48 FD 5A 74 3F A9 48 FD 5A 74 3F 00 40 A3 49 00 40 B1 77 88 24 02 5F 00 40
+				6D 5A 00 40 03 3F 02 35 0E 48 F9 34 7C 78 5C 60 4C 46 01 5D 28 40 4C 46 01 5D 28 40 00 40 87 49
+				00 40 59 78 7D 24 EC 5D 00 40 14 59 00 40 03 3F 02 35 0E 48 68 E4 F4 79 5C 35 55 47 11 5A AB 40
+				55 47 11 5A AB 40 00 40 60 49 00 40 08 79 58 24 B9 5C 00 40 BE 57 00 40 03 3F 02 35 0E 48 4E 35
+				A6 77 51 5C 99 45 C8 5B BB 3E 99 45 C8 5B BB 3E 00 40 20 49 00 40 03 24 26 DB A0 79 00 40 39 56
+				00 40 03 3F 02 35 0E 48 5F 3A 56 6F 6A 55 EB 46 06 5A 86 3F EB 46 06 5A 86 3F 00 40 D5 48 00 40
+				9E 23 4C D9 55 79 00 40 72 54 00 40 03 3F 02 35 0E 48 FA 44 24 65 90 4A 5E 46 EB 5B 67 41 5E 46
+				EB 5B 67 41 00 40 8A 48 00 40 36 23 6E D7 03 79 00 40 A9 52 00 40 03 3F 02 35 0E 48 EB 45 01 5F
+				74 45 D7 46 1D 5B D9 3F D7 46 1D 5B D9 3F 00 40 48 48 00 40 DA 22 C8 D5 B6 78 00 40 16 51 00 40
+				03 3F 02 35 0E 48 10 49 1A 58 A2 3E 85 45 03 5A 75 40 85 45 03 5A 75 40 00 40 19 48 00 40 97 22
+				9A D4 7C 78 00 40 F6 4F 00 40 03 3F 02 35 0E 48 F8 48 38 58 74 3E A3 46 FF 59 F6 3F A3 46 FF 59
+				F6 3F 00 40 08 48 00 40 7D 22 28 D4 66 78 00 40 89 4F 00 40 03 3F 02 35 0E 48 70 44 97 5B 50 41
+				2C 45 09 5B 7B 40 2C 45 09 5B 7B 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 376
+			m_nLocalElementMasks = 3221225472
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 02 00 80 01 72 00 73 00 F2 44 B3 5B 58 40 00 40 9F 77 00 40 F4 3B 5E 62 BF 38 00 40
+				9F 77 00 40 25 3A 02 69 80 35 00 40 9F 77 00 40 9D 2C FA 79 AA 2E 00 40 9F 77 00 40 40 26 8F 62
+				EC 16 00 40 9F 77 00 40 52 AF C4 4B B1 E7 00 40 9F 77 00 40 AF 66 35 35 DD 60 00 40 9F 77 00 40
+				6F 51 A4 26 E2 64 00 40 9F 77 00 40 BB 24 E0 5B D0 30 00 40 9F 77 00 40 38 3B 05 44 58 36 00 40
+				9F 77 00 40 4B 4B 32 2E 52 48 00 40 9F 77 00 40 47 27 6C 21 EE 46 00 40 9F 77 00 40 DB 2B 6C 3B
+				3E 3E 00 40 9F 77 00 40 CE 26 54 47 8A 31 00 40 9F 77 00 40 25 2B E3 4E 27 31 00 40 9F 77 00 40
+				1E 30 30 4D 71 32 00 40 9F 77 00 40 28 3F 1B 55 BC 3B 00 40 9F 77 00 40 AB 44 48 5A 7C 3C 00 40
+				9F 77 00 40 CE 4F 1A 57 0C 46 00 40 9F 77 00 40 AA 4A BE 62 E1 43 00 40 9F 77 00 40 2F 4A 79 6A
+				94 41 00 40 9F 77 00 40 2C 40 46 76 97 33 00 40 9F 77 00 40 0A 3D 5D 7E D7 30 00 40 9F 77 00 40
+				C8 B3 9E 7D D1 33 00 40 9F 77 00 40 26 39 E9 75 BB 2F 00 40 9F 77 00 40 02 38 9F 6D D1 30 00 40
+				9F 77 00 40 8E 3E 7B 61 BF 3B 00 40 9F 77 00 40 15 45 93 5C 04 40 00 40 9F 77 00 40 4B 48 F7 56
+				C4 43 00 40 9F 77 00 40 BF 48 2A 57 91 42 00 40 9F 77 00 40 F2 44 B3 5B 58 40 00 40 9F 77 00 40
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 407
+			m_nLocalElementMasks = 2147483647
+			m_nLocalChannel = 2
+			m_container = 
+			#[
+				00 00 01 00 1F 00 C2 00 74 00 75 00 76 00 77 00 78 00 79 00 7A 00 7B 00 7C 00 7D 00 7E 00 7F 00
+				80 00 81 00 82 00 83 00 84 00 85 00 86 00 87 00 88 00 89 00 8A 00 8B 00 8C 00 8D 00 8E 00 8F 00
+				90 00 91 00 92 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+				00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+				00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+				00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+				00 00 
+			]
+		},
+	]
+}

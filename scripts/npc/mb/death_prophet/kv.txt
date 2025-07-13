@@ -1,0 +1,341 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Death Prophet: Carrion Swarm
+    // =================================================================================================================
+    "imba_death_prophet_carrion_swarm"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "death_prophet_carrion_swarm_moth"
+        "ScriptFile"               "mb/hero_death_prophet/death_prophet_carrion_swarm.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_DeathProphet.CarrionSwarm"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "8 7 6 5"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"            "75 150 225 300"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100 110 120 130"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "start_radius"      "110 110 110 110"
+            "end_radius"        "300 300 300 300"
+            "range"             "810 810 810 810"
+            "speed"             "1100 1100 1100 1100"
+            "swarm_heal_pct"    "50"
+            "swarm_count"       "3"
+        }
+    }
+    // =================================================================================================================
+    // Death Prophet: Silence
+    // =================================================================================================================
+    "imba_death_prophet_silence"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "death_prophet_silence_ti9"
+        "ScriptFile"              "mb/hero_death_prophet/death_prophet_silence.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+        "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_YES"
+        "AbilitySound"            "Hero_DeathProphet.Silence"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"        "800"
+        "AbilityCastPoint"        "0.2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "15 14 13 12"
+        "AbilityDuration"         "3 4 5 6"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "80 90 100 110"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "radius"              "450 500 550 600"
+            "duration"            "3.0 4.0 5.0 6.0"
+            "silence_heal_pct"    "20 22 24 26"
+        }
+    }
+    // =================================================================================================================
+    // Death Prophet: Spirit Siphon
+    // =================================================================================================================
+    "imba_death_prophet_spirit_siphon"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                   "ability_lua"
+        "AbilityTextureName"          "death_prophet_spirit_siphon"
+        "ScriptFile"                  "mb/hero_death_prophet/death_prophet_spirit_siphon.lua"
+        "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"           "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"        "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"             "1"
+        "AbilitySound"                "Hero_DeathProphet.SpiritSiphon.Cast"
+        "HasShardUpgrade"             "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"        "ACT_DOTA_DP_SPIRIT_SIPHON"
+        "AbilityCastGestureSlot"      "DEFAULT"
+        "AbilityCastRange"            "800"
+        "AbilityCastPoint"            "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"             "0.1"
+        "AbilityCharges"              "1 2 3 4"
+        "AbilityChargeRestoreTime"    "24 22 20 18"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"             "70"
+        "AbilityValues"
+        {
+            "damage"                 "30 40 50 60"
+            "LinkedSpecialBonus"     "special_bonus_imba_death_prophet_3"
+            "haunt_duration"         "6"
+            "movement_steal"         "10"
+            "siphon_buffer"          "300"
+            "tick_rate"              "1.0"
+            "charge_restore_time"    "24 22 20 18"
+            "max_charges"            "1 2 3 4"
+            "steal_duration"         "25"
+        }
+    }
+    // =================================================================================================================
+    // Death Prophet: Witchcraft
+    // =================================================================================================================
+    "imba_death_prophet_witchcraft"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "death_prophet_witchcraft"
+        "ScriptFile"            "mb/hero_death_prophet/death_prophet_witchcraft.lua"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"              "1"
+        "AbilityValues"
+        {
+            "bonus_movement_speed"        "3"
+            "mana_cost_adjust"            "1"
+            "swarm_heal_pct"              "2"
+            "silence_heal_pct"            "1"
+            "exorcism_1_extra_spirits"    "1"
+            "exorcism_2_extra_spirits"    "2"
+        }
+    }
+    "imba_death_prophet_exorcism"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_datadriven"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"          "2"
+        "AbilityTextureName"       "death_prophet/awakened_thirst_ult_bat_icon/death_prophet_exorcism"
+        "AbilitySound"             "Hero_DeathProphet.Exorcism.Cast"
+        "HasScepterUpgrade"        "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.5 0.5 0.5"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "60.0"
+        "AbilityDuration"          "35.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "180 200 220"
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_death_prophet/death_prophet_spirit_model.vpcf"
+            "particle"     "particles/units/heroes/hero_death_prophet/death_prophet_exorcism_attack.vpcf"
+            "particle"     "particles/units/heroes/hero_death_prophet/death_prophet_exorcism_attack_building.vpcf"
+            "particle"     "particles/units/heroes/hero_death_prophet/death_prophet_spirit_glow.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+        }
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                "Function"      "ExorcismSpell"
+            }
+        }
+        "OnProjectileHitUnit"
+        {
+            "FireSound"
+            {
+                "Target"        "TARGET"
+                "EffectName"    "SeasonalConsumable.TI9.Shovel.GhostAttack"
+            }
+            "RunScript"
+            {
+                "Target"        "TARGET"
+                "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                "Function"      "ExorcismProjectile"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_imba_death_prophet_exorcism"
+            {
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismStart"
+                    }
+                    "FireSound"
+                    {
+                        "EffectName"    "Hero_DeathProphet.Exorcism"
+                        "Target"        "CASTER"
+                    }
+                }
+                "OnAttackStart"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismAttack"
+                    }
+                }
+                "OnDeath"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismDeath"
+                    }
+                    "FireSound"
+                    {
+                        "EffectName"    "Hero_DeathProphet.Death"
+                        "Target"        "CASTER"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismEnd"
+                    }
+                }
+            }
+            "modifier_imba_death_prophet_exorcism_spirit"
+            {
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismPhysics"
+                    }
+                    "AttachEffect"
+                    {
+                        "EffectName"              "particles/units/heroes/hero_death_prophet/death_prophet_spirit_glow.vpcf"
+                        "EffectAttachType"        "follow_origin"
+                        "Target"                  "TARGET"
+                        "ControlPointEntities"
+                        {
+                            "TARGET"    "attach_origin"
+                            "CASTER"    "attach_origin"
+                        }
+                    }
+                }
+                "States"
+                {
+                    "MODIFIER_STATE_INVULNERABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_NO_HEALTH_BAR"        "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_NOT_ON_MINIMAP"       "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_UNSELECTABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_FLYING"               "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_DISARMED"             "MODIFIER_STATE_VALUE_ENABLED"
+                }
+            }
+            "modifier_imba_death_prophet_exorcism_passive"
+            {
+                "Passive"      "1"
+                "IsHidden"     "1"
+                "IsDebuff"     "0"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "mb/hero_death_prophet/death_prophet_exorcism.lua"
+                        "Function"      "ExorcismScepter"
+                    }
+                }
+            }
+        }
+        "AbilityValues"
+        {
+            "radius"              "700 800 900"
+            "spirits"             "16"
+            "spirit_speed"        "700 800 900"
+            "max_distance"        "2000 2000 2000"
+            "give_up_distance"    "1200 1200 1200"
+            "min_damage"          "60 90 120"
+            "max_damage"          "66	98 130"
+            "heal_percent"        "25 50 75"
+            "average_damage"      "63 95 125"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus
+    // =================================================================================================================
+    "special_bonus_imba_death_prophet_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "value"    "3.0"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus
+    // =================================================================================================================
+    "special_bonus_imba_death_prophet_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "LinkedAbility"
+        {
+            "01"    "imba_death_prophet_spirit_siphon"
+        }
+        "AbilityValues"
+        {
+            "value"    "1.0"
+        }
+    }
+}

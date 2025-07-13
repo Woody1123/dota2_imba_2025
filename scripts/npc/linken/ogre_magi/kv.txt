@@ -1,0 +1,291 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Ogre Magi: 火焰燃轰
+    // =================================================================================================================
+    "imba_ogre_magi_fireblast_ignite"
+    {
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "imba_Fire_Ignite"
+        "ScriptFile"                "linken/hero_ogre_magi"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityCastPoint"          "0.45"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityCooldown"           "11 10 9 8"
+        "AbilityManaCost"           "120 140 160 180"
+        "AbilityCastRange"          "475"
+        "AbilityCastRangeBuffer"    "200"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
+        }
+        "HasScepterUpgrade"         "1"
+        "HasShardUpgrade"           "1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_ogre_magi_1"
+            "stunned_duration"      "1.0"
+            "debuff_duration"       "5 6 7 8"
+            "damage_debuff"         "25 25 35 45"
+            "move_slow"             "8 9 10 11"
+            "attack_slow"           "30 35 40 45"
+            "LinkedSpecialBonus"    "special_bonus_imba_ogre_magi_6"
+            "LinkedSpecialBonus"    "special_bonus_imba_ogre_magi_6"
+            "distance"              "475"
+        }
+    }
+    // stunned_damage add
+    "special_bonus_imba_ogre_magi_1"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_fireblast_ignite"
+        }
+        "AbilityValues"
+        {
+            "value"    "250"
+        }
+    }
+    // 无法驱散
+    "special_bonus_imba_ogre_magi_8"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_fireblast_ignite"
+        }
+        "AbilityValues"
+        {
+            "value"    "0"
+        }
+    }
+    // 施法距离
+    "special_bonus_imba_ogre_magi_6"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_fireblast_ignite"
+        }
+        "AbilityValues"
+        {
+            "value"    "200"
+        }
+    }
+    // =================================================================================================================
+    // Ogre Magi: 嗜血术
+    // =================================================================================================================
+    "imba_ogre_magi_Bloodlust"
+    {
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "ogre_magi_bloodlust"
+        "ScriptFile"                "linken/hero_ogre_magi"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityCastPoint"          "0.25"
+        "AbilityCooldown"           "25"
+        "AbilityManaCost"           "65"
+        "AbilityCastRange"          "350"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+        }
+        "HasScepterUpgrade"         "1"
+        "AbilityValues"
+        {
+            "buff_duration"           "30"
+            "move_bonus"              "4 5 6 7"
+            "attack_speed_bonus"      "40 45 50 55"
+            "attack_damage_bonus"     "19 21 23 25"
+            "ability_damage_bonus"    "2 3 4 5"
+            "cast_distance"           "350"
+        }
+    }
+    // duration add
+    "special_bonus_imba_ogre_magi_2"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_Bloodlust"
+        }
+        "AbilityValues"
+        {
+            "value"    "5"
+        }
+    }
+    // =================================================================================================================
+    // Ogre Magi: 献祭
+    // =================================================================================================================
+    "imba_ogre_magi_focus"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "imba_ogre_magi_focus"
+        "ScriptFile"               "linken/hero_ogre_magi"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityCooldown"          "20"
+        "AbilityManaCost"          "0"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+            "particle"     "particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse_shield.vpcf"
+        }
+        "AbilityValues"
+        {
+            "hp_percent"            "7"
+            "rd"                    "50"
+            "LinkedSpecialBonus"    "special_bonus_imba_ogre_magi_3"
+            "cast_range_bonus"      "75 100 125 150"
+            "hero_lifesteal"        "15"
+            "attack_speed_bonus"    "40 60 80 100"
+            "multicast"             "5"
+        }
+    }
+    // duration add
+    "special_bonus_imba_ogre_magi_3"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_focus"
+        }
+        "AbilityValues"
+        {
+            "value"    "5"
+        }
+    }
+    // 双重效果
+    "special_bonus_imba_ogre_magi_7"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_focus"
+        }
+        "AbilityValues"
+        {
+            "value"    "0"
+        }
+    }
+    // 非攻击触发献祭
+    "special_bonus_imba_ogre_magi_5"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_focus"
+        }
+        "AbilityValues"
+        {
+            "value"    "50"
+        }
+    }
+    // =================================================================================================================
+    // Ogre Magi: 多重施法
+    // =================================================================================================================
+    "imba_ogre_magi_multicast"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        // This is from LOD github.com/darklordabc/Legends-of-Dota-Redux/
+        "AbilityTextureName"      "ogre_magi_multicast_0"
+        "ScriptFile"              "linken/hero_ogre_magi"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityType"             "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityCastAnimation"    "ACT_INVALID"
+        "AbilityCooldown"         "1.0"
+        // Data driven
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+            "particle"     "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf"
+        }
+        "AbilityValues"
+        {
+            "multicast_2"        "75 75 75"
+            "multicast_3"        "5 30 30"
+            "multicast_4"        "1 8 15"
+            "cdr_pct"            "0"
+            "multicast_delay"    "0.6"
+        }
+    }
+    // 普攻概率释放火焰轰爆
+    "special_bonus_imba_ogre_magi_4"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_multicast"
+        }
+        "AbilityValues"
+        {
+            "value"    "17"
+        }
+    }
+    // chance add
+    "special_bonus_imba_ogre_magi_5"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_ogre_magi_multicast"
+        }
+        "AbilityValues"
+        {
+            "value"    "0"
+        }
+    }
+}

@@ -1,0 +1,330 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // HERO: Rubick
+    // =================================================================================================================
+    // =================================================================================================================
+    // Rubick's Telekinesis
+    // =================================================================================================================
+    "imba_rubick_telekinesis"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "rubick_telekinesis"
+        "ScriptFile"                "mb/hero_rubick/rubick_telekinesis"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"           "1"
+        "AbilityCastPoint"          "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "20 18 16 14"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "125"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "550 575 600 625"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
+            "particle"     "particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf"
+            "particle"     "particles/units/heroes/hero_rubick/rubick_telekinesis_land.vpcf"
+            "particle"     "particles/units/heroes/hero_rubick/rubick_telekinesis_marker.vpcf"
+        }
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "enemy_lift_time"          "1.5 1.75 2.0 2.25"
+            "ally_lift_time"           "1.25"
+            "landing_stun_radius"      "425"
+            "landing_stun_duration"    "1.0 1.25 1.5 1.75"
+            "enemy_land_distance"      "800"
+            "ally_land_distance"       "1200"
+            "landing_damage"           "50 100 150 200"
+            "ally_cooldown"            "9 8 7 6"
+            "enemy_cooldown"           "20 18 16 14"
+        }
+    }
+    // =================================================================================================================
+    // Rubick's' Telekinesis Land
+    // =================================================================================================================
+    "imba_rubick_telekinesis_land"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "rubick_telekinesis_land"
+        "ScriptFile"            "mb/hero_rubick/rubick_telekinesis_land"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE"
+        "MaxLevel"              "1"
+        "AbilityCastPoint"      "0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"       "0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"       "0"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"      "0"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_rubick_3"
+            "LinkedSpecialBonus"    "special_bonus_imba_rubick_3"
+            "LinkedSpecialBonus"    "special_bonus_imba_rubick_3"
+        }
+    }
+    // =================================================================================================================
+    // Rubick Steal Talents
+    // =================================================================================================================
+    "imba_rubick_spell_steal_buff"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "rubick_telekinesis_land"
+        "ScriptFile"            "mb/hero_rubick/rubick_telekinesis"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "MaxLevel"              "1"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Fade Bolt
+    // =================================================================================================================
+    "imba_rubick_fade_bolt"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "rubick_fade_bolt"
+        "ScriptFile"                     "mb/hero_rubick/rubick_fade_bolt"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"                "1"
+        "AbilitySound"                   "Hero_Rubick.FadeBolt.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"               "0.1 0.1 0.1 0.1"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "135 140 145 150"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "800 800 800 800"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.35" // can chain to multiple units
+        "HasScepterUpgrade"              "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "AbilityChargeRestoreTime"
+            {
+                "value"                            "16 14 12 10"
+                "special_bonus_unique_rubick_3"    "-4"
+            }
+            "damage"                           "100 175 250 325"
+            "jump_damage_reduction_pct"        "8 4 0 -4"
+            "hero_attack_damage_reduction"
+            {
+                "value"                                      "20 30 40 50"
+                "special_bonus_unique_imba_rubick_debuff"    "+25"
+            }
+            "creep_attack_damage_reduction"
+            {
+                "value"                                      "20 30 40 50"
+                "special_bonus_unique_imba_rubick_debuff"    "+25"
+            }
+            "duration"                         "7.0"
+            "radius"                           "550 600 650 700"
+            "jump_delay"                       "0.25 0.15 0.10 0.05"
+            "hero_spell_reduction"
+            {
+                "value"                                      "10 15 20 25"
+                "special_bonus_unique_imba_rubick_debuff"    "+13"
+            }
+            "cast_range"
+            {
+                "value"                                      "150 200 250 300"
+                "special_bonus_unique_imba_rubick_debuff"    "+150"
+            }
+            "AbilityCharges"
+            {
+                "value"                    "1"
+                "special_bonus_scepter"    "+1"
+            }
+        }
+    }
+    "special_bonus_unique_imba_rubick_debuff"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_abilities"    "imba_rubick_fade_bolt"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Arcane Supremacy
+    // =================================================================================================================
+    "imba_rubick_arcane_supremacy"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "rubick_null_field"
+        "ScriptFile"            "mb/hero_rubick/rubick_arcane_supremacy"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "spell_amp"             "14 18 22 26"
+            "status_resistance"     "20"
+            "LinkedSpecialBonus"    "special_bonus_unique_rubick_3"
+            "radius"                "1200"
+            "cast_range"            "200 250 300 350"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Spell Steal
+    // =================================================================================================================
+    "imba_rubick_spell_steal"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "rubick_spell_steal"
+        "ScriptFile"                "mb/hero_rubick/rubick_spell_steal"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilitySound"              "Hero_Rubick.SpellSteal.Cast"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "FightRecapLevel"           "1"
+        "HasScepterUpgrade"         "1"
+        "HasShardUpgrade"           "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"          "0.1 0.1 0.1 0.1"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_7"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "20.0 18.0 16.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "25 25 25"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "1000 1000 1000"
+        "AbilityValues"
+        {
+            "duration"                "180.0 240.0 300.0"
+            "projectile_speed"        "3000"
+            "RequiresScepter"         "1"
+            "RequiresScepter"         "1"
+            "cast_range_stack"        "25"
+            "cast_range_stack_max"    "25"
+        }
+    }
+    // -75 fade bolt hero attack
+    "special_bonus_imba_rubick_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_rubick_fade_bolt"
+        }
+        "AbilityValues"
+        {
+            "hero_attack_damage"    "50"
+            "hero_spell_amp"        "25"
+        }
+    }
+    // Spell Steal Can work for teammates
+    "special_bonus_imba_rubick_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_rubick_telekinesis_land"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // +300 Telekinesis land Distance and Radius
+    "special_bonus_imba_rubick_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_rubick_telekinesis_land"
+        }
+        "AbilityValues"
+        {
+            "value"    "300"
+        }
+    }
+    // Spell Steal From Target cause 15s + stack cooldown Ally reduce 15s
+    "special_bonus_imba_rubick_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "15.0"
+        }
+    }
+    // +50% Spell Amp During Stolen Success Duration
+    "special_bonus_imba_rubick_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "40"
+        }
+    }
+}

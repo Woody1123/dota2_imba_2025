@@ -1,0 +1,1148 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_nFlags = 0
+	m_name = resource:""
+	m_localHAnimArray = 
+	[
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_run.vanim",
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_iceslide.vanim",
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_idle.vanim",
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_iceslide_loop.vanim",
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_death.vanim",
+		resource_name:"models/creeps/ice_biome/penguin/1a9541d7/penguin_death_ogreseal.vanim",
+	]
+	m_includedGroupArray = 
+	[
+	]
+	m_directHSeqGroup = null
+	m_decodeKey = 
+	{
+		m_name = resource:""
+		m_boneArray = 
+		[
+			
+			{
+				m_name = resource:"pelvis"
+				m_parent = -1
+				m_pos = 
+				[
+					292.636100,
+					1.468672,
+					9.532649,
+				]
+				m_quat = 
+				[
+					-0.594183,
+					-0.389496,
+					-0.521296,
+					0.472748,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"spine_0"
+				m_parent = 0
+				m_pos = 
+				[
+					1.354000,
+					-0.150543,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.136682,
+					0.990615,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"spine_1"
+				m_parent = 1
+				m_pos = 
+				[
+					15.992540,
+					-0.631867,
+					0.000008,
+				]
+				m_quat = 
+				[
+					0.007329,
+					-0.034111,
+					-0.105959,
+					0.993758,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"spine_2"
+				m_parent = 2
+				m_pos = 
+				[
+					12.740300,
+					-0.000031,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.017013,
+					0.001396,
+					-0.081740,
+					0.996508,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"neck_0"
+				m_parent = 3
+				m_pos = 
+				[
+					11.381650,
+					0.000031,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.030642,
+					0.999530,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"head"
+				m_parent = 4
+				m_pos = 
+				[
+					5.255836,
+					0.000031,
+					0.000008,
+				]
+				m_quat = 
+				[
+					-0.036220,
+					0.003908,
+					-0.206581,
+					0.977751,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"head_end"
+				m_parent = 5
+				m_pos = 
+				[
+					8.130774,
+					-0.000031,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"mouth_0"
+				m_parent = 5
+				m_pos = 
+				[
+					3.294271,
+					3.407715,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					0.704094,
+					0.710107,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"mouth_end"
+				m_parent = 7
+				m_pos = 
+				[
+					6.585876,
+					-0.000006,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_0_L"
+				m_parent = 3
+				m_pos = 
+				[
+					1.342773,
+					0.837738,
+					9.676544,
+				]
+				m_quat = 
+				[
+					-0.173506,
+					-0.199625,
+					-0.798144,
+					0.541306,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_1_L"
+				m_parent = 9
+				m_pos = 
+				[
+					5.914276,
+					0.000008,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.150160,
+					-0.112349,
+					0.057577,
+					0.980569,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_2_L"
+				m_parent = 10
+				m_pos = 
+				[
+					14.015840,
+					0.000015,
+					-0.000031,
+				]
+				m_quat = 
+				[
+					-0.204756,
+					0.088590,
+					-0.029215,
+					0.974358,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_end_L"
+				m_parent = 11
+				m_pos = 
+				[
+					10.148510,
+					-0.000061,
+					0.000046,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_0_R"
+				m_parent = 3
+				m_pos = 
+				[
+					1.342743,
+					0.837738,
+					-9.676533,
+				]
+				m_quat = 
+				[
+					0.199621,
+					-0.173510,
+					0.541308,
+					0.798142,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_1_R"
+				m_parent = 13
+				m_pos = 
+				[
+					-5.914215,
+					0.000019,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					-0.150159,
+					-0.112348,
+					0.057571,
+					0.980569,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_2_R"
+				m_parent = 14
+				m_pos = 
+				[
+					-14.015790,
+					0.000008,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					-0.204757,
+					0.088591,
+					-0.029214,
+					0.974358,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"arm_end_R"
+				m_parent = 15
+				m_pos = 
+				[
+					-10.148570,
+					0.000000,
+					0.000004,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"leg_upper_R"
+				m_parent = 0
+				m_pos = 
+				[
+					-0.793785,
+					0.330414,
+					-6.403214,
+				]
+				m_quat = 
+				[
+					0.119243,
+					-0.302427,
+					-0.057276,
+					0.943948,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"leg_lower_R"
+				m_parent = 17
+				m_pos = 
+				[
+					-3.300529,
+					-0.000031,
+					0.000004,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					0.716029,
+					0.698071,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ankle_R"
+				m_parent = 18
+				m_pos = 
+				[
+					-3.286255,
+					0.000000,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.421855,
+					-0.787618,
+					-0.216295,
+					0.393589,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_R"
+				m_parent = 19
+				m_pos = 
+				[
+					-3.278915,
+					0.000015,
+					0.000015,
+				]
+				m_quat = 
+				[
+					-0.062637,
+					-0.002390,
+					-0.270333,
+					0.960724,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_end_R"
+				m_parent = 20
+				m_pos = 
+				[
+					-2.895158,
+					-0.000015,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_RSurrogate_NUL"
+				m_parent = 20
+				m_pos = 
+				[
+					0.000010,
+					-0.000031,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ankle_RSurrogate_NUL"
+				m_parent = 19
+				m_pos = 
+				[
+					-0.000008,
+					0.000000,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"leg_upper_L"
+				m_parent = 0
+				m_pos = 
+				[
+					-0.793781,
+					0.330444,
+					6.403206,
+				]
+				m_quat = 
+				[
+					-0.062484,
+					-0.112771,
+					0.976714,
+					0.171487,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"leg_lower_L"
+				m_parent = 24
+				m_pos = 
+				[
+					3.538002,
+					0.000031,
+					0.000010,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000071,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ankle_L"
+				m_parent = 25
+				m_pos = 
+				[
+					3.522755,
+					0.000031,
+					-0.000001,
+				]
+				m_quat = 
+				[
+					-0.741630,
+					0.669329,
+					-0.036101,
+					0.026100,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_L"
+				m_parent = 26
+				m_pos = 
+				[
+					3.278900,
+					0.000008,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.011522,
+					-0.015555,
+					-0.022159,
+					0.999567,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_end_L"
+				m_parent = 27
+				m_pos = 
+				[
+					2.895172,
+					0.000002,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ball_LSurrogate_NUL"
+				m_parent = 27
+				m_pos = 
+				[
+					0.000031,
+					0.000002,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ankle_LSurrogate_NUL"
+				m_parent = 26
+				m_pos = 
+				[
+					0.000031,
+					0.000008,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"tail_0"
+				m_parent = 0
+				m_pos = 
+				[
+					-3.758488,
+					-9.361481,
+					0.548256,
+				]
+				m_quat = 
+				[
+					-0.111795,
+					-0.079655,
+					-0.699670,
+					0.701156,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"tail_end"
+				m_parent = 31
+				m_pos = 
+				[
+					8.494812,
+					0.000004,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+		]
+		m_userArray = 
+		[
+		]
+		m_morphArray = 
+		[
+		]
+		m_IKChainArray = 
+		[
+		]
+		m_nChannelElements = 66
+		m_dataChannelArray = 
+		[
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Position"
+				m_nFlags = 0
+				m_nType = 3
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"pelvis",
+					resource:"spine_0",
+					resource:"spine_1",
+					resource:"spine_2",
+					resource:"neck_0",
+					resource:"head",
+					resource:"head_end",
+					resource:"mouth_0",
+					resource:"mouth_end",
+					resource:"arm_0_L",
+					resource:"arm_1_L",
+					resource:"arm_2_L",
+					resource:"arm_end_L",
+					resource:"arm_0_R",
+					resource:"arm_1_R",
+					resource:"arm_2_R",
+					resource:"arm_end_R",
+					resource:"leg_upper_R",
+					resource:"leg_lower_R",
+					resource:"ankle_R",
+					resource:"ball_R",
+					resource:"ball_end_R",
+					resource:"ball_RSurrogate_NUL",
+					resource:"ankle_RSurrogate_NUL",
+					resource:"leg_upper_L",
+					resource:"leg_lower_L",
+					resource:"ankle_L",
+					resource:"ball_L",
+					resource:"ball_end_L",
+					resource:"ball_LSurrogate_NUL",
+					resource:"ankle_LSurrogate_NUL",
+					resource:"tail_0",
+					resource:"tail_end",
+				]
+				m_nElementIndexArray = 
+				[
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15,
+					16,
+					17,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29,
+					30,
+					31,
+					32,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					1,
+					2,
+					4,
+					8,
+					16,
+					32,
+					64,
+					128,
+					256,
+					512,
+					1024,
+					2048,
+					4096,
+					8192,
+					16384,
+					32768,
+					65536,
+					131072,
+					262144,
+					524288,
+					1048576,
+					2097152,
+					4194304,
+					8388608,
+					16777216,
+					33554432,
+					67108864,
+					134217728,
+					268435456,
+					536870912,
+					1073741824,
+					2147483648,
+				]
+			},
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Angle"
+				m_nFlags = 0
+				m_nType = 4
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"pelvis",
+					resource:"spine_0",
+					resource:"spine_1",
+					resource:"spine_2",
+					resource:"neck_0",
+					resource:"head",
+					resource:"head_end",
+					resource:"mouth_0",
+					resource:"mouth_end",
+					resource:"arm_0_L",
+					resource:"arm_1_L",
+					resource:"arm_2_L",
+					resource:"arm_end_L",
+					resource:"arm_0_R",
+					resource:"arm_1_R",
+					resource:"arm_2_R",
+					resource:"arm_end_R",
+					resource:"leg_upper_R",
+					resource:"leg_lower_R",
+					resource:"ankle_R",
+					resource:"ball_R",
+					resource:"ball_end_R",
+					resource:"ball_RSurrogate_NUL",
+					resource:"ankle_RSurrogate_NUL",
+					resource:"leg_upper_L",
+					resource:"leg_lower_L",
+					resource:"ankle_L",
+					resource:"ball_L",
+					resource:"ball_end_L",
+					resource:"ball_LSurrogate_NUL",
+					resource:"ankle_LSurrogate_NUL",
+					resource:"tail_0",
+					resource:"tail_end",
+				]
+				m_nElementIndexArray = 
+				[
+					33,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45,
+					46,
+					47,
+					48,
+					49,
+					50,
+					51,
+					52,
+					53,
+					54,
+					55,
+					56,
+					57,
+					58,
+					59,
+					60,
+					61,
+					62,
+					63,
+					64,
+					65,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					1,
+					2,
+					4,
+					8,
+					16,
+					32,
+					64,
+					128,
+					256,
+					512,
+					1024,
+					2048,
+					4096,
+					8192,
+					16384,
+					32768,
+					65536,
+					131072,
+					262144,
+					524288,
+					1048576,
+					2097152,
+					4194304,
+					8388608,
+					16777216,
+					33554432,
+					67108864,
+					134217728,
+					268435456,
+					536870912,
+					1073741824,
+					2147483648,
+				]
+			},
+		]
+	}
+	m_retarget = 
+	{
+		m_bEnableRetarget = 0
+		m_nRetargetStyle = 0
+		m_element = 
+		[
+		]
+		m_chain = 
+		[
+		]
+		m_replicated = 
+		[
+		]
+	}
+	m_szScripts = 
+	[
+	]
+}

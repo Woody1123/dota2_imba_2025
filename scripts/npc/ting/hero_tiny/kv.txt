@@ -1,0 +1,391 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // ////小小
+    // =================================================================================================================
+    // Tiny: Avalanche
+    // =================================================================================================================
+    "imba_tiny_avalanche"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_tiny.lua"
+        "AbilityTextureName"       "tiny_avalanche"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Ability.Avalanche"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.0 0.0 0.0 0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "26 22 18 14"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "120 120 120 120"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "radius"                         "250"
+            "CalculateSpellDamageTooltip"    "0"
+            "total_duration"                 "1.8"
+            "stun_duration"                  "0.2"
+            "projectile_speed"               "1200"
+        }
+    }
+    // =================================================================================================================
+    // Tiny: Toss
+    // =================================================================================================================
+    "imba_tiny_toss"
+    {
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "ting/hero_tiny.lua"
+        "AbilityTextureName"             "tiny_toss"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_CUSTOM"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "1000 1100 1200 1300"
+        "AbilityCastPoint"               "0.0 0.0 0.0 0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "15 13 11 9"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "90 100 110 120"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.25" // generally used for damage only
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "duration"            "1.0"
+            "grab_radius"         "275"
+            "radius"              "275"
+            "bonus_damage_pct"    "30"
+            "damage"              "100 200 380 560"
+            "toss_dis"            "1000 1100 1200 1300"
+            "stun_duration"       "1.7"
+        }
+    }
+    // =================================================================================================================
+    // Tiny: Craggy Exterior
+    // =================================================================================================================
+    "imba_tiny_craggy_exterior"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_tiny.lua"
+        "AbilityTextureName"       "tiny_craggy_exterior"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "AbilitySound"             "Hero_Tiny.CraggyExterior.Stun"
+        "AbilityCastRange"         "1000 1100 1200 1300"
+        "AbilityCooldown"          "18"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        "IsGrantedByShard"         "1"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "stun_chance"      "17"
+            "stun_duration"    "1.0"
+            "damage"           "100"
+            "radius"           "250"
+        }
+    }
+    // =================================================================================================================
+    // Tiny: Tree Grab
+    // =================================================================================================================
+    "imba_tiny_tree_grab"
+    {
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "ting/hero_tiny.lua"
+        "AbilityTextureName"             "tiny_tree_grab"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_CUSTOM | DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_NO"
+        "AbilitySound"                   "Hero_Tiny.CraggyExterior.Stun"
+        "HasScepterUpgrade"              "1"
+        "HasShardUpgrade"                "1"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "165"
+        "AbilityCastPoint"               "0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "16 14 12 10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "40"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportBonus"    "35"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "attack_count"                   "5 10 15 20"
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "attack_range"                   "250"
+            "splash_width"                   "200"
+            "splash_range"                   "300"
+            "duration_hero_enemy"            "3"
+            "duration_hero_fr"               "60"
+            "CalculateSpellDamageTooltip"    "0"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Tiny Toss Tree
+    // =================================================================================================================
+    "imba_tiny_toss_tree"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_tiny.lua"
+        "AbilityTextureName"       "tiny_toss_tree"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "LinkedAbility"            "imba_tiny_tree_grab"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1200"
+        "AbilityCastPoint"         "0.1"
+        "AbilityCastAnimation"     "ACT_INVALID"
+        "AbilityValues"
+        {
+            "speed"            "900.0"
+            "splash_radius"    "275"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Tiny Tree Channel (Scepter)
+    // =================================================================================================================
+    "imba_tiny_tree_channel"
+    {
+        "BaseClass"                  "ability_lua"
+        "ScriptFile"                 "ting/hero_tiny.lua"
+        "AbilityTextureName"         "tiny_tree_channel"
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_CHANNELLED  | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+        "AbilityUnitDamageType"      "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"          "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"            "1"
+        "MaxLevel"                   "1"
+        "HasScepterUpgrade"          "1"
+        "IsGrantedByScepter"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityChannelTime"         "3.2"
+        "AbilityCastRange"           "1200"
+        "AbilityCastPoint"           "0.2"
+        "AbilityCastAnimation"       "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityChannelAnimation"    "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"            "20"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"            "200"
+        "AbilityValues"
+        {
+            "RequiresScepter"    "1"
+            "RequiresScepter"    "1"
+            "splash_radius"      "400"
+            "RequiresScepter"    "1"
+            "RequiresScepter"    "1"
+        }
+    }
+    // =================================================================================================================
+    // Tiny: Grow
+    // =================================================================================================================
+    "imba_tiny_grow"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_tiny.lua"
+        "AbilityTextureName"       "tiny_grow"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilitySound"             "Tiny.Grow"
+        "AbilityCooldown"          "20"
+        "precache"
+        {
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_01_head.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_01_right_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_01_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_01_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_02_head.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_02_right_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_02_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_02_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_03_head.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_03_right_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_03_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_03_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_04_head.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_04_right_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_04_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_lvl_04_left_arm.vmdl"
+            "model"    "models/items/tiny/tiny_prestige/tiny_prestige_sword.vmdl"
+        }
+        "AbilityValues"
+        {
+            "CalculateSpellDamageTooltip"    "0"
+            "scale"                          "30 40 50"
+            "damage"                         "100 200 300"
+            "duration"                       "0.8"
+            "radius"                         "400"
+        }
+    }
+    // ------
+    "special_bonus_imba_tiny_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_treant_eyes_in_the_forest"
+        }
+        "AbilityValues"
+        {
+            "value"    "400"
+        }
+    }
+    // ---------
+    "special_bonus_imba_tiny_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_treant_eyes_in_the_forest"
+        }
+        "AbilityValues"
+        {
+            "value"    "400"
+        }
+    }
+    // 抓树移除使用次数限制
+    "special_bonus_imba_tiny_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_tree_grab"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // 抓树伤害增加
+    "special_bonus_imba_tiny_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_tree_grab"
+        }
+        "AbilityValues"
+        {
+            "value"    "15"
+        }
+    }
+    // 投掷抓取目标数量
+    "special_bonus_imba_tiny_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_toss"
+        }
+        "AbilityValues"
+        {
+            "value"    "3"
+        }
+    }
+    // 攻击击飞
+    "special_bonus_imba_tiny_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_grow"
+        }
+        "AbilityValues"
+        {
+            "value"    "15"
+        }
+    }
+    // 减少山崩冷却时间
+    "special_bonus_imba_tiny_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_avalanche"
+        }
+        "AbilityValues"
+        {
+            "value"    "6"
+        }
+    }
+    // 山岭巨人
+    "special_bonus_imba_tiny_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tiny_grow"
+        }
+        "AbilityValues"
+        {
+            "value"    "400"
+        }
+    }
+}

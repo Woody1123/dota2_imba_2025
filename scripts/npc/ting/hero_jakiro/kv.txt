@@ -1,0 +1,306 @@
+"DOTAAbilities"
+{
+    // 双头龙
+    "dual_breath"
+    {
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "jakiro_dual_breath"
+        "ScriptFile"                     "heros/hero_jakiro/dual_breath.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"                "1"
+        "AbilitySound"                   "Hero_Jakiro.DualBreath"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "0"
+        "AbilityCastPoint"               "0.2"
+        "AbilityCooldown"                "0"
+        "AbilityCharges"                 "2"
+        "AbilityChargeRestoreTime"       "10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "135 140 155 170"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.25" // Applies two modifiers
+        "precache"
+        {
+            "particle"    "particles/econ/items/jakiro/jakiro_ti8_immortal_head/jakiro_ti8_dual_breath_fire.vpcf"
+            "particle"    "particles/econ/items/jakiro/jakiro_ti8_immortal_head/jakiro_ti8_dual_breath_ice.vpcf"
+            "particle"    "particles/generic_gameplay/generic_disarm.vpcf"
+        }
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "dis"            "3000"
+            "wh"             "300"
+            "flydis"         "1200"
+            "dam"            "100 110 120 130"
+            "disarmeddur"    "1 1.5 2 2.5"
+            "sp"             "1400"
+            "talent_1"
+            {
+                "value"                                 "0"
+                "special_bonus_unique_imba_jakiro_1"    "+1"
+            }
+            "talent_2"
+            {
+                "value"                                 "0"
+                "special_bonus_unique_imba_jakiro_2"    "+1"
+            }
+        }
+    }
+    "ice_path"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "jakiro_ice_path"
+        "ScriptFile"               "heros/hero_jakiro/ice_path.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        "MaxLevel"                 "4"
+        "AbilitySound"             "Hero_Jakiro.IcePath"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1500"
+        "AbilityCastPoint"         "0.6"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12 11 10 9"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"            "0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        "precache"
+        {
+            "particle"    "particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path.vpcf"
+            "particle"    "particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path_b.vpcf"
+            "particle"    "particles/econ/events/ti9/high_five/high_five_impact_snow.vpcf"
+            "particle"    "particles/status_fx/status_effect_frost_lich.vpcf"
+            "particle"    "particles/generic_gameplay/generic_frozen.vpcf"
+        }
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "dis"         "1500"
+            "wh"          "300"
+            "stun"
+            {
+                "value"                                 "1 1 2 2"
+                "special_bonus_unique_imba_jakiro_8"    "+0.5"
+            }
+            "dam"         "100 125 175 200"
+            "b_count"     "6"
+            "b_i"         "0.2"
+            "b_dis"       "300"
+            "b_rd"        "350"
+            "duration"
+            {
+                "value"                                 "1 1 2 2"
+                "special_bonus_unique_imba_jakiro_5"    "+3"
+                "special_bonus_unique_imba_jakiro_8"    "+0.5"
+            }
+            "talent_4"
+            {
+                "value"                                 "0"
+                "special_bonus_unique_imba_jakiro_4"    "+1"
+            }
+        }
+    }
+    "liquid_fire"
+    {
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "jakiro_liquid_fire"
+        "ScriptFile"                     "heros/hero_jakiro/liquid_fire.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+        "AbilityUnitTargetFlags"         "DOTA_UNIT_TARGET_FLAG_DEAD"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilitySound"                   "Hero_Jakiro.LiquidFire"
+        "MaxLevel"                       "4"
+        "FightRecapLevel"                "1"
+        "HasShardUpgrade"                "1"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "6 5 4 3"
+        "AbilityCastRange"               "600"
+        "AbilityCastPoint"               "0.0 0.0 0.0 0.0"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportBonus"    "35"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "damage"
+            {
+                "value"    "25 50 75 100"
+            }
+            "damage_per"
+            {
+                "value"                  "0"
+                "special_bonus_shard"    "+5"
+            }
+            "duration"      "4"
+            "aoe_radius"    "300"
+            "cast_range"    "600"
+            "asp"           "60 90 120 150"
+            "msp"
+            {
+                "value"                  "0"
+                "special_bonus_shard"    "+20"
+            }
+        }
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_3"
+    }
+    "macropyre"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "jakiro_macropyre"
+        "ScriptFile"               "heros/hero_jakiro/macropyre.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "2"
+        "AbilitySound"             "Hero_Jakiro.Macropyre.Cast"
+        "HasScepterUpgrade"        "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.55"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "60"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "200 300 400"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_jakiro/jakiro_dual_breath_fire.vpcf"
+            "particle"    "particles/econ/items/jakiro/jakiro_ti10_immortal/jakiro_ti10_macropyre.vpcf"
+        }
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "damage"           "100 200 300"
+            "cast_range"       "1500 1700 1900"
+            "path_radius"      "280"
+            "duration"         "10"
+            "burn_interval"    "1"
+            "dmg"              "150"
+            "hp"               "10 20 30"
+            "talent_6"
+            {
+                "value"                                 "0"
+                "special_bonus_unique_imba_jakiro_6"    "1"
+            }
+            "talent_7"
+            {
+                "value"                                 "0"
+                "special_bonus_unique_imba_jakiro_7"    "1"
+            }
+            "dmg_int"          "3 4 5"
+        }
+    }
+    // 飞吃施法距离
+    "special_bonus_unique_imba_jakiro_1"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 飞撞飞目标
+    "special_bonus_unique_imba_jakiro_2"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 液态火的施加无视技能免疫
+    "special_bonus_unique_imba_jakiro_3"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 冰吃施法距离加成
+    "special_bonus_unique_imba_jakiro_4"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 冰封路径持续时间后留下冰墙额外降低附近单位移动速度
+    "special_bonus_unique_imba_jakiro_5"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 大招击退敌人
+    "special_bonus_unique_imba_jakiro_6"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 大招变纯粹伤害
+    "special_bonus_unique_imba_jakiro_7"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 冰封路径眩晕时间增加
+    "special_bonus_unique_imba_jakiro_8"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+}

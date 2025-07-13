@@ -1,0 +1,529 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "ice_boss_egg_dest"
+						filename = "models/creeps/ice_boss/ice_boss_egg_dest.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						ignore_rotation = false
+						parent_bone = "ice_boss_egg_joint11"
+						relative_origin = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						relative_angles = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						weight = 1.000000
+					},
+					
+					{
+						_class = "Attachment"
+						name = "attach_egg"
+						ignore_rotation = false
+						parent_bone = "ice_boss_egg_joint6"
+						relative_origin = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						relative_angles = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						weight = 1.000000
+					},
+				]
+			},
+			
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-5.379091,
+									-3.733227,
+									-6.983604,
+								]
+								hitbox_maxs = 
+								[
+									5.379091,
+									3.733231,
+									6.983604,
+								]
+								name = "ice_boss_egg_joint2"
+								parent_bone = "ice_boss_egg_joint2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-2.331172,
+									-2.111549,
+									-2.051015,
+								]
+								hitbox_maxs = 
+								[
+									2.331172,
+									2.111553,
+									2.051015,
+								]
+								name = "ice_boss_egg_joint3"
+								parent_bone = "ice_boss_egg_joint3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-15.635220,
+									-16.085300,
+									-11.426430,
+								]
+								hitbox_maxs = 
+								[
+									15.635220,
+									16.085300,
+									11.426430,
+								]
+								name = "ice_boss_egg_joint4"
+								parent_bone = "ice_boss_egg_joint4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-16.328630,
+									-16.784950,
+									-18.073920,
+								]
+								hitbox_maxs = 
+								[
+									16.328630,
+									16.784950,
+									18.073920,
+								]
+								name = "ice_boss_egg_joint5"
+								parent_bone = "ice_boss_egg_joint5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-20.787390,
+									-14.954720,
+									-21.446840,
+								]
+								hitbox_maxs = 
+								[
+									20.787390,
+									14.954720,
+									21.446840,
+								]
+								name = "ice_boss_egg_joint6"
+								parent_bone = "ice_boss_egg_joint6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-19.623520,
+									-19.564320,
+									-10.997960,
+								]
+								hitbox_maxs = 
+								[
+									19.623520,
+									19.564320,
+									10.997960,
+								]
+								name = "ice_boss_egg_joint7"
+								parent_bone = "ice_boss_egg_joint7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-10.725700,
+									-17.999760,
+									-11.714900,
+								]
+								hitbox_maxs = 
+								[
+									10.725700,
+									17.999760,
+									11.714900,
+								]
+								name = "ice_boss_egg_joint8"
+								parent_bone = "ice_boss_egg_joint8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-11.838820,
+									-18.243300,
+									-16.389900,
+								]
+								hitbox_maxs = 
+								[
+									11.838820,
+									18.243300,
+									16.389900,
+								]
+								name = "ice_boss_egg_joint9"
+								parent_bone = "ice_boss_egg_joint9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-9.025944,
+									-9.322918,
+									-10.080860,
+								]
+								hitbox_maxs = 
+								[
+									9.025944,
+									9.322918,
+									10.080860,
+								]
+								name = "ice_boss_egg_joint10"
+								parent_bone = "ice_boss_egg_joint10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-11.599950,
+									-13.239730,
+									-12.013850,
+								]
+								hitbox_maxs = 
+								[
+									11.599950,
+									13.239730,
+									12.013850,
+								]
+								name = "ice_boss_egg_joint11"
+								parent_bone = "ice_boss_egg_joint11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-9.545630,
+									-16.827960,
+									-12.896100,
+								]
+								hitbox_maxs = 
+								[
+									9.545630,
+									16.827960,
+									12.896100,
+								]
+								name = "ice_boss_egg_joint1"
+								parent_bone = "ice_boss_egg_joint1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint1"
+						origin = 
+						[
+							-4.017389,
+							-13.853850,
+							44.519790,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint2"
+						origin = 
+						[
+							4.262942,
+							-2.041234,
+							59.218800,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint3"
+						origin = 
+						[
+							1.905528,
+							-8.762914,
+							58.108100,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint4"
+						origin = 
+						[
+							12.075450,
+							-4.517407,
+							43.588000,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint5"
+						origin = 
+						[
+							5.533452,
+							-7.075740,
+							22.708320,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint6"
+						origin = 
+						[
+							-0.231193,
+							2.601270,
+							14.954720,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint7"
+						origin = 
+						[
+							-12.518030,
+							-3.487724,
+							31.321990,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint8"
+						origin = 
+						[
+							11.447180,
+							12.662970,
+							28.508850,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint9"
+						origin = 
+						[
+							-5.764363,
+							11.557770,
+							39.135040,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint10"
+						origin = 
+						[
+							-8.995518,
+							-1.839162,
+							53.367720,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "ice_boss_egg_joint11"
+						origin = 
+						[
+							3.519490,
+							7.944963,
+							49.357930,
+						]
+						angles = 
+						[
+							0.000000,
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+					},
+				]
+			},
+		]
+	}
+}

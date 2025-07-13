@@ -1,0 +1,239 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "overthrow_throne_radiant_cushions"
+						filename = "models/props_structures/midas_throne/fbx/mesh/overthrow_throne_radiant_cushions.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL\n==Warnings==\nBoneFlags data present but skipped. (If there are serious problems, experiment with bone culling on imported model.)\n"
+	}
+},
+							90.000000,
+							90.000000,
+						]
+						do_not_discard = true
+						children = 
+						[
+							
+							{
+								_class = "Bone"
+								name = "PillowB0_JNT"
+								origin = 
+								[
+									30.253110,
+									164.889200,
+									24.139600,
+								]
+								angles = 
+								[
+									0.000000,
+									0.000000,
+									0.000000,
+								]
+								do_not_discard = true
+								children = 
+								[
+									
+									{
+										_class = "Bone"
+										name = "PillowB1_0_JNT"
+										origin = 
+										[
+											-19.859470,
+											-2.175446,
+											32.864080,
+										]
+										angles = 
+										[
+											-41.794020,
+											-113.241100,
+											145.287100,
+										]
+										do_not_discard = true
+										children = 
+										[
+											
+											{
+												_class = "Bone"
+												name = "TasselA0_JNT"
+												origin = 
+												[
+													38.056690,
+													-0.000122,
+													0.000076,
+												]
+												angles = 
+												[
+													-16.625060,
+													-44.499120,
+													-31.580190,
+												]
+												do_not_discard = true
+											},
+										]
+									},
+									
+									{
+										_class = "Bone"
+										name = "PillowB2_0_JNT"
+										origin = 
+										[
+											22.465170,
+											17.284360,
+											16.898280,
+										]
+										angles = 
+										[
+											-42.095520,
+											51.214840,
+											-18.099660,
+										]
+										do_not_discard = true
+										children = 
+										[
+											
+											{
+												_class = "Bone"
+												name = "TasselB0_JNT"
+												origin = 
+												[
+													40.053670,
+													-0.000092,
+													0.000061,
+												]
+												angles = 
+												[
+													-25.089350,
+													-131.237600,
+													51.622370,
+												]
+												do_not_discard = true
+											},
+										]
+									},
+								]
+							},
+							
+							{
+								_class = "Bone"
+								name = "PillowA0_JNT"
+								origin = 
+								[
+									-41.325880,
+									178.645000,
+									15.128160,
+								]
+								angles = 
+								[
+									0.000000,
+									0.000000,
+									0.000000,
+								]
+								do_not_discard = true
+								children = 
+								[
+									
+									{
+										_class = "Bone"
+										name = "PillowA1_0_JNT"
+										origin = 
+										[
+											16.262080,
+											-1.318115,
+											19.676650,
+										]
+										angles = 
+										[
+											-39.245750,
+											-77.330710,
+											41.258850,
+										]
+										do_not_discard = true
+									},
+									
+									{
+										_class = "Bone"
+										name = "PillowA2_0_JNT"
+										origin = 
+										[
+											-9.871204,
+											17.265590,
+											-11.750830,
+										]
+										angles = 
+										[
+											53.429640,
+											139.034900,
+											157.851600,
+										]
+										do_not_discard = true
+									},
+								]
+							},
+							
+							{
+								_class = "Bone"
+								name = "PillowC0_JNT"
+								origin = 
+								[
+									18.671640,
+									190.672200,
+									-53.480720,
+								]
+								angles = 
+								[
+									0.000000,
+									0.000000,
+									0.000000,
+								]
+								do_not_discard = true
+								children = 
+								[
+									
+									{
+										_class = "Bone"
+										name = "PillowC1_JNT"
+										origin = 
+										[
+											1.329981,
+											13.254880,
+											1.171883,
+										]
+										angles = 
+										[
+											28.893560,
+											85.622970,
+											82.766220,
+										]
+										do_not_discard = true
+									},
+								]
+							},
+						]
+					},
+				]
+			},
+		]
+	}
+}

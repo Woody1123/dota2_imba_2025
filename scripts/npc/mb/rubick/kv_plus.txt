@@ -1,0 +1,266 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Rubick: Telekinesis
+    // =================================================================================================================
+    "rubick_telekinesis"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "5448" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "HasShardUpgrade"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.1 0.1 0.1 0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "18"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "125"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "550 575 600 625"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_unique_rubick_7"
+            "stun_duration"         "2.5"
+            "radius"                "325 325 325 325"
+            "LinkedSpecialBonus"    "special_bonus_unique_rubick"
+            "fall_duration"         "0.3 0.3 0.3 0.3"
+            "RequiresShard"         "1"
+            "RequiresShard"         "1"
+            "RequiresShard"         "1"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Telekinesis Land
+    // =================================================================================================================
+    "rubick_telekinesis_land"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5449" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE"
+        "MaxLevel"                "1"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "radius"    "400 400 400 400"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Telekinesis Land
+    // =================================================================================================================
+    "rubick_telekinesis_land_self"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "647" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+        "MaxLevel"                "1"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "radius"    "400 400 400 400"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Fade Bolt
+    // =================================================================================================================
+    "rubick_fade_bolt"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                             "5450" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"                "1"
+        "AbilitySound"                   "Hero_Rubick.FadeBolt.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"               "0.1 0.1 0.1 0.1"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "16 14 12 10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "120 130 140 150"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "800 800 800 800"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.45" // can chain to multiple units
+        "AbilityValues"
+        {
+            "damage"               "100 200 300 400"
+            "DamageTypeTooltip"    "DAMAGE_TYPE_NONE"
+            "DamageTypeTooltip"    "DAMAGE_TYPE_NONE"
+            "duration"             "10.0 10.0 10.0 10.0"
+            "radius"               "600"
+            "jump_delay"           "0.1"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Null Field
+    // =================================================================================================================
+    "rubick_null_field"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                        "5451" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityCastGestureSlot"    "DEFAULT"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "30"
+        "AbilityValues"
+        {
+            "magic_damage_reduction_pct"    "10 14 18 22"
+            "radius"                        "1200"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Arcane Supremacy
+    // =================================================================================================================
+    "rubick_arcane_supremacy"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                 "7320" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "cast_range"    "200 400 600 800"
+            "spell_amp"     "20 30 40 50"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Spell Steal
+    // =================================================================================================================
+    "rubick_spell_steal"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                        "5452" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilitySound"              "Hero_Rubick.SpellSteal.Cast"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "FightRecapLevel"           "1"
+        "HasScepterUpgrade"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"          "0.1 0.1 0.1 0.1"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_7"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "5 3 1"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "25 25 25"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "1000 1000 1000"
+        "AbilityValues"
+        {
+            "duration"            "180.0 240.0 300.0"
+            "projectile_speed"    "1200"
+            "RequiresScepter"     "1"
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Empty 1
+    // =================================================================================================================
+    "rubick_empty1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5453" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                "0"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_5"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Empty 2
+    // =================================================================================================================
+    "rubick_empty2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5454" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                "0"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_6"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Hidden 1
+    // =================================================================================================================
+    "rubick_hidden1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5455" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                "0"
+        "AbilityCastAnimation"    "ACT_INVALID"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Hidden 2
+    // =================================================================================================================
+    "rubick_hidden2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5456" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                "0"
+        "AbilityCastAnimation"    "ACT_INVALID"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Rubick: Hidden 3
+    // =================================================================================================================
+    "rubick_hidden3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                      "5457" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "MaxLevel"                "0"
+        "AbilityCastAnimation"    "ACT_INVALID"
+        "AbilityValues"
+        {
+        }
+    }
+}

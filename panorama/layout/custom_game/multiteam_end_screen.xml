@@ -1,0 +1,36 @@
+<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/multiteam_end_screen.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/shared_scoreboard_updater.vjs_c" />
+		<include src="s2r://panorama/scripts/custom_game/multiteam_end_screen.vjs_c" />
+	</scripts>
+	<Panel hittest="false" class="EndScreenRoot">
+		<Panel hittest="false" class="EndScreenWindow">
+			<Panel id="VictoryRow">
+				<Panel id="WinningTeamLogo" />
+				<Label id="EndScreenVictory" text="#custom_end_screen_victory_message" />
+			</Panel>
+			<Panel class="Legend">
+				<Panel class="ScoreCol_TeamInfo_0" />
+				<Panel class="ScoreCol_Hero_0" />
+				<Panel class="ScoreCol_PlayerDetails_0" />
+				<Label class="ScoreCol_TeamScore_0" text="#custom_end_screen_legend_team_score" />
+				<Label class="ScoreCol_Kills_0" text="#custom_end_screen_legend_kills" />
+				<Label class="ScoreCol_Deaths_0" text="#custom_end_screen_legend_deaths" />
+				<Label class="ScoreCol_Assists_0" text="#custom_end_screen_legend_assists" />
+				<Label class="ScoreCol_Items_0" text="#ScoreCol_Items" />
+				<Label class="ScoreCol_Backbag_0" text="#custom_end_screen_backbag" />
+				<Label class="ScoreCol_Neutra_0" text="#custom_end_screen_neutra" />
+				<Label class="ScoreCol_RdAbility_0" text="#custom_end_screen_ability" />
+				<Label class="ScoreCol_Gold_0" text="#custom_end_screen_legend_gold" />
+			</Panel>
+			<Panel id="TeamsContainer" />
+			<Button id="CloseButton" onactivate="Game.FinishGame();">
+				<Label text="#CustomEndScreenClose" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

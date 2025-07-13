@@ -1,0 +1,319 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "unnamed_1"
+						filename = "models/props_gameplay/pumpkin_bucket_unnamed_1.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						ignore_rotation = false
+						parent_bone = "root"
+						relative_origin = 
+						[
+							0.000000,
+							0.000000,
+							29.239200,
+						]
+						relative_angles = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						weight = 1.000000
+					},
+				]
+			},
+			
+			{
+				_class = "WeightListList"
+				children = 
+				[
+					
+					{
+						_class = "WeightList"
+						name = "_empty_anim_weightlist"
+						weights = 
+						[
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					
+					{
+						_class = "AnimFile"
+						name = "pumpkin_bucket_givecandy"
+						source_filename = "models/props_gameplay/pumpkin_bucket_givecandy.dmx"
+						fade_in_time = 0.200000
+						fade_out_time = 0.200000
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+					},
+					
+					{
+						_class = "AnimFile"
+						name = "pumpkin_bucket_hit"
+						source_filename = "models/props_gameplay/pumpkin_bucket_hit.dmx"
+						fade_in_time = 0.200000
+						fade_out_time = 0.200000
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						activity_name = "ACT_DOTA_FLINCH"
+						activity_weight = 1
+					},
+					
+					{
+						_class = "AnimFile"
+						name = "pumpkin_bucket_idle"
+						source_filename = "models/props_gameplay/pumpkin_bucket_idle.dmx"
+						fade_in_time = 0.200000
+						fade_out_time = 0.200000
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+					},
+				]
+			},
+			
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-51.640110,
+									-60.728060,
+									-8.694196,
+								]
+								hitbox_maxs = 
+								[
+									58.359450,
+									60.907840,
+									74.459550,
+								]
+								name = "default"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+					
+					{
+						_class = "HitboxSet"
+						name = "select_high"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-46.802630,
+									-49.123170,
+									-0.603272,
+								]
+								hitbox_maxs = 
+								[
+									44.748210,
+									49.608940,
+									67.327370,
+								]
+								name = "root"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+					
+					{
+						_class = "HitboxSet"
+						name = "select_low"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-53.324680,
+									-59.826440,
+									-8.694196,
+								]
+								hitbox_maxs = 
+								[
+									53.079060,
+									60.712140,
+									80.528790,
+								]
+								name = "root1"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "root"
+						origin = 
+						[
+							0.000000,
+							0.000000,
+							7.013676,
+						]
+						angles = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						do_not_discard = true
+						children = 
+						[
+							
+							{
+								_class = "Bone"
+								name = "top0_0"
+								origin = 
+								[
+									0.000000,
+									0.000000,
+									46.078850,
+								]
+								angles = 
+								[
+									-0.000005,
+									0.000000,
+									-0.000005,
+								]
+								do_not_discard = true
+								children = 
+								[
+									
+									{
+										_class = "Bone"
+										name = "bolt1_0_R"
+										origin = 
+										[
+											-5.696218,
+											-65.582420,
+											16.105940,
+										]
+										angles = 
+										[
+											26.697280,
+											92.132390,
+											-85.262330,
+										]
+										do_not_discard = true
+									},
+									
+									{
+										_class = "Bone"
+										name = "top0_1"
+										origin = 
+										[
+											1.639597,
+											-0.000006,
+											71.666210,
+										]
+										angles = 
+										[
+											-88.689250,
+											-0.000438,
+											0.000443,
+										]
+										do_not_discard = true
+									},
+									
+									{
+										_class = "Bone"
+										name = "bolt0_0_L"
+										origin = 
+										[
+											-5.696197,
+											65.582430,
+											16.105940,
+										]
+										angles = 
+										[
+											-26.697320,
+											87.867550,
+											-85.262290,
+										]
+										do_not_discard = true
+									},
+								]
+							},
+						]
+					},
+				]
+			},
+		]
+	}
+}

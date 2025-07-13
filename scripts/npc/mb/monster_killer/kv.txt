@@ -1,0 +1,232 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Monster Killer: Holy Water Bullet
+    // =================================================================================================================
+    "monster_killer_holy_water_bullet"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "sniper_assassinate"
+        "ScriptFile"                     "mb/monster_killer/monster_killer_holy_water_bullet"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"         "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_NO"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_PURE"
+        "FightRecapLevel"                "2"
+        "AbilitySound"                   "Ability.Assassinate"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "1000"
+        "AbilityCastRangeBuffer"         "600"
+        "AbilityCastPoint"               "0.3 0.3 0.3 0.3"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "0"
+        "AbilityCharges"                 "3"
+        "AbilityChargeRestoreTime"       "25 20 15 10"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"                  "40 60 80 100"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "100 80 60 40"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.0" // Modifier just does damage
+        "AbilityValues"
+        {
+            "projectile_speed"    "3000"
+            "radius"              "325 350 375 400"
+            "debuff_duration"     "6.0"
+            "incoming_damage"     "5 7 9 11"
+        }
+    }
+    // =================================================================================================================
+    // Monster Killer: Fury Spring
+    // =================================================================================================================
+    "monster_killer_fury_spring"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "sniper_headshot_immortal"
+        "ScriptFile"               "mb/monster_killer/monster_killer_fury_spring"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "450 500 550 600"
+        "AbilityCastPoint"         "0.1 0.1 0.1 0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "10"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "spring_duration"    "0.5"
+            "spring_range"       "450 500 550 600"
+            "spring_width"       "250"
+            "spring_height"      "256"
+            "debuff_duration"    "1.0 1.5 2.0 2.5"
+            "slow"               "-90"
+        }
+    }
+    // =================================================================================================================
+    // Monster Killer: Pneumatic Crossbow
+    // =================================================================================================================
+    "monster_killer_pneumatic_crossbow"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "windrunner_focusfire_arcana_alt"
+        "ScriptFile"               "mb/monster_killer/monster_killer_pneumatic_crossbow"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "0"
+        "AbilityCastPoint"         "0 0 0 0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "15.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "25"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "pierce_count"             "6 8 10 12"
+            "fusillade_time"           "0.6"
+            "fusillade_cd"             "6.0 5.5 5.0 4.5"
+            "attsp"                    "1000"
+            "damage_pct"               "5 7 9 11"
+            "cleave_starting_width"    "200"
+            "cleave_ending_width"      "400"
+            "cleave_distance"          "700"
+            "cleave_damage"            "100 110 120 130"
+        }
+    }
+    // =================================================================================================================
+    // Ranger: Electric Grenade
+    // =================================================================================================================
+    "monster_killer_incendiary_grenade"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "batrider_flamebreak"
+        "ScriptFile"               "mb/monster_killer/monster_killer_incendiary_grenade"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_5"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "16"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50"
+        "AbilityValues"
+        {
+            "damage"               "175"
+            "radius"               "375"
+            "incendiary_damage"    "100"
+            "debuff_duration"      "6.0"
+            "slow"                 "-90"
+        }
+    }
+    // =================================================================================================================
+    // Monster Killer: Witch Potion
+    // =================================================================================================================
+    "monster_killer_witch_potion"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "alchemist_berserk_potion"
+        "ScriptFile"               "mb/monster_killer/monster_killer_witch_potion"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ALLIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "800"
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "90"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "125"
+        "AbilityValues"
+        {
+            "duration"               "25"
+            "status_resistance"      "40"
+            "hp_regen"               "100"
+            "attack_speed"           "100"
+            "stack"                  "25"
+            "damage"                 "150"
+            "wolf_blood_duration"    "10"
+        }
+    }
+    // =================================================================================================================
+    // Monster Killer: Shapeshift
+    // =================================================================================================================
+    "monster_killer_shapeshift"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "lycan_shapeshift"
+        "ScriptFile"              "mb/monster_killer/monster_killer_shapeshift"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"             "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"         "2"
+        "AbilitySound"            "Hero_Lycan.Shapeshift.Cast"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "125 110 95"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "100"
+        "AbilityValues"
+        {
+            "duration"               "28"
+            "speed"                  "550"
+            "bonus_night_vision"     "1000"
+            "transformation_time"    "0.8"
+            "crit_chance"            "40"
+            "crit_multiplier"        "120 140 160"
+            "health_bonus"           "300 400 500"
+            "attack_time"            "1.4"
+            "attack_range_limit"     "300"
+        }
+    }
+}

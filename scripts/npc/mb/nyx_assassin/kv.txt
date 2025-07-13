@@ -1,0 +1,329 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Nyx Assassin's Impale
+    // =================================================================================================================
+    "imba_nyx_assassin_impale"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "nyx_assassin_impale"
+        "ScriptFile"               "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "700"
+        "AbilityCastPoint"         "0.3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "13.0 11.0 9.0 7.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "105 120 135 150"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale_hit.vpcf"
+        }
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "AbilityValues"
+        {
+            "width"                          "180"
+            "LinkedSpecialBonus"             "special_bonus_imba_nyx_assassin_1"
+            "length"                         "700"
+            "speed"                          "1800"
+            "air_time"                       "0.57"
+            "CalculateSpellDamageTooltip"    "0"
+            "damage_duration"                "3.0"
+            "LinkedSpecialBonus"             "special_bonus_imba_nyx_assassin_3"
+            "knock_up_height"                "250"
+        }
+    }
+    // =================================================================================================================
+    // Nyx Assassin: Mana Burn
+    // =================================================================================================================
+    "imba_nyx_assassin_mana_burn"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "nyx_assassin_mana_burn"
+        "ScriptFile"               "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "28.0 20.0 12.0 4.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.4"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
+        }
+        "AbilitySound"             "Hero_NyxAssassin.ManaBurn.Target"
+        "AbilityValues"
+        {
+            "float_multiplier"    "3.5 4 4.5 5.0"
+            "burn_radius"         "325 350 375 400"
+        }
+    }
+    // =================================================================================================================
+    // Nyx Assassin's Spiked Carapace
+    // =================================================================================================================
+    "imba_nyx_assassin_spiked_carapace"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "nyx_assassin_spiked_carapace"
+        "ScriptFile"               "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "AbilityCastPoint"         "0.0"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "25 20 15 10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "0"
+        // Data driven
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/generic_gameplay/generic_stunned.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+        }
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "reflect_duration"     "2.25"
+            "stun_duration"        "0.6 1.2 1.8 2.4"
+            "burrow_stun_range"    "400"
+        }
+    }
+    // =================================================================================================================
+    // Nyx Assassin: Burrow ( scepter ability )
+    // =================================================================================================================
+    "imba_nyx_assassin_burrow"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "nyx_assassin_burrow"
+        "ScriptFile"              "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "FightRecapLevel"         "1"
+        "MaxLevel"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"        "0.75"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_4"
+        // Data driven
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_inground.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_groundfx_proj.vpcf"
+            "model"        "models/heroes/nerubian_assassin/mound.vmdl"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+        }
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "AbilitySound"            "Hero_NyxAssassin.Burrow.In"
+        "LinkedAbility"           "imba_nyx_assassin_unburrow"
+        "AbilityValues"
+        {
+            "health_regen_rate"    "3.5"
+            "mana_regen_rate"      "3.5"
+            "damage_reduction"     "40"
+            "cast_range_bonus"     "600"
+        }
+    }
+    // =================================================================================================================
+    // Nyx Assassin: Unburrow
+    // =================================================================================================================
+    "imba_nyx_assassin_unburrow"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "nyx_assassin_unburrow"
+        "ScriptFile"              "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "FightRecapLevel"         "1"
+        "MaxLevel"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"        "0.0"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_BURROW_END"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "0.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "0"
+        // Data driven
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_inground.vpcf"
+            "particle"     "particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_groundfx_proj.vpcf"
+            "model"        "models/heroes/nerubian_assassin/mound.vmdl"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+        }
+        "LinkedAbility"           "imba_nyx_assassin_burrow"
+        "AbilityValues"
+        {
+            "health_regen_rate"    "3.5"
+            "mana_regen_rate"      "3.5"
+            "damage_reduction"     "40"
+            "cast_range_bonus"     "700"
+        }
+    }
+    // =================================================================================================================
+    // Nyx Assassin's Vendetta
+    // =================================================================================================================
+    "imba_nyx_assassin_vendetta"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                        "ability_lua"
+        "AbilityTextureName"               "nyx_assassin_vendetta"
+        "ScriptFile"                       "mb/hero_nyx_assassin.lua"
+        "AbilityBehavior"                  "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityUnitDamageType"            "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"                "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"             "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"                  "2"
+        "AbilitySound"                     "Hero_NyxAssassin.Vendetta"
+        "AbilityCastAnimation"             "ACT_DOTA_CAST_ABILITY_6"
+        "AbilityType"                      "DOTA_ABILITY_TYPE_ULTIMATE"
+        "HasShardUpgrade"                  "1"
+        "HasScepterUpgrade"                "1"
+        "AbilityDraftUltScepterAbility"    "imba_nyx_assassin_burrow"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                  "20"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                  "160 220 280"
+        // Data driven
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+        }
+        "AbilityValues"
+        {
+            "duration"                        "40 50 60"
+            "movement_speed"                  "16 18 20"
+            "CalculateSpellDamageTooltip"     "0"
+            "CalculateSpellDamageTooltip"     "0"
+            "bouns_damage_pct"                "30 35 40"
+            "CalculateSpellDamageTooltip"     "0"
+            "break_duration"                  "4.0"
+            "shard_magic_resist_reduction"    "25 30 35"
+            "shard_movement_speed"            "40 50 60"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus  +{s:value}s Impale Stun Duration
+    // =================================================================================================================
+    "special_bonus_imba_nyx_assassin_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "LinkedAbility"
+        {
+            "01"    "imba_nyx_assassin_impale"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.25"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus  +{s:value}% Spiked Carapace Damage
+    // =================================================================================================================
+    "special_bonus_imba_nyx_assassin_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "value"    "75"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus  +{s:value} Impale Damage
+    // =================================================================================================================
+    "special_bonus_imba_nyx_assassin_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "LinkedAbility"
+        {
+            "01"    "imba_nyx_assassin_impale"
+        }
+        "AbilityValues"
+        {
+            "value"    "140"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus  Vendetta Unobstructed Pathing
+    // =================================================================================================================
+    "special_bonus_imba_nyx_assassin_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+}

@@ -1,0 +1,272 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Clinkz: Strafe
+    // =================================================================================================================
+    "imba_clinkz_strafe_searing_arrows"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "imba_clinkz_strafe_searing_arrows"
+        "ScriptFile"               "linken/hero_clinkz.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Clinkz.Strafe"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "20"
+        "AbilityCastPoint"         "0.0 0.0 0.0 0.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "70"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "duration"                  "3 4 5 6"
+            "attack_speed_bonus_pct"    "30 60 90 120"
+            "LinkedSpecialBonus"        "special_bonus_imba_clinkz_6"
+            "miss"                      "100"
+        }
+    }
+    // 灼热之箭齐发
+    "special_bonus_imba_clinkz_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_strafe_searing_arrows"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.0"
+        }
+    }
+    // 灼热之箭齐发
+    "special_bonus_imba_clinkz_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_strafe_searing_arrows"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.0"
+        }
+    }
+    // 灼热扫射冷却
+    "special_bonus_imba_clinkz_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_strafe_searing_arrows"
+        }
+        "AbilityValues"
+        {
+            "value"    "10.0"
+        }
+    }
+    // 灼热之箭伤害
+    "special_bonus_imba_clinkz_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_strafe_searing_arrows"
+        }
+        "AbilityValues"
+        {
+            "value"    "40.0"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Clinkz Burning Army
+    // =================================================================================================================
+    "imba_clinkz_burning_army"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "clinkz_burning_army"
+        "ScriptFile"               "linken/hero_clinkz.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "AbilitySound"             "Hero_Clinkz.DeathPact"
+        "HasScepterUpgrade"        "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "50 45 40 35"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "150"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_clinkz_2"
+            "scepter"               "1.5"
+            "reduce_damage"         "25"
+        }
+    }
+    // 燃烧之将持续时间
+    "special_bonus_imba_clinkz_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_burning_army"
+        }
+        "AbilityValues"
+        {
+            "value"    "4.0"
+        }
+    }
+    // =================================================================================================================
+    // Clinkz: Wind Walk
+    // =================================================================================================================
+    "imba_clinkz_wind_walk"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "clinkz_wind_walk"
+        "ScriptFile"              "linken/hero_clinkz.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "AbilitySound"            "Hero_Clinkz.WindWalk"
+        "HasShardUpgrade"         "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "10"
+        "AbilityCastPoint"        "0.0 0.0 0.0 0.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "75 75 75 75"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "duration"              "25 30 35 40"
+            "fade_time"             "0.6 0.5 0.4 0.3"
+            "LinkedSpecialBonus"    "special_bonus_imba_clinkz_4"
+            "bonus_damage"          "200"
+            "shard"                 "1.5"
+        }
+    }
+    // 骨隐步移动速度
+    "special_bonus_imba_clinkz_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_wind_walk"
+        }
+        "AbilityValues"
+        {
+            "value"    "15.0"
+        }
+    }
+    // 骨隐步可以跨越悬崖
+    "special_bonus_imba_clinkz_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_wind_walk"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.0"
+        }
+    }
+    // =================================================================================================================
+    // Clinkz: Death Pact
+    // =================================================================================================================
+    "imba_clinkz_death_pact"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "clinkz_death_pact"
+        "ScriptFile"               "linken/hero_clinkz.lua"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "AbilitySound"             "Hero_Clinkz.DeathPact"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600"
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "80"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        "AbilityValues"
+        {
+            "duration"           "65"
+            "health_gain_pct"    "80 120 140"
+            "damage_gain_pct"    "8 12 14"
+            "hero_pct"           "10"
+            "per_damage"         "10"
+            "max"                "3"
+        }
+    }
+    // 死亡契约获得目标视野
+    "special_bonus_imba_clinkz_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_clinkz_death_pact"
+        }
+        "AbilityValues"
+        {
+            "value"    "7.0"
+        }
+    }
+}
