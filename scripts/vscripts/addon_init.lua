@@ -1,3 +1,4 @@
+require('addon_game_mode')
 if IsClient() then
     	print("初始Activate···············")
 --[[	

@@ -1,4 +1,3 @@
-print("初始Activate···············")
 
 if L_TG == nil then
 	L_TG = class({})
@@ -6,34 +5,8 @@ if L_TG == nil then
 	require("tools/memory")
 end
 
-require('game')
-require('precache')
-require('tools/notifications')
-require('tools/timers')
-require('tools/util')
-require('tools/network')
-require('tools/pseudorandom')
-require('addon_init')
-require('tools/tg_utils')
-require('tools/tg_utils')
-require('tools/abilitychargecontroller')
-require('events/events')
-require('events/custom_events')
-require('tools/keyvalues')
-require('tools/animations')
-require('tools/physics')
---require('tools/vector_targeting')
 
-require('bots/bot_config')
-require('building')
-require('player')
-require('unit')
-require('wearable')
-require('modifier/veteran_talent/veteran_talent_contral')
---require("mob_spawner")
-require('spawner_creep')
-require('ai/poor_ai_core')
-require('ai/ai_normal')
+
 
 function Precache( context )
 	GameRules.L_TG = L_TG()
@@ -96,7 +69,6 @@ function Precache( context )
 end
 function Activate()
 		print("初始Activate···············")
-    GameRules.L_TG = L_TG
 	GameRules.L_TG:InitGameMode()
 end
 
