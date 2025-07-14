@@ -1,6 +1,6 @@
 # Game
-
-
+反编译：https://github.com/ValveResourceFormat/ValveResourceFormat
+支持：https://www.youtube.com/watch?v=DjWzrKFDEEQ
 
 ## Getting started
 
