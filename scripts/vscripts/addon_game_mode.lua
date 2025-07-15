@@ -34,6 +34,7 @@ require('ai/poor_ai_core')
 require('ai/ai_normal')
 
 function Precache( context )
+	print('加载缓存Precache')
 	GameRules.L_TG = L_TG()
 
 	--加载
