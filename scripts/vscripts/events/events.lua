@@ -8,7 +8,6 @@
 
 --游戏状态改变时
 function L_TG:OnGameRulesStateChange(tg)
-		print("初始化InitSpawner")
 	local State = GameRules:State_Get()
 	if State == DOTA_GAMERULES_STATE_STRATEGY_TIME then	
 		self:OnSTRATEGY_TIME()
@@ -30,7 +29,6 @@ end
 
 --游戏设置期间
 function L_TG:OnCUSTOM_GAME_SETUP()
-	print("初始化InitSpawner")
 		if RollPercentage(10) then
 			GameRules:SendCustomMessage( "本局为复选", 0, 0 )
 			GameRules:SetSameHeroSelectionEnabled(true)

@@ -5,15 +5,40 @@ if L_TG == nil then
 	require("tools/memory")
 end
 
-
-
+require('game')
+require('precache')
+require('tools/notifications')
+require('tools/timers')
+require('tools/util')
+require('tools/network')
+require('tools/pseudorandom')
+require('tools/tg_utils')
+require('tools/tg_utils')
+require('tools/abilitychargecontroller')
+require('events/events')
+require('events/custom_events')
+require('tools/keyvalues')
+require('tools/animations')
+require('tools/physics')
+--require('tools/vector_targeting')
+require('addon_init')
+require('bots/bot_config')
+require('building')
+require('player')
+require('unit')
+require('wearable')
+require('modifier/veteran_talent/veteran_talent_contral')
+--require("mob_spawner")
+require('spawner_creep')
+require('ai/poor_ai_core')
+require('ai/ai_normal')
 
 function Precache( context )
 	GameRules.L_TG = L_TG()
 
 	--加载
 	Awake()
-	
+
 	PrecacheItemByNameSync( "item_ward_sentry", context )
 	PrecacheItemByNameSync( "item_ward_observer", context )
 	PrecacheItemByNameSync( "item_magic_wand", context )
@@ -24,7 +49,7 @@ function Precache( context )
 	--音效
 	PrecacheResource("soundfile", "soundevents/new_soundevents.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/imba_soundevents.vsndevts", context)
-	
+
 	for hero, _ in pairs(HEROSKV) do
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_"..string.sub(hero,15)..".vsndevts", context )
 	end
@@ -40,8 +65,8 @@ function Precache( context )
 	PrecacheResource("particle", "particles/units/heroes/hero_axe/axe_attack_blur.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield.vpcf", context)
-	
-	
+
+
 	PrecacheResource( "model", "models/heroes/tiny/tiny_01/tiny_01.vmdl", context )
 	PrecacheResource( "model", "models/items/tiny/tiny_prestige/tiny_prestige_lvl_01.vmdl", context )
 	PrecacheResource( "model", "models/items/tiny/tiny_prestige/tiny_prestige_lvl_02.vmdl", context )
@@ -65,10 +90,12 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
-	
+
 end
 function Activate()
-		print("初始Activate···············")
+	print("初始Activate···············")
+	GameRules.L_TG = L_TG
+
 	GameRules.L_TG:InitGameMode()
 end
 
@@ -96,16 +123,16 @@ function L_TG:InitGameMode()
 		--GameRules:SetSameHeroSelectionEnabled(true)
 		--mode:SetBotsAlwaysPushWithHuman(true)
 		--mode:SetBotsInLateGame(true)
-	--	bot_config:Start()
+		--	bot_config:Start()
 	end
-	
+
 	if map =="10v10mid" then
 		-- mode:SetBotsAlwaysPushWithHuman(true)
 		-- mode:SetBotThinkingEnabled(true)
 		-- mode:SetBotsInLateGame(true)
 		-- bot_config:Start()
-	
-	--每个队伍最大BAN人数量
+
+		--每个队伍最大BAN人数量
 		GameRules:SetCustomGameBansPerTeam(8)   --6
 	end
 	if map =="10v10" then
@@ -113,11 +140,11 @@ function L_TG:InitGameMode()
 		--mode:SetBotsAlwaysPushWithHuman(true)
 		--mode:SetBotThinkingEnabled(true)
 		--mode:SetBotsInLateGame(true)
-	
-	--每个队伍最大BAN人数量
+
+		--每个队伍最大BAN人数量
 		GameRules:SetCustomGameBansPerTeam(8)   --6
 	end
-	
+
 	--为自定义游戏设置启用（true）或禁用（false）自动启动。
 	GameRules:EnableCustomGameSetupAutoLaunch(true)
 	--是否开启自动锁定
@@ -125,7 +152,7 @@ function L_TG:InitGameMode()
 
 	--设置游戏结束延迟。
 	GameRules:SetCustomGameEndDelay(99999)
-	
+
 
 	--设置是否已触发“第一滴血”。
 	GameRules:SetFirstBloodActive(true)
@@ -142,7 +169,7 @@ function L_TG:InitGameMode()
 	--设置符文生成之间的时间间隔。
 	GameRules:SetRuneSpawnTime(120)
 
-	
+
 
 	--设置玩家在策略阶段和进入赛前阶段之间的时间。
 	GameRules:SetShowcaseTime(6)
@@ -162,8 +189,8 @@ function L_TG:InitGameMode()
 	--设置商店是否可以购买全部物品
 	GameRules:SetUseUniversalShopMode(true)
 
-	
---------------------------------------------------------------------------??
+
+	--------------------------------------------------------------------------??
 
 
 	--是否允许掉落中立物品
@@ -257,33 +284,33 @@ function L_TG:InitGameMode()
 	--为背包中的物品设置交换冷却时间。
 	mode:SetCustomBackpackSwapCooldown(1)
 
-		local tLevelRequire = { 0,240,640,1160,1760,2440,3200,4000,4900,5900,6000,7200,8500,9900,11400,13000,
-								14700,16500,18400,20400,22600,25000,27600,30400,33400,37400,42400,48400,55400,
-								63400} -- value fixed
-        local iRequireLevel = tLevelRequire[30]
-        for i = 31, 50 do
-            iRequireLevel = iRequireLevel + i * 200
-            table.insert(tLevelRequire, iRequireLevel)
-        end
-		mode:SetCustomXPRequiredToReachNextLevel(tLevelRequire)
-        GameRules:SetUseCustomHeroXPValues(true)
-        mode:SetUseCustomHeroLevels(true)
-        mode:SetCustomHeroMaxLevel(50)		
-		mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP,20)
-		mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED,0.9)
+	local tLevelRequire = { 0,240,640,1160,1760,2440,3200,4000,4900,5900,6000,7200,8500,9900,11400,13000,
+							14700,16500,18400,20400,22600,25000,27600,30400,33400,37400,42400,48400,55400,
+							63400} -- value fixed
+	local iRequireLevel = tLevelRequire[30]
+	for i = 31, 50 do
+		iRequireLevel = iRequireLevel + i * 200
+		table.insert(tLevelRequire, iRequireLevel)
+	end
+	mode:SetCustomXPRequiredToReachNextLevel(tLevelRequire)
+	GameRules:SetUseCustomHeroXPValues(true)
+	mode:SetUseCustomHeroLevels(true)
+	mode:SetCustomHeroMaxLevel(50)
+	mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP,20)
+	mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED,0.9)
 
-		--地图抉择
+	--地图抉择
 	if map =="6v6v6" then
 		-- GameRules:SetHeroSelectionTime(0)
 		-- mode:SetDraftingBanningTimeOverride(0)
 		-- mode:SetDraftingHeroPickSelectTimeOverride(0)
 		-- GameRules:SetSameHeroSelectionEnabled(true)
 		if GameRules:IsCheatMode() then
-			GameRules:SetCustomGameSetupAutoLaunchDelay(1)	 
-			mode:SetDraftingBanningTimeOverride(1) 
+			GameRules:SetCustomGameSetupAutoLaunchDelay(1)
+			mode:SetDraftingBanningTimeOverride(1)
 			--SendToServerConsole("dota_easybuy 1")
 			--SendToConsole("dota_easybuy 1")
-			else
+		else
 			GameRules:SetCustomGameSetupAutoLaunchDelay(1)	 --15
 			mode:SetDraftingBanningTimeOverride(1) --20	
 		end
@@ -293,15 +320,15 @@ function L_TG:InitGameMode()
 		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS,6)
 		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS,6)
 		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1,6)
-		
-	--设置等待自动启动的时间。
+
+		--设置等待自动启动的时间。
 	else
 		if GameRules:IsCheatMode() then
-			GameRules:SetCustomGameSetupAutoLaunchDelay(1)	 
-			mode:SetDraftingBanningTimeOverride(1) 
+			GameRules:SetCustomGameSetupAutoLaunchDelay(1)
+			mode:SetDraftingBanningTimeOverride(1)
 			--SendToServerConsole("dota_easybuy 1")
 			--SendToConsole("dota_easybuy 1")
-			else
+		else
 			GameRules:SetCustomGameSetupAutoLaunchDelay(10)	 --15
 			mode:SetDraftingBanningTimeOverride(10) --20	
 		end
@@ -314,11 +341,11 @@ function L_TG:InitGameMode()
 		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS,8)
 		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS,8)
 	end
-	
+
 	GameRules.DropTable = LoadKeyValues("scripts/npc/drop.txt")
 	GameRules.BanId = LoadKeyValues("scripts/npc/ban.txt")
 
---------------------------------------------------------------------------??
+	--------------------------------------------------------------------------??
 	--官方事件
 	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( L_TG, 'OnGameRulesStateChange' ), L_TG )
 	ListenToGameEvent( "dota_on_hero_finish_spawn", Dynamic_Wrap( L_TG, "OnHeroFinishSpawn" ), self )
@@ -359,7 +386,7 @@ function L_TG:InitGameMode()
 	--GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(L_TG, "AbilityValueFilter"), self)
 	--GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(L_TG, "BountyRuneFilter"), self)
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(L_TG, "DamageFilter"), self)
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(L_TG, "OrderFilter"), self)	
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(L_TG, "OrderFilter"), self)
 	--GameRules:GetGameModeEntity():SetHealingFilter(Dynamic_Wrap(L_TG, "HealFilter"), self)
 	--GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(L_TG, "ItemPickFilter"), self)
 	--GameRules:GetGameModeEntity():SetModifierGainedFilter(Dynamic_Wrap(L_TG, "ModifierAddFilter"), self)
@@ -370,13 +397,13 @@ function L_TG:InitGameMode()
 	-- self.mob_spawner = MobSpawner()
 	-- self.mob_spawner:Start()
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
-	
+
 	custom_events:Start()
 	CustomNetTables:SetTableValue("imba_vote", "shuffle_vote", {["agree"] = 0, ["enable"] = 0,["max"] = VOTE_LIMIT})
 	CustomNetTables:SetTableValue("imba_vote_fun", "fun_vote", {["agree"] = 0, ["enable"] = 0,["max"] = VOTE_LIMIT})
 	SendToServerConsole("dota_max_physical_items_drop_limit 99999")
 	SendToServerConsole("dota_max_physical_items_purchase_limit 99999")
-	
+
 end
 
 
@@ -421,8 +448,8 @@ function L_TG:DamageFilter(tg)
 	local ability =tg.entindex_inflictor_const and EntIndexToHScript(tg.entindex_inflictor_const) or nil
 
 
----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	---------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 	--[[
 	★骷髅王绿魂。
 	--]]
@@ -437,10 +464,10 @@ function L_TG:DamageFilter(tg)
 			end
 		end
 	end]]
-	
----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	---------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+
 	--[[
 	★火猫盾。
 	--]]
@@ -465,9 +492,9 @@ function L_TG:DamageFilter(tg)
 		end
 	end]]
 
-	
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	--[[
 	★猴子bA。
@@ -482,8 +509,8 @@ function L_TG:DamageFilter(tg)
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	--[[
 	★人马护盾。
@@ -515,8 +542,8 @@ function L_TG:DamageFilter(tg)
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	--[[
 	★血棘。
@@ -539,8 +566,8 @@ function L_TG:DamageFilter(tg)
 		end
 	end]]
 
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	--[[
 	★NEC大招确保击杀。
@@ -565,77 +592,77 @@ function L_TG:DamageFilter(tg)
 			end
 		end
 	end]]
-	
-----------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	----------------------------------------------------------------------------------------------------------------------------------------
+
 	--[[
 	★死亡。
 	]]
 	if unit and Is_DATA_TG(CDOTA_PlayerResource.TG_HERO, unit)  and tg.damage>=unit:GetHealth() then
-	--骷髅王绿
-	if unit:HasAbility("reincarnation") then
-		local ab=unit:FindAbilityByName("reincarnation")
-		if ab  then
-			if ab~=nil and ab:GetLevel()>0 and not  ab:IsCooldownReady()  and   unit:HasScepter() and not unit:HasModifier("modifier_reincarnation_ghost_cd") then
-				unit:AddNewModifier( unit, ab, "modifier_reincarnation_ghost", {duration=6})
-				unit.killer = attacker
+		--骷髅王绿
+		if unit:HasAbility("reincarnation") then
+			local ab=unit:FindAbilityByName("reincarnation")
+			if ab  then
+				if ab~=nil and ab:GetLevel()>0 and not  ab:IsCooldownReady()  and   unit:HasScepter() and not unit:HasModifier("modifier_reincarnation_ghost_cd") then
+					unit:AddNewModifier( unit, ab, "modifier_reincarnation_ghost", {duration=6})
+					unit.killer = attacker
+					tg.damage=0
+				end
+			end
+		end
+		--屠夫不死
+		if unit:TG_HasTalent("special_bonus_pudge_7") and not  unit:HasModifier("modifier_flesh_heap_cd")     then
+			local ab = unit:FindAbilityByName("flesh_heap")
+			if ab and ab:GetLevel()>0 then
+				unit:AddNewModifier( unit, ab, "modifier_flesh_heap_cd", {duration=70})
+				unit:AddNewModifier( unit, ab, "modifier_flesh_heap_buff", {duration=6})
 				tg.damage=0
 			end
 		end
-	end
-	--屠夫不死
-	  if unit:TG_HasTalent("special_bonus_pudge_7") and not  unit:HasModifier("modifier_flesh_heap_cd")     then
-			 local ab = unit:FindAbilityByName("flesh_heap")
-				 if ab and ab:GetLevel()>0 then
-				 unit:AddNewModifier( unit, ab, "modifier_flesh_heap_cd", {duration=70})
-				 unit:AddNewModifier( unit, ab, "modifier_flesh_heap_buff", {duration=6})
-				 tg.damage=0
-			 end
-	  end
 		local rest = 6
 		local t = GameRules:GetDOTATime(false, false)
 		if GetMapName() ~="6v6v6" then
 			local  level = unit:GetLevel()
-				if t<=600 then
+			if t<=600 then
+				rest=RandomInt(level-3,level)
+			elseif t>600 and t<=1200 then
+				if level>10 then
 					rest=RandomInt(level-3,level)
-				elseif t>600 and t<=1200 then
-					if level>10 then 
-						rest=RandomInt(level-3,level)
-					else
-						rest = RandomInt(10,15)
-					end
-				elseif t>1200  then
-					local time = RandomInt(level-3,level)
-					rest= time>=60 and 60 or time
+				else
+					rest = RandomInt(10,15)
 				end
+			elseif t>1200  then
+				local time = RandomInt(level-3,level)
+				rest= time>=60 and 60 or time
+			end
 		end
 		local t_final= rest
 		-- local t_final = math.min(rest+unit:GetRespawnTimeChangeNormal(),20)
 		local t_dis = 4000--math.max(2000,(4000-t))
 		if (unit:GetTeamNumber()==2 and (unit:GetAbsOrigin() - BADGUYS):Length2D() < t_dis) or (unit:GetTeamNumber()==3 and (unit:GetAbsOrigin() - GOODGUYS):Length2D() < t_dis) then
-			 t_final = math.min(rest+unit:GetLevel()/2+unit:GetRespawnTimeChangeNormal(),38)
+			t_final = math.min(rest+unit:GetLevel()/2+unit:GetRespawnTimeChangeNormal(),38)
 		end
-		
-			if  attacker and unit:HasModifier("modifier_dlnec_reaper_permanent") then
-				local mod=unit:FindModifierByName("modifier_dlnec_reaper_permanent")
-				if mod then
-					--GameRules:GetGameModeEntity():SetFixedRespawnTime(rest+(mod:GetStackCount()*(3+attacker:TG_GetTalentValue("special_bonus_dlnec_25r"))))
-					--旧方法25级天赋，当击杀者不是NEC时会无效。且当前击杀会少计算一层
-					local stack=mod:GetStackCount()
-					if unit:HasModifier("modifier_dlnec_reaper_judge2") then
-						stack=stack+1
-						mod:SetStackCount(stack)
-					end
-					t_final = t_final+stack*(1+mod:GetCaster():TG_GetTalentValue("special_bonus_dlnec_25r"))
-					--GameRules:GetGameModeEntity():SetFixedRespawnTime(rest+stack*(3+mod:GetCaster():TG_GetTalentValue("special_bonus_dlnec_25r")))
+
+		if  attacker and unit:HasModifier("modifier_dlnec_reaper_permanent") then
+			local mod=unit:FindModifierByName("modifier_dlnec_reaper_permanent")
+			if mod then
+				--GameRules:GetGameModeEntity():SetFixedRespawnTime(rest+(mod:GetStackCount()*(3+attacker:TG_GetTalentValue("special_bonus_dlnec_25r"))))
+				--旧方法25级天赋，当击杀者不是NEC时会无效。且当前击杀会少计算一层
+				local stack=mod:GetStackCount()
+				if unit:HasModifier("modifier_dlnec_reaper_judge2") then
+					stack=stack+1
+					mod:SetStackCount(stack)
 				end
+				t_final = t_final+stack*(1+mod:GetCaster():TG_GetTalentValue("special_bonus_dlnec_25r"))
+				--GameRules:GetGameModeEntity():SetFixedRespawnTime(rest+stack*(3+mod:GetCaster():TG_GetTalentValue("special_bonus_dlnec_25r")))
 			end
-			
-			GameRules:GetGameModeEntity():SetFixedRespawnTime(t_final)
+		end
+
+		GameRules:GetGameModeEntity():SetFixedRespawnTime(t_final)
 	end
 
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	--[[
 	★老圣剑法强距离计算。
@@ -661,9 +688,9 @@ function L_TG:DamageFilter(tg)
 		tg.damage = tg.damage * (1 + (total_spellAMP - rapier_spellAMP))
 	end
 ]]
-		
-		--tg.damage = tg.damage*0.85
-		return true
+
+	--tg.damage = tg.damage*0.85
+	return true
 end
 
 
@@ -698,19 +725,19 @@ function L_TG:OrderFilter(keys)
 		local initItem = EntIndexToHScript(keys.entindex_ability)
 		local initItem_slot = initItem:GetItemSlot()
 		local targetSlot = keys.entindex_target
-		if ((targetSlot == 16 or targetSlot == 15) and initItem:GetName()~="item_imba_rapier_cursed") or 
-			(initItem_slot==16 and (unit:GetItemInSlot(targetSlot)==nil or unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed")) or
-			(initItem:IsNeutralDrop() and (targetSlot>=0 and targetSlot<=5) and unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed") or
-			((unit:GetItemInSlot(targetSlot)~=nil and unit:GetItemInSlot(targetSlot):IsNeutralDrop() and initItem:GetName()~="item_imba_rapier_cursed") and (initItem_slot>=0 and initItem_slot<=5)) 
-			then --or initItem:GetItemSlot() == 15 or initItem:GetItemSlot() == 16) then
+		if ((targetSlot == 16 or targetSlot == 15) and initItem:GetName()~="item_imba_rapier_cursed") or
+				(initItem_slot==16 and (unit:GetItemInSlot(targetSlot)==nil or unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed")) or
+				(initItem:IsNeutralDrop() and (targetSlot>=0 and targetSlot<=5) and unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed") or
+				((unit:GetItemInSlot(targetSlot)~=nil and unit:GetItemInSlot(targetSlot):IsNeutralDrop() and initItem:GetName()~="item_imba_rapier_cursed") and (initItem_slot>=0 and initItem_slot<=5))
+		then --or initItem:GetItemSlot() == 15 or initItem:GetItemSlot() == 16) then
 			--if initItem:IsNeutralDrop() == true and (targetSlot == 0 or targetSlot == 1 or targetSlot == 2 or targetSlot == 3 or targetSlot == 4 or targetSlot == 5) then
-				--return true
+			--return true
 			--end
 			--if unit:GetItemInSlot(targetSlot) and unit:GetItemInSlot(targetSlot):IsNeutralDrop() == true and (initItem:GetItemSlot() == 0 or initItem:GetItemSlot() == 1 or initItem:GetItemSlot() == 2 or initItem:GetItemSlot() == 3 or initItem:GetItemSlot() == 4 or initItem:GetItemSlot() == 5) then
-				--return false
+			--return false
 			--end
 			initItem:GetParent():SwapItems(initItem:GetItemSlot(), targetSlot)
-			
+
 			if targetSlot==15 then
 				initItem:SetCanBeUsedOutOfInventory(true)
 			end
@@ -884,26 +911,26 @@ function L_TG:ModifierAddFilter(tg)
 
 	local modifier_name = tg.name_const
 
-  --[[
-	  抗性 -小问题舍弃
+	--[[
+        抗性 -小问题舍弃
 
-	if target~=nil and tg.duration>0 and ability~=nil then
-		local modifier = target:HasModifier(modifier_name) and target:FindModifierByName(modifier_name) or nil
-		local cname=ability:GetClassname()
-		if (modifier~=nil and modifier:IsDebuff() and  (cname=="item_lua" or cname=="ability_lua") and not TableContains(NOT_RS_DEBUFF,modifier_name)) or modifier_name=="modifier_stunned" then
-			local status_res = target:GetStatusResistance()
-			local dur=math.ceil(tg.duration*status_res*100)/100
-			if status_res>0 then
-				tg.duration = tg.duration-dur
-			elseif status_res<0 then
-				tg.duration = tg.duration+dur*-1
-			end
-			return true
-		end
-	end
-]]
+      if target~=nil and tg.duration>0 and ability~=nil then
+          local modifier = target:HasModifier(modifier_name) and target:FindModifierByName(modifier_name) or nil
+          local cname=ability:GetClassname()
+          if (modifier~=nil and modifier:IsDebuff() and  (cname=="item_lua" or cname=="ability_lua") and not TableContains(NOT_RS_DEBUFF,modifier_name)) or modifier_name=="modifier_stunned" then
+              local status_res = target:GetStatusResistance()
+              local dur=math.ceil(tg.duration*status_res*100)/100
+              if status_res>0 then
+                  tg.duration = tg.duration-dur
+              elseif status_res<0 then
+                  tg.duration = tg.duration+dur*-1
+              end
+              return true
+          end
+      end
+  ]]
 
-	
+
 	if target and target:HasModifier("modifier_bulldoze_buff1") then
 		local mod=target:FindModifierByName(modifier_name)
 		if mod and  mod:IsDebuff() then
@@ -921,7 +948,7 @@ function L_TG:ModifierAddFilter(tg)
 	--[[
 		神符
 	]]
-	
+
 	if modifier_name == "modifier_rune_regen" then
 		for i=1, #CDOTA_PlayerResource.TG_HERO do
 			if CDOTA_PlayerResource.TG_HERO[i] then
@@ -929,10 +956,10 @@ function L_TG:ModifierAddFilter(tg)
 				if hero~= nil and  hero:IsAlive() then
 					if  Is_Chinese_TG(hero,target) then
 						hero:AddNewModifier(target, nil,"modifier_rune_regen_tg" , {duration = 15})--"modifier_rune_regen_tg"
-						end
 					end
 				end
 			end
+		end
 		return false
 	end
 	if modifier_name == "modifier_rune_haste" then
@@ -942,10 +969,10 @@ function L_TG:ModifierAddFilter(tg)
 				if hero~= nil and  hero:IsAlive() then
 					if  Is_Chinese_TG(hero,target) then
 						hero:AddNewModifier(target, nil,"modifier_rune_haste_tg" , {duration = 15})--"modifier_rune_regen_tg"
-						end
 					end
 				end
 			end
+		end
 		return false
 	end
 	if modifier_name == "modifier_rune_invis" then
@@ -955,10 +982,10 @@ function L_TG:ModifierAddFilter(tg)
 				if hero~= nil and  hero:IsAlive() then
 					if  Is_Chinese_TG(hero,target) then
 						hero:AddNewModifier(target, nil,"modifier_rune_invis_tg" , {duration = 15})--"modifier_rune_regen_tg"
-						end
 					end
 				end
 			end
+		end
 		return false
 	end
 	if modifier_name == "modifier_rune_doubledamage" then
@@ -968,10 +995,10 @@ function L_TG:ModifierAddFilter(tg)
 				if hero~= nil and  hero:IsAlive() then
 					if  Is_Chinese_TG(hero,target) then
 						hero:AddNewModifier(target, nil,"modifier_rune_doubledamage_tg" , {duration = 15})--"modifier_rune_regen_tg"
-						end
 					end
 				end
 			end
+		end
 		return false
 	end
 	if modifier_name == "modifier_rune_arcane" then
@@ -981,10 +1008,10 @@ function L_TG:ModifierAddFilter(tg)
 				if hero~= nil and  hero:IsAlive() then
 					if  Is_Chinese_TG(hero,target) then
 						hero:AddNewModifier(target, nil,"modifier_rune_arcane_tg" , {duration = 15})--"modifier_rune_regen_tg"
-						end
 					end
 				end
 			end
+		end
 		return false
 	end
 
@@ -1014,8 +1041,8 @@ function L_TG:ExpFilter(tg)
 	end
 	local const=tg.reason_const
 	local experience=tg.experience
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 	if const == DOTA_ModifyXP_Outpost then
 		tg.experience=experience*Outpost_XP
 	end
@@ -1056,16 +1083,16 @@ function L_TG:GoldFilter(tg)
 	if hero==nil then
 		return
 	end
-	
+
 	local const=tg.reason_const
 	local gold=tg.gold
-	
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
-	if const == DOTA_ModifyGold_HeroKill then 
+
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	if const == DOTA_ModifyGold_HeroKill then
 		tg.gold=gold+Hero_KEG
 		if gold>Threshold_KEG then
-			tg.gold=Threshold_KEG+gold*Perc_KEG  
+			tg.gold=Threshold_KEG+gold*Perc_KEG
 		end
 
 	elseif const == DOTA_ModifyGold_NeutralKill then
@@ -1076,8 +1103,8 @@ function L_TG:GoldFilter(tg)
 		tg.gold=gold*Shared_G
 	end
 
-----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------------------
 
 	if hero:HasModifier("modifier_item_hand_of_god_buff") then
 		tg.gold=math.floor(tg.gold+tg.gold*0.1)
