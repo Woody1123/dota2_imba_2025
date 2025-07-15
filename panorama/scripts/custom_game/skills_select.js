@@ -13,6 +13,7 @@ function select_skills(data) {
     HERO_M_ID.style.visibility = "visible";
     HERO_Text.style.visibility = "visible";
     for (var index = 1; index <= data[2]; index++) {
+        print('dataDetail', data)
         var hsk = create_ab("Panel", panel, "HERO_SK", "HERO_SKC", HERO_M_ID);
         var t = create_ab("Label", hsk, "Author", "AuthorC", hsk);
         var t1 = create_ab("Label", hsk, "Author", "AuthorC", hsk);

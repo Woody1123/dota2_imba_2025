@@ -180,10 +180,10 @@ function custom_events:On_Hero(k,j)
 		local HERO=PL:GetAssignedHero()
 		local NAME=HERO:GetName()
 		if HERO and HERO:IS_TrueHero_TG() then
-			for a=0,30 do
-				local ab=HERO:GetAbilityByIndex(a)
+			for i = 0, HERO:GetAbilityCount() - 1 do
+				local ab = HERO:GetAbilityByIndex(i)
 				if ab then
-					HERO:RemoveAbilityByHandle(HERO:GetAbilityByIndex(a))
+					HERO:RemoveAbilityByHandle(ab)
 				end
 			end
 			local modifier_count = HERO:GetModifierCount()

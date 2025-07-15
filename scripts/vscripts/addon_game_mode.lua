@@ -1,4 +1,3 @@
-print("初始Activate···············")
 
 if L_TG == nil then
 	L_TG = class({})
@@ -13,7 +12,6 @@ require('tools/timers')
 require('tools/util')
 require('tools/network')
 require('tools/pseudorandom')
-require('addon_init')
 require('tools/tg_utils')
 require('tools/tg_utils')
 require('tools/abilitychargecontroller')
@@ -97,6 +95,7 @@ end
 function Activate()
 		print("初始Activate···············")
     GameRules.L_TG = L_TG
+
 	GameRules.L_TG:InitGameMode()
 end
 
