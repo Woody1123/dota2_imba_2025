@@ -7,11 +7,12 @@
 	m_bShouldSort = false
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 2
-	m_controlPointConfigurations = 
+
+	m_controlPointConfigurations =
 	[
 		{
 			m_name = "preview"
-			m_drivers = 
+			m_drivers =
 			[
 				{
 					m_iAttachType = "PATTACH_WORLDORIGIN"
@@ -30,18 +31,20 @@
 			]
 		},
 	]
-	m_Emitters = 
+
+	m_Emitters =
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
+			m_nParticlesToEmit =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 1.0
 			}
 		},
 	]
-	m_Initializers = 
+
+	m_Initializers =
 	[
 		{
 			_class = "C_INIT_CreateWithinSphere"
@@ -56,7 +59,8 @@
 			m_nControlPoint = 1
 		},
 	]
-	m_Operators = 
+
+	m_Operators =
 	[
 		{
 			_class = "C_OP_BasicMovement"
@@ -124,25 +128,12 @@
 			m_fDrag = 0.2
 		},
 	]
-	m_Children = 
+
+	m_Children =
 	[
 		{
 			m_ChildRef = resource:"particles/tgp/dk/azuremircourierfinal2.vpcf"
 		},
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_jakiro/jakiro_dual_breath_fire.vpcf"
-		},
-	]
-}fDrag = 0.200000
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/dk/azuremircourierfinal2.vpcf"
-		},
-		
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_jakiro/jakiro_dual_breath_fire.vpcf"
 		},
