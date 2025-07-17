@@ -10290,83 +10290,74 @@
 		
 		//Inventory
 	}
-	"npc_dota_imba_boss"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/items/venomancer/ward/venomancer_hydra_snakeward/venomancer_hydra_snakeward.vmdl"	// Model.
-		"BaseClass"					"npc_dota_miniboss"
-		"SoundSet"					"ShadowShaman_Ward"
-		"ModelScale" 				"4"
-		//"ConsideredHero"			"1"
-		"Level"						"30"
-		"IsAncient"					"1"
-		
-		"IsBossCreature"				"1"
-		"CanBeDominated"			"0"
-		
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+	 "npc_dota_imba_boss"
+        {
+            // General
+            "BaseClass"             "npc_dota_creature"                   // 不继承npc_dota_miniboss，直接用基础类
+            "Model"                 "models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"
+            "SoundSet"              "ShadowShaman_Ward"
+            "ModelScale"            "4"
+            "Level"                 "30"
+            "IsAncient"             "1"
+            "IsBossCreature"        "1"
+            "CanBeDominated"        "0"
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// Physical protection.
+            // Abilities
+            "Ability1"              "neutral_spell_immunity"
+            "Ability2"              "miniboss_unyielding_shield"
+            "Ability3"              "miniboss_reflect"
+            "Ability4"              ""
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"28"		// Damage range min.
-		"AttackDamageMax"			"28"		// Damage range max.	   
-		
-		"AttackRate"				"0.9"		// Speed of attack.
-		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"500"		// Range within a target can be attacked.
-		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"		// Particle system model for projectile.
-		"ProjectileSpeed"			"750"		// Speed of projectile.
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"70"
-		"HealthBarOffset"			"215"
+            // Armor
+            "ArmorPhysical"         "20"
+            "MagicalResistance"     "55"
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"300"		// Experience earn.
-		"BountyGoldMin"				"300"		// Gold earned min.
-		"BountyGoldMax"				"300"		// Gold earned max.
+            // Attack
+            "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+            "AttackDamageMin"       "28"
+            "AttackDamageMax"       "28"
+            "AttackRate"            "0.9"
+            "AttackAnimationPoint"  "0.6"
+            "AttackAcquisitionRange" "500"
+            "AttackRange"           "500"
+            "ProjectileModel"       "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+            "ProjectileSpeed"       "750"
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
-		"MovementSpeed"				"0"			// Speed
-		"MovementTurnRate"			"1.0"			// Turning rate.
+            // Bounds
+            "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+            "RingRadius"            "110"
+            "HealthBarOffset"       "400"
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1100"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
-		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		//Inventory
-		"HasInventory"				"1"
-		
-	}	
+            // Bounty
+            "BountyXP"              "300"
+            "BountyGoldMin"         "300"
+            "BountyGoldMax"         "300"
+
+            // Movement
+            "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+            "MovementSpeed"         "0"
+            "MovementTurnRate"      "1.0"
+
+            // Status
+            "StatusHealth"          "1100"
+            "StatusHealthRegen"     "20"
+            "StatusMana"            "300"
+            "StatusManaRegen"       "0.5"
+
+            // Vision
+            "VisionDaytimeRange"    "1400"
+            "VisionNighttimeRange"  "1400"
+
+            // Team
+            "TeamName"              "DOTA_TEAM_NEUTRALS"
+            "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+            "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_HERO"
+            "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_HERO"
+
+            // Inventory
+            "HasInventory"          "1"
+        }
 	
 	
 	"npc_dota_imba_miniboss"
@@ -10374,7 +10365,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/props_gameplay/divine_sentinel/divine_sentinel_cube.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
 		"SoundSet"					""					// Name of sound set.
 		"ModelScale"				"0.7"
 		"Level"						"30"
@@ -10446,7 +10437,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_building"	// Class of entity of link to.
-		"Model"						"models/props_nature/lily_flower00.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		
 		// Abilities
@@ -10531,7 +10522,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/props/traps/barking_dog/barking_dog.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		
 		// Abilities
@@ -10615,7 +10606,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_neutral"	// Class of entity of link to.
-		"Model"						"models/items/juggernaut/ward/fortunes_tout/fortunes_tout.vmdl"	// Model.
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"					"1"
