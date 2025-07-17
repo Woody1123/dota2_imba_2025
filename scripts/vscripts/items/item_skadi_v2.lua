@@ -144,7 +144,7 @@ function modifier_item_skadi_v2_pa:OnTakeDamage(tg)
         end
 
         local modifier = tg.unit:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_item_skadi_v2_slow",{duration=self.duration})
-		if  tg.unit:GetName() == "npc_dota_miniboss"  then return end
+		if tg.unit:GetUnitName() == "npc_dota_imba_boss"  then return end
         if tg.damage_category==1 then  --如果攻击类型是攻击
             modifier:SetStackCount(1)
         end

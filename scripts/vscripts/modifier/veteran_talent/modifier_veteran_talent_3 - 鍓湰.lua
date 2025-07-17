@@ -142,7 +142,7 @@ function modifier_veteran_talent_3_buff:OnCreated(keys)
 		local dam = math.min(self:GetCaster():GetMaxHealth()*0.05,dam_max)
 		self.dam_phy = (self.level == 3  and not self:GetCaster():IsMagicImmune()) and dam*0.65 or dam
 		self.dam_pure = (self.level == 3 and not self:GetCaster():IsMagicImmune()) and dam*0.35 or 0
-		if self:GetCaster():GetName() == "npc_dota_miniboss" then
+		if self:GetCaster():GetUnitName() == "npc_dota_imba_boss" then
 			self.dam_phy  = 200
 			self.dam_pure = 100
 		end
