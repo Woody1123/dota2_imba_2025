@@ -217,254 +217,219 @@ function spawner_creep:GetBadCreepSpawn()
 	return self.bod_creep_spwan
 end
 function spawner_creep:InitSpawner()
-	--刷猫
-	--self:Spawner_early()
-	--时间
-	 self.time = -30
-	 --大boss 掉不朽盾 掉猫装
-	 self.roshan_spawn = Entities:FindByName(nil,"imba_roshan"):GetOrigin()
-	 self:SpawnBoss()
-	  --小boss 魔方 视野以及前哨
-	 self.miniboss_check = 0
-	 self.miniboss_spawn = Entities:FindByName(nil,"imba_miniboss"):GetOrigin()
-	-- self:SpawnMiniBoss()
-	 --魔方底座
-	 self.imba_sentinel = Entities:FindByName(nil,"imba_sentinel")
-	 --前哨
-	 self.good_outpost_pos = Entities:FindByName(nil,"good_outpost"):GetOrigin()
-	 self.bad_outpost_pos = Entities:FindByName(nil,"bad_outpost"):GetOrigin()
-	 self.outpost_pos = Vector(0,0,128)
-	 self.outpost_oldteam = nil
-	 self.clearTime = 0
-	 self.tower_good = Entities:FindByName(nil,"dota_goodguys_tower2_mid")
-	 self.tower_bad = Entities:FindByName(nil,"dota_badguys_tower2_mid")
-	 
-	 	 --高地陷阱的位置 实际上是把中路那4个机关设置位置到高地
-		
-	 self.trap_table_newpos = { Entities:FindByName(nil,"trap_newpos_01"):GetOrigin(),
-								 Entities:FindByName(nil,"trap_newpos_02"):GetOrigin(),
-								  Entities:FindByName(nil,"trap_newpos_03"):GetOrigin(),
-								   Entities:FindByName(nil,"trap_newpos_04"):GetOrigin()
-								}
-		--双方的反击是否已经发动
-		--野店
-	self.neutral={}
-	for i = 1,8 do
-		local camp = Entities:FindByName(nil,"neutral_spawner_"..i):GetOrigin()
-		table.insert(self.neutral,camp)
-	end	
-		self.good_attack = false
-		self.bad_attack = false
-		--小兵	
-	 self.creep_level = 0 
-	 self.good_rax_melee = Entities:FindByName(nil,"good_rax_melee_mid")
-	 self.good_rax_ranged = Entities:FindByName(nil,"dota_goodguys_tower3_mid")
-	 self.bad_rax_melee = Entities:FindByName(nil,"bad_rax_melee_mid")
-	 self.bad_rax_ranged = Entities:FindByName(nil,"dota_badguys_tower3_mid")
+	print("InitSpawner")
 
-	 self.good_creep_spwan = Entities:FindByName(nil,"imba_radiant_creep_spawn"):GetOrigin()	
-	 local good_path = Entities:FindByName(nil,"imba_radiant_mid_path_01")	
-	 local good = DOTA_TEAM_GOODGUYS	 
-	 local melee_good = "npc_dota_creep_goodguys_melee"
-	 local ranged_good  = "npc_dota_creep_goodguys_ranged"
-	 local siege_good = "npc_dota_goodguys_siege"	 
-	 local good_creep_table_1 = {melee_good,melee_good,ranged_good}
-	 local good_creep_table_2 = {melee_good,melee_good,ranged_good,siege_good}
-	 local good_creep_level = 1
-	 
-	 local bad = DOTA_TEAM_BADGUYS
-	 local melee_bad = "npc_dota_creep_badguys_melee"
-	 local ranged_bad  = "npc_dota_creep_badguys_ranged"
-	 local siege_bad = "npc_dota_badguys_siege"	 
-	 self.bad_creep_spwan = Entities:FindByName(nil,"imba_dire_creep_spawn"):GetOrigin()
-	 local bad_path = Entities:FindByName(nil,"imba_dire_mid_path_01")
-	 local bad_creep_table_1 = {melee_bad,melee_bad,ranged_bad}
-	 local bad_creep_table_2 = {melee_bad,melee_bad,ranged_bad,siege_bad}
-	 local bad_creep_level = 1
-	
-	
-	--野怪刷新实体
-	 local NeturalSpawner = Entities:FindAllByClassname( "npc_dota_neutral_spawner" )
-	 --self.neature_sp = 40
-	--生成泉水保护
-	self:createFountainDefence()
-	--机关相关实体
-	 local trap_table = {}
-	 local trap_table_newpos = { Entities:FindByName(nil,"trap_newpos_01"):GetOrigin(),
-					 Entities:FindByName(nil,"trap_newpos_02"):GetOrigin(),
-					  Entities:FindByName(nil,"trap_newpos_03"):GetOrigin(),
-					   Entities:FindByName(nil,"trap_newpos_04"):GetOrigin()
-					}
-	 local trap_distance = {}
-	 for i=1,4 do
-		local trigger = Entities:FindByName(nil,"imba_hook_trap_0"..i)		 
-		table.insert(trap_table,trigger)
-		local triggerName = trigger:GetName()
-		local button = Entities:FindByName( nil, triggerName.."_button")
-		table.insert(trap_table,button)
-		local model = Entities:FindByName( nil, triggerName.."_model")
-		table.insert(trap_table,model)
-		local npc = Entities:FindByName( nil, triggerName .. "_npc")
-		table.insert(trap_table,npc)
-		local target = Entities:FindByName( nil, triggerName .. "_target")		
-		table.insert(trap_table,target)		
-		local distace = (trap_table_newpos[i] -trigger:GetOrigin()):Length2D()
-		table.insert(trap_distance,distace)
-	 end
-								
+	self.time = -30
+	self.creep_level = 0
+	self.good_attack = false
+	self.bad_attack = false
+	self.clearTime = 0
 
-	 --刷怪timer
-	 Timers:CreateTimer( "spawner_creep_timer", {
-        useGameTime = true,
-        endTime = 0,
-        callback = function()
-		
-			good_creep_level = self:GetCreepLevel(good) --获取小兵等级
-			bad_creep_level  = self:GetCreepLevel(bad)
-		
-			local good_table = good_creep_table_1
-			local bad_table = bad_creep_table_1
-			
-			if self.creep_level%2 == 0 then  
-				good_table = good_creep_table_2
-				bad_table = bad_creep_table_2
-			end
-		--刷兵
-			
-			for i = 1,#good_table do
-				Timers:CreateTimer(i*1.8, function()
-					self:Spawner_creep(good_table[i],self.good_creep_spwan,good_path,good,good_creep_level,nil)
+	-- Safely get entity or return nil
+	local function SafeGetPos(name)
+		local ent = Entities:FindByName(nil, name)
+		return ent and ent:GetOrigin() or Vector(0, 0, 0)
+	end
 
-					return nil
-					end)
-			end
-			for i = 1,#good_table do
-				Timers:CreateTimer(i*1.8, function()
-					self:Spawner_creep(good_table[i],self.good_creep_spwan,good_path,good,good_creep_level,nil)
+	local function SafeGetEntity(name)
+		return Entities:FindByName(nil, name)
+	end
 
-					return nil
-					end)
-			end
-			for i = 1,#bad_table do
-				Timers:CreateTimer(i*1.8, function()
-					self:Spawner_creep(bad_table[i],self.bad_creep_spwan,bad_path,bad,bad_creep_level,nil)
+	-- Initialize positions
+	self.roshan_spawn = SafeGetPos("imba_roshan")
+	self.miniboss_spawn = SafeGetPos("imba_miniboss")
+	self.imba_sentinel = SafeGetEntity("imba_sentinel")
+	self.good_outpost_pos = SafeGetPos("good_outpost")
+	self.bad_outpost_pos = SafeGetPos("bad_outpost")
+	self.outpost_pos = Vector(0, 0, 128)
+	self.outpost_oldteam = nil
 
-					return nil
-					end)
-			end
-			for i = 1,#bad_table do
-				Timers:CreateTimer(i*1.8, function()
-					self:Spawner_creep(bad_table[i],self.bad_creep_spwan,bad_path,bad,bad_creep_level,nil)
+	self.tower_good = SafeGetEntity("dota_goodguys_tower2_mid")
+	self.tower_bad = SafeGetEntity("dota_badguys_tower2_mid")
 
-					return nil
-					end)
-			end
-			self.creep_level = self.creep_level + 1 		
-			
-		--快速刷野 每次timer触发就刷 前15分钟 快速刷野怪  15分钟后不再生成野怪
-		
-		-- for k = 1,#self.neutral do
-		-- 	  Timers:CreateTimer(k*0.1, function()
-		-- 			local near = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, self.neutral[k], nil, 250, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-		-- 			if #near<1 then
-		-- 			local ca = CreateUnitByName("npc_dota_camp",self.neutral[k],true,nil,nil,DOTA_TEAM_NEUTRALS)
-		-- 			ca:AddNewModifier(ca,nil,"modifier_camp_spawner",{})
-		-- 			--print(ca:GetAbsOrigin())	
-		-- 			end
+	-- Trap positions and distances
+	self.trap_table_newpos = {
+		SafeGetPos("trap_newpos_01"),
+		SafeGetPos("trap_newpos_02"),
+		SafeGetPos("trap_newpos_03"),
+		SafeGetPos("trap_newpos_04")
+	}
 
-		-- 		return nil
-		-- 		end)
-		-- end
-		--if self.time < 1200 then 
-		--	self:FastSpawnNetural(NeturalSpawner)
-			--self.neature_sp = self.neature_sp - 1
-		--end
-		if self.time == 900 then 
-			for k,v in pairs(NeturalSpawner)  do
-				if v then
-					UTIL_RemoveImmediate(v)
-				end
-			end
+	self.trap_table = {}
+	self.trap_distance = {}
+	for i = 1, 4 do
+		local name = "imba_hook_trap_0" .. i
+		local trigger = SafeGetEntity(name)
+		if trigger then
+			table.insert(self.trap_table, trigger)
+			table.insert(self.trap_table, SafeGetEntity(name .. "_button"))
+			table.insert(self.trap_table, SafeGetEntity(name .. "_model"))
+			table.insert(self.trap_table, SafeGetEntity(name .. "_npc"))
+			table.insert(self.trap_table, SafeGetEntity(name .. "_target"))
+			table.insert(self.trap_distance, (self.trap_table_newpos[i] - trigger:GetOrigin()):Length2D())
 		end
-		
-		
-		self.time = self.time + 30 --时间增加
-			
-		--触发喷泉
-			self:SpawnMiniTorrent()
-		--陨石
-		-- if self.time >= 600 and not AI_MODE then
-		-- 	self:SpawnMeteorite()
-		-- end
-		if self.outpost == nil then
-			self:SpawnOutpost()
+	end
+
+	-- Neutral camp positions
+	self.neutral = {}
+	for i = 1, 8 do
+		local pos = SafeGetPos("neutral_spawner_" .. i)
+		if pos then
+			table.insert(self.neutral, pos)
 		end
-		--清理前哨旁边的中立装备	
-		--[[
-			self.clearTime = self.clearTime+30
-			if self.clearTime == 600 then
-				self.clearTime = 0 
-				self:clearNeutralItem()
-			end]]
-		--15分钟移动机关位置
+	end
+
+	-- Creep spawns
+	self.good_rax_melee = SafeGetEntity("good_rax_melee_mid")
+	self.good_rax_ranged = SafeGetEntity("dota_goodguys_tower3_mid")
+	self.bad_rax_melee = SafeGetEntity("bad_rax_melee_mid")
+	self.bad_rax_ranged = SafeGetEntity("dota_badguys_tower3_mid")
+
+	self.good_creep_spwan = SafeGetPos("imba_radiant_creep_spawn")
+	local good_path = SafeGetEntity("imba_radiant_mid_path_01")
+
+	self.bad_creep_spwan = SafeGetPos("imba_dire_creep_spawn")
+	local bad_path = SafeGetEntity("imba_dire_mid_path_01")
+
+	local good_creep_table_1 = {"npc_dota_creep_goodguys_melee", "npc_dota_creep_goodguys_melee", "npc_dota_creep_goodguys_ranged"}
+	local good_creep_table_2 = {"npc_dota_creep_goodguys_melee", "npc_dota_creep_goodguys_melee", "npc_dota_creep_goodguys_ranged", "npc_dota_goodguys_siege"}
+	local bad_creep_table_1 = {"npc_dota_creep_badguys_melee", "npc_dota_creep_badguys_melee", "npc_dota_creep_badguys_ranged"}
+	local bad_creep_table_2 = {"npc_dota_creep_badguys_melee", "npc_dota_creep_badguys_melee", "npc_dota_creep_badguys_ranged", "npc_dota_badguys_siege"}
+
+	local function SpawnWave()
+		local good_level = self:GetCreepLevel(DOTA_TEAM_GOODGUYS)
+		local bad_level = self:GetCreepLevel(DOTA_TEAM_BADGUYS)
+
+		local gtable = (self.creep_level % 2 == 0) and good_creep_table_2 or good_creep_table_1
+		local btable = (self.creep_level % 2 == 0) and bad_creep_table_2 or bad_creep_table_1
+
+		for i, unit in ipairs(gtable) do
+			Timers:CreateTimer(i * 1.8, function()
+				self:Spawner_creep(unit, self.good_creep_spwan, good_path, DOTA_TEAM_GOODGUYS, good_level, nil)
+			end)
+		end
+
+		for i, unit in ipairs(btable) do
+			Timers:CreateTimer(i * 1.8, function()
+				self:Spawner_creep(unit, self.bad_creep_spwan, bad_path, DOTA_TEAM_BADGUYS, bad_level, nil)
+			end)
+		end
+
+		self.creep_level = self.creep_level + 1
+	end
+
+	-- 定时刷兵与机制逻辑
+	Timers:CreateTimer("spawner_creep_timer", {
+		useGameTime = true,
+		endTime = 0,
+		callback = function()
+			SpawnWave()
+
 			if self.time == 900 then
-				for _,t in pairs(trap_table) do
-					for i=1,4 do
-						local name = t:GetName()
-						if string.find(name, "0"..i) then
-							local t_pos = t:GetOrigin()
-							local n_pos = trap_table_newpos[i]
-							local dir =(n_pos-t_pos):Normalized() 
-							local distance = trap_distance[i]
-							local pos = GetGroundPosition(t_pos + dir * distance, nil)
-							pos.z = 256
-							t:SetOrigin(pos)								
-						end
-					end					
+				for _, ent in ipairs(Entities:FindAllByClassname("npc_dota_neutral_spawner")) do
+					UTIL_RemoveImmediate(ent)
 				end
 			end
-			
-			--机关删除 开始生成反击怪 未实装
-			if self.time >9999 then
-				if  not self.good_attack then
-					for _,t in pairs(trap_table) do
-						if not t:IsNull() then 
-							local name = t:GetName()
-							if string.find(name, "01")  or string.find(name, "02") then
-								UTIL_RemoveImmediate(t)
+
+			if self.time == 900 then
+				for _, ent in ipairs(self.trap_table) do
+					if ent and not ent:IsNull() then
+						local name = ent:GetName()
+						for i = 1, 4 do
+							if string.find(name, "0" .. i) then
+								local pos = ent:GetOrigin()
+								local dir = (self.trap_table_newpos[i] - pos):Normalized()
+								local distance = self.trap_distance[i] or 0
+								local newPos = GetGroundPosition(pos + dir * distance, nil)
+								newPos.z = 256
+								ent:SetOrigin(newPos)
 							end
 						end
 					end
-					self.good_attack = true
 				end
-				
-				if  not self.bad_attack then
-					for _,t in pairs(trap_table) do
-						if not t:IsNull() then
-							local name = t:GetName()
-							if string.find(name, "03")  or string.find(name, "04") then
-								UTIL_RemoveImmediate(t)
-							end
-						end
-					end
-					self.bad_attack = true
-				end
-				
 			end
-            return 30.0
-        end
-     } )
+
+			self.time = self.time + 30
+
+			return 30.0
+		end
+	})
+	print('创建泉水保护和Boss')
+	-- 创建泉水保护和Boss
+	self:createFountainDefence()
+	print('创建泉水保护完成')
+	self:SpawnBoss()
+	print('创建泉水保护和Boss结束')
+end
+function spawner_creep:SpawnBoss()
+	-- 确认刷新点存在
+	print('确认刷新点存在')
+	if not self.roshan_spawn then
+		print("[SpawnBoss] Error: Roshan spawn position is nil.")
+		return
+	end
+
+	print("[SpawnBoss] Roshan spawn position: ", self.roshan_spawn)
+	print('断是否已经存在活着的 Roshan')
+	-- 判断是否已经存在活着的 Roshan
+	if not CDOTA_PlayerResource.ROSHAN or CDOTA_PlayerResource.ROSHAN:IsNull() or not CDOTA_PlayerResource.ROSHAN:IsAlive() then
+		local roshan = CreateUnitByName("npc_dota_imba_boss", self.roshan_spawn, true, nil, nil, DOTA_TEAM_NEUTRALS)
+		if roshan then
+			print('modifier_imba_boss Roshan')
+			roshan:AddNewModifier(roshan, nil, "modifier_imba_boss", { duration = -1 })
+			roshan:SetUnitCanRespawn(true)
+			CDOTA_PlayerResource.ROSHAN = roshan
+			print("[SpawnBoss] Roshan has been spawned successfully.")
+		else
+			print("[SpawnBoss] Error: Failed to create Roshan unit.")
+		end
+	else
+		print("[SpawnBoss] Roshan already exists and is alive.")
+	end
 end
 
 
 
---泉水保护
-function spawner_creep:createFountainDefence() 
-	local good = Vector(-5569,-5547,584)
-	local bad = Vector(5569,5547,584)
-	CreateModifierThinker(CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_GOODGUYS], nil, "modifier_home", {}, good, DOTA_TEAM_GOODGUYS, false)
-	CreateModifierThinker(CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_BADGUYS], nil, "modifier_home", {}, bad, DOTA_TEAM_BADGUYS, false)
+
+-- 泉水保护
+function spawner_creep:createFountainDefence()
+	local good = Vector(-5569, -5547, 584)
+	local bad = Vector(5569, 5547, 584)
+
+	if not CDOTAGameRules.IMBA_FOUNTAIN then
+		print("[createFountainDefence] Error: IMBA_FOUNTAIN table not defined in CDOTAGameRules.")
+		return
+	end
+
+	if not CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_GOODGUYS] or CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_GOODGUYS]:IsNull() then
+		print("[createFountainDefence] Error: Good fountain is missing or invalid.")
+	else
+		CreateModifierThinker(
+				CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_GOODGUYS],
+				nil,
+				"modifier_home",
+				{},
+				good,
+				DOTA_TEAM_GOODGUYS,
+				false
+		)
+	end
+
+	if not CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_BADGUYS] or CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_BADGUYS]:IsNull() then
+		print("[createFountainDefence] Error: Bad fountain is missing or invalid.")
+	else
+		CreateModifierThinker(
+				CDOTAGameRules.IMBA_FOUNTAIN[DOTA_TEAM_BADGUYS],
+				nil,
+				"modifier_home",
+				{},
+				bad,
+				DOTA_TEAM_BADGUYS,
+				false
+		)
+	end
 end
+
 
 
 
@@ -586,18 +551,7 @@ end
 
 
 
---刷boss
-function spawner_creep:SpawnBoss()
 
-		if CDOTA_PlayerResource.ROSHAN == nil then
-		
-			CDOTA_PlayerResource.ROSHAN = CreateUnitByName("npc_dota_imba_boss",self.roshan_spawn,true,nil,nil,0)
-			CDOTA_PlayerResource.ROSHAN:AddNewModifier(CDOTA_PlayerResource.ROSHAN,nil,"modifier_imba_boss",{duration = -1})
-			CDOTA_PlayerResource.ROSHAN:SetUnitCanRespawn(true) --设置其可以被复活	
-										
-		end
-
-end
 --刷小boss
 function spawner_creep:SpawnMiniBoss()			
 			-- 魔方会炸
