@@ -1,26 +1,14 @@
-<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
+<!-- panorama/layout/custom_game/multiteam_flyout_scoreboard_player.xml -->
 <root>
 	<styles>
 		<include src="s2r://panorama/styles/custom_game/shared_scoreboard_styles.vcss_c" />
 		<include src="s2r://panorama/styles/custom_game/multiteam_flyout_scoreboard.vcss_c" />
 	</styles>
-	<script><![CDATA[
 
-				function ToggleMute() {
-					var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
-					if (playerId !== -1) {
-						var newIsMuted = !Game.IsPlayerMuted(playerId);
-						Game.SetPlayerMuted(playerId, newIsMuted);
-						$.GetContextPanel().SetHasClass("player_muted", newIsMuted);
-					}
-				}
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/multiteam_flyout_scoreboard_player.js" />
+	</scripts>
 
-				(function() {
-					var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
-					$.GetContextPanel().SetHasClass("player_muted", Game.IsPlayerMuted(playerId));
-				})();
-
-    ]]></script>
 	<Panel class="PlayerRow">
 		<Panel id="PlayerRowContainer">
 			<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
