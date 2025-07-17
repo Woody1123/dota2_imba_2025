@@ -161,6 +161,7 @@ function custom_events:OnHero_Set(k,j)
 				end
 				return
 			end
+			print("判断有无多套技能")
 			if TableContainsKey(HEROSK,NAME) then
 				local T=HEROSK[NAME]
 				if T then
