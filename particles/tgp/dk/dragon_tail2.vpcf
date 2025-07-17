@@ -5,11 +5,12 @@
 	m_nMaxParticles = 100
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 7
-	m_controlPointConfigurations = 
+
+	m_controlPointConfigurations =
 	[
 		{
 			m_name = "preview"
-			m_drivers = 
+			m_drivers =
 			[
 				{
 					m_iAttachType = "PATTACH_WORLDORIGIN"
@@ -23,27 +24,29 @@
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
 					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
-				},
+				}
 			]
-		},
+		}
 	]
-	m_Emitters = 
+
+	m_Emitters =
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_flStartTime = 
+			m_flStartTime =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 0.1
 			}
-			m_nParticlesToEmit = 
+			m_nParticlesToEmit =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 32.0
 			}
-		},
+		}
 	]
-	m_Initializers = 
+
+	m_Initializers =
 	[
 		{
 			_class = "C_INIT_RandomColor"
@@ -71,17 +74,17 @@
 			_class = "C_INIT_RingWave"
 			m_nControlPointNumber = 1
 			m_bEvenDistribution = true
-			m_flInitialRadius = 
+			m_flInitialRadius =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 8.0
 			}
-			m_flInitialSpeedMin = 
+			m_flInitialSpeedMin =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 800.0
 			}
-			m_flInitialSpeedMax = 
+			m_flInitialSpeedMax =
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 1000.0
@@ -108,9 +111,10 @@
 		},
 		{
 			_class = "C_INIT_RandomYawFlip"
-		},
+		}
 	]
-	m_Operators = 
+
+	m_Operators =
 	[
 		{
 			_class = "C_OP_BasicMovement"
@@ -138,17 +142,19 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-		},
+		}
 	]
-	m_ForceGenerators = 
+
+	m_ForceGenerators =
 	[
 		{
 			_class = "C_OP_RandomForce"
 			m_MinForce = [ -1200.0, -1200.0, -200.0 ]
 			m_MaxForce = [ 1200.0, 1200.0, 200.0 ]
-		},
+		}
 	]
-	m_Renderers = 
+
+	m_Renderers =
 	[
 		{
 			_class = "C_OP_RenderSprites"
@@ -156,7 +162,7 @@
 			m_flAddSelfAmount = 1.0
 			m_bSaturateColorPreAlphaBlend = false
 			m_flAnimationRate = 0.75
-			m_vecTexturesInput = 
+			m_vecTexturesInput =
 			[
 				{
 					m_hTexture = resource:"materials/particle/fire_particle_4/fire_particle_4_flat.vtex"
@@ -164,47 +170,23 @@
 				},
 				{
 					m_hTexture = resource:"materials/particle/vistasmokev1/vistasmokev1.vtex"
-					m_TextureControls = 
+					m_TextureControls =
 					{
-						m_flZoomScale = 
+						m_flZoomScale =
 						{
 							m_nType = "PF_TYPE_LITERAL"
 							m_flLiteralValue = 2.0
 						}
-						m_flFinalTextureUVRotation = 
+						m_flFinalTextureUVRotation =
 						{
 							m_nType = "PF_TYPE_LITERAL"
 							m_flLiteralValue = 0.375
 						}
 					}
 					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_RGB"
-				},
+				}
 			]
 			m_OutlineColor = [ 255, 255, 255 ]
-		},
-	]
-}"
-					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_A"
-				},
-				
-				{
-					m_hTexture = resource:"materials/particle/vistasmokev1/vistasmokev1.vtex"
-					m_TextureControls = 
-					{
-						m_flZoomScale = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = 2.000000
-						}
-						m_flFinalTextureUVRotation = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = 0.375000
-						}
-					}
-					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_RGB"
-				},
-			]
-		},
+		}
 	]
 }
