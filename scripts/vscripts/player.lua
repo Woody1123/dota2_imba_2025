@@ -136,7 +136,7 @@ function player:Player_Spawned(npc)
 			useGameTime = false,
 			endTime = 1,
 			callback = function()
-				for i = 0, 24 do
+				for i = 0, npc:GetAbilityCount() - 1 do
 					local AB = npc:GetAbilityByIndex(i)
 					if AB ~= nil then
 						local AB_NAME = AB:GetAbilityName()
