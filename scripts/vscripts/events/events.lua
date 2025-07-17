@@ -111,7 +111,8 @@ function L_TG:GAME_IN_PROGRESS()
 	 
 	 if GetMapName() == "10v10mid" then
 		spawner_creep:InitSpawner()		
-	 end    
+	 end
+
 		Timers:CreateTimer(0, function()
 			GetAllHero(function(hero)
 				local kill_gap = PlayerResource:GetTeamKills(DOTA_TEAM_BADGUYS)-PlayerResource:GetTeamKills(DOTA_TEAM_GOODGUYS)
@@ -126,38 +127,7 @@ function L_TG:GAME_IN_PROGRESS()
 						local xp = (GetXPNeededToReachNextLevel(hero:GetLevel())-GetXPNeededToReachNextLevel(hero:GetLevel()-1))*0.15
 						hero:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
 					end
-					--[[local id=hero:GetPlayerOwnerID()
-					if PlayerResource:GetConnectionState(id)==DOTA_CONNECTION_STATE_ABANDONED  and not Is_DATA_TG(GameRules.QuitB,hero) and not Is_DATA_TG(GameRules.QuitG,hero)  then
-						local team = hero:GetTeamNumber()
-						if team==DOTA_TEAM_BADGUYS then
-							CDOTA_PlayerResource.ABANDONED_BAD=CDOTA_PlayerResource.ABANDONED_BAD+1
-							table.insert(GameRules.QuitB,hero)
-							if CDOTA_PlayerResource.ABANDONED_BAD>=7 then
-								Notifications:BottomToAll({text ="夜魇逃跑人数>=7,天辉3秒后获胜", duration = 3})
-								Timers:CreateTimer(3, function()
-									GAME_LOSE_TEAM = DOTA_TEAM_BADGUYS
-									GAME_WIN_TEAM = DOTA_TEAM_GOODGUYS
-									GameRules:MakeTeamLose(GAME_LOSE_TEAM)
-									GameRules:SetGameWinner(GAME_WIN_TEAM)
-								return nil
-								end)
-							end
-						elseif team==DOTA_TEAM_GOODGUYS   then
-							CDOTA_PlayerResource.ABANDONED_GOOD=CDOTA_PlayerResource.ABANDONED_GOOD+1
-							table.insert(GameRules.QuitG,hero)
-							if CDOTA_PlayerResource.ABANDONED_GOOD>=7 then
-								Notifications:BottomToAll({text ="天辉逃跑人数>=7,夜魇3秒后获胜", duration = 3})
-								Timers:CreateTimer(3, function()
-									GAME_LOSE_TEAM = DOTA_TEAM_GOODGUYS
-									GAME_WIN_TEAM = DOTA_TEAM_BADGUYS
-									GameRules:MakeTeamLose(GAME_LOSE_TEAM)
-									GameRules:SetGameWinner(GAME_WIN_TEAM)
-								return nil
-								end)
-							end
-						end
-					end]]
-					
+
 				end
 			end)
 		return 5
@@ -167,8 +137,9 @@ function L_TG:GAME_IN_PROGRESS()
 				CustomGameEventManager:Send_ServerToAllClients("ExitButton",{})
 			return nil
 		end)]]
+	print('SetRiverPaint')
 		GameRules:SetRiverPaint(0,99999)
-		
+	print('LUAClearTimer')
 		Timers:CreateTimer( "LUAClearTimer", {
         useGameTime = false,
         endTime = 0,
