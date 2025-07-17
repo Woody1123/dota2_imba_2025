@@ -1,0 +1,301 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "axe_ponytail_model"
+						filename = "models/heroes/axe/axe_ponytail_axe_ponytail_model.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					
+					{
+						_class = "Attachment"
+						name = "Thumb_plc1_R"
+						ignore_rotation = false
+						parent_bone = "chain_top_R4C0"
+						relative_origin = 
+						[
+							14.621090,
+							0.000001,
+							0.000023,
+						]
+						relative_angles = 
+						[
+							14.169810,
+							-137.497800,
+							102.918100,
+						]
+						weight = 1.000000
+					},
+					
+					{
+						_class = "Attachment"
+						name = "Thumb1_plc2_L"
+						ignore_rotation = false
+						parent_bone = "chain_bot_R3C0"
+						relative_origin = 
+						[
+							14.621110,
+							-0.000000,
+							0.000015,
+						]
+						relative_angles = 
+						[
+							14.169800,
+							-137.497800,
+							102.918100,
+						]
+						weight = 1.000000
+					},
+				]
+			},
+			
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									0.000000,
+									-13.566140,
+									0.000000,
+								]
+								hitbox_maxs = 
+								[
+									24.751970,
+									0.000000,
+									81.943760,
+								]
+								name = "root"
+								parent_bone = "root"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									0.000000,
+									-17.883800,
+									0.000000,
+								]
+								hitbox_maxs = 
+								[
+									16.165690,
+									0.000001,
+									23.617680,
+								]
+								name = "neck1"
+								parent_bone = "neck1"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-22.909110,
+									-9.094030,
+									-36.860290,
+								]
+								hitbox_maxs = 
+								[
+									0.000000,
+									6.307188,
+									0.000000,
+								]
+								name = "clavicle_R"
+								parent_bone = "clavicle_R"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-16.994340,
+									-18.880580,
+									0.000000,
+								]
+								hitbox_maxs = 
+								[
+									11.855650,
+									18.880570,
+									28.046470,
+								]
+								name = "head"
+								parent_bone = "head"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-8.521529,
+									-12.895630,
+									-10.691890,
+								]
+								hitbox_maxs = 
+								[
+									20.589080,
+									9.935322,
+									10.192260,
+								]
+								name = "hair_R0C0"
+								parent_bone = "hair_R0C0"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-149.166300,
+									-1.994537,
+									-1.018605,
+								]
+								hitbox_maxs = 
+								[
+									34.187970,
+									119.874800,
+									18.439620,
+								]
+								name = "bicep_R"
+								parent_bone = "bicep_R"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									0.000000,
+									0.000000,
+									-4.650393,
+								]
+								hitbox_maxs = 
+								[
+									10.043420,
+									9.062955,
+									8.388427,
+								]
+								name = "joint4"
+								parent_bone = "joint4"
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "head"
+						origin = 
+						[
+							12.260810,
+							0.000000,
+							147.506800,
+						]
+						angles = 
+						[
+							-0.000015,
+							0.000000,
+							-0.000003,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "chain_top_R4C0"
+						origin = 
+						[
+							-0.147731,
+							0.000009,
+							138.436400,
+						]
+						angles = 
+						[
+							-89.903080,
+							25.159300,
+							-49.899090,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "chain_bot_R3C0"
+						origin = 
+						[
+							0.000025,
+							-0.000106,
+							-78.026960,
+						]
+						angles = 
+						[
+							89.899120,
+							-30.699720,
+							7.594643,
+						]
+						do_not_discard = true
+					},
+				]
+			},
+		]
+	}
+}

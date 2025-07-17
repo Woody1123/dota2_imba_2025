@@ -1,0 +1,175 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "axe_hair_model"
+						filename = "models/heroes/axe/axe_hair_axe_hair_model.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					
+					{
+						_class = "Attachment"
+						name = "Thumb_plc1_R"
+						ignore_rotation = false
+						parent_bone = "chain_top_R4C0"
+						relative_origin = 
+						[
+							14.621110,
+							0.000001,
+							0.000017,
+						]
+						relative_angles = 
+						[
+							14.169820,
+							-137.497800,
+							102.918100,
+						]
+						weight = 1.000000
+					},
+					
+					{
+						_class = "Attachment"
+						name = "Thumb1_plc2_L"
+						ignore_rotation = false
+						parent_bone = "chain_bot_R3C0"
+						relative_origin = 
+						[
+							14.621130,
+							-0.000001,
+							0.000009,
+						]
+						relative_angles = 
+						[
+							14.169810,
+							-137.497800,
+							102.918100,
+						]
+						weight = 1.000000
+					},
+				]
+			},
+			
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							
+							{
+								_class = "Hitbox"
+								hitbox_mins = 
+								[
+									-4.733535,
+									-18.880570,
+									0.000000,
+								]
+								hitbox_maxs = 
+								[
+									24.116450,
+									18.880570,
+									175.553300,
+								]
+								name = "0"
+								parent_bone = ""
+								surface_property = "default"
+								translation_only = false
+								group_id = 0
+							},
+						]
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "chain_top_R4C0"
+						origin = 
+						[
+							-0.147744,
+							0.000174,
+							138.442000,
+						]
+						angles = 
+						[
+							-90.000000,
+							75.963750,
+							-165.963700,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "chain_bot_R3C0"
+						origin = 
+						[
+							0.000006,
+							0.000075,
+							-78.030800,
+						]
+						angles = 
+						[
+							90.000000,
+							-75.963750,
+							14.036240,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "head"
+						origin = 
+						[
+							12.260900,
+							0.000000,
+							147.507600,
+						]
+						angles = 
+						[
+							-0.000014,
+							0.000000,
+							-0.000003,
+						]
+						do_not_discard = true
+					},
+				]
+			},
+		]
+	}
+}
