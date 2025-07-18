@@ -379,14 +379,7 @@ function ADD_ITEM(lv,hero,item_table)
 end 
 
 function LEARN_TALENT(lv,hero,talent_table)   	
-	--[[
-	for i = (lv-1)*4+9,lv*4+9 do  
-		local ab = hero:GetAbilityByIndex(i)   
-		if ab then
-			print(ab:GetName())
-			hero:UpgradeAbility(ab)
-		end
-	end]]
+
 	
 	for i = (lv-1)*4+1, lv*4 do
 		local ab = hero:FindAbilityByName(talent_table[i])

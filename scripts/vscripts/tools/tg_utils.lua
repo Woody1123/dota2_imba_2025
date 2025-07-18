@@ -645,14 +645,19 @@ end
 ★刷新所有技能
 --]]
 function TG_Refresh_AB(c)
-    for i = 0, 23 do
+    local i = 0
+    while true do
         local AB = c:GetAbilityByIndex(i)
-        if AB then
-			if AB:IsRefreshable() then
-				AB:RefreshCharges()
-				AB:EndCooldown()
-			end
+        if not AB then
+            break -- 没有更多技能，退出循环
         end
+
+        if AB:IsRefreshable() then
+            AB:RefreshCharges()
+            AB:EndCooldown()
+        end
+
+        i = i + 1
     end
 end
 

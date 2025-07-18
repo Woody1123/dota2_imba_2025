@@ -28,11 +28,7 @@ function item_demonshard:OnSpellStart()
 		--caster:AddNewModifier(caster, self, "modifier_demonshard_motion", {duration = tralve_duration, pos_x = pos.x, pos_y = pos.y, pos_z = pos.z, dis = distance,height = height ,damage = 1 ,impact_radius = 300})
 
 --[[
-	for i=0,20 do
-	local ab = self:GetCaster():GetAbilityByIndex(i)
-	if ab then
-		print(ab:GetName())
-	end																																																																																																																																																																																																																																																																																			
+
 	end]]
 	--print(self:GetCaster():GetOrigin())
 	local ab = self:GetCaster():AddAbility("ra_powanfa")
@@ -91,7 +87,7 @@ end
 function modifier_demonshard_passive:GetModifierIncomingDamage_Percentage() 
 		return 0
 end
-function modifier_demonshard_passive:GetModifierPercentageRespawnTime()() 
+function modifier_demonshard_passive:GetModifierPercentageRespawnTime()
 		return -90
 end
 

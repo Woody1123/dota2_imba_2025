@@ -454,24 +454,33 @@ function modifier_imba_fiery_soul_active:IsPurgable() 		return false end
 function modifier_imba_fiery_soul_active:IsPurgeException() return false end
 function modifier_imba_fiery_soul_active:OnCreated()
 	if self:GetAbility() == nil then return end
+
 	if IsServer() then
+		-- 创建粒子效果
 		local pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01a.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
-		ParticleManager:SetParticleControl(pfx, 5, Vector(1,1,1))
-		ParticleManager:SetParticleControl(pfx, 15, Vector(252,46,0)) --- RGB 252,46,0
-		ParticleManager:SetParticleControl(pfx, 16, Vector(1,1,1))
+		ParticleManager:SetParticleControl(pfx, 5, Vector(1, 1, 1))
+		ParticleManager:SetParticleControl(pfx, 15, Vector(252, 46, 0))  -- RGB
+		ParticleManager:SetParticleControl(pfx, 16, Vector(1, 1, 1))
 		self:AddParticle(pfx, false, false, 15, false, false)
+
+		-- 记录冷却中的技能并结束冷却
 		self.cd = {}
-		for i=0, 23 do
+		local ability_count = self:GetCaster():GetAbilityCount()
+		for i = 0, ability_count - 1 do
 			local ability = self:GetCaster():GetAbilityByIndex(i)
-			if ability and not ability:IsCooldownReady() and (ability:GetName() == "imba_lina_dragon_slave" or ability:GetName() == "imba_lina_light_strike_array" or ability:GetName() == "imba_lina_laguna_blade") then
-				local table_cd = {ability, ability:GetCooldownTimeRemaining()}
-				ability:EndCooldown()
-				self.cd[#self.cd+1] = table_cd
+			if ability and not ability:IsCooldownReady() then
+				local name = ability:GetName()
+				if name == "imba_lina_dragon_slave" or name == "imba_lina_light_strike_array" or name == "imba_lina_laguna_blade" then
+					local table_cd = {ability, ability:GetCooldownTimeRemaining()}
+					ability:EndCooldown()
+					table.insert(self.cd, table_cd)
+				end
 			end
 		end
 	end
 end
+
 
 function modifier_imba_fiery_soul_active:OnDestroy()
 	if IsServer() then

@@ -136,38 +136,47 @@ function player:Player_Spawned(npc)
 			useGameTime = false,
 			endTime = 1,
 			callback = function()
-				for i = 0, 24 do
+				local i = 0
+				while true do
 					local AB = npc:GetAbilityByIndex(i)
-					if AB ~= nil then
-						local AB_NAME = AB:GetAbilityName()
-						local AB_LV = AB:GetLevel()
-						if AB_LV == 0 then
-							local TABLE = AB.Set_InitialUpgrade()
-							if TABLE ~= nil then
+					if not AB then
+						break
+					end
+
+					local AB_NAME = AB:GetAbilityName()
+					local AB_LV = AB:GetLevel()
+
+					-- 初始化等级为0的技能
+					if AB_LV == 0 then
+						if AB.Set_InitialUpgrade and type(AB.Set_InitialUpgrade) == "function" then
+							local TABLE = AB:Set_InitialUpgrade()
+							if TABLE then
 								AB:SetLevel(TABLE.LV or 1)
 								AB:UseResources(TABLE.MANA or false, false, TABLE.GOLD or false, TABLE.CD or false)
 							end
 						end
-						---------------------------------------------------------------------------------------------------------------
-						if i >= 9 and string.find(AB_NAME, "special_bonus") and AB_LV > 0 then
-							local modifier_name = "modifier_" .. AB_NAME
-							local name = npc:GetName()
-							if string.find(AB_NAME, "special_bonus_custom_value") then
-								name = "custom_value_talent"
-							end
-							if TableContainsKey(HeroTalent, name) then
-								local T = HeroTalent[name]
-								if T ~= nil then
-									for k, v in pairs(T) do
-										if k == AB_NAME then
+					end
+
+					-- 处理天赋modifier
+					if i >= 9 and AB_LV > 0 and string.find(AB_NAME, "special_bonus") then
+						local modifier_name = "modifier_" .. AB_NAME
+						local name = npc:GetName()
+						if string.find(AB_NAME, "special_bonus_custom_value") then
+							name = "custom_value_talent"
+						end
+
+						if TableContainsKey(HeroTalent, name) then
+							local T = HeroTalent[name]
+							if T then
+								for k, v in pairs(T) do
+									if k == AB_NAME then
+										if not npc:HasModifier(modifier_name) then
 											npc:AddNewModifier(npc, AB, modifier_name, {})
-											if v ~= nil then
-												for k2, v2 in pairs(v) do
-													if v2 ~= nil then
-														if v2["modifier_name"] and not npc:HasModifier(v2["modifier_name"]) then
-															npc:AddNewModifier(npc, AB, v2["modifier_name"], v2["talent_table"] or {})
-														end
-													end
+										end
+										if v then
+											for _, v2 in pairs(v) do
+												if v2 and v2.modifier_name and not npc:HasModifier(v2.modifier_name) then
+													npc:AddNewModifier(npc, AB, v2.modifier_name, v2.talent_table or {})
 												end
 											end
 										end
@@ -176,24 +185,14 @@ function player:Player_Spawned(npc)
 							end
 						end
 					end
+
+					i = i + 1
 				end
 			end
 		})
 
-		--[[
-		----------------------------------------------------------------------------------------------------------------
-		Timers:CreateTimer({
-			useGameTime = false,
-			endTime = 4,
-			callback = function()
-				local num = id + 1
-				if CDOTA_PlayerResource.TG_HERO[num] ~= nil and CDOTA_PlayerResource.TG_HERO[num].death ~= nil and
-					CDOTA_PlayerResource.TG_HERO[num].kill ~= nil and
-					CDOTA_PlayerResource.TG_HERO[num].death > CDOTA_PlayerResource.TG_HERO[num].kill then
-					npc:AddNewModifier(npc, nil, "modifier_veteran_sp", { duration = 7 })
-				end
-			end
-		})]]
+
+
 		----------------------------------------------------------------------------------------------------------------
 
 	end

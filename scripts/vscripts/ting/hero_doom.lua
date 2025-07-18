@@ -879,48 +879,7 @@ function modifier_imba_doom_bringer_devour_delicious:OnDestroy()
 	self.re_p = nil
 end
 
---吞噬技能的持续时间
---[[modifier_imba_doom_bringer_devour_abilitybuff= class({})
 
-function modifier_imba_doom_bringer_devour_abilitybuff:IsDebuff()			return false end
-function modifier_imba_doom_bringer_devour_abilitybuff:IsHidden() 			return false end
-function modifier_imba_doom_bringer_devour_abilitybuff:IsPurgable() 		return false end
-function modifier_imba_doom_bringer_devour_abilitybuff:IsPurgeException() 	return false end
-function modifier_imba_doom_bringer_devour_abilitybuff:DeclareFunctions() return {MODIFIER_EVENT_ON_ABILITY_FULLY_CAST} end
-function modifier_imba_doom_bringer_devour_abilitybuff:RemoveOnDeath() 	return not self:GetParent():TG_HasTalent("special_bonus_imba_doom_6") end
-function modifier_imba_doom_bringer_devour_abilitybuff:OnAbilityFullyCast(keys)
-	if not IsServer() then
-		return
-	end
-	if keys.unit ~= self:GetParent()then
-		return
-	end
------------火女被动限制----------
-	
-	if self:GetParent():HasModifier("modifier_imba_fiery_soul_stacks")then
-	local modifier = self:GetParent():FindModifierByName("modifier_imba_fiery_soul_stacks")
-	
-	if modifier:GetStackCount()>2 then modifier:SetStackCount(2) end
-	if self:GetParent():HasModifier("modifier_imba_fiery_soul_active") then
-	modifier:SetStackCount(3)
-	end
-	end
-end
-function modifier_imba_doom_bringer_devour_abilitybuff:OnDestroy() 
-	if not IsServer() then return end
-	if self:GetParent() == self:GetCaster() then 
-		local imba_doom_ability_1 = self:GetParent():GetAbilityByIndex(3)	
-		local imba_doom_ability_2 = self:GetParent():GetAbilityByIndex(4) 
-		if imba_doom_ability_1:GetToggleState() then imba_doom_ability_1:ToggleAbility() end
-		if imba_doom_ability_2:GetToggleState() then imba_doom_ability_2:ToggleAbility() end
-		self:GetParent():RemoveAbility(tostring(imba_doom_ability_1:GetName()))
-		self:GetParent():RemoveAbility(tostring(imba_doom_ability_2:GetName()))
-		self:GetParent():AddAbility("doom_bringer_empty1")
-		self:GetParent():AddAbility("doom_bringer_empty2")
-
-	end
-end
-]]
 --标记用 是否是吃死的 
 modifier_imba_doom_bringer_devour_ovredoom_kill_flag= class({})
 function modifier_imba_doom_bringer_devour_ovredoom_kill_flag:IsDebuff()			return true end

@@ -825,27 +825,51 @@ function CDOTA_BaseNPC_Hero:GetRespawnTimeChangeNormal()
 	local buffs = caster:FindAllModifiers()
 	local respawn = 0
 	local respawn_unique = {}
+
+	-- 叠加所有带叠加重生时间修改的modifier
 	for _, buff in pairs(buffs) do
-		if buff.GetModifierStackingRespawnTime and type(buff:GetModifierStackingRespawnTime()) == "number" then
-			respawn = respawn + buff:GetModifierStackingRespawnTime()
+		if buff.GetModifierStackingRespawnTime then
+			local stackingTime = buff:GetModifierStackingRespawnTime()
+			if type(stackingTime) == "number" then
+				respawn = respawn + stackingTime
+			end
 		end
-		if buff.GetModifierConstantRespawnTime and type(buff:GetModifierConstantRespawnTime()) == "number" then
-			respawn_unique[#respawn_unique + 1] = buff:GetModifierConstantRespawnTime()
+		-- 收集固定重生时间修改，最后取最大值生效
+		if buff.GetModifierConstantRespawnTime then
+			local constTime = buff:GetModifierConstantRespawnTime()
+			if type(constTime) == "number" then
+				table.insert(respawn_unique, constTime)
+			end
 		end
 	end
+
+	-- 取最大的固定重生时间修改加上
 	table.sort(respawn_unique)
 	if #respawn_unique > 0 then
 		respawn = respawn + respawn_unique[#respawn_unique]
 	end
 
-	for i=0, 23 do
+	-- 动态遍历技能槽，直到遇到nil停止
+	local i = 0
+	while true do
 		local ability = caster:GetAbilityByIndex(i)
-		if ability and ability:GetLevel() > 0 and string.find(ability:GetAbilityName(), "special_bonus_respawn_reduction") then
-			respawn = respawn - ability:GetSpecialValueFor("value")
+		if not ability then
+			break
 		end
+
+		if ability:GetLevel() > 0 then
+			local abilityName = ability:GetAbilityName()
+			if string.find(abilityName, "special_bonus_respawn_reduction") then
+				local value = ability:GetSpecialValueFor("value")
+				respawn = respawn - value
+			end
+		end
+		i = i + 1
 	end
+
 	return respawn
 end
+
 
 function IsInTable(value, hTable)
 	for i=0, #hTable do

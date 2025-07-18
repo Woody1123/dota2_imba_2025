@@ -362,7 +362,6 @@ function spawner_creep:InitSpawner()
 	print('创建泉水保护和Boss结束')
 end
 function spawner_creep:SpawnBoss()
-	-- 确认刷新点存在
 	print('确认刷新点存在')
 	if not self.roshan_spawn then
 		print("[SpawnBoss] Error: Roshan spawn position is nil.")
@@ -370,7 +369,6 @@ function spawner_creep:SpawnBoss()
 	end
 
 	print("[SpawnBoss] Roshan spawn position: ", self.roshan_spawn)
-	print('断是否已经存在活着的 Roshan')
 	-- 判断是否已经存在活着的 Roshan
 	if not CDOTA_PlayerResource.ROSHAN or CDOTA_PlayerResource.ROSHAN:IsNull() or not CDOTA_PlayerResource.ROSHAN:IsAlive() then
 		local roshan = CreateUnitByName("npc_dota_imba_boss", self.roshan_spawn, true, nil, nil, DOTA_TEAM_NEUTRALS)

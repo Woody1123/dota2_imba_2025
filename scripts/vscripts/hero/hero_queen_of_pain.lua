@@ -416,17 +416,7 @@ function modifier_imba_delightful_torment:OnTakeDamage(keys)
 				current_ability:StartCooldown( cooldown_remaining - cooldown_reduction )
 			end
 		end
-		--仅减少大招，防卡
-		--for i = 0, 23 do
-		--	local current_ability = self:GetParent():GetAbilityByIndex(i)
-		--	if current_ability then
-		--		local cooldown_remaining = current_ability:GetCooldownTimeRemaining()
-		--		current_ability:EndCooldown()
-		--		if cooldown_remaining > cooldown_reduction then
-		--			current_ability:StartCooldown( cooldown_remaining - cooldown_reduction )
-		--		end
-		--	end 
-		--end
+
 	end
 	if keys.attacker == self:GetParent() and self:GetParent():TG_HasTalent("special_bonus_imba_queenofpain_1") and not keys.unit:IsMagicImmune() and not keys.unit:IsBuilding() and not keys.unit:IsCourier() and not keys.unit:IsOther() and not self:GetParent():IsIllusion() then
 		--去除混乱，防卡 by-hg
