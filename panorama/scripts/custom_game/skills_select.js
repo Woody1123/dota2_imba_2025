@@ -22,7 +22,7 @@ function select_skills(data) {
         var t1 = create_ab("Label", hsk, "Author", "AuthorC", hsk);
 
         // 定义 ss 变量，表示是否拥有Scepter和Shard
-        var ss = data[1][index]["HasScepterAndShard"] || 0;
+        var ss = 1;
 
         t.text = $.Localize("#Skills_Select");
         t1.text = $.Localize("#Skills_Desc");
