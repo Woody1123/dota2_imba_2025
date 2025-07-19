@@ -1,0 +1,1413 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_name = resource:""
+	m_frameData = 
+	[
+		
+		{
+			m_fileName = resource:""
+			m_nFrames = 3
+			m_nFramesPerBlock = 0
+			m_frameblockArray = 
+			[
+				
+				{
+					m_nStartFrame = 0
+					m_nEndFrame = 2
+					m_segmentIndexArray = 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+					]
+				},
+			]
+			m_usageDifferences = 
+			{
+				m_boneArray = 
+				[
+					
+					{
+						m_name = resource:"Scrap_R0C0"
+						m_parent = resource:"elbow_L"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Scrap_R1C0"
+						m_parent = resource:"Scrap_R0C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Scrap_R2C0"
+						m_parent = resource:"Scrap_R1C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Scrap_R3C0"
+						m_parent = resource:"Scrap_R2C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+					
+					{
+						m_name = resource:"Scrap_R4C0"
+						m_parent = resource:"Scrap_R3C0"
+						m_posError = 
+						[
+							0.000000,
+							0.000000,
+							0.000000,
+						]
+						m_bHasRotation = false
+						m_bHasMovement = false
+					},
+				]
+				m_morphArray = 
+				[
+				]
+				m_userArray = 
+				[
+				]
+				m_bHasRotationBitArray = 
+				#[
+					FF FF FF FF FF FF FF 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+				]
+				m_bHasMovementBitArray = 
+				#[
+					FF FF FF FF FF FF FF 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+				]
+				m_bHasMorphBitArray = 
+				#[
+				]
+				m_bHasUserBitArray = 
+				#[
+				]
+			}
+		},
+	]
+	m_animArray = 
+	[
+		
+		{
+			m_name = resource:"@lycan_wolf_turns"
+			m_flags = 
+			{
+				m_bLooping = false
+				m_bAllZeros = false
+				m_bHidden = true
+				m_bDelta = false
+				m_bLegacyWorldspace = false
+			}
+			fps = 30.000000
+			m_pData = 
+			{
+				m_fileName = resource:""
+				m_nFrames = 3
+				m_nFramesPerBlock = 0
+				m_frameblockArray = 
+				[
+					
+					{
+						m_nStartFrame = 0
+						m_nEndFrame = 2
+						m_segmentIndexArray = 
+						[
+							0,
+							1,
+							2,
+							3,
+							4,
+							5,
+							6,
+							7,
+							8,
+							9,
+							10,
+							11,
+							12,
+							13,
+							14,
+							15,
+							16,
+						]
+					},
+				]
+				m_usageDifferences = 
+				{
+					m_boneArray = 
+					[
+						
+						{
+							m_name = resource:"Scrap_R0C0"
+							m_parent = resource:"elbow_L"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Scrap_R1C0"
+							m_parent = resource:"Scrap_R0C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Scrap_R2C0"
+							m_parent = resource:"Scrap_R1C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Scrap_R3C0"
+							m_parent = resource:"Scrap_R2C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+						
+						{
+							m_name = resource:"Scrap_R4C0"
+							m_parent = resource:"Scrap_R3C0"
+							m_posError = 
+							[
+								0.000000,
+								0.000000,
+								0.000000,
+							]
+							m_bHasRotation = false
+							m_bHasMovement = false
+						},
+					]
+					m_morphArray = 
+					[
+					]
+					m_userArray = 
+					[
+					]
+					m_bHasRotationBitArray = 
+					#[
+						FF FF FF FF FF FF FF 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+						00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+					]
+					m_bHasMovementBitArray = 
+					#[
+						FF FF FF FF FF FF FF 0F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+						00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+					]
+					m_bHasMorphBitArray = 
+					#[
+					]
+					m_bHasUserBitArray = 
+					#[
+					]
+				}
+			}
+			m_movementArray = 
+			[
+			]
+			m_eventArray = 
+			[
+			]
+			m_activityArray = 
+			[
+			]
+			m_hierarchyArray = 
+			[
+			]
+			m_IKRuleArray = 
+			[
+			]
+			m_IKRuleZeroFrameArray = 
+			[
+			]
+			framestalltime = 0.000000
+			m_vecRootMin = 
+			[
+				-0.784994,
+				0.000000,
+				118.285000,
+			]
+			m_vecRootMax = 
+			[
+				-0.784994,
+				0.000000,
+				118.285000,
+			]
+			m_vecBoneWorldMin = 
+			[
+				
+				[
+					-0.784994,
+					0.000000,
+					118.285000,
+				],
+				
+				[
+					-18.418960,
+					0.104334,
+					121.409800,
+				],
+				
+				[
+					18.590620,
+					-0.359439,
+					123.944800,
+				],
+				
+				[
+					-22.259200,
+					21.708440,
+					117.502800,
+				],
+				
+				[
+					-23.212800,
+					-21.258200,
+					117.237100,
+				],
+				
+				[
+					-27.303490,
+					0.314622,
+					119.290600,
+				],
+				
+				[
+					-21.255030,
+					24.396860,
+					75.261920,
+				],
+				
+				[
+					-53.256480,
+					28.785000,
+					40.984250,
+				],
+				
+				[
+					-54.381290,
+					29.054730,
+					16.719990,
+				],
+				
+				[
+					-49.373400,
+					19.489030,
+					11.261490,
+				],
+				
+				[
+					-48.480430,
+					37.601460,
+					10.008760,
+				],
+				
+				[
+					-47.921870,
+					28.670940,
+					10.351220,
+				],
+				
+				[
+					-38.491240,
+					-24.324380,
+					80.657820,
+				],
+				
+				[
+					-82.199460,
+					-25.363920,
+					73.957290,
+				],
+				
+				[
+					-91.585200,
+					-31.292930,
+					52.350700,
+				],
+				
+				[
+					-96.540130,
+					-22.069720,
+					46.287890,
+				],
+				
+				[
+					-99.402540,
+					-39.920230,
+					48.183380,
+				],
+				
+				[
+					-98.334770,
+					-31.236080,
+					46.278400,
+				],
+				
+				[
+					-31.837600,
+					0.521467,
+					119.652400,
+				],
+				
+				[
+					-46.419720,
+					1.011153,
+					116.763000,
+				],
+				
+				[
+					-64.836440,
+					1.908797,
+					103.613300,
+				],
+				
+				[
+					-79.025420,
+					2.163029,
+					70.425340,
+				],
+				
+				[
+					35.008650,
+					-0.718878,
+					126.828400,
+				],
+				
+				[
+					71.599080,
+					0.349359,
+					149.139300,
+				],
+				
+				[
+					63.186550,
+					-17.903300,
+					150.570500,
+				],
+				
+				[
+					82.127560,
+					0.349358,
+					157.162100,
+				],
+				
+				[
+					87.253180,
+					-19.745610,
+					152.571400,
+				],
+				
+				[
+					58.936260,
+					15.633570,
+					148.790600,
+				],
+				
+				[
+					59.934270,
+					-27.928950,
+					146.606700,
+				],
+				
+				[
+					81.627350,
+					-27.456190,
+					97.374420,
+				],
+				
+				[
+					125.001200,
+					-20.787710,
+					88.838070,
+				],
+				
+				[
+					150.660100,
+					-18.853290,
+					77.857220,
+				],
+				
+				[
+					149.084000,
+					-13.291520,
+					79.125720,
+				],
+				
+				[
+					147.049000,
+					-7.454868,
+					79.978280,
+				],
+				
+				[
+					151.237000,
+					-24.121680,
+					75.582170,
+				],
+				
+				[
+					159.627800,
+					-18.436910,
+					69.819680,
+				],
+				
+				[
+					158.400100,
+					-11.867330,
+					71.122300,
+				],
+				
+				[
+					152.941700,
+					-5.834316,
+					74.495030,
+				],
+				
+				[
+					157.602700,
+					-25.473550,
+					69.100670,
+				],
+				
+				[
+					76.960840,
+					0.349358,
+					160.020700,
+				],
+				
+				[
+					65.469580,
+					0.349355,
+					166.378400,
+				],
+				
+				[
+					92.306440,
+					-44.147430,
+					152.540800,
+				],
+				
+				[
+					85.086560,
+					-49.249520,
+					140.064500,
+				],
+				
+				[
+					82.507310,
+					-55.732360,
+					155.734700,
+				],
+				
+				[
+					88.695270,
+					-39.355020,
+					155.734700,
+				],
+				
+				[
+					82.069020,
+					-56.569750,
+					158.835800,
+				],
+				
+				[
+					81.126820,
+					-58.259560,
+					166.175700,
+				],
+				
+				[
+					88.063760,
+					-38.316310,
+					158.835800,
+				],
+				
+				[
+					86.211060,
+					-36.237100,
+					166.020500,
+				],
+				
+				[
+					59.260070,
+					26.362150,
+					145.385300,
+				],
+				
+				[
+					106.076600,
+					25.212640,
+					109.867800,
+				],
+				
+				[
+					151.335800,
+					19.266490,
+					92.503820,
+				],
+				
+				[
+					178.736500,
+					21.874430,
+					87.493930,
+				],
+				
+				[
+					177.726300,
+					16.044780,
+					87.639420,
+				],
+				
+				[
+					176.397800,
+					9.960979,
+					87.243470,
+				],
+				
+				[
+					179.031700,
+					27.466120,
+					86.111620,
+				],
+				
+				[
+					186.422900,
+					21.312390,
+					78.231170,
+				],
+				
+				[
+					185.663400,
+					16.276580,
+					78.161830,
+				],
+				
+				[
+					181.340100,
+					10.210890,
+					80.691570,
+				],
+				
+				[
+					184.791300,
+					26.948920,
+					78.975980,
+				],
+			]
+			m_vecBoneWorldMax = 
+			[
+				
+				[
+					-0.784994,
+					0.000000,
+					118.285000,
+				],
+				
+				[
+					-18.418960,
+					0.104334,
+					121.409800,
+				],
+				
+				[
+					18.590620,
+					-0.359439,
+					123.944800,
+				],
+				
+				[
+					-22.259200,
+					21.708440,
+					117.502800,
+				],
+				
+				[
+					-23.212800,
+					-21.258200,
+					117.237100,
+				],
+				
+				[
+					-27.303490,
+					0.314622,
+					119.290600,
+				],
+				
+				[
+					-21.255030,
+					24.396860,
+					75.261920,
+				],
+				
+				[
+					-53.256480,
+					28.785000,
+					40.984250,
+				],
+				
+				[
+					-54.381290,
+					29.054730,
+					16.719990,
+				],
+				
+				[
+					-49.373390,
+					19.489040,
+					11.261500,
+				],
+				
+				[
+					-48.480420,
+					37.601460,
+					10.008760,
+				],
+				
+				[
+					-47.921860,
+					28.670940,
+					10.351220,
+				],
+				
+				[
+					-38.491240,
+					-24.324380,
+					80.657820,
+				],
+				
+				[
+					-82.199460,
+					-25.363920,
+					73.957290,
+				],
+				
+				[
+					-91.585180,
+					-31.292930,
+					52.350710,
+				],
+				
+				[
+					-96.540120,
+					-22.069720,
+					46.287900,
+				],
+				
+				[
+					-99.402530,
+					-39.920230,
+					48.183400,
+				],
+				
+				[
+					-98.334760,
+					-31.236080,
+					46.278410,
+				],
+				
+				[
+					-31.837600,
+					0.521467,
+					119.652400,
+				],
+				
+				[
+					-46.419720,
+					1.011153,
+					116.763000,
+				],
+				
+				[
+					-64.836440,
+					1.908797,
+					103.613300,
+				],
+				
+				[
+					-79.025420,
+					2.163029,
+					70.425340,
+				],
+				
+				[
+					35.008650,
+					-0.718878,
+					126.828400,
+				],
+				
+				[
+					71.599080,
+					0.349359,
+					149.139300,
+				],
+				
+				[
+					63.186570,
+					-17.903290,
+					150.570500,
+				],
+				
+				[
+					82.127560,
+					0.349358,
+					157.162100,
+				],
+				
+				[
+					96.082790,
+					17.704100,
+					152.571400,
+				],
+				
+				[
+					58.936260,
+					15.633570,
+					148.790600,
+				],
+				
+				[
+					59.934280,
+					-27.928940,
+					146.606700,
+				],
+				
+				[
+					81.627380,
+					-27.456140,
+					97.374470,
+				],
+				
+				[
+					125.001300,
+					-20.787640,
+					88.838120,
+				],
+				
+				[
+					150.660200,
+					-18.853200,
+					77.857290,
+				],
+				
+				[
+					149.084000,
+					-13.291440,
+					79.125770,
+				],
+				
+				[
+					147.049100,
+					-7.454784,
+					79.978320,
+				],
+				
+				[
+					151.237200,
+					-24.121600,
+					75.582200,
+				],
+				
+				[
+					159.627900,
+					-18.436820,
+					69.819730,
+				],
+				
+				[
+					158.400200,
+					-11.867230,
+					71.122340,
+				],
+				
+				[
+					152.941800,
+					-5.834223,
+					74.495070,
+				],
+				
+				[
+					157.602800,
+					-25.473460,
+					69.100710,
+				],
+				
+				[
+					76.960840,
+					0.349358,
+					160.020700,
+				],
+				
+				[
+					65.469580,
+					0.349355,
+					166.378500,
+				],
+				
+				[
+					119.126400,
+					38.352830,
+					152.540900,
+				],
+				
+				[
+					127.440500,
+					42.478420,
+					140.064500,
+				],
+				
+				[
+					124.537300,
+					31.727120,
+					155.734700,
+				],
+				
+				[
+					124.537300,
+					50.177720,
+					155.734700,
+				],
+				
+				[
+					124.376900,
+					30.593270,
+					158.835800,
+				],
+				
+				[
+					124.171400,
+					28.445430,
+					166.175800,
+				],
+				
+				[
+					124.376900,
+					51.157490,
+					158.835900,
+				],
+				
+				[
+					124.514200,
+					53.662860,
+					166.020600,
+				],
+				
+				[
+					59.260070,
+					26.362150,
+					145.385300,
+				],
+				
+				[
+					106.076600,
+					25.212660,
+					109.867900,
+				],
+				
+				[
+					151.335800,
+					19.266530,
+					92.503860,
+				],
+				
+				[
+					178.736600,
+					21.874460,
+					87.493960,
+				],
+				
+				[
+					177.726400,
+					16.044800,
+					87.639470,
+				],
+				
+				[
+					176.397800,
+					9.961003,
+					87.243520,
+				],
+				
+				[
+					179.031700,
+					27.466140,
+					86.111660,
+				],
+				
+				[
+					186.422900,
+					21.312410,
+					78.231200,
+				],
+				
+				[
+					185.663400,
+					16.276600,
+					78.161900,
+				],
+				
+				[
+					181.340200,
+					10.210910,
+					80.691640,
+				],
+				
+				[
+					184.791400,
+					26.948950,
+					78.976040,
+				],
+			]
+			m_sequenceParams = 
+			{
+				m_flFadeInTime = 0.200000
+				m_flFadeOutTime = 0.200000
+			}
+		},
+	]
+	m_decoderArray = 
+	[
+		
+		{
+			m_szName = resource:"CCompressedStaticFloat"
+			m_nVersion = 0
+			m_nType = 1
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullFloat"
+			m_nVersion = 0
+			m_nType = 1
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticFullVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedAnimVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedDeltaVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector3"
+			m_nVersion = 0
+			m_nType = 3
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticQuaternion"
+			m_nVersion = 0
+			m_nType = 4
+		},
+		
+		{
+			m_szName = resource:"CCompressedAnimQuaternion"
+			m_nVersion = 0
+			m_nType = 4
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticChar"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullChar"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullShort"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullInt"
+			m_nVersion = 0
+			m_nType = 5
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticBool"
+			m_nVersion = 0
+			m_nType = 6
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullBool"
+			m_nVersion = 0
+			m_nType = 6
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticColor32"
+			m_nVersion = 0
+			m_nType = 9
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullColor32"
+			m_nVersion = 0
+			m_nType = 9
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector2D"
+			m_nVersion = 0
+			m_nType = 25
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector2D"
+			m_nVersion = 0
+			m_nType = 25
+		},
+		
+		{
+			m_szName = resource:"CCompressedStaticVector4D"
+			m_nVersion = 0
+			m_nType = 27
+		},
+		
+		{
+			m_szName = resource:"CCompressedFullVector4D"
+			m_nVersion = 0
+			m_nType = 27
+		},
+	]
+	m_nMaxUniqueFrameIndex = 37
+	m_segmentArray = 
+	[
+		
+		{
+			m_nUniqueFrameIndex = 0
+			m_nLocalElementMasks = 31
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 00 00 01 00 02 00 03 00 04 00 05 00 06 00 07 00 08 00 09 00 58 F5 48 BF
+				00 00 00 00 F2 91 EC 42 28 C5 77 C1 38 FD 3D BE 78 E7 0F C1 88 5A 32 41 30 F2 A4 3D B4 A7 86 41
+				E0 0B 29 C0 84 E9 AB 41 20 50 A9 C0 C0 0B 29 C0 85 E9 AB C1 10 50 A9 C0 90 F6 F2 C0 00 00 C0 B4
+				60 9C A2 C0 56 5A 29 42 00 00 00 36 00 00 00 00 48 65 3C 42 00 00 80 36 00 00 80 37 A4 55 C2 41
+				00 00 00 37 00 00 C0 B7 20 37 9A C0 32 BD 22 C1 9C 06 8E 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 1
+			m_nLocalElementMasks = 2016
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 0A 00 0B 00 0C 00 0D 00 0E 00 0F 00 10 00 11 00 12 00 13 00 E8 24 0B C1
+				F0 D1 F2 40 9A 06 8E 40 08 E6 F9 C0 60 42 A9 BF 98 06 8E 40 7F 0A 1F C2 00 00 00 36 00 00 00 00
+				9B EC 30 C2 00 00 80 B6 00 00 00 00 86 55 C2 C1 00 00 00 B7 00 00 80 B7 28 37 9A 40 34 BD 22 41
+				B0 06 8E C0 F0 24 0B 41 F8 D1 F2 C0 A0 06 8E C0 18 E6 F9 40 60 42 A9 3F A0 06 8E C0 08 18 91 40
+				00 00 00 34 00 FC D4 3E CE C4 6D 41 00 12 20 BF 00 00 D8 B5 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 2
+			m_nLocalElementMasks = 130048
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 14 00 15 00 16 00 17 00 18 00 19 00 1B 00 1C 00 1D 00 1E 00 6C 2D B5 41
+				00 00 80 B7 00 00 20 B5 17 61 10 42 00 00 80 37 00 00 00 00 72 0B 7D 41 5F 08 B8 BE 70 8C A8 40
+				FA 6A 2B 42 E0 0D C8 3D 00 BB 8F 3F 70 36 FE C0 6F 05 92 C1 00 6D 47 40 B0 15 3F 41 00 00 3E 36
+				80 AA B6 40 10 7D 47 C1 25 8C 74 41 00 59 0F 40 C4 2B 34 C1 00 00 00 00 00 00 00 37 F8 34 57 C2
+				00 00 80 37 00 00 80 37 F6 D2 32 C2 00 00 80 36 00 00 C0 B7 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 3
+			m_nLocalElementMasks = 4128768
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 1F 00 20 00 21 00 22 00 23 00 24 00 25 00 26 00 27 00 28 00 C8 DE D7 C1
+				B8 C6 21 40 D0 21 DE C0 98 6A D0 C1 90 A9 52 C0 A0 CB CC C0 70 29 C6 C1 D4 5E 16 C1 60 96 CB C0
+				08 FE D8 C1 C8 87 00 41 08 7B 0A C1 8C CB 40 C1 00 00 00 00 00 00 80 B7 F4 D3 45 C1 00 00 B0 36
+				00 00 00 00 38 5F 03 C1 00 00 40 36 00 00 00 00 70 F4 12 C1 00 00 00 00 00 00 80 37 10 F4 BC 40
+				00 00 00 00 00 00 20 34 E4 1F 52 41 00 00 00 B8 00 00 40 34 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 4
+			m_nLocalElementMasks = 532676608
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 0A 00 94 00 2A 00 2B 00 2C 00 2E 00 30 00 31 00 32 00 33 00 34 00 35 00 50 5F 33 41
+				00 2C 19 BE C8 47 1F 41 80 33 7A C0 08 4D 28 41 20 67 9D 40 C0 33 7A C0 00 4D 28 C1 20 67 9D 40
+				80 93 F6 40 00 00 00 B7 00 00 00 37 E0 93 F6 40 00 00 40 B7 00 00 00 00 C6 2B 34 41 00 00 40 38
+				00 00 00 00 69 1A 6B 42 00 00 00 37 00 00 00 00 4B 5B 43 42 00 00 00 00 00 00 00 B7 D8 DE D7 41
+				60 C6 21 C0 20 22 DE 40 B0 6A D0 41 E8 A9 52 40 B0 CB CC 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 5
+			m_nLocalElementMasks = 50331648
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				02 00 03 00 02 00 18 00 2D 00 2F 00 A9 42 00 01 80 00 A9 42 40 00 40 80 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 6
+			m_nLocalElementMasks = 4026531840
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				03 00 03 00 06 00 5C 00 36 00 37 00 38 00 39 00 3A 00 3B 00 80 29 C6 41 EA 5E 16 41 80 96 CB 40
+				18 FE D8 41 BA 87 00 C1 10 7B 0A 41 84 CB 40 41 00 00 00 36 00 00 80 B7 E0 D3 45 41 00 00 00 B6
+				00 00 80 B7 40 5F 03 41 00 00 00 00 00 00 80 B7 78 F4 12 41 00 00 40 36 00 00 80 37 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 7
+			m_nLocalElementMasks = 2105344
+			m_nLocalChannel = 0
+			m_container = 
+			#[
+				06 00 03 00 02 00 54 00 1A 00 29 00 4C 33 80 41 85 D6 8A 41 00 44 2D 3E 08 AE A0 41 F0 6A 94 40
+				00 3E A6 40 AC 5A C5 41 00 00 78 35 00 B8 D0 BF FA 77 B2 41 00 00 20 34 C0 C1 B8 40 64 6E 9A 41
+				7F C2 A0 C1 00 74 03 BF 26 17 AF 41 50 B7 4C C1 E0 3D B5 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 10
+			m_nLocalElementMasks = 15
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 3C 00 3D 00 3E 00 3F 00 40 00 41 00 42 00 DC 40 19 5F 69 3F CD 3F 6C 30
+				B5 3F 1A 3F 42 27 86 40 32 43 D7 72 FE 40 17 3D 51 01 EF 42 19 C0 59 48 13 41 00 40 1B 62 00 40
+				DC 40 19 5F 69 3F CD 3F 6C 30 B5 3F 1A 3F 42 27 86 40 32 43 D7 72 FE 40 17 3D 51 01 EF 42 19 C0
+				59 48 13 41 00 40 1B 62 00 40 DC 40 19 5F 69 3F CD 3F 6C 30 B5 3F 1A 3F 42 27 86 40 32 43 D7 72
+				FE 40 17 3D 51 01 EF 42 19 C0 59 48 13 41 00 40 1B 62 00 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 13
+			m_nLocalElementMasks = 120
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 43 00 44 00 45 00 46 00 47 00 48 00 49 00 30 32 9A 21 34 38 A5 C3 0C 78
+				9B 44 C7 3A EB 69 E6 49 00 40 3E 6A 00 40 00 40 3E 6A 00 40 00 40 4B 6C 00 40 2F 30 C6 13 E5 3F
+				30 32 9A 21 34 38 A5 C3 0C 78 9B 44 C7 3A EB 69 E6 49 00 40 3E 6A 00 40 00 40 3E 6A 00 40 00 40
+				4B 6C 00 40 2F 30 C6 13 E5 3F 30 32 9A 21 34 38 A5 C3 0C 78 9B 44 C7 3A EB 69 E6 49 00 40 3E 6A
+				00 40 00 40 3E 6A 00 40 00 40 4B 6C 00 40 2F 30 C6 13 E5 3F 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 16
+			m_nLocalElementMasks = 1920
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 4A 00 4B 00 4C 00 4D 00 4E 00 4F 00 50 00 20 BA 19 3E 1F C0 58 3B 5D 65
+				2D 4A 00 40 A7 65 00 40 00 40 A7 65 00 40 DE 00 11 36 44 35 F0 3F 7A 3F 1A 2B 34 40 BB 40 8C 27
+				20 BA 19 3E 1F C0 58 3B 5D 65 2D 4A 00 40 A7 65 00 40 00 40 A7 65 00 40 DE 00 11 36 44 35 F0 3F
+				7A 3F 1A 2B 34 40 BB 40 8C 27 20 BA 19 3E 1F C0 58 3B 5D 65 2D 4A 00 40 A7 65 00 40 00 40 A7 65
+				00 40 DE 00 11 36 44 35 F0 3F 7A 3F 1A 2B 34 40 BB 40 8C 27 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 19
+			m_nLocalElementMasks = 30720
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 51 00 52 00 53 00 54 00 55 00 56 00 57 00 F8 3F 73 40 AE 3B 9E 41 54 22
+				B4 41 1B 3E 35 4E 9B 3E 58 19 29 19 AF 61 02 84 43 56 BD A9 D3 3E 86 51 B4 6F B5 E6 F5 72 E4 64
+				F8 3F 73 40 AE 3B 9E 41 54 22 B4 41 1B 3E 35 4E 9B 3E 58 19 29 19 AF 61 02 84 43 56 BD A9 00 40
+				A0 54 00 40 B5 E6 F5 72 E4 64 F8 3F 73 40 AE 3B 9E 41 54 22 B4 41 1B 3E 35 4E 9B 3E 58 19 29 19
+				AF 61 02 84 43 56 BD A9 C5 40 5A 53 BC 20 B5 E6 F5 72 E4 64 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 22
+			m_nLocalElementMasks = 507904
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 58 00 59 00 5A 00 5B 00 5C 00 5D 00 5E 00 26 71 85 A2 69 C4 00 40 19 6A
+				00 40 55 38 28 42 B4 3F D2 36 22 27 23 37 13 39 65 27 AA 3B BA 38 68 25 57 3F E2 37 DF 25 9A 2E
+				26 71 85 A2 69 C4 00 40 19 6A 00 40 55 38 28 42 B4 3F D2 36 22 27 23 37 13 39 65 27 AA 3B BA 38
+				68 25 57 3F E2 37 DF 25 9A 2E 26 71 85 A2 69 C4 00 40 19 6A 00 40 55 38 28 42 B4 3F D2 36 22 27
+				23 37 13 39 65 27 AA 3B BA 38 68 25 57 3F E2 37 DF 25 9A 2E 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 25
+			m_nLocalElementMasks = 3932160
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 5F 00 60 00 61 00 62 00 63 00 64 00 65 00 00 40 00 40 00 40 00 40 00 40
+				00 40 00 40 3E 42 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 69 6B CE E2 C6 F0
+				00 40 00 40 00 40 00 40 00 40 00 40 00 40 3E 42 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40
+				00 40 00 40 00 40 2A 7C 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 3E 42 00 40 00 40 00 40
+				00 40 00 40 00 40 00 40 00 40 00 40 00 40 66 66 4D 99 24 6B 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 28
+			m_nLocalElementMasks = 62914560
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 66 00 67 00 68 00 69 00 6A 00 6B 00 6C 00 00 40 11 0E 00 40 16 F4 6B 50
+				BD 48 81 82 C1 45 B0 D1 00 40 FC 42 00 40 00 40 00 40 00 40 00 40 00 40 FC 42 00 40 00 40 00 40
+				00 40 11 0E 00 40 16 F4 6B 50 BD 48 81 82 C1 45 B0 D1 00 40 FC 42 00 40 00 40 00 40 00 40 00 40
+				00 40 FC 42 00 40 00 40 00 40 00 40 11 0E 00 40 16 F4 6B 50 BD 48 81 82 C1 45 B0 D1 00 40 FC 42
+				00 40 00 40 00 40 00 40 00 40 00 40 FC 42 00 40 00 40 00 40 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 31
+			m_nLocalElementMasks = 1006632960
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 07 00 94 00 6D 00 6E 00 6F 00 70 00 71 00 72 00 73 00 A4 6D B4 9C F7 BA 00 40 85 4D
+				00 40 FC 34 02 52 6F 37 FA 3A E9 16 CB 41 03 40 0E 17 08 41 4E 43 0D 15 55 42 09 33 5C 16 25 3E
+				A4 6D B4 9C F7 BA 00 40 85 4D 00 40 FC 34 02 52 6F 37 FA 3A E9 16 CB 41 03 40 0E 17 08 41 4E 43
+				0D 15 55 42 09 33 5C 16 25 3E A4 6D B4 9C F7 BA 00 40 85 4D 00 40 FC 34 02 52 6F 37 FA 3A E9 16
+				CB 41 03 40 0E 17 08 41 4E 43 0D 15 55 42 09 33 5C 16 25 3E 
+			]
+		},
+		
+		{
+			m_nUniqueFrameIndex = 34
+			m_nLocalElementMasks = 3758096384
+			m_nLocalChannel = 1
+			m_container = 
+			#[
+				08 00 04 00 04 00 58 00 74 00 75 00 76 00 77 00 00 40 00 40 00 40 00 40 00 40 00 40 00 40 3E 42
+				00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 00 40 3E 42 00 40 00 40 00 40 00 40
+				00 40 00 40 00 40 00 40 00 40 00 40 00 40 3E 42 00 40 00 40 00 40 00 40 
+			]
+		},
+	]
+}

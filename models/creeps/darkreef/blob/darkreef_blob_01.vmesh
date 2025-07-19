@@ -1,0 +1,1318 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CRenderMesh"
+	m_sceneObjects = 
+	[
+		{
+			m_vMinBounds = 
+			[
+				-83.031281,
+				-66.818604,
+				-15.878397,
+			]
+			m_vMaxBounds = 
+			[
+				88.284103,
+				69.654900,
+				150.067398,
+			]
+			m_drawCalls = 
+			[
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 5013
+					m_nStartIndex = 0
+					m_nIndexCount = 28707
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 429.083221
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 0
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"models/creeps/darkreef/blob/darkreef_blob_02.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 0
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+				{
+					m_nPrimitiveType = "RENDER_PRIM_TRIANGLES"
+					m_nBaseVertex = 0
+					m_nVertexCount = 1388
+					m_nStartIndex = 0
+					m_nIndexCount = 7299
+					m_nStartInstance = 0
+					m_nInstanceCount = 0
+					m_flUvDensity = 454.184082
+					m_vTintColor = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_indexBuffer = 
+					{
+						m_hBuffer = 1
+						m_nBindOffsetBytes = 0
+					}
+					m_material = resource:"models/creeps/darkreef/blob/darkreef_blob_03.vmat"
+					m_vertexBuffers = 
+					[
+						{
+							m_hBuffer = 1
+							m_nBindOffsetBytes = 0
+						},
+					]
+					m_bUseCompressedNormalTangent = true
+				},
+			]
+			m_vTintColor = 
+			[
+				0.000000,
+				0.000000,
+				0.000000,
+				0.000000,
+			]
+		},
+	]
+	m_constraints = 
+	[
+	]
+	m_skeleton = 
+	{
+		m_bones = 
+		[
+			{
+				m_boneName = "root"
+				m_parentName = ""
+				m_invBindPose = 
+				[
+					1.000000,
+					0.000000,
+					0.000000,
+					-0.000001,
+					0.000000,
+					1.000000,
+					0.000000,
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+					-24.218750,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						2.626411,
+						1.418148,
+						42.875751,
+					]
+					m_vecSize = 
+					[
+						85.657692,
+						68.236755,
+						82.972900,
+					]
+				}
+				m_flSphereRadius = 126.609032
+			},
+			{
+				m_boneName = "spine0_0"
+				m_parentName = "root"
+				m_invBindPose = 
+				[
+					0.093947,
+					-0.096077,
+					0.990930,
+					-38.066811,
+					0.009068,
+					0.995374,
+					0.095648,
+					-3.674346,
+					-0.995536,
+					-0.000000,
+					0.094383,
+					-6.982808,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						15.358448,
+						-1.324120,
+						-9.088478,
+					]
+					m_vecSize = 
+					[
+						67.687637,
+						68.313629,
+						85.016533,
+					]
+				}
+				m_flSphereRadius = 110.382248
+			},
+			{
+				m_boneName = "SimpleBugLeg_base_L"
+				m_parentName = "root"
+				m_invBindPose = 
+				[
+					0.490488,
+					0.210782,
+					-0.845572,
+					5.885117,
+					0.776874,
+					0.333854,
+					0.533861,
+					-47.548317,
+					0.394826,
+					-0.918756,
+					0.000000,
+					13.664106,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						1.710236,
+						-3.763588,
+						7.277462,
+					]
+					m_vecSize = 
+					[
+						56.333763,
+						51.784775,
+						66.351776,
+					]
+				}
+				m_flSphereRadius = 78.255295
+			},
+			{
+				m_boneName = "SimpleBugLeg_base_R"
+				m_parentName = "root"
+				m_invBindPose = 
+				[
+					-0.559849,
+					0.427944,
+					0.709530,
+					-1.723331,
+					-0.563706,
+					0.430893,
+					-0.704675,
+					44.727406,
+					-0.607293,
+					-0.794478,
+					-0.000000,
+					-3.006878,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-12.730627,
+						-1.450342,
+						-11.418610,
+					]
+					m_vecSize = 
+					[
+						46.347649,
+						47.161667,
+						62.147171,
+					]
+				}
+				m_flSphereRadius = 74.914757
+			},
+			{
+				m_boneName = "SimpleBugLeg_base_A_L"
+				m_parentName = "root"
+				m_invBindPose = 
+				[
+					-0.404286,
+					0.553823,
+					-0.727896,
+					7.298298,
+					-0.429172,
+					0.587915,
+					0.685687,
+					-40.678886,
+					0.807690,
+					0.589607,
+					-0.000000,
+					9.005002,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						4.982557,
+						-2.389069,
+						8.011602,
+					]
+					m_vecSize = 
+					[
+						48.931992,
+						61.751480,
+						54.213257,
+					]
+				}
+				m_flSphereRadius = 84.877319
+			},
+			{
+				m_boneName = "SimpleBugLeg_base_A_R"
+				m_parentName = "root"
+				m_invBindPose = 
+				[
+					0.265955,
+					0.390553,
+					0.881327,
+					-16.010399,
+					0.496062,
+					0.728464,
+					-0.472508,
+					40.084023,
+					-0.826554,
+					0.562858,
+					-0.000000,
+					-4.245187,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-6.165979,
+						6.097374,
+						5.829191,
+					]
+					m_vecSize = 
+					[
+						45.872627,
+						45.244919,
+						64.780884,
+					]
+				}
+				m_flSphereRadius = 71.914169
+			},
+			{
+				m_boneName = "spine0_1"
+				m_parentName = "spine0_0"
+				m_invBindPose = 
+				[
+					0.247021,
+					0.730707,
+					0.636433,
+					-51.622002,
+					-0.264395,
+					0.682691,
+					-0.681196,
+					61.955219,
+					-0.932242,
+					-0.000000,
+					0.361834,
+					-30.035334,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-5.851971,
+						23.202280,
+						-10.664078,
+					]
+					m_vecSize = 
+					[
+						64.093994,
+						57.667839,
+						60.450294,
+					]
+				}
+				m_flSphereRadius = 82.855736
+			},
+			{
+				m_boneName = "SimpleBugLeg_0_L"
+				m_parentName = "SimpleBugLeg_base_L"
+				m_invBindPose = 
+				[
+					0.905370,
+					0.095102,
+					-0.413837,
+					-36.407722,
+					0.413512,
+					-0.418969,
+					0.808377,
+					-10.713828,
+					-0.096506,
+					-0.903006,
+					-0.418648,
+					37.105755,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-6.370972,
+						13.239960,
+						6.469084,
+					]
+					m_vecSize = 
+					[
+						44.575653,
+						43.650948,
+						52.129143,
+					]
+				}
+				m_flSphereRadius = 65.756485
+			},
+			{
+				m_boneName = "SimpleBugLeg_0_R"
+				m_parentName = "SimpleBugLeg_base_R"
+				m_invBindPose = 
+				[
+					-0.595830,
+					0.455448,
+					-0.661479,
+					46.803158,
+					0.156273,
+					0.873652,
+					0.460772,
+					23.085163,
+					0.787760,
+					0.171171,
+					-0.591722,
+					-24.751799,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-7.335957,
+						15.291819,
+						-12.518383,
+					]
+					m_vecSize = 
+					[
+						41.082016,
+						36.833221,
+						45.537868,
+					]
+				}
+				m_flSphereRadius = 61.823627
+			},
+			{
+				m_boneName = "SimpleBugLeg_0_A_L"
+				m_parentName = "SimpleBugLeg_base_A_L"
+				m_invBindPose = 
+				[
+					-0.364571,
+					0.717705,
+					-0.593285,
+					-8.110414,
+					0.123022,
+					0.668675,
+					0.733307,
+					-29.353657,
+					0.923013,
+					0.194355,
+					-0.332073,
+					28.529572,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						4.886335,
+						10.831285,
+						1.481140,
+					]
+					m_vecSize = 
+					[
+						47.984291,
+						50.654198,
+						49.182281,
+					]
+				}
+				m_flSphereRadius = 63.085548
+			},
+			{
+				m_boneName = "SimpleBugLeg_0_A_R"
+				m_parentName = "SimpleBugLeg_base_A_R"
+				m_invBindPose = 
+				[
+					0.488644,
+					0.717571,
+					0.496305,
+					23.362492,
+					-0.826554,
+					0.562858,
+					0.000000,
+					-4.245208,
+					-0.279349,
+					-0.410223,
+					0.868148,
+					-32.665276,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-4.447401,
+						-3.131216,
+						13.928633,
+					]
+					m_vecSize = 
+					[
+						37.143555,
+						53.615723,
+						41.679726,
+					]
+				}
+				m_flSphereRadius = 64.280586
+			},
+			{
+				m_boneName = "lock_R0C0"
+				m_parentName = "spine0_1"
+				m_invBindPose = 
+				[
+					0.256517,
+					0.678624,
+					-0.688235,
+					57.802273,
+					-0.935405,
+					0.353578,
+					-0.000001,
+					1.742608,
+					0.243344,
+					0.643779,
+					0.725487,
+					-93.631462,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						2.275181,
+						16.542286,
+						-9.718723,
+					]
+					m_vecSize = 
+					[
+						16.175064,
+						39.516319,
+						29.099865,
+					]
+				}
+				m_flSphereRadius = 66.598915
+			},
+			{
+				m_boneName = "SimpleBugLeg_1_L"
+				m_parentName = "SimpleBugLeg_0_L"
+				m_invBindPose = 
+				[
+					0.749994,
+					0.660141,
+					-0.041506,
+					-59.837009,
+					0.413512,
+					-0.418969,
+					0.808377,
+					-10.713813,
+					0.516253,
+					-0.623440,
+					-0.587200,
+					-2.444095,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-9.981049,
+						11.604931,
+						-11.391504,
+					]
+					m_vecSize = 
+					[
+						44.585133,
+						40.477077,
+						53.473434,
+					]
+				}
+				m_flSphereRadius = 66.905121
+			},
+			{
+				m_boneName = "SimpleBugLeg_1_R"
+				m_parentName = "SimpleBugLeg_0_R"
+				m_invBindPose = 
+				[
+					-0.963882,
+					0.033033,
+					0.264271,
+					55.027367,
+					0.156273,
+					0.873652,
+					0.460773,
+					23.085144,
+					-0.215660,
+					0.485429,
+					-0.847260,
+					61.090294,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						7.578596,
+						13.667143,
+						20.928471,
+					]
+					m_vecSize = 
+					[
+						37.438499,
+						35.208542,
+						37.659969,
+					]
+				}
+				m_flSphereRadius = 65.370827
+			},
+			{
+				m_boneName = "SimpleBugLeg_1_A_L"
+				m_parentName = "SimpleBugLeg_0_A_L"
+				m_invBindPose = 
+				[
+					-0.772629,
+					-0.399205,
+					0.493639,
+					-15.828678,
+					0.123022,
+					0.668675,
+					0.733307,
+					-29.353657,
+					-0.622824,
+					0.627303,
+					-0.467526,
+					-45.073868,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						5.534597,
+						15.396376,
+						-10.448797,
+					]
+					m_vecSize = 
+					[
+						57.529175,
+						46.089096,
+						45.281212,
+					]
+				}
+				m_flSphereRadius = 83.917747
+			},
+			{
+				m_boneName = "SimpleBugLeg_1_A_R"
+				m_parentName = "SimpleBugLeg_0_A_R"
+				m_invBindPose = 
+				[
+					0.561862,
+					0.825090,
+					-0.059478,
+					52.187962,
+					-0.826554,
+					0.562858,
+					0.000000,
+					-4.245191,
+					0.033478,
+					0.049162,
+					0.998230,
+					-4.916067,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						2.751707,
+						-5.636351,
+						23.160904,
+					]
+					m_vecSize = 
+					[
+						33.773926,
+						43.171211,
+						40.714474,
+					]
+				}
+				m_flSphereRadius = 64.490135
+			},
+			{
+				m_boneName = "lock_R1C0"
+				m_parentName = "lock_R0C0"
+				m_invBindPose = 
+				[
+					0.250097,
+					0.655763,
+					-0.712339,
+					59.134052,
+					-0.942486,
+					0.333383,
+					-0.023995,
+					4.802379,
+					0.221747,
+					0.677370,
+					0.701425,
+					-91.698273,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						4.038179,
+						9.647390,
+						-16.427498,
+					]
+					m_vecSize = 
+					[
+						45.793434,
+						49.494431,
+						42.243393,
+					]
+				}
+				m_flSphereRadius = 69.563713
+			},
+			{
+				m_boneName = "SimpleBugLeg_2_L"
+				m_parentName = "SimpleBugLeg_1_L"
+				m_invBindPose = 
+				[
+					-0.499755,
+					0.856805,
+					-0.127007,
+					-6.979057,
+					-0.049236,
+					0.118293,
+					0.991757,
+					-6.174591,
+					0.864767,
+					0.501888,
+					-0.016932,
+					-81.266022,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-5.237507,
+						10.472513,
+						-18.550528,
+					]
+					m_vecSize = 
+					[
+						35.991871,
+						31.659304,
+						30.365355,
+					]
+				}
+				m_flSphereRadius = 54.388535
+			},
+			{
+				m_boneName = "SimpleBugLeg_2_R"
+				m_parentName = "SimpleBugLeg_1_R"
+				m_invBindPose = 
+				[
+					-0.356544,
+					-0.247633,
+					0.900863,
+					-8.331979,
+					-0.116217,
+					-0.944990,
+					-0.305759,
+					-33.397190,
+					0.927022,
+					-0.213712,
+					0.308151,
+					-85.947296,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						1.880281,
+						-14.547585,
+						-20.354061,
+					]
+					m_vecSize = 
+					[
+						34.177628,
+						34.125618,
+						33.619709,
+					]
+				}
+				m_flSphereRadius = 61.780273
+			},
+			{
+				m_boneName = "SimpleBugLeg_2_A_L"
+				m_parentName = "SimpleBugLeg_1_A_L"
+				m_invBindPose = 
+				[
+					-0.598916,
+					0.203744,
+					-0.774459,
+					-24.022329,
+					0.208593,
+					-0.894019,
+					-0.396509,
+					48.108009,
+					-0.773168,
+					-0.399022,
+					0.492943,
+					-42.539497,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-7.846466,
+						-0.923244,
+						-5.758165,
+					]
+					m_vecSize = 
+					[
+						45.528915,
+						33.394344,
+						43.194725,
+					]
+				}
+				m_flSphereRadius = 64.929047
+			},
+			{
+				m_boneName = "SimpleBugLeg_2_A_R"
+				m_parentName = "SimpleBugLeg_1_A_R"
+				m_invBindPose = 
+				[
+					0.771451,
+					0.134227,
+					-0.621969,
+					41.770176,
+					0.620814,
+					-0.373050,
+					0.689510,
+					-0.325925,
+					-0.139475,
+					-0.918050,
+					-0.371120,
+					-47.323410,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-0.455757,
+						13.852245,
+						-13.936052,
+					]
+					m_vecSize = 
+					[
+						34.393436,
+						32.515377,
+						30.424326,
+					]
+				}
+				m_flSphereRadius = 53.210079
+			},
+			{
+				m_boneName = "lock_R2C0"
+				m_parentName = "lock_R1C0"
+				m_invBindPose = 
+				[
+					0.240934,
+					0.623562,
+					-0.743721,
+					54.084602,
+					-0.948588,
+					0.313360,
+					-0.044570,
+					7.491483,
+					0.205260,
+					0.716223,
+					0.667002,
+					-89.130493,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						26.567360,
+						11.261015,
+						-30.499893,
+					]
+					m_vecSize = 
+					[
+						63.182487,
+						46.350098,
+						42.779892,
+					]
+				}
+				m_flSphereRadius = 97.230484
+			},
+			{
+				m_boneName = "SimpleBugLeg_3_L"
+				m_parentName = "SimpleBugLeg_2_L"
+				m_invBindPose = 
+				[
+					-0.499754,
+					0.856805,
+					-0.127006,
+					-27.907722,
+					-0.049235,
+					0.118293,
+					0.991757,
+					-6.174610,
+					0.864767,
+					0.501888,
+					-0.016932,
+					-81.266014,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-18.751125,
+						5.253200,
+						-4.599932,
+					]
+					m_vecSize = 
+					[
+						22.694817,
+						21.535713,
+						16.414759,
+					]
+				}
+				m_flSphereRadius = 42.280869
+			},
+			{
+				m_boneName = "SimpleBugLeg_3_R"
+				m_parentName = "SimpleBugLeg_2_R"
+				m_invBindPose = 
+				[
+					-0.356544,
+					-0.247633,
+					0.900863,
+					9.433711,
+					-0.116217,
+					-0.944990,
+					-0.305759,
+					-33.397163,
+					0.927022,
+					-0.213712,
+					0.308151,
+					-85.947319,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						15.026167,
+						-41.365788,
+						-5.902781,
+					]
+					m_vecSize = 
+					[
+						26.637629,
+						57.206867,
+						19.168421,
+					]
+				}
+				m_flSphereRadius = 101.944725
+			},
+			{
+				m_boneName = "SimpleBugLeg_3_A_L"
+				m_parentName = "SimpleBugLeg_2_A_L"
+				m_invBindPose = 
+				[
+					-0.598917,
+					0.203744,
+					-0.774459,
+					-55.475658,
+					0.208592,
+					-0.894019,
+					-0.396509,
+					48.108013,
+					-0.773168,
+					-0.399022,
+					0.492943,
+					-42.539513,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						-22.273766,
+						-5.231098,
+						0.155157,
+					]
+					m_vecSize = 
+					[
+						28.502895,
+						23.226120,
+						20.849142,
+					]
+				}
+				m_flSphereRadius = 56.919128
+			},
+			{
+				m_boneName = "SimpleBugLeg_3_A_R"
+				m_parentName = "SimpleBugLeg_2_A_R"
+				m_invBindPose = 
+				[
+					0.771451,
+					0.134227,
+					-0.621970,
+					59.566597,
+					0.620814,
+					-0.373050,
+					0.689510,
+					-0.325914,
+					-0.139475,
+					-0.918050,
+					-0.371120,
+					-47.323421,
+				]
+				m_bbox = 
+				{
+					m_vecCenter = 
+					[
+						3.889420,
+						27.860191,
+						-31.561165,
+					]
+					m_vecSize = 
+					[
+						33.123634,
+						44.340256,
+						48.049416,
+					]
+				}
+				m_flSphereRadius = 82.873138
+			},
+		]
+		m_boneParents = 
+		[
+		]
+		m_nBoneWeightCount = 4
+	}
+	m_attachments = 
+	[
+		{
+			key = "attach_eye_r"
+			value = 
+			{
+				m_name = "attach_eye_r"
+				m_influenceNames = 
+				[
+					"spine0_0",
+					"",
+					"",
+				]
+				m_vInfluenceOffsets = 
+				[
+					
+					[
+						20.000000,
+						-11.999998,
+						-29.999996,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+				]
+				m_vInfluenceRotations = 
+				[
+					
+					[
+						0.000000,
+						0.707107,
+						-0.000000,
+						0.707107,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+				]
+				m_influenceWeights = 
+				[
+					1.000000,
+					0.000000,
+					0.000000,
+				]
+				m_bInfluenceRootTransform = 
+				[
+					false,
+					false,
+					false,
+				]
+				m_nInfluences = 1
+			}
+		},
+		{
+			key = "attach_eye_l"
+			value = 
+			{
+				m_name = "attach_eye_l"
+				m_influenceNames = 
+				[
+					"spine0_0",
+					"",
+					"",
+				]
+				m_vInfluenceOffsets = 
+				[
+					
+					[
+						20.000000,
+						12.000002,
+						-29.999996,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+				]
+				m_vInfluenceRotations = 
+				[
+					
+					[
+						0.000000,
+						0.707107,
+						-0.000000,
+						0.707107,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+				]
+				m_influenceWeights = 
+				[
+					1.000000,
+					0.000000,
+					0.000000,
+				]
+				m_bInfluenceRootTransform = 
+				[
+					false,
+					false,
+					false,
+				]
+				m_nInfluences = 1
+			}
+		},
+		{
+			key = "attach_hitloc"
+			value = 
+			{
+				m_name = "attach_hitloc"
+				m_influenceNames = 
+				[
+					"root",
+					"",
+					"",
+				]
+				m_vInfluenceOffsets = 
+				[
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					],
+				]
+				m_vInfluenceRotations = 
+				[
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+					
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+						1.000000,
+					],
+				]
+				m_influenceWeights = 
+				[
+					1.000000,
+					0.000000,
+					0.000000,
+				]
+				m_bInfluenceRootTransform = 
+				[
+					false,
+					false,
+					false,
+				]
+				m_nInfluences = 1
+			}
+		},
+	]
+	m_hitboxsets = 
+	[
+		{
+			key = "select_low"
+			value = 
+			{
+				m_name = "select_low"
+				m_nNameHash = 3944345580
+				m_HitBoxes = 
+				[
+					{
+						m_name = "root"
+						m_sSurfaceProperty = ""
+						m_sBoneName = "root"
+						m_nBoneNameHash = 3153423456
+						m_nGroupId = 0
+						m_cRenderColor = 
+						[
+							0,
+							0,
+							0,
+							0,
+						]
+						m_nHitBoxIndex = 0
+						m_vMinBounds = 
+						[
+							-50.818367,
+							-45.918758,
+							-24.965490,
+						]
+						m_vMaxBounds = 
+						[
+							47.836292,
+							49.043831,
+							45.049450,
+						]
+						m_bTranslationOnly = false
+						m_bVisible = false
+						m_bSelected = false
+					},
+				]
+				m_SourceFilename = ""
+			}
+		},
+		{
+			key = "select_high"
+			value = 
+			{
+				m_name = "select_high"
+				m_nNameHash = 2570599
+				m_HitBoxes = 
+				[
+					{
+						m_name = "root"
+						m_sSurfaceProperty = ""
+						m_sBoneName = "root"
+						m_nBoneNameHash = 3153423456
+						m_nGroupId = 0
+						m_cRenderColor = 
+						[
+							0,
+							0,
+							0,
+							0,
+						]
+						m_nHitBoxIndex = 1
+						m_vMinBounds = 
+						[
+							-76.996727,
+							-56.784264,
+							-35.309219,
+						]
+						m_vMaxBounds = 
+						[
+							63.696850,
+							61.281681,
+							44.515537,
+						]
+						m_bTranslationOnly = false
+						m_bVisible = false
+						m_bSelected = false
+					},
+				]
+				m_SourceFilename = ""
+			}
+		},
+	]
+	m_morphSet = null
+}

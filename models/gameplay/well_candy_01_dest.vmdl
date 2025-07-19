@@ -1,0 +1,1077 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc28:version{fb63b6ca-f435-4aa0-a2c7-c66ddc651dca} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+				]
+				bone_cull_type = "None"
+			},
+			
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					
+					{
+						_class = "RenderMeshFile"
+						name = "well_candy_01_dest"
+						filename = "models/gameplay/well_candy_01_dest_well_candy_01_dest.dmx"
+					},
+				]
+			},
+			
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					
+					{
+						_class = "AnimFile"
+						name = "well_candy_death"
+						source_filename = "models/gameplay/well_candy_death.dmx"
+						fade_in_time = 0.200000
+						fade_out_time = 0.200000
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+					},
+					
+					{
+						_class = "AnimFile"
+						name = "well_candy_static"
+						source_filename = "models/gameplay/well_candy_static.dmx"
+						fade_in_time = 0.200000
+						fade_out_time = 0.200000
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+					},
+				]
+			},
+			
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint1"
+						origin = 
+						[
+							39.295930,
+							14.520580,
+							216.608800,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint2"
+						origin = 
+						[
+							15.938670,
+							4.218283,
+							231.764100,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint3"
+						origin = 
+						[
+							9.344285,
+							58.990890,
+							239.905600,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint4"
+						origin = 
+						[
+							-16.616930,
+							17.750290,
+							231.906600,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint5"
+						origin = 
+						[
+							-12.999970,
+							-23.496150,
+							233.478300,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint6"
+						origin = 
+						[
+							-9.871455,
+							-59.141500,
+							238.309500,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint7"
+						origin = 
+						[
+							-41.138050,
+							22.134300,
+							214.682400,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint8"
+						origin = 
+						[
+							-33.594170,
+							-11.349270,
+							218.572700,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint9"
+						origin = 
+						[
+							-64.666420,
+							-67.996110,
+							200.563200,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint10"
+						origin = 
+						[
+							-65.539540,
+							-32.114850,
+							201.574800,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint11"
+						origin = 
+						[
+							-64.905430,
+							13.328000,
+							201.461700,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint12"
+						origin = 
+						[
+							-63.587750,
+							59.466050,
+							200.745500,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint13"
+						origin = 
+						[
+							-30.164950,
+							-52.986680,
+							220.764100,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint14"
+						origin = 
+						[
+							24.157830,
+							-63.079500,
+							228.493200,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint15"
+						origin = 
+						[
+							64.655740,
+							-61.523690,
+							200.624400,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint16"
+						origin = 
+						[
+							56.459900,
+							-15.442090,
+							207.293600,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint17"
+						origin = 
+						[
+							65.539540,
+							39.090810,
+							201.153900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint18"
+						origin = 
+						[
+							64.666460,
+							65.015320,
+							200.474700,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint19"
+						origin = 
+						[
+							30.561080,
+							53.070970,
+							220.764100,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint20"
+						origin = 
+						[
+							-23.693190,
+							59.674160,
+							229.665200,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint21"
+						origin = 
+						[
+							-63.751950,
+							29.930110,
+							39.839990,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint22"
+						origin = 
+						[
+							-67.801200,
+							6.469289,
+							39.539990,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint23"
+						origin = 
+						[
+							-67.354130,
+							-15.123460,
+							41.039980,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint24"
+						origin = 
+						[
+							-47.819760,
+							-46.451980,
+							39.539980,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint25"
+						origin = 
+						[
+							-6.798109,
+							-70.232350,
+							37.555580,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint26"
+						origin = 
+						[
+							42.879380,
+							-54.293170,
+							39.839990,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint27"
+						origin = 
+						[
+							62.086910,
+							-33.596150,
+							46.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint28"
+						origin = 
+						[
+							69.091790,
+							-10.325890,
+							46.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint29"
+						origin = 
+						[
+							63.673090,
+							21.103400,
+							48.540000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint30"
+						origin = 
+						[
+							49.237040,
+							46.585920,
+							43.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint31"
+						origin = 
+						[
+							32.789610,
+							60.434840,
+							45.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint32"
+						origin = 
+						[
+							-0.429179,
+							67.419180,
+							45.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint33"
+						origin = 
+						[
+							-38.251400,
+							53.656300,
+							39.040000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint34"
+						origin = 
+						[
+							53.120000,
+							-41.771520,
+							196.124900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint35"
+						origin = 
+						[
+							53.120000,
+							24.103050,
+							195.124900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint36"
+						origin = 
+						[
+							-53.119960,
+							21.809880,
+							195.999900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint37"
+						origin = 
+						[
+							-53.164910,
+							-41.771520,
+							195.249900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint38"
+						origin = 
+						[
+							0.000015,
+							50.840250,
+							139.440000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint39"
+						origin = 
+						[
+							-0.081589,
+							10.309960,
+							139.285200,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint40"
+						origin = 
+						[
+							0.000020,
+							-33.853860,
+							139.440000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint41"
+						origin = 
+						[
+							-0.035235,
+							-76.384320,
+							175.792100,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint42"
+						origin = 
+						[
+							-0.000029,
+							-76.359980,
+							72.085270,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint43"
+						origin = 
+						[
+							-0.000050,
+							76.359990,
+							66.703620,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint44"
+						origin = 
+						[
+							0.184195,
+							76.508880,
+							160.830000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint45"
+						origin = 
+						[
+							-17.847080,
+							-75.786130,
+							148.290600,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint46"
+						origin = 
+						[
+							-34.806500,
+							-75.786130,
+							169.151900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint47"
+						origin = 
+						[
+							17.614430,
+							-75.786130,
+							144.970900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint48"
+						origin = 
+						[
+							34.805930,
+							-75.786110,
+							169.151900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint49"
+						origin = 
+						[
+							-15.266560,
+							76.360000,
+							139.498300,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint50"
+						origin = 
+						[
+							-33.228070,
+							76.359990,
+							160.661300,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint51"
+						origin = 
+						[
+							17.614780,
+							76.360000,
+							149.597900,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint52"
+						origin = 
+						[
+							34.806280,
+							76.360020,
+							169.152000,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint53"
+						origin = 
+						[
+							-111.000000,
+							28.999980,
+							27.499990,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint54"
+						origin = 
+						[
+							-108.000000,
+							-34.000000,
+							27.499990,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint55"
+						origin = 
+						[
+							-113.250000,
+							-3.500012,
+							68.499970,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+					
+					{
+						_class = "Bone"
+						name = "well_candy_joint56"
+						origin = 
+						[
+							-115.030500,
+							-2.970888,
+							43.834270,
+						]
+						angles = 
+						[
+							0.000014,
+							89.999980,
+							89.999980,
+						]
+						do_not_discard = true
+					},
+				]
+			},
+		]
+	}
+}

@@ -1,0 +1,15 @@
+<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/tip666.vjs_c" />
+		<include src="s2r://panorama/scripts/custom_game/util.vjs_c" />
+	</scripts>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/tip666.vcss_c" />
+	</styles>
+	<Panel class="ROOT" hittest="false">
+		<Panel id="TIP" hittest="false">
+			<Label class="tip_css" hittest="false" text="#TIP666" />
+		</Panel>
+	</Panel>
+</root>

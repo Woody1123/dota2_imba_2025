@@ -1,0 +1,442 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_nFlags = 0
+	m_name = resource:""
+	m_localHAnimArray = 
+	[
+		resource_name:"models/creeps/ice_boss/63745b64/ice_boss_egg_dest.vanim",
+		resource_name:"models/creeps/ice_boss/63745b64/ice_boss_egg_dest_break_a.vanim",
+		resource_name:"models/creeps/ice_boss/63745b64/ice_boss_egg_dest_break_b.vanim",
+		resource_name:"models/creeps/ice_boss/63745b64/ice_boss_egg_dest_break_c.vanim",
+	]
+	m_includedGroupArray = 
+	[
+	]
+	m_directHSeqGroup = null
+	m_decodeKey = 
+	{
+		m_name = resource:""
+		m_boneArray = 
+		[
+			
+			{
+				m_name = resource:"ice_boss_egg_joint1"
+				m_parent = -1
+				m_pos = 
+				[
+					-4.017389,
+					-13.853850,
+					44.519790,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint2"
+				m_parent = -1
+				m_pos = 
+				[
+					4.262942,
+					-2.041234,
+					59.218800,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint3"
+				m_parent = -1
+				m_pos = 
+				[
+					1.905528,
+					-8.762914,
+					58.108100,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint4"
+				m_parent = -1
+				m_pos = 
+				[
+					12.075450,
+					-4.517407,
+					43.588000,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint5"
+				m_parent = -1
+				m_pos = 
+				[
+					5.533452,
+					-7.075740,
+					22.708320,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint6"
+				m_parent = -1
+				m_pos = 
+				[
+					-0.231193,
+					2.601270,
+					14.954720,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint7"
+				m_parent = -1
+				m_pos = 
+				[
+					-12.518030,
+					-3.487724,
+					31.321990,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint8"
+				m_parent = -1
+				m_pos = 
+				[
+					11.447180,
+					12.662970,
+					28.508850,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint9"
+				m_parent = -1
+				m_pos = 
+				[
+					-5.764363,
+					11.557770,
+					39.135040,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint10"
+				m_parent = -1
+				m_pos = 
+				[
+					-8.995518,
+					-1.839162,
+					53.367720,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+			
+			{
+				m_name = resource:"ice_boss_egg_joint11"
+				m_parent = -1
+				m_pos = 
+				[
+					3.519490,
+					7.944963,
+					49.357930,
+				]
+				m_quat = 
+				[
+					0.500000,
+					0.500000,
+					0.500000,
+					0.500000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 64
+			},
+		]
+		m_userArray = 
+		[
+		]
+		m_morphArray = 
+		[
+		]
+		m_IKChainArray = 
+		[
+		]
+		m_nChannelElements = 22
+		m_dataChannelArray = 
+		[
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Position"
+				m_nFlags = 0
+				m_nType = 3
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"ice_boss_egg_joint1",
+					resource:"ice_boss_egg_joint2",
+					resource:"ice_boss_egg_joint3",
+					resource:"ice_boss_egg_joint4",
+					resource:"ice_boss_egg_joint5",
+					resource:"ice_boss_egg_joint6",
+					resource:"ice_boss_egg_joint7",
+					resource:"ice_boss_egg_joint8",
+					resource:"ice_boss_egg_joint9",
+					resource:"ice_boss_egg_joint10",
+					resource:"ice_boss_egg_joint11",
+				]
+				m_nElementIndexArray = 
+				[
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					4,
+					32,
+					256,
+					2048,
+					16384,
+					131072,
+					1048576,
+					8388608,
+					67108864,
+					536870912,
+				]
+			},
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Angle"
+				m_nFlags = 0
+				m_nType = 4
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"ice_boss_egg_joint1",
+					resource:"ice_boss_egg_joint2",
+					resource:"ice_boss_egg_joint3",
+					resource:"ice_boss_egg_joint4",
+					resource:"ice_boss_egg_joint5",
+					resource:"ice_boss_egg_joint6",
+					resource:"ice_boss_egg_joint7",
+					resource:"ice_boss_egg_joint8",
+					resource:"ice_boss_egg_joint9",
+					resource:"ice_boss_egg_joint10",
+					resource:"ice_boss_egg_joint11",
+				]
+				m_nElementIndexArray = 
+				[
+					11,
+					12,
+					13,
+					14,
+					15,
+					16,
+					17,
+					18,
+					19,
+					20,
+					21,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					4,
+					32,
+					256,
+					2048,
+					16384,
+					131072,
+					1048576,
+					8388608,
+					67108864,
+					536870912,
+				]
+			},
+		]
+	}
+	m_retarget = 
+	{
+		m_bEnableRetarget = 0
+		m_nRetargetStyle = 0
+		m_element = 
+		[
+		]
+		m_chain = 
+		[
+		]
+		m_replicated = 
+		[
+		]
+	}
+	m_szScripts = 
+	[
+	]
+}

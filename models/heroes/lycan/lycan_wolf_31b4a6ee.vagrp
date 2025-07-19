@@ -1,0 +1,2006 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+	m_nFlags = 0
+	m_name = resource:""
+	m_localHAnimArray = 
+	[
+	]
+	m_includedGroupArray = 
+	[
+	]
+	m_directHSeqGroup = resource_name:"models/heroes/lycan/lycan_wolf_31b4a6ee.vseq"
+	m_decodeKey = 
+	{
+		m_name = resource:""
+		m_boneArray = 
+		[
+			
+			{
+				m_name = resource:"root"
+				m_parent = -1
+				m_pos = 
+				[
+					-22.562500,
+					-0.000001,
+					91.250000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"hip0_0"
+				m_parent = 0
+				m_pos = 
+				[
+					-12.238620,
+					0.000000,
+					-9.619125,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"spine1"
+				m_parent = 0
+				m_pos = 
+				[
+					17.826100,
+					0.000000,
+					7.399323,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.169348,
+					-0.000000,
+					0.985556,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"thigh_L"
+				m_parent = 1
+				m_pos = 
+				[
+					-2.641338,
+					21.489020,
+					-5.291023,
+				]
+				m_quat = 
+				[
+					0.006177,
+					0.652859,
+					0.209680,
+					0.727854,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"thigh_R"
+				m_parent = 1
+				m_pos = 
+				[
+					-2.641338,
+					-21.489020,
+					-5.291023,
+				]
+				m_quat = 
+				[
+					-0.220510,
+					-0.726257,
+					0.005274,
+					0.651074,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Tail_R0C0"
+				m_parent = 1
+				m_pos = 
+				[
+					-7.592602,
+					0.000000,
+					-5.081589,
+				]
+				m_quat = 
+				[
+					0.000000,
+					1.000000,
+					-0.000002,
+					0.000152,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"knee_L"
+				m_parent = 3
+				m_pos = 
+				[
+					33.892440,
+					0.000008,
+					0.000002,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.652433,
+					0.000000,
+					0.757846,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"ankle_L"
+				m_parent = 6
+				m_pos = 
+				[
+					37.703470,
+					0.000004,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.048529,
+					-0.671321,
+					-0.136705,
+					0.726832,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toeBase_L"
+				m_parent = 7
+				m_pos = 
+				[
+					24.291730,
+					0.000000,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					0.050916,
+					0.782432,
+					0.040303,
+					0.619341,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_0__L"
+				m_parent = 8
+				m_pos = 
+				[
+					-4.819241,
+					-10.171190,
+					4.438303,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.123681,
+					0.992322,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_2__L"
+				m_parent = 8
+				m_pos = 
+				[
+					-8.696526,
+					7.588127,
+					4.438311,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_1__L"
+				m_parent = 8
+				m_pos = 
+				[
+					-7.809341,
+					-1.322346,
+					4.438307,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"knee_R"
+				m_parent = 4
+				m_pos = 
+				[
+					-33.892440,
+					0.000000,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000001,
+					0.652433,
+					0.000000,
+					0.757847,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"ankle_R"
+				m_parent = 12
+				m_pos = 
+				[
+					-37.703460,
+					-0.000011,
+					0.000004,
+				]
+				m_quat = 
+				[
+					0.059501,
+					-0.669749,
+					-0.137585,
+					0.727301,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toeBase_R"
+				m_parent = 13
+				m_pos = 
+				[
+					-24.291750,
+					-0.000004,
+					0.000004,
+				]
+				m_quat = 
+				[
+					0.050916,
+					0.782432,
+					0.040303,
+					0.619341,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_0__R"
+				m_parent = 14
+				m_pos = 
+				[
+					4.819241,
+					10.171200,
+					-4.438305,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.123682,
+					0.992322,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_2__R"
+				m_parent = 14
+				m_pos = 
+				[
+					8.696518,
+					-7.588127,
+					-4.438298,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"toe_1__R"
+				m_parent = 14
+				m_pos = 
+				[
+					7.809341,
+					1.322350,
+					-4.438301,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Tail_R1C0"
+				m_parent = 5
+				m_pos = 
+				[
+					4.311684,
+					-0.000178,
+					0.392921,
+				]
+				m_quat = 
+				[
+					-0.705840,
+					0.042374,
+					0.027654,
+					0.706562,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Tail_R2C0"
+				m_parent = 18
+				m_pos = 
+				[
+					14.106370,
+					-0.593544,
+					-0.000001,
+				]
+				m_quat = 
+				[
+					0.000126,
+					-0.017034,
+					-0.200983,
+					0.979447,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Tail_R3C0"
+				m_parent = 19
+				m_pos = 
+				[
+					21.573680,
+					-0.000008,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.002010,
+					0.006380,
+					-0.237856,
+					0.971278,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Tail_R4C0"
+				m_parent = 20
+				m_pos = 
+				[
+					34.463880,
+					0.000000,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000005,
+					0.000056,
+					-0.090908,
+					0.995859,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"spine2"
+				m_parent = 2
+				m_pos = 
+				[
+					17.733340,
+					0.000002,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.061855,
+					0.000000,
+					0.998085,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"spine3"
+				m_parent = 22
+				m_pos = 
+				[
+					44.769310,
+					0.000001,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.340253,
+					0.000000,
+					0.940334,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"clavicle_R"
+				m_parent = 23
+				m_pos = 
+				[
+					-17.775470,
+					-12.752450,
+					4.857430,
+				]
+				m_quat = 
+				[
+					-0.427714,
+					-0.563082,
+					0.407670,
+					0.577759,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"neckFur_R0C0"
+				m_parent = 23
+				m_pos = 
+				[
+					11.942780,
+					0.000000,
+					5.708305,
+				]
+				m_quat = 
+				[
+					0.245992,
+					0.662939,
+					0.662939,
+					-0.245992,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"neck1"
+				m_parent = 23
+				m_pos = 
+				[
+					16.981860,
+					0.000003,
+					0.000000,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.027257,
+					0.000000,
+					0.999628,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"clavicle_L"
+				m_parent = 23
+				m_pos = 
+				[
+					-17.775490,
+					12.752440,
+					4.857445,
+				]
+				m_quat = 
+				[
+					0.407670,
+					0.577759,
+					0.427714,
+					0.563082,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"bicep_R"
+				m_parent = 24
+				m_pos = 
+				[
+					-11.260700,
+					0.000000,
+					0.000015,
+				]
+				m_quat = 
+				[
+					-0.869480,
+					0.478127,
+					-0.122494,
+					0.019852,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"elbow_R"
+				m_parent = 28
+				m_pos = 
+				[
+					-54.481290,
+					-0.000011,
+					0.000010,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.431351,
+					-0.000000,
+					0.902184,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"wrist_R"
+				m_parent = 29
+				m_pos = 
+				[
+					-45.270650,
+					0.000004,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.145304,
+					-0.035371,
+					-0.021629,
+					0.988518,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Ring_0_R"
+				m_parent = 30
+				m_pos = 
+				[
+					-26.983760,
+					2.527756,
+					-6.941658,
+				]
+				m_quat = 
+				[
+					-0.052156,
+					0.347969,
+					-0.027483,
+					0.935651,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Mid_0_R"
+				m_parent = 30
+				m_pos = 
+				[
+					-26.052030,
+					-3.291595,
+					-6.399879,
+				]
+				m_quat = 
+				[
+					-0.008326,
+					0.351035,
+					0.007836,
+					0.936293,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Index_0_R"
+				m_parent = 30
+				m_pos = 
+				[
+					-24.770220,
+					-9.398148,
+					-6.362133,
+				]
+				m_quat = 
+				[
+					0.005684,
+					0.326762,
+					0.044352,
+					0.944048,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Pinky_0_R"
+				m_parent = 30
+				m_pos = 
+				[
+					-27.124030,
+					8.033146,
+					-8.655052,
+				]
+				m_quat = 
+				[
+					-0.081754,
+					0.334231,
+					-0.119435,
+					0.931312,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Ring_1_R"
+				m_parent = 31
+				m_pos = 
+				[
+					-12.049680,
+					0.000000,
+					-0.000002,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Mid_1_R"
+				m_parent = 32
+				m_pos = 
+				[
+					-12.364220,
+					0.000004,
+					0.000006,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Index_1_R"
+				m_parent = 33
+				m_pos = 
+				[
+					-8.210739,
+					0.000008,
+					-0.000002,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.024797,
+					0.000000,
+					0.999693,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Pinky_1_R"
+				m_parent = 34
+				m_pos = 
+				[
+					-9.184658,
+					0.000006,
+					0.000004,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"neckFur_R1C0"
+				m_parent = 25
+				m_pos = 
+				[
+					5.904800,
+					0.000015,
+					-0.000001,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"neckFur_R2C0"
+				m_parent = 39
+				m_pos = 
+				[
+					13.132760,
+					-0.000023,
+					0.000001,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"head"
+				m_parent = 26
+				m_pos = 
+				[
+					14.847040,
+					-0.000001,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.603198,
+					-0.000000,
+					0.797591,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"jaw1_0"
+				m_parent = 41
+				m_pos = 
+				[
+					11.210780,
+					-0.149577,
+					9.955017,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					-0.791755,
+					0.000000,
+					0.610838,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earL_R0C0"
+				m_parent = 41
+				m_pos = 
+				[
+					-3.909424,
+					10.518810,
+					4.918831,
+				]
+				m_quat = 
+				[
+					0.096587,
+					0.791521,
+					0.575537,
+					0.181447,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earR_R0C0"
+				m_parent = 41
+				m_pos = 
+				[
+					-3.909431,
+					-10.518810,
+					4.918835,
+				]
+				m_quat = 
+				[
+					0.195462,
+					-0.704240,
+					-0.679555,
+					0.063611,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earL_R1C0"
+				m_parent = 43
+				m_pos = 
+				[
+					3.330872,
+					0.000000,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.032986,
+					-0.000000,
+					0.999456,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earL_R2C0"
+				m_parent = 45
+				m_pos = 
+				[
+					7.705513,
+					0.000023,
+					0.000004,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earR_R1C0"
+				m_parent = 44
+				m_pos = 
+				[
+					3.330902,
+					-0.000008,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					0.032986,
+					0.999456,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"earR_R2C0"
+				m_parent = 47
+				m_pos = 
+				[
+					7.705521,
+					-0.000008,
+					-0.000006,
+				]
+				m_quat = 
+				[
+					0.000000,
+					0.000000,
+					-0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"bicep_L"
+				m_parent = 27
+				m_pos = 
+				[
+					11.260690,
+					-0.000015,
+					-0.000011,
+				]
+				m_quat = 
+				[
+					-0.868923,
+					0.479607,
+					-0.121027,
+					0.017388,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"elbow_L"
+				m_parent = 49
+				m_pos = 
+				[
+					54.481260,
+					0.000000,
+					0.000000,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.431350,
+					0.000000,
+					0.902185,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"wrist_L"
+				m_parent = 50
+				m_pos = 
+				[
+					45.270650,
+					-0.000011,
+					-0.000011,
+				]
+				m_quat = 
+				[
+					-0.142393,
+					-0.035533,
+					-0.020210,
+					0.988966,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Ring_0_L"
+				m_parent = 51
+				m_pos = 
+				[
+					26.983750,
+					-2.527756,
+					6.941658,
+				]
+				m_quat = 
+				[
+					-0.052156,
+					0.347969,
+					-0.027483,
+					0.935651,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Mid_0_L"
+				m_parent = 51
+				m_pos = 
+				[
+					26.052020,
+					3.291607,
+					6.399872,
+				]
+				m_quat = 
+				[
+					-0.008325,
+					0.351035,
+					0.007836,
+					0.936293,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Index_0_L"
+				m_parent = 51
+				m_pos = 
+				[
+					24.770210,
+					9.398155,
+					6.362133,
+				]
+				m_quat = 
+				[
+					0.005684,
+					0.326763,
+					0.044352,
+					0.944048,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Pinky_0_L"
+				m_parent = 51
+				m_pos = 
+				[
+					27.124020,
+					-8.033154,
+					8.655048,
+				]
+				m_quat = 
+				[
+					-0.081754,
+					0.334231,
+					-0.119436,
+					0.931312,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Ring_1_L"
+				m_parent = 52
+				m_pos = 
+				[
+					12.049690,
+					-0.000004,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Mid_1_L"
+				m_parent = 53
+				m_pos = 
+				[
+					12.364230,
+					-0.000008,
+					-0.000015,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Index_1_L"
+				m_parent = 54
+				m_pos = 
+				[
+					8.210728,
+					-0.000008,
+					-0.000019,
+				]
+				m_quat = 
+				[
+					-0.000000,
+					0.024797,
+					0.000000,
+					0.999693,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+			
+			{
+				m_name = resource:"Pinky_1_L"
+				m_parent = 55
+				m_pos = 
+				[
+					9.184658,
+					-0.000004,
+					-0.000008,
+				]
+				m_quat = 
+				[
+					0.000000,
+					-0.000000,
+					0.000000,
+					1.000000,
+				]
+				m_qAlignment = 
+				[
+					0.000000,
+					0.000000,
+					0.000000,
+					0.000000,
+				]
+				m_flags = 0
+			},
+		]
+		m_userArray = 
+		[
+		]
+		m_morphArray = 
+		[
+		]
+		m_IKChainArray = 
+		[
+		]
+		m_nChannelElements = 120
+		m_dataChannelArray = 
+		[
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Position"
+				m_nFlags = 0
+				m_nType = 3
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"root",
+					resource:"hip0_0",
+					resource:"spine1",
+					resource:"thigh_L",
+					resource:"thigh_R",
+					resource:"Tail_R0C0",
+					resource:"knee_L",
+					resource:"ankle_L",
+					resource:"toeBase_L",
+					resource:"toe_0__L",
+					resource:"toe_2__L",
+					resource:"toe_1__L",
+					resource:"knee_R",
+					resource:"ankle_R",
+					resource:"toeBase_R",
+					resource:"toe_0__R",
+					resource:"toe_2__R",
+					resource:"toe_1__R",
+					resource:"Tail_R1C0",
+					resource:"Tail_R2C0",
+					resource:"Tail_R3C0",
+					resource:"Tail_R4C0",
+					resource:"spine2",
+					resource:"spine3",
+					resource:"clavicle_R",
+					resource:"neckFur_R0C0",
+					resource:"neck1",
+					resource:"clavicle_L",
+					resource:"bicep_R",
+					resource:"elbow_R",
+					resource:"wrist_R",
+					resource:"Ring_0_R",
+					resource:"Mid_0_R",
+					resource:"Index_0_R",
+					resource:"Pinky_0_R",
+					resource:"Ring_1_R",
+					resource:"Mid_1_R",
+					resource:"Index_1_R",
+					resource:"Pinky_1_R",
+					resource:"neckFur_R1C0",
+					resource:"neckFur_R2C0",
+					resource:"head",
+					resource:"jaw1_0",
+					resource:"earL_R0C0",
+					resource:"earR_R0C0",
+					resource:"earL_R1C0",
+					resource:"earL_R2C0",
+					resource:"earR_R1C0",
+					resource:"earR_R2C0",
+					resource:"bicep_L",
+					resource:"elbow_L",
+					resource:"wrist_L",
+					resource:"Ring_0_L",
+					resource:"Mid_0_L",
+					resource:"Index_0_L",
+					resource:"Pinky_0_L",
+					resource:"Ring_1_L",
+					resource:"Mid_1_L",
+					resource:"Index_1_L",
+					resource:"Pinky_1_L",
+				]
+				m_nElementIndexArray = 
+				[
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15,
+					16,
+					17,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45,
+					46,
+					47,
+					48,
+					49,
+					50,
+					51,
+					52,
+					53,
+					54,
+					55,
+					56,
+					57,
+					58,
+					59,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					1,
+					2,
+					2,
+					4,
+					4,
+					8,
+					8,
+					16,
+					16,
+					32,
+					32,
+					64,
+					64,
+					128,
+					256,
+					256,
+					512,
+					512,
+					1024,
+					1024,
+					2048,
+					2048,
+					4096,
+					4096,
+					8192,
+					8192,
+					16384,
+					16384,
+					32768,
+					65536,
+					65536,
+					131072,
+					131072,
+					262144,
+					262144,
+					524288,
+					524288,
+					1048576,
+					1048576,
+					2097152,
+					2097152,
+					4194304,
+					4194304,
+					8388608,
+					16777216,
+					16777216,
+					33554432,
+					33554432,
+					67108864,
+					67108864,
+					134217728,
+					134217728,
+					268435456,
+					268435456,
+					536870912,
+					536870912,
+					1073741824,
+					1073741824,
+					2147483648,
+				]
+			},
+			
+			{
+				m_szChannelClass = resource:"BoneChannel"
+				m_szVariableName = resource:"Angle"
+				m_nFlags = 0
+				m_nType = 4
+				m_szGrouping = resource:""
+				m_szDescription = resource:""
+				m_szElementNameArray = 
+				[
+					resource:"root",
+					resource:"hip0_0",
+					resource:"spine1",
+					resource:"thigh_L",
+					resource:"thigh_R",
+					resource:"Tail_R0C0",
+					resource:"knee_L",
+					resource:"ankle_L",
+					resource:"toeBase_L",
+					resource:"toe_0__L",
+					resource:"toe_2__L",
+					resource:"toe_1__L",
+					resource:"knee_R",
+					resource:"ankle_R",
+					resource:"toeBase_R",
+					resource:"toe_0__R",
+					resource:"toe_2__R",
+					resource:"toe_1__R",
+					resource:"Tail_R1C0",
+					resource:"Tail_R2C0",
+					resource:"Tail_R3C0",
+					resource:"Tail_R4C0",
+					resource:"spine2",
+					resource:"spine3",
+					resource:"clavicle_R",
+					resource:"neckFur_R0C0",
+					resource:"neck1",
+					resource:"clavicle_L",
+					resource:"bicep_R",
+					resource:"elbow_R",
+					resource:"wrist_R",
+					resource:"Ring_0_R",
+					resource:"Mid_0_R",
+					resource:"Index_0_R",
+					resource:"Pinky_0_R",
+					resource:"Ring_1_R",
+					resource:"Mid_1_R",
+					resource:"Index_1_R",
+					resource:"Pinky_1_R",
+					resource:"neckFur_R1C0",
+					resource:"neckFur_R2C0",
+					resource:"head",
+					resource:"jaw1_0",
+					resource:"earL_R0C0",
+					resource:"earR_R0C0",
+					resource:"earL_R1C0",
+					resource:"earL_R2C0",
+					resource:"earR_R1C0",
+					resource:"earR_R2C0",
+					resource:"bicep_L",
+					resource:"elbow_L",
+					resource:"wrist_L",
+					resource:"Ring_0_L",
+					resource:"Mid_0_L",
+					resource:"Index_0_L",
+					resource:"Pinky_0_L",
+					resource:"Ring_1_L",
+					resource:"Mid_1_L",
+					resource:"Index_1_L",
+					resource:"Pinky_1_L",
+				]
+				m_nElementIndexArray = 
+				[
+					60,
+					61,
+					62,
+					63,
+					64,
+					65,
+					66,
+					67,
+					68,
+					69,
+					70,
+					71,
+					72,
+					73,
+					74,
+					75,
+					76,
+					77,
+					78,
+					79,
+					80,
+					81,
+					82,
+					83,
+					84,
+					85,
+					86,
+					87,
+					88,
+					89,
+					90,
+					91,
+					92,
+					93,
+					94,
+					95,
+					96,
+					97,
+					98,
+					99,
+					100,
+					101,
+					102,
+					103,
+					104,
+					105,
+					106,
+					107,
+					108,
+					109,
+					110,
+					111,
+					112,
+					113,
+					114,
+					115,
+					116,
+					117,
+					118,
+					119,
+				]
+				m_nElementMaskArray = 
+				[
+					1,
+					1,
+					2,
+					2,
+					4,
+					4,
+					8,
+					8,
+					16,
+					16,
+					32,
+					32,
+					64,
+					64,
+					128,
+					256,
+					256,
+					512,
+					512,
+					1024,
+					1024,
+					2048,
+					2048,
+					4096,
+					4096,
+					8192,
+					8192,
+					16384,
+					16384,
+					32768,
+					65536,
+					65536,
+					131072,
+					131072,
+					262144,
+					262144,
+					524288,
+					524288,
+					1048576,
+					1048576,
+					2097152,
+					2097152,
+					4194304,
+					4194304,
+					8388608,
+					16777216,
+					16777216,
+					33554432,
+					33554432,
+					67108864,
+					67108864,
+					134217728,
+					134217728,
+					268435456,
+					268435456,
+					536870912,
+					536870912,
+					1073741824,
+					1073741824,
+					2147483648,
+				]
+			},
+		]
+	}
+	m_retarget = 
+	{
+		m_bEnableRetarget = 0
+		m_nRetargetStyle = 0
+		m_element = 
+		[
+		]
+		m_chain = 
+		[
+		]
+		m_replicated = 
+		[
+		]
+	}
+	m_szScripts = 
+	[
+	]
+}
