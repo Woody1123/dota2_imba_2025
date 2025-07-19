@@ -1393,6 +1393,7 @@ function CDOTABaseAbility:GetAbilityCurrentKV()
 end
 
 function CDOTA_Buff:SetAbilityKV()
+	print('加载游戏SetAbilityKV')
 	self.kv = self:GetAbility():GetAbilityCurrentKV()
 	return self.kv
 end

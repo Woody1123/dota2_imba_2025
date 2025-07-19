@@ -848,21 +848,26 @@ end
 ---------------------------------------------------------------------------
 -- Table functions
 ---------------------------------------------------------------------------
-function PrintTable( t, indent )
-	print( "PrintTable( t, indent ): " )
-	if type(t) ~= "table" then return end
+if type(PrintTable) ~= "function" then
+    function PrintTable(t, indent)
+        indent = indent or ""
+        if type(t) ~= "table" then
+            print(indent .. tostring(t))
+            return
+        end
 
-	for k,v in pairs( t ) do
-		if type( v ) == "table" then
-			if ( v ~= t ) then
-				print( indent .. tostring( k ) .. ":\n" .. indent .. "{" )
-				PrintTable( v, indent .. "  " )
-				print( indent .. "}" )
-			end
-		else
-		print( indent .. tostring( k ) .. ":" .. tostring(v) )
-		end
-	end
+        for k, v in pairs(t) do
+            if type(v) == "table" then
+                print(indent .. tostring(k) .. " = {")
+                PrintTable(v, indent .. "    ")
+                print(indent .. "}")
+            else
+                print(indent .. tostring(k) .. " = " .. tostring(v))
+            end
+        end
+    end
+
+    _G.PrintTable = PrintTable  -- ✅ 全局注册，只注册一次
 end
 
 function TableFindKey( table, val )
@@ -948,14 +953,19 @@ function string.ends( String, End )
   return End=='' or string.sub(String,-string.len(End))==End
 end
 
-function TableContainsKey( t, kv )
-    for k, v in pairs( t ) do
-        if k == kv then
+function TableContainsKey(tbl, key)
+    if type(tbl) ~= "table" then
+        print("[TableContainsKey] 参数不是 table，是：" .. tostring(tbl))
+        return false
+    end
+
+    for k, _ in pairs(tbl) do
+        if k == key then
             return true
         end
     end
-        return false
-  end
+    return false
+end
 
 function TableGetKey( t, kv )
     for k, v in pairs( t ) do

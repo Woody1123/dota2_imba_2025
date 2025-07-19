@@ -4,7 +4,7 @@ if L_TG == nil then
 	_G.L_TG = L_TG
 	require("tools/memory")
 end
-
+require('tools/tg_utils')
 require('game')
 require('precache')
 require('tools/notifications')
@@ -12,8 +12,7 @@ require('tools/timers')
 require('tools/util')
 require('tools/network')
 require('tools/pseudorandom')
-require('tools/tg_utils')
-require('tools/tg_utils')
+
 require('tools/abilitychargecontroller')
 require('events/events')
 require('events/custom_events')

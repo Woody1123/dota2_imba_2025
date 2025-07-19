@@ -14,18 +14,24 @@ end
 ★获取英雄天赋值。
 --]]
 function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
-	if self:HasModifier("modifier_"..name) then
+	print('获取英雄天赋值: ' .. name .. " kv: " .. tostring(kv))
+	print("获取英雄天赋值 AbilityKV:")
+	PrintTable(AbilityKV[name])
+
+	if self:HasModifier("modifier_" .. name) then
 		local value_name = kv or "value"
 		local specialVal = AbilityKV[name]["AbilitySpecial"]
-		for k,v in pairs(specialVal) do
-				if v[value_name] then
-					return v[value_name]
-				end
+
+		for k, v in pairs(specialVal) do
+			if v[value_name] then
+				print('获取英雄天赋值value_name: ' .. tostring(v[value_name]))
+				return tonumber(v[value_name]) or 0  -- 确保返回的是数字
+			end
 		end
 	end
-			return 0
-end
 
+	return 0
+end
 
 
 --[[
@@ -108,7 +114,7 @@ function IsEnemy(unit1, unit2)
 		return true
 	end
 end
-
+-- 根据天赋等级赋值
 function C_DOTABaseAbility:GetAbilityCurrentKV()
 	local name = self:GetName()
 	local kv_to_return = {}
@@ -117,6 +123,7 @@ function C_DOTABaseAbility:GetAbilityCurrentKV()
 		return nil
 	end
 	local kv = AbilityKV[name] and AbilityKV[name]["AbilitySpecial"] or ItemKV[name]["AbilitySpecial"]
+	print('GetAbilityCurrentKV')
 	for k, v in pairs(kv) do
 		for a, b in pairs(v) do
 			for str in string.gmatch(b, "%S+") do

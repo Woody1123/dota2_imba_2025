@@ -2,6 +2,8 @@
 
 function Awake()
     AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
+    print('技能AbilityKV')
+
     HEROSKV = LoadKeyValues("scripts/npc/herolist.txt")
     HeroTalent = LoadKeyValues("scripts/npc/kv/talent.kv")
     HEROSK = LoadKeyValues("scripts/npc/kv/hero_sk.kv")
