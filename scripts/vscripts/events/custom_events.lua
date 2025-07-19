@@ -149,31 +149,62 @@ function custom_events:OpenUI(tg)
 	end
 end
 
-function custom_events:OnHero_Set(k,j)
-	local PL=PlayerResource:GetPlayer(j.id)
-	if PL then
-		local HERO=PL:GetAssignedHero()
-		if HERO and HERO:IS_TrueHero_TG() then
-			local NAME=HERO:GetName()
-			if HERO.HERO_SELECT  then
-				if not HERO.Random_Skill  then
-					custom_events:OnAbility_Set(nil, { id=j.id, roll=1 })
-				end
-				return
-			end
-			print("判断有无多套技能")
-			if TableContainsKey(HEROSK,NAME) then
-				local T=HEROSK[NAME]
-				if T then
-					 HERO:AddNewModifier(HERO, nil, "modifier_helide", {})
-					 CustomGameEventManager:Send_ServerToPlayer(PL,"select_skills",{T,TableLength(T)})
-				end
-			else
-					custom_events:OnAbility_Set(nil, { id=j.id, roll=1 })
-			end
+function custom_events:OnHero_Set(_, j)
+	local playerId = j.id
+	local player = PlayerResource:GetPlayer(playerId)
+
+	if not player then
+		print("[OnHero_Set] 找不到玩家", playerId)
+		return
+	end
+
+	local hero = player:GetAssignedHero()
+	if not hero then
+		-- 延迟再试一次
+		Timers:CreateTimer(0.5, function()
+			custom_events:OnHero_Set(nil, j)
+		end)
+		return
+	end
+	if not hero or not hero:IS_TrueHero_TG() then
+		print("[OnHero_Set] 玩家", playerId, "没有分配有效英雄或不是 TrueHero")
+		return
+	end
+
+	local heroName = hero:GetName()
+	print("[OnHero_Set] 处理英雄：", heroName, " 玩家ID:", playerId)
+
+	if hero.HERO_SELECT then
+		print("[OnHero_Set] 玩家", playerId, "已经选择过技能，跳过")
+		return
+	end
+
+	-- 如果是固定技能池
+	if HEROSK[heroName] then
+		local skillTable = HEROSK[heroName]
+		if skillTable then
+			hero:AddNewModifier(hero, nil, "modifier_helide", {})
+			CustomGameEventManager:Send_ServerToPlayer(player, "select_skills", { skillTable, TableLength(skillTable) })
+			print("[OnHero_Set] 应用固定技能池", heroName, skillTable)
+			CustomGameEventManager:Send_ServerToPlayer(player, "CustomMsg", {
+				text = "已为英雄 [" .. heroName .. "] 加载专属技能组合。",
+				duration = 3,
+				style = { color = "green", ["font-size"] = "24px" }
+			})
 		end
+	else
+		-- 没有专属技能，进入随机模式
+		print("[OnHero_Set] 英雄", heroName, "无专属技能池，进入随机技能模式")
+		custom_events:OnAbility_Set(nil, { id = playerId, roll = 1 })
+
+		CustomGameEventManager:Send_ServerToPlayer(player, "CustomMsg", {
+			text = "该英雄 [" .. heroName .. "] 无专属技能，已进入随机模式！",
+			duration = 3,
+			style = { color = "yellow", ["font-size"] = "22px" }
+		})
 	end
 end
+
 
 function custom_events:On_Hero(k,j)
 	local PL=PlayerResource:GetPlayer(j.id)
