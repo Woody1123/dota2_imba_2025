@@ -1,4 +1,4 @@
-
+require("tools/debug_utils")
 if L_TG == nil then
 	L_TG = class({})
 	_G.L_TG = L_TG

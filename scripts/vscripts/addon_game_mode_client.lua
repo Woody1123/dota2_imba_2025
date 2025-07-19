@@ -1,3 +1,4 @@
+require("tools/debug_utils")
 require('tools/client_utils')
 require('precache')
 require('modifier/veteran_talent/veteran_talent_contral')
