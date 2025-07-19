@@ -98,29 +98,4 @@
 		},
 	]
 	m_flCullRadius = -1.000000
-}1.500000
-			m_flOutputMin = 2.000000
-			m_bDisableOperator = true
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 2.700000
-			}
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 30.000000
-			}
-		},
-	]
-	m_flCullRadius = -1.000000
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 1
 }

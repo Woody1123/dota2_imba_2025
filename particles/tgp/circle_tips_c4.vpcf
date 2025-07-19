@@ -162,23 +162,4 @@
 			m_ChildRef = resource:"particles/tgp/circle_tips_c4-1.vpcf"
 		},
 	]
-}OUTPUT_BLEND_MODE_ADD"
-			m_bDisableOperator = true
-		},
-		
-		{
-			_class = "C_OP_RenderDeferredLight"
-			m_flRadiusScale = 4.000000
-			m_flAlphaScale = 2.000000
-			m_flStartFalloff = 0.200000
-			m_hTexture = resource:"materials/particle/particle_flares/aircraft_blue.vtex"
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/circle_tips_c4-1.vpcf"
-		},
-	]
 }

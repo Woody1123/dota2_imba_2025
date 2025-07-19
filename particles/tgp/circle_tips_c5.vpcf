@@ -134,22 +134,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}s = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bDisableZBuffering = true
-			m_bBlendFramesSeq0 = false
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/flare/flare_01.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

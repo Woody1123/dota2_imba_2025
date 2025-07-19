@@ -112,26 +112,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 1
-}_CONTROL_POINT_COMPONENT"
-				m_nControlPoint = 2
-				m_nVectorComponent = 0
-			}
-			m_nOutputField = 1
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 2.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 1
 }

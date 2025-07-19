@@ -128,34 +128,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}		m_flBias = 0.750000
-			m_flEndScale = 4.000000
-			m_flStartScale = 0.300000
-		},
-		
-		{
-			_class = "C_OP_BasicMovement"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			VisibilityInputs = 
-			{
-				m_flProxyRadius = 8.000000
-				m_nCPin = 0
-			}
-			m_nOrientationType = "PARTICLE_ORIENTATION_SCREEN_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_flares/particle_flare_002.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

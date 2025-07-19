@@ -108,16 +108,4 @@
 			m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
 		},
 	]
-}				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-		
-		{
-			_class = "C_OP_RenderDeferredLight"
-			m_flAlphaScale = 3.000000
-			m_flRadiusScale = 3.000000
-			m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
-		},
-	]
 }

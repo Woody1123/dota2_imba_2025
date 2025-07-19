@@ -172,37 +172,4 @@
 		},
 	]
 	m_nBehaviorVersion = 5
-}"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_sandking/sandking_burrowstrike_debris.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/test_particle/sandking_burrowstrike_eruption_no_models.vpcf"
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-				
-				{
-					m_iControlPoint = 1
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_nBehaviorVersion = 5
 }

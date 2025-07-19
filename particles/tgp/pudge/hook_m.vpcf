@@ -166,30 +166,3 @@
 		},
 	]
 }
-			m_flMaxTraceLength = 1024.000000
-			m_flTraceOffset = 512.000000
-			m_CollisionGroupName = "DEBRIS"
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1000000.000000
-			}
-			m_fFalloffPower = 0.000000
-			m_nControlPointNumber = 1
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/pudge/hook_c1.vpcf"
-		},
-	]
-}

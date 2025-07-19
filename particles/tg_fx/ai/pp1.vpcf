@@ -168,30 +168,4 @@
 			m_hOverrideMaterial = resource:"materials/models/props_gameplay/neutral_box_ghost.vmat"
 		},
 	]
-}			m_flRotOffset = 90.000000
-		},
-		
-		{
-			_class = "C_OP_EndCapTimedDecay"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderModels"
-			m_ModelList = 
-			[
-				
-				{
-					m_model = resource:"models/items/lycan/ultimate/frostivus2018_lycan_winter_snow_wolf_shapeshift/frostivus2018_lycan_winter_snow_wolf_shapeshift.vmdl"
-				},
-			]
-			m_bOrientZ = true
-			m_bIgnoreRadius = true
-			m_bAnimated = true
-			m_ActivityName = "ACT_DOTA_RUN"
-			m_hOverrideMaterial = resource:"materials/models/props_gameplay/neutral_box_ghost.vmat"
-		},
-	]
 }

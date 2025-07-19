@@ -146,49 +146,4 @@
 	]
 	m_nBehaviorVersion = 4
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}YPE_CONTROL_POINT_COMPONENT"
-				m_nControlPoint = 1
-				m_nVectorComponent = 0
-			}
-		},
-		
-		{
-			_class = "C_INIT_DistanceToCPInit"
-			m_flInputMin = 1.000000
-			m_flInputMax = 450.000000
-			m_flOutputMin = 1.000000
-			m_flOutputMax = 1.500000
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-		
-		{
-			_class = "C_INIT_PositionOffset"
-			m_OffsetMin = 
-			[
-				0.000000,
-				0.000000,
-				5.000000,
-			]
-			m_OffsetMax = 
-			[
-				0.000000,
-				0.000000,
-				5.000000,
-			]
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

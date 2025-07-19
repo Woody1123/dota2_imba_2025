@@ -103,39 +103,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 4
-}				161,
-				0,
-				255,
-			]
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1.000000
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 4
 }

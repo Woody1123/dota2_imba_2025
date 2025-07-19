@@ -89,20 +89,4 @@
 			m_nParticlesToEmit = 32
 		},
 	]
-}		m_flMaxLength = 0.060000
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 32.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
 }

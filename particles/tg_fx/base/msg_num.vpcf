@@ -139,42 +139,4 @@
 			]
 		},
 	]
-}m_flStartScale = 7.000000
-			m_flEndScale = 0.000000
-			m_flBias = 0.250000
-		},
-		
-		{
-			_class = "C_OP_BasicMovement"
-			m_fDrag = 0.050000
-			m_Gravity = 
-			[
-				0.000000,
-				0.000000,
-				-550.000000,
-			]
-		},
-		
-		{
-			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 1.000000
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bDisableZBuffering = true
-			m_flAddSelfAmount = 1.000000
-			m_bSaturateColorPreAlphaBlend = false
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/msg/msg_radiance_noring.vtex"
-				},
-			]
-		},
-	]
 }

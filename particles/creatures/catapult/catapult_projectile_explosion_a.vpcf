@@ -144,26 +144,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}	255,
-			]
-		},
-		
-		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 4.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

@@ -121,18 +121,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}xture = resource:"materials/particle/beam_hotred.vtex"
-					m_TextureControls = 
-					{
-						m_flFinalTextureScaleU = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = -1.000000
-						}
-					}
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

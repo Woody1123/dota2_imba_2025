@@ -209,39 +209,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 7
-}		{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1.000000
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-				
-				{
-					m_iControlPoint = 1
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = 
-					[
-						1.000000,
-						0.000000,
-						0.000000,
-					]
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

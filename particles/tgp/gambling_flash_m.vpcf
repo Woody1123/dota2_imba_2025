@@ -165,29 +165,4 @@
 			m_ChildRef = resource:"particles/tgp/gambling_flash_c2.vpcf"
 		},
 	]
-}_TYPE_LITERAL"
-							m_flLiteralValue = -1.000000
-						}
-						m_flFinalTextureOffsetV = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = 1.000000
-						}
-					}
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/gambling_flash_c1.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/tgp/gambling_flash_c2.vpcf"
-		},
-	]
 }

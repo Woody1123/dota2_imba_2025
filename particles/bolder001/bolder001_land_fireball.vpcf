@@ -153,43 +153,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}	},
-		
-		{
-			_class = "C_INIT_RandomColor"
-			m_ColorMin = 
-			[
-				29,
-				4,
-				4,
-				255,
-			]
-			m_ColorMax = 
-			[
-				52,
-				11,
-				11,
-				255,
-			]
-			m_nFieldOutput = 22
-		},
-		
-		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 3.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

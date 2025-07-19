@@ -205,49 +205,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 7
-}StartTime = 1.250000
-			m_flWarpTime = 0.750000
-			m_vecWarpMax = 
-			[
-				1.000000,
-				1.000000,
-				0.125000,
-			]
-		},
-		
-		{
-			_class = "C_INIT_DistanceToCPInit"
-			m_flOutputMax = 5.000000
-			m_flOutputMin = 1.000000
-			m_flInputMax = 512.000000
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 16.000000
-			}
-		},
-	]
-	m_PreEmissionOperators = 
-	[
-		
-		{
-			_class = "C_OP_SetControlPointPositions"
-			m_vecCP1Pos = 
-			[
-				0.000000,
-				0.000000,
-				212.000000,
-			]
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

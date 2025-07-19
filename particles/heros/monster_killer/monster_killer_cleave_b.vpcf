@@ -284,36 +284,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}_flOverbrightFactor = 4.000000
-			m_nFeatheringMode = "PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL"
-			m_flRadiusTaper = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 0.250000
-			}
-			m_flRadiusScale = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 4.000000
-			}
-			m_vecTailColorScale = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = 
-				[
-					0.000000,
-					0.000000,
-					1.000000,
-				]
-			}
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_sphere_break.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

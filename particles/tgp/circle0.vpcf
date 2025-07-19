@@ -135,18 +135,4 @@
 			m_OutlineColor = [ 255, 255, 255 ]
 		},
 	]
-}derSprites"
-			m_bDisableZBuffering = true
-			m_bBlendFramesSeq0 = false
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/circle_hollow01.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

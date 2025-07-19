@@ -178,27 +178,4 @@
 			m_OutlineColor = [ 255, 255, 255 ]
 		},
 	]
-}]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_flStartFadeSize = 0.575000
-			m_flEndFadeSize = 0.650000
-			m_flMaxSize = 0.750000
-			m_flOverbrightFactor = 5.000000
-			m_flAddSelfAmount = 1.500000
-			m_bSaturateColorPreAlphaBlend = false
-			m_flAnimationRate = 1.000000
-			m_nHSVShiftControlPoint = 62
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/items/stormspirit/heart_sprite.vtex"
-				},
-			]
-		},
-	]
 }

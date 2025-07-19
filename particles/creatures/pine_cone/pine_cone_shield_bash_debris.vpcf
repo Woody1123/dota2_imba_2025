@@ -266,38 +266,4 @@
 		},
 	]
 	m_nMaxParticles = 100
-}	]
-				}
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 3
-	m_Constraints = 
-	[
-		
-		{
-			_class = "C_OP_WorldTraceConstraint"
-			m_CollisionGroupName = "DEBRIS"
-			m_flRadiusScale = 2.000000
-			m_bWorldOnly = true
-			m_bBrushOnly = true
-		},
-	]
-	m_nMaxParticles = 100
 }

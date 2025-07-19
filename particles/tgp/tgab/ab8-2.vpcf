@@ -122,38 +122,4 @@
 			m_ChildRef = resource:"particles/tgp/tgab/ab8-3.vpcf"
 		},
 	]
-}000000
-			m_flBias = 0.400000
-		},
-		
-		{
-			_class = "C_OP_FadeOutSimple"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_flStartFadeSize = 0.500000
-			m_flEndFadeSize = 0.750000
-			m_flOverbrightFactor = 2.000000
-			m_bSaturateColorPreAlphaBlend = false
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/electrical/electrical_cracks_thick.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_MOD2X"
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/tgab/ab8-3.vpcf"
-		},
-	]
 }

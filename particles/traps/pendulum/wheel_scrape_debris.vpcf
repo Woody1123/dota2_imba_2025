@@ -196,29 +196,4 @@
 			m_bDisableOperator = true
 		},
 	]
-}m_PointOnPlane = 
-			[
-				0.000000,
-				0.000000,
-				-150.000000,
-			]
-			m_bDisableOperator = true
-		},
-		
-		{
-			_class = "C_OP_WorldTraceConstraint"
-			m_flBounceAmount = 3.000000
-			m_bDisableOperator = true
-		},
-	]
-	m_PreEmissionOperators = 
-	[
-		
-		{
-			_class = "C_OP_SetControlPointRotation"
-			m_flRotRate = 250.000000
-			m_bDisableOperator = true
-		},
-	]
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

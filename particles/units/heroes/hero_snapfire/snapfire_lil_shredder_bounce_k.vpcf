@@ -158,41 +158,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 7
-}		m_flLiteralValue = 0.150000
-			}
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 200.000000
-			}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fFalloffPower = 0.000000
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 3000.000000
-			}
-			m_flOpEndFadeOutTime = 0.250000
-			m_TransformInput = 
-			{
-				m_nControlPoint = 1
-				m_bUseOrientation = false
-			}
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_snapfire/snapfire_lil_shredder_bounce_k0.vpcf"
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

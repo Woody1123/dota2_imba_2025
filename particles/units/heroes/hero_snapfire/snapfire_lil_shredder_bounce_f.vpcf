@@ -209,46 +209,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 4
-}nput0 = 0.000000
-				m_flInput1 = 5.000000
-				m_flOutput0 = 1.000000
-				m_flOutput1 = 0.000000
-				m_nMapType = "PF_MAP_TYPE_REMAP"
-				m_nType = "PF_TYPE_PARTICLE_FLOAT"
-				m_nScalarAttribute = 8
-			}
-			m_nOutputField = 7
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-		
-		{
-			_class = "C_INIT_RemapParticleCountToScalar"
-			m_nFieldOutput = 16
-			m_nInputMax = 3
-		},
-		
-		{
-			_class = "C_INIT_RemapParticleCountToScalar"
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 5.000000
-			}
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 10.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 4
 }

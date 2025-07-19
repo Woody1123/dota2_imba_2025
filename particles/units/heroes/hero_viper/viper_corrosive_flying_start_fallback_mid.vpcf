@@ -183,35 +183,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 4
-}m_nControlPointNumber = 1
-		},
-		
-		{
-			_class = "C_OP_TwistAroundAxis"
-			m_flOpStartFadeInTime = 0.200000
-			m_flOpEndFadeInTime = 0.400000
-			m_fForceAmount = 500.000000
-		},
-	]
-	m_PreEmissionOperators = 
-	[
-		
-		{
-			_class = "C_OP_SetControlPointPositions"
-			m_vecCP1Pos = 
-			[
-				0.000000,
-				0.000000,
-				200.000000,
-			]
-			m_vecCP2Pos = 
-			[
-				0.000000,
-				0.000000,
-				150.000000,
-			]
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 4
 }

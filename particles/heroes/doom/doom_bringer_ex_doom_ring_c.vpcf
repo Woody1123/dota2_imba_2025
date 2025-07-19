@@ -171,36 +171,4 @@
 			]
 		},
 	]
-}s = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fFalloffPower = 0.000000
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 800.000000
-			}
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_flAddSelfAmount = 1.000000
-			m_bSaturateColorPreAlphaBlend = false
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_nHSVShiftControlPoint = 62
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/glyphs/glyph3.vtex"
-				},
-			]
-		},
-	]
 }

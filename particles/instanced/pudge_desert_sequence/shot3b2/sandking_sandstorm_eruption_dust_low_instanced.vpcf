@@ -131,40 +131,4 @@
 			m_nParticlesToEmit = 10
 		},
 	]
-} 25
-		},
-		
-		{
-			_class = "C_INIT_InitialVelocityNoise"
-			m_flNoiseScale = 0.000000
-			m_flNoiseScaleLoc = 2.000000
-			m_vecOutputMin = 
-			[
-				-200.000000,
-				-200.000000,
-				200.000000,
-			]
-			m_vecOutputMax = 
-			[
-				200.000000,
-				200.000000,
-				300.000000,
-			]
-			m_bLocalSpace = true
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 10.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

@@ -118,36 +118,4 @@
 		},
 	]
 	m_ConstantColor = [ 221, 40, 40, 255 ]
-}= "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 120.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 4
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_ConstantColor = 
-	[
-		221,
-		40,
-		40,
-		255,
-	]
 }

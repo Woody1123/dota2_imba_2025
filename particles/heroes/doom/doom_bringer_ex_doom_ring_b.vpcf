@@ -208,46 +208,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}0
-		},
-		
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flEndScale = 8.000000
-		},
-		
-		{
-			_class = "C_OP_EndCapTimedDecay"
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fFalloffPower = 0.000000
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 800.000000
-			}
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_nHSVShiftControlPoint = 62
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

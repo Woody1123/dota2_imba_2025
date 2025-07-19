@@ -175,27 +175,4 @@
 		},
 	]
 	m_nInitialParticles = 1
-}dulum/wheel_scrape_dust.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_smoke.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_glow.vpcf"
-			m_bDisableChild = true
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_glow_shake.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_fire.vpcf"
-		},
-	]
-	m_nInitialParticles = 1
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 4
 }

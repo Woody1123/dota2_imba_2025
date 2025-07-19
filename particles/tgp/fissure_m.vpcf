@@ -166,44 +166,4 @@
 			m_ChildRef = resource:"particles/tgp/fissure_c2.vpcf"
 		},
 	]
-}	m_flOutputMax = 9999.000000
-		},
-		
-		{
-			_class = "C_INIT_RemapCPtoScalar"
-			m_nCPInput = 2
-			m_nFieldOutput = 1
-			m_flInputMax = 9999.000000
-			m_flOutputMax = 9999.000000
-		},
-		
-		{
-			_class = "C_INIT_CreateWithinSphere"
-		},
-	]
-	m_Operators = 
-	[
-		
-		{
-			_class = "C_OP_Decay"
-		},
-		
-		{
-			_class = "C_OP_RemapCPtoScalar"
-			m_nCPInput = 1
-			m_flInputMax = 99999.000000
-			m_flOutputMax = 99999.000000
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/fissure_c1.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/tgp/fissure_c2.vpcf"
-		},
-	]
 }

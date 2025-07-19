@@ -180,29 +180,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}lue = 0.000000
-			}
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_cone_gradient_2.vtex"
-					m_TextureControls = 
-					{
-						m_flFinalTextureScaleV = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = -1.000000
-						}
-						m_flFinalTextureOffsetV = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = 1.000000
-						}
-					}
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

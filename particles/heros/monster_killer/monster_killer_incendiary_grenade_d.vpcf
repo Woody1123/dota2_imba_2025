@@ -139,39 +139,4 @@
 			]
 		},
 	]
-}00000,
-			]
-			m_nNoiseType = "PARTICLE_DIR_NOISE_CURL"
-		},
-	]
-	m_Constraints = 
-	[
-		
-		{
-			_class = "C_OP_WorldTraceConstraint"
-			m_CollisionGroupName = "DEBRIS"
-			m_bBrushOnly = true
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-				
-				{
-					m_iControlPoint = 3
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
 }

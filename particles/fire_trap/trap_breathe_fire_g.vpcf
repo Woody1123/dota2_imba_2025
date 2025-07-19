@@ -119,34 +119,4 @@
 		},
 	]
 	m_nBehaviorVersion = 5
-}.000000
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_bHasRandomSignFlip = true
-			}
-			m_nOutputField = 4
-		},
-		
-		{
-			_class = "C_INIT_RandomSequence"
-			m_nSequenceMax = 8
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flStartTime = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 0.100000
-			}
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 32.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
 }

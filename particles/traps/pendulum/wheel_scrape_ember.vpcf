@@ -196,40 +196,4 @@
 			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_glow.vpcf"
 		},
 	]
-}= 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 40.000000
-			}
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_rope.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_rope_b.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/traps/pendulum/wheel_scrape_glow.vpcf"
-		},
-	]
-	m_PreEmissionOperators = 
-	[
-		
-		{
-			_class = "C_OP_SetParentControlPointsToChildCP"
-			m_bSetOrientation = true
-			m_nFirstSourcePoint = 1
-			m_nNumControlPoints = 2
-			m_nChildControlPoint = 3
-			m_bDisableOperator = true
-		},
-	]
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

@@ -115,38 +115,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 4
-}Max = 
-			[
-				62.000000,
-				62.000000,
-				62.000000,
-			]
-			m_vecOutputMin = 
-			[
-				-62.000000,
-				-62.000000,
-				-62.000000,
-			]
-			m_flNoiseScaleLoc = 0.050000
-			m_flNoiseScale = 2.000000
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_INVALID"
-			}
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 30.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 4
 }

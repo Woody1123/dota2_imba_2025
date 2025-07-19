@@ -132,28 +132,3 @@
 		},
 	]
 }
-				1200.000000,
-				1200.000000,
-			]
-		},
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1200.000000
-			}
-			m_fFalloffPower = 0.100000
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/traps/spikes/spiketrap_pull_a.vpcf"
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 5
-}

@@ -133,29 +133,4 @@
 			m_ChildRef = resource:"particles/tgp/items/bkbs/black_king_bar_avatar_b_w.vpcf"
 		},
 	]
-}me = 999999.000000
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_swirl_04b.vtex"
-				},
-			]
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/items/bkbs/black_king_bar_avatar_b_w.vpcf"
-		},
-	]
 }

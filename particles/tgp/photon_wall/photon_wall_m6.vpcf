@@ -102,33 +102,4 @@
 			]
 		},
 	]
-}			m_nSpinRateDegrees = 90
-			m_fSpinRateStopTime = 360.000000
-		},
-		
-		{
-			_class = "C_OP_SpinYaw"
-			m_nSpinRateDegrees = 90
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_OutlineColor = 
-			[
-				255,
-				255,
-				255,
-			]
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/heart.vtex"
-				},
-			]
-		},
-	]
 }

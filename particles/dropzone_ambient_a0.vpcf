@@ -124,26 +124,4 @@
 			m_bDisableOperator = true
 		},
 	]
-}		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nSnapshotControlPoint = 6
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = -1.000000
-			}
-		},
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_bDisableOperator = true
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 200.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 2
 }

@@ -174,43 +174,4 @@
 	]
 	m_nBehaviorVersion = 4
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}		5.000000,
-			]
-			m_OffsetMax = 
-			[
-				0.000000,
-				0.000000,
-				10.000000,
-			]
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 15.000000
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

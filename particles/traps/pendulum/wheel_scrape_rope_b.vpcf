@@ -132,29 +132,4 @@
 		},
 	]
 	m_nInitialParticles = 1
-}_nFieldOutput = 1
-			m_flOutputMin = 4.000000
-			m_flOutputMax = 3.000000
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1.300000
-			}
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 30.000000
-			}
-		},
-	]
-	m_nInitialParticles = 1
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 3
 }

@@ -88,28 +88,4 @@
 		},
 	]
 	m_nBehaviorVersion = 5
-}		m_flRandomMin = 24.000000
-				m_flRandomMax = 48.000000
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-			}
-		},
-		
-		{
-			_class = "C_INIT_RandomSequence"
-			m_nSequenceMax = 15
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 200.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
 }

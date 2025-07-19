@@ -111,30 +111,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 3
-}		0.000000,
-				100.000000,
-			]
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 3.000000
-			}
-		},
-	]
-	m_ConstantColor = 
-	[
-		255,
-		76,
-		177,
-		255,
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 3
 }

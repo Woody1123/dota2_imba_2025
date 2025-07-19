@@ -175,41 +175,4 @@
 			m_bDisableChild = true
 		},
 	]
-}m_flLiteralValue = 40.000000
-			}
-		},
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 32.000000
-			}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = -300.000000
-			}
-			m_fFalloffPower = 0.050000
-			m_nControlPointNumber = 1
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/instanced/pudge_desert_sequence/shot3b2/gyro_ambient_smokestack_sparks_instanced.vpcf"
-			m_bDisableChild = true
-		},
-	]
-	m_nBehaviorVersion = 4
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }

@@ -173,45 +173,4 @@
 			m_bForceLoopingAnimation = true
 		},
 	]
-}nent = 0
-				m_nMapType = "PF_MAP_TYPE_REMAP"
-				m_flInput0 = 0.000000
-				m_flInput1 = 1.000000
-				m_flOutput0 = 0.000000
-				m_flOutput1 = 1.000000
-			}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fFalloffPower = 0.500000
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = -700.000000
-			}
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderModels"
-			m_nSkin = 3
-			m_ModelList = 
-			[
-				
-				{
-					m_model = resource:"models/particle/sphere.vmdl"
-				},
-			]
-			m_bAnimated = true
-			m_bForceDrawInterlevedWithSiblings = true
-			m_nLOD = 1
-			m_bForceLoopingAnimation = true
-		},
-	]
 }

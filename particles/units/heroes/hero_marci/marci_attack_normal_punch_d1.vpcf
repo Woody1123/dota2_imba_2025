@@ -136,34 +136,4 @@
 			]
 		},
 	]
-}YPE_LITERAL"
-				m_flLiteralValue = 64.000000
-			}
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_marci/marci_attack_normal_punch_d1b.vpcf"
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 6
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				
-				{
-					m_iControlPoint = 2
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-			]
-		},
-	]
 }

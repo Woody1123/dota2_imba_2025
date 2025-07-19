@@ -127,21 +127,4 @@
 			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white.vtex"
 		},
 	]
-}utput = 7
-			m_flOutput = 0.000000
-			m_flLerpTime = 0.500000
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderDeferredLight"
-			m_flAlphaScale = 4.000000
-			m_flStartFalloff = 0.100000
-			m_flRadiusScale = 10.000000
-			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white.vtex"
-		},
-	]
 }

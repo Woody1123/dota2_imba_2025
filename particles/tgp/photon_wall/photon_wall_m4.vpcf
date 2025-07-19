@@ -134,33 +134,4 @@
 			m_ChildRef = resource:"particles/tgp/photon_wall/photon_wall_m5.vpcf"
 		},
 	]
-}sInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/smoke1/smoke1.vtex"
-					m_TextureControls = 
-					{
-						m_flFinalTextureScaleV = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = -1.000000
-						}
-						m_flFinalTextureOffsetV = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = 1.000000
-						}
-					}
-				},
-			]
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/photon_wall/photon_wall_m5.vpcf"
-		},
-	]
 }

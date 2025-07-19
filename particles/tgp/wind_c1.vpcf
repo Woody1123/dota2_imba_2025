@@ -129,35 +129,4 @@
 			]
 		},
 	]
-}P_ENDCAP_ON"
-			m_nField = 16
-			m_Rate = -3.000000
-			m_flEndTime = 9999.000000
-		},
-		
-		{
-			_class = "C_OP_RampScalarLinearSimple"
-			m_flEndTime = 999.000000
-			m_Rate = 275.000000
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_flStartFadeSize = 0.400000
-			m_flEndFadeSize = 0.650000
-			m_bBlendFramesSeq0 = false
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/twist_wind_03.vtex"
-				},
-			]
-		},
-	]
 }

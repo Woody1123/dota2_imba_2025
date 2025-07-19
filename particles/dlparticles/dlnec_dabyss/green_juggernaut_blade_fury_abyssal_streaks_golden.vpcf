@@ -124,41 +124,4 @@
 			m_OutlineColor = [ 255, 255, 255 ]
 		},
 	]
-}		_class = "C_OP_FadeInSimple"
-		},
-		
-		{
-			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = 
-			[
-				37,
-				1,
-				1,
-			]
-			m_bDisableOperator = true
-		},
-		
-		{
-			_class = "C_OP_RampScalarLinearSimple"
-			m_Rate = -2.000000
-			m_flEndTime = 999999999.000000
-			m_nField = 16
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/swoop_05.vtex"
-				},
-			]
-		},
-	]
 }

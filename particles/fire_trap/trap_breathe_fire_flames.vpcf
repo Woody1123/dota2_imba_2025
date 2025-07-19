@@ -154,39 +154,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}mInput = 
-			{
-				m_nControlPoint = 3
-			}
-		},
-		
-		{
-			_class = "C_INIT_InitFloat"
-			m_InputValue = 
-			{
-				m_flInput0 = 0.000000
-				m_flInput1 = 2.000000
-				m_flOutput0 = 0.250000
-				m_flOutput1 = 8.000000
-				m_nMapType = "PF_MAP_TYPE_REMAP"
-				m_nType = "PF_TYPE_PARTICLE_FLOAT"
-				m_nScalarAttribute = 8
-			}
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 80.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

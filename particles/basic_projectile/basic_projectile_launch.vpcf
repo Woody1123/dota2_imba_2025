@@ -105,23 +105,4 @@
 			m_flOpEndFadeOutTime = 0.250000
 		},
 	]
-}		}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1000.000000
-			}
-			m_fFalloffPower = 0.000000
-			m_nControlPointNumber = 1
-			m_flOpEndFadeOutTime = 0.250000
-		},
-	]
-	m_nBehaviorVersion = 5
 }

@@ -118,29 +118,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}ALE_CURRENT_VALUE"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderRopes"
-			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
-			m_flOverbrightFactor = 2.000000
-			m_flRadiusScale = 0.500000
-			m_flTextureVWorldSize = 268.456390
-			m_nMaxTesselation = 1
-			m_bCannotBeRefracted = false
-			m_nHSVShiftControlPoint = 62
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/beam_jagged_04.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

@@ -264,46 +264,4 @@
 			m_ChildRef = resource:"particles/units/heroes/hero_pudge/pudge_meathook_blur_b.vpcf"
 		},
 	]
-}DIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.000000
-				m_flNoiseTurbulenceMix = 0.500000
-				m_flNoiseImgPreviewScale = 1.000000
-				m_bNoiseImgPreviewLive = true
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.000000
-				m_flInput0 = 0.000000
-				m_flInput1 = 1.000000
-				m_flOutput0 = 0.000000
-				m_flOutput1 = 1.000000
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.000000
-				m_Curve = 
-				{
-					m_spline = 
-					[
-					]
-					m_tangents = 
-					[
-					]
-					m_vDomainMins = 
-					[
-						0.000000,
-						0.000000,
-					]
-					m_vDomainMaxs = 
-					[
-						0.000000,
-						0.000000,
-					]
-				}
-			}
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_pudge/pudge_meathook_blur_b.vpcf"
-		},
-	]
 }

@@ -188,22 +188,4 @@
 			m_ChildRef = resource:"particles/units/heroes/hero_drow/drow_precision_arrow_ground_rings.vpcf"
 		},
 	]
-}es/units/heroes/hero_drow/drow_precision_arrow.vpcf"
-			m_flDelay = 0.450000
-			m_bDisableChild = true
-		},
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_drow/drow_precision_rings.vpcf"
-			m_flDelay = 0.300000
-		},
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_drow/drow_aura_buff_darksmoke.vpcf"
-		},
-		
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_drow/drow_precision_arrow_ground_rings.vpcf"
-		},
-	]
 }

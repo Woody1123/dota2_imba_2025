@@ -160,25 +160,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}.500000
-			m_nMaxTesselation = 3
-			m_nMinTesselation = 3
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/bendibeam4.vtex"
-					m_TextureControls = 
-					{
-						m_flFinalTextureScaleU = 
-						{
-							m_nType = "PF_TYPE_LITERAL"
-							m_flLiteralValue = -1.000000
-						}
-					}
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

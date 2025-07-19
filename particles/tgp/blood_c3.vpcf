@@ -180,32 +180,3 @@
 		},
 	]
 }
-				}
-			}
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-		
-		{
-			_class = "C_OP_FadeOut"
-			m_flFadeOutTimeMax = 0.400000
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bGammaCorrectVertexColors = false
-			m_bSaturateColorPreAlphaBlend = false
-			m_bDisableZBuffering = true
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/blood_decal/blood_splatter3_color_psd_abd7168.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_MOD2X"
-		},
-	]
-}

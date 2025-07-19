@@ -123,28 +123,4 @@
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
-}erers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			VisibilityInputs = 
-			{
-				m_nCPin = 3
-				m_flProxyRadius = 2.250000
-				m_flAlphaScaleMax = 10.000000
-				m_flRadiusScaleMin = 0.500000
-				m_flRadiusScaleMax = 1.250000
-			}
-			m_bDisableZBuffering = true
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_flares/aircraft_red.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

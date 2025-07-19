@@ -17,22 +17,22 @@
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
 					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
-				}
+				},
 			]
-		}
+		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit =
+			m_nParticlesToEmit = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 1.0
 			}
-		}
+		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomRadius"
@@ -52,7 +52,7 @@
 		},
 		{
 			_class = "C_INIT_RandomScalar"
-			m_nFieldOutput = 13
+			m_nFieldOutput = "13"
 			m_flMax = 0.25
 		},
 		{
@@ -66,9 +66,9 @@
 			_class = "C_INIT_PositionPlaceOnGround"
 			m_CollisionGroupName = "DEBRIS"
 			m_flMaxTraceLength = 512.0
-		}
+		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_Decay"
@@ -85,23 +85,23 @@
 			_class = "C_OP_RampScalarLinear"
 			m_RateMax = 0.3
 			m_RateMin = 0.25
-			m_nField = 13
+			m_nField = "13"
 		},
 		{
 			_class = "C_OP_ClampScalar"
-			m_nFieldOutput = 13
+			m_nFieldOutput = "13"
 			m_flOutputMax = 1.5
-		}
+		},
 	]
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderScreenShake"
-			m_nAmplitudeField = 16
+			m_nAmplitudeField = "16"
 			m_nFilterCP = -1
 			m_flAmplitudeScale = 8.0
 			m_flFrequencyScale = 1000.0
 			m_flRadiusScale = 1000.0
-		}
+		},
 	]
 }

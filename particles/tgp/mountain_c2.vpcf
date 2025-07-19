@@ -125,24 +125,3 @@
 		},
 	]
 }
-			m_flEndTime = 9999999.000000
-			m_nField = 16
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bBlendFramesSeq0 = false
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/smoke3/smoke3.vtex"
-				},
-			]
-		},
-	]
-}

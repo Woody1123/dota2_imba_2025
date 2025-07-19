@@ -281,41 +281,4 @@
 	]
 	m_nBehaviorVersion = 5
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}		m_nMapType = "PF_MAP_TYPE_REMAP"
-				m_nType = "PF_TYPE_PARTICLE_FLOAT"
-				m_nScalarAttribute = 8
-			}
-			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_NoiseEmitter"
-			m_flOutputMax = 120.000000
-			m_flOutputMin = 80.000000
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_RandomForce"
-			m_MaxForce = 
-			[
-				222.000000,
-				222.000000,
-				0.000000,
-			]
-			m_MinForce = 
-			[
-				-222.000000,
-				-222.000000,
-				0.000000,
-			]
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

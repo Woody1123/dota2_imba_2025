@@ -119,38 +119,4 @@
 			]
 		},
 	]
-}ponent = 0
-			}
-			m_nOutputField = 1
-		},
-	]
-	m_Operators = 
-	[
-		
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.975000
-			m_flStartScale = 0.000000
-			m_flEndTime = 0.000000
-		},
-		
-		{
-			_class = "C_OP_EndCapTimedDecay"
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/blood_decal/blood_decal.vtex"
-				},
-			]
-		},
-	]
 }

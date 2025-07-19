@@ -141,45 +141,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 6
-}= 1.000000
-			}
-			m_nOutputField = 7
-		},
-		
-		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 8.000000
-			}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 3000.000000
-			}
-			m_fFalloffPower = 0.000000
-			m_TransformInput = 
-			{
-				m_nControlPoint = 1
-				m_bUseOrientation = false
-			}
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 6
 }

@@ -126,35 +126,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nMaxParticles = 1
-}0
-			}
-			m_nOutputField = 1
-		},
-		
-		{
-			_class = "C_INIT_CreateWithinSphere"
-			m_nControlPointNumber = 3
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 1.000000
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nMaxParticles = 1
 }

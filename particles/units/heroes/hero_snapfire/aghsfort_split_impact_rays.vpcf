@@ -157,37 +157,4 @@
 		},
 	]
 	m_nBehaviorVersion = 10
-}7,
-				255,
-			]
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 16.000000
-			}
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		
-		{
-			m_name = "preview"
-		},
-	]
-	m_PreEmissionOperators = 
-	[
-		
-		{
-			_class = "C_OP_StopAfterCPDuration"
-			m_flDuration = 0.250000
-		},
-	]
-	m_nBehaviorVersion = 12
 }

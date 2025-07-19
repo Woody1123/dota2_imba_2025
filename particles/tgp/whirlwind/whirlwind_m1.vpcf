@@ -78,48 +78,4 @@
 			]
 		},
 	]
-}ANDOM_MODE_CONSTANT"
-				m_bHasRandomSignFlip = true
-			}
-			m_nOutputField = 4
-		},
-	]
-	m_Operators = 
-	[
-		
-		{
-			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 1.000000
-		},
-		
-		{
-			_class = "C_OP_Decay"
-		},
-		
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 0.000000
-			m_flEndScale = 3.000000
-			m_flBias = 0.750000
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bRefract = true
-			m_flRefractAmount = -0.500000
-			m_bGammaCorrectVertexColors = false
-			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
-			m_nHSVShiftControlPoint = 62
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/warp_water_ripple.vtex"
-				},
-			]
-		},
-	]
 }

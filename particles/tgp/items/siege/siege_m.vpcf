@@ -146,33 +146,4 @@
 			m_ChildRef = resource:"particles/tgp/items/siege/siege_c1.vpcf"
 		},
 	]
-}0.000000
-				m_flOutput1 = 1.000000
-			}
-			m_bDisableOperator = true
-		},
-		
-		{
-			_class = "C_OP_SpinYaw"
-			m_nSpinRateDegrees = 15
-			m_bDisableOperator = true
-		},
-		
-		{
-			_class = "C_OP_AlphaDecay"
-		},
-		
-		{
-			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 2.000000
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
-		},
-	]
-	m_Children = 
-	[
-		
-		{
-			m_ChildRef = resource:"particles/tgp/items/siege/siege_c1.vpcf"
-		},
-	]
 }

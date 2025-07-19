@@ -154,49 +154,4 @@
 			m_flEmitRate = 20.000000
 		},
 	]
-}000,
-				1.000000,
-			]
-		},
-		
-		{
-			_class = "C_INIT_RandomSecondSequence"
-			m_nSequenceMax = 10
-			m_nSequenceMin = 9
-		},
-		
-		{
-			_class = "C_INIT_PositionOffset"
-			m_OffsetMax = 
-			[
-				0.000000,
-				0.000000,
-				36.000000,
-			]
-			m_OffsetMin = 
-			[
-				0.000000,
-				0.000000,
-				16.000000,
-			]
-		},
-		
-		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 20.000000
-			}
-		},
-	]
-	m_nBehaviorVersion = 5
-	m_nFirstMultipleOverride_BackwardCompat = 8
 }

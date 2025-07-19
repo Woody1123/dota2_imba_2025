@@ -102,35 +102,4 @@
 			m_OutlineColor = [ 255, 255, 255 ]
 		},
 	]
-}x = 
-			[
-				100.000000,
-				100.000000,
-				10.000000,
-			]
-			m_FrequencyMax = 
-			[
-				3.000000,
-				3.000000,
-				3.000000,
-			]
-			m_bOffset = true
-		},
-	]
-	m_Renderers = 
-	[
-		
-		{
-			_class = "C_OP_RenderSprites"
-			m_bDisableZBuffering = true
-			m_vecTexturesInput = 
-			[
-				
-				{
-					m_hTexture = resource:"materials/particle/particle_flares/aircraft_white.vtex"
-				},
-			]
-			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
-		},
-	]
 }

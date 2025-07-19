@@ -181,48 +181,4 @@
 	]
 	m_nBehaviorVersion = 10
 	m_nFirstMultipleOverride_BackwardCompat = 7
-}{
-				m_nType = "PT_TYPE_INVALID"
-			}
-		},
-		
-		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-	]
-	m_Emitters = 
-	[
-		
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 16.000000
-			}
-		},
-	]
-	m_ForceGenerators = 
-	[
-		
-		{
-			_class = "C_OP_AttractToControlPoint"
-			m_vecComponentScale = 
-			[
-				1.000000,
-				1.000000,
-				0.000000,
-			]
-			m_fFalloffPower = 0.000000
-			m_fForceAmount = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = -4500.000000
-			}
-			m_flOpEndFadeOutTime = 0.100000
-			m_flOpStartFadeOutTime = 0.100000
-		},
-	]
-	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 7
 }
