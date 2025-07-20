@@ -719,143 +719,62 @@ end
 
 
 
+-- 安全检查 IsNeutralDrop 是否存在的方法
+local function SafeIsNeutralDrop(item)
+	return item and type(item.IsNeutralDrop) == "function" and item:IsNeutralDrop()
+end
+
 function L_TG:OrderFilter(keys)
 	local units = keys["units"]
 	local unit = units["0"] and EntIndexToHScript(units["0"]) or nil
-	local ability =keys.entindex_ability and EntIndexToHScript(keys.entindex_ability) or nil
-	local target =keys.entindex_target and EntIndexToHScript(keys.entindex_target) or nil
+	local ability = keys.entindex_ability and EntIndexToHScript(keys.entindex_ability) or nil
+	local target = keys.entindex_target and EntIndexToHScript(keys.entindex_target) or nil
 	local orderType = keys.order_type
+
 	if not unit then
 		return true
 	end
-	if orderType == DOTA_UNIT_ORDER_MOVE_ITEM then
-		local initItem = EntIndexToHScript(keys.entindex_ability)
-		local initItem_slot = initItem:GetItemSlot()
-		local targetSlot = keys.entindex_target
-		if ((targetSlot == 16 or targetSlot == 15) and initItem:GetName()~="item_imba_rapier_cursed") or
-				(initItem_slot==16 and (unit:GetItemInSlot(targetSlot)==nil or unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed")) or
-				(initItem:IsNeutralDrop() and (targetSlot>=0 and targetSlot<=5) and unit:GetItemInSlot(targetSlot):GetName()~="item_imba_rapier_cursed") or
-				((unit:GetItemInSlot(targetSlot)~=nil and unit:GetItemInSlot(targetSlot):IsNeutralDrop() and initItem:GetName()~="item_imba_rapier_cursed") and (initItem_slot>=0 and initItem_slot<=5))
-		then --or initItem:GetItemSlot() == 15 or initItem:GetItemSlot() == 16) then
-			--if initItem:IsNeutralDrop() == true and (targetSlot == 0 or targetSlot == 1 or targetSlot == 2 or targetSlot == 3 or targetSlot == 4 or targetSlot == 5) then
-			--return true
-			--end
-			--if unit:GetItemInSlot(targetSlot) and unit:GetItemInSlot(targetSlot):IsNeutralDrop() == true and (initItem:GetItemSlot() == 0 or initItem:GetItemSlot() == 1 or initItem:GetItemSlot() == 2 or initItem:GetItemSlot() == 3 or initItem:GetItemSlot() == 4 or initItem:GetItemSlot() == 5) then
-			--return false
-			--end
-			initItem:GetParent():SwapItems(initItem:GetItemSlot(), targetSlot)
 
-			if targetSlot==15 then
+	-- 检查是否为物品交换
+	if orderType == DOTA_UNIT_ORDER_MOVE_ITEM then
+		local initItem = ability
+		if not initItem then return true end
+
+		local initSlot = initItem:GetItemSlot()
+		local targetSlot = keys.entindex_target
+
+		local targetItem = unit:GetItemInSlot(targetSlot)
+		local initIsRapier = (initItem:GetName() == "item_imba_rapier_cursed")
+		local targetIsRapier = targetItem and (targetItem:GetName() == "item_imba_rapier_cursed")
+
+		-- 判定：以下情况禁止物品交换
+		local blockExchange =
+		-- 禁止将非诅咒圣剑移动到中立或背包格
+		((targetSlot == 15 or targetSlot == 16) and not initIsRapier)
+				or
+				-- 禁止将圣剑从中立格移出，除非目标格已有圣剑
+				(initSlot == 16 and (not targetItem or not targetIsRapier))
+				or
+				-- 禁止将中立物品移动到前 6 格（装备区），除非目标是圣剑
+				(SafeIsNeutralDrop(initItem) and targetSlot >= 0 and targetSlot <= 5 and (not targetIsRapier))
+				or
+				-- 禁止将圣剑以外的物品移动到中立格，如果目标格中是中立物品
+				(targetItem and SafeIsNeutralDrop(targetItem) and not initIsRapier and initSlot >= 0 and initSlot <= 5)
+
+		if blockExchange then
+			unit:SwapItems(initSlot, targetSlot)
+
+			-- 如果移动到了背包（slot 15），设置物品可背包使用
+			if targetSlot == 15 then
 				initItem:SetCanBeUsedOutOfInventory(true)
 			end
-			return false
+
+			return false -- 拦截原始指令，使用我们自定义的交换逻辑
 		end
 	end
-	--[[
-	★无了。
-	--]]
-	--[[
-	if  unit:HasModifier("modifier_gnm") or  unit:HasModifier("modifier_helide")  then
-		return false
-	end
-
-----------------------------------------------------------------------------------------------------
-
-	------------------------------------------------------------------------------------
-	-- 育母突袭施法距离判断
-	------------------------------------------------------------------------------------
-	if keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET and EntIndexToHScript(keys.entindex_ability):GetName() == "imba_broodmother_spider_strikes" then
-		local ability = EntIndexToHScript(keys.entindex_ability)
-		local target = EntIndexToHScript(keys.entindex_target)
-		if target:HasModifier("modifier_imba_spin_web_debuff") and target:FindModifierByName("modifier_imba_spin_web_debuff"):GetStackCount() == -1 and not target:HasModifier("modifier_fountain_aura_buff") then
-			ability.range_global = 50000
-		else
-			ability.range_global = 0
-		end
-	end
-	------------------------------------------------------------------------------------
-	-- 蛛网施法距离判断
-	------------------------------------------------------------------------------------
-
-	if keys.order_type == DOTA_UNIT_ORDER_CAST_POSITION and EntIndexToHScript(keys.entindex_ability):GetName() == "imba_broodmother_spin_web" then
-		local ability = EntIndexToHScript(keys.entindex_ability)
-		if #Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", Vector(keys.position_x, keys.position_y, keys.position_z), ability:GetSpecialValueFor("radius") * 2) > 0 then
-			ability.range = 50000
-		else
-			ability.range = 0
-		end
-	end
-
-----------------------------------------------------------------------------------------------------
-
-	
-	★老英霸 混乱效果。
-	
-	if  unit:HasModifier("modifier_confuse") and target then
-
-		-- Determine order type
-		local rand = math.random
-
-		-- Change "move to target" to "move to position"
-		if keys.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
-			local target_loc = target:GetAbsOrigin()
-			keys.position_x = target_loc.x
-			keys.position_y = target_loc.y
-			keys.position_z = target_loc.z
-			keys.entindex_target = 0
-			keys.order_type = DOTA_UNIT_ORDER_MOVE_TO_POSITION
-		end
-
-		-- Change "attack target" to "attack move"
-		if keys.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
-			local target_loc = target:GetAbsOrigin()
-			keys.position_x = target_loc.x
-			keys.position_y = target_loc.y
-			keys.position_z = target_loc.z
-			keys.entindex_target = 0
-			keys.order_type = DOTA_UNIT_ORDER_ATTACK_MOVE
-		end
-
-		-- Change "cast on target" target
-		if keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET or keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET_TREE then
-			local caster_loc = unit:GetAbsOrigin()
-			local target_loc = target:GetAbsOrigin()
-			local target_distance = (target_loc - caster_loc):Length2D()
-			local found_new_target = false
-			local nearby_units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, caster_loc, nil, target_distance, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-			if #nearby_units >= 1 then
-				keys.entindex_target = nearby_units[1]:GetEntityIndex()
-
-			-- If no target was found, change to "cast on position" order
-			else
-				keys.position_x = target_loc.x
-				keys.position_y = target_loc.y
-				keys.position_z = target_loc.z
-				keys.entindex_target = 0
-				keys.order_type = DOTA_UNIT_ORDER_CAST_POSITION
-			end
-		end
-
-		-- Spin positional orders a random angle
-		if keys.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or keys.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or keys.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
-
-			-- Calculate new order position
-			local target_loc = Vector(keys.position_x, keys.position_y, keys.position_z)
-			local origin_loc = unit:GetAbsOrigin()
-			local order_vector = target_loc - origin_loc
-			local new_order_vector = RotatePosition(origin_loc, QAngle(0, rand(45, 315), 0), origin_loc + order_vector)
-
-			-- Override order
-			keys.position_x = new_order_vector.x
-			keys.position_y = new_order_vector.y
-			keys.position_z = new_order_vector.z
-		end
-	end
-	]]
 
 	return true
 end
-
 
 
 ----------------------------------------------------------------------------------------------------------------------------------
