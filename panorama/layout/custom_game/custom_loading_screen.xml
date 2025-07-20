@@ -23,9 +23,9 @@
 					<Label id="DOTA2IMBA_DESC_INFO" />
 				</Panel>
 			</Panel>
-			<Panel id="DOTA2IMBA_OP1" onactivate="ExternalBrowserGoToURL(&apos;https://jq.qq.com/?_wv=1027&amp;k=Op41nX3q&apos;)">
+			<Panel id="DOTA2IMBA_OP1" onactivate="ExternalBrowserGoToURL(https://www.youtube.com/@%E5%BC%A0%E5%BC%A0%E6%96%87%E5%BC%9B)">
 				<Image class="DOTA2IMBA_OP_BG" src="s2r://panorama/images/custom_game/hud/cm_png.vtex">
-					<Label class="DOTA2IMBA_OP_TEXT" text="#QQ" />
+					<Label class="DOTA2IMBA_OP_TEXT" text="#REASON_CALLBACK" />
 				</Image>
 			</Panel>
 			<Panel id="DOTA2IMBA_OP2" onactivate="ExternalBrowserGoToURL(&apos;https://unknowncreator.top&apos;)">
@@ -38,9 +38,9 @@
 					<Label class="DOTA2IMBA_OP_TEXT" text="#DIS" />
 				</Image>
 			</Panel>
-			<Panel id="DOTA2IMBA_OP4" onactivate="ExternalBrowserGoToURL('https://www.youtube.com/@%E5%BC%A0%E5%BC%A0%E6%96%87%E5%BC%9B')">
+			<Panel id="DOTA2IMBA_OP4" onactivate="ExternalBrowserGoToURL(https://www.youtube.com/@%E5%BC%A0%E5%BC%A0%E6%96%87%E5%BC%9B)">
 				<Image class="DOTA2IMBA_OP_BG" src="s2r://panorama/images/custom_game/hud/lina_png.vtex">
-					<Label class="DOTA2IMBA_OP_TEXT" text="#BILIBILI" />
+					<Label class="DOTA2IMBA_OP_TEXT" text="#YOUTUBE" />
 				</Image>
 			</Panel>
 		</Panel>
