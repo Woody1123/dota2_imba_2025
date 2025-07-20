@@ -131,26 +131,31 @@ function modifier_item_skadi_v2_pa:OnCreated()
 end
 
 function modifier_item_skadi_v2_pa:OnTakeDamage(tg)
-	if not IsServer() then
-		return
-	end
-    if (tg.attacker == self:GetParent() or tg.attacker:GetOwner() == self:GetParent()) and tg.unit:IsAlive() then
-        if self:GetParent():IsIllusion() or tg.unit:IsBuilding() or tg.unit:IsOther() or  Is_Chinese_TG(tg.unit, self:GetParent()) or (tg.damage<50 and tg.damage_category ~= 1) then
+    if not IsServer() then
+        return
+    end
+
+    if not tg.attacker or not tg.unit then return end  -- ✅ 避免空引用
+
+    if (tg.attacker == self:GetParent() or (tg.attacker:GetOwner() == self:GetParent())) and tg.unit:IsAlive() then
+        if self:GetParent():IsIllusion() or tg.unit:IsBuilding() or tg.unit:IsOther() or Is_Chinese_TG(tg.unit, self:GetParent()) or (tg.damage < 50 and tg.damage_category ~= 1) then
             return
         end
-        --if not tg.unit:IsMagicImmune() then
+
         if self:GetParent():HasItemInInventory("item_three_knives") or self:GetCaster():HasItemInInventory("item_four_knives") then
-            self.duration=3
+            self.duration = 3
         end
 
-        local modifier = tg.unit:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_item_skadi_v2_slow",{duration=self.duration})
-		if tg.unit:GetUnitName() == "npc_dota_imba_boss"  then return end
-        if tg.damage_category==1 then  --如果攻击类型是攻击
+        local modifier = tg.unit:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_item_skadi_v2_slow", {duration = self.duration})
+
+        if tg.unit:GetUnitName() == "npc_dota_imba_boss" then return end
+
+        if tg.damage_category == 1 then
             modifier:SetStackCount(1)
         end
-        --end
-	end
+    end
 end
+
 
 function modifier_item_skadi_v2_pa:DeclareFunctions()
     return {

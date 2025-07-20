@@ -148,15 +148,16 @@ function modifier_imba_harpoon_passive:OnAttack(tg)
 end
 
 function modifier_imba_harpoon_passive:OnDeath(tg)
-    if not IsServer() or tg.attacker:IsIllusion() then
-        return
-    end
-    if tg.attacker == self:GetParent() and tg.unit:IsHero() then
-		
-        self.parent:RemoveModifierByName("modifier_imba_harpoon_cd")
+	if not IsServer() then return end
+	if not tg or not tg.attacker or not tg.unit then return end
+	if tg.attacker:IsIllusion() then return end
+
+	if tg.attacker == self:GetParent() and tg.unit:IsHero() then
+		self.parent:RemoveModifierByName("modifier_imba_harpoon_cd")
 		self.ability:EndCooldown()
-    end
+	end
 end
+
 
 function modifier_imba_harpoon_passive:GetModifierBonusStats_Intellect()
     return  self.stats

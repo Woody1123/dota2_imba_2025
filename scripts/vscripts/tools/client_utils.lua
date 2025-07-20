@@ -14,9 +14,6 @@ end
 ★获取英雄天赋值。
 --]]
 function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
-	print('获取英雄天赋值: ' .. name .. " kv: " .. tostring(kv))
-	print("获取英雄天赋值 AbilityKV:")
-	PrintTable(AbilityKV[name])
 
 	if self:HasModifier("modifier_" .. name) then
 		local value_name = kv or "value"
@@ -24,7 +21,6 @@ function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
 
 		for k, v in pairs(specialVal) do
 			if v[value_name] then
-				print('获取英雄天赋值value_name: ' .. tostring(v[value_name]))
 				return tonumber(v[value_name]) or 0  -- 确保返回的是数字
 			end
 		end
