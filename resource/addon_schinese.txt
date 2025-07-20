@@ -1,5 +1,5 @@
 ﻿"lang"
-{	
+{
 	"Language"		"schinese"
 	"Tokens"
 	{
@@ -5019,7 +5019,7 @@
 
 
 		"DOTA_Tooltip_ability_imba_arc_warden_flux"										"乱流"
-		"DOTA_Tooltip_ability_imba_arc_warden_flux_description"						"将不稳定的涡流能量灌注到落单敌人体内，减缓其移动速度并造成持续伤害。如目标周围有其他敌方单位 ，则效果暂时消失。\n<h1><font color='#54FF9F'>1.原初意识</font></h1>%add_search%范围内所有敌方英雄每有1层乱流，泽特和复制体获得%bonus_sp_ran%攻击速度和攻击距离。\n<h1><font color='#54FF9F'>2.永恒幽魂</font></h1>技能结束时原地产生1个短持续时间的闪光幽魂。当叠加层数大于3时原地额外产生磁场。
+		"DOTA_Tooltip_ability_imba_arc_warden_flux_description"						"将不稳定的涡流能量灌注到落单敌人体内，减缓其移动速度并造成持续伤害。如目标周围有其他敌方单位 ，则效果暂时消失。\n<h1><font color='#54FF9F'>1.原初意识</font></h1>%add_search%范围内所有敌方英雄每有1层乱流，泽特和复制体获得%bonus_sp_ran%攻击速度和攻击距离。\n<h1><font color='#54FF9F'>2.永恒幽魂</font></h1>技能结束时原地产生1个短持续时间的闪光幽魂。当叠加层数大于3时原地额外产生磁场。"
 		----------------------------------------------------------------------------- ● 叠加多个乱流时，伤害为基础伤害+叠加层数*%int_damage%。\n ● 乱流结束时若减速未生效则不产生闪光幽魂。"
 		"DOTA_Tooltip_ability_imba_arc_warden_flux_Note0"									"1.重复施加乱流将刷新持续时间，乱流持续时间不足0.2秒时（单位死亡等），不会产生闪光幽魂。\n2.永恒幽魂产生的闪光幽魂持续时间为10分之1。\n3.永恒幽魂产生的闪光幽魂攻击目标数为1。\n<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 		"DOTA_Tooltip_ability_imba_arc_warden_flux_Lore"									"囚禁遗迹之力的无穷小碎片。"
@@ -5105,7 +5105,7 @@
 		"DOTA_Tooltip_ability_imba_meepo_Poof_Note0"									"<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 
 		"DOTA_Tooltip_ability_imba_meepo_ransack"											"洗劫"
-		"DOTA_Tooltip_ability_imba_meepo_ransack_description"								"每次攻击都会窃取敌人的生命值，并治疗所有其他米波相同数值生命。\n
+		"DOTA_Tooltip_ability_imba_meepo_ransack_description"								"每次攻击都会窃取敌人的生命值，并治疗所有其他米波相同数值生命。\n"
 		<h1><font color='#54FF9F'>1.荒墟清洗</font></h1>主动释放对所有米波进行一次弱驱散。\n<h1><font color='#54FF9F'>2.裂影截杀</font></h1>造成伤害和回复为自身敏捷值的一定比例。"
 		"DOTA_Tooltip_ability_imba_meepo_ransack_Lore"									"所以你是要，还是......?  "
 		"DOTA_Tooltip_ability_imba_meepo_ransack_agility"									"敏捷系数："
@@ -5200,7 +5200,7 @@
 		//////////////////////////////////////////////////////////////////////////////////////
 
 		"DOTA_Tooltip_ability_imba_terrorblade_reflection"										"倒影"
-		"DOTA_Tooltip_ability_imba_terrorblade_reflection_description"							"恐怖利刃映出一定范围内所有敌方英雄的黑暗倒影对其进行反制，目标在短时间内将被自身倒影攻击，移动速度也会被减缓。\n<h1><font color='#54FF9F'>1.影镜</font></h1>获得敌人视野\n<h1><font color='#54FF9F'>2.灵魂压榨</font></h1>倒影造成的伤害<font color='#B03060'>基于恶魔能量层数</font>为恐怖利刃回复生命。
+		"DOTA_Tooltip_ability_imba_terrorblade_reflection_description"							"恐怖利刃映出一定范围内所有敌方英雄的黑暗倒影对其进行反制，目标在短时间内将被自身倒影攻击，移动速度也会被减缓。\n<h1><font color='#54FF9F'>1.影镜</font></h1>获得敌人视野\n<h1><font color='#54FF9F'>2.灵魂压榨</font></h1>倒影造成的伤害<font color='#B03060'>基于恶魔能量层数</font>为恐怖利刃回复生命。"
 		 ● 倒影拥有固定的攻击次数，攻击间隔为1秒，打开自动释放可以使倒影的攻击间隔改为目标自身的攻击间隔。"
 		"DOTA_Tooltip_ability_imba_terrorblade_reflection_Lore"									"荒邪之狱的分形之墙中，恐怖利刃洞悉了古老的寓言：你就是自己最可怕的敌人。现在他也要让别人明白这个道理。"
 		"DOTA_Tooltip_ability_imba_terrorblade_reflection_Note0"								"1.被倒影击杀的敌人视作自杀。"
@@ -5232,9 +5232,9 @@
 		"DOTA_Tooltip_modifier_imba_metamorphosis_description"									""
 
 		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power"									"恶魔能量"
-		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power_description"						"恐怖利刃将恶魔能量笼罩全场，并注视着那些表现突出的灵魂。恶魔能量可以强化恐怖利刃的技能。\n<h1><font color='#54FF9F'>1.恐怖心潮</font></h1>主动使用时触发恐怖心潮。
-		<font color='#B03060'> ( 恐怖心潮：短暂延迟后，直接对大范围内敌人施加短持续时间的恐惧效果。 ) </font>\n<h1><font color='#54FF9F'>2.荒邪之狱</font></h1>打开自动释放消耗%truekill%层恶魔能量，恐惧结束后敌人立即死亡。
-		 ● 恐怖利刃以及队友被击杀时，恶魔能量增加1层，最高%maxstack% 层。"
+		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power_description"						"恐怖利刃将恶魔能量笼罩全场，并注视着那些表现突出的灵魂。恶魔能量可以强化恐怖利刃的技能。\n<h1><font color='#54FF9F'>1.恐怖心潮</font></h1>主动使用时触发恐怖心潮。<font color='#B03060'> ( 恐怖心潮：短暂延迟后，直接对大范围内敌人施加短持续时间的恐惧效果。 ) </font>\n<h1><font color='#54FF9F'>2.荒邪之狱</font></h1>打开自动释放消耗%truekill%层恶魔能量，恐惧结束后敌人立即死亡。"
+                                                                                                                                                                                                       		 ● 恐怖利刃以及队友被击杀时，恶魔能量增加1层，最高%maxstack% 层。"
+
 		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power_terror_wave_radius"			"恐怖心潮作用范围："
 		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power_wave_radius_duration"			"恐惧持续时间："
 		"DOTA_Tooltip_ability_imba_terrorblade_demonic_power_metamorphosis_duration"		"神杖增加魔化时间："
@@ -5629,9 +5629,9 @@
 		//// Ogre Magi
 		//////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite"									"火焰燃轰"
-		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_description"							"<font color='#B03060'>使目标和另一个随机单位浸透在挥发性化学物质中，导致其瞬间被火焰吞噬。目标处在极度痛苦之中，初始受到眩晕和伤害，随后受到持续伤害并且减少移速和攻速。
-		 ● 此技能除眩晕外一切效果可叠加
-		 ● 对目标身边的随机一个敌方单位额外释放一次，英雄优先。"
+		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_description"							"<font color='#B03060'>使目标和另一个随机单位浸透在挥发性化学物质中，导致其瞬间被火焰吞噬。目标处在极度痛苦之中，初始受到眩晕和伤害，随后受到持续伤害并且减少移速和攻速。 ● 此技能除眩晕外一切效果可叠加"
+                                                                                                                                                                                                    		 ● 对目标身边的随机一个敌方单位额外释放一次，英雄优先。"
+
 		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_Lore"								"在一次自娱自乐的玩火过程中，食人魔魔法师掌握了将两种技能混合的方法，并且竟然记住了释放方法。"
 		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_Note0"							"<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_damage"							"初始伤害："
 		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_stunned_duration"							"眩晕持续时间："
@@ -5649,9 +5649,9 @@
 		"DOTA_Tooltip_ability_imba_ogre_magi_fireblast_ignite_scepter_description"	"对目标身边内所有敌方英雄释放火焰燃轰。"
 
 		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust"									"嗜血术"
-		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_description"							"<font color='#B03060'>激起目标和施法范围内一个友方单位的狂暴，增加其移动速度、攻击速度、攻击力、技能增强。可以对防御塔施放。
-		 ● 此技能一切效果可叠加
-		 ● 对施法距离内的随机一个友方单位额外释放一次。英雄优先"
+		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_description"							"<font color='#B03060'>激起目标和施法范围内一个友方单位的狂暴，增加其移动速度、攻击速度、攻击力、技能增强。可以对防御塔施放。● 此技能一切效果可叠加"
+                                                                                                                                                                      		 ● 对施法距离内的随机一个友方单位额外释放一次。英雄优先"
+
 		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_Lore"								"跑来跑去可没有打人爽...太无聊了。"
 		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_Note0"							"<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_buff_duration"							"持续时间："
@@ -5667,8 +5667,8 @@
 		"DOTA_Tooltip_ability_imba_ogre_magi_Bloodlust_scepter_description"	"对施法距离内所有友方英雄释放嗜血术。"
 
 		"DOTA_Tooltip_ability_imba_ogre_magi_focus"									"献祭专注"
-		"DOTA_Tooltip_ability_imba_ogre_magi_focus_description"							"<font color='#B03060'>献祭自身最大%hp_percent%% 生命，随机获得力量专注和法术专注效果。\n<h1><font color='#63B8FF'>1.力量专注</font></h1>攻击速度增加%attack_speed_bonus%，获得%hero_lifesteal%% 吸血，可叠加。\n<h1><font color='#63B8FF'>2.法术专注</font></h1>增加%cast_range_bonus%施法距离，获得%hero_lifesteal%% 技能吸血，可叠加。\n<h1><font color='#63B8FF'>3.完美协作:</font></h1>身上同时拥有力量专注和法术专注时，多重施法全部几率增加%multicast%%。
-		 ● 现在伤害可以致死"
+		"DOTA_Tooltip_ability_imba_ogre_magi_focus_description"							"<font color='#B03060'>献祭自身最大%hp_percent%% 生命，随机获得力量专注和法术专注效果。\n<h1><font color='#63B8FF'>1.力量专注</font></h1>攻击速度增加%attack_speed_bonus%，获得%hero_lifesteal%% 吸血，可叠加。\n<h1><font color='#63B8FF'>2.法术专注</font></h1>增加%cast_range_bonus%施法距离，获得%hero_lifesteal%% 技能吸血，可叠加。\n<h1><font color='#63B8FF'>3.完美协作:</font></h1>身上同时拥有力量专注和法术专注时，多重施法全部几率增加%multicast%%。● 现在伤害可以致死"
+
 		"DOTA_Tooltip_ability_imba_ogre_magi_focus_Lore"								"幸运女神并不总是那么无私奉献。"
 		"DOTA_Tooltip_ability_imba_ogre_magi_focus_Note0"							"<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 		"DOTA_Tooltip_ability_imba_ogre_magi_focus_buff_duration"							"持续时间："
@@ -5710,9 +5710,9 @@
 		//// 噬魂鬼
 		//////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_life_stealer_rage"										"狂暴"
-		"DOTA_Tooltip_ability_imba_life_stealer_rage_description"				"让目标进入狂暴状态，对技能免疫，并提升移动速度。\n<h1><font color='#EE2C2C'>1.协同狂暴</font></h1>释放时对%range%范围内英雄额外释放一次。<font color='#B03060'>（默认目标为队友，打开自动施法目标改为敌人）</font>\n<h1><font color='#EE2C2C'>2.杀戮狂暴</font></h1>如果协同狂暴目标是敌人则还会被施加沉默，并且增加移速改为降低双倍移速。
-		 ● 协同狂暴的持续时间有所下降"
-		"DOTA_Tooltip_ability_imba_life_stealer_rage_Note0"						"1.不获得魔法抗性。
+		"DOTA_Tooltip_ability_imba_life_stealer_rage_description"				"让目标进入狂暴状态，对技能免疫，并提升移动速度。\n<h1><font color='#EE2C2C'>1.协同狂暴</font></h1>释放时对%range%范围内英雄额外释放一次。<font color='#B03060'>（默认目标为队友，打开自动施法目标改为敌人）</font>\n<h1><font color='#EE2C2C'>2.杀戮狂暴</font></h1>如果协同狂暴目标是敌人则还会被施加沉默，并且增加移速改为降低双倍移速。 ● 协同狂暴的持续时间有所下降"
+
+		"DOTA_Tooltip_ability_imba_life_stealer_rage_Note0"						"1.不获得魔法抗性。"
 		<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 		"DOTA_Tooltip_ability_imba_life_stealer_rage_speed"					"%增加移动速度："
 		"DOTA_Tooltip_ability_imba_life_stealer_duration_int"				"持续时间降低百分比："
@@ -5726,7 +5726,7 @@
 
 		"DOTA_Tooltip_ability_imba_life_stealer_feast"										"盛宴"
 		"DOTA_Tooltip_ability_imba_life_stealer_feast_description"				"噬魂鬼每次攻击会根据目标最大生命值增加<font color='#B03060'>攻击力</font>、回复生命并被动增加攻击速度。\n<h1><font color='#EE2C2C'>1.暴戾</font></h1>对建筑、roshan有效，但是数值降低%int%%。\n<h1><font color='#EE2C2C'>2.暴食</font></h1>回复生命数值增加%int%%。"
-		"DOTA_Tooltip_ability_imba_life_stealer_feast_Note0"					"1.回复数值和目标护甲数值无关。
+		"DOTA_Tooltip_ability_imba_life_stealer_feast_Note0"					"1.回复数值和目标护甲数值无关。"
 		<font color='#FFFF00'> ● 作者:你收拾收拾准备出林肯吧</font>"
 		"DOTA_Tooltip_ability_imba_life_stealer_feast_hp_leech_percent"			"目标最大生命百分比："
 		"DOTA_Tooltip_ability_imba_life_stealer_feast_as_bonus"					"增加攻击速度："
@@ -5850,7 +5850,7 @@
 		"DOTA_Tooltip_modifier_imba_snapfire_lil_shredder_debuff"				"霹雳铁手"
 		"DOTA_Tooltip_modifier_imba_snapfire_lil_shredder_debuff_description"	"这个单位的攻击速度降低了。"
 
-		"DOTA_Tooltip_ability_imba_snapfire_lil_shredder_scepter_description"				"无视技能免疫。同时减少%cd% 秒冷却"//霹雳铁手造成%stun_duration% 秒眩晕。
+		"DOTA_Tooltip_ability_imba_snapfire_lil_shredder_scepter_description"				"无视技能免疫。同时减少%cd% 秒冷却"//霹雳铁手造成%stun_duration% 秒眩晕。"
 
 		//////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_snapfire_mortimer_kisses"					"蜥蜴绝吻"
@@ -9112,7 +9112,7 @@
 		//// TideHunter
 		//////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_tidehunter_gush"											"巨浪"
-		"DOTA_Tooltip_ability_imba_tidehunter_gush_Description"								"召唤一股巨浪攻击<font color='#EE2C2C'>击退直线上的敌方单位</font>，减速并削弱护甲。\n<h1><font color='#EE2C2C'>1.麦尔朗恩的忠告</font></h1>持续时间内削弱目标%negative_resistance%% +自身英雄等级的魔抗。
+		"DOTA_Tooltip_ability_imba_tidehunter_gush_Description"								"召唤一股巨浪攻击<font color='#EE2C2C'>击退直线上的敌方单位</font>，减速并削弱护甲。\n<h1><font color='#EE2C2C'>1.麦尔朗恩的忠告</font></h1>持续时间内削弱目标%negative_resistance%% +自身英雄等级的魔抗。"
 		<font color='#EE2C2C'>可用阿哈利姆神杖升级。</font>"
 		"DOTA_Tooltip_ability_imba_tidehunter_gush_Lore"										"在沉没之岛的竞赛中，利维坦赢得了对公海的统治。"
 		"DOTA_Tooltip_ability_imba_tidehunter_gush_movement_speed"							"%移动速度减缓："
@@ -9321,7 +9321,7 @@
 		/////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_ursa_enrage"												"激怒"
 		"DOTA_Tooltip_ability_imba_ursa_enrage_Lore"											"乌尔萨放纵他的远古之魂，成为战场上最凶残的生物。"
-		"DOTA_Tooltip_ability_imba_ursa_enrage_Description"									"乌尔萨进入狂怒状态，承受的伤害减少%damage_reduction%%%,获得%status_resistance%%状态抗性施放时将移除所受的负面效果。\n\n驱散类型：强驱散.\n<h1><font color='#54FF9F'>1.熊的生存本能</font></h1>当生命低于%autocast_hp_pct%%时，自动施放持续一半时间的激怒，这个效果每 %autocast_timer_duration%秒可以触发一次.\n<h1><font color='#54FF9F'>2.熊的力量</font></h1>开启期间获得自身当前生命值%hp_pct%%的攻击力.
+		"DOTA_Tooltip_ability_imba_ursa_enrage_Description"									"乌尔萨进入狂怒状态，承受的伤害减少%damage_reduction%%%,获得%status_resistance%%状态抗性施放时将移除所受的负面效果。\n\n驱散类型：强驱散.\n<h1><font color='#54FF9F'>1.熊的生存本能</font></h1>当生命低于%autocast_hp_pct%%时，自动施放持续一半时间的激怒，这个效果每 %autocast_timer_duration%秒可以触发一次.\n<h1><font color='#54FF9F'>2.熊的力量</font></h1>开启期间获得自身当前生命值%hp_pct%%的攻击力."
 		<font color='#54FF9F'>不会移除天堂缴械和各种变羊技能装备效果.</font>"
 		"DOTA_Tooltip_ability_imba_ursa_enrage_scepter_description"							"减少冷却时间，而且熊战士可以在被控制的状态下使用激怒。"
 		"DOTA_Tooltip_ability_imba_ursa_enrage_status_resistance"					"%状态抗性："
@@ -9478,7 +9478,7 @@
 		"DOTA_Tooltip_ability_imba_nevermore_necromastery_max_souls"						"灵魂上限："
 		"DOTA_Tooltip_ability_imba_nevermore_necromastery_hero_kill_souls"					"击杀英雄获得灵魂："
 		"DOTA_Tooltip_ability_imba_nevermore_necromastery_scepter_description"				"改变死亡时损失灵魂的机制，死亡后只损失全部临时灵魂，魔王之力不再消耗灵魂."
-		"DOTA_Tooltip_ability_imba_nevermore_necromastery_shard_description"							"</font>
+		"DOTA_Tooltip_ability_imba_nevermore_necromastery_shard_description"							"</font>"
 		<font color='#54FF9F'>魔王之力：</font>主动开启消耗所有临时灵魂，获得%attack_range%攻击距离，%attack_time% 攻击间隔，%cast_time_pct%% 毁灭阴影施法前摇减少，持续%lord_power_duration% + 消耗临时灵魂*0.1 秒. 攻击%attack_count%次后会对目标施放一次随机毁灭暗影."
 
 		"DOTA_Tooltip_modifier_imba_necromastery_counter"								"支配死灵"
@@ -9935,9 +9935,9 @@
 		"DOTA_Tooltip_modifier_imba_morphling_waveform_debuff_Description"			"降低移速."
 		//////////////////////////////////////////////////////////////////////////////////////
 		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike"								"变体打击"
-		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike_Description"					"用猛烈的水波打击一个敌方单位,<font color='#54FF9F'>根据变体精灵敏捷造成敏捷系数额外伤害，力量造成击退和眩晕，智力提高弹道移动速度。</font>
-		如果变体精灵的敏捷比力量高%compare_bouns%%，将造成最大伤害。
-		如果变体精灵的力量比敏捷高%compare_bouns%%，将造成最大眩晕和击退。\n<h1><font color='#54FF9F'>1.变体追击</font></h1> 打击受波浪形态影响的目标基础伤害提升50%。\n<h1><font color='#54FF9F'>2.变体压制</font></h1> 打击目标降低攻击速度."
+		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike_Description"					"用猛烈的水波打击一个敌方单位,<font color='#54FF9F'>根据变体精灵敏捷造成敏捷系数额外伤害，力量造成击退和眩晕，智力提高弹道移动速度。</font>如果变体精灵的敏捷比力量高%compare_bouns%%，将造成最大伤害。"
+                                                                                                                                                                                 		如果变体精灵的力量比敏捷高%compare_bouns%%，将造成最大眩晕和击退。\n<h1><font color='#54FF9F'>1.变体追击</font></h1> 打击受波浪形态影响的目标基础伤害提升50%。\n<h1><font color='#54FF9F'>2.变体压制</font></h1> 打击目标降低攻击速度."
+
 		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike_shard_description"				"使变体攻击+%shard_strike_count%齐发,以敌方英雄优先。"
 		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike_Lore"							"变体精灵唤出自身的元素，构成波浪碾碎对手。"
 		"DOTA_Tooltip_ability_imba_morphling_adaptive_strike_Note0"							"弹道移动速度为%projectile_speed%。"
