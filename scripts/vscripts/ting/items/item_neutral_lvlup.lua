@@ -1,43 +1,69 @@
 item_neutral_lvlup = class({})
+
+-- 安全判断中立掉落物品
+local function SafeIsNeutralDrop(item)
+	return item and type(item.IsNeutralDrop) == "function" and item:IsNeutralDrop()
+end
+
 function item_neutral_lvlup:OnSpellStart()
-	self.caster=self.caster or self:GetCaster()
+	self.caster = self.caster or self:GetCaster()
+
+	-- 初始化中立等级
 	if self.caster.neutral_level == nil then
 		self.caster.neutral_level = 1
 	end
+
+	-- 获取中立装备格的物品（slot 16）
 	local now_item = self.caster:GetItemInSlot(16)
-	if now_item~=nil and now_item.owner == self.caster:GetPlayerID()then
-		if not now_item:IsNeutralDrop() then
-			Notifications:Bottom(self.caster:GetPlayerOwnerID(), {text ="中立格子放中立装备才能升级", duration = 3})
+
+	if now_item and now_item.owner == self.caster:GetPlayerID() then
+		-- ✅ 判断是否为中立掉落物品（安全检查）
+		if not SafeIsNeutralDrop(now_item) then
+			Notifications:Bottom(self.caster:GetPlayerOwnerID(), {
+				text = "中立格子放中立装备才能升级", duration = 3
+			})
 			return
 		end
+
 		local name = now_item:GetName()
-			if self.caster.neutral_level >=3 then
-				Notifications:Bottom(self.caster:GetPlayerOwnerID(), {text ="你中立装备已经满级了，给别人把。", duration = 3})
-			else		
-				local pos = self.caster:GetAbsOrigin()
-				local particleName = "particles/generic_hero_status/hero_levelup_godray.vpcf"		
-				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.caster)
-				ParticleManager:SetParticleControl(pfx, 0, pos)
-				ParticleManager:SetParticleControl(pfx, 1, Vector(pos.x,pos.y,pos.z+1000))
-				ParticleManager:ReleaseParticleIndex(pfx)
-				EmitSoundOn("DOTA_Item.HavocHammer.Cast", self.caster)
-					self.caster.neutral_level = self.caster.neutral_level + 1
-					self.caster:RemoveItem(now_item)
-					local new_item = self.caster:AddItemByName(name)
-					new_item:SetLevel(self.caster.neutral_level)
-					new_item.owner = self.caster:GetPlayerID()
-					self:Destroy()
-			end
-		else	
-		if self.caster:GetGold()>=30000 and self.caster.ex_neutral==nil then
+
+		if self.caster.neutral_level >= 3 then
+			Notifications:Bottom(self.caster:GetPlayerOwnerID(), {
+				text = "你中立装备已经满级了，给别人把。", duration = 3
+			})
+		else
+			-- ✨ 播粒子 + 升级
+			local pos = self.caster:GetAbsOrigin()
+			local particleName = "particles/generic_hero_status/hero_levelup_godray.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.caster)
+			ParticleManager:SetParticleControl(pfx, 0, pos)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(pos.x, pos.y, pos.z + 1000))
+			ParticleManager:ReleaseParticleIndex(pfx)
+			EmitSoundOn("DOTA_Item.HavocHammer.Cast", self.caster)
+
+			self.caster.neutral_level = self.caster.neutral_level + 1
+			self.caster:RemoveItem(now_item)
+
+			local new_item = self.caster:AddItemByName(name)
+			new_item:SetLevel(self.caster.neutral_level)
+			new_item.owner = self.caster:GetPlayerID()
+
+			self:Destroy()
+		end
+	else
+		-- 没有放中立装备的情况，允许用金币买一次
+		if self.caster:GetGold() >= 30000 and not self.caster.ex_neutral then
 			EmitSoundOn("DOTA_Item.HavocHammer.Cast", self.caster)
 			PlayerResource:ModifyGold(self.caster:GetPlayerOwnerID(), -30000, false, DOTA_ModifyGold_Unspecified)
+
 			local item = self.caster:AddItemByName("item_pogo_stick")
 			item.owner = self.caster:GetPlayerID()
 			self.caster.ex_neutral = true
 			self:Destroy()
-			else
-			Notifications:Bottom(self.caster:GetPlayerOwnerID(), {text ="你太贪心了", duration = 3})
+		else
+			Notifications:Bottom(self.caster:GetPlayerOwnerID(), {
+				text = "你太贪心了", duration = 3
+			})
 		end
-	end	
+	end
 end
