@@ -48,11 +48,11 @@
     // reduction 2 s
     "special_bonus_imba_pangolier_2"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_swashbuckle"
@@ -65,11 +65,11 @@
     // reduce stacks to refresh swashbuckle
     "special_bonus_imba_pangolier_6"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_swashbuckle"
@@ -81,11 +81,11 @@
     }
     "special_bonus_imba_pangolier_7"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_swashbuckle"
@@ -97,11 +97,11 @@
     }
     "special_bonus_imba_pangolier_5"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_swashbuckle"
@@ -162,11 +162,11 @@
     // 2 s cooldown while rolling
     "special_bonus_imba_pangolier_4"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_shield_crash"
@@ -178,11 +178,11 @@
     }
     "special_bonus_imba_pangolier_8"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_shield_crash"
@@ -221,11 +221,11 @@
     // luck shot IMMUNITY
     "special_bonus_imba_pangolier_3"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_lucky_shot"
@@ -308,11 +308,11 @@
     // reduction 0.5 s  cast point
     "special_bonus_imba_pangolier_1"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_pangolier_gyroshell"

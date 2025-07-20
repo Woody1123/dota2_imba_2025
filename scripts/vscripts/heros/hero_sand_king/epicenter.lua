@@ -38,7 +38,7 @@ end
 
 function epicenter:OnSpellStart()
 	local caster = self:GetCaster()
-    local epicenter_pulses = self:GetSpecialValueFor("epicenter_pulses")+caster:TG_GetTalentValue("special_bonus_sand_king_4")
+    local epicenter_pulses = self:GetSpecialValueFor("epicenter_pulses")+caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_4")
     local interval = self:GetSpecialValueFor("interval")
     EmitSoundOn( "Ability.SandKing_Epicenter", caster )
     caster:AddNewModifier(caster, self, "modifier_epicenter", {duration=2.6})
@@ -74,7 +74,7 @@ function modifier_epicenter:OnCreated()
     self.radius=self.ability:GetSpecialValueFor("radius")
     self.interval=self.ability:GetSpecialValueFor("interval")
     self.dmg=self.ability:GetSpecialValueFor("dmg")
-    self.epicenter_damage=self.ability:GetSpecialValueFor("epicenter_damage")+self.caster:TG_GetTalentValue("special_bonus_sand_king_1")
+    self.epicenter_damage=self.ability:GetSpecialValueFor("epicenter_damage")+self.caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_1")
     self.damageTable=
                         {
                             attacker = self.caster,
@@ -84,7 +84,7 @@ function modifier_epicenter:OnCreated()
     if not IsServer() then
         return
     end
-	local count = self.ability:GetSpecialValueFor("epicenter_pulses")+self.caster:TG_GetTalentValue("special_bonus_sand_king_4")
+	local count = self.ability:GetSpecialValueFor("epicenter_pulses")+self.caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_4")
 	local mod = self.caster:FindModifierByName("modifier_caustic_finale")
 	if mod then
 		self:StartIntervalThink(3/(count+mod:GetStackCount()))
@@ -120,7 +120,7 @@ function modifier_epicenter:OnIntervalThink()
 					ApplyDamage(self.damageTable)
 				end
             end
-			self.epicenter_damage = self.epicenter_damage + self.caster:TG_GetTalentValue("special_bonus_sand_king_8")
+			self.epicenter_damage = self.epicenter_damage + self.caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_8")
         end
 end
 
@@ -157,7 +157,7 @@ function modifier_epicenter_s:OnCreated()
     self.ability=self:GetAbility()
     self.team=self.caster:GetTeamNumber()
     self.epicenter_radius=self.ability:GetSpecialValueFor("epicenter_radius")
-    self.epicenter_damage=self.ability:GetSpecialValueFor("epicenter_damage")+self.caster:TG_GetTalentValue("special_bonus_sand_king_1")
+    self.epicenter_damage=self.ability:GetSpecialValueFor("epicenter_damage")+self.caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_1")
      self.damageTable=
                         {
                             attacker = self.caster,
@@ -235,7 +235,7 @@ function modifier_epicenter_m:OnCreated(tg)
     self.CENTER= ToVector(tg.pos)
     self.DIR= TG_Direction2(self.CENTER,self.POS)
     self.SP=400
-    if self.caster:TG_HasTalent("special_bonus_sand_king_7") then
+    if self.caster:TG_HasTalent("special_bonus_unique_own_sand_king_7") then
         self.SP=600
     end
         if not self:ApplyHorizontalMotionController() then

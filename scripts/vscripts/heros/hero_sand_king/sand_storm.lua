@@ -60,7 +60,7 @@ function modifier_sand_storm_1:OnCreated(tg)
 end
 --[[
 function modifier_sand_storm_1:OnIntervalThink()
-    if self.caster:IsAlive() and not self.parent:IsIllusion() and self.ability:GetAutoCastState() and self.caster:TG_HasTalent("special_bonus_sand_king_5") then
+    if self.caster:IsAlive() and not self.parent:IsIllusion() and self.ability:GetAutoCastState() and self.caster:TG_HasTalent("special_bonus_unique_own_sand_king_5") then
         CreateModifierThinker(self.caster, self.ability, "modifier_sand_storm", {duration=5},self.caster:GetAbsOrigin(), self.caster:GetTeamNumber(), false)
     end
 end]]
@@ -170,7 +170,7 @@ function modifier_sand_storm:OnIntervalThink()
 		self.caster:AddNewModifier(self.caster, self.ability, "modifier_sand_storm_inv", {duration=1.2})
 	end
     if self.caster:HasModifier("modifier_sand_storm_inv") then
-	if self.caster:TG_HasTalent("special_bonus_sand_king_5") then
+	if self.caster:TG_HasTalent("special_bonus_unique_own_sand_king_5") then
 		for tr = 0,6 do
 			local newpos =RotatePosition(self.pos,QAngle(0, tr*60, 0), self.pos + self.caster:GetForwardVector():Normalized() * self.sand_storm_radius/3)
 					local pos_end = GetRandomPosition2D(newpos,self.sand_storm_radius/3)
@@ -261,7 +261,7 @@ function modifier_sand_storm_inv:OnCreated(tg)
     self.caster=self:GetCaster()
     self.ability=self:GetAbility()
     self.fade_delay=self.ability:GetSpecialValueFor("fade_delay")
-    self.hp=self.ability:GetSpecialValueFor("hp")+self.caster:TG_GetTalentValue("special_bonus_sand_king_2")
+    self.hp=self.ability:GetSpecialValueFor("hp")+self.caster:TG_GetTalentValue("special_bonus_unique_own_sand_king_2")
     if not IsServer() then
         return
     end

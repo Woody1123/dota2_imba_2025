@@ -198,7 +198,7 @@
     // 匕首造成0.3秒眩晕
     "special_bonus_unique_imba_phantom_assassin_1"
     {
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"          "special_bonus_base"
         "AbilityValues"
@@ -208,7 +208,7 @@
     // 额外对主目标投射一枚匕首
     "special_bonus_unique_imba_phantom_assassin_2"
     {
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"          "special_bonus_base"
         "AbilityValues"
@@ -220,9 +220,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "phantom_strike"
@@ -233,9 +233,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "phantom_strike"
@@ -246,9 +246,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "blur"
@@ -259,9 +259,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "blur"
@@ -272,9 +272,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "coup_de_grace"
@@ -285,9 +285,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "coup_de_grace"

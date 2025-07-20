@@ -41,9 +41,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "haunt"
@@ -194,7 +194,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "6148" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {
@@ -209,7 +209,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "6900" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {
@@ -224,7 +224,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "6901" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {
@@ -239,7 +239,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "6902" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {
@@ -254,7 +254,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "6903" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {
@@ -269,7 +269,7 @@
         // General
         // -------------------------------------------------------------------------------------------------------------
         "ID"                 "8040" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityValues"
         {

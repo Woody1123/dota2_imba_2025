@@ -62,9 +62,9 @@ function modifier_frostmourne:OnAttackLanded(tg)
         if self.parent:PassivesDisabled() or self.parent:IsIllusion() or tg.target:IsBuilding() or tg.target:IsMagicImmune()  then
             return
         end
-        if tg.target:HasModifier("modifier_frostmourne_debuff") and  PseudoRandom:RollPseudoRandom(self.ability, self.ch+self.caster:TG_GetTalentValue("special_bonus_abaddon_7")) then
+        if tg.target:HasModifier("modifier_frostmourne_debuff") and  PseudoRandom:RollPseudoRandom(self.ability, self.ch+self.caster:TG_GetTalentValue("special_bonus_unique_own_abaddon_7")) then
             local num=RandomInt(0, 3)
-            if self.caster:TG_HasTalent("special_bonus_abaddon_8") then
+            if self.caster:TG_HasTalent("special_bonus_unique_own_abaddon_8") then
                 self.trigger=true
             end
             if num==0 or self.trigger then
@@ -117,7 +117,7 @@ function modifier_frostmourne_stack:OnCreated()
     self.caster=self:GetCaster()
     self.ability=self:GetAbility()
     self.hit_count=self.ability:GetSpecialValueFor("hit_count")
-    self.movement_speed=0-(self.ability:GetSpecialValueFor("movement_speed")+self.caster:TG_GetTalentValue("special_bonus_abaddon_2"))
+    self.movement_speed=0-(self.ability:GetSpecialValueFor("movement_speed")+self.caster:TG_GetTalentValue("special_bonus_unique_own_ab_2"))
     self.curse_duration=self.ability:GetSpecialValueFor("curse_duration")
     if IsServer() then
         self:SetStackCount(self:GetStackCount()+1)
@@ -189,7 +189,7 @@ function modifier_frostmourne_debuff:OnCreated()
     self.parent=self:GetParent()
     if 	self:GetAbility() then
         self.ability=self:GetAbility()
-        self.curse_slow=0-(self.ability:GetSpecialValueFor("curse_slow")+self.caster:TG_GetTalentValue("special_bonus_abaddon_2"))
+        self.curse_slow=0-(self.ability:GetSpecialValueFor("curse_slow")+self.caster:TG_GetTalentValue("special_bonus_unique_own_ab_2"))
         self.curse_duration=self.ability:GetSpecialValueFor("curse_duration")
     end
 end

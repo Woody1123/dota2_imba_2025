@@ -88,7 +88,7 @@ function modifier_aphotic_shield:OnDestroy()
     EmitSoundOn("Hero_Abaddon.AphoticShield.Destroy",self.parent)
 	StopSoundOn("Hero_Abaddon.AphoticShield.Loop",self.parent)
 	if IsServer() then
-        local damage=self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_abaddon_5")
+        local damage=self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_unique_own_abaddon_5")
         local hp=self.ability:GetSpecialValueFor("hp")*0.01
 	end
 end

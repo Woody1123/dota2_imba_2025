@@ -188,7 +188,7 @@ function modifier_burrowstrike:OnDestroy()
         self.parent:RemoveGesture(ACT_DOTA_SAND_KING_BURROW_IN)
         self.parent:StartGestureWithPlaybackRate(ACT_DOTA_SAND_KING_BURROW_OUT,2)
     end
-    if self.caster.burrowstrike and self.parent:GetName()==self.caster.burrowstrike and self.ability:GetAutoCastState() and self.caster:TG_HasTalent("special_bonus_sand_king_6") then
+    if self.caster.burrowstrike and self.parent:GetName()==self.caster.burrowstrike and self.ability:GetAutoCastState() and self.caster:TG_HasTalent("special_bonus_unique_own_sand_king_6") then
         local sp=self.caster:HasScepter() and 5000 or self.ability:GetSpecialValueFor("burrow_speed")
         local dis=TG_Distance(self.POS,self.parent:GetAbsOrigin())
         local time=dis/sp

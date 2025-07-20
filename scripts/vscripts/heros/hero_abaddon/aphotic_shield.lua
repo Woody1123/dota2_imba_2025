@@ -30,7 +30,7 @@ function aphotic_shield:OnSpellStart()
     end 
     target:Purge(false, true, false, true, true)
 	target:AddNewModifier(caster, self, "modifier_aphotic_shield", {duration = self:GetSpecialValueFor("duration")})
-    if caster:TG_HasTalent("special_bonus_abaddon_4") and target~=caster then 
+    if caster:TG_HasTalent("special_bonus_unique_own_abaddon_4") and target~=caster then
         caster:Purge(false, true, false, true, true)
         caster:AddNewModifier(caster, self, "modifier_aphotic_shield", {duration = self:GetSpecialValueFor("duration")})
     end 
@@ -70,7 +70,7 @@ function modifier_aphotic_shield:OnDestroy()
     EmitSoundOn("Hero_Abaddon.AphoticShield.Destroy",self.parent)
 	StopSoundOn("Hero_Abaddon.AphoticShield.Loop",self.parent)
 	if IsServer() then
-        local damage=self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_abaddon_5")
+        local damage=self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_unique_own_abaddon_5")
         local hp=self.ability:GetSpecialValueFor("hp")*0.01
         local heros = FindUnitsInRadius(
             self.parent:GetTeamNumber(),
@@ -111,7 +111,7 @@ end
 function modifier_aphotic_shield:GetModifierAvoidDamage(tg)
     if self.ability and tg.target==self.parent then
         self:SetStackCount(self:GetStackCount()+tg.damage)
-        if self:GetStackCount()>self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_abaddon_5") then    
+        if self:GetStackCount()>self.ability:GetSpecialValueFor("damage_absorb")+self.caster:TG_GetTalentValue("special_bonus_unique_own_abaddon_5") then
             self:Destroy()
         end 
         return 1

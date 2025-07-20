@@ -219,9 +219,9 @@
     // 鹰击作用范围
     "special_bonus_imba_marci_t1"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_2"
@@ -230,9 +230,9 @@
     // 大招攻速增加
     "special_bonus_imba_marci_t2"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_5"
@@ -241,9 +241,9 @@
     // 翱翔高空视野增加
     "special_bonus_imba_marci_t3"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_2"
@@ -252,9 +252,9 @@
     // 增加buff时间
     "special_bonus_imba_marci_t4"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "value"    "50"
@@ -263,9 +263,9 @@
     // 龙拳冲击距离
     "special_bonus_imba_marci_t5"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_1"
@@ -274,9 +274,9 @@
     // 鹰击抓人
     "special_bonus_imba_marci_t6"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_2"
@@ -285,9 +285,9 @@
     // 鹰击不能被普通攻击
     "special_bonus_imba_marci_t7"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_2"
@@ -296,9 +296,9 @@
     // 大招刷新间隔
     "special_bonus_imba_marci_t8"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_marci_5"

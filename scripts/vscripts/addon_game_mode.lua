@@ -120,9 +120,9 @@ function L_TG:InitGameMode()
 	GameRules.Abilities_KV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
 	print('技能AbilityKV 加载成功')
 
-	PrintTable(GameRules.Abilities_KV["special_bonus_abaddon_8"])
+	PrintTable(GameRules.Abilities_KV["special_bonus_unique_own_abaddon_8"])
 	PrintTable(GameRules.Abilities_KV["special_bonus_unique_abaddon_5"])
-	PrintTable(GameRules.Abilities_KV["special_bonus_abaddon_8"])
+	PrintTable(GameRules.Abilities_KV["special_bonus_unique_own_abaddon_8"])
 	PrintTable(GameRules.Abilities_KV["special_bonus_unique_abaddon_5"])
 	print('技能AbilityKV 加载成功111')
 	if map =="dota" then

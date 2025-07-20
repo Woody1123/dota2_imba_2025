@@ -55,11 +55,11 @@
     // 增加个数
     "special_bonus_imba_void_spirit_8"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_aether_remnant"
@@ -261,11 +261,11 @@
     // void cut cause 1s stuned
     "special_bonus_imba_void_spirit_1"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_void_cut"
@@ -278,11 +278,11 @@
     // +20% void cut damage bouns
     "special_bonus_imba_void_spirit_2"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_void_cut"
@@ -295,11 +295,11 @@
     // 增加充能
     "special_bonus_imba_void_spirit_3"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_astral_step"
@@ -312,11 +312,11 @@
     // +200 resonant_pulse damage
     "special_bonus_imba_void_spirit_4"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_resonant_pulse"
@@ -329,11 +329,11 @@
     // 35% chance cast multiple void cut after cast finish
     "special_bonus_imba_void_spirit_5"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_void_cut"
@@ -346,11 +346,11 @@
     // 300% crit astral step
     "special_bonus_imba_void_spirit_6"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_astral_step"
@@ -363,11 +363,11 @@
     // 1.5s stun
     "special_bonus_imba_void_spirit_7"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_void_spirit_dissimilate"

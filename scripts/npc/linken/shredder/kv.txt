@@ -33,11 +33,11 @@
     // 增加死亡旋风减少属性
     "special_bonus_shredder_1"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_whirling_death"
@@ -50,11 +50,11 @@
     // 增加死亡旋风作用范围
     "special_bonus_shredder_7"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_whirling_death"
@@ -115,11 +115,11 @@
     // 增加伐木锯链施法距离
     "special_bonus_shredder_2"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_timber_chain"
@@ -157,11 +157,11 @@
     // 增加旋风护甲触发几率
     "special_bonus_shredder_3"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_reactive_armor"
@@ -174,11 +174,11 @@
     // 增加活体护甲叠加上限
     "special_bonus_shredder_4"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_reactive_armor"
@@ -350,11 +350,11 @@
     // 增加减少主属性数值
     "special_bonus_shredder_5"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_chakram"
@@ -367,11 +367,11 @@
     // 增加飞盘飞行速度
     "special_bonus_shredder_8"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_chakram"
@@ -384,11 +384,11 @@
     // 减少飞盘冷却
     "special_bonus_shredder_6"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_shredder_chakram"

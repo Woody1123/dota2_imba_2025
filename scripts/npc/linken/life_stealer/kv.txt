@@ -32,11 +32,11 @@
     }
     "special_bonus_imba_life_stealer_5"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_life_stealer_rage"
@@ -70,11 +70,11 @@
     // buff_number
     "special_bonus_imba_life_stealer_6"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_life_stealer_feast"
@@ -122,11 +122,11 @@
     // 双重撕裂
     "special_bonus_imba_life_stealer_7"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_lifestealer_open_wounds"
@@ -139,11 +139,11 @@
     // 增加持续时间
     "special_bonus_imba_life_stealer_8"
     {
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_lifestealer_open_wounds"
@@ -274,9 +274,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_life_stealer_control"
@@ -291,9 +291,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_lifestealer_open_wounds"
@@ -308,9 +308,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_life_stealer_control"
@@ -325,9 +325,9 @@
     {
         // General
         // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_undefined"
+        "BaseClass"          "special_bonus_base"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "LinkedAbility"
         {
             "01"    "imba_life_stealer_rage"

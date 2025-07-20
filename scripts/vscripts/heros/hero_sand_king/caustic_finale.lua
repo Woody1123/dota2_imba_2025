@@ -113,7 +113,7 @@ function modifier_caustic_finale_debuff:OnCreated()
         if self:GetAbility() then
         self.ability=self:GetAbility()
         self.caustic_finale_radius=self.ability:GetSpecialValueFor("caustic_finale_radius")
-        self.caustic_finale_slow=self.ability:GetSpecialValueFor("caustic_finale_slow")-self:GetCaster():TG_GetTalentValue("special_bonus_sand_king_3")
+        self.caustic_finale_slow=self.ability:GetSpecialValueFor("caustic_finale_slow")-self:GetCaster():TG_GetTalentValue("special_bonus_unique_own_sand_king_3")
         self.pct=self.ability:GetSpecialValueFor("pct")
         self.caustic_finale_damage_pct=self.ability:GetSpecialValueFor("caustic_finale_damage_pct")
     end

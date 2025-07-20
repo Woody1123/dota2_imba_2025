@@ -50,7 +50,7 @@ function death_coil:OnProjectileHit(target, location)
     end
     EmitSoundOn("Hero_Abaddon.DeathCoil.Target", target)
     local caster=self:GetCaster()
-    if caster:TG_HasTalent("special_bonus_abaddon_3") then
+    if caster:TG_HasTalent("special_bonus_unique_own_abaddon_3") then
     local heros = FindUnitsInRadius(
         caster:GetTeamNumber(),
         target:GetAbsOrigin(),
@@ -66,7 +66,7 @@ function death_coil:OnProjectileHit(target, location)
                     local heal=self:GetSpecialValueFor("heal")
                     hero:Heal(heal, self)
                     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, hero, heal, nil)
-                    hero:AddNewModifier(caster, self, "modifier_death_coil_buff", {duration=self:GetSpecialValueFor("buffdur")+caster:TG_GetTalentValue("special_bonus_abaddon_1")})
+                    hero:AddNewModifier(caster, self, "modifier_death_coil_buff", {duration=self:GetSpecialValueFor("buffdur")+caster:TG_GetTalentValue("special_bonus_unique_own_ab_1")})
                 else
                     if not hero:IsMagicImmune() then
                         local damageTable=
@@ -81,7 +81,7 @@ function death_coil:OnProjectileHit(target, location)
                         if caster:Has_Aghanims_Shard() then
                             caster:PerformAttack(hero, true, true, true, false, true, false, true)
                         end
-                        hero:AddNewModifier_RS(caster, self, "modifier_death_coil_debuff", {duration=self:GetSpecialValueFor("debuffdur")+caster:TG_GetTalentValue("special_bonus_abaddon_1")})
+                        hero:AddNewModifier_RS(caster, self, "modifier_death_coil_debuff", {duration=self:GetSpecialValueFor("debuffdur")+caster:TG_GetTalentValue("special_bonus_unique_own_ab_1")})
                     end
                 end
             end
@@ -91,7 +91,7 @@ function death_coil:OnProjectileHit(target, location)
             local heal=self:GetSpecialValueFor("heal")
             target:Heal(heal, self)
             SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, heal, nil)
-            target:AddNewModifier(caster, self, "modifier_death_coil_buff", {duration=self:GetSpecialValueFor("buffdur")+caster:TG_GetTalentValue("special_bonus_abaddon_1")})
+            target:AddNewModifier(caster, self, "modifier_death_coil_buff", {duration=self:GetSpecialValueFor("buffdur")+caster:TG_GetTalentValue("special_bonus_unique_own_ab_1")})
         else
             if not target:IsMagicImmune() then
                 local damageTable=
@@ -106,7 +106,7 @@ function death_coil:OnProjectileHit(target, location)
                 if caster:Has_Aghanims_Shard() then
                     caster:PerformAttack(target, true, true, true, false, true, false, true)
                 end
-                target:AddNewModifier_RS(caster, self, "modifier_death_coil_debuff", {duration=self:GetSpecialValueFor("debuffdur")+caster:TG_GetTalentValue("special_bonus_abaddon_1")})
+                target:AddNewModifier_RS(caster, self, "modifier_death_coil_debuff", {duration=self:GetSpecialValueFor("debuffdur")+caster:TG_GetTalentValue("special_bonus_unique_own_ab_1")})
             end
         end
     end
