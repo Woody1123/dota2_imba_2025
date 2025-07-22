@@ -88,7 +88,7 @@
             "speed"
             {
                 "value"                                 "200"
-                "special_bonus_unique_imba_weaver_1"    "+180"
+                "special_bonus_custom_imba_weaver_1"    "+180"
             }
             "speed_limit"                 "1800"
             "fade_time"                   "0.1"
@@ -96,7 +96,7 @@
             "AbilityCharges"
             {
                 "value"                                 "1"
-                "special_bonus_unique_imba_weaver_6"    "+1"
+                "special_bonus_custom_imba_weaver_6"    "+1"
             }
             "AbilityChargeRestoreTime"
             {
@@ -156,43 +156,10 @@
             "RequiresScepter"    "1"
         }
     }
-    "special_bonus_unique_weaver_2"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "ID"                 "6131" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "ad_linked_abilities"    "weaver_geminate_attack"
-        }
-    }
-    "special_bonus_unique_weaver_3"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "ID"                 "6988" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "ad_linked_abilities"    "weaver_the_swarm"
-        }
-    }
-    "special_bonus_unique_weaver_4"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "ID"                 "6989" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "ad_linked_abilities"    "weaver_the_swarm"
-        }
-    }
-    "special_bonus_unique_imba_weaver_1"
+
+
+
+    "special_bonus_custom_imba_weaver_1"
     {
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -201,7 +168,7 @@
         {
         }
     }
-    "special_bonus_unique_imba_weaver_6"
+    "special_bonus_custom_imba_weaver_6"
     {
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -210,16 +177,5 @@
         {
         }
     }
-    "special_bonus_unique_weaver_5"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "ID"                 "6990" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "ad_linked_abilities"    "weaver_geminate_attack"
-        }
-    }
+
 }
