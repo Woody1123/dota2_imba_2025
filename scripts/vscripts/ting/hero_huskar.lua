@@ -243,74 +243,80 @@ function imba_huskar_inner_fire:OnSpellStart()
 end
 
 --心炎效果
-function imba_huskar_inner_fire:InnerFire(damage_distance,ismagicimmune,isdisarm,self_caster)
-	local damage				= self:GetSpecialValueFor("damage")
-	local radius				= self:GetSpecialValueFor("radius")
-	local disarm_duration		= self:GetSpecialValueFor("disarm_duration")
-	local knockback_dur	= self:GetSpecialValueFor("knockback_duration")
-	local slow_flag = self:GetCaster():TG_HasTalent("special_bonus_imba_huskar_2") and true or false
-	local search_flag =  DOTA_UNIT_TARGET_FLAG_NONE
-	local caster = self.caster
-	if self_caster == 1 and (self:GetCaster():IsRooted() or self:GetCaster():IsStunned() or self:GetCaster():IsSilenced()) then
-	
-		if caster:HasModifier("modifier_imba_huskar_armlet") then 
-			local mod = caster:AddNewModifier(caster,self,"modifier_imba_huskar_burning_spear_hp",{duration = 5}) 
-			if mod~= nil then
-				mod:SetStackCount(mod:GetStackCount()+ caster:GetHealth()*0.15)
+function imba_huskar_inner_fire:InnerFire(damage_distance, ismagicimmune, isdisarm, self_caster)
+	local caster = self:GetCaster()
+	if not caster then return end
+
+	local damage = self:GetSpecialValueFor("damage")
+	local radius = self:GetSpecialValueFor("radius")
+	local disarm_duration = self:GetSpecialValueFor("disarm_duration")
+	local knockback_dur = self:GetSpecialValueFor("knockback_duration")
+	local slow_flag = caster:TG_HasTalent("special_bonus_imba_huskar_2")
+	local search_flag = DOTA_UNIT_TARGET_FLAG_NONE
+
+	if self_caster == 1 and (caster:IsRooted() or caster:IsStunned() or caster:IsSilenced()) then
+		if caster:HasModifier("modifier_imba_huskar_armlet") then
+			local mod = caster:AddNewModifier(caster, self, "modifier_imba_huskar_burning_spear_hp", { duration = 5 })
+			if mod ~= nil then
+				mod:SetStackCount(mod:GetStackCount() + caster:GetHealth() * 0.15)
 			end
 			caster:CalculateStatBonus(true)
 		end
-		radius = radius*2
-		self.caster:SetHealth(math.max(self.caster:GetHealth()*0.85,2))
+		radius = radius * 2
+		caster:SetHealth(math.max(caster:GetHealth() * 0.85, 2))
 	end
-	
+
 	local damageTable = {
-			damage 			= damage,
-			damage_type		= DAMAGE_TYPE_MAGICAL,
-			damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
-			attacker 		= self.caster,
-			ability 		= self
-		}
-	local Knockback ={
-          should_stun = 0.01, --打断
-          knockback_duration = knockback_dur, --击退时间 减去不能动的时间就是太空步的时间
-          duration = knockback_dur, --不能动的时间
-          knockback_height = 0,	--击退高度
-          center_x =  self.caster:GetAbsOrigin().x,	--施法者为中心
-          center_y =  self.caster:GetAbsOrigin().y,
-          center_z =  self.caster:GetAbsOrigin().z,
-      }	
-	self.caster:EmitSound("Hero_Huskar.Inner_Fire.Cast")	
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", PATTACH_POINT, self.caster)
+		damage = damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_NONE,
+		attacker = caster,
+		ability = self
+	}
+
+	local Knockback = {
+		should_stun = 0.01,
+		knockback_duration = knockback_dur,
+		duration = knockback_dur,
+		knockback_height = 0,
+		center_x = caster:GetAbsOrigin().x,
+		center_y = caster:GetAbsOrigin().y,
+		center_z = caster:GetAbsOrigin().z
+	}
+
+	caster:EmitSound("Hero_Huskar.Inner_Fire.Cast")
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", PATTACH_POINT, caster)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
-	ParticleManager:SetParticleControl(particle, 3, self.caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle)
 
-
-	if ismagicimmune then 
-		search_flag = DOTA_UNIT_TARGET_FLAG_NONE+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	if ismagicimmune then
+		search_flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 	end
-	
-	local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, search_flag, FIND_ANY_ORDER, false)
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius,
+			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			search_flag, FIND_ANY_ORDER, false)
+
 	for _, enemy in pairs(enemies) do
-	
 		damageTable.victim = enemy
-		knockback_distance = math.max(self:GetSpecialValueFor("knockback_distance") - (self.caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D(), 50), --击退距离
-		enemy:AddNewModifier(self.caster, self, "modifier_knockback", Knockback)  --白牛的击退		
-		
-		
+		local knockback_distance = math.max(self:GetSpecialValueFor("knockback_distance") - (caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D(), 50)
+		Knockback.knockback_distance = knockback_distance
+		enemy:AddNewModifier(caster, self, "modifier_knockback", Knockback)
+
 		if slow_flag then
-		enemy:AddNewModifier(self.caster, self, "modifier_imba_huskar_inner_fire_move_slow", {duration = 4})  --减速
+			enemy:AddNewModifier(caster, self, "modifier_imba_huskar_inner_fire_move_slow", { duration = 4 })
 		end
-		--缴械
 		if isdisarm then
-		enemy:AddNewModifier_RS(self.caster, self, "modifier_imba_huskar_inner_fire_disarm", {duration = disarm_duration}) --缴械
+			enemy:AddNewModifier_RS(caster, self, "modifier_imba_huskar_inner_fire_disarm", { duration = disarm_duration })
 		end
+
 		ApplyDamage(damageTable)
 	end
-		--免疫破坏
-		self.caster:AddNewModifier(self.caster, self, "modifier_imba_huskar_black", {duration = self:GetSpecialValueFor("duration")}) 
+
+	caster:AddNewModifier(caster, self, "modifier_imba_huskar_black", { duration = self:GetSpecialValueFor("duration") })
 end
+
 --心炎的免疫破坏
 modifier_imba_huskar_black = class({})
 function modifier_imba_huskar_black:IsDebuff()			return false end
@@ -585,16 +591,32 @@ function modifier_imba_huskar_life_break_yidong:OnCreated(params)
 	end
 end
 
-function modifier_imba_huskar_life_break_yidong:UpdateHorizontalMotion( me, dt )
+function modifier_imba_huskar_life_break_yidong:UpdateHorizontalMotion(me, dt)
 	if not IsServer() then return end
 
-	me:FaceTowards(self.target:GetOrigin())
-	local distance = (self.target:GetOrigin() - me:GetOrigin()):Normalized()
-	me:SetOrigin( me:GetOrigin() + distance * self.charge_speed * dt )
-	if (self.target:GetOrigin() - me:GetOrigin()):Length2D() <= 128 or (self.target:GetOrigin() - me:GetOrigin()):Length2D() > self.break_range or self.caster:IsHexed() or self.caster:IsNightmared()then
+	if not self.target or not IsValidEntity(self.target) then
+		self:Destroy()
+		return
+	end
+	if not IsValidEntity(me) then
+		self:Destroy()
+		return
+	end
+
+	local targetOrigin = self.target:GetOrigin()
+	local meOrigin = me:GetOrigin()
+
+	me:FaceTowards(targetOrigin)
+	local direction = (targetOrigin - meOrigin):Normalized()
+	me:SetOrigin(meOrigin + direction * self.charge_speed * dt)
+
+	local dist = (targetOrigin - meOrigin):Length2D()
+	if dist <= 128 or dist > self.break_range or self.caster:IsHexed() or self.caster:IsNightmared() then
 		self:Destroy()
 	end
 end
+
+
 
 function modifier_imba_huskar_life_break_yidong:OnHorizontalMotionInterrupted()
 	self:Destroy()
