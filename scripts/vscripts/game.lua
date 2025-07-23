@@ -108,7 +108,7 @@ AI_HERO_TABLE = {
 
 }
 AI_MODE = false
-AI_START = false
+AI_START = true
 AI_HERO = {}	--ai英雄表
 AI_LV = 1
 AI_HERO_lv = {5,10,15,20,25,30,35,40,45,50}	--ai的等级该干什么事的表

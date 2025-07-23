@@ -1,6 +1,8 @@
 ------2021.01.09--by--你收拾收拾准备出林肯吧
 CreateTalents("npc_dota_hero_bloodseeker", "linken/hero_bloodseeker")
-
+if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
+	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 128
+end
 imba_bloodseeker_bloodrage = class({})
 LinkLuaModifier("modifier_imba_bloodrage", "linken/hero_bloodseeker.lua", LUA_MODIFIER_MOTION_NONE)
 function imba_bloodseeker_bloodrage:OnSpellStart()
@@ -607,19 +609,4 @@ function modifier_imba_rupture_scepter:IsHidden() 			return true end
 function modifier_imba_rupture_scepter:IsPurgable() 		return false end
 function modifier_imba_rupture_scepter:IsPurgeException() 	return false end
 
--- function modifier_imba_rupture_scepter:OnCreated()
--- 	if self:GetAbility() == nil then return end
--- 	if not IsServer() then return end
--- 	if not self:GetParent():IsIllusion() then
--- 		AbilityChargeController:AbilityChargeInitialize(self:GetAbility(), self:GetAbility():GetCooldown(4 - 1), 1, 1, true, true)
--- 		self:StartIntervalThink(0.5)
--- 	end
--- end
--- function modifier_imba_rupture_scepter:OnIntervalThink()
--- 	if not IsServer() then return end
--- 	if self:GetParent():HasScepter() then
--- 		AbilityChargeController:ChangeChargeAbilityConfig(self:GetAbility(), self:GetAbility():GetCooldown(4 - 1), 2, 1, true, true)
--- 	else
--- 		AbilityChargeController:ChangeChargeAbilityConfig(self:GetAbility(), self:GetAbility():GetCooldown(4 - 1), 1, 1, true, true)
--- 	end
--- end
+

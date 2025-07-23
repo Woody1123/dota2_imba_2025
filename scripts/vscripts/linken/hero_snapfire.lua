@@ -427,19 +427,25 @@ function imba_snapfire_firesnap_cookie:OnProjectileHit( target, location )
 
 	-- knockback
 	local knockback = target:AddNewModifier(
-		self:GetCaster(), -- player source
-		self, -- ability source
-		"modifier_generic_knockback_lua", -- modifier name
-		{
-			distance = distance,
-			height = height,
-			duration = duration,
-			direction_x = target:GetForwardVector().x,
-			direction_y = target:GetForwardVector().y,
-			IsStun = IsEnemy(self:GetCaster(),target),--true,
-			IsFreeControll = not IsEnemy(self:GetCaster(),target), --IsEnemy(self:GetCaster(),target),
-		} -- kv
+			self:GetCaster(),
+			self,
+			"modifier_generic_knockback_lua",
+			{
+				distance = distance,
+				height = height,
+				duration = duration,
+				direction_x = target:GetForwardVector().x,
+				direction_y = target:GetForwardVector().y,
+				IsStun = IsEnemy(self:GetCaster(), target),
+				IsFreeControll = not IsEnemy(self:GetCaster(), target),
+			}
 	)
+
+	if knockback then
+		knockback:SetEndCallback(callback)
+	else
+		callback()
+	end
 
 	-- Talent
 	if not IsEnemy(self:GetCaster(),target) and self:GetCaster():TG_HasTalent("special_bonus_imba_snapfire_5") then

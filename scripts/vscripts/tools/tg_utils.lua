@@ -120,17 +120,29 @@ function CDOTA_BaseNPC:TG_GetTalentValue(name,v)
 end
 ]]
 function CDOTA_BaseNPC:TG_GetTalentValue(name, kv)
-	if self:HasModifier("modifier_"..name) then
-		local value_name = kv or "value"
-		local specialVal = AbilityKV[name]["AbilitySpecial"]
-		for k,v in pairs(specialVal) do
-				if v[value_name] then
-					return v[value_name]
-				end
-		end
-	end
-			return 0
+    if self:HasModifier("modifier_" .. name) then
+        local value_name = kv or "value"
+        local ability_data = AbilityKV[name]
+        if ability_data == nil then
+            print("[TG_GetTalentValue] AbilityKV is nil for:", name)
+            return 0
+        end
+
+        local specialVal = ability_data["AbilitySpecial"]
+        if specialVal == nil then
+            print("[TG_GetTalentValue] AbilitySpecial missing for:", name)
+            return 0
+        end
+
+        for k, v in pairs(specialVal) do
+            if v[value_name] then
+                return v[value_name]
+            end
+        end
+    end
+    return 0
 end
+
 
 
 --[[

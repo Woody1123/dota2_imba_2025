@@ -14,10 +14,19 @@ end
 ★获取英雄天赋值。
 --]]
 function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
-
 	if self:HasModifier("modifier_" .. name) then
 		local value_name = kv or "value"
-		local specialVal = AbilityKV[name]["AbilitySpecial"]
+		local ability_data = AbilityKV[name]
+		if ability_data == nil then
+			print("[TG_GetTalentValue] Warning: AbilityKV has no entry for ", name)
+			return 0
+		end
+
+		local specialVal = ability_data["AbilitySpecial"]
+		if specialVal == nil then
+			print("[TG_GetTalentValue] Warning: AbilitySpecial missing for ", name)
+			return 0
+		end
 
 		for k, v in pairs(specialVal) do
 			if v[value_name] then
@@ -25,9 +34,9 @@ function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
 			end
 		end
 	end
-
 	return 0
 end
+
 
 
 --[[
