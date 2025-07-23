@@ -661,35 +661,36 @@ end
 
 function modifier_imba_visage_soul_assumption_charge:DeclareFunctions() return {MODIFIER_EVENT_ON_TAKEDAMAGE} end
 function modifier_imba_visage_soul_assumption_charge:OnTakeDamage(keys)
-	--一定范围范围内的伤害
-	--不会收集肉山和维萨吉控制的单位造成的伤害
-	--不会收集灵魂超度技能本身伤害
+	if not keys.attacker or not IsValidEntity(keys.attacker) then
+		return
+	end
+
 	if (keys.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() <= self:GetAbility():GetSpecialValueFor("radius") and
-	(keys.attacker:IsControllableByAnyPlayer() or keys.attacker:IsBoss()) and
-	(keys.unit:IsRealHero() or not string.find(keys.attacker:GetClassname(), "npc_dota_visage_familiar")) and
-	keys.unit ~= keys.attacker and
-	keys.damage >= self:GetAbility():GetSpecialValueFor("damage_min") and
-	keys.damage <= self:GetAbility():GetSpecialValueFor("damage_max") and
-	
-	keys.inflictor ~= self:GetAbility() then	
+			(keys.attacker:IsControllableByAnyPlayer() or keys.attacker:IsBoss()) and
+			(keys.unit:IsRealHero() or not string.find(keys.attacker:GetClassname(), "npc_dota_visage_familiar")) and
+			keys.unit ~= keys.attacker and
+			keys.damage >= self:GetAbility():GetSpecialValueFor("damage_min") and
+			keys.damage <= self:GetAbility():GetSpecialValueFor("damage_max") and
+			keys.inflictor ~= self:GetAbility() then
 
 		--能量点数 特效
-		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_visage_soul_assumption_charge_timer", 
-		{
-			duration	= self:GetAbility():GetSpecialValueFor("stack_duration"),
-			stacks		= keys.damage
-		})
-		
+		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_visage_soul_assumption_charge_timer",
+				{
+					duration	= self:GetAbility():GetSpecialValueFor("stack_duration"),
+					stacks		= keys.damage
+				})
+
 		local assumption_bars_modifier = self:GetParent():FindAllModifiersByName("modifier_imba_visage_soul_assumption_charge_bar")
-		if #assumption_bars_modifier <= 10 then 
-			self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_visage_soul_assumption_charge_bar", 
-			{
-				duration	= self:GetAbility():GetSpecialValueFor("stack_duration"),
-				stacks		= keys.damage
-			})
+		if #assumption_bars_modifier <= 10 then
+			self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_visage_soul_assumption_charge_bar",
+					{
+						duration	= self:GetAbility():GetSpecialValueFor("stack_duration"),
+						stacks		= keys.damage
+					})
 		end
 	end
 end
+
 
 modifier_imba_visage_soul_assumption_charge_bar = class({})
 

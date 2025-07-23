@@ -23,6 +23,10 @@ function ai_normal:OnIntervalThink()
 	if not IsServer() then return end
 
 	local hero = self.parent
+	if self.castUntil and GameRules:GetGameTime() < self.castUntil then
+		print("[AI] 技能释放前摇中，跳过操作")
+		return
+	end
 	-- 防止多线程打断：记录通道中时间
 	if self.castUntil and GameRules:GetGameTime() < self.castUntil then
 		return
@@ -52,10 +56,11 @@ function ai_normal:OnIntervalThink()
 			1000,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+			DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 			FIND_CLOSEST,
 			false
 	)
+
 	if #enemyHeroes > 0 then
 		self:AttackTarget(enemyHeroes[1])
 		return
@@ -107,7 +112,6 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 	local hero = self.parent
 	if not hero or not hero:IsAlive() then return end
 
-	-- 需要忽略自动释放的物品列表
 	local skipList = {
 		item_tpscroll = true,
 		item_tango = true,
@@ -141,7 +145,7 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 					castRange,
 					DOTA_UNIT_TARGET_TEAM_ENEMY,
 					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-					DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+					DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					FIND_CLOSEST,
 					false
 			)
@@ -153,20 +157,26 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 				hero:CastAbilityOnTarget(target, item, -1)
 				print("[AI] 使用物品", name, "对单位", target:GetUnitName())
 				return
+
 			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 and hasEnemy then
 				hero:CastAbilityOnPosition(target:GetAbsOrigin(), item, -1)
 				print("[AI] 使用物品", name, "对位置", tostring(target:GetAbsOrigin()))
 				return
+
 			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 and hasEnemy then
-				-- 有敌人在范围内才释放无目标物品
 				hero:CastAbilityNoTarget(item, -1)
 				print("[AI] 使用无目标物品", name)
+				-- 记录释放前摇时间，避免打断
+				local castPoint = item:GetCastPoint() or 0
+				local buffer = 0.05
+				self.castUntil = GameRules:GetGameTime() + castPoint + buffer
 				return
 			end
 		end
 		::continue::
 	end
 end
+
 
 function ai_normal:FindEnemyAncient(hero)
 	local ancientNames = {
@@ -280,41 +290,94 @@ end
 function ai_normal:TryLevelUpAbilities()
 	local hero = self.parent
 	local level = hero:GetLevel()
+	local abilityPoints = hero:GetAbilityPoints()
+
+	if abilityPoints <= 0 then
+		return
+	end
+
+	if not self.abilityLevels then
+		self.abilityLevels = {}
+	end
 
 	for i = 0, 15 do
 		local ability = hero:GetAbilityByIndex(i)
 		if ability then
+			local abilityName = ability:GetName()
 			local abilityLevel = ability:GetLevel()
-			-- 升级到当前英雄等级，但不超过技能最大等级
-			if abilityLevel < ability:GetMaxLevel() and abilityLevel < level then
-				hero:UpgradeAbility(ability)
-				print("升级技能:", ability:GetName(), "到等级", abilityLevel + 1)
-				-- 只升级一个技能，避免同时升级多个技能（可以根据策略改）
-				return
+			local maxLevel = ability:GetMaxLevel()
+
+			if abilityLevel < maxLevel and abilityLevel < level then
+				local nextLevel = abilityLevel + 1
+				-- 只在缓存没有记录，或缓存值 < 即将升级的等级 时进行升级
+				if not self.abilityLevels[abilityName] or self.abilityLevels[abilityName] < nextLevel then
+					local success = hero:UpgradeAbility(ability)
+					if success then
+						self.abilityLevels[abilityName] = nextLevel
+						print("[AI] 升级技能:", abilityName, "到等级", nextLevel)
+						return
+					end
+				end
 			end
 		end
 	end
 end
 
+
+
+
 -- 新增：尝试释放技能
 function ai_normal:TryUseAbilities()
 	local hero = self.parent
-	if hero:IsStunned() or hero:IsSilenced() then return end
+	if hero:IsStunned() or hero:IsSilenced() then
+		print("[AI] 英雄沉默或眩晕，跳过施法")
+		return
+	end
 
 	for i = 0, 15 do
 		local ability = hero:GetAbilityByIndex(i)
 		if ability and ability:IsCooldownReady() and ability:IsFullyCastable() then
 			local behavior = ability:GetBehaviorInt()
+			-- 如果是被动 + TOGGLE（可切换），尝试激活
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 then
+				if not ability:GetToggleState() then
+					hero:ToggleAbility(ability)
+					print("[AI] 激活被动切换技能:", ability:GetName())
+				end
+				goto continue
+			end
+
+			-- 单纯被动技能跳过
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then
+				print("[AI] 被动技能跳过:", ability:GetName())
+				goto continue
+			end
 			local castRange = ability:GetCastRange(hero:GetAbsOrigin(), nil)
 			if type(castRange) ~= "number" or castRange <= 0 then
 				castRange = 600
 			end
 			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then
+				print("[AI] 技能", ability:GetName(), "法力不足，跳过")
 				goto continue
 			end
 
+			local castPoint = ability:GetCastPoint() or 0
+			local buffer = 0.05
+
+			local behaviorType = ""
 			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-				-- 找敌人目标施法
+				behaviorType = "单位目标"
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+				behaviorType = "点目标"
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+				behaviorType = "无目标"
+			else
+				behaviorType = "其他类型"
+			end
+
+			print(string.format("[AI] 尝试施放技能: %s (行为类型: %s, 施法距离: %d)", ability:GetName(), behaviorType, castRange))
+
+			if behaviorType == "单位目标" then
 				local enemies = FindUnitsInRadius(
 						hero:GetTeamNumber(),
 						hero:GetAbsOrigin(),
@@ -322,51 +385,89 @@ function ai_normal:TryUseAbilities()
 						castRange,
 						DOTA_UNIT_TARGET_TEAM_ENEMY,
 						DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-						DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+						DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 						FIND_CLOSEST,
 						false
 				)
 				if #enemies > 0 then
+					print("[AI] 找到单位目标，尝试对", enemies[1]:GetUnitName(), "释放", ability:GetName())
 					local success = hero:CastAbilityOnTarget(enemies[1], ability, -1)
-					if not success then
-						-- 如果失败，尝试对自己施法
-						hero:CastAbilityOnTarget(hero, ability, -1)
+					if success then
+						self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+						print("[AI] 技能释放成功:", ability:GetName())
+					else
+						print("[AI] 技能释放失败，且不尝试对自己施法:", ability:GetName())
 					end
 					return
+				else
+					print("[AI] 单位目标技能未找到目标:", ability:GetName())
 				end
 
-			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+			elseif behaviorType == "点目标" then
 				local enemies = FindUnitsInRadius(
 						hero:GetTeamNumber(),
 						hero:GetAbsOrigin(),
 						nil,
-						castRange,
+						math.max(castRange, 1000),  -- 可调大范围
 						DOTA_UNIT_TARGET_TEAM_ENEMY,
 						DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-						DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+						DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 						FIND_CLOSEST,
 						false
 				)
 				if #enemies > 0 then
 					local pos = enemies[1]:GetAbsOrigin()
+					print("[AI] 找到点目标，尝试对位置", tostring(pos), "释放", ability:GetName())
 					local success = hero:CastAbilityOnPosition(pos, ability, -1)
-					if not success then
-						-- 如果失败，尝试对自己施法（无目标）
-						if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-							hero:CastAbilityNoTarget(ability, -1)
-						end
+					if success then
+						self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+						print("[AI] 技能释放成功:", ability:GetName())
+					else
+						print("[AI] 点目标技能释放失败，不尝试无目标释放:", ability:GetName())
 					end
 					return
+				else
+					print("[AI] 点目标技能未找到目标:", ability:GetName())
 				end
 
-			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-				hero:CastAbilityNoTarget(ability, -1)
-				return
+			elseif behaviorType == "无目标" then
+				local enemies = FindUnitsInRadius(
+						hero:GetTeamNumber(),
+						hero:GetAbsOrigin(),
+						nil,
+						600,
+						DOTA_UNIT_TARGET_TEAM_ENEMY,
+						DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+						DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+						FIND_CLOSEST,
+						false
+				)
+				if #enemies > 0 then
+					print("[AI] 发现敌人，尝试无目标技能释放:", ability:GetName())
+					local success = hero:CastAbilityNoTarget(ability, -1)
+					if success then
+						self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+						print("[AI] 无目标技能释放完成:", ability:GetName())
+					else
+						print("[AI] 无目标技能释放失败:", ability:GetName())
+					end
+					return
+				else
+					print("[AI] 无目标技能，没有敌人在范围，跳过:", ability:GetName())
+				end
+			else
+				print("[AI] 未知行为类型技能，跳过:", ability:GetName())
 			end
 		end
 		::continue::
 	end
 end
+
+
+
+
+
+
 
 
 
