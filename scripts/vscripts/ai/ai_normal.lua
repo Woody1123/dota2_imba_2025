@@ -131,7 +131,7 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 		item_refresher = true,
 	}
 
-	-- 先找到所有可用物品中的最大施法范围
+	-- 找最大施法范围和所有可用物品
 	local maxCastRange = 0
 	local usableItems = {}
 
@@ -171,28 +171,44 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 			false
 	)
 	if #enemies == 0 then
-		-- 没敌人，直接返回
-		--print("[AI] 无敌人在物品最大施法范围内，跳过物品使用")
+		-- 无敌人，直接返回
 		return
 	end
 
-	-- 遍历物品，按行为释放
 	for _, item in ipairs(usableItems) do
 		local behavior = item:GetBehaviorInt()
 		local name = item:GetName()
 		local target = enemies[1]
 
 		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-			hero:CastAbilityOnTarget(target, item, -1)
-			print("[AI] 使用物品", name, "对单位", target:GetUnitName())
-			return
+			local success = hero:CastAbilityOnTarget(target, item, -1)
+			if not success then
+				-- 释放失败，尝试对自己释放（如果对自己释放有效）
+				success = hero:CastAbilityOnTarget(hero, item, -1)
+				if success then
+					print("[AI] 物品", name, "对敌方释放失败，改为对自己释放")
+				end
+			else
+				print("[AI] 使用物品", name, "对单位", target:GetUnitName())
+			end
+			if success then return end
 
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
-			hero:CastAbilityOnPosition(target:GetAbsOrigin(), item, -1)
-			print("[AI] 使用物品", name, "对位置", tostring(target:GetAbsOrigin()))
-			return
+			local success = hero:CastAbilityOnPosition(target:GetAbsOrigin(), item, -1)
+			if not success then
+				-- 对自己身上释放（点目标物品一般不能对自己施法，但部分物品允许）
+				local pos = hero:GetAbsOrigin()
+				success = hero:CastAbilityOnPosition(pos, item, -1)
+				if success then
+					print("[AI] 物品", name, "对敌方释放失败，改为对自己位置释放")
+				end
+			else
+				print("[AI] 使用物品", name, "对位置", tostring(target:GetAbsOrigin()))
+			end
+			if success then return end
 
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+			-- 无目标物品只对敌人释放
 			hero:CastAbilityNoTarget(item, -1)
 			print("[AI] 使用无目标物品", name)
 			local castPoint = item:GetCastPoint() or 0
@@ -202,6 +218,7 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 		end
 	end
 end
+
 
 
 
