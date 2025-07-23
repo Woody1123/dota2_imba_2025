@@ -1,226 +1,127 @@
 --一个简易的人工智障，只适用于该图----
 
---添加bot
-function AI_ADDBOTS(num)	--根据指令补全机器人
-	LinkLuaModifier("ai_normal","ai/ai_normal.lua",LUA_MODIFIER_MOTION_NONE )
-	
-	local hero_tab = {
-"npc_dota_hero_dragon_knight",
-"npc_dota_hero_viper",
-"npc_dota_hero_skeleton_king",
-"npc_dota_hero_axe",
-"npc_dota_hero_chaos_knight",
-"npc_dota_hero_drow_ranger",
-"npc_dota_hero_zuus",
-"npc_dota_hero_monkey_king",
-"npc_dota_hero_leshrac",
-"npc_dota_hero_juggernaut",
-"npc_dota_hero_phantom_assassin",
-"npc_dota_hero_slardar",
-"npc_dota_hero_ancient_apparition",
-"npc_dota_hero_skywrath_mage",
-"npc_dota_hero_omniknight",
-"npc_dota_hero_winter_wyvern",}
 
-	AI_TOWER_MIN_LEVEL = (num*2)-8
-	local  valid_player = 0
-	local  ai_player = 0
-	local  good_player = 0
-	local  bad_player = 0
-	for i = 0, 19 do
-        if PlayerResource:IsValidPlayer( i ) then   
-            valid_player = valid_player + 1
-            if PlayerResource:GetPlayer( i ):GetTeamNumber() == 2 then
-                good_player = good_player + 1
-            elseif PlayerResource:GetPlayer( i ):GetTeamNumber() == 3 then
-                bad_player = bad_player + 1
-            end
-        end
-    end
-	
-	for i=1,valid_player do
-		for j=1,#hero_tab do
-			if CDOTA_PlayerResource.TG_HERO[i]:GetName() == hero_tab[j] then
-					table.remove(hero_tab,j)
-			end		
+--添加bot
+function AI_ADDBOTS()
+	LinkLuaModifier("ai_normal", "ai/ai_normal.lua", LUA_MODIFIER_MOTION_NONE)
+
+	-- 自定义：获取所有英雄名称列表（你自己实现）
+	local allHeroes = GetAllHeroNames()
+
+	-- 打乱英雄顺序函数
+	local function ShuffleTable(t)
+		for i = #t, 2, -1 do
+			local j = RandomInt(1, i)
+			t[i], t[j] = t[j], t[i]
 		end
 	end
-	
-	ai_player = valid_player
-	num = num -1
-	
-	
+	ShuffleTable(allHeroes)
+
+	-- 分队英雄列表（可以根据你想法调整）
 	local hero_tab_good = {}
 	local hero_tab_bad = {}
-	if #hero_tab~= 0 then
-		for i =0,num-good_player do
-			local ran = RandomInt(1,#hero_tab)
-			table.insert(hero_tab_good,hero_tab[ran])
-			table.remove(hero_tab,ran)
-		end
+	for i = 1, 10 do
+		table.insert(hero_tab_good, allHeroes[i])
 	end
-	
-	if #hero_tab~= 0 then
-		for i =0,num-bad_player do
-			local ran = RandomInt(1,#hero_tab)
-			table.insert(hero_tab_bad,hero_tab[ran])
-			table.remove(hero_tab,ran)
-		end
+	for i = 11, 20 do
+		table.insert(hero_tab_bad, allHeroes[i])
 	end
-	
-	for k,h in pairs(hero_tab_good) do
-	Timers:CreateTimer(3*k, function()
-		Tutorial:AddBot(h,"", "", true)
-		ai_player = ai_player + 1
-		AI_ON(ai_player)	--激活ai
-		return nil
-		end)
-	end
-	for k,h in pairs(hero_tab_bad) do
-		Timers:CreateTimer(3*k, function()
-		Tutorial:AddBot(h,"", "", false)
-		ai_player = ai_player + 1
-		AI_ON(ai_player)	--激活ai
-		return nil
-		end)
-	end
-	--[[
-	for i =0,num-good_player do --天辉补全
-		Timers:CreateTimer(3*i, function()
-		if #hero_tab_good~=0 then
-			local ran = RandomInt(1,#hero_tab)
-			Tutorial:AddBot(hero_tab[ran],"", "", true)
-			table.remove(hero_tab,ran)
-			else
-			Tutorial:AddBot("npc_dota_hero_axe","", "", true)
-		end
-		ai_player = ai_player + 1
-		AI_ON(ai_player)	--激活ai
-		return nil
-		end)
-	end
-	
-	for i =0,num-bad_player do	--夜宴补全
-		Timers:CreateTimer(3*i, function()
-		if #hero_tab~=0 then
-			local ran = RandomInt(1,#hero_tab)
-			Tutorial:AddBot(hero_tab[ran],"", "", false)
-			table.remove(hero_tab,ran)
-			else
-			Tutorial:AddBot("npc_dota_hero_axe","", "", false)
-		end
-		ai_player = ai_player + 1
-		AI_ON(ai_player)	--激活ai
-		return nil 
-		end)
-	end]]
-	--15秒后统一激活ai
-	--[[
-	Timers:CreateTimer(15, function()
-	
-	    for i=valid_player+1, 24 do
-            if CDOTA_PlayerResource.TG_HERO[i] then
-                local hero = CDOTA_PlayerResource.TG_HERO[i]
-                if hero~= nil and hero:IsAlive() then                 
-					if IsInTable(hero:GetName(),hero_tab) then
-						local modifier_name = tostring(hero:GetName()).."_ai"
-						--print(modifier_name)
-						LinkLuaModifier(modifier_name, "ai/ai_hero/"..modifier_name, LUA_MODIFIER_MOTION_NONE)
-						if hero.ai==nil then 
-							hero.ai = hero:AddNewModifier(hero,nil,modifier_name,{})
-						end	
-						
-						else
-						if hero.ai == nil then
-							hero.ai=hero:AddNewModifier(hero,nil,"ai_normal",{})
-						end
-					end							
-					table.insert(AI_HERO,hero)
-					hero:AddExperience(GetXPNeededToReachNextLevel(4), DOTA_ModifyXP_Unspecified, false, false)
-					hero:AddNewModifier(hero, nil, "modifier_player", {})
-                end
-            end
-        end
-	return nil
-	end]]
-	--确保所有ai都正常再开打
-	Timers:CreateTimer(0, function()
-		local ai_all_o = 0
-		for i = valid_player+1,(num+1)*2 do
-			local ai_hero_o  = CDOTA_PlayerResource.TG_HERO[i]
-			if ai_hero_o and ai_hero_o.ai then
-				ai_all_o = ai_all_o + 1
-			end
-		end
-		--print(ai_all_o)
-		--print((num+1)*2-1)
-		if ai_all_o == (num+1)*2-1 then 
-			AI_START = true
-			return nil 
-			else
-			return 3
-		end	
-	end)
-	
-	
-	--启动ai行动timer--
-	Timers:CreateTimer(0, function()
-		if AI_START then 
-			for _,hero in pairs(AI_HERO) do
-				if hero.ai and hero:IsAlive() then
-					hero.ai:think()
-				end
-			end
-		end
-		local game_time = GameRules:GetGameTime()/60
-		if game_time > 20  then
-			PUSH_LEVEL = 3
-			else
-			if game_time > 10  then
-				PUSH_LEVEL = 2
-			else
-				PUSH_LEVEL = 1
-			end
-		end
-		return 1
-		end)	
-end		
 
-function AI_ON(ai_player) 
-	Timers:CreateTimer(5, function()
-		if CDOTA_PlayerResource.TG_HERO[ai_player] then
-		local hero = CDOTA_PlayerResource.TG_HERO[ai_player]
-		if hero~= nil and hero:IsAlive() then                 
-			--print(hero:GetName()) 
-			--print(IsInTable(hero:GetName(),AI_HERO_TABLE))
-			if IsInTable(hero:GetName(),AI_HERO_TABLE) then
-				local modifier_name = tostring(hero:GetName()).."_ai"
-				--print(modifier_name)
-				LinkLuaModifier(modifier_name, "ai/ai_hero/"..modifier_name, LUA_MODIFIER_MOTION_NONE)
-				if hero.ai==nil then 
-					hero.ai = hero:AddNewModifier(hero,nil,modifier_name,{})
-				end	
-				
-				else
-				if hero.ai == nil then
-					hero.ai=hero:AddNewModifier(hero,nil,"ai_normal",{})
-				end
-			end							
-			hero:SetControllableByPlayer(hero:GetPlayerID(), true)
-			--print(hero:GetPlayerID())
-			--print(hero:GetName())
-			table.insert(AI_HERO,hero)
-			hero:AddExperience(GetXPNeededToReachNextLevel(4), DOTA_ModifyXP_Unspecified, false, false)
-			hero:AddNewModifier(hero, nil, "modifier_player", {})
-			hero:AddNewModifier(hero, nil, "modifier_item_ultimate_scepter_consumed", {})
-			hero:AddNewModifier(hero, nil, "modifier_item_aghanims_shard", {})
-			--print(hero:GetName())
-			--print("LVLUP")
+	-- 统计当前bot数量
+	local function CountBotsOnTeam(team)
+		local count = 0
+		for i = 0, DOTA_MAX_PLAYERS-1 do
+			if PlayerResource:IsValidPlayerID(i) and PlayerResource:IsFakeClient(i) and PlayerResource:GetTeam(i) == team then
+				count = count + 1
+			end
+		end
+		return count
+	end
+
+	-- 补足天辉队bot到10个
+	local goodNeed = 10 - CountBotsOnTeam(DOTA_TEAM_GOODGUYS)
+	local badNeed = 10 - CountBotsOnTeam(DOTA_TEAM_BADGUYS)
+
+	local ai_player = 0
+
+	-- 添加天辉bot，补足缺口
+	for k = 1, goodNeed do
+		local h = hero_tab_good[k]
+		if h then
+			Timers:CreateTimer(3 * k, function()
+				Tutorial:AddBot(h, "", "", true) -- 天辉
+				ai_player = ai_player + 1
+				AI_ON(ai_player)
+				return nil
+			end)
 		end
 	end
-	return nil
+
+	-- 添加夜魇bot，补足缺口
+	for k = 1, badNeed do
+		local h = hero_tab_bad[k]
+		if h then
+			Timers:CreateTimer(3 * k, function()
+				Tutorial:AddBot(h, "", "", false) -- 夜魇
+				ai_player = ai_player + 1
+				AI_ON(ai_player)
+				return nil
+			end)
+		end
+	end
+end
+
+function AI_ON(ai_player)
+	Timers:CreateTimer(5, function()
+		print('启动ai')
+		if CDOTA_PlayerResource.TG_HERO[ai_player] then
+			local hero = CDOTA_PlayerResource.TG_HERO[ai_player]
+			if hero ~= nil and hero:IsAlive() then
+				local playerID = hero:GetPlayerID()
+				-- 判断是否是玩家控制，如果是玩家则不加AI Modifier
+				if not PlayerResource:IsFakeClient(playerID) then
+					print("玩家控制英雄，不加 AI")
+					return nil
+				end
+				local hero_name = hero:GetName()
+				local modifier_name = hero_name .. "_ai"
+				local ai_loaded = false
+
+				--if IsInTable(hero_name, AI_HERO_TABLE) then
+				--	local script_path = "ai/ai_hero/" .. modifier_name
+				--	local success = pcall(function()
+				--		LinkLuaModifier(modifier_name, script_path, LUA_MODIFIER_MOTION_NONE)
+				--	end)
+				--
+				--	if success then
+				--		hero.ai = hero:AddNewModifier(hero, nil, modifier_name, {})
+				--		ai_loaded = true
+				--	else
+				--		print("[AI] 未找到专属AI脚本，已切换为通用AI: " .. hero_name)
+				--	end
+				--end
+
+				if not ai_loaded then
+					if hero.ai == nil then
+						print('增加normalai')
+						LinkLuaModifier("ai_normal", "ai/ai_normal.lua", LUA_MODIFIER_MOTION_NONE)
+						hero.ai = hero:AddNewModifier(hero, nil, "ai_normal", {})
+					end
+				end
+
+				-- **这里不调用SetControllableByPlayer(false)，默认允许玩家控制**
+
+				table.insert(AI_HERO, hero)
+				hero:AddExperience(GetXPNeededToReachNextLevel(4), DOTA_ModifyXP_Unspecified, false, false)
+				hero:AddNewModifier(hero, nil, "modifier_player", {})
+				hero:AddNewModifier(hero, nil, "modifier_item_ultimate_scepter_consumed", {})
+				hero:AddNewModifier(hero, nil, "modifier_item_aghanims_shard", {})
+			end
+		end
+		return nil
 	end)
 end
+
 
 
 --判断敌我军力差距
@@ -400,4 +301,127 @@ function LEARN_VETERAN_TALENT(lv,hero,veteran_talent_table)   --最后每5级一
 				hero:AddNewModifier(hero,nil,veteran_talent_table[lv],{duration = -1})
 				hero:CalculateStatBonus(true)
 			end
+end
+
+function GetAllHeroNames()
+	return {
+		"npc_dota_hero_antimage",
+		"npc_dota_hero_axe",
+		"npc_dota_hero_bane",
+		"npc_dota_hero_bloodseeker",
+		"npc_dota_hero_crystal_maiden",
+		"npc_dota_hero_drow_ranger",
+		"npc_dota_hero_earthshaker",
+		"npc_dota_hero_juggernaut",
+		"npc_dota_hero_mirana",
+		"npc_dota_hero_morphling",
+		"npc_dota_hero_nevermore",
+		"npc_dota_hero_phantom_lancer",
+		"npc_dota_hero_puck",
+		"npc_dota_hero_pudge",
+		"npc_dota_hero_razor",
+		"npc_dota_hero_sand_king",
+		"npc_dota_hero_storm_spirit",
+		"npc_dota_hero_sven",
+		"npc_dota_hero_tiny",
+		"npc_dota_hero_vengefulspirit",
+		"npc_dota_hero_windrunner",
+		"npc_dota_hero_zuus",
+		"npc_dota_hero_kunkka",
+		"npc_dota_hero_lina",
+		"npc_dota_hero_lion",
+		"npc_dota_hero_shadow_shaman",
+		"npc_dota_hero_slardar",
+		"npc_dota_hero_tidehunter",
+		"npc_dota_hero_witch_doctor",
+		"npc_dota_hero_riki",
+		"npc_dota_hero_enigma",
+		"npc_dota_hero_tinker",
+		"npc_dota_hero_sniper",
+		"npc_dota_hero_necrolyte",
+		"npc_dota_hero_warlock",
+		"npc_dota_hero_beastmaster",
+		"npc_dota_hero_queenofpain",
+		"npc_dota_hero_venomancer",
+		"npc_dota_hero_faceless_void",
+		"npc_dota_hero_skeleton_king",
+		"npc_dota_hero_death_prophet",
+		"npc_dota_hero_phantom_assassin",
+		"npc_dota_hero_pugna",
+		"npc_dota_hero_templar_assassin",
+		"npc_dota_hero_viper",
+		"npc_dota_hero_luna",
+		"npc_dota_hero_dragon_knight",
+		"npc_dota_hero_dazzle",
+		"npc_dota_hero_rattletrap",
+		"npc_dota_hero_leshrac",
+		"npc_dota_hero_furion",
+		"npc_dota_hero_life_stealer",
+		"npc_dota_hero_dark_seer",
+		"npc_dota_hero_clinkz",
+		"npc_dota_hero_omniknight",
+		"npc_dota_hero_enchantress",
+		"npc_dota_hero_huskar",
+		"npc_dota_hero_night_stalker",
+		"npc_dota_hero_broodmother",
+		"npc_dota_hero_bounty_hunter",
+		"npc_dota_hero_weaver",
+		"npc_dota_hero_jakiro",
+		"npc_dota_hero_batrider",
+		"npc_dota_hero_chen",
+		"npc_dota_hero_spectre",
+		"npc_dota_hero_doom_bringer",
+		"npc_dota_hero_ancient_apparition",
+		"npc_dota_hero_invoker",
+		"npc_dota_hero_silencer",
+		"npc_dota_hero_obsidian_destroyer",
+		"npc_dota_hero_lycan",
+		"npc_dota_hero_brewmaster",
+		"npc_dota_hero_shadow_demon",
+		"npc_dota_hero_lone_druid",
+		"npc_dota_hero_chaos_knight",
+		"npc_dota_hero_meepo",
+		"npc_dota_hero_treant",
+		"npc_dota_hero_ogre_magi",
+		"npc_dota_hero_undying",
+		"npc_dota_hero_rubick",
+		"npc_dota_hero_disruptor",
+		"npc_dota_hero_nyx_assassin",
+		"npc_dota_hero_naga_siren",
+		"npc_dota_hero_keeper_of_the_light",
+		"npc_dota_hero_wisp",
+		"npc_dota_hero_visage",
+		"npc_dota_hero_slark",
+		"npc_dota_hero_medusa",
+		"npc_dota_hero_troll_warlord",
+		"npc_dota_hero_centaur",
+		"npc_dota_hero_magnataur",
+		"npc_dota_hero_shredder",
+		"npc_dota_hero_bristleback",
+		"npc_dota_hero_tusk",
+		"npc_dota_hero_skywrath_mage",
+		"npc_dota_hero_abaddon",
+		"npc_dota_hero_elder_titan",
+		"npc_dota_hero_legion_commander",
+		"npc_dota_hero_techies",
+		"npc_dota_hero_ember_spirit",
+		"npc_dota_hero_earth_spirit",
+		"npc_dota_hero_underlord",
+		"npc_dota_hero_templar_assassin",
+		"npc_dota_hero_terrorblade",
+		"npc_dota_hero_phoenix",
+		"npc_dota_hero_oracle",
+		"npc_dota_hero_winter_wyvern",
+		"npc_dota_hero_arc_warden",
+		"npc_dota_hero_abyssal_underlord",
+		"npc_dota_hero_monkey_king",
+		"npc_dota_hero_dark_willow",
+		"npc_dota_hero_pangolier",
+		"npc_dota_hero_grimstroke",
+		"npc_dota_hero_mars",
+		"npc_dota_hero_rubick",
+		"npc_dota_hero_snapfire",
+		"npc_dota_hero_void_spirit",
+		"npc_dota_hero_morphling", -- 有些英雄可能重复，去重时注意
+	}
 end

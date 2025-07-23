@@ -18,21 +18,27 @@ function C_DOTA_BaseNPC:TG_GetTalentValue(name, kv)
 		local value_name = kv or "value"
 		local ability_data = AbilityKV[name]
 		if ability_data == nil then
-			print("[TG_GetTalentValue] Warning: AbilityKV has no entry for ", name)
+			print("[TG_GetTalentValue] Warning: AbilityKV has no entry for", name)
 			return 0
 		end
 
+		-- 优先读取 AbilitySpecial
 		local specialVal = ability_data["AbilitySpecial"]
-		if specialVal == nil then
-			print("[TG_GetTalentValue] Warning: AbilitySpecial missing for ", name)
-			return 0
-		end
-
-		for k, v in pairs(specialVal) do
-			if v[value_name] then
-				return tonumber(v[value_name]) or 0  -- 确保返回的是数字
+		if specialVal then
+			for _, v in pairs(specialVal) do
+				if type(v) == "table" and v[value_name] then
+					return tonumber(v[value_name]) or 0
+				end
 			end
 		end
+
+		-- 兼容 AbilityValues 写法
+		local valueTable = ability_data["AbilityValues"]
+		if valueTable and valueTable[value_name] then
+			return tonumber(valueTable[value_name]) or 0
+		end
+
+		print("[TG_GetTalentValue] Warning: No matching value for", name)
 	end
 	return 0
 end

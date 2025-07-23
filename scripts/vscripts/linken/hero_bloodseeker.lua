@@ -1,7 +1,7 @@
 ------2021.01.09--by--你收拾收拾准备出林肯吧
 CreateTalents("npc_dota_hero_bloodseeker", "linken/hero_bloodseeker")
 if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
-	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 128
+	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
 end
 imba_bloodseeker_bloodrage = class({})
 LinkLuaModifier("modifier_imba_bloodrage", "linken/hero_bloodseeker.lua", LUA_MODIFIER_MOTION_NONE)

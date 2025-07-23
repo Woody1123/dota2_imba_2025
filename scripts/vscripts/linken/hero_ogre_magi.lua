@@ -1,5 +1,7 @@
 CreateTalents("npc_dota_hero_ogre_magi", "linken/hero_ogre_magi")
-
+if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
+    DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
+end
 
 imba_ogre_magi_fireblast_ignite = class({})
 LinkLuaModifier("modifier_imba_ogre_magi_fireblast_ignite_debuff", "linken/hero_ogre_magi", LUA_MODIFIER_MOTION_NONE)

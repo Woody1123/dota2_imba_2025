@@ -123,26 +123,66 @@ function CDOTA_BaseNPC:TG_GetTalentValue(name, kv)
     if self:HasModifier("modifier_" .. name) then
         local value_name = kv or "value"
         local ability_data = AbilityKV[name]
-        if ability_data == nil then
+        if not ability_data then
             print("[TG_GetTalentValue] AbilityKV is nil for:", name)
             return 0
         end
 
+        -- 先查 AbilitySpecial（推荐写法）
         local specialVal = ability_data["AbilitySpecial"]
-        if specialVal == nil then
-            print("[TG_GetTalentValue] AbilitySpecial missing for:", name)
-            return 0
-        end
-
-        for k, v in pairs(specialVal) do
-            if v[value_name] then
-                return v[value_name]
+        if specialVal then
+            for _, v in pairs(specialVal) do
+                if v[value_name] then
+                    return tonumber(v[value_name]) or 0
+                end
             end
         end
+
+        -- 兼容旧写法 AbilityValues（避免 index 数值时报错）
+        local valueTable = ability_data["AbilityValues"]
+        if valueTable then
+            local raw = valueTable[value_name]
+            if raw ~= nil then
+                return tonumber(raw) or 0
+            end
+        end
+        PrintAbilitySpecial(specialVal, name)  -- 打印AbilitySpecial
+        PrintAbilityValues(valueTable, name)   -- 打印AbilityValues
+        print("[TG_GetTalentValue] No matching value found for:", name)
     end
     return 0
 end
 
+-- 辅助函数：打印 AbilitySpecial内容
+function PrintAbilitySpecial(specialVal, abilityName)
+    if not specialVal then
+        print("[PrintAbilitySpecial] 没有找到 " .. abilityName .. " 的 AbilitySpecial")
+        return
+    end
+
+    print("\n=== " .. abilityName .. " 的 AbilitySpecial 内容 ===")
+    for i, param in pairs(specialVal) do
+        print("索引 " .. i .. ":")
+        -- 遍历每个参数的键值对
+        for key, value in pairs(param) do
+            print("  " .. key .. " = " .. tostring(value))
+        end
+    end
+end
+
+-- 辅助函数：打印AbilityValues内容
+function PrintAbilityValues(valueTable, abilityName)
+    if not valueTable then
+        print("[PrintAbilityValues] 没有找到 " .. abilityName .. " 的 AbilityValues")
+        return
+    end
+
+    print("\n=== " .. abilityName .. " 的 AbilityValues 内容 ===")
+    -- 遍历键值对
+    for key, value in pairs(valueTable) do
+        print("  " .. key .. " = " .. tostring(value))
+    end
+end
 
 
 --[[

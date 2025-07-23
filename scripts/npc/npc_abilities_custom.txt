@@ -2956,6 +2956,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "psi_blades"
+            "value" "2"
         }
     }
     "special_bonus_templar_assassin_7"
@@ -6602,6 +6603,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "frost_arrows"
+            "value" "5"
         }
     }
     // 狂风刷新数箭齐发CD
@@ -9555,6 +9557,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "corrosive_skin"
+            "value"    "20"
         }
     }
     // 幽冥剧毒照成沉默
@@ -10259,6 +10262,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "frostmourne"
+            "value" "10"
         }
     }
     // 范围型迷雾缠绕（300码）
@@ -10556,6 +10560,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "wave_of_terror"
+            "value"    "4"
         }
     }
     // 返回0CD
@@ -13654,6 +13659,16 @@
         {
             "value"    "150"
         }
+         "AbilitySpecial"
+             {
+
+                     "01"
+                     {
+                         "value"    "150"
+                     }
+                      "value"    "150"
+                 }
+
     }
     // =================================================================================================================
     // Mirana's Cosmic Dust

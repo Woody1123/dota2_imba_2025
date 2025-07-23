@@ -31,7 +31,9 @@ require('modifier/veteran_talent/veteran_talent_contral')
 require('spawner_creep')
 require('ai/poor_ai_core')
 require('ai/ai_normal')
-
+if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
+	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
+end
 function Precache( context )
 	print('加载缓存Precache')
 	GameRules.L_TG = L_TG()
