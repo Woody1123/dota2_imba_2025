@@ -1,19 +1,83 @@
-<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
 <root>
+<!--
 	<scripts>
-		<include src="s2r://panorama/scripts/custom_game/custom_ui.vjs_c" />
-	</scripts>
+       <!-- <include src="file://{resources}/scripts/custom_game/vector_targeting.js" />
+    </scripts>
+-->	
+	<script>
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, false );
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false );
+		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_PREGAME_STRATEGYUI, false );
+		//GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false);
+		GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false);
+		GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND, false);
+
+		
+		GameUI.CustomUIConfig().team_logo_xml = {}
+		GameUI.CustomUIConfig().team_logo_xml[DOTATeam_t.DOTA_TEAM_GOODGUYS] = "file://{images}/custom_game/team_icons/team_icon_tiger_01.png";
+		GameUI.CustomUIConfig().team_logo_xml[DOTATeam_t.DOTA_TEAM_BADGUYS ] = "file://{images}/custom_game/team_icons/team_icon_monkey_01.png";
+
+		var PreGame = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("PreGame")
+		var LoadingScreenContent = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("LoadingScreenContent")
+		var PregameBG = PreGame.FindChildTraverse("PregameBG")
+		var HeroPickMinimap = PreGame.FindChildTraverse("HeroPickMinimap")
+		var HeroInspect = PreGame.FindChildTraverse("HeroInspect")
+		var LockInButton = PreGame.FindChildTraverse("LockInButton")
+		var RandomButton = PreGame.FindChildTraverse("RandomButton")
+		Show_PreGame()
+		function Show_PreGame()
+		{
+			if (!Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION))
+			{
+				PreGame.style.opacity = "0";
+				$.Schedule(0.5, Show_PreGame);
+			}
+			else
+			{
+				PreGame.style.opacity = "1";
+			}
+		}
+		if (PreGame.FindChildTraverse("BattlePassHeroUpsell")) {
+			PreGame.FindChildTraverse("BattlePassHeroUpsell").style.visibility = "collapse";
+			PreGame.FindChildTraverse("FriendsAndFoes").style.visibility = "collapse";
+		if (PreGame && PreGame.FindChildTraverse("BattlePassHeroData"))
+			PreGame.FindChildTraverse("BattlePassHeroData").style.visibility = "collapse";
+		}
+		HeroPickMinimap.style.visibility = "collapse";
+		HeroInspect.style.backgroundColor="#00000050";
+		LockInButton.style.backgroundColor="#00000090";
+		RandomButton.style.backgroundColor="#00000090";
+	</script>
+
 	<Panel>
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/barebones_notifications.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/tip666.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/top_scoreboard.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/skills_select.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/rd_skills.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/player.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/player.vxml_c" />
-		<CustomUIElement type="GameSetup" layoutfile="s2r://panorama/layout/custom_game/team_select.vxml_c" />
-		<CustomUIElement type="HeroSelection" layoutfile="s2r://panorama/layout/custom_game/multiteam_hero_select_overlay.vxml_c" />
-		<CustomUIElement type="FlyoutScoreboard" layoutfile="s2r://panorama/layout/custom_game/multiteam_flyout_scoreboard.vxml_c" />
-		<CustomUIElement type="EndScreen" layoutfile="s2r://panorama/layout/custom_game/multiteam_end_screen.vxml_c" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tip666.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/top_scoreboard.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/skills_select.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/rd_skills.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/player.xml" />
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/player.xml" />
+
+
+			<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
+			<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
+			<CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" />
+			<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
+
+
+
+
+
+		<!--
+
+
+			<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tooltips/aghs_status.xml" />
+
+
+
+		-->
 	</Panel>
+
+
 </root>

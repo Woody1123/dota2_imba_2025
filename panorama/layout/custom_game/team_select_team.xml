@@ -1,4 +1,3 @@
-<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
 		<include src="s2r://panorama/styles/custom_game/team_select.css" />
@@ -9,7 +8,7 @@
 	<Button class="TeamSelectTeam" onactivate="OnJoinTeamPressed()">
 		<Panel id="TeamBackgroundGradient" />
 		<Panel id="TeamBackgroundGradientHighlight" />
-		<Panel id="TeamGroup">
+		<Panel id="TeamGroup" >
 			<Panel id="TeamHeader">
 				<Panel id="TeamLogo" />
 				<Label id="TeamNameLabel" text="TEAM_NAME" />

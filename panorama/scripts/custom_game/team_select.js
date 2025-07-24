@@ -240,26 +240,20 @@ function UpdateTimer() {
     CheckForHostPrivileges();
 
     var mapInfo = Game.GetMapInfo();
-    var mapInfoPanel = $("#MapInfo");
-    if (mapInfoPanel) {
-        mapInfoPanel.SetDialogVariable("map_name", mapInfo.map_display_name);
+    $("#MapInfo").SetDialogVariable("map_name", mapInfo.map_display_name);
+
+    if (transitionTime >= 0) {
+        $("#StartGameCountdownTimer").SetDialogVariableInt("countdown_timer_seconds", Math.max(0, Math.floor(transitionTime - gameTime)));
+        $("#StartGameCountdownTimer").SetHasClass("countdown_active", true);
+        $("#StartGameCountdownTimer").SetHasClass("countdown_inactive", false);
+    } else {
+        $("#StartGameCountdownTimer").SetHasClass("countdown_active", false);
+        $("#StartGameCountdownTimer").SetHasClass("countdown_inactive", true);
     }
 
-    var timerPanel = $("#StartGameCountdownTimer");
-    if (timerPanel) {
-        if (transitionTime >= 0) {
-            timerPanel.SetDialogVariableInt("countdown_timer_seconds", Math.max(0, Math.floor(transitionTime - gameTime)));
-            timerPanel.SetHasClass("countdown_active", true);
-            timerPanel.SetHasClass("countdown_inactive", false);
-        } else {
-            timerPanel.SetHasClass("countdown_active", false);
-            timerPanel.SetHasClass("countdown_inactive", true);
-        }
-
-        var autoLaunch = Game.GetAutoLaunchEnabled();
-        timerPanel.SetHasClass("auto_start", autoLaunch);
-        timerPanel.SetHasClass("forced_start", (autoLaunch == false));
-    }
+    var autoLaunch = Game.GetAutoLaunchEnabled();
+    $("#StartGameCountdownTimer").SetHasClass("auto_start", autoLaunch);
+    $("#StartGameCountdownTimer").SetHasClass("forced_start", (autoLaunch == false));
 
     // Allow the ui to update its state based on team selection being locked or unlocked
     $.GetContextPanel().SetHasClass("teams_locked", Game.GetTeamSelectionLocked());
@@ -286,30 +280,27 @@ function UpdateTimer() {
             bAutoAssignTeams = cfg.bAutoAssignTeams;
         }
     }
- //    $.Msg("TeamsListRoot: ", $("#TeamsListRoot"));
- // var teamsListRootNode = $("#TeamsListRoot");
- //    // $("#TeamSelectContainer").SetAcceptsFocus(true); // Prevents the chat window from taking focus by default
- //    if (!teamsListRootNode) {
- //        $.Msg("Error: TeamsListRoot panel not found!");
- //        return; // 终止执行，防止后续报错
- //    }
- //
- //    // Construct the panels for each team
- //    var allTeamIDs = Game.GetAllTeamIDs();
- //
- //    if (bShowSpectatorTeam) {
- //        allTeamIDs.unshift(g_TEAM_SPECATOR);
- //    }
- //
- //    for (var teamId of allTeamIDs) {
- //        var teamNode = $.CreatePanel("Panel", teamsListRootNode, "");
- //        teamNode.AddClass("team_" + teamId); // team_1, etc.
- //        teamNode.SetAttributeInt("team_id", teamId);
- //        teamNode.BLoadLayout("file://{resources}/layout/custom_game/team_select_team.xml", false, false);
- //
- //        // Add the team panel to the global list so we can get to it easily later to update it
- //        g_TeamPanels.push(teamNode);
- //    }
+	
+ var teamsListRootNode = $("#TeamsListRoot");
+    $("#TeamSelectContainer").SetAcceptsFocus(true); // Prevents the chat window from taking focus by default
+   
+
+    // Construct the panels for each team
+    var allTeamIDs = Game.GetAllTeamIDs();
+
+    if (bShowSpectatorTeam) {
+        allTeamIDs.unshift(g_TEAM_SPECATOR);
+    }
+
+    for (var teamId of allTeamIDs) {
+        var teamNode = $.CreatePanel("Panel", teamsListRootNode, "");
+        teamNode.AddClass("team_" + teamId); // team_1, etc.
+        teamNode.SetAttributeInt("team_id", teamId);
+        teamNode.BLoadLayout("file://{resources}/layout/custom_game/team_select_team.xml", false, false);
+
+        // Add the team panel to the global list so we can get to it easily later to update it
+        g_TeamPanels.push(teamNode);
+    }
 
     // Automatically assign players to teams.
     if (bAutoAssignTeams) {

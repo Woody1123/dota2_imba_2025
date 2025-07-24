@@ -1,24 +1,36 @@
-<!-- panorama/layout/custom_game/multiteam_flyout_scoreboard_player.xml -->
 <root>
-	<styles>
-		<include src="s2r://panorama/styles/custom_game/shared_scoreboard_styles.vcss_c" />
-		<include src="s2r://panorama/styles/custom_game/multiteam_flyout_scoreboard.vcss_c" />
-	</styles>
+    <styles>
+		<include src="file://{resources}/styles/custom_game/shared_scoreboard_styles.css" />
+        <include src="file://{resources}/styles/custom_game/multiteam_flyout_scoreboard.css" />
+    </styles>
+    <script>
 
-	<scripts>
-		<include src="file://{resources}/scripts/custom_game/multiteam_flyout_scoreboard_player.js" />
-	</scripts>
+				function ToggleMute() {
+					var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+					if (playerId !== -1) {
+						var newIsMuted = !Game.IsPlayerMuted(playerId);
+						Game.SetPlayerMuted(playerId, newIsMuted);
+						$.GetContextPanel().SetHasClass("player_muted", newIsMuted);
+					}
+				}
 
-	<Panel class="PlayerRow">
-		<Panel id="PlayerRowContainer">
-			<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel">
+				(function() {
+					var playerId = $.GetContextPanel().GetAttributeInt("player_id", -1);
+					$.GetContextPanel().SetHasClass("player_muted", Game.IsPlayerMuted(playerId));
+				})();
+
+    </script>
+	<Panel class="PlayerRow" >
+		<Panel id="PlayerRowContainer" >
+			<Panel id="Hero" class="ScoreCol_Hero ScoreboardPanel" >
 				<Image id="HeroIcon" heroimagestyle="landscape" scaling="stretch-to-fit-preserve-aspect" />
 			</Panel>
 			<Panel id="PlayerDetailsContainer" class="ScoreCol_PlayerDetails ScoreboardPanel">
-				<Panel id="PlayerAndHeroName">
+				<Panel id="PlayerAndHeroName" >
 					<Label id="PlayerName" text="" />
 					<Label id="HeroNameAndDescription" text="#custom_scoreboard_hero_name_and_desc" />
 				</Panel>
+
 			</Panel>
 			<Panel id="TeamScoreSpace" class="ScoreCol_TeamScore" />
 			<Panel id="KillsContainer" class="ScoreCol_Kills ScoreboardPanel">
@@ -30,9 +42,9 @@
 			<Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
 				<Label id="Assists" text="0" />
 			</Panel>
-			<Label id="TeammateGoldAmount" text="0" class="ScoreCol_Golds ScoreboardPanel" />
-			<DOTAAbilityImage id="RDSKButton" class="ScoreCol_RDSK ScoreboardPanel" hittest="true" />
-			<Button id="MuteButton" onactivate="ToggleMute();" class="ScoreCol_Mute ScoreboardPanel" />
+			<Label id="TeammateGoldAmount"  text="0" class="ScoreCol_Golds ScoreboardPanel"/>
+			<DOTAAbilityImage id="RDSKButton"    class="ScoreCol_RDSK ScoreboardPanel"  hittest="true" />
+			<Button id="MuteButton" onactivate="ToggleMute();" class="ScoreCol_Mute ScoreboardPanel"/>
 		</Panel>
 		<Panel id="UltimateIndicatorBG" class="UltimateIndicatorShared" />
 		<Panel id="UltimateIndicator" class="UltimateIndicatorShared" />

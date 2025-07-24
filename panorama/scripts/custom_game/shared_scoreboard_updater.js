@@ -66,7 +66,6 @@ function Get_Profile(panel, childName, id, steamid) {
 //=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_UpdatePlayerPanel(scoreboardConfig, playersContainer, playerId, localPlayerTeamId) {
-    $.Msg("UpdatePlayerPanel ", scoreboardConfig, " changed: '", playerId, "' = ");
     var playerPanelName = "_dynamic_player_" + playerId;
     var playerPanel = playersContainer.FindChild(playerPanelName);
     if (playerPanel === null) {

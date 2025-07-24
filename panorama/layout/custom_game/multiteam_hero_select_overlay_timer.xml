@@ -1,11 +1,10 @@
-<!-- xml reconstructed by Source 2 Viewer 13.0.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/custom_game/multiteam_hero_select_overlay.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/multiteam_hero_select_overlay.css" />
 	</styles>
 	<Panel hittest="false" class="HeroSelectOverlayTimer">
-		<Image id="TimerBg" src="s2r://" />
-		<Image id="TimerRing" src="s2r://" />
+		<Image id="TimerBg" src="file://{images}/status_icons/timer_background.psd" />
+		<Image id="TimerRing" src="file://{images}/status_icons/timer_ring.psd" />
 		<Label id="Timer" text="#HeroSelectionTimer" />
 		<Label id="TimerLabel" text="#HeroPick" />
 	</Panel>
