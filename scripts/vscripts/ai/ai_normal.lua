@@ -17,6 +17,12 @@ function ai_normal:OnCreated()
 	self.beingTargetedByTower = false
 
 	self:StartIntervalThink(0.5)
+	Timers:CreateTimer(0, function()
+		if ai_normal and ai_normal.TryEnableToggleAbilities then
+			ai_normal:TryEnableToggleAbilities()
+		end
+		return 60  -- 每 60 秒检查一次
+	end)
 end
 
 function ai_normal:OnIntervalThink()
@@ -384,15 +390,13 @@ end
 
 
 
-
--- 新增：尝试释放技能
 function ai_normal:TryUseAbilities()
 	local hero = self.parent
 	if not hero or not hero:IsAlive() or hero:IsStunned() or hero:IsSilenced() then
 		return
 	end
 
-	-- === 前置查找范围内敌人 ===
+	-- 搜索范围内敌人
 	local searchRange = 1000
 	local enemies = FindUnitsInRadius(
 			hero:GetTeamNumber(),
@@ -406,7 +410,6 @@ function ai_normal:TryUseAbilities()
 			false
 	)
 
-	-- 没有敌人就不释放技能
 	if #enemies == 0 then return end
 	local target = enemies[1]
 	local targetPos = target:GetAbsOrigin()
@@ -418,19 +421,31 @@ function ai_normal:TryUseAbilities()
 			local castRange = ability:GetCastRange(hero:GetAbsOrigin(), nil)
 			if not castRange or castRange <= 0 then castRange = 600 end
 
+			-- 跳过不够蓝的技能
 			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then goto continue end
+
+			-- 跳过被动技能
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then goto continue end
+
+			-- 检查是否属于“CD短 + 不耗蓝”的技能（只在重生触发一次）
+			local isNoMana = ability:GetManaCost(ability:GetLevel()) == 0
+			local isShortCD = ability:GetCooldown(ability:GetLevel()) <= 3
+			if isNoMana and isShortCD then
+				if self.castOnRespawnDone then
+					goto continue
+				else
+					self.castOnRespawnDone = true
+				end
+			end
 
 			local castPoint = ability:GetCastPoint() or 0
 			local buffer = 0.05
 
-			-- 被动技能跳过
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then goto continue end
-
 			-- 切换技能尝试开启
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 then
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 then
 				if not ability:GetToggleState() then
 					hero:CastAbilityToggle(ability, -1)
-					print("[AI] 激活被动切换技能:", ability:GetName())
+					print("[AI] 激活切换技能:", ability:GetName())
 				end
 				goto continue
 			end
@@ -469,10 +484,37 @@ function ai_normal:TryUseAbilities()
 end
 
 
+function ai_normal:TryEnableToggleAbilities()
+	local hero = self.parent
+	if not hero or not hero:IsAlive() then return end
+
+	for i = 0, 5 do
+		local ability = hero:GetAbilityByIndex(i)
+		if ability
+				and ability:IsToggle()
+				and not ability:GetToggleState()
+				and ability:IsFullyCastable()
+				and ability:IsActivated()
+				and ability:GetLevel() > 0 then
+
+			print("[AI] 自动开启 toggle 技能:", ability:GetAbilityName())
+			ability:ToggleAbility()
+		end
+	end
+end
+
+Timers:CreateTimer(0, function()
+	if ai_normal and ai_normal.TryEnableToggleAbilities then
+		ai_normal:TryEnableToggleAbilities()
+	end
+	return 60  -- 每 60 秒检查一次
+end)
 
 
 
-
+function ai_normal:OnRespawn()
+	self.castOnRespawnDone = false
+end
 
 
 
