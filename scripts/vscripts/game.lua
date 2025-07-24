@@ -926,7 +926,7 @@ Neutral_EX={
   --"item_unwavering_condition",--坚毅之件
   --"item_doubloon",--双面币
   "item_paladin_sword",--骑士剑
-  -- "item_ballista",--弩炮
+  "item_ballista",--弩炮
   --"item_vindicators_axe",--正义之斧
   --"item_ogre_seal_totem"--食人魔海豹图腾
   "item_avianas_feather",--艾薇那之羽

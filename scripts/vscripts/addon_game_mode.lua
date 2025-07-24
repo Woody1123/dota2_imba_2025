@@ -203,7 +203,7 @@ function L_TG:InitGameMode()
 
 
 	--是否允许掉落中立物品
-	mode:SetAllowNeutralItemDrops(false)
+	--mode:SetAllowNeutralItemDrops(true)
 
 
 	--是否开启随机英雄的奖励
@@ -709,18 +709,6 @@ end
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------
---[[
-function L_TG:BountyRuneFilter(tg)
-	return true
-end
-]]
-
-
-----------------------------------------------------------------------------------------------------------------------------------
-
-
-
 -- 安全检查 IsNeutralDrop 是否存在的方法
 local function SafeIsNeutralDrop(item)
 	return item and type(item.IsNeutralDrop) == "function" and item:IsNeutralDrop()
@@ -978,34 +966,6 @@ function L_TG:ExpFilter(tg)
 end
 
 
-
-----------------------------------------------------------------------------------------------------------------------------------
-
-
-
---[[
-DOTA_ModifyGold_AbandonedRedistribute = 5
-DOTA_ModifyGold_AbilityCost = 7
-DOTA_ModifyGold_AbilityGold = 19
-DOTA_ModifyGold_BountyRune = 17
-DOTA_ModifyGold_Building = 11
-DOTA_ModifyGold_Buyback = 2
-DOTA_ModifyGold_CheatCommand = 8
-DOTA_ModifyGold_CourierKill = 16
-DOTA_ModifyGold_CreepKill = 13
-DOTA_ModifyGold_Death = 1
-DOTA_ModifyGold_GameTick = 10
-DOTA_ModifyGold_HeroKill = 12
-DOTA_ModifyGold_NeutralKill = 14
-DOTA_ModifyGold_PurchaseConsumable = 3
-DOTA_ModifyGold_PurchaseItem = 4
-DOTA_ModifyGold_RoshanKill = 15
-DOTA_ModifyGold_SelectionPenalty = 9
-DOTA_ModifyGold_SellItem = 6
-DOTA_ModifyGold_SharedGold = 18
-DOTA_ModifyGold_Unspecified = 0
-DOTA_ModifyGold_WardKill = 20
-]]
 function L_TG:GoldFilter(tg)
 	local hero = PlayerResource.TG_HERO[tg.player_id_const + 1]
 	if hero==nil then
@@ -1047,93 +1007,10 @@ function L_TG:GoldFilter(tg)
 end
 
 
-
-----------------------------------------------------------------------------------------------------------------------------------
-
-
-
---[[
-	{
-		rune_type                       	= 2 (number)
-		spawner_entindex_const          	= 609 (number)
-
-
-		DOTA_RUNE_ARCANE = 6
-		DOTA_RUNE_BOUNTY = 5
-		DOTA_RUNE_COUNT = 8
-		DOTA_RUNE_DOUBLEDAMAGE = 0
-		DOTA_RUNE_HASTE = 1
-		DOTA_RUNE_ILLUSION = 2
-		DOTA_RUNE_INVALID = -1
-		DOTA_RUNE_INVISIBILITY = 3
-		DOTA_RUNE_REGENERATION = 4
-		DOTA_RUNE_XP = 7
-	}
-
-function L_TG:RuneSpawnFilter(tg)
-	local spawner =tg.spawner_entindex_const and EntIndexToHScript(tg.spawner_entindex_const) or nil
-	print(spawner:GetName())
-	return true
+-- 扩展所有物品实例，加上 IsNeutralDrop 方法
+function CDOTA_Item:IsNeutralDrop()
+	local name = self:GetAbilityName()
+	local kv = GetAbilityKeyValuesByName(name)
+	return kv and kv.ItemIsNeutralDrop == "1"
 end
- ]]
 
-
-----------------------------------------------------------------------------------------------------------------------------------
-
-
-
---[[
-	dodgeable: 1
-	entindex_ability_const: 357
-	entindex_source_const: 349
-	entindex_target_const: 413
-	expire_time: 99.298980712891
-	is_attack: 0
-	max_impact_time: 0
-	move_speed: 3000
-
-function L_TG:TrackingProjectileFilter(tg)
-
-
-	local ability=EntIndexToHScript(tg.entindex_ability_const)
-	local attacker=EntIndexToHScript(tg.entindex_source_const)
-	local target=EntIndexToHScript(tg.entindex_target_const)
-	local is_attack=tg.is_attack
-   --[[
-		火枪：探测器
-
-	if target~=nil and (target:GetClassname()~="dota_item_drop" and target:GetClassname()~="dota_item_rune" ) and  (target:HasModifier( "modifier_device_buff" ) and attacker:HasModifier( "modifier_device_debuff" ) and is_attack==1 and attacker:IsRangedAttacker())then
-		local ab=target:FindAbilityByName( "device" )
-		local rd=0
-		local ch=0
-		local bot=nil
-		if ab~=nil then
-			rd=ab:GetSpecialValueFor( "br" )
-			ch=ab:GetSpecialValueFor( "ch" )
-			bot= ab.BOTB
-		end
-
-		if RollPseudoRandomPercentage(ch,0,ab) then
-			local enemies = FindUnitsInRadius(
-				attacker:GetTeamNumber(),
-				attacker:GetAbsOrigin(),
-				nil,
-				rd,
-				DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-				DOTA_UNIT_TARGET_FLAG_NONE,
-				FIND_ANY_ORDER,
-				false)
-			if #enemies>0 then
-				attacker:PerformAttack(TG_Random_Table(enemy), false, false, true, false, true, false, true)
-			end
-		elseif bot~=nil then
-			attacker:PerformAttack(bot, false, false, true, false, true, false, true)
-		end
-		return false
-	else
-		return true
-	end
-
-end
-]]
