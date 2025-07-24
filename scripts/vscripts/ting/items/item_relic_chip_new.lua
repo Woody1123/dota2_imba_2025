@@ -18,7 +18,7 @@ function item_imba_relic_chip:OnSpellStart()
 	local hp_minute = self:GetSpecialValueFor("hp_minute")
 	local time_minute = math.ceil(GameRules:GetGameTime()/60)
 
-	self.particle	= ParticleManager:CreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_WORLDORIGIN, caster, caster:GetTeam())
+	self.particle	= ParticleManager:SafeCreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_WORLDORIGIN, caster, caster:GetTeam())
 	ParticleManager:SetParticleControl(self.particle, 0, pos)
 	ParticleManager:SetParticleControl(self.particle, 1, Vector(400, 1, 1))
 
@@ -28,7 +28,7 @@ function item_imba_relic_chip:OnSpellStart()
   -- 	ParticleManager:FireParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_magical.vpcf", PATTACH_POINT, caster, {[0] = point})
 		EmitSoundOn("DOTA_Item.MeteorHammer.Channel", caster)
 		for i=1,3,1 do
-		self.particle3	= ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, caster)
+		self.particle3	= ParticleManager:SafeCreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(self.particle3, 0, caster:GetAbsOrigin() + Vector(0, 0, 600)) -- 1000 feels kinda arbitrary but it also feels correct
 		ParticleManager:SetParticleControl(self.particle3, 1, pos)
 		ParticleManager:SetParticleControl(self.particle3, 2, Vector(0.5, 0, 0))
@@ -132,7 +132,7 @@ function modifier_relic_effect:IsPurgable() 		return false end
 function modifier_relic_effect:IsPurgeException() 	return false end
 function modifier_relic_effect:RemoveOnDeath() 	return false end
 function modifier_relic_effect:OnCreated()
-	local particle= ParticleManager:CreateParticle(self:GetParent():GetTeamNumber() == 2  and "particles/items/titan_hammer/hammer_buff.vpcf" or "particles/items5_fx/helm_of_the_dominator_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+	local particle= ParticleManager:SafeCreateParticle(self:GetParent():GetTeamNumber() == 2  and "particles/items/titan_hammer/hammer_buff.vpcf" or "particles/items5_fx/helm_of_the_dominator_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(particle, 0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1,self:GetParent():GetAbsOrigin())
     self:AddParticle(particle, false, false, 4, false, false)

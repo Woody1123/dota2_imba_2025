@@ -108,11 +108,11 @@ function modifier_imba_slardar_sprint_motion:OnCreated(keys)
 			self:OnIntervalThink()
 			self:StartIntervalThink(FrameTime())
 			--特效
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_horn", self:GetParent():GetAbsOrigin(), true)
 			self:AddParticle(pfx, false, false, 15, false, false)
 
-		--	local pfx2 = ParticleManager:CreateParticle("particles/pangolier/pangolier_gyroshellaa.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		--	local pfx2 = ParticleManager:SafeCreateParticle("particles/pangolier/pangolier_gyroshellaa.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		--	ParticleManager:SetParticleControl(pfx2, 0, self:GetParent():GetAbsOrigin()) --origin
 		--	self:AddParticle(pfx2, false, false, -1, true, false)
 		else
@@ -390,7 +390,7 @@ function imba_slardar_slithereen_crush:OnSpellStart()
 	)
 	
 	--落地特效
-	local crush = ParticleManager:CreateParticle(crush_particle, PATTACH_WORLDORIGIN, nil)
+	local crush = ParticleManager:SafeCreateParticle(crush_particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(crush, 0, caster:GetAbsOrigin())
 	--释放特效
 	ParticleManager:DestroyParticle(crush, false)
@@ -424,7 +424,7 @@ function imba_slardar_slithereen_crush:OnSpellStart()
 		for _,unit in pairs(units) do
 			if not unit:IsMagicImmune() then
 				--缠绕特效
-				local unit_pfx = ParticleManager:CreateParticle(crush_scepter, PATTACH_ABSORIGIN, unit)
+				local unit_pfx = ParticleManager:SafeCreateParticle(crush_scepter, PATTACH_ABSORIGIN, unit)
 				ParticleManager:SetParticleControl(unit_pfx, 0, unit:GetAbsOrigin())
 				ParticleManager:DestroyParticle(unit_pfx, false)
 				ParticleManager:ReleaseParticleIndex(unit_pfx)
@@ -470,7 +470,7 @@ function imba_slardar_slithereen_crush:OnSpellStart()
 			if not enemy:IsMagicImmune() then
 				damage_table.victim = enemy
 				--击中特效
-				local target_pfx = ParticleManager:CreateParticle(crush_target, PATTACH_ABSORIGIN, enemy)
+				local target_pfx = ParticleManager:SafeCreateParticle(crush_target, PATTACH_ABSORIGIN, enemy)
 				ParticleManager:SetParticleControl(target_pfx, 0, enemy:GetAbsOrigin())
 				ParticleManager:DestroyParticle(target_pfx, false)
 				ParticleManager:ReleaseParticleIndex(target_pfx)
@@ -555,7 +555,7 @@ function modifier_imba_slardar_slithereen_crush_scepter:GetAuraSearchType() retu
 function modifier_imba_slardar_slithereen_crush_scepter:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local puddle_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_water_puddle.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
+		local puddle_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_slardar/slardar_water_puddle.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(puddle_particle, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(puddle_particle, 1, Vector(self:GetAbility():GetSpecialValueFor("scepter_puddle_radius"), 0, 0))
 		self:AddParticle(puddle_particle, false, false, -1, false, false)
@@ -860,7 +860,7 @@ function modifier_imba_slardar_trap_thinker:OnCreated()
 	if IsServer() then
 		self:GetParent():EmitSound("Hero_Slardar.Amplify_Damage")
 		self.trap_table = {}
-		local pfx = ParticleManager:CreateParticle("particles/ambient/tower_laser_blind.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		local pfx = ParticleManager:SafeCreateParticle("particles/ambient/tower_laser_blind.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControlEnt(pfx, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_portrait", self:GetCaster():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 
@@ -911,7 +911,7 @@ function modifier_imba_slardar_trap_thinker:OnDestroy()
 				--1
 				enemy:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration = 1.0})
 				--击中特效
-				local target_pfx = ParticleManager:CreateParticle("particles/econ/items/slardar/slardar_takoyaki_gold/slardar_crush_tako_teeth_gold.vpcf", PATTACH_ABSORIGIN, food)
+				local target_pfx = ParticleManager:SafeCreateParticle("particles/econ/items/slardar/slardar_takoyaki_gold/slardar_crush_tako_teeth_gold.vpcf", PATTACH_ABSORIGIN, food)
 				ParticleManager:SetParticleControl(target_pfx, 0, enemy:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(target_pfx)
 			end
@@ -933,9 +933,9 @@ function modifier_imba_slardar_trap_target:CheckState() return {[MODIFIER_STATE_
 function modifier_imba_slardar_trap_target:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/ambient/tower_laser_blind.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/ambient/tower_laser_blind.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		--particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf
-		--local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		--local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_portrait", self:GetCaster():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		self.caster = self:GetCaster()

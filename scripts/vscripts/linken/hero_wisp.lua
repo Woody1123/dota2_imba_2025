@@ -111,7 +111,7 @@ function modifier_imba_wisp_tether_target:OnCreated()
 			self.tether_heal_amp 	= self:GetAbility():GetSpecialValueFor("tether_heal_damage") + self.caster:TG_GetTalentValue("special_bonus_imba_wisp_7")
 			--print(self.tether_heal_amp)
 		end	
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_tether.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(self.pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self.total_gained_mana 		= 0
@@ -543,7 +543,7 @@ function modifier_imba_spirits_thinker:OnCreated(params)
 			--self.length = (self.pos - self.target:GetAbsOrigin()):Length2D()
 		--end	
 		--DebugDrawCircle(self:GetParent():GetAbsOrigin(), Vector(255,0,0), 100, 50, true, 2.0)
-		self.ember_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.ember_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.ember_particle, 1, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.ember_particle, false, false, -1, false, false)		
 		self:StartIntervalThink(FrameTime())
@@ -685,7 +685,7 @@ function modifier_imba_spirits_thinker_debuff:OnCreated()
 			ability 		= self:GetAbility()
 		}	
 		EmitSoundOn("Hero_Wisp.Spirits.Target", self:GetParent())	
-		ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())	
+		ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ApplyDamage(self.damage_table)
 	end
 end	
@@ -719,7 +719,7 @@ function modifier_imba_wisp_overcharge:OnCreated()
 		local caster = self:GetCaster()
 
 
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_overcharge.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_overcharge.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		--ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self.drain_interval = 0.2
@@ -839,7 +839,7 @@ end
 function modifier_imba_wisp_element_territory_thinker_2:OnCreated(keys)
 	if IsServer() then
 		EmitSoundOn("wisp_fastres", self:GetParent())
-		self.ember_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.ember_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.ember_particle, 1, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.ember_particle, false, false, -1, false, false)
 		self.int = 0
@@ -882,7 +882,7 @@ function modifier_imba_wisp_element_territory_thinker:OnCreated()
 		EmitSoundOn("wisp_fastres", self:GetParent())
 		self.cd = self:GetAbility():GetSpecialValueFor("cd")
 		local pos = self:GetParent():GetAbsOrigin()
-	   	self.fx = ParticleManager:CreateParticle("particles/heros/centaur/centaur_hoof_stomp_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	   	self.fx = ParticleManager:SafeCreateParticle("particles/heros/centaur/centaur_hoof_stomp_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	    ParticleManager:SetParticleControl(self.fx, 0,  pos)
 	    ParticleManager:SetParticleControl(self.fx, 1, Vector(self:GetAbility():GetSpecialValueFor("radius"),1,1))
 	    ParticleManager:SetParticleControl(self.fx, 2, Vector(self:GetRemainingTime(),1,1))
@@ -925,7 +925,7 @@ function modifier_imba_wisp_element_territory_thinker:OnOrder(keys)
 		if keys.unit == self:GetCaster() and not keys.unit:HasModifier("modifier_imba_wisp_element_territory_cd") and not keys.unit:HasModifier("modifier_item_nullifier_v2_debuff") and not (keys.unit:IsStunned() or keys.unit:IsHexed() or keys.unit:IsRooted()) then
 			if (self:GetParent():GetAbsOrigin() - keys.new_pos):Length2D() <= self:GetAbility():GetSpecialValueFor("radius") and (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() <= self:GetAbility():GetSpecialValueFor("radius") then
 				
-				local swap_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+				local swap_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 				ParticleManager:SetParticleControlEnt(swap_pfx, 0, self:GetCaster(), PATTACH_POINT, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(swap_pfx, 1, nil, PATTACH_POINT, "attach_hitloc", pos, true)	
 				self:GetCaster():EmitSound("Hero_Wisp.TeleportOut.Arc")
@@ -937,7 +937,7 @@ function modifier_imba_wisp_element_territory_thinker:OnOrder(keys)
 		elseif keys.unit == target and not keys.unit:HasModifier("modifier_imba_wisp_element_territory_cd") and IsFriendly(target,self:GetCaster()) and not (keys.unit:IsStunned() or keys.unit:IsHexed()) then
 			if (self:GetParent():GetAbsOrigin() - keys.new_pos):Length2D() <= self:GetAbility():GetSpecialValueFor("radius") and (target:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() <= self:GetAbility():GetSpecialValueFor("radius") then
 				
-				local swap_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, target)
+				local swap_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, target)
 				ParticleManager:SetParticleControlEnt(swap_pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(swap_pfx, 1, nil, PATTACH_POINT, "attach_hitloc", pos, true)	
 				target:EmitSound("Hero_Wisp.TeleportOut.Arc")
@@ -1100,18 +1100,18 @@ function modifier_imba_wisp_relocate:OnCreated(keys)
 		end)			
 		GridNav:DestroyTreesAroundPoint(self.pos, 300, false)
 		GridNav:DestroyTreesAroundPoint(self.pos_2, 300, false)
-		--self.Pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		--self.Pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		--local time_x = self.return_time >= 10 and 1 or 0
 		--local time_y = self.return_time % 10
 		--ParticleManager:SetParticleControl(self.Pfx, 1, Vector( time_x, time_y, 0 ) )
-		self.Pfx_2 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		self.Pfx_2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(self.Pfx_2, 0, self.pos_2)
-		--self.Pfx_3 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_marker.vpcf", PATTACH_WORLDORIGIN, caster)
+		--self.Pfx_3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_marker.vpcf", PATTACH_WORLDORIGIN, caster)
 		--ParticleManager:SetParticleControl(self.Pfx_3, 0, self.pos_2)
 		--传送门特效
-		--self.Pfx_4 = ParticleManager:CreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, caster)
+		--self.Pfx_4 = ParticleManager:SafeCreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, caster)
 		--ParticleManager:SetParticleControl(self.Pfx_4, 0, self.pos_2)
-		--self.Pfx_5 = ParticleManager:CreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, caster)
+		--self.Pfx_5 = ParticleManager:SafeCreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, caster)
 		--ParticleManager:SetParticleControl(self.Pfx_5, 0, self.pos)				
 		EmitSoundOn("Hero_Wisp.Return", self:GetCaster())
 		EmitSoundOn("Hero_Wisp.ReturnCounter", self:GetCaster())								
@@ -1190,13 +1190,13 @@ function modifier_imba_wisp_relocate_thinker:OnCreated(keys)
 			self.pos = self:GetCaster():FindAbilityByName("imba_wisp_relocate").pos
 		end	
 		self.time = 0
-		self.Pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+		self.Pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_wisp/wisp_relocate_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 		local time_x = self:GetStackCount() >= 10 and 1 or 0
 		local time_y = self:GetStackCount() % 10
 		ParticleManager:SetParticleControl(self.Pfx, 0, (self:GetParent():GetAbsOrigin()) )
 		ParticleManager:SetParticleControl(self.Pfx, 1, Vector( time_x, time_y, 0 ) )
 
-		self.Pfx_4 = ParticleManager:CreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
+		self.Pfx_4 = ParticleManager:SafeCreateParticle("particles/econ/items/wisp/wisp_relocate_marker_ti7.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(self.Pfx_4, 0, self:GetParent():GetAbsOrigin())				
 		self:StartIntervalThink(FrameTime())
 	end

@@ -81,7 +81,7 @@ function modifier_activate_fire_remnant:OnCreated(tg)
     if not IsServer() then
         return
     end
-    self.pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf", PATTACH_CUSTOMORIGIN,self.parent)
+    self.pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf", PATTACH_CUSTOMORIGIN,self.parent)
     ParticleManager:SetParticleControlEnt(self.pf, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.pos, true)
     ParticleManager:SetParticleControlEnt(self.pf, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.pos, true)
     ParticleManager:SetParticleControl(self.pf, 61, Vector(1,0,0))

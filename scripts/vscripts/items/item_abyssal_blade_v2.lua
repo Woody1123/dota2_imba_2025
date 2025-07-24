@@ -130,7 +130,7 @@ end
 
 function modifier_item_abyssal_blade_v2_debuff:OnCreated()
 		if self:GetAbility() == nil then return end
-        local pfx1=ParticleManager:CreateParticle("particles/items_fx/abyssal_blade.vpcf", PATTACH_OVERHEAD_FOLLOW,self:GetParent())
+        local pfx1=ParticleManager:SafeCreateParticle("particles/items_fx/abyssal_blade.vpcf", PATTACH_OVERHEAD_FOLLOW,self:GetParent())
         ParticleManager:ReleaseParticleIndex( pfx1)
 end
 

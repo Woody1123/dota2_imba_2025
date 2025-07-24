@@ -202,7 +202,7 @@ function modifier_imba_gungnir_force_ally:OnCreated(params)
 	--特效
 	local pfx_name = "particles/econ/events/fall_2021/force_staff_fall_2021.vpcf"
 	
-	self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:GetParent():StartGesture(ACT_DOTA_FLAIL)
 		--	self.distance = self:GetAbility():GetSpecialValueFor("push_length")
 	--kv

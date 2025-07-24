@@ -26,7 +26,7 @@ function hoof_stomp:OnSpellStart()
     local num=0
     stun_duration=stun_duration-radius/100*0.1
     EmitSoundOn("Hero_Centaur.HoofStomp", caster)
-    local particle= ParticleManager:CreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_ABSORIGIN,caster)
+    local particle= ParticleManager:SafeCreateParticle("particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_warstomp_gold.vpcf", PATTACH_ABSORIGIN,caster)
     ParticleManager:SetParticleControl(particle, 0,caster_pos)
     ParticleManager:SetParticleControl(particle, 1,Vector(radius,1,1))
     ParticleManager:SetParticleControl(particle, 2,caster_pos)
@@ -82,7 +82,7 @@ function modifier_hoof_stomp:OnCreated(tg)
         return
     end
     self.POS=self:GetParent():GetAbsOrigin()
-    local fx = ParticleManager:CreateParticle("particles/heros/centaur/centaur_hoof_stomp_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx = ParticleManager:SafeCreateParticle("particles/heros/centaur/centaur_hoof_stomp_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(fx, 0,  self.POS)
     ParticleManager:SetParticleControl(fx, 1, Vector(self.radius+self:GetCaster():GetCastRangeBonus(),1,1))
     ParticleManager:SetParticleControl(fx, 2, Vector(self:GetRemainingTime(),1,1))

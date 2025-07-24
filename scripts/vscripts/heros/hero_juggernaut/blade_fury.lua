@@ -65,7 +65,7 @@ function modifier_blade_fury_buff:OnCreated(tg)
     end
         self:GetParent():EmitSound("Hero_Juggernaut.BladeFuryStart")
         self.IS_COL=false
-        local fx = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_blade_fury_abyssal_golden.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local fx = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_blade_fury_abyssal_golden.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(fx,0, self:GetParent():GetAbsOrigin())
         ParticleManager:SetParticleControl(fx,5,Vector( self.RD,1,1))
         self:AddParticle( fx, false, false, 4, false, false )

@@ -82,7 +82,7 @@ function imba_riki_smoke_screen:OnSpellStart()
 
 		local thinker = CreateModifierThinker(caster, self, smoke_aura, {duration = duration, aoe = aoe , mode_type = mode_type}, target_point, caster:GetTeamNumber(), false)
 		if self:GetCaster():TG_HasTalent("special_bonus_imba_riki_4") and target_point == target:GetAbsOrigin() then 
-			local particle_range = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, thinker)
+			local particle_range = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, thinker)
 			ParticleManager:SetParticleControl(particle_range, 1, Vector(aoe, 0, 0))
 			ParticleManager:SetParticleControl(particle_range, 2, Vector(10,0,0))
 			ParticleManager:SetParticleControl(particle_range, 3, Vector(100,0,0))
@@ -100,7 +100,7 @@ function imba_riki_smoke_screen:OnSpellStart()
 			--Talent portable smoke screen move with riki
 			thinker.target = target
 		end
-		local particle = ParticleManager:CreateParticle(smoke_particle, PATTACH_CUSTOMORIGIN, thinker)
+		local particle = ParticleManager:SafeCreateParticle(smoke_particle, PATTACH_CUSTOMORIGIN, thinker)
 		ParticleManager:SetParticleControlEnt(particle, 0, thinker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", thinker:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(particle, 1, Vector(aoe, aoe, aoe))
 		thinker.particle = particle

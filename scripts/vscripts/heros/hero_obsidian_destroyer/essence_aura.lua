@@ -94,7 +94,7 @@ function modifier_essence_aura_buff2:OnAbilityExecuted(tg)
                 self.caster:AddNewModifier(self.caster, self.ability, "modifier_essence_aura_buff3", {duration=self.dur,num=self.int})
                 end 
                 self.parent:GiveMana(self.parent:GetMaxMana()*self.restore_amount)
-                local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
+                local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
                 ParticleManager:ReleaseParticleIndex(pf)
             end
         end
@@ -110,7 +110,7 @@ function modifier_essence_aura_buff2:OnAttack(tg)
                     EmitSoundOn("Hero_ObsidianDestroyer.EssenceAura", self.parent)
                     self.caster:AddNewModifier(self.caster, self.ability, "modifier_essence_aura_buff3", {duration=self.dur,num=self.int})
                     self.parent:GiveMana(self.parent:GetMaxMana()*self.restore_amount)
-                    local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
+                    local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
                     ParticleManager:ReleaseParticleIndex(pf)
                 end
             end

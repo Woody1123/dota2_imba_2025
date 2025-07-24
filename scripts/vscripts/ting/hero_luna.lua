@@ -82,7 +82,7 @@ function imba_luna_lucent_beam:start(vision,tar,bool,bool_u,bool_stun)	--目标�
 	--自己就无
 	if target == caster then return end
 	caster:EmitSound("Hero_Luna.LucentBeam.Target")
-	local particle = ParticleManager:CreateParticle(pfx, PATTACH_POINT_FOLLOW, self:GetCaster())
+	local particle = ParticleManager:SafeCreateParticle(pfx, PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(particle,	5, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle,	6, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true)
@@ -221,7 +221,7 @@ end
 function modifier_imba_luna_moon_glaive:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_ambient_moon_glaive.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_luna/luna_ambient_moon_glaive.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_weapon", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		self:SetStackCount(6)
@@ -410,7 +410,7 @@ function imba_luna_lunar_grace:OnSpellStart()
 	if ability and ability:GetLevel() > 0 then
 	ability:start(true,target:entindex(),true,false,true)
 	end
-	local particle = ParticleManager:CreateParticle("particles/econ/items/luna/luna_lucent_ti5_gold/luna_lucent_beam_moonfall_gold.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	local particle = ParticleManager:SafeCreateParticle("particles/econ/items/luna/luna_lucent_ti5_gold/luna_lucent_beam_moonfall_gold.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(particle,	5, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle,	6, caster, PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true)
@@ -481,7 +481,7 @@ function modifier_luna_eclipse_thinker:OnCreated(keys)
 	self.interval = self:GetAbility():GetSpecialValueFor("beam_interval")
 	self.radius = self:GetAbility():GetSpecialValueFor("radius") +caster:TG_GetTalentValue("special_bonus_imba_luna_5")
 	self.hits =  self:GetAbility():GetSpecialValueFor("beams") + caster:TG_GetTalentValue("special_bonus_imba_luna_8")
-	local eclipse_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", PATTACH_POINT, self:GetParent())
+	local eclipse_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", PATTACH_POINT, self:GetParent())
 	ParticleManager:SetParticleControl(eclipse_particle, 1, Vector(self.radius, 0, 0))
 	if keys.x then
 		self.target_position = Vector(keys.x, keys.y, keys.z)

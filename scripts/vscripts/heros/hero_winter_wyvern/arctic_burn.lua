@@ -38,7 +38,7 @@ end
 
 function arctic_burn:Henshin(dur)
       EmitSoundOn("Hero_Winter_Wyvern.ArcticBurn.Cast", self.caster)
-      local pf1 = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+      local pf1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
       ParticleManager:ReleaseParticleIndex(pf1)
       self.caster:AddNewModifier(self.caster, self, "modifier_arctic_burn_buff", {duration=dur})
       GridNav:DestroyTreesAroundPoint(self.caster:GetAbsOrigin(), 350, false)
@@ -97,12 +97,12 @@ function modifier_arctic_burn_buff:OnCreated()
         ability =  self.ability,
       }
 
-    local pf1 = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+    local pf1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
       ParticleManager:SetParticleControlEnt(pf1, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.pos, true)
       ParticleManager:SetParticleControlEnt(pf1, 2, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.pos, true)
       self:AddParticle(pf1, false, false, 4, false, false)
 
-    local pf2 = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_flying.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+    local pf2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_flying.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
       ParticleManager:SetParticleControlEnt(pf2, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.pos, true)
       ParticleManager:SetParticleControlEnt(pf2, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_spine_1", self.pos, true)
       ParticleManager:SetParticleControlEnt(pf2, 2, self.parent, PATTACH_POINT_FOLLOW, "attach_spine_2", self.pos, true)

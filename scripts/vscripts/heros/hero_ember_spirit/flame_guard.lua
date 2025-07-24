@@ -114,7 +114,7 @@ function modifier_flame_guard_buff:OnCreated()
     }
     if IsServer() then
         self:SetStackCount(self.absorb_amount)      
-        local pf = ParticleManager:CreateParticle("particles/econ/items/ember_spirit/ember_ti9/ember_ti9_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+        local pf = ParticleManager:SafeCreateParticle("particles/econ/items/ember_spirit/ember_ti9/ember_ti9_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControlForward(pf, 0, self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControlForward(pf, 1, self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControl(pf, 2, Vector( self.radius, 0, 0))

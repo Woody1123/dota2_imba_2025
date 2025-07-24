@@ -44,7 +44,7 @@ function seriously_punch:OnSpellStart(tg)
         knockback_height = 1000,
     }
     caster:EmitSound("TG.B")
-    local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf", PATTACH_ABSORIGIN,caster)
+    local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf", PATTACH_ABSORIGIN,caster)
     ParticleManager:SetParticleControl(particle, 0,caster_pos)
     ParticleManager:SetParticleControl(particle, 2,caster_pos)
     ParticleManager:ReleaseParticleIndex( particle )

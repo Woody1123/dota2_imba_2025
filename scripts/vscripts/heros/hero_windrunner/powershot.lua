@@ -19,7 +19,7 @@ function powershot:OnAbilityPhaseStart()
 	self.caster:EmitSound("Ability.PowershotPull")
 	self.caster:AddActivityModifier("stinger")
 	self.caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,3)
-	self.particle = ParticleManager:CreateParticle("particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_channel_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
+	self.particle = ParticleManager:SafeCreateParticle("particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_channel_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControlEnt(self.particle, 0, self.caster, PATTACH_POINT_FOLLOW, "bow_mid",self.caster_pos, false)
 	ParticleManager:SetParticleControlEnt(self.particle, 1, self.caster, PATTACH_POINT_FOLLOW, "bow_mid", self.caster_pos, false)
     return true

@@ -86,11 +86,11 @@ function modifier_psionic_trap_buff:OnCreated()
     if not IsServer() then
         return
     end
-    local fx = ParticleManager:CreateParticle("particles/heros/templar_assassin/templar_assassin_trap_portrait.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/heros/templar_assassin/templar_assassin_trap_portrait.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin()+self:GetParent():GetUpVector()*1000)
     ParticleManager:SetParticleControl(fx, 62, Vector(100,100,100))
     self:AddParticle(fx, false, false, 100, false, false)
-    local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(fx2, false, false, 100, false, false)
     self:StartIntervalThink(0.5)
 end
@@ -118,7 +118,7 @@ end
 
 function modifier_psionic_trap_buff:OnDestroy()
     if  IsServer() then
-        local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:ReleaseParticleIndex(fx)
         EmitSoundOnLocationWithCaster(self:GetParent():GetAbsOrigin(), "Hero_TemplarAssassin.Trap.Trigger", self:GetParent())
         EmitSoundOnLocationWithCaster(self:GetParent():GetAbsOrigin(), "Hero_TemplarAssassin.Trap.Explode", self:GetParent())

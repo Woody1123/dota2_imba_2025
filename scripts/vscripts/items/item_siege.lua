@@ -187,7 +187,7 @@ function modifier_item_siege_buff:OnCreated(tg)
 	self.evasion=self:GetAbility():GetSpecialValueFor("evasion")
     if IsServer() then
         self:SetStackCount(tg.sp)
-        local particle = ParticleManager:CreateParticle("particles/items_fx/drum_of_endurance_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW     , self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/items_fx/drum_of_endurance_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW     , self:GetParent())
        self:AddParticle(particle, false, false, -1, false, false)
    end
 end

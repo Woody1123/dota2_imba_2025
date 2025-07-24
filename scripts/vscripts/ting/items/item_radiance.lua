@@ -118,7 +118,7 @@ function modifier_imba_radiance_unique:OnIntervalThink()
 end
 
 function modifier_imba_radiance_unique:Active()
-	self.pfx1 = ParticleManager:CreateParticle("particles/items2_fx/radiance_owner.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx1 = ParticleManager:SafeCreateParticle("particles/items2_fx/radiance_owner.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 end
 
 function modifier_imba_radiance_unique:Inactive()
@@ -232,7 +232,7 @@ function item_imba_splendid:OnSpellStart() -- 耀世
 	local caster = self:GetCaster()
 	caster:EmitSound("Item.CrimsonGuard.Cast")
 	caster:AddNewModifier(caster, self, "modifier_imba_splendid_light",{duration = self:GetSpecialValueFor("duration_self")})	--辉煌
-		local pfx = ParticleManager:CreateParticle("particles/world_outpost/world_outpost_channel_finish.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/world_outpost/world_outpost_channel_finish.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())		
 		ParticleManager:ReleaseParticleIndex(pfx)
 end
@@ -251,7 +251,7 @@ function modifier_imba_splendid_passive:OnCreated()
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	self.duration = self:GetAbility():GetSpecialValueFor("miss_duration") 
 	if not IsServer() then return end
-	--self.pfx1 = ParticleManager:CreateParticle("particles/items2_fx/radiance_owner.vpcf" , PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	--self.pfx1 = ParticleManager:SafeCreateParticle("particles/items2_fx/radiance_owner.vpcf" , PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_radiance_unique", {}) 
 end
 function modifier_imba_splendid_passive:DeclareFunctions() return {MODIFIER_EVENT_ON_ATTACK,MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, MODIFIER_PROPERTY_STATS_AGILITY_BONUS} end

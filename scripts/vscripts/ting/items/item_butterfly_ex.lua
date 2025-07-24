@@ -87,61 +87,74 @@ function modifier_butterfly_ex_passive:GetModifierAttackSpeedBonus_Constant() re
 function modifier_butterfly_ex_passive:GetModifierPreAttack_BonusDamage() return self.damage end
 function modifier_butterfly_ex_passive:GetModifierBonusStats_Agility() return self.agi end
 function modifier_butterfly_ex_passive:OnAttackLanded(tg)
-    if not IsServer()  then
-        return
-    end
-        if tg.attacker == self.parent and not self.parent:IsIllusion() and self.ability:IsCooldownReady() and self.ability.ex == true then
-				local count = self.count_max
-                local heros = FindUnitsInRadius(
-                self.parent:GetTeamNumber(),
-                tg.target:GetAbsOrigin(),
-                nil,
-                800,
-                DOTA_UNIT_TARGET_TEAM_ENEMY,
-                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-                DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-                FIND_ANY_ORDER,
-                false)
-				
-                if #heros>1 then
-					self.ability:UseResources(true,false,  true, true)
-                    for _,target in pairs(heros) do
-                                if target~=tg.target then
-								count = count - 1
-									local p  =
-												{
-													Ability = self.ability,
-													EffectName = "particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf",
-													iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-													iMoveSpeed = 2000,
-													bDrawsOnMinimap = false,
-													bDodgeable = true,
-													bIsAttack = false,
-													bVisibleToEnemies = true,
-													bReplaceExisting = false,
-													bProvidesVision = false,
-													Target = target,
-													Source = tg.target,	
-												}									
-                                        ProjectileManager:CreateTrackingProjectile(p)
-										local particle = ParticleManager:CreateParticle("particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch_b.vpcf", PATTACH_POINT, tg.target)
-										ParticleManager:SetParticleControl(particle, 1, tg.target:GetAbsOrigin())
-										ParticleManager:ReleaseParticleIndex(particle)
+	if not IsServer() then
+		return
+	end
 
-                                end
-								if count == 0 then
-									break
-								end
-                        end
-                end
-				
-				if PseudoRandom:RollPseudoRandom(self.ability, self.chance) then
-					if not self.parent:HasModifier("modifier_butterfly_ex_agi") then
-						self.parent:AddNewModifier(self.parent,self.ability,"modifier_butterfly_ex_agi",{duration = 6})
+	if tg.attacker == self.parent and not self.parent:IsIllusion() and self.ability:IsCooldownReady() and self.ability.ex == true then
+		local count = self.count_max
+		local heros = FindUnitsInRadius(
+				self.parent:GetTeamNumber(),
+				tg.target:GetAbsOrigin(),
+				nil,
+				800,
+				DOTA_UNIT_TARGET_TEAM_ENEMY,
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+				FIND_ANY_ORDER,
+				false
+		)
+
+		if #heros > 1 then
+			self.ability:UseResources(true, false, true, true)
+			for _, target in pairs(heros) do
+				if target ~= tg.target then
+					count = count - 1
+
+					local projectile_info = {
+						Ability = self.ability,
+						EffectName = "particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf",
+						iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+						iMoveSpeed = 2000,
+						bDrawsOnMinimap = false,
+						bDodgeable = true,
+						bIsAttack = false,
+						bVisibleToEnemies = true,
+						bReplaceExisting = false,
+						bProvidesVision = false,
+						Target = target,
+						Source = tg.target,
+					}
+					ProjectileManager:CreateTrackingProjectile(projectile_info)
+
+					-- 粒子绑定安全检查
+					if tg.target and not tg.target:IsNull() then
+						local particle = ParticleManager:SafeCreateParticle(
+								"particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch_b.vpcf",
+								PATTACH_ABSORIGIN_FOLLOW,
+								tg.target
+						)
+						ParticleManager:SetParticleControl(particle, 1, tg.target:GetAbsOrigin())
+						ParticleManager:ReleaseParticleIndex(particle)
+					else
+						print("[Particle] 无效绑定单位，跳过创建粒子")
 					end
 				end
-        end
+
+				if count == 0 then
+					break
+				end
+			end
+		end
+
+		if PseudoRandom:RollPseudoRandom(self.ability, self.chance) then
+			if not self.parent:HasModifier("modifier_butterfly_ex_agi") then
+				self.parent:AddNewModifier(self.parent, self.ability, "modifier_butterfly_ex_agi", {duration = 6})
+			end
+		end
+	end
 end
+
 
 
 

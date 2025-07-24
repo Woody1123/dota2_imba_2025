@@ -32,7 +32,7 @@ function charlie:OnSpellStart()
 	local caster = self:GetCaster()
 	local pos = self:GetCursorPosition()
 
-	local particle_launch_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+	local particle_launch_fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(particle_launch_fx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(particle_launch_fx, 1, Vector(pos.x, pos.y, pos.z + 1000))
 	ParticleManager:ReleaseParticleIndex(particle_launch_fx)
@@ -99,7 +99,7 @@ function modifier_charlie_thinker:OnCreated( kv )
 				bProvidesVision = false,
 				ExtraData = {damage = self.damage,kno_dis = self.kno_dis ,pos_x = self.pos.x,pos_y = self.pos.y,pos_z = self.pos.z },				-- Optional
 				}
-	self.particle_shrapnel_fx = ParticleManager:CreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_shrapnel_charlie.vpcf", PATTACH_WORLDORIGIN, nil)
+	self.particle_shrapnel_fx = ParticleManager:SafeCreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_shrapnel_charlie.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.particle_shrapnel_fx, 0, self.pos)
 	ParticleManager:SetParticleControl(self.particle_shrapnel_fx, 1, Vector(self.radius, self.radius, 0))
 	ParticleManager:SetParticleControl(self.particle_shrapnel_fx, 2, self.pos)

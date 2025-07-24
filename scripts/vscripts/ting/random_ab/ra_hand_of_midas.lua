@@ -35,7 +35,7 @@ function ra_hand_of_midas:OnSpellStart()
 		PlayerResource:ModifyGold(tar:GetPlayerOwnerID(),gold*gold_sale,false,DOTA_ModifyGold_Unspecified)
 		SendOverheadEventMessage(tar, OVERHEAD_ALERT_GOLD, tar, gold*gold_sale, nil)
 		
-		local pfx= ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN,tar)
+		local pfx= ParticleManager:SafeCreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN,tar)
         ParticleManager:SetParticleControl(pfx, 0, tar:GetAbsOrigin())
         ParticleManager:SetParticleControl(pfx, 1, tar:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex( pfx )

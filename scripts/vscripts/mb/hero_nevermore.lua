@@ -27,7 +27,7 @@ function imba_nevermore_shadowraze:OnSpellStart()
 		sound_name = "Hero_Nevermore.Shadowraze.Arcana"
 	--end
 	for i=1, pfx_number do
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		local pos = GetGroundPosition(caster:GetAbsOrigin() + direction * ((i - 1) * self:GetSpecialValueFor("radius")), nil)
 		ParticleManager:SetParticleControl(pfx, 0, pos)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -145,7 +145,7 @@ function modifier_imba_shadowraze_point_combo:OnCreated(keys)
 			"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze_double.vpcf",
 			"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze_triple.vpcf"
 		}
-		local pfx = ParticleManager:CreateParticle(self.pfx_name_tables[1], PATTACH_POINT_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(self.pfx_name_tables[1], PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		ParticleManager:DestroyParticle(pfx, false)
 		--print("OnCreated---",self.combo_type)
@@ -159,7 +159,7 @@ function modifier_imba_shadowraze_point_combo:OnRefresh( keys)
 		--入列
 		table.insert(self.combo_tables,self.combo_type)
 		--pfx
-		local pfx = ParticleManager:CreateParticle(self.pfx_name_tables[#self.combo_tables], PATTACH_POINT_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(self.pfx_name_tables[#self.combo_tables], PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		ParticleManager:DestroyParticle(pfx, false)
 		if #self.combo_tables >= 3 then
@@ -245,7 +245,7 @@ function CastLinesShadoWraze(caster, ability)
 		sound_name = "Hero_Nevermore.Shadowraze.Arcana"
 	--end
 	for i=1, pfx_number do
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		local pos = GetGroundPosition(caster:GetAbsOrigin() + direction * ((i - 1) * ability:GetSpecialValueFor("radius")), nil)
 		ParticleManager:SetParticleControl(pfx, 0, pos)
 		ParticleManager:SetParticleControl(pfx, 3, Vector(pfx_radius, 1, 1))
@@ -284,7 +284,7 @@ function CastPointsShadoWraze(caster,ability,lord_pos)
 		sound_name = "Hero_Nevermore.Shadowraze.Arcana"
 	--end
 	--特效
-	local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	local pos = caster:GetAbsOrigin() + caster:GetForwardVector() * length
 	--魔王之力充能
 	if lord_pos then
@@ -354,7 +354,7 @@ function CastCombsShadoWraze(caster,ability,pos)
 		sound_name = "Hero_Nevermore.Shadowraze.Arcana"
 	--end
 	--center boom
-	local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, pos)
 	ParticleManager:SetParticleControl(pfx, 3, Vector(pfx_radius, 1, 1))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -378,7 +378,7 @@ function CastCombsShadoWraze(caster,ability,pos)
 	local boom_count = math.floor(length / 50)
 	for i=1, boom_count do
 		local boom_pos = GetGroundPosition(RotatePosition(pos, QAngle(0, i * (360 / boom_count), 0), end_pos), nil)
-		local boom_pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local boom_pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(boom_pfx, 0, boom_pos)
 		ParticleManager:SetParticleControl(boom_pfx, 3, Vector(pfx_radius, 1, 1))
 		ParticleManager:ReleaseParticleIndex(boom_pfx)
@@ -530,17 +530,16 @@ function modifier_imba_necromastery_counter:OnAttackLanded(keys)
 	if not IsServer() then
 		return
 	end
+	if not keys.target then return end  -- 增加这一行，防止 keys.target 是 nil
 	if keys.attacker ~= self:GetParent() or self:GetParent():PassivesDisabled() or keys.target:GetTeamNumber() == self:GetParent():GetTeamNumber() or not keys.target:IsHero() or not keys.target:IsAlive() or self:GetParent():IsIllusion() then
 		return
 	end
 	--临时魂
 	for i=1, self:GetAbility():GetSpecialValueFor("hero_attack_souls") + math.floor(self:GetParent():GetLevel() / self:GetAbility():GetSpecialValueFor("harvest_levels_per_soul")) do
-		--self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_necromastery_temp", {duration = self:GetAbility():GetSpecialValueFor("temp_soul_duration")})
 		self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_necromastery_temp", {duration = self:GetAbility():GetSpecialValueFor("temp_soul_duration")}):AddSouls()
 	end
-	--local dummy = CreateModifierThinker(self:GetParent(), nil, "modifier_dummy_thinker", {duration = 3.0}, keys.target:GetAbsOrigin(), self:GetParent():GetTeamNumber(), false)
-	--self:GetAbility():CreateSoulPfx(self:GetParent(), keys.target)
 end
+
 
 function modifier_imba_necromastery_counter:OnTakeDamage(keys)
 	if not IsServer() or keys.attacker ~= self:GetParent() then
@@ -774,10 +773,10 @@ function imba_nevermore_requiem:OnAbilityPhaseStart()
 		sound_name = "Hero_Nevermore.ROS.Arcana.Cast"
 	--end
 	self.fx:EmitSound(sound_name)
-	local pfx = ParticleManager:CreateParticle(pfx_name_2, PATTACH_ABSORIGIN_FOLLOW, self.fx)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name_2, PATTACH_ABSORIGIN_FOLLOW, self.fx)
 	ParticleManager:SetParticleControl(pfx, 1, self.fx:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(pfx)
-	local pfx_wings = ParticleManager:CreateParticle(pfx_name_3, PATTACH_POINT_FOLLOW, caster)
+	local pfx_wings = ParticleManager:SafeCreateParticle(pfx_name_3, PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(pfx_wings)
 	return true
 end
@@ -857,17 +856,17 @@ function imba_nevermore_requiem:OnSpellStart(talent,talent_pos)
 			ExtraData = {go = 1, pos_x = cast_pos.x, pos_y = cast_pos.y, pos_z = cast_pos.z, thinker_sce = thinker_sce, lines = i, total = lines, pfx = arcana,fear = fear}
 		}
 		ProjectileManager:CreateLinearProjectile(info)
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, cast_pos)
 		ParticleManager:SetParticleControl(pfx, 1, velocity)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(0,duration,0))
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 	if self.fx and not self.fx:IsNull() and self.fx ~= nil then
-		local pfx2 = ParticleManager:CreateParticle(pfx_name_2, PATTACH_ABSORIGIN_FOLLOW, self.fx)
+		local pfx2 = ParticleManager:SafeCreateParticle(pfx_name_2, PATTACH_ABSORIGIN_FOLLOW, self.fx)
 		ParticleManager:SetParticleControl(pfx2, 1, self.fx:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(pfx2)
-		local pfx3 = ParticleManager:CreateParticle(pfx_name_3, PATTACH_POINT_FOLLOW, caster)
+		local pfx3 = ParticleManager:SafeCreateParticle(pfx_name_3, PATTACH_POINT_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(pfx3)
 	end
 end
@@ -925,7 +924,7 @@ function imba_nevermore_requiem:OnProjectileHit_ExtraData(target, location, keys
 				ExtraData = {thinker_sce = keys.thinker_sce, go = 0, lines = i,fear = keys.fear}
 			}
 			ProjectileManager:CreateLinearProjectile(info)
-			local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
+			local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, location)
 			ParticleManager:SetParticleControl(pfx, 1, velocity)
 			ParticleManager:SetParticleControl(pfx, 2, Vector(0,duration,0))
@@ -940,7 +939,7 @@ function imba_nevermore_requiem:OnProjectileHit_ExtraData(target, location, keys
 			local dmg_lost = dmg * (self:GetSpecialValueFor("reduction_damage") / 100)
 			local dmg_steal_pct = math.min(distance / self:GetSpecialValueFor("radius"), 1.0) * ((self:GetSpecialValueFor("max_atk_gain") / 100) - (self:GetSpecialValueFor("min_atk_gain") / 100)) + (self:GetSpecialValueFor("min_atk_gain") / 100)
 			EntIndexToHScript(keys.thinker_sce).dmg = EntIndexToHScript(keys.thinker_sce).dmg + dmg_steal_pct * dmg_lost
-			local pfx_screen = ParticleManager:CreateParticleForPlayer("particles/hero/nevermore/screen_requiem_indicator.vpcf", PATTACH_ABSORIGIN_FOLLOW, target, PlayerResource:GetPlayer(target:GetPlayerID()))
+			local pfx_screen = ParticleManager:SafeCreateParticleForPlayer("particles/hero/nevermore/screen_requiem_indicator.vpcf", PATTACH_ABSORIGIN_FOLLOW, target, PlayerResource:GetPlayer(target:GetPlayerID()))
 			ParticleManager:ReleaseParticleIndex(pfx_screen)
 		end
 		target:AddNewModifier(self:GetCaster(), self, "modifier_imba_requiem_enemy_debuff", {duration = self:GetSpecialValueFor("slow_duration")})

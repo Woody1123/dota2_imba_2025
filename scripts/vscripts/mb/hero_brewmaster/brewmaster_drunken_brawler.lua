@@ -107,7 +107,7 @@ function modifier_imba_brewmaster_drunken_brawler_passive:OnAttackLanded(keys)
 		--暴击音效
 		self:GetParent():EmitSound("Hero_Brewmaster.Brawler.Crit")
 		--暴击特效
-		--local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		--local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		--ParticleManager:ReleaseParticleIndex(pfx)
 	end
 	self.crit[keys.record] = nil

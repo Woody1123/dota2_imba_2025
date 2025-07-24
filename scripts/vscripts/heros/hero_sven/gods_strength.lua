@@ -39,7 +39,7 @@ function gods_strength:OnSpellStart()
 	local dur = self:GetSpecialValueFor( "dur" )
 	local dur2 = self:GetSpecialValueFor( "dur2" )
 	EmitSoundOn( "Hero_Sven.GodsStrength", caster )
-	local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+	local fx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:SetParticleControlEnt( fx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
 	ParticleManager:ReleaseParticleIndex( fx )
 	caster:AddNewModifier( caster, self, "modifier_gods_strength", { duration = caster:TG_HasTalent("special_bonus_sven_8") and -1 or dur } )
@@ -93,11 +93,11 @@ function modifier_gods_strength:OnCreated( tg )
 	if self:GetAbility() == nil then return end
 	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "gods_strength_damage" )
 	if IsServer() then
-		local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_spell_gods_strength_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+		local fx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_sven/sven_spell_gods_strength_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 		ParticleManager:SetParticleControlEnt( fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_weapon" , self:GetParent():GetOrigin(), true )
 		ParticleManager:SetParticleControlEnt( fx, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_head" , self:GetParent():GetOrigin(), true )
 		self:AddParticle( fx, false, false, 15, false, true )
-		local p2 = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local p2 = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         self:AddParticle( p2, false, false, 20, false, false )
 	end
 end

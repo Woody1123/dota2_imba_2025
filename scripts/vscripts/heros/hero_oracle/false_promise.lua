@@ -108,14 +108,14 @@ function modifier_false_promise_buff:OnCreated()
         return 
     end
     local pos=self:GetParent():GetAbsOrigin()
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl( fx, 0, pos )
     ParticleManager:SetParticleControl( fx, 2, pos )
     ParticleManager:SetParticleControl( fx, 4,pos )
     ParticleManager:SetParticleControl(fx, 60, Vector(math.random(0,255),math.random(0,255),math.random(0,255)))
     ParticleManager:SetParticleControl(fx, 61, Vector(1,1,1))
     ParticleManager:ReleaseParticleIndex(fx)
-    local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl( fx2, 0, pos )
     ParticleManager:SetParticleControl( fx2, 1, pos )
     ParticleManager:SetParticleControl( fx2, 2, Vector(100,100,100) )
@@ -124,7 +124,7 @@ function modifier_false_promise_buff:OnCreated()
     ParticleManager:SetParticleControl(fx2, 60, Vector(math.random(0,255),math.random(0,255),math.random(0,255)))
     ParticleManager:SetParticleControl(fx2, 61, Vector(1,1,1))
     self:AddParticle(fx2, false, false, 20, false, false)
-    self.fx3 = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_indicator.vpcf", PATTACH_OVERHEAD_FOLLOW,  self:GetParent())
+    self.fx3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_indicator.vpcf", PATTACH_OVERHEAD_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl(self.fx3, 1, Vector(0,0,0))
     self:AddParticle(self.fx3, false, false, 20, false, false)
 end
@@ -134,14 +134,14 @@ function modifier_false_promise_buff:OnRefresh()
         return 
     end
     local pos=self:GetParent():GetAbsOrigin()
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl( fx, 0, pos )
     ParticleManager:SetParticleControl( fx, 2, pos )
     ParticleManager:SetParticleControl( fx, 4,pos )
     ParticleManager:SetParticleControl(fx, 60, Vector(math.random(0,255),math.random(0,255),math.random(0,255)))
     ParticleManager:SetParticleControl(fx, 61, Vector(1,1,1))
     ParticleManager:ReleaseParticleIndex(fx)
-    local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl( fx2, 0, pos )
     ParticleManager:SetParticleControl( fx2, 1, pos )
     ParticleManager:SetParticleControl( fx2, 2, Vector(100,100,100) )
@@ -159,7 +159,7 @@ function modifier_false_promise_buff:OnDestroy()
         local remhp=currhp-self.DAM
         if remhp <=0 then
             self:GetParent():EmitSound("Hero_Oracle.FalsePromise.Damaged")
-            local die = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+            local die = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
             ParticleManager:ReleaseParticleIndex(die)
             if self:GetParent()~= self:GetCaster() then
                 if not self:GetCaster():TG_HasTalent("special_bonus_oracle_5") then
@@ -188,7 +188,7 @@ function modifier_false_promise_buff:OnDestroy()
             end
         else  
             self:GetParent():EmitSound("Hero_Oracle.FalsePromise.Healed")
-            local heal = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+            local heal = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
             ParticleManager:ReleaseParticleIndex(heal) 
             if remhp>self:GetParent():GetMaxHealth() then 
                 self:GetParent():SetHealth(self:GetParent():GetMaxHealth())

@@ -58,7 +58,7 @@ function reverse_polarity:OnSpellStart()
                               end
                         end
                   end
-            local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf", PATTACH_CUSTOMORIGIN,  self.caster)
+            local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf", PATTACH_CUSTOMORIGIN,  self.caster)
 		ParticleManager:SetParticleControl(fx, 1, Vector(pull_radius,pull_radius,pull_radius))
             ParticleManager:SetParticleControl(fx, 2, Vector(0.3,0,0))
             ParticleManager:SetParticleControl(fx, 3, pos)

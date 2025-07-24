@@ -31,7 +31,7 @@ function modifier_imba_ether_buff:OnCreated()
 	self.ability = self:GetAbility()
 	self.damage = self.ability:GetSpecialValueFor("damage")
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 		ParticleManager:SetParticleControl(pfx, 0, self.caster:GetAbsOrigin())		
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end

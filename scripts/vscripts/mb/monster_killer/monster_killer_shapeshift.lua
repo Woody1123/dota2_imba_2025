@@ -17,7 +17,7 @@ function monster_killer_shapeshift:OnSpellStart()
     local pos      = caster:GetAbsOrigin()
     local duration = self:GetSpecialValueFor("duration")
     EmitSoundOn("Hero_Lycan.Shapeshift.Cast", caster)
-    local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
+    local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
     ParticleManager:SetParticleControl(particle, 0,pos)
     ParticleManager:ReleaseParticleIndex(particle)
     caster:AddNewModifier(caster, self, "modifier_monster_killer_shapeshift_buff", {duration = duration})
@@ -131,7 +131,7 @@ function modifier_monster_killer_shapeshift_buff:OnDestroy()
     if not IsServer() then
         return
     end
-    local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
+    local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
     ParticleManager:SetParticleControl(particle, 0,self.parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 3,self.parent:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle)

@@ -122,12 +122,15 @@ end
 
 function item_imba_mist_relics_passive:OnTakeDamage( keys )
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
+
 		if keys.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
 		local life = self.lifesteal
 			if self:GetParent():HasModifier("item_imba_mist_relics_buff") then
 				life = self.lifesteal_on
 			end
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		keys.attacker:Heal(keys.damage * life * 0.01, keys.attacker)
 		end
@@ -198,12 +201,14 @@ end
 
 function item_imba_satanic_passive:OnTakeDamage( keys )
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
+
 		if keys.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
 		local life = self.lifesteal
 			if self:GetParent():HasModifier("item_imba_satanic_buff") then
 				life = self.lifesteal_on
 			end
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		keys.attacker:Heal(keys.damage * life * 0.01, keys.attacker)
 		end
@@ -279,11 +284,13 @@ function item_imba_thirst_passive:OnAttackLanded(keys)
 	end
 
 	if keys.attacker == self:GetParent() and (keys.target:IsHero() or keys.target:IsCreep() or keys.target:IsBoss()) then
+		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
+
 		local life = self.lifesteal
 			if self:GetParent():HasModifier("item_imba_thirst_buff") then
 				life = self.lifesteal_on
 			end
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		keys.attacker:Heal(keys.damage * life * 0.01, keys.attacker)
 	end

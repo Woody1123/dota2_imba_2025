@@ -71,7 +71,7 @@ function modifier_imba_faceless_void_time_lock_passive:GetModifierProcAttack_Bon
 		--play sound 
 		keys.target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 		--play effect 
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(pfx, 0, keys.target:GetAbsOrigin() )
         ParticleManager:SetParticleControl(pfx, 1, keys.target:GetAbsOrigin() )
         ParticleManager:SetParticleControlEnt(pfx, 2, self:GetParent(), PATTACH_CUSTOMORIGIN, "attach_hitloc", keys.target:GetAbsOrigin(), true)

@@ -113,7 +113,7 @@ function modifier_imba_faceless_void_chronosphere_thinker:OnCreated(keys)
 		if (id== 76561198361355161 or id ==76561198100269546 or id == 76561198319625131) and self.radius < 3000 then 
 			pfx_name = "particles/face/mace_of_aeons_ult/red/fv_chronosphere_aeons_red.vpcf" --laojiezhuanshu
 		end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self.radius, self.radius, self.radius))
 		self:AddParticle(pfx, false, false, 16, false, false)

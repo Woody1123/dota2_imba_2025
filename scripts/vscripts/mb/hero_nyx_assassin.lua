@@ -67,7 +67,7 @@ function imba_nyx_assassin_impale:OnProjectileHit_ExtraData(target, location, ke
 		target:AddNewModifier(self:GetCaster(), self, "modifier_impale_motion", {duration = self:GetSpecialValueFor("air_time")})
 		EntIndexToHScript(keys.marker).hitted[#EntIndexToHScript(keys.marker).hitted + 1] = target
 		target:AddNewModifier_RS(self:GetCaster(), self, "modifier_stunned", {duration = self:GetSpecialValueFor("duration") + self:GetCaster():TG_GetTalentValue("special_bonus_imba_nyx_assassin_1")})
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(target:GetAbsOrigin(), nil))
 		ParticleManager:ReleaseParticleIndex(pfx)
 		local dmg = 0
@@ -204,12 +204,12 @@ function imba_nyx_assassin_mana_burn:OnSpellStart()
 	local mana = target:GetMana()
 	local attr = (target:GetAgility() > target:GetStrength() and target:GetAgility() or target:GetStrength()) > target:GetIntellect(false) and (target:GetAgility() > target:GetStrength() and target:GetAgility() or target:GetStrength()) or target:GetIntellect(false)
 	local mana_toburn = math.floor(attr * self:GetSpecialValueFor("float_multiplier") > mana and mana or attr * self:GetSpecialValueFor("float_multiplier"))
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc")))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(1, tostring(mana_toburn), 0))
 	ParticleManager:SetParticleControl(pfx, 2, Vector(2, (#tostring(mana_toburn)) + 1, 0))
 	ParticleManager:ReleaseParticleIndex(pfx)
-	local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf", PATTACH_ABSORIGIN, target)
+	local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf", PATTACH_ABSORIGIN, target)
 	ParticleManager:ReleaseParticleIndex(pfx2)
 	target:SetMana(target:GetMana() - mana_toburn)
 	local damageTable = {
@@ -316,7 +316,7 @@ function modifier_imba_spiked_carapace_stun:GetOverrideAnimation() return ACT_DO
 function modifier_imba_spiked_carapace_stun:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetDuration(), 0, 0))
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -336,8 +336,8 @@ function imba_nyx_assassin_burrow:IsNetherWardStealable()	return false end
 function imba_nyx_assassin_burrow:GetAssociatedSecondaryAbilities() return "imba_nyx_assassin_unburrow" end
 
 function imba_nyx_assassin_burrow:OnAbilityPhaseStart()
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
-	self.pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_inground.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	self.pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_inground.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	self:GetCaster():EmitSound("Hero_NyxAssassin.Burrow.In")
 	return true
 end
@@ -390,7 +390,7 @@ function imba_nyx_assassin_unburrow:OnSpellStart()
 	caster:StartGesture(ACT_DOTA_CAST_BURROW_END)
 	ParticleManager:DestroyParticle(burrow_ability.pfx2, true)
 	ParticleManager:ReleaseParticleIndex(burrow_ability.pfx2)
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(pfx)
 end
 
@@ -631,7 +631,7 @@ function modifier_imba_vendetta_damage_stacks:OnIntervalThink()
 		caster:StartGesture(ACT_DOTA_CAST_BURROW_END)
 		ParticleManager:DestroyParticle(burrow_ability.pfx2, true)
 		ParticleManager:ReleaseParticleIndex(burrow_ability.pfx2)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_burrow_exit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 end
@@ -657,7 +657,7 @@ function modifier_imba_vendetta_flag:RemoveOnDeath() 		return false end
 function modifier_imba_vendetta_flag:OnCreated() 		
 	if IsServer() then
 	local pfx_name = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_mark_overhead_lv.vpcf"
-	self.pfx = ParticleManager:CreateParticleForPlayer(pfx_name, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetPlayerOwner())
+	self.pfx = ParticleManager:SafeCreateParticleForPlayer(pfx_name, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetPlayerOwner())
 	self:AddParticle(self.pfx, false, false, 15, false, false)
 	end
 end

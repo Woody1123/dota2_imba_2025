@@ -110,7 +110,7 @@ function modifier_ranger_sliding_shooting_motion:OnCreated(keys)
 		--if self:CheckMotionControllers() then
 		self:OnIntervalThink()
 		self:StartIntervalThink(FrameTime())
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_horn", self.parent:GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		--else

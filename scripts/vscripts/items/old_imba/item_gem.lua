@@ -34,7 +34,7 @@ end
 function modifier_item_imba_soul_of_truth:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticleForTeam("particles/basic_ambient/generic_true_sight.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
+		local pfx = ParticleManager:SafeCreateParticleForTeam("particles/basic_ambient/generic_true_sight.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
 		self:AddParticle(pfx, false, false, 15, false, true)
 	end
 end

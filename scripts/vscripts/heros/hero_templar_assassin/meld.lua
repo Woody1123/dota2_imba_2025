@@ -55,12 +55,12 @@ function meld:OnProjectileHit_ExtraData(target, location,kv)
         if  target:HasModifier("modifier_assassin_trap_debuff") and not  target:IsMagicImmune() then
             target:AddNewModifier(caster, self, "modifier_meld_debuffstun", {duration=self:GetSpecialValueFor( "healdur" )})
         end
-        local fx = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_attack_hit.vpcf", PATTACH_CUSTOMORIGIN,target)
+        local fx = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_attack_hit.vpcf", PATTACH_CUSTOMORIGIN,target)
         ParticleManager:SetParticleControlEnt(fx, 0,target, PATTACH_POINT_FOLLOW, "attach_hitloc",target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
         ParticleManager:ReleaseParticleIndex(fx)
-        local fx2 = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, target)
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, target)
         ParticleManager:SetParticleControlEnt(fx2, 0,target, PATTACH_POINT_FOLLOW, "attach_hitloc",target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx2, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx2, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -142,7 +142,7 @@ function modifier_meld_buff:OnAttack(tg)
     end
     if tg.attacker == self:GetParent() and not tg.attacker:IsIllusion() then
         if not self.HIT then
-        local fx = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local fx = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(fx)
         local P =
         {
@@ -209,7 +209,7 @@ function modifier_meld_buff:OnCreated()
     if not IsServer() then
         return
     end
-    local fx = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(fx, 0,self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc",self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(fx, false, false, 15, false, false)

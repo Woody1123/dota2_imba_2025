@@ -76,7 +76,7 @@ function modifier_shukuchi:OnCreated()
 		if self.parent:HasModifier("modifier_veteran_talent_4_buff_2") then
 			self.speed_limit = 99999
 		end
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.pfx, true, false, 15, false, false)
 
@@ -183,7 +183,7 @@ function modifier_shukuchi_shard:OnCreated()
 		if self.parent:HasModifier("modifier_veteran_talent_4_buff_2") then
 			self.speed_limit = 99999
 		end
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.pfx, true, false, 15, false, false)
 end

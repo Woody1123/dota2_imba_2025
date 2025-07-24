@@ -285,7 +285,7 @@ function imba_huskar_inner_fire:InnerFire(damage_distance, ismagicimmune, isdisa
 	}
 
 	caster:EmitSound("Hero_Huskar.Inner_Fire.Cast")
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", PATTACH_POINT, caster)
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", PATTACH_POINT, caster)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
 	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle)
@@ -457,7 +457,7 @@ function modifier_imba_berserkers_blood_passive:OnCreated()
 			self.parent = self:GetParent()
 			self.ab = self:GetAbility()
 			self.soulmax = self.ab:GetSpecialValueFor("hp_threshold_max")+self.parent:TG_GetTalentValue("special_bonus_imba_huskar_6")		
-			self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_berserkers_blood_regen.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+			self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_huskar/huskar_berserkers_blood_regen.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 			ParticleManager:SetParticleControlEnt(self.pfx, 0, self.parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 						
 			self.reduce = self.ab:GetSpecialValueFor("reduce")
@@ -634,7 +634,7 @@ function modifier_imba_huskar_life_break_yidong:OnDestroy()
 		self.caster:StartGesture(ACT_DOTA_CAST_LIFE_BREAK_END)
 
 		self.target:EmitSound("Hero_Huskar.Life_Break.Impact")
-		local particle = ParticleManager:CreateParticle("particles/econ/items/huskar/huskar_searing_dominator/huskar_searing_life_break.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.target)
+		local particle = ParticleManager:SafeCreateParticle("particles/econ/items/huskar/huskar_searing_dominator/huskar_searing_life_break.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.target)
 		ParticleManager:SetParticleControl(particle, 1, self.target:GetOrigin())
 		ParticleManager:SetParticleControl(particle, 2, self.target:GetOrigin())
 		ParticleManager:SetParticleControl(particle, 3, self.target:GetOrigin())

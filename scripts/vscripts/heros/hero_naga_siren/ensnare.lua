@@ -134,7 +134,7 @@ function modifier_ensnare_debuff:OnCreated()
         return
     end
     local pos=self:GetParent():GetAbsOrigin()
-    local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_siren/siren_net.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent() )
+    local fx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_siren/siren_net.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent() )
     ParticleManager:SetParticleControl( fx, 0, pos )
     for num=18,22 do
         ParticleManager:SetParticleControl( fx, num, pos )

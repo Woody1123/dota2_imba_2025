@@ -67,7 +67,7 @@ function modifier_prot_toggle:OnCreated()
 	}
       if IsServer() then
             self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION+DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL+DOTA_DAMAGE_FLAG_REFLECTION
-            self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_pudge/pudge_rot.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_pudge/pudge_rot.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(self.rot_radius, 0, 0))
 		self:AddParticle(self.pfx, false, false, 15, false, false)
             if not self.parent:Has_Aghanims_Shard() then
@@ -125,7 +125,7 @@ function modifier_prot_debuff:OnIntervalThink()
                   if #units>0 then
                     for _,target in pairs(units) do
                             if not target:IsMagicImmune() then
-                                    local pfx = ParticleManager:CreateParticle("particles/tgp/pudge/fart_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+                                    local pfx = ParticleManager:SafeCreateParticle("particles/tgp/pudge/fart_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
                                     ParticleManager:SetParticleControl(pfx, 0,target:GetAbsOrigin())
                                     ParticleManager:ReleaseParticleIndex(pfx)
                                     self.damageTable.damage=self.caster:GetMaxHealth()*self.hp

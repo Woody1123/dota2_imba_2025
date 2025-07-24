@@ -29,7 +29,7 @@ function epicenter:OnAbilityPhaseStart()
         caster.epicenterfx = nil
     end
     -- 使用PATTACH_ABSORIGIN_FOLLOW避免挂点问题
-    caster.epicenterfx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_tell.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    caster.epicenterfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_tell.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     return true
 end
 
@@ -99,7 +99,7 @@ function modifier_epicenter:OnIntervalThink()
     local radiusGrowth = (3 - self:GetRemainingTime()) * 220
     local currentRadius = self.epicenter_radius + radiusGrowth
 
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(fx, 0, casterPos)
     ParticleManager:SetParticleControl(fx, 1, Vector(currentRadius, 1, 1))
     ParticleManager:ReleaseParticleIndex(fx)
@@ -165,7 +165,7 @@ end
 function modifier_epicenter_s:OnIntervalThink()
     if self.caster:Has_Aghanims_Shard() and self.caster:IsAlive() then
         local casterPos = self.caster:GetAbsOrigin()
-        local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(fx, 0, casterPos)
         ParticleManager:SetParticleControl(fx, 1, Vector(self.epicenter_radius, 1, 1))
         ParticleManager:ReleaseParticleIndex(fx)
@@ -220,7 +220,7 @@ function modifier_epicenter_m:OnCreated(tg)
     end
 
     -- 添加拉动时附加特效，粒子路径可自定义
-    self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pull.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+    self.particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pull.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 end
 
 function modifier_epicenter_m:OnRefresh(tg)

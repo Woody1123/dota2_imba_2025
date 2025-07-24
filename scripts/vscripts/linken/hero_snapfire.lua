@@ -30,7 +30,7 @@ end
 
 function imba_snapfire_scatterblast:CreateCustomIndicator()
 	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_shotgun_range_finder_aoe.vpcf"
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 end
 
 function imba_snapfire_scatterblast:UpdateCustomIndicator( loc )
@@ -212,11 +212,11 @@ function imba_snapfire_scatterblast:PlayEffects( target, point_blank )
 	-- Get Data
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	if point_blank then
-		local effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_POINT_FOLLOW, target )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_POINT_FOLLOW, target )
 		ParticleManager:SetParticleControlEnt(
 			effect_cast,
 			3,
@@ -228,7 +228,7 @@ function imba_snapfire_scatterblast:PlayEffects( target, point_blank )
 		)
 		ParticleManager:ReleaseParticleIndex( effect_cast )
 
-		local effect_cast = ParticleManager:CreateParticle( particle_cast3, PATTACH_POINT_FOLLOW, target )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast3, PATTACH_POINT_FOLLOW, target )
 		ParticleManager:SetParticleControlEnt(
 			effect_cast,
 			4,
@@ -520,7 +520,7 @@ function imba_snapfire_firesnap_cookie:PlayEffects1()
 	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_cookie_selfcast.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
 
@@ -531,10 +531,10 @@ function imba_snapfire_firesnap_cookie:PlayEffects2( target )
 	local sound_target = "Hero_Snapfire.FeedCookie.Consume"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, target )
 
 	-- Create Sound
 	EmitSoundOn( sound_target, target )
@@ -548,7 +548,7 @@ function imba_snapfire_firesnap_cookie:PlayEffects3( target, radius )
 	local sound_location = "Hero_Snapfire.FeedCookie.Impact"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )
 	ParticleManager:SetParticleControl( effect_cast, 0, target:GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, radius, radius ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -900,7 +900,7 @@ function modifier_imba_snapfire_lil_shredder_buff:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_shells_buff.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		3,
@@ -1104,11 +1104,11 @@ function imba_snapfire_mortimer_kisses:PlayEffects( loc )
 	local sound_cast = "Hero_Snapfire.MortimerBlob.Impact"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 3, loc )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, loc )
 	ParticleManager:SetParticleControl( effect_cast, 1, loc )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -1599,7 +1599,7 @@ function modifier_imba_snapfire_mortimer_kisses_thinker:PlayEffects( time )
 	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
 	--if not time or time == nil then  time = 0.3 end
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeamNumber() )
+	self.effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeamNumber() )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( self.effect_cast, 1, Vector( self.radius, 0, -self.radius*(self.max_travel/time) ) )
 	ParticleManager:SetParticleControl( self.effect_cast, 2, Vector( time , 0, 0 ) )

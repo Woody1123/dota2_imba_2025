@@ -27,7 +27,7 @@ function modifier_imba_dagon_passive:GetModifierSpellAmplify_Percentage() return
 local function IMBA_Dagon_Main_Target(iItemLevel, strPfxName, fDamage, hCaster, hTarget, hAbility)
 	hCaster:EmitSound("DOTA_Item.Dagon.Activate")
 	hTarget:EmitSound("DOTA_Item.Dagon5.Target")
-	local pfx = ParticleManager:CreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hCaster, PATTACH_POINT_FOLLOW, "attach_attack1", hCaster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(iItemLevel, 0, 0))
@@ -56,7 +56,7 @@ local function IMBA_Dagon_Bounce_Target(iItemLevel, strPfxName, fDamage, hCaster
 		end
 	end
 	for i=1, #units - 1 do
-		local pfx = ParticleManager:CreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, units[i], PATTACH_POINT_FOLLOW, "attach_hitloc", units[i]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, units[i+1], PATTACH_POINT_FOLLOW, "attach_hitloc", units[i+1]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(iItemLevel, 0, 0))
@@ -84,7 +84,7 @@ function item_imba_dagon:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() and not target:HasModifier("modifier_illusions_mirror_image") then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -118,7 +118,7 @@ function item_imba_dagon_ex:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() and not target:HasModifier("modifier_illusions_mirror_image") then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return

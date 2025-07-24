@@ -116,7 +116,7 @@ function modifier_item_butterfly_v2_buff:OnCreated()
     self.sp= self.ability:GetSpecialValueFor("sp")
 	self.ch = self.ability:GetSpecialValueFor("ch_2")
     if IsServer() then
-        local particle = ParticleManager:CreateParticle("particles/tgp/items/butterfly/butterfly_buff_m.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
+        local particle = ParticleManager:SafeCreateParticle("particles/tgp/items/butterfly/butterfly_buff_m.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
         ParticleManager:SetParticleControl(particle,0,self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControl(particle,60,Vector(140,0,255))
         ParticleManager:SetParticleControl(particle,61,Vector(1,0,0))

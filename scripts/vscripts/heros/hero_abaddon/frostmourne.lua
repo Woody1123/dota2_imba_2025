@@ -125,7 +125,7 @@ function modifier_frostmourne_stack:OnCreated()
             ParticleManager:DestroyParticle(self.fx1, true)
             ParticleManager:ReleaseParticleIndex(self.fx1)
         end
-        self.fx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_curse_counter_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
+        self.fx1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_abaddon/abaddon_curse_counter_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.fx1, 0,self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControl(self.fx1, 1,Vector(0,self:GetStackCount(),0))
         ParticleManager:SetParticleControl(self.fx1, 3,self.parent:GetAbsOrigin())

@@ -20,7 +20,7 @@ function imba_arc_warden_mold_rune:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local random_buff = {"modifier_rune_regen", "modifier_rune_haste", "modifier_rune_invis", "modifier_rune_doubledamage", "modifier_rune_arcane"}
 	target:AddNewModifier(caster, self, RandomFromTable(random_buff), {duration = 1.0})
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -67,9 +67,9 @@ function imba_arc_warden_flux:OnSpellStart()
 	local steamid = tostring(PlayerResource:GetSteamID(ID))	
 	local duration = self:GetSpecialValueFor("duration") + caster:TG_GetTalentValue("special_bonus_imba_arc_warden_5")
 	TG_AddNewModifier_RS(target,caster, self, "modifier_imba_arc_warden_flux", {duration = duration})
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	if HeroItems_steamid_64[steamid] then
-		pfx = ParticleManager:CreateParticle("particles/heros/arc_warden/arc_warden_flux_cast/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		pfx = ParticleManager:SafeCreateParticle("particles/heros/arc_warden/arc_warden_flux_cast/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	end	
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
@@ -161,9 +161,9 @@ function modifier_imba_arc_warden_flux:OnCreated()
 		self:StartIntervalThink(self.int)
 		self:IncrementStackCount()
 		if HeroItems_steamid_64[steamid] then
-			self.pfx = ParticleManager:CreateParticle("particles/heros/arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+			self.pfx = ParticleManager:SafeCreateParticle("particles/heros/arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		else
-			self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)	
+			self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		end			
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(self.pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -297,7 +297,7 @@ function imba_arc_warden_magnetic_field:OnSpellStart()
 	local thinker = CreateModifierThinker(caster, self, "modifier_imba_arc_warden_magnetic_field_thinker", {duration = duration, radius = radius}, pos, caster:GetTeamNumber(), false)
 	caster:AddNewModifier(caster, self, "modifier_imba_arc_warden_magnetic_field_selfbuff", {duration = duration})
 
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_magnetic_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_magnetic_cast.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -364,9 +364,9 @@ function modifier_imba_arc_warden_magnetic_field_thinker:OnCreated(keys)
 		local ID = self:GetCaster():GetPlayerOwnerID()
 		local steamid = tostring(PlayerResource:GetSteamID(ID))
 		if HeroItems_steamid_64[steamid] then
-			self.pfx = ParticleManager:CreateParticle("particles/heros/arc_warden/arc_warden_red_magnetic/arc_warden_red_magnetic.vpcf", PATTACH_POINT, self:GetParent())
+			self.pfx = ParticleManager:SafeCreateParticle("particles/heros/arc_warden/arc_warden_red_magnetic/arc_warden_red_magnetic.vpcf", PATTACH_POINT, self:GetParent())
 		else
-			self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf", PATTACH_POINT, self:GetParent())	
+			self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf", PATTACH_POINT, self:GetParent())
 		end			
 		
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetOrigin())
@@ -491,7 +491,7 @@ function imba_arc_warden_spark_wraith:OnSpellStart()
 	if HeroItems_steamid_64[steamid] then
 		particle_cast = "particles/heros/arc_warden/arc_warden_ti9_wraith_cast/arc_warden_ti9_wraith_cast.vpcf"
 	end		
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_OVERHEAD_FOLLOW, caster )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_OVERHEAD_FOLLOW, caster )
 	ParticleManager:SetParticleControlEnt(effect_cast, 0, caster, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(effect_cast, 1, caster, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(effect_cast)
@@ -523,7 +523,7 @@ function modifier_imba_arc_warden_spark_wraith_thinker:OnCreated(params)
 		if HeroItems_steamid_64[steamid] then
 			particle_cast = "particles/heros/arc_warden/arc_warden_ti9_wraith/arc_warden_ti9_wraith.vpcf"
 		end			
-		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetParent() )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetParent() )
 		ParticleManager:SetParticleControl( effect_cast, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,65) )
 		ParticleManager:SetParticleControl( effect_cast, 1, Vector(self.radius, self.radius, self.radius) )
 		ParticleManager:ReleaseParticleIndex(effect_cast)

@@ -9782,7 +9782,7 @@ ParticleManager = CScriptParticleManager
 ---@param iAttachment number
 ---@param hOwner handle
 ---@return number
-function CScriptParticleManager:CreateParticle(sParticleName, iAttachment, hOwner) end
+function CScriptParticleManager:SafeCreateParticle(sParticleName, iAttachment, hOwner) end
 
 ---Creates a new particle effect that only plays for the specified player
 ---@param string_1 string
@@ -9790,7 +9790,7 @@ function CScriptParticleManager:CreateParticle(sParticleName, iAttachment, hOwne
 ---@param handle_3 handle
 ---@param handle_4 handle
 ---@return number
-function CScriptParticleManager:CreateParticleForPlayer(string_1, int_2, handle_3, handle_4) end
+function CScriptParticleManager:SafeCreateParticleForPlayer(string_1, int_2, handle_3, handle_4) end
 
 ---Creates a new particle effect that only plays for the specified team
 ---@param string_1 string
@@ -9798,7 +9798,7 @@ function CScriptParticleManager:CreateParticleForPlayer(string_1, int_2, handle_
 ---@param handle_3 handle
 ---@param int_4 number
 ---@return number
-function CScriptParticleManager:CreateParticleForTeam(string_1, int_2, handle_3, int_4) end
+function CScriptParticleManager:SafeCreateParticleForTeam(string_1, int_2, handle_3, int_4) end
 
 ---删除一个粒子特效。如果选择立即删除，将不会播放粒子的结束特效。
 ---@param iIndex number

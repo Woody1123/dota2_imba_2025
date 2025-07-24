@@ -59,10 +59,10 @@ function modifier_dismember_buff:OnCreated( tg )
       self.num=self.ability:GetSpecialValueFor("num")
       self.dmg=0
 	if IsServer() then
-                   local fx = ParticleManager:CreateParticle( "particles/econ/items/pudge/pudge_arcana/default/pudge_arcana_dismember_bloom_default.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
+                   local fx = ParticleManager:SafeCreateParticle( "particles/econ/items/pudge/pudge_arcana/default/pudge_arcana_dismember_bloom_default.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
 			ParticleManager:SetParticleControl( fx, 0, self.parent:GetAbsOrigin())
                   self:AddParticle(fx, true, false, 1, false, false)
-                  local fx2 = ParticleManager:CreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)
+                  local fx2 = ParticleManager:SafeCreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)
 	            ParticleManager:ReleaseParticleIndex(fx2)
                   EmitSoundOn("Hero_Pudge.Eject.Persona",  self.parent)
             self.caster:SetRenderColor(255, 0, 0)
@@ -70,7 +70,7 @@ function modifier_dismember_buff:OnCreated( tg )
 end
 function modifier_dismember_buff:OnRefresh( tg )
 	if IsServer() then
-                  local fx2 = ParticleManager:CreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)
+                  local fx2 = ParticleManager:SafeCreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)
 	            ParticleManager:ReleaseParticleIndex(fx2)
                   EmitSoundOn("Hero_Pudge.Eject.Persona",  self.parent)
 	end
@@ -131,7 +131,7 @@ function modifier_dismember_debuff:OnCreated( tg )
 			ability = self.ability,
 	}
 	if IsServer() then
-                  local fx = ParticleManager:CreateParticle( "particles/econ/items/pudge/pudge_arcana/pudge_arcana_dismember_motor.vpcf", PATTACH_CUSTOMORIGIN, nil )
+                  local fx = ParticleManager:SafeCreateParticle( "particles/econ/items/pudge/pudge_arcana/pudge_arcana_dismember_motor.vpcf", PATTACH_CUSTOMORIGIN, nil )
 			ParticleManager:SetParticleControl( fx, 0, self.parent:GetAbsOrigin())
                   ParticleManager:SetParticleControlEnt(fx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
                   ParticleManager:SetParticleControl( fx, 2, Vector(1000,1000,1000))

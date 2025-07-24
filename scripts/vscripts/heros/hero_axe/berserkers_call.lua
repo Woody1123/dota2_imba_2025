@@ -52,15 +52,15 @@ function berserkers_call:OnSpellStart()
                 mod:TurnAround(self.caster)
         end
         --if #units>num or self.caster:TG_HasTalent("special_bonus_axe_1")  then
-        --    local particle = ParticleManager:CreateParticle( "particles/heros/axe/axe_bc_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+        --    local particle = ParticleManager:SafeCreateParticle( "particles/heros/axe/axe_bc_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
         --    ParticleManager:SetParticleControl(fx, 1, Vector(self.radius,self.radius,self.radius))
         --    ParticleManager:ReleaseParticleIndex(particle)
         --else
-        --    local particle = ParticleManager:CreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+        --    local particle = ParticleManager:SafeCreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
         --    ParticleManager:SetParticleControl(fx, 2, Vector(self.radiusd,self.radius,self.radius))
         --    ParticleManager:ReleaseParticleIndex(particle)
         --end
-    local particle = ParticleManager:CreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+    local particle = ParticleManager:SafeCreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
     ParticleManager:SetParticleControl(particle, 2, Vector(self.radius,self.radius,self.radius))
     ParticleManager:ReleaseParticleIndex(particle)
 end

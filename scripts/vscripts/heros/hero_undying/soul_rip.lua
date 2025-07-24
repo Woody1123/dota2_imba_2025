@@ -60,7 +60,7 @@ function soul_rip:OnSpellStart()
         if Is_Chinese_TG(target,caster) then 
             local hp=NUM*tombstone_heal
             for _,unit in pairs(enemies) do
-                local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_soul_rip_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW ,target)
+                local particle = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_undying/undying_soul_rip_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW ,target)
                 ParticleManager:SetParticleControl(particle,0,target:GetAbsOrigin())
                 ParticleManager:SetParticleControl(particle,1,unit:GetAbsOrigin())
                 ParticleManager:ReleaseParticleIndex(particle)
@@ -80,7 +80,7 @@ function soul_rip:OnSpellStart()
 
         else
             for _,unit in pairs(enemies) do
-                local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_soul_rip_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW ,unit)
+                local particle = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_undying/undying_soul_rip_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW ,unit)
                 ParticleManager:SetParticleControl(particle,0,target:GetAbsOrigin())
                 ParticleManager:SetParticleControl(particle,1,unit:GetAbsOrigin())
                 ParticleManager:SetParticleControl(particle,1,target:GetAbsOrigin())

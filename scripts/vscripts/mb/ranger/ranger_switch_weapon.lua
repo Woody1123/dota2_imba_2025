@@ -63,7 +63,7 @@ function ranger_switch_weapon:OnProjectileHit_ExtraData(target, location, keys)
 			end
 		end
 		--Effect
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, location)
 		--ParticleManager:SetParticleControl(pfx, 1, Vector(0,0,aoe_radius))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(aoe_radius, aoe_radius, aoe_radius))

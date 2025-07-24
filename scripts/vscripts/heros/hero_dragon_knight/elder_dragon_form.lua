@@ -174,7 +174,7 @@ function modifier_elder_dragon_form:OnCreated()
                     self.tn="particles/units/heroes/hero_dragon_knight/dragon_knight_transform_blue.vpcf"
                 end
             end
-            local pf1 = ParticleManager:CreateParticle(self.tn, PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            local pf1 = ParticleManager:SafeCreateParticle(self.tn, PATTACH_ABSORIGIN_FOLLOW, self.parent)
             ParticleManager:SetParticleControl(pf1, 0,self.pos)
             ParticleManager:SetParticleControl(pf1, 1,self.pos)
             ParticleManager:ReleaseParticleIndex(pf1)

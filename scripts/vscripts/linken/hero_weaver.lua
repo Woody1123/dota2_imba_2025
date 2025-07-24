@@ -256,7 +256,7 @@ function modifier_imba_the_swarm_aura:OnCreated(keys)
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self.radius = self:GetAbility():GetSpecialValueFor("radius") + self:GetCaster():TG_GetTalentValue("special_bonus_imba_weaver_1")
-		self.pfx = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(self.radius, 0, 0))
 		ParticleManager:SetParticleControl(self.pfx, 2, Vector(10, 0, 0))
 		ParticleManager:SetParticleControl(self.pfx, 3, Vector(100, 0, 0))
@@ -296,7 +296,7 @@ function imba_weaver_shukuchi:OnSpellStart()
 	self.duration = self:GetSpecialValueFor("duration")
 	self.caster:AddNewModifier(self.caster, self, "modifier_imba_shukuchi_buff", {duration = self.duration})
 	EmitSoundOn("Hero_Weaver.Shukuchi",self:GetCaster())
-	--[[self.pfx_st = ParticleManager:CreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi_portal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+	--[[self.pfx_st = ParticleManager:SafeCreateParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi_portal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControl(self.pfx_st, 0, self.caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(self.pfx_st)]]			
 end
@@ -366,7 +366,7 @@ function modifier_imba_shukuchi_buff:OnCreated(keys)
 		self.interval = 0.25
 		self.damage = self.ability:GetSpecialValueFor("damage") * self.interval
 		self.caster:AddActivityModifier("shukuchi")
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_weaver/weaver_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_weaver/weaver_shukuchi.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		self:AddParticle(self.pfx, true, false, 15, false, false)
 		self:StartIntervalThink(self.interval)	
@@ -407,7 +407,7 @@ function modifier_imba_shukuchi_buff:OnIntervalThink(keys)
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 			}		
 		ApplyDamage(damageTable)
-		--[[self.pfx_da = ParticleManager:CreateParticle("particles/units/heroes/hero_weaver/weaver_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy[i])
+		--[[self.pfx_da = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_weaver/weaver_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy[i])
 		ParticleManager:SetParticleControl(self.pfx_da, 0, enemy[i]:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx_da, 1, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx_da, 2, self.parent:GetAbsOrigin())
@@ -480,7 +480,7 @@ function modifier_imba_shukuchi_debuff:OnCreated(keys)
 	self.parent = self:GetParent()
 	if IsServer() then
 
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/omniknight/omniknight_fall20_immortal/omniknight_fall20_immortal_degen_aura_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/omniknight/omniknight_fall20_immortal/omniknight_fall20_immortal_degen_aura_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		self:AddParticle(self.pfx, true, false, 15, false, false)
 	end 
@@ -1222,7 +1222,7 @@ function modifier_imba_time_lapse_passive:OnIntervalThink(keys)
 		self.caster:Heal(hp_heal, self.caster)
 		SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self.caster, hp_heal, nil)
 		EmitSoundOn("Hero_Weaver.TimeLapse",self:GetCaster())
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_weaver/weaver_timelapse.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_weaver/weaver_timelapse.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 2, self.parent:GetAbsOrigin())
@@ -1267,7 +1267,7 @@ function modifier_imba_time_lapse_pfx:OnCreated(keys)
 	self.parent = self:GetParent()
 	if IsServer() then		
 		EmitSoundOnClient("Imba.Hero_weaver.time_lapse_shishan", self:GetParent():GetPlayerOwner())
-		self.pfx = ParticleManager:CreateParticleForPlayer("particles/heros/weaver/time_lapse.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent(),self:GetParent():GetPlayerOwner())
+		self.pfx = ParticleManager:SafeCreateParticleForPlayer("particles/heros/weaver/time_lapse.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent(),self:GetParent():GetPlayerOwner())
 		self:AddParticle(self.pfx, true, false, 15, false, false)    	
 	end 	
 end

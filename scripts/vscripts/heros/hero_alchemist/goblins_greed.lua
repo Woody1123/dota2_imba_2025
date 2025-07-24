@@ -19,7 +19,7 @@ function goblins_greed:Init()
 end
 function goblins_greed:OnSpellStart()
       EmitSoundOn("DOTA_Item.Hand_Of_Midas", self.caster)
-      local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf", PATTACH_ABSORIGIN, self.caster)
+      local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf", PATTACH_ABSORIGIN, self.caster)
       ParticleManager:SetParticleControl(fx, 1,  self.caster:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(fx)
       self.caster:AddNewModifier(self.caster, self, "modifier_goblins_greed_buff", {duration=self:GetSpecialValueFor("dur")})
@@ -114,7 +114,7 @@ function modifier_goblins_greed_pa:OnDeath(tg)
                         local gold=self.egold+stack*2
                         local num=tonumber(#tostring(gold))+1
                         PlayerResource:ModifyGold(self.caster:GetPlayerOwnerID(), gold, false, DOTA_ModifyGold_Unspecified)
-                        local fx = ParticleManager:CreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, tg.unit)
+                        local fx = ParticleManager:SafeCreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, tg.unit)
                         ParticleManager:SetParticleControl(fx, 1, Vector(5, gold, 0))
                         ParticleManager:SetParticleControl(fx, 2, Vector(1,num, 0))
                         ParticleManager:SetParticleControl(fx, 3, Vector(255, 208, 0))

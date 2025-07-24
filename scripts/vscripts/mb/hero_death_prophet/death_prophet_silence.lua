@@ -23,7 +23,7 @@ function imba_death_prophet_silence:OnSpellStart()
 	--特效
 	--particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf
 	--particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_ti9.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, self:GetCursorPosition())
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetSpecialValueFor("radius"), 0, 1))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -42,7 +42,7 @@ function imba_death_prophet_silence:OnSpellStart()
 	local spirit_siphon_abi = self:GetCaster():FindAbilityByName("imba_death_prophet_spirit_siphon")
 
 	for _, enemy in pairs(enemies) do
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
 		ParticleManager:SetParticleControl(pfx, 0, enemy:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(pfx)
 
@@ -68,7 +68,7 @@ end
 
 function modifier_imba_death_prophet_silence:OnCreated()
 	--if IsServer() then
-	--	self.pfx = ParticleManager:CreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_custom_ti9.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+	--	self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_custom_ti9.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 	--	ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetOrigin())
 	--end
 end

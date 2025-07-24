@@ -83,7 +83,7 @@ function modifier_malefice_debuff:OnCreated()
     if not IsServer() then
         return
     end
-    local fx= ParticleManager:CreateParticle(
+    local fx= ParticleManager:SafeCreateParticle(
         "particles/units/heroes/hero_enigma/enigma_blackhole.vpcf",
         PATTACH_CUSTOMORIGIN_FOLLOW,
         self.parent)
@@ -173,7 +173,7 @@ function modifier_malefice_debuff1:OnCreated(tg)
         ability = self.ability,
         }
         ApplyDamage(damageTable)
-        local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf",PATTACH_CUSTOMORIGIN_FOLLOW,self.parent)
+        local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_enigma/enigma_ambient_body.vpcf",PATTACH_CUSTOMORIGIN_FOLLOW,self.parent)
         ParticleManager:SetParticleControl(fx, 0,  self.POS)
         ParticleManager:SetParticleControl(fx, 1,  self.POS)
         self:AddParticle(fx, false, false, -1, false, false)

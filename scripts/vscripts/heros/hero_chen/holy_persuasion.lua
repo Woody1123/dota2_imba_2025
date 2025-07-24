@@ -75,7 +75,7 @@ function holy_persuasion:OnSpellStart()
             local name=tar:GetUnitName()
             tar:Kill(self, caster)
             local unit=CreateUnitByName(name, casterpos+caster:GetForwardVector()*100, true, caster, caster, caster:GetTeamNumber())
-            local p = ParticleManager:CreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+            local p = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
             ParticleManager:SetParticleControl(p, 0,unit:GetAbsOrigin())
             ParticleManager:ReleaseParticleIndex(p)
             caster.holy_persuasion_target=name
@@ -154,7 +154,7 @@ end
 
 function modifier_holy_persuasion_knock:OnDestroy()
     if IsServer() then
-        local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+        local p1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControl(p1, 0, self.parent:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(p1)
         local heros = FindUnitsInRadius(self.parent:GetTeamNumber(), self.parent:GetAbsOrigin(), nil, self.rd, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)

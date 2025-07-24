@@ -123,11 +123,11 @@ function monster_killer_incendiary_grenade:PlayEffects( loc )
 	local sound_cast = "Hero_Snapfire.MortimerBlob.Impact"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 3, loc )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, loc )
 	ParticleManager:SetParticleControl( effect_cast, 1, loc )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -200,7 +200,7 @@ function modifier_monster_killer_incendiary_grenade_thinker:PlayEffects( time )
 	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
 	--if not time or time == nil then  time = 0.3 end
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeamNumber() )
+	self.effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeamNumber() )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( self.effect_cast, 1, Vector( self.radius, 0, -self.radius*(self.max_travel/time) ) )
 	ParticleManager:SetParticleControl( self.effect_cast, 2, Vector( time , 0, 0 ) )

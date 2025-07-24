@@ -48,7 +48,7 @@ end
 function modifier_droiyan:OnCreated(tg)
 	if self:GetAbility() == nil then return end
     if IsServer() then   
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/disruptor/disruptor_resistive_pinfold/disruptor_ecage_kineticfield.vpcf", PATTACH_WORLDORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/disruptor/disruptor_resistive_pinfold/disruptor_ecage_kineticfield.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(3000, 0, 0))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(9999, 0, 0))

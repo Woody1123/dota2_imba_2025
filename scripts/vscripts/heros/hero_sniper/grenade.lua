@@ -108,7 +108,7 @@ function modifier_grenade:OnCreated(keys)
     if not IsServer() then
         return
     end
-    local particle= ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+    local particle= ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(particle, 1, Vector(self.rd, 0, 0))
     ParticleManager:SetParticleControl(particle, 2, Vector(15, 0, 0))
     ParticleManager:SetParticleControl(particle, 3, Vector(100, 0, 0))
@@ -116,7 +116,7 @@ function modifier_grenade:OnCreated(keys)
     self:AddParticle( particle, true, false, 10, false, false )
     self:GetParent():SetHealth(self:GetAbility():GetSpecialValueFor("hp"))
     self:GetParent():SetPhysicalArmorBaseValue( self:GetAbility():GetSpecialValueFor("ar") )
-    local particle2= ParticleManager:CreateParticle("particles/econ/courier/courier_trail_hw_2013/courier_trail_hw_2013_ghosts.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+    local particle2= ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_hw_2013/courier_trail_hw_2013_ghosts.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     self:AddParticle( particle2, false, false, 100, false, false )
     self:StartIntervalThink(1)
 end

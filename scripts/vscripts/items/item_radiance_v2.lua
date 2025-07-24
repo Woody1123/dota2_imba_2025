@@ -131,7 +131,7 @@ function modifier_item_radiance_v2:OnCreated()
             damage_flags=DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
             ability = self.ability,
         }
-        self.fx=ParticleManager:CreateParticle("particles/econ/events/spring_2021/radiance_owner_spring_2021.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+        self.fx=ParticleManager:SafeCreateParticle("particles/econ/events/spring_2021/radiance_owner_spring_2021.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         self:AddParticle(self.fx, true, false, 1, false, false)
         self:StartIntervalThink(self.interval)
     end

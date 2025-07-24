@@ -38,13 +38,13 @@ function sleight_of_fist:OnSpellStart()
     EmitSoundOn("Hero_EmberSpirit.SleightOfFist.Cast", caster)
     if self:GetAutoCastState() then
         local fpos=cur_pos+TG_Direction(cur_pos,pos)*dis
-        local trail = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local trail = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(trail, 0,cur_pos)
         ParticleManager:SetParticleControl(trail, 1,fpos)
         ParticleManager:ReleaseParticleIndex(trail)
         heroes = FindUnitsInLine(team,cur_pos,fpos,caster,wh,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NO_INVIS+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
     else
-        local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(pf, 0, cur_pos)
         ParticleManager:SetParticleControl(pf, 1, Vector(radius, 0, 0))
         ParticleManager:ReleaseParticleIndex(pf)
@@ -52,12 +52,12 @@ function sleight_of_fist:OnSpellStart()
     end
     if #heroes>0 then
         self:SetActivated(false)
-        local pf1 = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local pf1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pf1, 0, pos)
         ParticleManager:SetParticleControlForward(pf1, 1, caster:GetForwardVector())
         ParticleManager:SetParticleControl(pf1, 62, Vector(10, 0, 0))
         for a=1,#heroes do
-            op[a] = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf", PATTACH_OVERHEAD_FOLLOW, heroes[a])
+            op[a] = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf", PATTACH_OVERHEAD_FOLLOW, heroes[a])
             ParticleManager:SetParticleControl( op[a], 0, heroes[a]:GetAbsOrigin())
         end
         caster:AddNewModifier(caster, self, "modifier_sleight_of_fist_buff", {})
@@ -69,7 +69,7 @@ function sleight_of_fist:OnSpellStart()
             if  heroes~=nil and stack<=#heroes then
                 if heroes[stack]~=nil and heroes[stack]:IsAlive() then
                     local tpos=heroes[stack]:GetAbsOrigin()
-                    local trail = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+                    local trail = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
                     ParticleManager:SetParticleControl(trail, 0,caster:GetAbsOrigin())
                     ParticleManager:SetParticleControl(trail, 1,tpos)
                     ParticleManager:ReleaseParticleIndex(trail)
@@ -77,7 +77,7 @@ function sleight_of_fist:OnSpellStart()
                         caster:SetAbsOrigin(tpos)
                     end
                     caster:PerformAttack(heroes[stack], false, true, true, false, false, false, true)
-                    local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, heroes[stack])
+                    local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, heroes[stack])
                     ParticleManager:SetParticleControl(pf, 0,tpos)
                     ParticleManager:ReleaseParticleIndex(pf)
                         if op[stack]~=nil then

@@ -69,7 +69,7 @@ function modifier_imba_treant_natures_grasp_debuff:OnCreated(keys)
 	self.isovergrowth  = keys.overgrowth
 	self.ab = self.caster:FindAbilityByName("imba_treant_overgrowth")
 	if IsServer() then
-       	self.bramble_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_bramble_root.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+       	self.bramble_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_bramble_root.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.bramble_particle, 0, Vector(0, 0, 0))
 		self:AddParticle(self.bramble_particle, false, false, -1, false, false)
         EmitSoundOn("hero_jakiro.imba_treant_natures_grasp", self.parent)
@@ -236,7 +236,7 @@ function modifier_imba_treant_leech_seed_debuff:OnIntervalThink()
 
 	end
 
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_leech_seed_damage_pulse.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_leech_seed_damage_pulse.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:ReleaseParticleIndex(particle)
 	particle = nil
 		if self:GetParent():IsAlive() then
@@ -305,7 +305,7 @@ function imba_treant_living_armor:OnChannelFinish(b)
 	if IsServer() then
 		if self.pos~=nil and not b then
 		FindClearSpaceForUnit(self:GetCaster(), self.pos, true)
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/treant_protector/treant_ti10_immortal_head/treant_ti10_immortal_overgrowth_cast_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/treant_protector/treant_ti10_immortal_head/treant_ti10_immortal_overgrowth_cast_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex( pfx )
 		self:addarmor(self:GetCaster())
@@ -383,7 +383,7 @@ function modifier_imba_treant_living_armor_buff:OnCreated()
 	end
 	self.damage_re = self:GetAbility():GetSpecialValueFor("damage_re")*-1
 	if IsServer() then
-	self.armor_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_livingarmor.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.armor_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_livingarmor.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.armor_particle, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_origin", self:GetParent():GetAbsOrigin(), true)
 	self:AddParticle(self.armor_particle, false, false, -1, false, false)
 	self:StartIntervalThink(0.5)
@@ -423,7 +423,7 @@ function imba_treant_overgrowth:OnSpellStart()
 		GameRules:SetTreeRegrowTime(10)
 	end
 	local duration_overgrowth = self:GetSpecialValueFor("duration")
-	local cast_particle = ParticleManager:CreateParticle("particles/econ/items/treant_protector/treant_ti10_immortal_head/treant_ti10_immortal_overgrowth_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	local cast_particle = ParticleManager:SafeCreateParticle("particles/econ/items/treant_protector/treant_ti10_immortal_head/treant_ti10_immortal_overgrowth_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(cast_particle)
 
 	local enemy_hero = FindUnitsInRadius(caster:GetTeamNumber(),
@@ -472,7 +472,7 @@ function imba_treant_overgrowth:OnSpellStart()
 	if ab_eye and ab_eye:GetLevel() > 0 then
 	for _,g in pairs(gr) do
 		if g:IsAlive() and g:GetOwner() == self:GetCaster() then
-			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_overgrowth_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, g)
+			local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_overgrowth_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, g)
 			ParticleManager:ReleaseParticleIndex(particle)
 			local enemy_tree = FindUnitsInRadius(caster:GetTeamNumber(),
 			g:GetAbsOrigin(), nil, ab_eye:GetSpecialValueFor("overgrowth_aoe_imba")+caster:TG_GetTalentValue("special_bonus_imba_treant_7"),
@@ -526,7 +526,7 @@ function modifier_imba_treant_overgrowth:OnCreated(parms)
 		self.damage = self.damage*ab:GetSpecialValueFor("damage_ex")
 	end
 
-      local particle2 = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+      local particle2 = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         ParticleManager:SetParticleControl(particle2, 1, Vector(1200, 0, 0))
         ParticleManager:SetParticleControl(particle2, 2, Vector(100, 0, 0))
         ParticleManager:SetParticleControl(particle2, 3, Vector(100, 0, 0))
@@ -819,7 +819,7 @@ function modifier_imba_treant_eyes_in_the_forest:OnCreated(parms)
 		self:GetParent():SetAbsOrigin(self.pos)
 	end
 	local parent = self:GetParent()
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest.vpcf", PATTACH_ABSORIGIN, parent)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest.vpcf", PATTACH_ABSORIGIN, parent)
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, parent, PATTACH_ABSORIGIN, nil, parent:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("vision_aoe_imba")+self:GetCaster():TG_GetTalentValue("special_bonus_imba_treant_7"),0,0))
 		self:AddParticle(self.pfx, false, false, 15, false, false)
@@ -1063,7 +1063,7 @@ function modifier_imba_treant_natures_guise_passive_inv:OnCreated()
 	self.near_tree = true
 	self.caster = self:GetCaster()
 	self.caster:EmitSound("Hero_Treant.NaturesGuise.On")
-	local cast_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_naturesguise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+	local cast_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_treant/treant_naturesguise_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControlEnt(cast_particle, 1, self.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(cast_particle, 2, self.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", self.caster:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(cast_particle)

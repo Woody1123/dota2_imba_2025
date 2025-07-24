@@ -39,7 +39,7 @@ function swift_slash:OnSpellStart()
     caster:EmitSound("TG.juggjump")
     caster:EmitSound("TG.jugginv")
  --[[   caster.JUMP=true
-    local pfx_tgt = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_WORLDORIGIN, nil)
+    local pfx_tgt = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(pfx_tgt, 0, caster_pos)
     ParticleManager:SetParticleControl(pfx_tgt, 1, target_pos)
     ParticleManager:ReleaseParticleIndex(pfx_tgt)
@@ -111,9 +111,9 @@ function modifier_swift_slash_move:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle, false, false, 20, false, false )
-    local particle2 = ParticleManager:CreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle2, false, false, 20, false, false )    
     self.DIR=ToVector(tg.dir)
    -- self.Target = EntIndexToHScript(tg.tar)
@@ -208,9 +208,9 @@ function modifier_swift_slash_move2:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle, false, false, 20, false, false )
-    local particle2 = ParticleManager:CreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle2, false, false, 20, false, false )    
     self.DIR=ToVector(tg.dir)
     self.DIS=tg.dis/2

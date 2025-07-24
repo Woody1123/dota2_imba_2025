@@ -45,7 +45,7 @@ function imba_rubick_fade_bolt:OnSpellStart()
 		if pre_target ~= nil then 
 			--特效
 			self.fade_bolt_pfx = "particles/units/heroes/hero_rubick/rubick_fade_bolt.vpcf"
-			local pfx = ParticleManager:CreateParticle(self.fade_bolt_pfx, PATTACH_CUSTOMORIGIN, pre_target)
+			local pfx = ParticleManager:SafeCreateParticle(self.fade_bolt_pfx, PATTACH_CUSTOMORIGIN, pre_target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, pre_target, PATTACH_POINT_FOLLOW, "attach_hitloc", pre_target:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlEnt(pfx, 1, cur_target, PATTACH_POINT_FOLLOW, "attach_hitloc", cur_target:GetAbsOrigin(), true)
 			--如果不是第一个目标

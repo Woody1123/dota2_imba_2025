@@ -74,7 +74,7 @@ function modifier_stone_gaze:OnCreated(tg)
         return
     end
     EmitSoundOn( "Hero_Medusa.StoneGaze.Cast", self.parent)
-	local pf = ParticleManager:CreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	local pf = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(pf,1,self.parent,PATTACH_POINT_FOLLOW,"attach_head",self.parent:GetAbsOrigin(),true )
 	self:AddParticle(pf,false,false,-1,false,false)
 	self:StartIntervalThink( 0.1 )
@@ -185,10 +185,10 @@ function modifier_stone_gaze_debuff:OnCreated(tg)
         return
     end
 	self.center_unit = EntIndexToHScript(tg.caster)
-	local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(pf,1,self.center_unit,PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",self.parent:GetAbsOrigin(),true)
 	self:AddParticle(pf,false,false,-1,false,false)
-	self.pf1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_facing.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.pf1 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_facing.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(self.pf1,1,self.parent,PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",self.parent:GetAbsOrigin(),true)
 	self:AddParticle(self.pf1,false,false,-1,false,false)
 	self:StartIntervalThink(self.interval)
@@ -280,7 +280,7 @@ function modifier_stone_gaze_petrified:OnCreated(tg)
 	self.physical_bonus = tg.physical_bonus
 	self.center_unit = EntIndexToHScript(tg.center_unit)
     EmitSoundOnClient("Hero_Medusa.StoneGaze.Stun", self.parent:GetPlayerOwner())
-    local pf = ParticleManager:CreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+    local pf = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
     ParticleManager:SetParticleControlEnt(pf,1,self.center_unit,PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",self.center_unit:GetAbsOrigin(),true)
 	self:AddParticle(pf,false,false,-1,false,false)
 end

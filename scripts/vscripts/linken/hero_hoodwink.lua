@@ -64,7 +64,7 @@ function imba_hoodwink_acorn_shot:OnProjectileHit_ExtraData(target, pos, keys)
 	target:EmitSound("Hero_Hoodwink.AcornShot.Slow")
 	target:EmitSound("Hero_Hoodwink.Attack")
 	target:AddNewModifier_RS(caster, self, "modifier_paralyzed", {duration = self:GetSpecialValueFor("debuff_duration")})
-	local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_hoodwink/hoodwink_acorn_shot_impact.vpcf", caster), PATTACH_CUSTOMORIGIN, target)
+	local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_hoodwink/hoodwink_acorn_shot_impact.vpcf", caster), PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	local ability = caster:FindAbilityByName("imba_hoodwink_scurry")
@@ -155,7 +155,7 @@ function modifier_imba_hoodwink_acorn_shot_thinker:OnCreated(params)
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		--self.trees = GridNav:GetAllTreesAroundPoint( self:GetParent():GetAbsOrigin(), 30, false )
-		--self.pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_hoodwink/hoodwink_acorn_shot_tree.vpcf", self:GetParent()), PATTACH_CUSTOMORIGIN, nil)
+		--self.pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_hoodwink/hoodwink_acorn_shot_tree.vpcf", self:GetParent()), PATTACH_CUSTOMORIGIN, nil)
 		--ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		--ParticleManager:ReleaseParticleIndex(self.pfx)
 		AddFOWViewer(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), 400, 20, false)
@@ -305,7 +305,7 @@ function imba_hoodwink_bushwhack:OnProjectileHit_ExtraData(target, pos, keys)
 	local trees = GridNav:GetAllTreesAroundPoint( dummy:GetAbsOrigin(), trap_radius, false )
 	AddFOWViewer(caster:GetTeamNumber(), dummy:GetAbsOrigin(), trap_radius, self.debuff_duration, false)
 
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_bushwhack.vpcf", PATTACH_POINT, dummy)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_bushwhack.vpcf", PATTACH_POINT, dummy)
 	ParticleManager:SetParticleControl(self.pfx, 0, dummy:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.pfx, 1, Vector(trap_radius, 0, 0))
 	ParticleManager:ReleaseParticleIndex(self.pfx)
@@ -394,7 +394,7 @@ function modifier_imba_hoodwink_bushwhack:OnIntervalThink(params)
 			ParticleManager:DestroyParticle(self.pfx2, false)
 			ParticleManager:ReleaseParticleIndex(self.pfx2)
 		end
-		self.pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_bushwhack_target.vpcf", PATTACH_POINT, self:GetParent())
+		self.pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_bushwhack_target.vpcf", PATTACH_POINT, self:GetParent())
 
 		ParticleManager:SetParticleControl(self.pfx2, 0, Vector(self:GetParent():GetAbsOrigin().x, self:GetParent():GetAbsOrigin().y, self:GetParent():GetAbsOrigin().z+100))
 		ParticleManager:SetParticleControl(self.pfx2, 15, Vector(self.trees.x, self.trees.y, self.trees.z+100))
@@ -674,7 +674,7 @@ function modifier_imba_hoodwink_scurry:OnCreated(params)
 	if IsServer() then
 		self.caster = self:GetParent()
 		self.caster:EmitSound("Hero_Hoodwink.Scurry.Cast")
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_scurry_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_scurry_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, self.caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 2, self.caster:GetAbsOrigin())
@@ -863,7 +863,7 @@ function imba_hoodwink_sharpshooter:OnProjectileHit_ExtraData(target, location, 
 						}
 	ApplyDamage(damageTable)
 	target:EmitSound("Hero_DrowRanger.Marksmanship.Target")
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_impact.vpcf", PATTACH_POINT, caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_impact.vpcf", PATTACH_POINT, caster)
 	ParticleManager:SetParticleControl(self.pfx, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.pfx, 1, target:GetAbsOrigin())
 	--ParticleManager:SetParticleControlOrientation(self.pfx, 1, dummy_pfx:GetForwardVector(), dummy_pfx:GetRightVector(), dummy_pfx:GetUpVector())
@@ -884,7 +884,7 @@ function modifier_imba_hoodwink_sharpshooter_time:OnCreated(keys)
 		self.duration = self:GetAbility():GetSpecialValueFor("misfire_time")
 		self.duration1 = 1
 
-		self.Pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		self.Pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		local time_x = self.duration
 		local time_y = self.duration1
 		ParticleManager:SetParticleControl(self.Pfx, 0, caster:GetAbsOrigin())
@@ -908,7 +908,7 @@ function modifier_imba_hoodwink_sharpshooter_time:OnIntervalThink()
 	end
 	local time_x = math.floor(self.duration)
 	local time_y = self.duration1
-	self.Pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+	self.Pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 	ParticleManager:SetParticleControl(self.Pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.Pfx, 1, Vector( 0 , time_x, time_y) )
 	ParticleManager:SetParticleControl(self.Pfx, 2, Vector( 2, 0, 0 ) )
@@ -987,7 +987,7 @@ function modifier_imba_hoodwink_sharpshooter_thinker:OnCreated(keys)
 	if IsServer() then
 		local caster = self:GetParent()
 		self.ability = self:GetAbility()
-		self.pfx = ParticleManager:CreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
+		self.pfx = ParticleManager:SafeCreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(self.ability:GetSpecialValueFor("special_range"), 0, 0))
 		ParticleManager:SetParticleControl(self.pfx, 2, Vector(10, 0, 0))
 		ParticleManager:SetParticleControl(self.pfx, 3, Vector(100, 0, 0))
@@ -995,7 +995,7 @@ function modifier_imba_hoodwink_sharpshooter_thinker:OnCreated(keys)
 		self:AddParticle(self.pfx, true, false, 15, false, false)
 
 
-		self.Pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter.vpcf", PATTACH_POINT, caster)
+		self.Pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter.vpcf", PATTACH_POINT, caster)
 		ParticleManager:SetParticleControl(self.Pfx2, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.Pfx2, 1, caster:GetAbsOrigin())
 		self.int = 0
@@ -1006,7 +1006,7 @@ function modifier_imba_hoodwink_sharpshooter_thinker:OnIntervalThink()
 	self.int = self.int + FrameTime()
 	local caster = self:GetParent()
 	if self.int > 5 then
-		self.Pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter.vpcf", PATTACH_POINT, caster)
+		self.Pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_hoodwink/hoodwink_sharpshooter.vpcf", PATTACH_POINT, caster)
 		ParticleManager:SetParticleControl(self.Pfx2, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.Pfx2, 1, caster:GetAbsOrigin())
 		self:StartIntervalThink(-1)
@@ -1174,7 +1174,7 @@ function modifier_imba_hoodwink_jump_boom:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self.time = 0
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_team_sufferwood.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.pfx, false, false, 15, false, false)
@@ -1203,7 +1203,7 @@ function modifier_imba_hoodwink_jump_boom:OnIntervalThink()
 			ParticleManager:DestroyParticle(self.pfx,false)
 			ParticleManager:ReleaseParticleIndex(self.pfx)
 		end
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(ability:GetSpecialValueFor("range"),0,0))
 		ParticleManager:ReleaseParticleIndex(pfx)

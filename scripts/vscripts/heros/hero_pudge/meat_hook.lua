@@ -69,7 +69,7 @@ function meat_hook:OnSpellStart()
             local dir1=(pos - cpos):Normalized() dir1.z = 0.0
             local dis1=stack+self.dis+self.caster:GetCastRangeBonus()
             local tpos=cpos + dir1* dis1
-            local fx=ParticleManager:CreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook.vpcf", PATTACH_CUSTOMORIGIN, self.caster )
+            local fx=ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook.vpcf", PATTACH_CUSTOMORIGIN, self.caster )
             ParticleManager:SetParticleAlwaysSimulate( fx )
             ParticleManager:SetParticleControlEnt( fx, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_weapon_chain_rt", cpos+Vector( 0, 0, 96 ), true )
             ParticleManager:SetParticleControl( fx, 1, tpos)

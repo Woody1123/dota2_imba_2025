@@ -64,7 +64,7 @@ function imba_queenofpain_shadow_strike:OnProjectileHit(target, location)
 	end
 	target:EmitSound("Hero_QueenOfPain.ShadowStrike.Target")
 	target:AddNewModifier_RS(self:GetCaster(), self, "modifier_imba_shadow_strike_base_slow", {duration = self:GetSpecialValueFor("duration_tooltip")})
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:ReleaseParticleIndex(pfx)
 end
 
@@ -82,12 +82,12 @@ function modifier_imba_shadow_strike_base_slow:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self:SetStackCount(1)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_queenofpain/queen_shadow_strike_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_queenofpain/queen_shadow_strike_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 
 		if not self.pfx2 then
-			self.pfx2 = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_portal_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+			self.pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_portal_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControl(self.pfx2, 1, Vector(0,self:GetStackCount(),0))
 			--SetParticleControl(p,3,  Vector(1,1,1))
 			self:AddParticle(self.pfx2, false, false, 15, false, false)
@@ -221,12 +221,12 @@ function imba_queenofpain_blink:OnSpellStart()
 	end]]
 	--音效
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), sound_name, caster)
-	local pfx_start = ParticleManager:CreateParticle(pfx_start_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx_start = ParticleManager:SafeCreateParticle(pfx_start_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx_start, 0, pos0)
 	ParticleManager:SetParticleControl(pfx_start, 1, pos)
 	ParticleManager:ReleaseParticleIndex(pfx_start)
 	FindClearSpaceForUnit(caster, pos, true)
-	local pfx_end = ParticleManager:CreateParticle(pfx_end_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx_end = ParticleManager:SafeCreateParticle(pfx_end_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx_end, 0, pos)
 	ParticleManager:SetParticleControlForward(pfx_end, 0, (pos - pos0):Normalized())
 	ParticleManager:ReleaseParticleIndex(pfx_end)
@@ -258,7 +258,7 @@ function imba_queenofpain_scream_of_pain:GetCastRange() return self:GetSpecialVa
 function imba_queenofpain_scream_of_pain:OnSpellStart(maintarget, damage, duration, nohitsource)
 	local caster = self:GetCaster()
 	local pfx_main = maintarget or caster
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_queenofpain/queen_scream_of_pain_owner.vpcf", PATTACH_POINT, pfx_main)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_queenofpain/queen_scream_of_pain_owner.vpcf", PATTACH_POINT, pfx_main)
 	ParticleManager:SetParticleControlEnt(pfx, 0, pfx_main, PATTACH_ABSORIGIN, "attach_hitloc", pfx_main:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	if maintarget == nil then

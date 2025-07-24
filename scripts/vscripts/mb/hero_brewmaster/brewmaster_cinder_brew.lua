@@ -49,7 +49,7 @@ function imba_brewmaster_cinder_brew:OnSpellStart()
 		)
 
 	--弹道特效
-	local pfx_tgt = ParticleManager:CreateParticle(brew_particle, PATTACH_WORLDORIGIN, nil)
+	local pfx_tgt = ParticleManager:SafeCreateParticle(brew_particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx_tgt, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx_tgt, 1, target_point)
 	ParticleManager:ReleaseParticleIndex(pfx_tgt)
@@ -70,7 +70,7 @@ function modifier_imba_cinder_brew_thinker:OnCreated(kv)
 		local brew_particle = "particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_cast.vpcf"
 
 		--BOOM特效
-		local pfx = ParticleManager:CreateParticle(brew_particle, PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pfx = ParticleManager:SafeCreateParticle(brew_particle, PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(pfx, 0, pos)
 		ParticleManager:SetParticleControl(pfx, 1, pos)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -138,7 +138,7 @@ function modifier_imba_cinder_brew_debuff:OnAttackLanded( keys )
 		if not enemy_self:IsInvisible() and not enemy_self:IsInvulnerable() and not enemy_self:IsOutOfGame() then
 			enemy_self:PerformAttack(enemy_self, false, true, true, true, false, false, true)
 			--自残特效
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_self_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy_self)
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_cinder_brew_self_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy_self)
 			ParticleManager:SetParticleControl(pfx, 0, enemy_self:GetOrigin())
 			ParticleManager:SetParticleControl(pfx, 1, enemy_self:GetOrigin())
 			ParticleManager:ReleaseParticleIndex(pfx)

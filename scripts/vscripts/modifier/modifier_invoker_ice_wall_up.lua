@@ -22,7 +22,7 @@ function modifier_invoker_ice_wall_up:OnCreated(tg)
     self.pos=Vector(tg.x,tg.y,tg.z)
     self.slow_duration=self.ability:GetSpecialValueFor("slow_duration")
     if IsServer() then  
-        self.pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf", PATTACH_CUSTOMORIGIN, nil )
+        self.pfx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf", PATTACH_CUSTOMORIGIN, nil )
         ParticleManager:SetParticleControl( self.pfx, 0, self.pos )
         ParticleManager:SetParticleControl( self.pfx, 1, Vector(600,0,0))
         self:AddParticle(self.pfx, false, false, 1, false, false)

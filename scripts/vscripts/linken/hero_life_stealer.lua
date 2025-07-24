@@ -102,7 +102,7 @@ function modifier_imba_life_stealer_rage_self:OnCreated()
     self:GetCaster():Purge(false, true, false, true, false)
     self:GetCaster():StartGesture(ACT_DOTA_LIFESTEALER_RAGE)
 	self.mag = self:GetParent():HasAbility("imba_life_stealer_rage") and 80 or 0
-    self.pfx = ParticleManager:CreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage_mid.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage_mid.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(self.pfx, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
     self:AddParticle(self.pfx, false, false, -1, true, false)
   end
@@ -216,7 +216,7 @@ function modifier_imba_life_stealer_feast_damage:OnAttack(keys)
 	
     self:GetParent():Heal(keys.target:GetMaxHealth() * shuzhi2 * (1+int), self:GetCaster())
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, keys.attacker, keys.target:GetMaxHealth() * shuzhi2 * (1+int), nil)    
-    local lifesteal_particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local lifesteal_particle = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(lifesteal_particle)
   end
 end
@@ -310,7 +310,7 @@ function modifier_imba_life_stealer_ghoul_frenzy_slow:OnCreated(params)
   local caster = self:GetCaster()
   self.movement_slow = 0-self:GetAbility():GetSpecialValueFor("movement_slow") 
     if IsServer() then
-      self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+      self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
       ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
       --ParticleManager:ReleaseParticleIndex(self.pfx)
     end
@@ -446,7 +446,7 @@ end
 
 function modifier_imba_lifestealer_open_wounds:PlayEffects( target )
   local particle_cast = "particles/generic_gameplay/generic_lifesteal.vpcf"
-  local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+  local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 
   ParticleManager:ReleaseParticleIndex( effect_cast )
 end
@@ -498,7 +498,7 @@ function imba_life_stealer_control:OnSpellStart()
   local caster = self:GetCaster()
   if target:IsInvulnerable() or target:IsOutOfGame() then return end
 
-  local infest_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_cast.vpcf", PATTACH_POINT, target)
+  local infest_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_cast.vpcf", PATTACH_POINT, target)
   ParticleManager:SetParticleControl(infest_particle, 0, self:GetCaster():GetAbsOrigin())
   ParticleManager:SetParticleControlEnt(infest_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
   ParticleManager:ReleaseParticleIndex(infest_particle)
@@ -531,7 +531,7 @@ function modifier_imba_life_stealer_selfbuff:IsDebuff()      return false end
 function modifier_imba_life_stealer_selfbuff:IsHidden()      return false end
 function modifier_imba_life_stealer_selfbuff:OnCreated()
 	if self:GetAbility() == nil then return end
-  self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infested_unit.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+  self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infested_unit.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
   self:AddParticle(self.pfx, false, false, -1, true, false)
 end
 function modifier_imba_life_stealer_selfbuff:OnDestroy()
@@ -690,7 +690,7 @@ function modifier_imba_life_stealer_buff:OnDestroy( params )
   self.radius = self:GetAbility():GetSpecialValueFor("radius")
   self.damage = self:GetAbility():GetSpecialValueFor("damage")
   self:GetParent():EmitSound("Hero_LifeStealer.Consume")
-  local infest_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+  local infest_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
   ParticleManager:ReleaseParticleIndex(infest_particle)
 
   self:GetParent():StartGesture(ACT_DOTA_LIFESTEALER_INFEST_END)
@@ -765,7 +765,7 @@ end
 function modifier_imba_life_stealer_target_buff:OnCreated()
 	if self:GetAbility() == nil then return end
   if not IsServer() then return end
-  self.pfx = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_life_stealer/life_stealer_infested_unit.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
+  self.pfx = ParticleManager:SafeCreateParticleForTeam("particles/units/heroes/hero_life_stealer/life_stealer_infested_unit.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
   self:AddParticle(self.pfx, false, false, -1, true, false)
   local targets = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("scope_aoe"), DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES, FIND_ANY_ORDER, false)
   for _, enemy in pairs(targets) do
@@ -872,7 +872,7 @@ function modifier_imba_life_stealer_parasite:OnCreated()
     self.m3 = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/lifestealer/immortal_back/lifestealer_immortal_back.vmdl"})
     self.m3 :SetParent(self:GetParent(), nil)
     self.m3 :FollowEntity(self:GetParent(), true) 
-    local infest_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local infest_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(infest_particle)
     self:GetParent():EmitSound("Hero_LifeStealer.Consume")
   end  

@@ -22,7 +22,7 @@ function ra_clarity:OnSpellStart()
 			caster:EmitSound( "DOTA_Item.Hand_Of_Midas" )
 			tar:AddItemByName("item_clarity")
 			
-			local pfx = ParticleManager:CreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, tar)
+			local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, tar)
 			ParticleManager:SetParticleControl(pfx,0,Vector(100,0,0))
 			ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 			ParticleManager:ReleaseParticleIndex(pfx)
@@ -55,7 +55,7 @@ function modifier_ra_clarity_pa:OnCreated()
 	self.ab = self:GetAbility()
 	self.parent = self:GetParent()
     if IsServer() then 
-		local pfx = ParticleManager:CreateParticle("particles/items_fx/healing_clarity.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/healing_clarity.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		self:AddParticle(pfx, false, false, 15, false, false)
         self:StartIntervalThink(1)
 	end

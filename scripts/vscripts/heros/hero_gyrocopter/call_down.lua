@@ -92,7 +92,7 @@ function modifier_call_down:OnCreated()
         return
     end
     local rd= self:GetAbility():GetSpecialValueFor( "rd" )
-    local particle1= ParticleManager:CreateParticle("particles/tgp/gyrocopter/calldown_marker.vpcf",PATTACH_CUSTOMORIGIN , nil)
+    local particle1= ParticleManager:SafeCreateParticle("particles/tgp/gyrocopter/calldown_marker.vpcf",PATTACH_CUSTOMORIGIN , nil)
     ParticleManager:SetParticleControl(particle1, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle1, 1,Vector(rd,rd,(0-rd)))
     self:AddParticle(particle1, false, false, 100, false, false)

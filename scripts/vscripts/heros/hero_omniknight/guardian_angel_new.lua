@@ -95,7 +95,7 @@ end
 function modifier_guardian_angel_new_buff:OnCreated()
     if IsServer() then
         self.rot=0
-        local particle2 = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+        local particle2 = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         ParticleManager:SetParticleControl(particle2, 1, Vector(self:GetCaster():HasScepter() and 25000 or 1400, 0, 0))
         ParticleManager:SetParticleControl(particle2, 2, Vector(100, 0, 0))
         ParticleManager:SetParticleControl(particle2, 3, Vector(100, 0, 0))
@@ -193,7 +193,7 @@ function modifier_guardian_angel_new_buff2:OnCreated()
    if not IsServer() then
        return
    end
-   local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+   local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
    ParticleManager:SetParticleControlEnt(pfx, 5, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
    self:AddParticle(pfx, false, false, 15, false, false)
 end

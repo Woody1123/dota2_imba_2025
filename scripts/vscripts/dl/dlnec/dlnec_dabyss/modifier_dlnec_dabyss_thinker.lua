@@ -59,8 +59,8 @@ function modifier_dlnec_dabyss_thinker:playeffects(pos,radius)
     local particle_cast1 = "particles/dlparticles/dlnec_dabyss/green_p_juggernaut_blade_fury_abyssal_golden.vpcf"   --剑圣转
     local particle_cast3 = "particles/dlparticles/dlnec_dabyss/half_pudge_arcana_dismember_wood.vpcf"    --屠夫钩
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --剑圣转
-    local effect_cast3 = ParticleManager:CreateParticle( particle_cast3, PATTACH_WORLDORIGIN, nil ) --屠夫钩
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --剑圣转
+    local effect_cast3 = ParticleManager:SafeCreateParticle( particle_cast3, PATTACH_WORLDORIGIN, nil ) --屠夫钩
 
     ParticleManager:SetParticleControl( effect_cast1, 0, pos )  --剑圣转
     ParticleManager:SetParticleControl( effect_cast1, 5, Vector(radius+100,0,0) )   --半径，剑圣转要比预想的大100，视觉效果才正
@@ -78,7 +78,7 @@ end
 function modifier_dlnec_dabyss_thinker:playeffects2(pos,radius)
     local particle_cast1 = "particles/econ/items/pugna/pugna_ti9_immortal/pugna_ti9_immortal_netherblast_pre.vpcf"   --骨法爆
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --骨法爆
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --骨法爆
 
     ParticleManager:SetParticleControl( effect_cast1, 0, pos )  --骨法爆
     ParticleManager:SetParticleControl( effect_cast1, 1, Vector(radius,3,1) )   --X为半径，Y为时间，Z不知道

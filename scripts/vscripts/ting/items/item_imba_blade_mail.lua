@@ -56,7 +56,7 @@ function modifier_item_imba_blade_mail_pa:OnCreated()
             damage_flags=DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
             ability = self.ability,
         }
-	self.fx=ParticleManager:CreateParticle("particles/econ/events/ti6/radiance_owner_ti6_pnt.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.fx=ParticleManager:SafeCreateParticle("particles/econ/events/ti6/radiance_owner_ti6_pnt.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
     self:AddParticle(self.fx, true, false, 1, false, false)
     if IsServer() then
         self:StartIntervalThink(2)

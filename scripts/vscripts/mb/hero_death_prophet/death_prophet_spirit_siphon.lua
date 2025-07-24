@@ -103,7 +103,7 @@ function modifier_imba_death_prophet_spirit_siphon:OnCreated(keys)
 		self.target = EntIndexToHScript(keys.target)
 		self.ally   = keys.ally
 		--特效
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetCaster(), PATTACH_ROOTBONE_FOLLOW, "attach_head", self:GetCaster():GetOrigin(), true)
 		--if self.ally then
 		--	--ParticleManager:SetParticleControlEnt(self.pfx, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)

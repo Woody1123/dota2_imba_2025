@@ -34,6 +34,112 @@ require('ai/ai_normal')
 if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
 	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
 end
+-- 在任何初始化脚本中注入此段，例如 addon_game_mode.lua
+--if not _OriginalCreateParticle then
+--	_OriginalCreateParticle = ParticleManager.CreateParticle
+--
+--	function ParticleManager:CreateParticle(particleName, attachType, owner)
+--		print("[Particle Debug] 粒子路径:", particleName)
+--		print("→ Attach:", attachType, " Owner:", owner and owner:GetName() or "nil")
+--		print(debug.traceback("[CreateParticle 调用栈]"))
+--
+--		return _OriginalCreateParticle(self, particleName, attachType, owner)
+--	end
+--end
+
+if not ParticleManager.SafeCreateParticle then
+	function ParticleManager:SafeCreateParticle(pfx_path, attach_type, owner, cp_table, auto_release)
+		if type(pfx_path) ~= "string" or pfx_path == "" then
+			print("[ParticleManager] ❌ 粒子路径无效:", tostring(pfx_path))
+			return -1
+		end
+
+		if not owner or (type(owner.IsNull) == "function" and owner:IsNull()) then
+			print("[ParticleManager] ❌ 绑定单位无效:", pfx_path)
+			return -1
+		end
+
+		local success, result = pcall(function()
+			local particle = ParticleManager:CreateParticle(pfx_path, attach_type, owner)
+
+			if cp_table and type(cp_table) == "table" then
+				for i, value in pairs(cp_table) do
+					if type(value) == "userdata" and tostring(value):find("Vector") then
+						ParticleManager:SetParticleControl(particle, i, value)
+					elseif type(value) == "table" and value.ent and value.pos then
+						ParticleManager:SetParticleControlEnt(particle, i, value.ent, PATTACH_ABSORIGIN_FOLLOW, nil, false)
+						ParticleManager:SetParticleControl(particle, i, value.pos)
+					end
+				end
+			end
+
+			-- 默认 3 秒后销毁粒子
+			Timers:CreateTimer(3.0, function()
+				ParticleManager:DestroyParticle(particle, false)
+				ParticleManager:ReleaseParticleIndex(particle)
+			end)
+
+			return particle
+		end)
+
+		if not success then
+			print("[ParticleManager] ❌ 粒子创建失败:", pfx_path, "错误：", result)
+			return -1
+		end
+
+		return result
+	end
+end
+
+
+
+
+if not ParticleManager.SafeCreateParticleForTeam then
+	function ParticleManager:SafeCreateParticleForTeam(pfx_path, attach_type, owner, team, cp_table, auto_release)
+		if type(pfx_path) ~= "string" or pfx_path == "" then
+			print("[ParticleManager] ❌ 粒子路径无效:", tostring(pfx_path))
+			return -1
+		end
+
+		if not owner or (type(owner.IsNull) == "function" and owner:IsNull()) then
+			print("[ParticleManager] ❌ 绑定单位无效:", pfx_path)
+			return -1
+		end
+
+		local success, result = pcall(function()
+			local particle = ParticleManager:CreateParticleForTeam(pfx_path, attach_type, owner, team)
+
+			if cp_table and type(cp_table) == "table" then
+				for i, value in pairs(cp_table) do
+					if type(value) == "userdata" and tostring(value):find("Vector") then
+						ParticleManager:SetParticleControl(particle, i, value)
+					elseif type(value) == "table" and value.ent and value.pos then
+						ParticleManager:SetParticleControlEnt(particle, i, value.ent, PATTACH_ABSORIGIN_FOLLOW, nil, false)
+						ParticleManager:SetParticleControl(particle, i, value.pos)
+					end
+				end
+			end
+
+			-- 默认 3 秒后销毁粒子
+			Timers:CreateTimer(3.0, function()
+				ParticleManager:DestroyParticle(particle, false)
+				ParticleManager:ReleaseParticleIndex(particle)
+			end)
+
+			return particle
+		end)
+
+		if not success then
+			print("[ParticleManager] ❌ 粒子创建失败:", pfx_path, "错误：", result)
+			return -1
+		end
+
+		return result
+	end
+end
+
+
+
 function Precache( context )
 	print('加载缓存Precache')
 	GameRules.L_TG = L_TG()

@@ -79,7 +79,7 @@ function imba_bounty_hunter_shuriken_toss:OnProjectileHit(hTarget, vLocation)
 				local steal = damage*(1+math.abs(caster:GetSpellAmplification(false)))*0.1 + ability:GetSpecialValueFor("gold_steal")
 				target:EmitSound("Hero_BountyHunter.Jinada")
 				target:AddNewModifier(caster, ability, "modifier_imba_jinada_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
+				local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
 				ParticleManager:SetParticleControl(pfx,0,Vector(100,0,0))
 				ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 				ParticleManager:ReleaseParticleIndex(pfx)
@@ -144,7 +144,7 @@ function modifier_imba_shuriken_toss_chain:OnCreated()
 	self.dummy:SetOrigin(target_position)
 	self.dummy:AddNewModifier(self.dummy, nil, "modifier_kill", {duration = self:GetDuration() + 1.0})
 	self.dummy:AddNewModifier(self.dummy, nil, "modifier_unit_remove", {duration = self:GetDuration() + 1.0})
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_trapper_beam_chain/pudge_nx_meathook_chain.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/pudge/pudge_trapper_beam_chain/pudge_nx_meathook_chain.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(pfx, 6, self.dummy, PATTACH_POINT_FOLLOW, "attach_hitloc", target_position, false)
 	ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", target_position, false)
 	self:AddParticle(pfx, true, false, 15, false, false)
@@ -223,7 +223,7 @@ function modifier_imba_jinada_passive:OnAttackLanded(keys)
 		end
 		keys.target:EmitSound("Hero_BountyHunter.Jinada")
 		keys.target:AddNewModifier(parent, ab, "modifier_imba_jinada_slow", {duration = ab:GetSpecialValueFor("slow_duration")})
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, keys.target)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, keys.target)
 		ParticleManager:SetParticleControl(pfx,0,Vector(100,0,0))
 		ParticleManager:SetParticleControlEnt(pfx, 1, keys.attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.attacker:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -279,7 +279,7 @@ function imba_bounty_hunter_wind_walk:OnSpellStart()
 	EmitSoundOnLocationWithCaster(self:GetCaster():GetAbsOrigin(), "Hero_BountyHunter.WindWalk", self:GetCaster())
 	local fade_time = self:GetCaster():TG_HasTalent("special_bonus_imba_bounty_hunter_6") and 0.01 or self:GetSpecialValueFor("fade_time")
 	self:GetCaster():AddNewModifier(self:GetCaster() , self, "modifier_imba_wind_walk_fade", {duration = fade_time})
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(pfx)
 end
 
@@ -404,7 +404,7 @@ function imba_bounty_hunter_shadow_jaunt:OnSpellStart()
 	local blink_direction = (target_pos - caster_pos):Normalized()
 	blink_direction.z = 0.0
 	target_pos = target_pos + blink_direction * 100
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(pfx)
 
 	-- Blink
@@ -415,7 +415,7 @@ function imba_bounty_hunter_shadow_jaunt:OnSpellStart()
 		caster:SetForwardVector(blink_direction)
 	end
 	caster:SetAngles(0, 0, 0)
-	local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+	local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 	ParticleManager:SetParticleControl(pfx2, 0, target_pos)
 	ParticleManager:ReleaseParticleIndex(pfx2)
 
@@ -473,7 +473,7 @@ function imba_bounty_hunter_track:OnSpellStart()
 	if target:TG_TriggerSpellAbsorb(self) then
 		return
 	end
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	Timers:CreateTimer(3, function()
@@ -556,7 +556,7 @@ function modifier_imba_track:OnHeroKilled(keys)
 			total_ally = total_ally + 1
 			SendOverheadEventMessage(ally, OVERHEAD_ALERT_GOLD, ally, ally_gold, ally:GetPlayerOwner())
 			if has then
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_reward.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+				local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_reward.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 				ParticleManager:SetParticleControlEnt(pfx, 2, ally, PATTACH_ABSORIGIN_FOLLOW, nil, ally:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetAbsOrigin(), true)
 				ParticleManager:ReleaseParticleIndex(pfx)
@@ -585,10 +585,10 @@ function modifier_imba_track:OnCreated()
 			pfx_name1 = "particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_trail.vpcf"
 			pfx_name2 = "particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_shield.vpcf"
 		--end
-		local pfx1 = ParticleManager:CreateParticleForTeam(pfx_name1, PATTACH_POINT_FOLLOW, target, caster:GetTeamNumber())
+		local pfx1 = ParticleManager:SafeCreateParticleForTeam(pfx_name1, PATTACH_POINT_FOLLOW, target, caster:GetTeamNumber())
 		ParticleManager:SetParticleControlEnt(pfx1, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx1, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		local pfx2 = ParticleManager:CreateParticleForTeam(pfx_name2, PATTACH_OVERHEAD_FOLLOW, target, caster:GetTeamNumber())
+		local pfx2 = ParticleManager:SafeCreateParticleForTeam(pfx_name2, PATTACH_OVERHEAD_FOLLOW, target, caster:GetTeamNumber())
 		self:AddParticle(pfx1, false, false, 15, false, false)
 		self:AddParticle(pfx2, false, false, 15, false, false)
 	--	if self:GetCaster():HasTalent("special_bonus_imba_bounty_hunter_1") then
@@ -637,7 +637,7 @@ function modifier_imba_track_speed:IsPurgeException() 	return false end
 function modifier_imba_track_speed:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 2, self:GetParent():GetAbsOrigin())

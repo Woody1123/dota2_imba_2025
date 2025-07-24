@@ -90,7 +90,7 @@ end
 function modifier_dlzuus_al_target:playeffects(t,nt)
     local particle_cast = "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
     local sound_cast = "Hero_Zuus.ArcLightning.Cast"
-    local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+    local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
     local tpos = t:GetAbsOrigin()   tpos.z = tpos.z+100
     local ntpos = nt:GetAbsOrigin() ntpos.z = ntpos.z+100   --不加100在脚底下，调成0在地底下
 

@@ -29,7 +29,7 @@ function sanity_eclipse:OnSpellStart()
         damage_type = caster:Has_Aghanims_Shard() and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL,
         ability = self,
     }
-	local pf=ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pf=ParticleManager:SafeCreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pf, 0, pos)
 	ParticleManager:SetParticleControl(pf, 1, Vector(radius, radius,radius))
 	ParticleManager:SetParticleControl(pf, 2, Vector(radius, radius, radius))

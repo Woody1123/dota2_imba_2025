@@ -27,7 +27,7 @@ function darkness:OnSpellStart()
     caster:AddNewModifier(caster, self, "modifier_darkness_buff", {duration =dur })
     caster:AddNewModifier(caster, self, "modifier_darkness_sp", {sp =self:GetSpecialValueFor("sp")})
     if not GameRules:IsDaytime() or GameRules:IsNightstalkerNight()  and caster:IsAlive() then
-        local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         ParticleManager:ReleaseParticleIndex(pfx)
     end
 	local heroes = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 25000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false)

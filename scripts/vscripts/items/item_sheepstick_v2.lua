@@ -12,7 +12,7 @@ function item_sheepstick_v2:OnSpellStart()
     end
 
     if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/item_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/item_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -113,7 +113,7 @@ function modifier_item_sheepstick_v2_debuff:OnCreated()
     if not IsServer() then
         return
     end
-    local pfx = ParticleManager:CreateParticle("particles/items_fx/item_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/item_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(pfx)
 
 end

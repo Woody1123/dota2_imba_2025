@@ -72,7 +72,7 @@ function modifier_guardian_angel_buff:OnCreated()
     if not IsServer() then 
         return
     end 
-    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_heavenly_grace_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_omniknight/omniknight_heavenly_grace_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(pfx, false, false, 15, false, false)
 end
@@ -133,7 +133,7 @@ function modifier_guardian_angel_buff2:OnCreated()
     if not IsServer() then 
         return
     end 
-    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(pfx, 5, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(pfx, false, false, 15, false, false)
 end

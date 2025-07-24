@@ -41,12 +41,12 @@ function psi_blades:OnSpellStart()
                 for _,target in pairs(heros) do
                         if  target:GetName()=="npc_dota_base_additive" then
                             caster:AddNewModifier(caster, self, "modifier_rooted", {duration=0.15})
-                                local p = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_WORLDORIGIN, nil)
+                                local p = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_WORLDORIGIN, nil)
                                         ParticleManager:SetParticleControl(p, 0, caster:GetAbsOrigin())
                                         ParticleManager:ReleaseParticleIndex(p)
                                 Timers:CreateTimer(0.15, function()
                                         caster:EmitSound("Hero_TemplarAssassin.Meld")
-                                        local p1 = ParticleManager:CreateParticle("particles/econ/events/spring_2021/blink_dagger_spring_2021_end.vpcf", PATTACH_WORLDORIGIN, nil)
+                                        local p1 = ParticleManager:SafeCreateParticle("particles/econ/events/spring_2021/blink_dagger_spring_2021_end.vpcf", PATTACH_WORLDORIGIN, nil)
                                         ParticleManager:SetParticleControl(p1, 0, pos)
                                         ParticleManager:ReleaseParticleIndex(p1)
                                         FindClearSpaceForUnit(caster, pos, true)
@@ -122,7 +122,7 @@ function modifier_psi_blades_pa:OnAttackLanded(tg)
             if heros~=nil and #heros>0 then
                 for _,target in pairs(heros) do
                         if target~= tg.target then
-                        local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_psi_blade.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                        local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_psi_blade.vpcf", PATTACH_CUSTOMORIGIN, nil)
                         ParticleManager:SetParticleControlEnt(fx, 0,tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc",tg.target:GetAbsOrigin(), true)
                         ParticleManager:SetParticleControlEnt(fx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
                         ParticleManager:ReleaseParticleIndex(fx)

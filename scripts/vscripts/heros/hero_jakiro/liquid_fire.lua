@@ -51,7 +51,7 @@ function liquid_fire:OnProjectileHit(target, location)
 		flag = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 	end
 	target:EmitSound("Hero_Jakiro.LiquidFire")
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:ReleaseParticleIndex(pfx)
 		local enemies = FindUnitsInRadius(
 		caster:GetTeamNumber(),
@@ -89,7 +89,7 @@ function modifier_imba_liquid_fire_debuff:OnCreated()
 		self.ab = self:GetAbility()
 		self.caster = self:GetCaster()
 		self.parent = self:GetParent()
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		self.damage = self.ab:GetSpecialValueFor("damage")+self.ab:GetSpecialValueFor("damage_per")*self.parent:GetMaxHealth()*0.01

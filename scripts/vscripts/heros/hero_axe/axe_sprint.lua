@@ -65,7 +65,7 @@ function modifier_axe_sprint_motion:OnDestroy()
 	if IsServer() then
 		FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin(), true)
 		EmitSoundOn( "TG.axejump", self:GetParent() )
-		local particle = ParticleManager:CreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_gold_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		local particle = ParticleManager:SafeCreateParticle( "particles/econ/items/axe/axe_ti9_immortal/axe_ti9_gold_call.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:ReleaseParticleIndex(particle)
 		self:GetParent():RemoveHorizontalMotionController(self)
 	end

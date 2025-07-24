@@ -12,7 +12,7 @@ function imba_grimstroke_dark_artistry:GetCastRange() return self:GetSpecialValu
 function imba_grimstroke_dark_artistry:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	caster:EmitSound("Hero_Grimstroke.DarkArtistry.PreCastPoint")
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(self.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	return true
 end
@@ -191,7 +191,7 @@ function imba_grimstroke_dark_artistry:OnProjectileHitHandle(target, pos, i)
 			else
 				target:EmitSound("Hero_Grimstroke.DarkArtistry.Damage.Creep")
 			end
-			local pfx = ParticleManager:CreateParticle(self.hit_pfx_name, PATTACH_ABSORIGIN_FOLLOW, target)
+			local pfx = ParticleManager:SafeCreateParticle(self.hit_pfx_name, PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:ReleaseParticleIndex(pfx)
 			local buff = target:FindModifierByName("modifier_imba_soul_chain")
 			if buff and not self.soulbind_info[i] and buff.latch then
@@ -241,7 +241,7 @@ function imba_grimstroke_ink_creature:IsRefreshable() 			return true end
 function imba_grimstroke_ink_creature:IsHiddenWhenStolen() 	return true end
 function imba_grimstroke_ink_creature:IsStealable() 			return false end
 function imba_grimstroke_ink_creature:OnAbilityPhaseStart()
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_phantom.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_phantom.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	return true
 end
 
@@ -339,7 +339,7 @@ end
 function modifier_imba_ink_creature_movecontroller:OnCreated(keys)
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_phantom_ambient.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_phantom_ambient.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 6, Vector(1,0,0))
@@ -464,7 +464,7 @@ function imba_grimstroke_spirit_walk:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	if caster ~= target then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_ink_swell.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_ink_swell.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	end
 	if IsEnemy(caster, target) and target:TG_TriggerSpellAbsorb(self) then
 		return
@@ -511,7 +511,7 @@ function modifier_imba_spirit_walk_buff:OnCreated(keys)
 		self.aoe = keys.aoe
 		self.stun = false
 		self.damage_duration = 0
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_buff.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_buff.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(self.aoe, 0, 0))
 		ParticleManager:SetParticleControlEnt(pfx, 3, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
@@ -553,7 +553,7 @@ function modifier_imba_spirit_walk_buff:OnDestroy()
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
 		parent:EmitSound("Hero_Grimstroke.InkSwell.Stun")
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 2, Vector(self.aoe, self.aoe, self.aoe))
 		ParticleManager:SetParticleControl(pfx, 4, parent:GetAbsOrigin())
@@ -602,7 +602,7 @@ function imba_grimstroke_soul_chain:OnSpellStart()
 	if target:TG_TriggerSpellAbsorb(self) then
 		return
 	end
-	local cast_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_soulchain.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local cast_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_cast_soulchain.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(cast_pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(cast_pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(cast_pfx)
@@ -672,7 +672,7 @@ function modifier_imba_soul_chain:OnCreated(keys)
 				self.sec_pfx = nil
 			end
 			if not self.main_pfx then
-				self.main_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+				self.main_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 				ParticleManager:SetParticleControlEnt(self.main_pfx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(self.main_pfx, 2, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 			end
@@ -692,7 +692,7 @@ function modifier_imba_soul_chain:OnCreated(keys)
 				self.sec_pfx = nil
 			end
 			if not self.sec_pfx then
-				self.sec_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+				self.sec_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 				ParticleManager:SetParticleControlEnt(self.sec_pfx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 				ParticleManager:SetParticleControlEnt(self.sec_pfx, 2, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 			end
@@ -721,7 +721,7 @@ function modifier_imba_soul_chain:OnIntervalThink()
 							self.latch_pfx = nil
 						end
 						self.latch:AddNewModifier(self.caster, self.ability, "modifier_imba_soul_chain", {duration = self:GetRemainingTime() - FrameTime(), is_primary = 0, source = self.parent:entindex()})
-						self.latch_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						self.latch_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain.vpcf", PATTACH_CUSTOMORIGIN, nil)
 						ParticleManager:SetParticleControlEnt(self.latch_pfx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 						ParticleManager:SetParticleControlEnt(self.latch_pfx, 1, self.latch, PATTACH_POINT_FOLLOW, "attach_hitloc", self.latch:GetAbsOrigin(), true)
 						break
@@ -838,7 +838,7 @@ function modifier_imba_soul_chain:GetAbsorbSpell(keys)
 			end
 		end
 		CreateModifierThinker(self.latch, ability, "modifier_imba_soul_chain_cast", {duration = 0}, ability_caster:GetAbsOrigin(), ability_caster:GetTeamNumber(), false)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_proc.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_grimstroke/grimstroke_soulchain_proc.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self.latch, PATTACH_POINT_FOLLOW, "attach_hitloc", self.latch:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -1055,7 +1055,7 @@ function modifier_imba_dark_portrait_mov:OnIntervalThink()
 				self.ability_4:OnSpellStart()
 		end
 	end
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 2, Vector(self.range, self.range, self.range))
 		ParticleManager:SetParticleControl(pfx, 4, self.parent:GetAbsOrigin())

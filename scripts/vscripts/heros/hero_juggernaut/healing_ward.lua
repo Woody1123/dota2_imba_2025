@@ -60,7 +60,7 @@ function modifier_healing_ward_buff:OnCreated(tg)
         return
     end
     self.RD= self.RD+self:GetParent():GetCastRangeBonus()
-    local particle = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_fortunes_tout/jugg_healing_ward_fortunes_tout_gold.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_fortunes_tout/jugg_healing_ward_fortunes_tout_gold.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(self.RD,0,(0-self.RD)))
     self:AddParticle( particle, false, false, 20, false, false )

@@ -44,7 +44,7 @@ function modifier_monster_killer_witch_potion_buff:IsPurgeException() 	return tr
 function modifier_monster_killer_witch_potion_buff:DeclareFunctions() return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS} end
 function modifier_monster_killer_witch_potion_buff:OnCreated(keys)
 	if IsServer() then 
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_berserk_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_berserk_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(pfx,0,self:GetParent():GetAbsOrigin())
 		self:AddParticle(pfx, false, false, 20, false, false)
 	end 

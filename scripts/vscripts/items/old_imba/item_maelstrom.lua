@@ -152,7 +152,7 @@ function modifier_imba_mjollnir_unique:OnAttackLanded(keys)
 			if units~=nil and #units>0 then
 				if num<#units then
 					units[num+1]:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")
-					local pfx = ParticleManager:CreateParticle("particles/items2_fx/mjollnir_shield_arc_01.vpcf", PATTACH_POINT_FOLLOW, units[num+1])
+					local pfx = ParticleManager:SafeCreateParticle("particles/items2_fx/mjollnir_shield_arc_01.vpcf", PATTACH_POINT_FOLLOW, units[num+1])
 					ParticleManager:SetParticleControlEnt(pfx, 0, units[num], PATTACH_POINT_FOLLOW, (units[num] == self:GetCaster() and "attach_attack1" or "attach_hitloc"), units[num]:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(pfx, 1, units[num+1], PATTACH_POINT_FOLLOW, "attach_hitloc", units[num+1 >= #units and num or num+1]:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(1,1,1))
@@ -205,7 +205,7 @@ function modifier_item_imba_mjollnir_shield:OnCreated()
 	self.asp = self.ability:GetSpecialValueFor("asp")
 	self.pure = self.ability:GetSpecialValueFor("pure_damage")
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/items2_fx/mjollnir_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/items2_fx/mjollnir_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(pfx, false, false, 15, false, false)
 		self:GetParent():EmitSound("DOTA_Item.Mjollnir.Loop")

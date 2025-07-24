@@ -139,7 +139,7 @@ function imba_doom_bringer_infernal_blade:OnSpellStart()
 	local min_per = self:GetSpecialValueFor("per")*0.01
 	target:AddNewModifier_RS(caster,self,"modifier_imba_stunned",{duration=(self:GetSpecialValueFor("ministun_duration")+self:GetCaster():TG_GetTalentValue("special_bonus_imba_doom_3","value"))*min_per})
 	target:AddNewModifier_RS(caster, self, "modifier_imba_doom_bringer_infernal_blade_debuff", {duration = min_per*self:GetSpecialValueFor("burn_duration")})
-		local pfx4 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death_bonus.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx4 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death_bonus.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx4, 0, target:GetAbsOrigin() )
 		ParticleManager:ReleaseParticleIndex(pfx4)
 	if target:HasModifier("modifier_imba_doom_enemy") then 
@@ -213,7 +213,7 @@ function modifier_imba_doom_bringer_infernal_blade:OnAttackLanded(keys)
 				if keys.target:IsMagicImmune() and not (keys.target:HasModifier("modifier_imba_doom_enemy") or keys.attacker:HasModifier("modifier_imba_doom_bringer_scorched_earth_passive_scepter")) then
 				return 
 				end
-				local pfx3 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+				local pfx3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 				self:AddParticle(pfx3, false, false, 15, false, false)
 				keys.target:AddNewModifier_RS(keys.attacker, self.ab, "modifier_imba_doom_bringer_infernal_blade_debuff", {duration = self.burn_duration})
 				keys.target:AddNewModifier_RS(self.caster,self.ab,"modifier_imba_stunned",{duration=self.stun_doom+self.parent:TG_GetTalentValue("special_bonus_imba_doom_3","value")})
@@ -260,7 +260,7 @@ function modifier_imba_doom_bringer_infernal_blade_debuff:OnCreated()
 			attacker = self.caster, 
 			ability = self.ability , 
 			damage_type = DAMAGE_TYPE_MAGICAL,})	
-		local pfx4 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx4 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx4, 0, self.parent:GetAbsOrigin() )
 		ParticleManager:ReleaseParticleIndex(pfx4)
 		self.caster:EmitSound("Hero_DoomBringer.InfernalBlade.Target")
@@ -380,8 +380,8 @@ function modifier_imba_doom_bringer_scorched_earth_passive:OnCreated()
 			attacker = self.parent, 
 			ability = self.ab, 
 			damage_type = self.ab:GetAbilityDamageType(),})
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-	self.pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(pfx, 0, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(self.pfx2, 0, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
@@ -442,7 +442,7 @@ function modifier_imba_doom_bringer_scorched_earth_passive:OnIntervalThink()
 
 	
 	for _,enemy in pairs(enemy_creeps) do
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		self.damagetable.victim = enemy
 		self.damagetable.damage = self.damage
@@ -517,12 +517,12 @@ function modifier_imba_doom_bringer_scorched_earth_passive_scepter:OnCreated()
 	if self:GetParent() == self:GetCaster() then 
 
 	for i=1, 10 do
-		local pfx1 = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_lava/courier_trail_lava_model.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx1 = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_lava/courier_trail_lava_model.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle(pfx1, false, false, 15, false, false)
-		local pfx2 = ParticleManager:CreateParticle("particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx2 = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(pfx2, 15, Vector(213,114,10))
 		self:AddParticle(pfx2, false, false, 15, false, false)
-		local pfx3 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_debuff_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_debuff_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle(pfx3, false, false, 15, false, false)
 		end
 	
@@ -699,7 +699,7 @@ end
 
 
 function imba_doom_bringer_devour:OverDoom()
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self.caster, PATTACH_POINT_FOLLOW, "attach_mouth", self.caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 0, self.target, PATTACH_POINT_FOLLOW, "attach_hitloc", self.target:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -1035,7 +1035,7 @@ function DoCleaveAttack(hAttacker, hTarget, hAbility, fDamage, fStartRadius, fEn
 	local enemy = FindUnitsInTrapezoid(hAttacker:GetTeamNumber(), direction, GetGroundPosition(target:GetAbsOrigin(), nil), fStartRadius, fEndRadius, fDistance, nil, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)
 	local pfx = nil
 	if sHitEffect then
-		pfx = ParticleManager:CreateParticle(sHitEffect, PATTACH_CUSTOMORIGIN, hAttacker)
+		pfx = ParticleManager:SafeCreateParticle(sHitEffect, PATTACH_CUSTOMORIGIN, hAttacker)
 		ParticleManager:SetParticleControl(pfx, 0, hAttacker:IsRangedAttacker() and hTarget:GetAbsOrigin() or hAttacker:GetAbsOrigin())
 		ParticleManager:SetParticleControlForward(pfx, 0, (hTarget:GetAbsOrigin() - hAttacker:GetAbsOrigin()):Normalized())
 	end

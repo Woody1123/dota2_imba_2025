@@ -81,7 +81,7 @@ function modifier_eternal_armor_buff:OnCreated()
 	self.radius = self.ability:GetSpecialValueFor("radius")
 	self.dam_atr = self.ability:GetSpecialValueFor("dam_atr")*0.01
 	if IsServer() then	
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_necrolyte/necrolyte_spirit_ground_projection.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_necrolyte/necrolyte_spirit_ground_projection.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
     self:AddParticle(particle, true, false, -1, false, false)	
 	self:StartIntervalThink(1)

@@ -91,7 +91,7 @@ end
 function modifier_dlzuus_sf_zuus:playeffects(t)
     local particle_cast = "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
     local sound_cast = "Hero_Zuus.StaticField"
-    local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+    local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
     local tpos = t:GetAbsOrigin() tpos.z = tpos.z+400
 
     ParticleManager:SetParticleControl( effect_cast, 0, tpos )

@@ -52,7 +52,7 @@ function dragon_tail:OnSpellStart()
         end
         EmitSoundOn("Hero_DragonKnight.DragonTail.Target", caster)
         caster:ForcePlayActivityOnce(ACT_DOTA_VERSUS)
-        local pf = ParticleManager:CreateParticle("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_firebreath.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,caster)
+        local pf = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_anim_firebreath.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,caster)
         ParticleManager:SetParticleControlEnt(pf, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", pos, true)
         ParticleManager:SetParticleControlEnt(pf, 3,caster, PATTACH_POINT_FOLLOW, "attach_hitloc",pos, true)
         ParticleManager:ReleaseParticleIndex(pf)
@@ -135,7 +135,7 @@ function dragon_tail:OnProjectileHit_ExtraData(target, location,kv)
         end
         local pos2=target_pos+dir*rg
         EmitSoundOnLocationWithCaster(pos2, "Hero_DragonKnight.BreathFire", caster)
-        local pf2 = ParticleManager:CreateParticle("particles/tgp/dk/dragon_tail1.vpcf", PATTACH_CUSTOMORIGIN,nil)
+        local pf2 = ParticleManager:SafeCreateParticle("particles/tgp/dk/dragon_tail1.vpcf", PATTACH_CUSTOMORIGIN,nil)
         ParticleManager:SetParticleControl(pf2, 0, pos2)
         ParticleManager:ReleaseParticleIndex(pf2)
         local heros = FindUnitsInRadius(

@@ -41,7 +41,7 @@ function modifier_cold_embrace_buff:OnCreated()
     self.pos=self.parent:GetAbsOrigin()
     self.heal_additive=self.ability:GetSpecialValueFor("heal_additive")
     self.heal_percentage=self.ability:GetSpecialValueFor("heal_percentage")*0.01
-      local pf1 = ParticleManager:CreateParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+      local pf1 = ParticleManager:SafeCreateParticle("particles/econ/items/winter_wyvern/winter_wyvern_ti7/wyvern_cold_embrace_ti7buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
       self:AddParticle(pf1, false, false, 4, false, false)
       if IsServer() then
             EmitSoundOn("Hero_Winter_Wyvern.ColdEmbrace", self.caster)

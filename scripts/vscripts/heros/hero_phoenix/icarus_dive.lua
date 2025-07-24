@@ -64,7 +64,7 @@ function modifier_icarus_dive_move:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local fx=ParticleManager:CreateParticle("particles/econ/items/phoenix/phoenix_ti10_immortal/phoenix_ti10_icarus_dive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local fx=ParticleManager:SafeCreateParticle("particles/econ/items/phoenix/phoenix_ti10_immortal/phoenix_ti10_icarus_dive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl( fx, 0,self:GetParent():GetAbsOrigin())
     self:AddParticle(fx, false, false, 100, false, false)
     self.DUR=self:GetAbility():GetSpecialValueFor("a_dur")
@@ -158,7 +158,7 @@ end
         if not IsServer() then
             return
         end
-        local fx=ParticleManager:CreateParticle("particles/econ/items/phoenix/phoenix_ti10_immortal/phoenix_ti10_icarus_dive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local fx=ParticleManager:SafeCreateParticle("particles/econ/items/phoenix/phoenix_ti10_immortal/phoenix_ti10_icarus_dive.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl( fx, 0,self:GetParent():GetAbsOrigin())
         self:AddParticle(fx, false, false, 100, false, false)
         self.SP=self:GetAbility():GetSpecialValueFor("s_sp")

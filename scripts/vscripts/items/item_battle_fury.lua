@@ -86,35 +86,53 @@ function modifier_item_battle_fury_pa:OnCreated()
 end
 
 function modifier_item_battle_fury_pa:OnAttackLanded(tg)
-    if not IsServer() then
-        return
-    end
-    if tg.attacker == self.parent  and not self.parent:IsIllusion() then
-        local pos=tg.target:GetAbsOrigin()
-        local fx = ParticleManager:CreateParticle("particles/tgp/items/bfury_cleave/bfury_cleave_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(fx, 0, pos)
-        ParticleManager:SetParticleControl(fx, 1, Vector(self.rd,0,0))
-        ParticleManager:SetParticleControl(fx, 2, Vector(0.5,0,0))
-		ParticleManager:ReleaseParticleIndex(fx)
-        local units = FindUnitsInRadius(self.team,
-        pos,
-        nil,
-        self.rd,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        FIND_ANY_ORDER, false)
-        if #units>0 then
-            for _, unit in pairs(units) do
-                if unit~=tg.target and TG_Distance(unit:GetAbsOrigin(),self.parent:GetAbsOrigin())<self.max_distance then
-                    self.damageTable.victim = unit
-                    self.damageTable.damage =  self.parent:IsRangedAttacker() and tg.original_damage*0.1 or tg.original_damage*self.cleave_damage_percent
-                    ApplyDamage(self.damageTable)
+    if not IsServer() then return end
+    if tg.attacker == self.parent and not self.parent:IsIllusion() then
+        local pos = tg.target:GetAbsOrigin()
+
+        local bind_unit = tg.attacker
+        if not bind_unit or bind_unit:IsNull() then
+            bind_unit = nil
+        end
+
+        local fx = ParticleManager:SafeCreateParticle("particles/econ/items/faceless_void/faceless_void_weapon_bfury/faceless_void_weapon_bfury_cleave_b.vpcf", PATTACH_CUSTOMORIGIN, bind_unit)
+        ParticleManager:SetParticleControl(fx, 0, pos)
+        ParticleManager:SetParticleControl(fx, 1, Vector(self.rd, 0, 0))
+        ParticleManager:SetParticleControl(fx, 2, Vector(0.5, 0, 0))
+        ParticleManager:ReleaseParticleIndex(fx)
+
+        local units = FindUnitsInRadius(
+                self.team,
+                pos,
+                nil,
+                self.rd,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+                FIND_ANY_ORDER,
+                false
+        )
+
+        for _, unit in pairs(units) do
+            if unit ~= tg.target then
+                local dist = (unit:GetAbsOrigin() - self.parent:GetAbsOrigin()):Length2D()
+                if dist < self.max_distance then
+                    local damage = self.parent:IsRangedAttacker() and tg.original_damage * 0.1 or tg.original_damage * self.cleave_damage_percent
+                    local damageTable = {
+                        victim = unit,
+                        attacker = self.parent,
+                        damage = damage,
+                        damage_type = DAMAGE_TYPE_PHYSICAL,
+                        ability = self:GetAbility(),
+                    }
+                    ApplyDamage(damageTable)
                 end
             end
         end
     end
 end
+
+
 
 function modifier_item_battle_fury_pa:GetModifierPreAttack_BonusDamage()return  self.bonus_damage
 end

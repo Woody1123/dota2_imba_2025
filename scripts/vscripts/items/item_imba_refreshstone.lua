@@ -10,7 +10,7 @@ function item_imba_refreshstone:OnSpellStart()
     self.refresh_count= 1
     if modifier and modifier:GetStackCount() >=self.refresh_count then
         self.caster:EmitSound("DOTA_Item.REFRESHER.Activate")
-        local pfx= ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_ABSORIGIN,self.caster)
+        local pfx= ParticleManager:SafeCreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_ABSORIGIN,self.caster)
         ParticleManager:ReleaseParticleIndex( pfx )
         TG_Refresh_AB(self.caster)
         modifier:SetStackCount(modifier:GetStackCount()-self.refresh_count)

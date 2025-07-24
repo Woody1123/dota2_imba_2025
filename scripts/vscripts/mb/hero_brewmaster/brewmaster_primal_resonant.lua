@@ -163,7 +163,7 @@ function modifier_imba_brewmaster_fire_dash_fist:SpellFireOfFist()
     local op = {}
     --Brewmaster_Fire.Attack
     EmitSoundOn("Hero_EmberSpirit.SleightOfFist.Cast", self.caster)  
-    local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(pf, 0,cur_pos)
     ParticleManager:SetParticleControl(pf, 1,fpos)
     ParticleManager:ReleaseParticleIndex(pf)   
@@ -172,12 +172,12 @@ function modifier_imba_brewmaster_fire_dash_fist:SpellFireOfFist()
 
     if #heroes>0 then 
     	self.ability:SetActivated(false) 
-        local pf1 = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local pf1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pf1, 0, pos)
         ParticleManager:SetParticleControlForward(pf1, 1, self.caster:GetForwardVector())
         ParticleManager:SetParticleControl(pf1, 62, Vector(10, 0, 0))
         for a=1,#heroes do
-            op[a] = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf", PATTACH_OVERHEAD_FOLLOW, heroes[a])
+            op[a] = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf", PATTACH_OVERHEAD_FOLLOW, heroes[a])
             ParticleManager:SetParticleControl( op[a], 0, heroes[a]:GetAbsOrigin())
         end
         self.caster:AddNewModifier(self.caster, self.ability, "modifier_imba_brewmaster_fire_dash_fist_buff", {})
@@ -185,7 +185,7 @@ function modifier_imba_brewmaster_fire_dash_fist:SpellFireOfFist()
             if  heroes~=nil and stack<=#heroes then 
                 if heroes[stack]~=nil and heroes[stack]:IsAlive() then 
 					local tpos  = heroes[stack]:GetAbsOrigin()
-					local trail = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+					local trail = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
                     ParticleManager:SetParticleControl(trail, 0,self.caster:GetAbsOrigin())
                     ParticleManager:SetParticleControl(trail, 1,tpos)
                     ParticleManager:ReleaseParticleIndex(trail)   
@@ -193,7 +193,7 @@ function modifier_imba_brewmaster_fire_dash_fist:SpellFireOfFist()
                         self.caster:SetAbsOrigin(tpos)
                     end
                     self.caster:PerformAttack(heroes[stack], false, true, true, false, false, false, false)
-                    local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, heroes[stack])
+                    local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, heroes[stack])
                     ParticleManager:SetParticleControl(pf, 0,tpos)
                     ParticleManager:ReleaseParticleIndex(pf)       
                         if op[stack]~=nil then 
@@ -286,7 +286,7 @@ function modifier_imba_brewmaster_void_astral_pulse:OnCreated()
 		self.void_radius          = self.ability:GetSpecialValueFor("radius")
 		self.void_duration        = self.ability:GetSpecialValueFor("duration")
 		--PFX
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse.vpcf", PATTACH_POINT_FOLLOW, self.caster)
+		local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse.vpcf", PATTACH_POINT_FOLLOW, self.caster)
 		ParticleManager:SetParticleControl(particle, 0, self.caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(particle, 1, Vector(self.void_radius*3, 0, 0))
 		ParticleManager:ReleaseParticleIndex(particle) 

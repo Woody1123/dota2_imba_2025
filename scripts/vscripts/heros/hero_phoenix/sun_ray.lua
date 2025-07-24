@@ -32,7 +32,7 @@ function sun_ray:OnSpellStart()
     if ab1~=nil then ab1:SetLevel(1) end 
     if caster.ab2~=nil then caster.ab2:SetLevel(1) end 
     caster:SwapAbilities( "sun_ray", "sun_ray_stop", false, true )
-    caster.sun_rayfx = ParticleManager:CreateParticle( "particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf", PATTACH_WORLDORIGIN, nil )
+    caster.sun_rayfx = ParticleManager:SafeCreateParticle( "particles/econ/items/phoenix/phoenix_solar_forge/phoenix_sunray_solar_forge.vpcf", PATTACH_WORLDORIGIN, nil )
     caster:AddNewModifier(caster, self, "modifier_sun_ray_buff", {duration=dur})
 end
 

@@ -43,7 +43,7 @@ function modifier_home:GetEffectAttachType()
 end
 function modifier_home:OnCreated()
       if IsServer() then
-            local particle = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,nil)
+            local particle = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,nil)
             ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
             ParticleManager:SetParticleControl(particle, 1, Vector(700, 0, 0))
             ParticleManager:SetParticleControl(particle, 2, Vector(10, 0, 0))

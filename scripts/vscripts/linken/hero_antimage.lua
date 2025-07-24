@@ -51,7 +51,7 @@ function imba_antimage_mana_break:OnSpellStart()
 		end	
 	end	
 
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse_ring.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse_ring.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(particle, 0, self:GetCaster():GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, Vector(3000, 0, 0))
 	ParticleManager:ReleaseParticleIndex(particle)
@@ -136,7 +136,7 @@ function modifier_imba_antimage_mana_break:OnAttackLanded(keys)
 						}
 	ApplyDamage(damageTable)
 	local pfx_name = "particles/generic_gameplay/generic_manaburn.vpcf"
-	local manaburn_pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, keys.target)
+	local manaburn_pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, keys.target)
 	ParticleManager:ReleaseParticleIndex(manaburn_pfx)				
 	keys.target:EmitSound("Hero_Antimage.ManaBreak")
 end
@@ -207,7 +207,7 @@ function imba_antimage_blink:OnSpellStart()
 	sound_start:EmitSound("Hero_Antimage.Blink_out") 
 	local pfx1_name = "particles/units/heroes/hero_antimage/antimage_blink_start.vpcf"
 	local pfx2_name = "particles/units/heroes/hero_antimage/antimage_blink_end.vpcf"
-	local pfx1 = ParticleManager:CreateParticle(pfx1_name, PATTACH_CUSTOMORIGIN, caster)
+	local pfx1 = ParticleManager:SafeCreateParticle(pfx1_name, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(pfx1, 1, caster, PATTACH_CUSTOMORIGIN, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlForward(pfx1, 0, direction)
@@ -220,7 +220,7 @@ function imba_antimage_blink:OnSpellStart()
 	end
 	
 	ProjectileManager:ProjectileDodge(caster)
-	local pfx2 = ParticleManager:CreateParticle(pfx2_name, PATTACH_POINT_FOLLOW, caster)
+	local pfx2 = ParticleManager:SafeCreateParticle(pfx2_name, PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	local sound_end = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, caster:GetAbsOrigin(), caster:GetTeamNumber(), false)
 	sound_end:EmitSound("Hero_Antimage.Blink_in")
@@ -399,7 +399,7 @@ function imba_antimage_mana_overload:OnSpellStart()
 	sound_start:EmitSound("Hero_Antimage.Blink_out")
 	local pfx1_name = "particles/units/heroes/hero_antimage/antimage_blink_start.vpcf"
 	local pfx2_name = "particles/units/heroes/hero_antimage/antimage_blink_end.vpcf"
-	local pfx1 = ParticleManager:CreateParticle(pfx1_name, PATTACH_CUSTOMORIGIN, caster)
+	local pfx1 = ParticleManager:SafeCreateParticle(pfx1_name, PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(pfx1, 1, caster, PATTACH_CUSTOMORIGIN, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlForward(pfx1, 0, direction)
@@ -419,7 +419,7 @@ function imba_antimage_mana_overload:OnSpellStart()
 			pos = caster:GetAbsOrigin() + direction * max_dis
 			FindClearSpaceForUnit(caster.illusions[i], pos, false)
 		end 
-		local pfx2 = ParticleManager:CreateParticle(pfx2_name, PATTACH_POINT_FOLLOW, caster.illusions[i])
+		local pfx2 = ParticleManager:SafeCreateParticle(pfx2_name, PATTACH_POINT_FOLLOW, caster.illusions[i])
 		ParticleManager:SetParticleControlEnt(pfx2, 0, caster.illusions[i], PATTACH_POINT_FOLLOW, "attach_hitloc", caster.illusions[i]:GetAbsOrigin(), true)	
 		ParticleManager:ReleaseParticleIndex(pfx2)	 
 		Timers:CreateTimer(0.1, function()
@@ -522,7 +522,7 @@ function imba_antimage_mana_void:OnSpellStart()
 	end
 	target:EmitSound("Hero_Antimage.ManaVoid")
 	local pfx_name = "particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
-	local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc")))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetSpecialValueFor("mana_void_aoe_radius"), 0, 0))
 	ParticleManager:ReleaseParticleIndex(pfx)

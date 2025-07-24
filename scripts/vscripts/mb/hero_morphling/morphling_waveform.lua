@@ -100,7 +100,7 @@ function modifier_imba_morphling_waveform_motion:OnCreated(keys)
 			pfx_name = "particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform.vpcf"
 		--end
 
-		self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
 		local pfx_pos = self:GetParent():GetAbsOrigin() + self:GetParent():GetUpVector() * 50
 		ParticleManager:SetParticleControl(self.pfx, 0, pfx_pos)
 		ParticleManager:SetParticleControl(self.pfx, 1, self.angle * self.speed)

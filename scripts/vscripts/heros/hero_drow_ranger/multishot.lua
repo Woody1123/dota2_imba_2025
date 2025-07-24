@@ -37,7 +37,7 @@ function multishot:OnAbilityPhaseStart()
     local curpos=self:GetCursorPosition()
     local casterpos= self.caster:GetAbsOrigin()
      self.caster.shot_multishot=true
-    local fx = ParticleManager:CreateParticle("particles/tgp/drow/drow_precision_modify.vpcf", PATTACH_CUSTOMORIGIN,  self.caster)
+    local fx = ParticleManager:SafeCreateParticle("particles/tgp/drow/drow_precision_modify.vpcf", PATTACH_CUSTOMORIGIN,  self.caster)
 	ParticleManager:SetParticleControl(fx, 0, casterpos)
 	ParticleManager:SetParticleControl(fx, 1, casterpos)
     ParticleManager:SetParticleControl(fx, 2, casterpos)
@@ -76,7 +76,7 @@ function multishot:OnProjectileHit_ExtraData(target, location, kv)
     if  self.caster:HasScepter() then
         dmg=dmg+ self.caster:GetBaseDamageMax()*0.6
     end
-    local fx=ParticleManager:CreateParticle("particles/units/heroes/hero_drow/drow_silence.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx=ParticleManager:SafeCreateParticle("particles/units/heroes/hero_drow/drow_silence.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(fx, 0, pos)
     ParticleManager:SetParticleControl(fx, 1, Vector(rd,0,0))
     ParticleManager:SetParticleControl(fx, 3, pos)
@@ -154,7 +154,7 @@ function modifier_multishot_shot:OnDestroy()
             for b=1,num do
                 EmitSoundOn("Hero_DrowRanger.FrostArrows", caster)
                 local null=CreateModifierThinker(caster, ability, "modifier_multishot_th", {duration=30}, Vector(self.pos.x+RandomInt(-300, 300),self.pos.y+RandomInt(-300, 300),0), team, false)
-                local fx = ParticleManager:CreateParticle("particles/tgp/drow/drow_m0.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                local fx = ParticleManager:SafeCreateParticle("particles/tgp/drow/drow_m0.vpcf", PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl(fx, 0, pos)
                 ParticleManager:SetParticleControl(fx, 1, null:GetAbsOrigin())
                 ParticleManager:SetParticleControl(fx, 2, Vector(sp, 0, 0))

@@ -55,7 +55,7 @@ function imba_dark_willow_bramble_maze:CreateCustomIndicator()
 	local radius = self:GetSpecialValueFor( "placement_range" )
 
 	-- create particle
-	self.effect_indicator = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster())
+	self.effect_indicator = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster())
 	ParticleManager:SetParticleControl( self.effect_indicator, 1, Vector( radius, radius, radius ) )
 end
 
@@ -203,7 +203,7 @@ function modifier_imba_dark_willow_bramble_maze_thinker:PlayEffects1()
 		local location = self:GetParent():GetOrigin() + loc
 
 		-- Create Particle
-		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 		ParticleManager:SetParticleControl( effect_cast, 0, location )
 		ParticleManager:SetParticleControl( effect_cast, 3, location )
 		ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -217,7 +217,7 @@ function modifier_imba_dark_willow_bramble_maze_thinker:PlayEffects2()
 	local sound_target = "Hero_DarkWillow.Brambles.CastTarget"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 1, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 2, Vector( self.radius, self.radius, self.radius ) )
@@ -326,7 +326,7 @@ function modifier_imba_dark_willow_bramble_maze_bramble:PlayEffects()
 	local sound_loop = "Hero_DarkWillow.BrambleLoop"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( self.radius, self.radius, self.radius ) )
 
@@ -751,7 +751,7 @@ function modifier_imba_dark_willow_shadow_realm:PlayEffects()
 	local sound_cast = "Hero_DarkWillow.Shadow_Realm"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -883,7 +883,7 @@ end
 	local speed = self:GetParent():GetProjectileSpeed()
 
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		self.effect_cast,
 		0,
@@ -1114,7 +1114,7 @@ function modifier_imba_dark_willow_cursed_crown:PlayEffects1()
 	local sound_target = "Hero_DarkWillow.Ley.Target"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		0,
@@ -1146,7 +1146,7 @@ function modifier_imba_dark_willow_cursed_crown:PlayEffects2()
 	local particle_cast = "particles/econ/items/dark_willow/dark_willow_ti8_immortal_head/dw_ti8_immortal_cursed_crown_start.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
 
 	-- buff particle
 	self:AddParticle(
@@ -1166,7 +1166,7 @@ function modifier_imba_dark_willow_cursed_crown:PlayEffects3()
 	local sound_cast = "Hero_DarkWillow.Ley.Stun"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 2, Vector( self.radius, self.radius, self.radius ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -1182,7 +1182,7 @@ function modifier_imba_dark_willow_cursed_crown:PlayEffects4()
 	local sound_cast = "Hero_DarkWillow.Ley.Count"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControl( effect_cast, 2, Vector( self.radius, self.radius, self.radius ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
@@ -1366,7 +1366,7 @@ function modifier_imba_dark_willow_bedlam:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_dark_willow/dark_willow_wisp_aoe_cast.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -1556,8 +1556,8 @@ function modifier_imba_dark_willow_bedlam_attack:PlayEffects()
 	elseif (level==3) then color.z = 255
 	end]]
 	-- Create Particle
-	-- local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	-- local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( self.radius, self.radius, self.radius ) )
 
 	-- if is rubick_arcana
@@ -1580,7 +1580,7 @@ end
 
 function modifier_imba_dark_willow_bedlam_attack:PlayEffects1( target, speed )
 	local particle_cast = "particles/units/heroes/hero_dark_willow/dark_willow_willowisp_base_attack.vpcf"
-	local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
@@ -1673,7 +1673,7 @@ function modifier_wisp_ambient:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_dark_willow/dark_willow_willowisp_ambient.vpcf"
 
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		self.effect_cast,
 		0,
@@ -1933,7 +1933,7 @@ function imba_dark_willow_terrorize:PlayEffects1( point, radius )
 	local particle_cast = "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_marker.vpcf"
 
 	-- Create Particle
-	self.effect_cast1 = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_WORLDORIGIN, nil, self:GetCaster():GetTeamNumber() )
+	self.effect_cast1 = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_WORLDORIGIN, nil, self:GetCaster():GetTeamNumber() )
 	ParticleManager:SetParticleControl( self.effect_cast1, 0, point )
 	ParticleManager:SetParticleControl( self.effect_cast1, 1, Vector( radius, 0, 0 ) )
 	-- if is rubick arcana
@@ -1967,7 +1967,7 @@ function imba_dark_willow_terrorize:PlayEffects2()
 	local particle_cast = "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_channel.vpcf"
 
 	-- Create Particle
-	self.effect_cast2 = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.wisp )
+	self.effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.wisp )
 	-- if is rubick arcana
 	ParticleManager:SetParticleControl( self.effect_cast2, 60, Vector( 0, 0, 255) )
 	ParticleManager:SetParticleControl( self.effect_cast2, 61, Vector( 1, 0, 0 ) )
@@ -1984,7 +1984,7 @@ function imba_dark_willow_terrorize:PlayEffects3( point, radius, number )
 	local sound_cast = "Hero_DarkWillow.Fear.FP"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect_cast, 0, point )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, 0, radius*2 ) )
 
@@ -2130,12 +2130,12 @@ function modifier_imba_dark_willow_terrorize:PlayEffects()
 	local particle_cast2 = "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_fear_debuff.vpcf"
 
 	-- Create Particle
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
     -- if is rubick arcana
 	ParticleManager:SetParticleControl( effect_cast1, 60, Vector( 0, 0, 255) )
 	ParticleManager:SetParticleControl( effect_cast1, 61, Vector( 1, 0, 0 ) )
 
-	local effect_cast2 = ParticleManager:CreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	-- if is rubick arcana
 	ParticleManager:SetParticleControl( effect_cast2, 60, Vector( 0, 0, 255) )
 	ParticleManager:SetParticleControl( effect_cast2, 61, Vector( 1, 0, 0 ) )

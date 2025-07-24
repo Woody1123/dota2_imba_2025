@@ -35,7 +35,7 @@ function natural_order:OnSpellStart()
     if caster.ancestral1~=nil then
         FindClearSpaceForUnit(caster, caster.ancestral1:GetAbsOrigin(), false)
         EmitSoundOn("Hero_ElderTitan.EchoStomp.ti7", caster)
-        local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp.vpcf", PATTACH_ABSORIGIN,caster)
+        local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp.vpcf", PATTACH_ABSORIGIN,caster)
         ParticleManager:SetParticleControl(particle, 0,caster:GetAbsOrigin())
         ParticleManager:SetParticleControl(particle, 1,Vector(1,0,0))
         ParticleManager:SetParticleControl(particle, 2,Vector(RandomInt(0,255),RandomInt(0,255),RandomInt(0,255)))

@@ -21,7 +21,7 @@ function modifier_dlmars_rebuke_skewer:OnCreated(keys)
 		if self:CheckMotionControllers() then
 			self:OnIntervalThink()
 			self:StartIntervalThink(FrameTime())
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_magnataur/magnataur_skewer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_shield", self:GetParent():GetAbsOrigin(), true)
 			self:AddParticle(pfx, false, false, 15, false, false)
 		else

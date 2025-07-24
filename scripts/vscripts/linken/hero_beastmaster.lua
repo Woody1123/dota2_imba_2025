@@ -164,7 +164,7 @@ function modifier_imba_beastmaster_wild_axes_pfx:OnCreated(keys)
 		if self.int == 1 then
 			pfx_name = "particles/econ/items/beastmaster/bm_crimson_2021/bm_crimson_2021.vpcf"
 		end
-		self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.caster)
+		self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.caster)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.caster:GetAbsOrigin())
 		self:StartIntervalThink(FrameTime())
 	end
@@ -223,7 +223,7 @@ function modifier_imba_beastmaster_wild_axes_pfx:OnIntervalThink(keys)
 		end
 
 
-		local dummy_pfx = ParticleManager:CreateParticle("particles/econ/items/axe/ti9_jungle_axe/ti9_jungle_axe_attack_blur_counterhelix.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local dummy_pfx = ParticleManager:SafeCreateParticle("particles/econ/items/axe/ti9_jungle_axe/ti9_jungle_axe_attack_blur_counterhelix.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(dummy_pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(dummy_pfx)
 		self:Destroy()
@@ -262,7 +262,7 @@ function modifier_imba_beastmaster_wild_axes_debuff:OnCreated(keys)
             ParticleManager:DestroyParticle(self.pfx, false)
             ParticleManager:ReleaseParticleIndex(self.pfx)
         end
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_wildaxe_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_wildaxe_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		self:AddParticle(self.pfx, false, false, 16, false, false)
 	end
@@ -327,7 +327,7 @@ function imba_beastmaster_call_of_the_wild:OnSpellStart()
 		beastmaster_boar:AddNewModifier(self.caster, self, "modifier_unit_remove", {duration = duration})
 		beastmaster_boar:SetControllableByPlayer(self.caster:GetPlayerOwnerID(), false)
 	end
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControl(self.pfx, 0, self.caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(self.pfx)
 end
@@ -504,7 +504,7 @@ function imba_beastmaster_call_of_the_wild_hawk:OnSpellStart()
 	beastmaster_boar_hawk:AddNewModifier(self.caster, self, "modifier_unit_remove", {duration = duration})
 	beastmaster_boar_hawk:SetControllableByPlayer(self.caster:GetPlayerOwnerID(), false)
 	--print(beastmaster_boar_hawk:IsSummoned())
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 	ParticleManager:SetParticleControl(self.pfx, 0, self.caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(self.pfx)
 	Timers:CreateTimer(0.1, function ()
@@ -796,7 +796,7 @@ function modifier_imba_call_of_the_wild_hawk_thinker:OnCreated(keys)
     self.caster = self:GetCaster()
 	if IsServer() then
 		local pfx_name = "particles/econ/items/beastmaster/bm_crimson_2021/bm_crimson_2021.vpcf"
-		self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		--self:StartIntervalThink( self.delay_int )
 	end
@@ -846,7 +846,7 @@ function modifier_imba_call_of_the_wild_hawk_kill_move:OnCreated(keys)
 		self.enemy = EntIndexToHScript(keys.enemy)
 		self.parent:Stop()
 		--self.parent:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_5,1.8)
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		--ParticleManager:SetParticleControl(self.pfx, 2, self.parent:GetAbsOrigin())
 		self:StartIntervalThink(FrameTime())
@@ -966,7 +966,7 @@ function imba_beastmaster_inner_beast:OnSpellStart()
 			duration = duration ,
 		}
 		)
-	self.pfx = ParticleManager:CreateParticle("particles/econ/items/beastmaster/bm_shoulder_ti7/bm_shoulder_ti7_roar.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+	self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/beastmaster/bm_shoulder_ti7/bm_shoulder_ti7_roar.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 	ParticleManager:SetParticleControl(self.pfx, 1, caster:GetAbsOrigin()+caster:GetForwardVector()*300)
 	--ParticleManager:SetParticleControlOrientation(self.pfx, 0, caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
 	--ParticleManager:SetParticleControl(self.pfx, 0, caster:GetAbsOrigin())
@@ -1081,7 +1081,7 @@ end
 --								}
 --			ApplyDamage(damageTable)
 --			if keys.original_damage/self.nu > 50 then
---				self.pfx = ParticleManager:CreateParticle("particles/econ/items/undying/fall20_undying_head/fall20_undying_soul_rip_damage.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+--				self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/undying/fall20_undying_head/fall20_undying_soul_rip_damage.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 --				ParticleManager:SetParticleControl(self.pfx, 1, enemy:GetAbsOrigin())
 --				ParticleManager:SetParticleControl(self.pfx, 0, self:GetCaster():GetAbsOrigin())
 --				ParticleManager:ReleaseParticleIndex(self.pfx)
@@ -1363,13 +1363,13 @@ function imba_beastmaster_primal_roar:OnSpellStart()
 		end
 	end
 	EmitSoundOn("Hero_Beastmaster.Primal_Roar", caster)
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(self.pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(self.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(self.pfx, 1, target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(self.pfx)
 
-	--[[self.pfx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_primal_target.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	--[[self.pfx1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_primal_target.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(self.pfx1, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.pfx1, 1, target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(self.pfx1)]]
@@ -1448,7 +1448,7 @@ function modifier_imba_beastmaster_primal_roar_move:OnCreated(keys)
 		self.pos = self.caster:GetAbsOrigin()
 		self.parent:Stop()
 		self.parent:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_5,1.8)
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		self:StartIntervalThink(FrameTime())
 	end
@@ -1528,7 +1528,7 @@ function modifier_imba_beastmaster_primal_roar_move_come:OnCreated(keys)
 		self.enemy = self.parent
 		self.st_pos = self.enemy:GetAbsOrigin()
 		self.pos = StringToVector(keys.pos)
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		self:StartIntervalThink(FrameTime())
 	end

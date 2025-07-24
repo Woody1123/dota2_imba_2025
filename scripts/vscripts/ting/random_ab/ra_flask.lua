@@ -49,10 +49,10 @@ function modifier_ra_flask_buff1:OnCreated(keys)
 
 	if IsServer() then
 		self:StartIntervalThink(1)
-		local pfx = ParticleManager:CreateParticle("particles/items_fx/healing_flask.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/healing_flask.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/hoodwink/hood_2021_blossom/hood_2021_blossom_scurry_aura_print.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/hoodwink/hood_2021_blossom/hood_2021_blossom_scurry_aura_print.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, self.parent:GetAbsOrigin())
 		self:AddParticle(self.pfx, false, false, 15, false, false)
@@ -101,7 +101,7 @@ function modifier_ra_flask_buff2:OnCreated(keys)
 
 	if IsServer() then
 		self:StartIntervalThink(1)
-		local pfx = ParticleManager:CreateParticle("particles/items_fx/healing_flask.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/healing_flask.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		self:AddParticle(pfx, false, false, 16, false, false)
 	end	
 end

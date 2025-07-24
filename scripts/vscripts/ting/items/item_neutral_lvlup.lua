@@ -35,7 +35,7 @@ function item_neutral_lvlup:OnSpellStart()
 			-- ✨ 播粒子 + 升级
 			local pos = self.caster:GetAbsOrigin()
 			local particleName = "particles/generic_hero_status/hero_levelup_godray.vpcf"
-			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.caster)
+			local pfx = ParticleManager:SafeCreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.caster)
 			ParticleManager:SetParticleControl(pfx, 0, pos)
 			ParticleManager:SetParticleControl(pfx, 1, Vector(pos.x, pos.y, pos.z + 1000))
 			ParticleManager:ReleaseParticleIndex(pfx)

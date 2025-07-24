@@ -97,7 +97,7 @@ function imba_phantom_lancer_spirit_lance:OnSpellStart(keys)
 	TG_CreateProjectile({id = 1, team = caster:GetTeamNumber() , owner = caster, p = info})
 
 
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(self.pfx, 1, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(
 		self.pfx,
@@ -281,7 +281,7 @@ function modifier_imba_spirit_lance_slow:OnCreated()
 	if self:GetAbility() == nil then return end
 	self.slow = 0-self:GetAbility():GetSpecialValueFor("movement_speed_pct")
 	if IsServer() then
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 	end
 end
@@ -388,7 +388,7 @@ function modifier_imba_doppelwalk_thinker:OnCreated(keys)
 
 
 
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_aoe.vpcf", PATTACH_POINT, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_aoe.vpcf", PATTACH_POINT, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 2, Vector(self.target_aoe,self.target_aoe,self.target_aoe))
 		ParticleManager:SetParticleControl(self.pfx, 3, Vector(1,0,0))
@@ -396,7 +396,7 @@ function modifier_imba_doppelwalk_thinker:OnCreated(keys)
 
 
 		local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
-		self.effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
+		self.effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
 		ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 		ParticleManager:SetParticleControl( self.effect_cast, 1, Vector( self.target_aoe, 0, -100 ) )
 		ParticleManager:SetParticleControl( self.effect_cast, 2, Vector( 1 , 0, 0 ) )
@@ -679,7 +679,7 @@ function modifier_imba_phantom_edge_move:OnCreated(keys)
 	--self.shard_duration = self:GetAbility():GetSpecialValueFor("shard_duration")
 	if IsServer() then
 		self:GetCaster():EmitSound("Hero_PhantomLancer.PhantomEdge")
-		--self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_edge_boost.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		--self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_lancer/phantomlancer_edge_boost.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		--ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		--ParticleManager:SetParticleControl(self.pfx, 1, self:GetParent():GetAbsOrigin())
 		--ParticleManager:ReleaseParticleIndex(self.pfx)
@@ -921,7 +921,7 @@ function modifier_imba_juxtapose_illusion:OnCreated( kv )
 	if self:GetAbility() == nil then return end
 	if not IsServer() then return end
 	ProjectileManager:ProjectileDodge(self:GetParent())
-	self.pfx = ParticleManager:CreateParticle("particles/heros/phantom_lancer/phantom_lancer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx = ParticleManager:SafeCreateParticle("particles/heros/phantom_lancer/phantom_lancer.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 end
 function modifier_imba_juxtapose_illusion:OnDestroy()

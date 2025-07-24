@@ -318,7 +318,7 @@ function imba_dazzle_shadow_wave:OnSpellStart()
 
 	for k, unit in pairs(units) do
 		local i = (k == #units) and k or (k + 1)
-		local pfx = ParticleManager:CreateParticle(self.pfx1, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(self.pfx1, PATTACH_CUSTOMORIGIN, nil)
 		if unit == caster then
 			ParticleManager:SetParticleControlEnt(pfx, 0, unit, PATTACH_POINT_FOLLOW, "attach_attack1", unit:GetAbsOrigin(), true)
 		else
@@ -358,7 +358,7 @@ function imba_dazzle_shadow_wave:OnSpellStart()
 				self.damageTable.damage = self.damage
 				ApplyDamage(self.damageTable)				
 			end		
-			local pfx2 = ParticleManager:CreateParticle(self.pfx2, PATTACH_CUSTOMORIGIN, enemy)
+			local pfx2 = ParticleManager:SafeCreateParticle(self.pfx2, PATTACH_CUSTOMORIGIN, enemy)
 			ParticleManager:SetParticleControlEnt(pfx2, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(pfx2, 1, enemy:GetAbsOrigin() + (enemy:GetAbsOrigin() - unit:GetAbsOrigin()):Normalized() * 100)
 			ParticleManager:ReleaseParticleIndex(pfx2)
@@ -413,7 +413,7 @@ function imba_dazzle_weave:OnSpellStart()
 			end
 		end
 	end
-	local pfx = ParticleManager:CreateParticle(self.pfx1, PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(self.pfx1, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, Vector(self.pos.x, self.pos.y, self.pos.z + 128))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self.radius, self.radius,self.radius))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -502,7 +502,7 @@ function modifier_imba_weave_armor:OnCreated()
 		if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() then
 			particle = "particles/units/heroes/hero_dazzle/dazzle_armor_friend.vpcf"
 		end
-		local pfx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
@@ -568,7 +568,7 @@ function imba_dazzle_help:OnSpellStart()
 	self.duration = self:GetSpecialValueFor("duration")
 	self.duration_armor = self:GetSpecialValueFor("duration_armor")
 	
-	local pfx = ParticleManager:CreateParticle(self.pfx3, PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(self.pfx3, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, Vector(self.pos.x, self.pos.y, self.pos.z + 128))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self.radius, self.radius, self.radius))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -577,7 +577,7 @@ function imba_dazzle_help:OnSpellStart()
 	for _, unit in pairs(units) do
 	--if self:GetAutoCastState() then
 		if unit:IsConsideredHero() and not unit:IsAlive() and unit:IsRealHero() then		
-			local pfx_screen = ParticleManager:CreateParticleForPlayer(self.pfx1, PATTACH_ABSORIGIN_FOLLOW, unit, PlayerResource:GetPlayer(unit:GetPlayerID()))
+			local pfx_screen = ParticleManager:SafeCreateParticleForPlayer(self.pfx1, PATTACH_ABSORIGIN_FOLLOW, unit, PlayerResource:GetPlayer(unit:GetPlayerID()))
 			ParticleManager:ReleaseParticleIndex(pfx_screen)	
 			--unit:AddNewModifier(caster,self,"modifier_imba_weave_lock",{duration = -1})
 			PlayerResource:SetCameraTarget(unit:GetPlayerOwnerID(), unit)
@@ -619,7 +619,7 @@ function imba_dazzle_help:OnChannelFinish(bInterrupted)
 		end
 	end
 
-	local pfx = ParticleManager:CreateParticle(self.pfx2, PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(self.pfx2, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, Vector(self.pos.x, self.pos.y, self.pos.z + 128))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self.radius, self.radius, self.radius))
 	ParticleManager:ReleaseParticleIndex(pfx)

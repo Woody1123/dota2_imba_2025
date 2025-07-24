@@ -45,10 +45,10 @@ function modifier_ion_shell_buff:OnCreated()
     if not IsServer() then
         return
     end 
-    local pp = ParticleManager:CreateParticle("particles/heros/dark/shield_wall0.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pp = ParticleManager:SafeCreateParticle("particles/heros/dark/shield_wall0.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl( pp,0, self:GetParent():GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pp)
-    local particle = ParticleManager:CreateParticle("particles/econ/items/dark_seer/dark_seer_ti8_immortal_arms/dark_seer_ti8_immortal_ion_shell.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/dark_seer/dark_seer_ti8_immortal_arms/dark_seer_ti8_immortal_ion_shell.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false)
     ParticleManager:SetParticleControl( particle, 1,Vector(100,0,0))	
     self:AddParticle(particle, false, false, 20, false, false)
@@ -61,7 +61,7 @@ function modifier_ion_shell_buff:OnIntervalThink()
         for _,unit in pairs(enemies) do
             if not unit:IsMagicImmune() then   
                 if unit~=self:GetParent() then 
-                    local particle = ParticleManager:CreateParticle("particles/econ/items/dark_seer/dark_seer_ti8_immortal_arms/dark_seer_ti8_immortal_ion_shell_dmg.vpcf", PATTACH_CUSTOMORIGIN,  self:GetParent())
+                    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/dark_seer/dark_seer_ti8_immortal_arms/dark_seer_ti8_immortal_ion_shell_dmg.vpcf", PATTACH_CUSTOMORIGIN,  self:GetParent())
                     ParticleManager:SetParticleControlEnt(particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false)
                     ParticleManager:SetParticleControlEnt(particle, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), false)
                     ParticleManager:ReleaseParticleIndex(particle)      

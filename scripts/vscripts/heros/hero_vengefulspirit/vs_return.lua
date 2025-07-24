@@ -25,7 +25,7 @@ function vs_return:OnSpellStart()
     if caster.nether_swap_pos then   
         EmitSoundOn( "Hero_VengefulSpirit.NetherSwap", caster )
         FindClearSpaceForUnit( caster, caster.nether_swap_pos, true )
-        local fx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_vengeful/vengeful_nether_swap_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        local fx2 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_vengeful/vengeful_nether_swap_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         ParticleManager:SetParticleControlEnt( fx2, 1, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetAbsOrigin(), false )
         ParticleManager:ReleaseParticleIndex( fx2 )
         EmitSoundOn( "Hero_VengefulSpirit.WaveOfTerror" , caster)

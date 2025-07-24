@@ -131,7 +131,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                 if keys.attacker == self:GetParent() or keys.target:HasModifier("modifier_imba_ember_spirit_searing_chains")
                     or keys.target:HasModifier("modifier_imba_ember_spirit_fire_remnant_burn") then
                     self:SetStackCount(self:GetStackCount() + self.killed_stack)
-                    local flesh_heap_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+                    local flesh_heap_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
                     ParticleManager:ReleaseParticleIndex(flesh_heap_pfx)
                 end
             end
@@ -244,7 +244,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             end
             local radius = self:GetSpecialValueFor("radius")
             local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_cast.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_ABSORIGIN_FOLLOW, caster)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_ABSORIGIN_FOLLOW, caster)
             ParticleManager:SetParticleControlForward(pfx, 0, caster:GetForwardVector())
             ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
             ParticleManager:ReleaseParticleIndex(pfx)            
@@ -268,7 +268,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                 if caster.chains_pull then
                     enemy:AddNewModifier_Debuff( caster, self, "modifier_imba_ember_spirit_searing_chains_pull", {duration = duration})
                 end
-                local pfx2 = ParticleManager:CreateParticle(effectname2, PATTACH_CUSTOMORIGIN, caster)
+                local pfx2 = ParticleManager:SafeCreateParticle(effectname2, PATTACH_CUSTOMORIGIN, caster)
                 ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
                 ParticleManager:SetParticleControlEnt(pfx2, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
                 ParticleManager:ReleaseParticleIndex(pfx2)
@@ -401,7 +401,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                 end
             end
             local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
             ParticleManager:SetParticleControl(pfx, 0, pos)
             ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
             ParticleManager:ReleaseParticleIndex(pfx)
@@ -429,7 +429,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             self.enemies = enemies
             if #enemies > 0 then
                 local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf"
-                local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
+                local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl(pfx, 0, self.caster_pos)
                 ParticleManager:SetParticleControlEnt(pfx, 1, parent, PATTACH_CUSTOMORIGIN_FOLLOW, nil, self.caster_pos, true)
                 ParticleManager:SetParticleControlForward(pfx, 1, parent:GetForwardVector())
@@ -473,7 +473,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             local pos = target_pos + direction*50
             parent:SetAbsOrigin( pos )
             local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
             ParticleManager:SetParticleControl(pfx, 0, start_pos)
             ParticleManager:SetParticleControl(pfx, 1, pos)
             ParticleManager:ReleaseParticleIndex(pfx)
@@ -490,7 +490,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             parent:AddNewModifier( caster, ability, "modifier_imba_ember_spirit_sleight_of_fist_disarmed", {} )
             target:EmitSound("Hero_EmberSpirit.SleightOfFist.Damage")
             local effectname2 = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf"
-            local pfx2 = ParticleManager:CreateParticle(effectname2, PATTACH_CUSTOMORIGIN, target)
+            local pfx2 = ParticleManager:SafeCreateParticle(effectname2, PATTACH_CUSTOMORIGIN, target)
             ParticleManager:SetParticleControlEnt(pfx2, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
             ParticleManager:ReleaseParticleIndex(pfx2)
         end
@@ -500,7 +500,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             local ability = self:GetAbility()
             if IsServer() then
                 local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
-                local pfx = ParticleManager:CreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
+                local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
                 ParticleManager:SetParticleControl(pfx, 0, self.caster_pos)
                 ParticleManager:SetParticleControl(pfx, 1, parent:GetAbsOrigin())
                 ParticleManager:ReleaseParticleIndex(pfx)
@@ -623,7 +623,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                 end
             end
             local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
             ParticleManager:SetParticleControl(pfx, 0, pos)
             ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 0, 0))
             ParticleManager:ReleaseParticleIndex(pfx)
@@ -689,7 +689,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                 self.damage_tick = damage_per_second * tick_interval
                 self:StartIntervalThink( tick_interval )
                 local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
-                local pfx = ParticleManager:CreateParticle( effectname, PATTACH_ABSORIGIN_FOLLOW, parent)
+                local pfx = ParticleManager:SafeCreateParticle( effectname, PATTACH_ABSORIGIN_FOLLOW, parent)
                 ParticleManager:SetParticleControlEnt(pfx, 0, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
                 ParticleManager:SetParticleControlEnt(pfx, 1, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
                 ParticleManager:SetParticleControl(pfx, 2, Vector(self.radius, 0, 0))
@@ -875,7 +875,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             parent:EmitSound("Hero_EmberSpirit.Remnant.Appear")
             local i = RandomInt( 81, 83 )
             local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
-            local pfx = ParticleManager:CreateParticle( effectname, PATTACH_CUSTOMORIGIN, parent)
+            local pfx = ParticleManager:SafeCreateParticle( effectname, PATTACH_CUSTOMORIGIN, parent)
             ParticleManager:SetParticleControl(pfx, 0, parent:GetAbsOrigin())
             ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true) --克隆英雄
             ParticleManager:SetParticleControl(pfx, 2, Vector( i, 0, 0) )
@@ -1004,7 +1004,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
                         self.count = #self.timer_mods
                     end
                     local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
-                    local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, caster)
+                    local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, caster)
                     ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
                     ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
                     self:AddParticle(pfx, false, false, -1, false, false)
@@ -1105,7 +1105,7 @@ CreateTalents("npc_dota_hero_ember_spirit","traveler/ember_spirit_abilities.lua"
             if not target.landed then -- 残焰还没到达终点
                 ProjectileManager:DestroyLinearProjectile( target.proj )
                 local effectname = "particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf"
-                local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
+                local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin())
                 ParticleManager:ReleaseParticleIndex(pfx)
             end     

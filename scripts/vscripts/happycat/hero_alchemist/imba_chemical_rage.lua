@@ -21,9 +21,9 @@ function imba_chemical_rage:Init()
     self.caster=self:GetCaster()
 end
 function imba_chemical_rage:OnSpellStart()
-      local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf", PATTACH_ABSORIGIN, self.caster)
+      local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf", PATTACH_ABSORIGIN, self.caster)
       ParticleManager:ReleaseParticleIndex(fx)
-      local fx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf", PATTACH_ABSORIGIN, self.caster)
+      local fx1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf", PATTACH_ABSORIGIN, self.caster)
       ParticleManager:SetParticleControl(fx1, 1,  self.caster:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(fx1)
       self.caster:AddNewModifier(self.caster, self, "modifier_imba_chemical_rage_buff", {duration=self:GetSpecialValueFor("duration")+self.caster:GetModifierStackCount("modifier_goblins_greed_pa", self.caster)*self:GetSpecialValueFor("dur")})
@@ -33,7 +33,7 @@ function imba_chemical_rage:OnSpellStart()
                 if #units>0 then
                         for _,target in pairs(units) do
                                 if target~=self.caster then
-                                    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf", PATTACH_ABSORIGIN, target)
+                                    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf", PATTACH_ABSORIGIN, target)
                                     ParticleManager:ReleaseParticleIndex(fx)
                                     target:AddNewModifier(self.caster, self, "modifier_imba_chemical_rage_buff", {duration=5})
                                 end
@@ -92,7 +92,7 @@ function modifier_imba_chemical_rage_buff:OnAttackLanded(tg)
             end
             if tg.attacker == self.parent  and tg.target:IsRealHero() and not self.parent:IsIllusion()   then
                                                 PlayerResource:ModifyGold(tg.target:GetPlayerOwnerID(), self.cost*-1, false, DOTA_ModifyGold_Unspecified)
-                                                local fx = ParticleManager:CreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, tg.target)
+                                                local fx = ParticleManager:SafeCreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, tg.target)
                                                 ParticleManager:SetParticleControl(fx, 1, Vector(1, self.cost, 0))
                                                 ParticleManager:SetParticleControl(fx, 2, Vector(1,3, 0))
                                                 ParticleManager:SetParticleControl(fx, 3, Vector(255, 208, 0))

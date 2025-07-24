@@ -53,7 +53,7 @@ function modifier_build_mana_loss:OnIntervalThink()
         if #heros>0 then
                   EmitSoundOn("Hero_NyxAssassin.ManaBurn.Target", self.parent)
                   for _, hero in pairs(heros) do
-                        local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf", PATTACH_CENTER_FOLLOW, hero)
+                        local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf", PATTACH_CENTER_FOLLOW, hero)
                         ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin())
                         ParticleManager:SetParticleControl(pfx, 1, Vector(1, 0, 0))
                         ParticleManager:ReleaseParticleIndex(pfx)

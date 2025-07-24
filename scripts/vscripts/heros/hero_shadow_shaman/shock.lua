@@ -48,7 +48,7 @@ function shock:OnSpellStart()
                 FIND_ANY_ORDER,
                 false)
             for _,target in pairs(enemies) do
-             local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+             local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
              ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false )
              ParticleManager:SetParticleControlEnt( particle, 1, target, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false )
              ParticleManager:SetParticleControl(particle, 10, target:GetAbsOrigin())
@@ -64,7 +64,7 @@ function shock:OnSpellStart()
             ApplyDamage(damageTable)
         end
         elseif Is_Chinese_TG(caster,curtar) then
-            local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+            local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
             ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false )
             ParticleManager:SetParticleControlEnt( particle, 1, curtar, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", curtar:GetAbsOrigin(), false )
             ParticleManager:ReleaseParticleIndex(particle)
@@ -102,7 +102,7 @@ function modifier_shock_dam:OnCreated()
     if not IsServer() then
         return
     end
-    local fx = ParticleManager:CreateParticle("particles/heros/shadow_shaman/shock_pa.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/heros/shadow_shaman/shock_pa.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt( fx, 0, self:GetParent(), PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true )
     self:AddParticle(fx, false, false, 20, false, false)
 	self:StartIntervalThink(atti)
@@ -129,7 +129,7 @@ function modifier_shock_dam:OnIntervalThink()
                         local unit=enemies[RandomInt(1,#enemies)]
                         if unit~=nil and unit:IsAlive() and not unit:IsMagicImmune() then
                             unit:EmitSound("Hero_ShadowShaman.EtherShock.target")
-                            local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+                            local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
                             ParticleManager:SetParticleControlEnt( particle, 0, self:GetParent(), PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false )
                             ParticleManager:SetParticleControlEnt( particle, 1, unit, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), false )
                             ParticleManager:SetParticleControl(particle, 10, unit:GetAbsOrigin())

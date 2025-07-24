@@ -75,7 +75,7 @@ function ranger_electric_grenade:OnProjectileHit_ExtraData(target, pos, keys)
 			end
 		end
 		--effect
-		local particle = ParticleManager:CreateParticle("particles/econ/items/razor/razor_ti6/razor_plasmafield_ti6.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local particle = ParticleManager:SafeCreateParticle("particles/econ/items/razor/razor_ti6/razor_plasmafield_ti6.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(particle, 0, pos)
 		ParticleManager:SetParticleControl(particle, 1, Vector(grenade_radius, grenade_radius, 1))
 		

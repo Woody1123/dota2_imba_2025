@@ -74,7 +74,7 @@ function modifier_empower_buff:OnAttackLanded(tg)
         end
     if tg.attacker==self.parent and not self.parent:IsIllusion()  then
             local pos=tg.target:GetAbsOrigin()
-            local fx = ParticleManager:CreateParticle("particles/tgp/magnataur/cleave_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            local fx = ParticleManager:SafeCreateParticle("particles/tgp/magnataur/cleave_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(fx, 0, pos)
             ParticleManager:SetParticleControl(fx, 1, Vector(self.cleave_rd,0,0))
             ParticleManager:SetParticleControl(fx, 2, Vector(0.5,0,0))

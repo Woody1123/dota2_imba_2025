@@ -107,7 +107,7 @@ function modifier_imba_morphling_adaptive_strike_str_passive:OnAttackLanded(keys
 	local pulverize_damage = (parent:GetStrength() + parent:GetAgility() + parent:GetIntellect(false))* self.ability:GetSpecialValueFor("bonus_damage_muti") / 100
 	ApplyDamage({victim = keys.target, attacker = parent, damage = pulverize_damage, damage_type = self.ability:GetAbilityDamageType(), ability = self.ability})
 	keys.target:EmitSound("Hero_Morphling.projectileImpact")
-	--local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_morphling/morphling_adaptive_strike_str.vpcf", parent), PATTACH_CUSTOMORIGIN, keys.target)
+	--local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_morphling/morphling_adaptive_strike_str.vpcf", parent), PATTACH_CUSTOMORIGIN, keys.target)
 	--	ParticleManager:SetParticleControlEnt(pfx, 0, keys.target, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.target:GetAbsOrigin(), true)
 	--	ParticleManager:SetParticleControlEnt(pfx, 1, keys.target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, keys.target:GetAbsOrigin(), true)
 	--	ParticleManager:ReleaseParticleIndex(pfx)

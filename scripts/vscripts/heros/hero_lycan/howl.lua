@@ -27,7 +27,7 @@ function howl:OnSpellStart()
     local att=caster:GetAverageTrueAttackDamage(caster)*self:GetSpecialValueFor("att")*0.01
     EmitSoundOn("Hero_Lycan.Howl", caster)
     GameRules:BeginTemporaryNight(howl_duration)
-    local p = ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local p = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(p, 0,caster_pos)
     ParticleManager:SetParticleControl(p, 1,caster_pos)
     ParticleManager:ReleaseParticleIndex(p)

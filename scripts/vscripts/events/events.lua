@@ -1101,9 +1101,9 @@ function L_TG:OnPlayerChat(tg)
 						
 			if str == "-pfx" then 
 				for i=1 , 9999 do
-					--local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					--local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", PATTACH_POINT, playerHero)
+					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", PATTACH_POINT, playerHero)
 					ParticleManager:SetParticleControl(pfx, 0, Vector(0,0,0))
 					ParticleManager:SetParticleControl(pfx, 1, Vector(400, 400, 400))
 					ParticleManager:SetParticleControl(pfx, 2, playerHero:GetAbsOrigin())

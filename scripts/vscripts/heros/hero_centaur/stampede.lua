@@ -81,7 +81,7 @@ function modifier_stampede_buff:OnCreated(tg)
         return
     end
     self:SetStackCount(tg.sp)
-    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_centaur/centaur_stampede.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_centaur/centaur_stampede.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(pfx, false, false, 15, false, false)
     self:GetParent():Purge(false, true, false, true, true)
 	if self:GetParent() == self:GetCaster() then

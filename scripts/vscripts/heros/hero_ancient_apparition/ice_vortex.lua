@@ -31,7 +31,7 @@ function ice_vortex:OnSpellStart()
     local dur=self:GetSpecialValueFor("dur")
     local stun=self:GetSpecialValueFor("stun")+caster:TG_GetTalentValue("special_bonus_ancient_apparition_2")
     EmitSoundOn("Hero_Ancient_Apparition.IceVortexCast", caster)
-    local particle = ParticleManager:CreateParticle("particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8.vpcf", PATTACH_WORLDORIGIN, caster)
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/ancient_apparition/ancient_apparation_ti8/ancient_ice_vortex_ti8.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl( particle, 0, curpos+caster:GetUpVector()*100)
     ParticleManager:SetParticleControl( particle, 5, Vector(rd,0,0))
     AddFOWViewer( caster:GetTeamNumber(), curpos, rd, dur, false )
@@ -49,7 +49,7 @@ function ice_vortex:OnSpellStart()
 end
 )
 
-local particle3 = ParticleManager:CreateParticle("particles/heros/aa/ancient_apparition_ice_blast_main.vpcf", PATTACH_WORLDORIGIN, nil)
+local particle3 = ParticleManager:SafeCreateParticle("particles/heros/aa/ancient_apparition_ice_blast_main.vpcf", PATTACH_WORLDORIGIN, nil)
 ParticleManager:SetParticleControl( particle3, 0,curpos)
 
 local dis=100
@@ -59,7 +59,7 @@ Timers:CreateTimer(1, function()
     pos2=pos2-dis
     ParticleManager:SetParticleControl( particle3, 3,Vector(curpos.x,curpos.y,pos2))
     if pos2<=dis_min then
-        local particle2 = ParticleManager:CreateParticle("particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf", PATTACH_WORLDORIGIN, caster)
+        local particle2 = ParticleManager:SafeCreateParticle("particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf", PATTACH_WORLDORIGIN, caster)
         ParticleManager:SetParticleControl( particle2, 0,curpos)
         ParticleManager:SetParticleControl( particle2, 3,curpos)
         ParticleManager:ReleaseParticleIndex( particle2 )

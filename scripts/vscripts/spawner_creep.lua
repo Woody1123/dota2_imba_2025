@@ -80,7 +80,7 @@ end
 function modifier_imba_cat_buff:OnCreated()
     if IsServer() then
         self.t=0
-        local particle2 = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+        local particle2 = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         ParticleManager:SetParticleControl(particle2, 1, Vector(3500, 0, 0))
         ParticleManager:SetParticleControl(particle2, 2, Vector(100, 0, 0))
         ParticleManager:SetParticleControl(particle2, 3, Vector(100, 0, 0))
@@ -143,7 +143,7 @@ end
 function modifier_imba_cat_buff:OnDestroy()
     if IsServer() then
 		local pos = self:GetParent():GetAbsOrigin()
-		local fx2 = ParticleManager:CreateParticle("particles/world_outpost/world_outpost_radiant_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+		local fx2 = ParticleManager:SafeCreateParticle("particles/world_outpost/world_outpost_radiant_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(fx2, 1, Vector(pos.x,pos.y,pos.z+300))		
 		ParticleManager:ReleaseParticleIndex(fx2)	
 		self:GetParent():EmitSound("Hero_Phoenix.SuperNova.Explode")
@@ -605,7 +605,7 @@ function spawner_creep:SpawnMeteorite()
 					end
 				end
 				
-				local particle3	= ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, nil)
+				local particle3	= ParticleManager:SafeCreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, nil)
 				ParticleManager:SetParticleControl(particle3, 0, Vector(0, 0, 1000)) -- 1000 feels kinda arbitrary but it also feels correct
 				ParticleManager:SetParticleControl(particle3, 1, end_target:GetAbsOrigin())
 				ParticleManager:SetParticleControl(particle3, 2, Vector(0.6, 0, 0))
@@ -686,7 +686,7 @@ function spawner_creep:SpawnMeteorite()
 					end
 				end
 				
-				local particle3	= ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, nil)
+				local particle3	= ParticleManager:SafeCreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, nil)
 				ParticleManager:SetParticleControl(particle3, 0, Vector(0, 0, 1000)) -- 1000 feels kinda arbitrary but it also feels correct
 				ParticleManager:SetParticleControl(particle3, 1, end_target:GetAbsOrigin())
 				ParticleManager:SetParticleControl(particle3, 2, Vector(0.6, 0, 0))
@@ -918,9 +918,9 @@ function modifier_imba_boss:OnDeath(tg)
 		
 		--亡语惹
 		self.parent:EmitSound("Hero_Venomancer.PoisonNova")
-		local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_venomancer/venomancer_poison_nova_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local p1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_venomancer/venomancer_poison_nova_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:ReleaseParticleIndex(p1)
-		local p2 = ParticleManager:CreateParticle("particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf", PATTACH_ABSORIGIN, self.parent)
+		local p2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf", PATTACH_ABSORIGIN, self.parent)
 		ParticleManager:SetParticleControl(p2, 1, Vector(700, 1,700))
 		ParticleManager:ReleaseParticleIndex(p2)
 		local heros = FindUnitsInRadius(self.parent:GetTeamNumber(), self.parent:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -1343,7 +1343,7 @@ function modifier_imba_miniboss_shield:OnTakeDamage(keys)
 			for _,unit in pairs(nearby_units) do
 				if unit ~= self.parent then
 					local pfx = "particles/neutral_fx/miniboss_damage_reflect_dire.vpcf"
-					local fx = ParticleManager:CreateParticle(pfx, PATTACH_CUSTOMORIGIN, self.parent)
+					local fx = ParticleManager:SafeCreateParticle(pfx, PATTACH_CUSTOMORIGIN, self.parent)
 					ParticleManager:SetParticleControlEnt(fx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(fx, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 					ParticleManager:ReleaseParticleIndex(fx)
@@ -1359,7 +1359,7 @@ function modifier_imba_miniboss_shield:OnTakeDamage(keys)
 	end
 end
 --[[
-			local pfx = ParticleManager:CreateParticle("particles/world_outpost/world_outpost_dire_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+			local pfx = ParticleManager:SafeCreateParticle("particles/world_outpost/world_outpost_dire_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
 			ParticleManager:SetParticleControl(pfx, 1, self:GetCaster():GetAbsOrigin())		
 			ParticleManager:ReleaseParticleIndex(pfx)
 			local nearby_units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, self.parent:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES  + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
@@ -1415,7 +1415,7 @@ function modifier_imba_miniboss_shield_pfx:OnCreated()
     if IsServer() then
 		local pfx = "particles/neutral_fx/miniboss_shield_dire.vpcf"
 		local pos=self:GetParent():GetAbsOrigin()
-		self.statu_fx= ParticleManager:CreateParticle(pfx, PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
+		self.statu_fx= ParticleManager:SafeCreateParticle(pfx, PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
 		ParticleManager:SetParticleControl(self.statu_fx, 0,Vector(pos.x,pos.y,pos.z+100))
 		ParticleManager:SetParticleControl(self.statu_fx, 1,Vector(pos.x,pos.y,pos.z+100))
 		ParticleManager:SetParticleControl(self.statu_fx, 5,Vector(pos.x,pos.y,pos.z+100))
@@ -1433,14 +1433,14 @@ function modifier_imba_miniboss_shield_pfx:OnDestroy()
 		local pfx = "particles/neutral_fx/miniboss_death_dire.vpcf"
 		local pfx2 = "particles/world_outpost/world_outpost_dire_ambient_shockwave.vpcf"
 
-		local fx = ParticleManager:CreateParticle(pfx, PATTACH_CUSTOMORIGIN, self:GetParent())
+		local fx = ParticleManager:SafeCreateParticle(pfx, PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(fx, 1, self:GetParent():GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(fx)
 		if pfx2 ~= nil then
 		--print("特效2")
 			local pos = self:GetParent():GetAbsOrigin()
-			local fx2 = ParticleManager:CreateParticle(pfx2, PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+			local fx2 = ParticleManager:SafeCreateParticle(pfx2, PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControl(fx2, 1, Vector(pos.x,pos.y,pos.z+300))		
 			ParticleManager:ReleaseParticleIndex(fx2)
 		end
@@ -1479,7 +1479,7 @@ function modifier_mini_torrent:OnCreated()
     if not IsServer() then
         return
     end
-    local particle= ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_fxset.vpcf", PATTACH_ABSORIGIN,self:GetParent())
+    local particle= ParticleManager:SafeCreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_fxset.vpcf", PATTACH_ABSORIGIN,self:GetParent())
     ParticleManager:SetParticleControl(particle, 0,self:GetParent():GetAbsOrigin())
     self:AddParticle(particle, false, false, 20, false, false)
 end
@@ -1490,7 +1490,7 @@ function modifier_mini_torrent:OnDestroy()
         return
     end
     EmitSoundOnLocationForAllies(self:GetParent():GetAbsOrigin(), "Ability.Torrent", self:GetParent())
-    local particle1 = ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN,nil)
+    local particle1 = ParticleManager:SafeCreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(particle1, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle1)
     local heros = FindUnitsInRadius(

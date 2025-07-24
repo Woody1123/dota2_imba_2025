@@ -23,7 +23,7 @@ function trap_hook:OnSpellStart(team)
             local dis1= 1800
             local tpos=cpos + dir1* dis1
 			local p = self.caster:GetAbsOrigin()
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_hookshot.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_hookshot.vpcf", PATTACH_CUSTOMORIGIN, nil)
 				
 				--ParticleManager:SetParticleControlEnt(pfx, 0, self.caster, PATTACH_POINT_FOLLOW, "nozzle", p, true)
 				ParticleManager:SetParticleControl(pfx, 0, p)

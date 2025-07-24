@@ -63,10 +63,10 @@ function purification_new:OnSpellStart(tg)
     end
     local num=target:GetHealthPercent()<=hp and 2 or 1
     EmitSoundOn("Hero_Omniknight.purification", caster)
-    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf", PATTACH_POINT_FOLLOW, caster)
+    local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf", PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
-    local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+    local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:SetParticleControl(pfx2, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx2, 1, Vector(radius, 1, 1))
 	ParticleManager:ReleaseParticleIndex(pfx2)

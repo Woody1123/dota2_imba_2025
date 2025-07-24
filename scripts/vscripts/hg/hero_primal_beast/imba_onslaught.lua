@@ -38,11 +38,11 @@ function imba_onslaught:OnAbilityPhaseStart()
 	local cast_particle = "particles/units/heroes/hero_primal_beast/primal_beast_heavy_step_cast.vpcf"
 	local cast_particle_2 = "particles/units/heroes/hero_primal_beast/primal_beast_onslaught_chargeup_streaks.vpcf"
 	local caster = self:GetCaster()
-	self.cast_effect = ParticleManager:CreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
+	self.cast_effect = ParticleManager:SafeCreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.cast_effect, 0, caster:GetAbsOrigin()) -- 0: Spotlight position,
 	ParticleManager:SetParticleControl(self.cast_effect, 3, caster:GetAbsOrigin()) --3: shell and sprint effect position,
 	ParticleManager:SetParticleControl(self.cast_effect, 60, caster:GetAbsOrigin()) --5: roses landing point
-	self.cast_effect_2 = ParticleManager:CreateParticle(cast_particle_2, PATTACH_WORLDORIGIN, nil)
+	self.cast_effect_2 = ParticleManager:SafeCreateParticle(cast_particle_2, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.cast_effect_2, 0, caster:GetAbsOrigin()) -- 0: Spotlight position,
 	ParticleManager:SetParticleControl(self.cast_effect_2, 3, caster:GetAbsOrigin()) --3: shell and sprint effect position,
 	ParticleManager:SetParticleControl(self.cast_effect_2, 60, caster:GetAbsOrigin()) --5: roses landing point
@@ -269,7 +269,7 @@ function modifier_imba_onslaught_charge:OnCreated()
 	end
 
 	self.sprinting_effect = "particles/units/heroes/hero_primal_beast/primal_beast_onslaught_charge_active.vpcf"
-	self.sprint = ParticleManager:CreateParticle(self.sprinting_effect, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	self.sprint = ParticleManager:SafeCreateParticle(self.sprinting_effect, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(self.sprint, 0, self:GetCaster():GetAbsOrigin()) --origin
 
 	

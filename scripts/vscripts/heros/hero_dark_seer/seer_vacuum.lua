@@ -30,7 +30,7 @@ function seer_vacuum:OnSpellStart()
     local stun=self:GetSpecialValueFor("stun")
     local heronum=0
     GridNav:DestroyTreesAroundPoint(curpos,self:GetSpecialValueFor("radius_tree") , true)
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_vacuum.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_vacuum.vpcf", PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl( particle,0, curpos)
     ParticleManager:SetParticleControl( particle, 1,Vector(radius,0,0))	
     ParticleManager:SetParticleControl( particle, 2, curpos)
@@ -105,7 +105,7 @@ function modifier_seer_vacuum_wall:OnCreated(tg)
         self.POS=Vector(tg.x,tg.y,tg.z)
         self.SPOS=self.POS+self.caster:GetRightVector()*self.DIS
         self.EPOS=self.POS+self.caster:GetRightVector()*-self.DIS
-        local P = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf", PATTACH_WORLDORIGIN,nil)
+        local P = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf", PATTACH_WORLDORIGIN,nil)
         ParticleManager:SetParticleControl(P,0,self.SPOS)
         ParticleManager:SetParticleControl(P,1,self.EPOS)
         ParticleManager:SetParticleControl(P,2,Vector(1,1,0))

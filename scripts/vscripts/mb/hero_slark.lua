@@ -197,7 +197,7 @@ function modifier_imba_slark_dark_pact:PlayEffects1()
 	local sound_cast = "Hero_Slark.DarkPact.PreCast.Immortal"
 
 	-- play particle
-	local effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber() )
+	local effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -220,7 +220,7 @@ function modifier_imba_slark_dark_pact:PlayEffects2()
 	local particle_cast = "particles/econ/items/slark/slark_head_immortal/slark_immortal_dark_pact_pulses.vpcf"
 
 	-- play particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -409,7 +409,7 @@ function imba_slark_pounce:PlayEffects1()
 	local sound_cast = "Hero_Slark.Pounce.Cast.Immortal"
 
 	-- play particle
-	local effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster(), self:GetCaster():GetTeamNumber() )
+	local effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster(), self:GetCaster():GetTeamNumber() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -664,12 +664,12 @@ function modifier_imba_slark_pounce_debuff:OnCreated(keys)
 	self:GetParent():EmitSound("Hero_Slark.Pounce.Leash.Immortal")
 	
 	--束缚特效
-	self.ground_particle = ParticleManager:CreateParticle("particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_gold_ground.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
+	self.ground_particle = ParticleManager:SafeCreateParticle("particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_gold_ground.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
 	ParticleManager:SetParticleControl(self.ground_particle, 3, self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.ground_particle, 4, Vector(self.leash_radius))
 	self:AddParticle(self.ground_particle, false, false, -1, false, false)
 	--被束缚特效
-	self.leash_particle	= ParticleManager:CreateParticle("particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.leash_particle	= ParticleManager:SafeCreateParticle("particles/econ/items/slark/slark_ti6_blade/slark_ti6_pounce_leash_gold.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.leash_particle, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(self.leash_particle, 3, self:GetParent():GetAbsOrigin())
 	self:AddParticle(self.leash_particle, false, false, -1, false, false)
@@ -712,7 +712,7 @@ function modifier_imba_slark_pounce_debuff:GetModifierProcAttack_BonusDamage_Phy
 	keys.attacker:Heal( leash_heal, self:GetCaster() )
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, keys.attacker, leash_heal, nil)
 	--Heal 特效
-	local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
+	local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	-- play effects
 	-- local sound_cast = "Hero_DarkWillow.Shadow_Realm.Damage"
@@ -817,7 +817,7 @@ function modifier_imba_slark_essence_shift:GetModifierProcAttack_Feedback( param
 		-- Heal 
 		self:GetParent():Heal(burning_mana, self:GetAbility())
 		-- Heal Effects
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 end
@@ -859,7 +859,7 @@ function modifier_imba_slark_essence_shift:PlayEffects( target )
 	--local particle_cast = "particles/units/heroes/hero_slark/slark_essence_shift.vpcf"
 	local particle_cast = "particles/econ/items/slark/slark_ti6_blade/slark_ti6_blade_essence_shift_gold.vpcf"
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:SetParticleControl( effect_cast, 1, self:GetParent():GetOrigin() + Vector( 0, 0, 64 ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
@@ -1124,7 +1124,7 @@ function imba_slark_fish_bait:PlayEffects1()
 	local particle_cast = "particles/units/heroes/hero_slark/slark_fish_bait_slow.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
 
@@ -1309,25 +1309,25 @@ function modifier_imba_shadow_dance_active:OnCreated()
 			--pfx_dummy_name = "particles/econ/items/slark/slark_fall20_immortal/slark_fall20_shadow_dance.vpcf"
 			pfx_dummy_sceptor = "particles/econ/items/slark/slark_fall20_immortal/slark_fall20_shadow_dance.vpcf"
 		--end
-		local pfx = ParticleManager:CreateParticleForTeam(pfx_name, PATTACH_CUSTOMORIGIN, nil, self:GetParent():GetTeamNumber())
+		local pfx = ParticleManager:SafeCreateParticleForTeam(pfx_name, PATTACH_CUSTOMORIGIN, nil, self:GetParent():GetTeamNumber())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 3, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_eyeR", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 4, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_eyeL", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		if self:GetCaster():HasScepter() then
-			local pfx2 = ParticleManager:CreateParticleForTeam(pfx_dummy_sceptor, PATTACH_CUSTOMORIGIN, nil, self:GetParent():GetTeamNumber())
+			local pfx2 = ParticleManager:SafeCreateParticleForTeam(pfx_dummy_sceptor, PATTACH_CUSTOMORIGIN, nil, self:GetParent():GetTeamNumber())
 			ParticleManager:SetParticleControlEnt(pfx2, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlEnt(pfx2, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 			self:AddParticle(pfx2, false, false, 15, false, false)
 		end
 		self.pfx_dummy = CreateModifierThinker(self:GetParent(), nil, "modifier_dummy_thinker", {duration = self:GetDuration() + 0.3}, self:GetParent():GetAbsOrigin(), self:GetParent():GetTeamNumber(), false)
-		local pfx_dummy = ParticleManager:CreateParticle(pfx_dummy_name, PATTACH_CUSTOMORIGIN, self.pfx_dummy)
+		local pfx_dummy = ParticleManager:SafeCreateParticle(pfx_dummy_name, PATTACH_CUSTOMORIGIN, self.pfx_dummy)
 		ParticleManager:SetParticleControlEnt(pfx_dummy, 1, self.pfx_dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.pfx_dummy:GetAbsOrigin(), true)
 		local buff = self.pfx_dummy:FindModifierByName("modifier_dummy_thinker")
 		buff:AddParticle(pfx_dummy, false, false, 15, false, false)
 		if self:GetCaster():HasScepter() then
-			local pfx_dummy2 = ParticleManager:CreateParticle(pfx_dummy_sceptor, PATTACH_CUSTOMORIGIN, self.pfx_dummy)
+			local pfx_dummy2 = ParticleManager:SafeCreateParticle(pfx_dummy_sceptor, PATTACH_CUSTOMORIGIN, self.pfx_dummy)
 			ParticleManager:SetParticleControlEnt(pfx_dummy2, 1, self.pfx_dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.pfx_dummy:GetAbsOrigin(), true)
 			buff:AddParticle(pfx_dummy2, false, false, 15, false, false)
 		end

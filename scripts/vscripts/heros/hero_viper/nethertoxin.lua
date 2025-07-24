@@ -65,7 +65,7 @@ function modifier_nethertoxin_th:OnCreated()
     self.damage=self.ability:GetSpecialValueFor("damage")
     self.radius=self.ability:GetSpecialValueFor("radius")
     if IsServer() then
-        local p1 = ParticleManager:CreateParticle("particles/econ/items/viper/viper_immortal_tail_ti8/viper_immortal_ti8_nethertoxin.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local p1 = ParticleManager:SafeCreateParticle("particles/econ/items/viper/viper_immortal_tail_ti8/viper_immortal_ti8_nethertoxin.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(p1, 0, self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControl(p1, 1, Vector(self.radius,self.radius,self.radius))
         ParticleManager:SetParticleControl(p1, 3, self.parent:GetAbsOrigin())

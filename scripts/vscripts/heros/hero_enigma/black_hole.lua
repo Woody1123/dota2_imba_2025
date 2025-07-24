@@ -104,7 +104,7 @@ function modifier_black_hole_debuff:OnCreated(tg)
     if  IsServer() then 
 	self.start_radius = self.ability:GetSpecialValueFor("pull_radius")
     self.pos=self.parent:GetAbsOrigin()
-    local fx= ParticleManager:CreateParticle(
+    local fx= ParticleManager:SafeCreateParticle(
         "particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf",
         PATTACH_CUSTOMORIGIN,
         nil)
@@ -225,7 +225,7 @@ function modifier_black_hole_debuff2:OnCreated(tg)
     self.SP=tg.sp
 	self.base_dis = self:GetAbility():GetSpecialValueFor("pull_radius")
 	self.dis = 10000
-    local fx= ParticleManager:CreateParticleForPlayer(
+    local fx= ParticleManager:SafeCreateParticleForPlayer(
         "particles/tgp/enigma/screen_black_hole0.vpcf",
         PATTACH_ABSORIGIN_FOLLOW,
         self:GetParent(),self:GetParent():GetPlayerOwner())
@@ -374,7 +374,7 @@ function modifier_midnight_pulse_debuff2:OnCreated(tg)
     self.radius=tg.radius
     self.damage_percent=tg.damage_percent
     self.pos=self:GetParent():GetAbsOrigin()
-    local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf", PATTACH_CUSTOMORIGIN,nil)
+    local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(fx, 0,  self.pos)
     ParticleManager:SetParticleControl(fx, 1, Vector(self.radius,self.radius,self.radius))
     self:AddParticle(fx, false, false, 20, false, false)

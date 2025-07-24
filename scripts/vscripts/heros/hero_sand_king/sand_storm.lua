@@ -134,7 +134,7 @@ function modifier_sand_storm:OnCreated(tg)
 		ability = self.ability,
 	}
     EmitSoundOn( "Ability.SandKing_SandStorm.loop", self.parent )
-    self.fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+    self.fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
     ParticleManager:SetParticleControl(self.fx, 0,self.parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(self.fx, 1, Vector(self.sand_storm_radius, self.sand_storm_radius, self.sand_storm_radius))
     self:AddParticle(self.fx, false, false, -1, false, false)
@@ -174,7 +174,7 @@ function modifier_sand_storm:OnIntervalThink()
 		for tr = 0,6 do
 			local newpos =RotatePosition(self.pos,QAngle(0, tr*60, 0), self.pos + self.caster:GetForwardVector():Normalized() * self.sand_storm_radius/3)
 					local pos_end = GetRandomPosition2D(newpos,self.sand_storm_radius/3)
-					local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_sandstorm_burrowstrike_field_explosion.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+					local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_sandstorm_burrowstrike_field_explosion.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 					ParticleManager:SetParticleControl(fx, 0, pos_end)
 					ParticleManager:SetParticleControl(fx, 1, pos_end)
 					ParticleManager:ReleaseParticleIndex(fx)

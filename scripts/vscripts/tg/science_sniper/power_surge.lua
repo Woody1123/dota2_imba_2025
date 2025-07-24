@@ -11,7 +11,7 @@ function power_surge:OnSpellStart()
       local pos=self:GetCursorPosition()
       local dur= self:GetSpecialValueFor("dur")
       EmitSoundOn("Hero_Disruptor.ThunderStrike.Cast", caster)
-      local fx1 = ParticleManager:CreateParticle( "particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW , caster)
+      local fx1 = ParticleManager:SafeCreateParticle( "particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW , caster)
       ParticleManager:ReleaseParticleIndex(fx1)
       CreateModifierThinker(caster, self, "modifier_power_surge", {duration=dur}, pos, caster:GetTeamNumber(), false)
 end
@@ -53,7 +53,7 @@ end
 function modifier_power_surge:OnIntervalThink()
       AddFOWViewer(self.team, self.pos, self.rd, 1, false)
       EmitSoundOn("Hero_Disruptor.ThunderStrike.Target", self.parent)
-      local fx1 = ParticleManager:CreateParticle( "particles/tg_fx/heros/power_surge_electric_m.vpcf", PATTACH_CUSTOMORIGIN , nil)
+      local fx1 = ParticleManager:SafeCreateParticle( "particles/tg_fx/heros/power_surge_electric_m.vpcf", PATTACH_CUSTOMORIGIN , nil)
       ParticleManager:SetParticleControl(fx1,0,self.pos+Vector(0,0,200))
       ParticleManager:ReleaseParticleIndex(fx1)
       local units = FindUnitsInRadius(

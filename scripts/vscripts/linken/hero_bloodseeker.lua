@@ -39,7 +39,7 @@ function modifier_imba_bloodrage:OnCreated()
 		self.damage_pct = self:GetAbility():GetSpecialValueFor("damage_pct") * 0.01 / 2 * self:GetParent():GetMaxHealth() * 2
 	end	
 	if IsServer() then
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())			
 		self:StartIntervalThink(0.5)
 	end
@@ -115,7 +115,7 @@ function modifier_imba_bloodrage:OnAttackLanded(keys)
 	ApplyDamage(damageTable)
 	self:GetParent():Heal(damage_shard + move_shard, self:GetCaster())
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, keys.attacker, damage_shard + move_shard, nil)    
-    --local lifesteal_particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    --local lifesteal_particle = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     --ParticleManager:ReleaseParticleIndex(lifesteal_particle)	
 end
 function modifier_imba_bloodrage:GetModifierSpellAmplify_Percentage()
@@ -193,7 +193,7 @@ function modifier_imba_blood_bath_thinker:OnCreated(keys)
 	if IsServer() then
 		self.delay_n = 0
 		self.pos = self:GetParent():GetAbsOrigin()
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self.pos)	
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(self.radius,self.radius,self.radius))
 		ParticleManager:SetParticleControl(self.pfx, 60, Vector(255,0,0))	
@@ -241,7 +241,7 @@ function modifier_imba_blood_bath_thinker:OnIntervalThink()
 		self:Destroy()
 		return
 	end
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(self.pfx, 0, self.pos)	
 	ParticleManager:SetParticleControl(self.pfx, 1, Vector(self.radius,self.radius,self.radius))
 	ParticleManager:SetParticleControl(self.pfx, 60, Vector(255,0,0))	
@@ -504,7 +504,7 @@ function modifier_imba_rupture:OnCreated(keys)
 	if IsServer() then
 		self.a = 0
 		self:SetStackCount(self.int)	
-		self.pfx = ParticleManager:CreateParticle("particles/creatures/shadow_demon/creature_shadow_poison_stackui.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/creatures/shadow_demon/creature_shadow_poison_stackui.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(math.floor(self:GetStackCount() / 10 % 10), self:GetStackCount() % 10, 0))
 		self:AddParticle(self.pfx, false, false, -1, false, false)
@@ -569,14 +569,14 @@ function modifier_imba_rupture_kill:ShouldUseOverheadOffset() return true end
 function modifier_imba_rupture_kill:OnCreated(keys)	
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-	   	local fx = ParticleManager:CreateParticle("particles/heros/axe/axe_cb_ms.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
+	   	local fx = ParticleManager:SafeCreateParticle("particles/heros/axe/axe_cb_ms.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 	    ParticleManager:SetParticleControlForward(fx, 0, self:GetParent():GetForwardVector())
 	    ParticleManager:SetParticleControlEnt(fx, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc",self:GetParent():GetAbsOrigin(), false)
 	    ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false)
 	    ParticleManager:SetParticleControlEnt(fx, 4, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false)
 	    ParticleManager:ReleaseParticleIndex(fx)
 
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())	
 		ParticleManager:SetParticleControl(self.pfx, 1, Vector(300,300,300))
 		ParticleManager:SetParticleControl(self.pfx, 60, Vector(255,0,0))	

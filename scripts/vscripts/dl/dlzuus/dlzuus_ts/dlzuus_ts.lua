@@ -159,19 +159,19 @@ function dlzuus_ts:playeffects(t)
 	local sound_cast = "Hero_Zuus.LightningBolt"
 
 	--[[local particle_cast = "particles/econ/items/zeus/lightning_weapon_fx/zuus_lightning_bolt_immortal_lightning.vpcf"
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	local tpos = t:GetAbsOrigin() tpos.z=tpos.z+200
 	ParticleManager:SetParticleControl( effect_cast, 1, tpos )]]
 	local tpos = t:GetAbsOrigin() tpos.z=tpos.z+200
 
 	local particle_cast2 = "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
-	local effect_cast2 = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil )
+	local effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil )
 	local t0pos = t:GetAbsOrigin() t0pos.z = t0pos.z+1000
 	ParticleManager:SetParticleControl( effect_cast2, 0, t0pos )
 	ParticleManager:SetParticleControl( effect_cast2, 1, tpos )
 
 	local particle_cast3 = "particles/econ/items/disruptor/disruptor_ti8_immortal_weapon/disruptor_ti8_immortal_thunder_strike_bolt.vpcf"
-	local effect_cast3 = ParticleManager:CreateParticle( particle_cast3, PATTACH_WORLDORIGIN, nil )
+	local effect_cast3 = ParticleManager:SafeCreateParticle( particle_cast3, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect_cast3, 0, tpos )
 	ParticleManager:SetParticleControl( effect_cast3, 2, tpos )
 

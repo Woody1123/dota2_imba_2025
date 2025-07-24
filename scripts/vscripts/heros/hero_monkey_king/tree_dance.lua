@@ -80,9 +80,9 @@ function modifier_tree_dance_motion:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_start_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_start_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
-    local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle2)
     self.TARGET=EntIndexToHScript(tg.target)
     self.DIR=ToVector(tg.dir)
@@ -93,7 +93,7 @@ function modifier_tree_dance_motion:OnCreated(tg)
     EmitSoundOnLocationWithCaster(self:GetParent():GetAbsOrigin(), "TreeJump.Cast", self:GetParent())
     if self:GetParent():HasModifier("modifier_tree_dance_height") then
         self:GetParent():EmitSound("Hero_MonkeyKing.TreeJump.Tree")
-        local particle3 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_treelaunch_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local particle3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_treelaunch_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:ReleaseParticleIndex(particle3)
     end
 	if not self:ApplyHorizontalMotionController() or not self:ApplyVerticalMotionController()then
@@ -157,7 +157,7 @@ function modifier_tree_dance_motion:OnDestroy()
         self:GetParent():RemoveVerticalMotionController(self)
         self:GetParent():RemoveHorizontalMotionController(self)
         self:GetParent():EmitSound("Hero_MonkeyKing.TreeJump.Tree")
-        local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         self:AddParticle( particle, false, false, 20, false, false )
         if self:GetParent():GetName()=="npc_dota_hero_monkey_king" then
             self:GetParent():StartGesture(ACT_DOTA_MK_TREE_END)
@@ -376,7 +376,7 @@ function modifier_tree_dance_idle:OnCreated()
         bProvidesVision = false,
     }
     ProjectileManager:CreateLinearProjectile( pp )
-    local particle2= ParticleManager:CreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,self:GetParent(),PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()) )
+    local particle2= ParticleManager:SafeCreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,self:GetParent(),PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()) )
 	ParticleManager:SetParticleControl(particle2, 0,self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle2, 1, Vector(self:GetAbility():GetSpecialValueFor("dis")+self:GetParent():GetCastRangeBonus(), 0, 0))
 	ParticleManager:SetParticleControl(particle2, 2, Vector(10, 0, 0))

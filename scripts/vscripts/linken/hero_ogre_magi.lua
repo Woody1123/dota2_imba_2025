@@ -85,7 +85,7 @@ function imba_ogre_magi_fireblast_ignite:OnProjectileHit_ExtraData(target, pos, 
     target:EmitSound("Hero_OgreMagi.Ignite.Target")
     target:EmitSound("Hero_OgreMagi.Fireblast.Target")
     target:AddNewModifier_RS(caster, self, "modifier_stunned", { duration = self:GetSpecialValueFor("stunned_duration") })
-    local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf", caster), PATTACH_CUSTOMORIGIN, target)
+    local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf", caster), PATTACH_CUSTOMORIGIN, target)
     ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(pfx)
@@ -336,7 +336,7 @@ function modifier_imba_ogre_magi_bloodlust:OnCreated()
     if IsServer() then
         local caster = self:GetCaster()
         local target = self:GetParent()
-        local pfx1 = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf", caster), PATTACH_CUSTOMORIGIN, caster)
+        local pfx1 = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement("particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf", caster), PATTACH_CUSTOMORIGIN, caster)
         ParticleManager:SetParticleControlEnt(pfx1, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(pfx1, 2, target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(pfx1, 3, target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, target:GetAbsOrigin(), true)
@@ -561,7 +561,7 @@ function modifier_imba_ogre_magi_focus_p:OnTakeDamage(keys)
             lifesteal = lifesteal / 5
         end
         self:GetParent():Heal(lifesteal, self.ability)
-        --local pfx = ParticleManager:CreateParticle("particles/item/vladmir/vladmir_blood_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        --local pfx = ParticleManager:SafeCreateParticle("particles/item/vladmir/vladmir_blood_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         --ParticleManager:ReleaseParticleIndex(pfx)
     end
 end
@@ -613,7 +613,7 @@ function modifier_imba_ogre_magi_focus_check_animation:OnCreated()
     if IsServer() then
         local particle_cast = "particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse_shield.vpcf"
         local radius = 200
-        self.effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_POINT_FOLLOW, self:GetParent())
+        self.effect_cast = ParticleManager:SafeCreateParticle(particle_cast, PATTACH_POINT_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(self.effect_cast, 1, Vector(radius, radius, radius))
         ParticleManager:SetParticleControlEnt(
                 self.effect_cast,
@@ -780,7 +780,7 @@ function modifier_imba_multicast_passive:DoMultiAttack(caster, target, times)
             end
             caster.splitattack = true
             caster:EmitSound("Hero_OgreMagi.Fireblast.x" .. i + 1)
-            local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+            local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
             ParticleManager:SetParticleControl(pfx, 1, Vector(i + 1, 1, 0))
             return nil
         end)
@@ -989,7 +989,7 @@ function modifier_imba_multicast_passive:DoMultiTargetAbility(caster, target, ab
 				end
 				self.nocast = false
 				caster:EmitSound("Hero_OgreMagi.Fireblast.x" .. i + 1)
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+				local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 				ParticleManager:SetParticleControl(pfx, 1, Vector(i + 1, 1, 0))
 				return nil
         end
@@ -1013,7 +1013,7 @@ function modifier_imba_multicast_passive:DoMultiPositionAbility(caster, pos, abi
 				end
 				self.nocast = false
 				caster:EmitSound("Hero_OgreMagi.Fireblast.x" .. i + 1)
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+				local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 				ParticleManager:SetParticleControl(pfx, 1, Vector(i + 1, 1, 0))
 				return nil
 			end
@@ -1034,7 +1034,7 @@ function modifier_imba_multicast_passive:DoMultiNoTargetAbility(caster, ability,
 				end
 				self.nocast = false
 				caster:EmitSound("Hero_OgreMagi.Fireblast.x" .. i + 1)
-				local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+				local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 				ParticleManager:SetParticleControl(pfx, 1, Vector(i + 1, 1, 0))
 				return nil
         end

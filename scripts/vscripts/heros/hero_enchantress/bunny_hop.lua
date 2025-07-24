@@ -69,7 +69,7 @@ function modifier_bunny_hop_motion:OnCreated(tg)
 			self:GetParent():PerformAttack(heros[RandomInt(1,#heros)],true, true, true, false, true, false, false)
         end
     end
-    	local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_blossoms/courier_trail_blossoms.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    	local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_blossoms/courier_trail_blossoms.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:AddParticle( particle, false, false, 20, false, false )
 	self.SP=tg.sp
     	self.DIR=ToVector(tg.dir)

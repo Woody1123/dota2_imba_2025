@@ -214,7 +214,7 @@ function modifier_smoke_bomb_thinker:OnCreated()
 end
 function modifier_smoke_bomb_thinker:OnIntervalThink()
 	if IsServer() then	
-		local particle1 = ParticleManager:CreateParticle("particles/items2_fx/smoke_of_deceit.vpcf", PATTACH_CUSTOMORIGIN, nil)	
+		local particle1 = ParticleManager:SafeCreateParticle("particles/items2_fx/smoke_of_deceit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(particle1, 0, self.pos)
 		ParticleManager:SetParticleControl(particle1, 1, Vector(self.radius, self.radius/2, self.radius/2))
 		local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.pos, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)

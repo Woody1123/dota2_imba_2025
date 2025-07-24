@@ -786,7 +786,7 @@ function DoIMBACleaveAttack(hAttacker, hTarget, hAbility, fDamage, fStartRadius,
 	local enemy = FindUnitsInTrapezoid(hAttacker:GetTeamNumber(), direction, GetGroundPosition(target:GetAbsOrigin(), nil), fStartRadius, fEndRadius, fDistance, nil, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)
 	local pfx = nil
 	if sHitEffect then
-		pfx = ParticleManager:CreateParticle(sHitEffect, PATTACH_CUSTOMORIGIN, hAttacker)
+		pfx = ParticleManager:SafeCreateParticle(sHitEffect, PATTACH_CUSTOMORIGIN, hAttacker)
 		ParticleManager:SetParticleControl(pfx, 0, hAttacker:IsRangedAttacker() and hTarget:GetAbsOrigin() or hAttacker:GetAbsOrigin())
 		ParticleManager:SetParticleControlForward(pfx, 0, (hTarget:GetAbsOrigin() - hAttacker:GetAbsOrigin()):Normalized())
 	end
@@ -1237,7 +1237,7 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
 	POPUP_SYMBOL_POST_POINTFIVE = 8
 	]]
 	local pfxPath = string.format("particles/msg_fx/msg_%s.vpcf", pfx)
-	local pidx = ParticleManager:CreateParticle(pfxPath, PATTACH_ABSORIGIN, target) -- target:GetOwner()
+	local pidx = ParticleManager:SafeCreateParticle(pfxPath, PATTACH_ABSORIGIN, target) -- target:GetOwner()
 
 	local digits = 0
 	if number ~= nil then

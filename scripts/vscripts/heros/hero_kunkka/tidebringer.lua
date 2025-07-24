@@ -83,7 +83,7 @@ function modifier_tidebringer:OnIntervalThink()
     if self:GetAbility():IsCooldownReady() then
         if self.particle==nil then
             EmitSoundOn("Hero_Kunkaa.Tidebringer", self:GetParent())
-			self.particle = ParticleManager:CreateParticle("particles/econ/items/kunkka/kunkka_weapon_plunder/kunkka_weapon_tidebringer_plunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+			self.particle = ParticleManager:SafeCreateParticle("particles/econ/items/kunkka/kunkka_weapon_plunder/kunkka_weapon_tidebringer_plunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
             local point=self:GetParent():GetUnitName()=="npc_dota_hero_kunkka" and "attach_sword" or "attach_attack1"
             ParticleManager:SetParticleControlEnt(self.particle, 2, self:GetParent(), PATTACH_POINT_FOLLOW, point, self:GetParent():GetAbsOrigin(), true)
 		end

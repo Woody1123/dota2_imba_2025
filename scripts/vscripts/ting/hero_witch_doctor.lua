@@ -139,7 +139,7 @@ function modifier_imba_witch_doctor_paralyzing_cask:OnCreated()
 	if not IsServer() then return end
 	local pfx_name = "particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration.vpcf"
 	self.radius = self:GetAbility():GetSpecialValueFor("stun_radius")
-	self.mainParticle = ParticleManager:CreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
+	self.mainParticle = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControlEnt(self.mainParticle, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(self.mainParticle, 1, Vector( self.radius, self.radius, self.radius ) )
 			ParticleManager:SetParticleControlEnt(self.mainParticle, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
@@ -195,7 +195,7 @@ function modifier_imba_witch_doctor_voodoo_restoration:OnCreated(params)
 	self.isCaster = params.isCaster
 	self.per = params.per
 	self.radius = params.radius + self:GetCaster():TG_GetTalentValue("special_bonus_imba_witch_doctor_3")
-	self.mainParticle = ParticleManager:CreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
+	self.mainParticle = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControlEnt(self.mainParticle, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(self.mainParticle, 1, Vector( self.radius, self.radius, self.radius ) )
 			ParticleManager:SetParticleControlEnt(self.mainParticle, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
@@ -288,7 +288,7 @@ function imba_witch_doctor_maledict:OnSpellStart()
 	local radius = self:GetSpecialValueFor("radius")
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), vPosition, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_DAMAGE_FLAG_NONE, FIND_ANY_ORDER, false)
 	local pfx_name = "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
-	local aoe = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN, caster)
+	local aoe = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl( aoe, 0, vPosition )
 		ParticleManager:SetParticleControl( aoe, 1, Vector(radius, radius, radius) )
 	if #enemies > 0 then
@@ -312,7 +312,7 @@ function modifier_maledict_imba_thinker:OnCreated()
 	self.inv = self:GetAbility():GetSpecialValueFor("inv")
 	self.slow = self:GetAbility():GetSpecialValueFor("slow")*-1
 	local pfx_name = "particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf"
-	local maledictFX = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+	local maledictFX = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl( maledictFX, 1, Vector(2,0,0) )
 	self:AddParticle(maledictFX, false, false, 0, false, false)
 	if IsServer() then
@@ -531,7 +531,7 @@ function modifier_death_voodoo_handling:OnCreated()
 		self.intv = self.intv*0.5
 	end
 	if self.parent~= self.caster then
-	self.wardParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf", PATTACH_POINT_FOLLOW, self.parent)
+	self.wardParticle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf", PATTACH_POINT_FOLLOW, self.parent)
 		ParticleManager:SetParticleControlEnt(self.wardParticle, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_attack1", self.parent:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(self.wardParticle, 2, self.parent:GetAbsOrigin())
 		self:AddParticle(self.wardParticle, false, false, 15, false, false)
@@ -724,7 +724,7 @@ function modifier_death_ward_handling:OnCreated()
 	if self:GetAbility() ==nil then return end
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()
-	self.wardParticle = ParticleManager:CreateParticle("particles/econ/items/witch_doctor/witch_doctor_ribbitar/witchdoctor_ribbitar_ward_skull.vpcf", PATTACH_POINT_FOLLOW, self.parent)
+	self.wardParticle = ParticleManager:SafeCreateParticle("particles/econ/items/witch_doctor/witch_doctor_ribbitar/witchdoctor_ribbitar_ward_skull.vpcf", PATTACH_POINT_FOLLOW, self.parent)
 		ParticleManager:SetParticleControlEnt(self.wardParticle, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_attack1", self.parent:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(self.wardParticle, 2, self.parent:GetAbsOrigin())
 	if IsServer() then

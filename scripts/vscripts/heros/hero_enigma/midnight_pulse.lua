@@ -62,7 +62,7 @@ function modifier_midnight_pulse_debuff:OnCreated(tg)
     self.radius=tg.radius
     self.damage_percent=tg.damage_percent
     self.pos=self:GetParent():GetAbsOrigin()
-    local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf", PATTACH_CUSTOMORIGIN,nil)
+    local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(fx, 0,  self.pos)
     ParticleManager:SetParticleControl(fx, 1, Vector(self.radius,self.radius,self.radius))
     self:AddParticle(fx, false, false, 20, false, false)

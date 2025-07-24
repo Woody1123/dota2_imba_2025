@@ -100,7 +100,7 @@ function modifier_purifying_flames_buff:OnCreated()
         return 
     end
 	
-    local fx = ParticleManager:CreateParticle("particles/econ/items/oracle/oracle_ti10_immortal/oracle_ti10_immortal_purifyingflames_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/econ/items/oracle/oracle_ti10_immortal/oracle_ti10_immortal_purifyingflames_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:ReleaseParticleIndex(fx)
     if not Is_Chinese_TG(self:GetParent(),self:GetCaster()) then 
             dam=(dam+(self:GetCaster():GetIntellect(false)*self:GetAbility():GetSpecialValueFor("int")*0.01))

@@ -91,9 +91,9 @@ function modifier_wukongs_command_motion:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_start_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_start_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
-    local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_jump_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle2)
     self.DIR=ToVector(tg.dir)
     self:GetParent():StartGesture(ACT_DOTA_MK_SPRING_SOAR)
@@ -122,14 +122,14 @@ function modifier_wukongs_command_motion:OnDestroy()
         self:GetParent():RemoveHorizontalMotionController(self)
         self:GetParent():FadeGesture(ACT_DOTA_MK_SPRING_SOAR)
         local POS= self:GetParent():GetAbsOrigin()
-        local particle = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_cast_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_cast_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
         ParticleManager:SetParticleControl(particle, 0, POS)
         ParticleManager:SetParticleControl(particle, 1, Vector(800,0,0))
         ParticleManager:SetParticleControl(particle, 3, POS)
         ParticleManager:SetParticleControl(particle, 4, POS)
         ParticleManager:SetParticleControl(particle, 5, POS)
         ParticleManager:ReleaseParticleIndex(particle)
-        local particle2 = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
+        local particle2 = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
         ParticleManager:SetParticleControl(particle2, 0, POS)
         ParticleManager:SetParticleControl(particle2, 1, Vector(800,0,0))
         ParticleManager:SetParticleControl(particle2, 2, Vector(1,1,1))
@@ -198,17 +198,17 @@ function modifier_wukongs_command_buff:OnCreated()
         table.insert (self:GetCaster().wukongsMOD, mod)
     end
 
-    local head = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/monkey_king_arcana_crown.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local head = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/monkey_king_arcana_crown.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(head, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_crownfx", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(head, false, true, 15, true, false)
 
-    local eyes = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/death/mk_arcana_death_eyes.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local eyes = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/death/mk_arcana_death_eyes.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(eyes, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControlEnt(eyes, 1, self:GetParent(), PATTACH_EYES_FOLLOW, "attach_eve_r", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(eyes, 2, self:GetParent(), PATTACH_EYES_FOLLOW, "attach_eve_1", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(eyes, false, true, 15, true, false)
 
-    local px1 = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/monkey_king_arcana_fire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local px1 = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/monkey_king_arcana_fire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(px1, false, true, 15, true, false)
 
     self:OnIntervalThink()
@@ -220,7 +220,7 @@ function modifier_wukongs_command_buff:OnIntervalThink()
     if not IsServer() then
         return
     end
-    self.particle = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/monkey_arcana_cloud.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    self.particle = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/monkey_arcana_cloud.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(self.particle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_cloud", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(self.particle, 3, Vector(1,1,1))
     ParticleManager:SetParticleControl(self.particle, 4, self:GetParent():GetAbsOrigin())
@@ -317,7 +317,7 @@ function modifier_wukongs_command_buff3:OnCreated()
    if not IsServer() then
     return
     end
-    self.fx = ParticleManager:CreateParticle("particles/prototype_fx/item_linkens_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    self.fx = ParticleManager:SafeCreateParticle("particles/prototype_fx/item_linkens_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(self.fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(self.fx, 1, Vector(50,50,50))
     ParticleManager:SetParticleControl(self.fx, 4, self:GetParent():GetAbsOrigin())
@@ -413,9 +413,9 @@ function modifier_wukongs_command_buff4:OnAttackLanded(tg)
 		return
     end
     if tg.target:IS_TrueHero_TG() and RollPseudoRandomPercentage(2,0,self:GetParent()) and not tg.target:HasModifier("modifier_droiyan_cbuff")  then
-        local fx2 = ParticleManager:CreateParticle("particles/econ/events/killbanners/screen_killbanner_compendium14_firstblood.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/events/killbanners/screen_killbanner_compendium14_firstblood.vpcf", PATTACH_ABSORIGIN, self:GetParent())
         ParticleManager:ReleaseParticleIndex(fx2)
-        local fx4 = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
+        local fx4 = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
         ParticleManager:SetParticleControlEnt(fx4, 0, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControl(fx4, 1, tg.target:GetAbsOrigin())
         ParticleManager:SetParticleControlOrientation(fx4, 1, -self:GetParent():GetForwardVector(), self:GetParent():GetRightVector(), self:GetParent():GetUpVector())
@@ -521,7 +521,7 @@ function modifier_wukongs_command_buff6:OnCreated()
         return
     end
         local POS=self:GetParent():GetAbsOrigin()
-        local fx2 = ParticleManager:CreateParticle("particles/econ/items/earth_spirit/earth_spirit_vanquishingdemons_summons/espirit_stoneremnant_vanquishingdemons.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/items/earth_spirit/earth_spirit_vanquishingdemons_summons/espirit_stoneremnant_vanquishingdemons.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(fx2, 0, POS)
         ParticleManager:SetParticleControl(fx2, 1, POS)
         self:AddParticle(fx2, false, false, -1, false, false)
@@ -585,7 +585,7 @@ end
 function modifier_wukongs_command_th:OnCreated()
 	if self:GetAbility() == nil then return end
         if IsServer() then
-                local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_CUSTOMORIGIN ,nil)
+                local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_CUSTOMORIGIN ,nil)
                 ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
                 ParticleManager:SetParticleControl(particle, 1, Vector(900,1,1))
                 self:AddParticle(particle, true, false, 4, false, false)
@@ -607,7 +607,7 @@ function modifier_wukongs_command_th:OnIntervalThink()
     if #heros > 0 then
         for _, hero in pairs(heros) do
             local pos=hero:GetAbsOrigin()
-            local fx =ParticleManager:CreateParticle('particles/tgp/mk/att_m.vpcf',PATTACH_CUSTOMORIGIN, nil)
+            local fx =ParticleManager:SafeCreateParticle('particles/tgp/mk/att_m.vpcf',PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl(fx, 0, pos )
                 ParticleManager:SetParticleControl(fx, 1, pos )
                 ParticleManager:SetParticleControlEnt(fx, 2,  self:GetCaster(), PATTACH_CUSTOMORIGIN, "attach_hitloc", pos, true)

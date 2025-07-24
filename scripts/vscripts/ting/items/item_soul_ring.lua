@@ -12,7 +12,7 @@ function item_imba_soul:OnSpellStart()
 	local health = caster:GetHealth()
 	caster:EmitSound("DOTA_Item.SoulRing.Activate")
 	
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_ti7_crimson_spectral_dagger_path_owner_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/spectre/spectre_transversant_soul/spectre_ti7_crimson_spectral_dagger_path_owner_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())		
 	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin())	
 	ParticleManager:SetParticleControl(pfx, 2, caster:GetAbsOrigin())	
@@ -102,7 +102,7 @@ function modifier_imba_soul_ring_passive:OnTakeDamage(keys)
 			dmg = dmg / 5
 		end
 		self:GetParent():Heal(dmg, self.ability)
-		--local pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_plasma.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		--local pfx = ParticleManager:SafeCreateParticle("particles/items3_fx/octarine_core_plasma.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		--ParticleManager:ReleaseParticleIndex(pfx)
 		
 	end

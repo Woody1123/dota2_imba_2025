@@ -262,7 +262,7 @@ end
 function modifier_item_veil_of_evil_buff2:OnCreated()
    local rd=800--self:GetAbility():GetSpecialValueFor("rd")
    if IsServer() then
-    local particle = ParticleManager:CreateParticle("particles/econ/events/ti8/shivas_guard_ti8_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/events/ti8/shivas_guard_ti8_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(rd,rd,400))
     ParticleManager:SetParticleControl(particle, 2,  self:GetParent():GetAbsOrigin())

@@ -9,7 +9,7 @@ function ra_bloodstone:OnSpellStart()
 	
 		caster:EmitSound("DOTA_Item.Bloodstone.Cast")
 		TG_Kill(caster, caster, self)
-		local particle = ParticleManager:CreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_tgt_death_v2_flowers.vpcf", PATTACH_POINT, caster)
+		local particle = ParticleManager:SafeCreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_tgt_death_v2_flowers.vpcf", PATTACH_POINT, caster)
 		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(particle)
 	

@@ -97,9 +97,9 @@ function modifier_hunter_in_the_night:OnIntervalThink()
     if self:GetParent():IsAlive() then
         if not GameRules:IsDaytime()  or GameRules:IsNightstalkerNight() then
             if self:GetParent():GetModelName()=="models/heroes/nightstalker/nightstalker.vmdl" then
-                local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+                local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_ulti.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
                 ParticleManager:ReleaseParticleIndex(pfx)
-                local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+                local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
                 ParticleManager:ReleaseParticleIndex(pfx2)
                 self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_hunter_in_the_night_ch", {} )
                 end
@@ -195,9 +195,9 @@ function modifier_hunter_in_the_night_fly:OnCreated()
 		return
     end
 
-    local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_night_stalker/nightstalker_night_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_night_stalker/nightstalker_night_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(pfx, false, false, 20, false, false)
-    local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_bats.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_bats.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl(pfx2, 0,self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(pfx2, 2,self:GetParent():GetAbsOrigin())
     self:AddParticle(pfx2, false, false, 20, false, false)

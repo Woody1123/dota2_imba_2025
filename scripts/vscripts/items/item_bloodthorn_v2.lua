@@ -190,7 +190,7 @@ end
 function modifier_item_bloodthorn_v2_debuff:OnDestroy()
     if IsServer() then
         if self.dam>0 then
-            local pfx = ParticleManager:CreateParticle("particles/items2_fx/orchid_pop.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+            local pfx = ParticleManager:SafeCreateParticle("particles/items2_fx/orchid_pop.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
             ParticleManager:SetParticleControl(pfx, 1, Vector(1,0,0))
             ParticleManager:SetParticleControl(pfx, 2, Vector(1,0,0))
             ParticleManager:ReleaseParticleIndex(pfx)

@@ -53,7 +53,7 @@ function modifier_astral_imprisonment:OnCreated()
     self.dur=self.ability:GetSpecialValueFor("dur")
     self.mana_capacity_steal=self.ability:GetSpecialValueFor("mana_capacity_steal")+self.caster:TG_GetTalentValue("special_bonus_obsidian_destroyer_4")
     if IsServer() then
-        local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(pf, 0,self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControl(pf, 3,self.parent:GetAbsOrigin())
         self:AddParticle(pf, false, false, -1, false, false)
@@ -92,7 +92,7 @@ function modifier_astral_imprisonment:OnDestroy()
                 self.parent:AddNewModifier_RS(self.caster, self.ability, "modifier_astral_imprisonment_debuff", {duration=self.ability:GetSpecialValueFor("dur2")})
             end
         end
-        local pf1 = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison_end.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local pf1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison_end.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(pf1, 0,self.parent:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(pf1)
     end

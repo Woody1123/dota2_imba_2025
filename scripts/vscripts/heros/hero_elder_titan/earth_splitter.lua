@@ -46,7 +46,7 @@ function earth_splitter:OnSpellStart()
 
     EmitSoundOn( "Hero_ElderTitan.EarthSplitter.Cast", caster )
 
-    local particle= ParticleManager:CreateParticle("particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter.vpcf", PATTACH_CUSTOMORIGIN,nil)
+    local particle= ParticleManager:SafeCreateParticle("particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(particle, 0,caster_pos)
     ParticleManager:SetParticleControl(particle, 1,pos)
     ParticleManager:SetParticleControl(particle, 3,Vector(0,t,0))

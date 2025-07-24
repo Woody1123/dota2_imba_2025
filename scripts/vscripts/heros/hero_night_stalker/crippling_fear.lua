@@ -131,7 +131,7 @@ function modifier_crippling_fear:OnCreated(tg)
  --   if not GameRules:IsDaytime() or GameRules:IsNightstalkerNight()  then
  ---       fxname="particles/econ/items/nightstalker/nightstalker_ti10_silence/nightstalker_ti10_gold.vpcf"
   --  end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
     ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle,2,Vector( self.rd,0,0))

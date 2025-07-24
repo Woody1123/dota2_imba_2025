@@ -91,7 +91,7 @@ function shackleshot:OnProjectileHit(target, location)
 		useGameTime = false,
 		endTime =0,
 		callback = function()
-    local pfx = ParticleManager:CreateParticle("particles/econ/items/windrunner/wr_ti8_immortal_shoulder/wr_ti8_shackleshot_pair.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/windrunner/wr_ti8_immortal_shoulder/wr_ti8_shackleshot_pair.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(pfx, 0,ct1)
     ParticleManager:SetParticleControl(pfx, 1,ct2)
     ParticleManager:SetParticleControl(pfx, 2, Vector(dur,0,0))
@@ -132,7 +132,7 @@ function shackleshot:OnProjectileHit(target, location)
 
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(),target:GetAbsOrigin(),nil,self:GetSpecialValueFor("stunrd"),DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BUILDING,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
     for _,tar in pairs(enemies) do
-           pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_windrunner/windrunner_shackleshot_pair.vpcf", PATTACH_CUSTOMORIGIN, nil)
+           pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_windrunner/windrunner_shackleshot_pair.vpcf", PATTACH_CUSTOMORIGIN, nil)
            ParticleManager:SetParticleControlEnt(pfx, 0, tar, PATTACH_POINT, "attach_hitloc", tar:GetAbsOrigin(), true)
            ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + target:GetUpVector()*150)
            ParticleManager:SetParticleControl(pfx, 2, Vector(stun,0,0))

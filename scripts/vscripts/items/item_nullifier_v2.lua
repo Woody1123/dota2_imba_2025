@@ -283,7 +283,7 @@ function modifier_item_nullifier_v2_debuff:OnCreated()
         ability = self:GetAbility(),
         }
     self:GetParent():EmitSound("DOTA_Item.Nullifier.Slow")
-    local FX=ParticleManager:CreateParticle("particles/items4_fx/nullifier_mute_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+    local FX=ParticleManager:SafeCreateParticle("particles/items4_fx/nullifier_mute_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
     self:AddParticle(FX, false, false, -1, false, false)
     self:StartIntervalThink(1)
 end

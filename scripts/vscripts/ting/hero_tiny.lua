@@ -69,63 +69,109 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_imba_tiny_avalanche_thinker:OnIntervalThink()
-	if IsServer() then
-		if self:GetCaster():IsNull() then
-			self:Destroy()
-			return
-		end
+	if not IsServer() then return end
 
-		local vNewAvalancheDir1 = self.direction
+	-- 安全检查
+	local caster = self:GetCaster()
+	if not caster or caster:IsNull() then
+		self:Destroy()
+		return
+	end
 
-		if self.tick >= 3 then
-			EmitSoundOnLocationWithCaster( self:GetParent():GetOrigin(), "Ability.Avalanche", self:GetCaster() )
+	-- 初始化 tick 计数器（如果未初始化）
+	self.tick = self.tick or 0
 
-			local vRadius = Vector( self.radius, self.radius, self.radius )
-			local nFXIndex1 = ParticleManager:CreateParticle( "particles/creatures/storegga/storegga_avalanche.vpcf", PATTACH_CUSTOMORIGIN, nil )
-			ParticleManager:SetParticleControl( nFXIndex1, 0, self:GetParent():GetOrigin() )
-			ParticleManager:SetParticleControl( nFXIndex1, 1, vRadius )
-			ParticleManager:SetParticleControlForward( nFXIndex1, 0, vNewAvalancheDir1 )
-			self:AddParticle( nFXIndex1, false, false, -1, false, false )
-			self.tick = self.tick - 3
-			local Avalanche1 =
-			{
-			vCurPos = self:GetParent():GetAbsOrigin()- vNewAvalancheDir1 * self.movement,
-			vDir = vNewAvalancheDir1,
+	local direction = self.direction
+
+	if self.tick >= 3 then
+		EmitSoundOnLocationWithCaster(self:GetParent():GetOrigin(), "Ability.Avalanche", caster)
+
+		local origin = self:GetParent():GetOrigin()
+		local radius_vec = Vector(self.radius, self.radius, self.radius)
+
+		-- ✅ 使用合法单位绑定粒子，防止粒子管理器报错
+		local nFXIndex1 = ParticleManager:SafeCreateParticle(
+				"particles/creatures/storegga/storegga_avalanche.vpcf",
+				PATTACH_CUSTOMORIGIN,
+				caster,
+				{
+					[0] = origin,
+					[1] = radius_vec
+				},
+				false
+		)
+		ParticleManager:SetParticleControlForward(nFXIndex1, 0, direction)
+
+		-- 加入自动清理
+		self:AddParticle(nFXIndex1, false, false, -1, false, false)
+
+		-- 创建新的 avalanche 数据结构
+		local avalanche = {
+			vCurPos = origin - direction * self.movement,
+			vDir = direction,
 			nFX = nFXIndex1,
-			}
+		}
+		self.Avalanches = self.Avalanches or {}
+		table.insert(self.Avalanches, avalanche)
 
-		table.insert( self.Avalanches, Avalanche1 )
-			for _,ava in pairs ( self.Avalanches ) do
-				local vNewPos = ava.vCurPos + ava.vDir * self.movement
-				vNewPos.z = GetGroundHeight( vNewPos, self:GetCaster() )
-				ava.vCurPos = vNewPos
-				ParticleManager:SetParticleControl( ava.nFX, 0, vNewPos )
-				local caster  = self:GetCaster()
-				local target = CreateModifierThinker(caster, self:GetAbility(), "modifier_dummy_thinker", {duration = 5}, ava.vCurPos, caster:GetTeamNumber(), false)
-			end
+		-- 更新所有 avalanche 粒子的位置
+		for _, ava in pairs(self.Avalanches) do
+			local vNewPos = ava.vCurPos + ava.vDir * self.movement
+			vNewPos.z = GetGroundHeight(vNewPos, caster)
+			ava.vCurPos = vNewPos
+			ParticleManager:SetParticleControl(ava.nFX, 0, vNewPos)
+
+			-- 创建 thinker
+			CreateModifierThinker(
+					caster,
+					self:GetAbility(),
+					"modifier_dummy_thinker",
+					{duration = 5},
+					vNewPos,
+					caster:GetTeamNumber(),
+					false
+			)
 		end
 
-		for _,ava in pairs ( self.Avalanches ) do
-			local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), ava.vCurPos, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
-			for _,enemy in pairs( enemies ) do
-				if enemy ~= nil and enemy:IsInvulnerable() == false and enemy:IsMagicImmune() == false then
-					enemy:AddNewModifier(self:GetCaster(),self:GetAbility(),"modifier_imba_tiny_avalanche_flags",{duration = 1})
-					enemy:AddNewModifier_RS(self:GetCaster(),self:GetAbility(),"modifier_imba_stunned",{duration = 0.2})
-					local damageInfo =
-					{
+		self.tick = self.tick - 3
+	end
+
+	-- 伤害和控制
+	if self.Avalanches then
+		for _, ava in pairs(self.Avalanches) do
+			local enemies = FindUnitsInRadius(
+					caster:GetTeamNumber(),
+					ava.vCurPos,
+					nil,
+					self.radius,
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					FIND_CLOSEST,
+					false
+			)
+
+			for _, enemy in pairs(enemies) do
+				if enemy and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
+					enemy:AddNewModifier(caster, self:GetAbility(), "modifier_imba_tiny_avalanche_flags", {duration = 1})
+					enemy:AddNewModifier_RS(caster, self:GetAbility(), "modifier_imba_stunned", {duration = 0.2})
+
+					local damageInfo = {
 						victim = enemy,
-						attacker = self:GetCaster(),
+						attacker = caster,
 						damage = self.damage,
 						damage_type = DAMAGE_TYPE_MAGICAL,
 						ability = self:GetAbility(),
 					}
-					ApplyDamage( damageInfo )
+					ApplyDamage(damageInfo)
 				end
 			end
 		end
-		self.tick = self.tick + 1
 	end
+
+	self.tick = self.tick + 1
 end
+
 --投掷
 imba_tiny_toss = class({})
 LinkLuaModifier("modifier_imba_tiny_toss_self", "ting/hero_tiny", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -253,7 +299,7 @@ function modifier_imba_tiny_toss_motion:OnDestroy()
 
 		EmitSoundOn("Ability.TossImpact", self:GetParent())
 		FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin(), true)
-		local nFXIndex = ParticleManager:CreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
+		local nFXIndex = ParticleManager:SafeCreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetAbsOrigin() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -341,7 +387,7 @@ function modifier_imba_tiny_toss_self:OnIntervalThink()
 	local new_pos = me:GetAbsOrigin() + self.direction * (self.speed / (1.0 / dt))
 	self.time = self.time + dt
 	if self.time > 0.2 then
-		local grow = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		local grow = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(grow, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(grow)
 		self.time = self.time - 0.2
@@ -657,7 +703,7 @@ function modifier_imba_tiny_grabtree:OnAttackLanded(keys)
 						ApplyDamage(damage_table)
 
 						EmitSoundOn("Hero_Tiny.Tree.Target", caster)
-						local nfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_cleave.vpcf", PATTACH_POINT, caster)
+						local nfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_cleave.vpcf", PATTACH_POINT, caster)
 						ParticleManager:SetParticleControl(nfx, 0, enemy:GetAbsOrigin())
 						ParticleManager:SetParticleControl(nfx, 1, enemy:GetAbsOrigin())
 						ParticleManager:SetParticleControlForward(nfx, 2, caster:GetForwardVector())
@@ -802,7 +848,7 @@ function modifier_imba_tiny_tree_grab_hero_flag:OnAttackLanded(keys)
 						ApplyDamage(damage_table)
 
 						EmitSoundOn("Hero_Tiny.Tree.Target", caster)
-						local nfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_cleave.vpcf", PATTACH_POINT, caster)
+						local nfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_cleave.vpcf", PATTACH_POINT, caster)
 						ParticleManager:SetParticleControl(nfx, 0, enemy:GetAbsOrigin())
 						ParticleManager:SetParticleControl(nfx, 1, enemy:GetAbsOrigin())
 						ParticleManager:SetParticleControlForward(nfx, 2, caster:GetForwardVector())
@@ -940,7 +986,7 @@ function modifier_imba_tiny_tree_grab_debuff:OnIntervalThink()
 		else
 			local vLocation = GetGroundPosition( self:GetParent():GetAbsOrigin(), self:GetParent() )
 
-			local nFXIndex = ParticleManager:CreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
+			local nFXIndex = ParticleManager:SafeCreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 0, vLocation )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -1080,12 +1126,12 @@ function modifier_imba_tiny_tree_channel:OnCreated(keys)
 		self.tar_pos = Vector(keys.tar_pos_x,keys.tar_pos_y,keys.tar_pos_z)
 		self.tree_radius = self:GetAbility():GetSpecialValueFor("tree_grab_radius")*math.max(self:GetCaster():GetModelScale(),1)
 		self.interval = self:GetAbility():GetSpecialValueFor("interval")/math.max(self:GetCaster():GetModelScale()*0.9,1)
-		local nFXIndex1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_tiny/tiny_tree_channel.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local nFXIndex1 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_tiny/tiny_tree_channel.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(nFXIndex1, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(nFXIndex1, 2, Vector(self.tree_radius, 0, 0))
 		self:AddParticle(nFXIndex1, false, false, 15, false, false)
 
-		local nFXIndex2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf", PATTACH_POINT, self:GetCaster())
+		local nFXIndex2 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_tiny/tiny_tree_channel_tgt_ground_dark_crack.vpcf", PATTACH_POINT, self:GetCaster())
 				ParticleManager:SetParticleControl(nFXIndex2, 0, self.tar_pos)
 				ParticleManager:ReleaseParticleIndex(nFXIndex2)
 
@@ -1099,7 +1145,7 @@ function modifier_imba_tiny_tree_channel:OnIntervalThink()
 		if #trees > 0 then
 		local pos = trees[1]:GetAbsOrigin()
 		pfx_name = "particles/units/heroes/hero_tiny/tiny_tree_channel_tree_spiral.vpcf"
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, pos)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		GridNav:DestroyTreesAroundPoint(pos, 1, false)
@@ -1157,11 +1203,11 @@ function imba_tiny_grow:swash()
 	caster:StartGesture(ACT_TINY_AVALANCHE)
 	EmitSoundOn("Tiny.Grow", self:GetCaster())
 
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fx, 1, Vector(700,1,1))
 	ParticleManager:ReleaseParticleIndex(fx)
-	local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", PATTACH_WORLDORIGIN, nil)
+	local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fx2, 0, self:GetCaster():GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(fx2)
 
@@ -1202,7 +1248,7 @@ function imba_tiny_grow:OnUpgrade()
 		self:GetCaster():StartGesture(ACT_TINY_GROWL)
 		EmitSoundOn("Tiny.Grow", self:GetCaster())
 
-		local grow = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+		local grow = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(grow, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(grow)
 	end
@@ -1339,7 +1385,7 @@ modifier_imba_tiny_craggy_mod = class({})
 
 function modifier_imba_tiny_craggy_mod:OnCreated()
 		if IsServer() then
-		local grow = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+		local grow = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(grow, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(grow)
 		self:GetParent():SetModelScale(1.0)
@@ -1378,7 +1424,7 @@ end
 
 function modifier_imba_tiny_craggy_mod:OnDestroy()
 	if IsServer() then
-		local grow = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		local grow = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(grow, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(grow)
 		UTIL_Remove(self:GetParent())
@@ -1410,7 +1456,7 @@ function modifier_imba_tiny_craggy_passive:OnAttackLanded(keys)
 	local range = self:GetAbility():GetSpecialValueFor("radius")*math.max(self:GetParent():GetModelScale(),1)
 	if (keys.attacker:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() < range then
 		if PseudoRandom:RollPseudoRandom(self:GetAbility(), self:GetAbility():GetSpecialValueFor("stun_chance")) then
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf", PATTACH_POINT_FOLLOW, keys.attacker)
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tiny/tiny_craggy_hit.vpcf", PATTACH_POINT_FOLLOW, keys.attacker)
 			ParticleManager:SetParticleControl(pfx, 0, keys.attacker:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(pfx)
 

@@ -25,10 +25,10 @@ function assassin_trap:OnSpellStart()
         FindClearSpaceForUnit(caster, caster.trap_teleportpos, true)
         caster.trap_teleportpos=nil
         EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_TemplarAssassin.Trap.Explode", caster)
-        local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_CUSTOMORIGIN,caster)
+        local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_CUSTOMORIGIN,caster)
         ParticleManager:SetParticleControl(fx2, 0, caster:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(fx2)
-        local fx3 = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_meld_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, caster)
+        local fx3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_meld_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, caster)
         ParticleManager:SetParticleControlEnt(fx3, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
         ParticleManager:ReleaseParticleIndex(fx3)
         caster:AddNewModifier(caster, self, "modifier_assassin_trap", {duration=10})
@@ -90,7 +90,7 @@ function modifier_assassin_trap:OnCreated()
     if not IsServer() then
         return
     end
-    local fx = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(fx, 0,self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc",self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(fx, false, false, 15, false, false)
@@ -117,7 +117,7 @@ function modifier_assassin_trap:OnAttackLanded(tg)
     end
     if self.crit[tg.record] then
         tg.target:EmitSound("Hero_TemplarAssassin.Meld.Attack")
-        local fx2 = ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, tg.target)
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_hit_tgt.vpcf", PATTACH_CUSTOMORIGIN, tg.target)
         ParticleManager:SetParticleControlEnt(fx2, 0,tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc",tg.target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx2, 1, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx2, 3, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true)

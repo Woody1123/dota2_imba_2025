@@ -201,11 +201,11 @@ function modifier_imba_light_illuminate:OnCreated(keys)
 	self.vision_counter 		= 1
 	self.vision_time_count		= GameRules:GetGameTime()
 	
-	self.weapon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/kotl_illuminate_cast.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+	self.weapon_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/kotl_illuminate_cast.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.weapon_particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
 	self:AddParticle(self.weapon_particle, false, false, -1, false, false)
 	
-	self.particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(self.particle2, 2, Vector(0, 0, 0))
 	self:AddParticle(self.particle2, false, false, -1, false, false)
 	self:OnIntervalThink()
@@ -295,7 +295,7 @@ function modifier_imba_light_illuminate_thinker:OnCreated( params )
 	self.direction_angle		= math.deg(math.atan2(self.direction.x, self.direction.y))
 
 	
-	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(self.particle, 1, self.direction * self.speed)
 	ParticleManager:SetParticleControl(self.particle, 3, self.parent:GetAbsOrigin())
 	
@@ -421,7 +421,7 @@ function modifier_imba_light_illuminate_thinker:OnIntervalThink()
 				particle_name = "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
 			end
 			
-			local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, target)
+			local particle = ParticleManager:SafeCreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(particle)
 			
@@ -553,7 +553,7 @@ function modifier_imba_radiant_bind_debuff:OnCreated()
 	self.move_distance =  self:GetAbility():GetSpecialValueFor("move_distance")
 	self.mana_cost = self:GetAbility():GetSpecialValueFor("mana_cost")*0.01
 	if IsServer() then
-	self.pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_radiant_bind_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_radiant_bind_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(self.pfx2, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(self.pfx2, 1, Vector(200,0,0 ))
 	self:GetParent():EmitSound("Hero_KeeperOfTheLight.ManaLeak.Target.FP")
@@ -661,7 +661,7 @@ function imba_light_blinding_light:light(position)
 	-- Emit sound
 	self.caster:EmitSound("Hero_KeeperOfTheLight.BlindingLight")
 	
-	local particle = ParticleManager:CreateParticle("particles/econ/items/keeper_of_the_light/kotl_ti10_immortal/kotl_ti10_blinding_light.vpcf", PATTACH_POINT_FOLLOW, self.caster)
+	local particle = ParticleManager:SafeCreateParticle("particles/econ/items/keeper_of_the_light/kotl_ti10_immortal/kotl_ti10_blinding_light.vpcf", PATTACH_POINT_FOLLOW, self.caster)
 	ParticleManager:SetParticleControl(particle, 0, position)
 	ParticleManager:SetParticleControl(particle, 1, position)
 	ParticleManager:SetParticleControl(particle, 2, Vector(self.radius, 0, 0))
@@ -708,7 +708,7 @@ function modifier_imba_light_blinding_light_fattus_dur:OnCreated()
 	if self:GetAbility() == nil then return end
 	self.parent = self:GetParent()
 	if IsServer() then
-		self.particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		self.particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl(self.particle2, 2, Vector(0, 0, 0))
 		self:AddParticle(self.particle2, false, false, -1, false, false)
 	end
@@ -929,12 +929,12 @@ function modifier_imba_light_will_o_wisp_t:OnCreated()
 	self.parent:EmitSound("Hero_KeeperOfTheLight.Wisp.Cast")
 	self.parent:EmitSound("Hero_KeeperOfTheLight.Wisp.Spawn")
 	self.parent:EmitSound("Hero_KeeperOfTheLight.Wisp.Aura")
-	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(self.particle, 1, Vector(self.radius, 1, 1))
 	ParticleManager:SetParticleControl(self.particle, 2, Vector(0, 0, 0))
 	self:AddParticle(self.particle, false, false, -1, false, false)
 	
-	self.particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	self.particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(self.particle2, 2, Vector(0, 0, 0))
 	self:AddParticle(self.particle2, false, false, -1, false, false)
 	

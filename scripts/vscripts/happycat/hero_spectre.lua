@@ -145,7 +145,7 @@ function modifier_imba_haunt:OnCreated(keys)
 	self.agility = self.ability:GetSpecialValueFor("agility")
 	if IsServer() then
 		EmitSoundOn("Hero_Spectre.Haunt", self:GetParent())
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/spectre/spectre_arcana/spectre_arcana_blademail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/spectre/spectre_arcana/spectre_arcana_blademail.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 1, self:GetCaster():GetAbsOrigin())		
 
@@ -186,7 +186,7 @@ function modifier_imba_haunt_debuff:OnCreated(keys)
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()	
 	if IsServer() then
-		self.pfx = ParticleManager:CreateParticleForPlayer("particles/econ/items/spectre/spectre_arcana/spectre_arcana_debut_screen_border.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
+		self.pfx = ParticleManager:SafeCreateParticleForPlayer("particles/econ/items/spectre/spectre_arcana/spectre_arcana_debut_screen_border.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
 		ParticleManager:SetParticleControl(self.pfx, 0, Vector(0, 0, 0))
 		self:AddParticle(self.pfx, true, false, 15, false, false)	
 	end	

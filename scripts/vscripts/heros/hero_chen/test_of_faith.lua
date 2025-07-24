@@ -17,7 +17,7 @@ function test_of_faith:OnSpellStart()
     local caster=self:GetCaster()
     local curtar=self:GetCursorTarget()
     EmitSoundOn("Hero_Chen.PenitenceCast", curtar)
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, curtar) 
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chen/chen_test_of_faith.vpcf", PATTACH_ABSORIGIN_FOLLOW, curtar)
     ParticleManager:SetParticleControl(particle, 0,curtar:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle) 
     if Is_Chinese_TG(curtar,caster) then 

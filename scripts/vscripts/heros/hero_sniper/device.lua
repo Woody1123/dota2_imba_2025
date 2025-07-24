@@ -93,15 +93,15 @@ end
 function modifier_device:OnCreated(tg) 
 	if self:GetAbility() == nil then return end
     if  IsServer() then 
-        local particle= ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+        local particle= ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         ParticleManager:SetParticleControl(particle, 1, Vector(self:GetAbility():GetSpecialValueFor("rd"), 0, 0))
         ParticleManager:SetParticleControl(particle, 2, Vector(10, 0, 0))
         ParticleManager:SetParticleControl(particle, 3, Vector(100, 0, 0))
         ParticleManager:SetParticleControl(particle, 15, Vector(70, 130, 180))
         self:AddParticle( particle, true, false, 10, false, false )
-        local particle2= ParticleManager:CreateParticle("particles/econ/events/ti10/soccer_ball/soccer_ball_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+        local particle2= ParticleManager:SafeCreateParticle("particles/econ/events/ti10/soccer_ball/soccer_ball_dust.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         ParticleManager:ReleaseParticleIndex( particle2 )
-        local particle3= ParticleManager:CreateParticle("particles/customgames/capturepoints/cp_neutral_3.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+        local particle3= ParticleManager:SafeCreateParticle("particles/customgames/capturepoints/cp_neutral_3.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
         self:AddParticle( particle3, true, false, 10, false, false )
     end
 end

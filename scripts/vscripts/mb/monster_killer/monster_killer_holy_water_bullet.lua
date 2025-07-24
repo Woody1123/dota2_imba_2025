@@ -119,7 +119,7 @@ function monster_killer_holy_water_bullet:PlayEffects(hTarget)
 	local particle_cast = "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, hTarget)
+	local effect_cast = ParticleManager:SafeCreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, hTarget)
     ParticleManager:ReleaseParticleIndex(effect_cast)
 end
 ----------------------------------------------------------
@@ -175,7 +175,7 @@ function modifier_monster_killer_holy_water_bullet:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
+	local effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
 
 	-- buff particle
 	self:AddParticle(

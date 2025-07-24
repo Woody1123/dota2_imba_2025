@@ -53,7 +53,7 @@ function oldsky_mflare:playeffects(key,pos)				--特效函数
 		local particle1 = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf"
 		if green then particle1 = "particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient.vpcf" end
 
-		local pfx1 = ParticleManager:CreateParticle(particle1, PATTACH_WORLDORIGIN, nil )
+		local pfx1 = ParticleManager:SafeCreateParticle(particle1, PATTACH_WORLDORIGIN, nil )
 		ParticleManager:SetParticleControl(pfx1, 0, pos)
 		ParticleManager:SetParticleControl(pfx1, 1, Vector(self:GetSpecialValueFor("mflare_radius"), self:GetSpecialValueFor("mflare_duration"), 0.1))  --X半径Y时间Z打击间隔
 
@@ -66,7 +66,7 @@ function oldsky_mflare:playeffects(key,pos)				--特效函数
 
 		local radius = self:GetCaster():GetIntellect(false)*self:GetSpecialValueFor("mflare_intco_exrad") + self:GetSpecialValueFor("mflare_radius")   --爆炸半径扩大
 
-		local pfx2 = ParticleManager:CreateParticle(particle2, PATTACH_WORLDORIGIN, nil )
+		local pfx2 = ParticleManager:SafeCreateParticle(particle2, PATTACH_WORLDORIGIN, nil )
 		ParticleManager:SetParticleControl(pfx2, 0, pos)
 		ParticleManager:SetParticleControl(pfx2, 1, Vector(radius, 1.0, 0.1))  --X半径Y时间Z打击间隔
 

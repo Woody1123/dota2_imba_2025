@@ -39,7 +39,7 @@ function enfeeble:OnSpellStart()
             EmitSoundOn( "Hero_Bane.Enfeeble", caster )
             caster:AddNewModifier(caster,self,"modifier_enfeeble_buff",{duration=dur})
             target:AddNewModifier(caster,self,"modifier_enfeeble_debuff",{duration=dur})
-            local pfx = ParticleManager:CreateParticle("particles/tgp/soul_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+            local pfx = ParticleManager:SafeCreateParticle("particles/tgp/soul_m.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:SetParticleControl(pfx, 0,target:GetAbsOrigin())
             ParticleManager:ReleaseParticleIndex(pfx)
             local heros = FindUnitsInRadius(
@@ -53,7 +53,7 @@ function enfeeble:OnSpellStart()
                   FIND_CLOSEST,
                   false)
                   if #heros>num or    caster:TG_HasTalent("special_bonus_bane_1")  then
-                      --[[  local pfx1 = ParticleManager:CreateParticle("particles/tgp/ghost_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                      --[[  local pfx1 = ParticleManager:SafeCreateParticle("particles/tgp/ghost_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
                         ParticleManager:SetParticleControl(pfx1, 0,tpos)
                         ParticleManager:SetParticleControl(pfx1, 1, Vector(radius,0,0))
                         ParticleManager:SetParticleControl(pfx1, 2, Vector(2,0,0))

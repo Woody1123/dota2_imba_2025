@@ -16,7 +16,7 @@ function flesh_heap:OnHeroDiedNearby(target, owner, table)
             if self.caster:HasModifier("modifier_flesh_heap_pa") then
                   self.caster:SetModifierStackCount("modifier_flesh_heap_pa",self.caster,self.stack)
             end
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf", PATTACH_OVERHEAD_FOLLOW, self.caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_pudge/pudge_fleshheap_count.vpcf", PATTACH_OVERHEAD_FOLLOW, self.caster)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 end
@@ -30,7 +30,7 @@ function flesh_heap:OnSpellStart()
             local dir=cpos==epos and  TG_Direction(epos+Vector(1,1,0),cpos) or TG_Direction(epos,cpos)
             -- local dir=(epos - cpos):Normalized() dir.z = 0.0
             local tpos=cpos + dir* dis
-            local fx=ParticleManager:CreateParticle( "particles/econ/items/pudge/pudge_ti10_immortal/pudge_ti10_immortal_meathook.vpcf", PATTACH_CUSTOMORIGIN, self.caster )
+            local fx=ParticleManager:SafeCreateParticle( "particles/econ/items/pudge/pudge_ti10_immortal/pudge_ti10_immortal_meathook.vpcf", PATTACH_CUSTOMORIGIN, self.caster )
             ParticleManager:SetParticleAlwaysSimulate( fx )
             ParticleManager:SetParticleControlEnt( fx, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_hitloc", cpos, true )
             ParticleManager:SetParticleControl( fx, 1, tpos)
@@ -38,7 +38,7 @@ function flesh_heap:OnSpellStart()
             ParticleManager:SetParticleControl( fx, 3, Vector( ( (   dis / sp ) * 2 ), 0, 0 ) )
             ParticleManager:SetParticleControl( fx, 4, Vector( 1, 0, 0 ) )
             ParticleManager:SetParticleControl( fx, 5, Vector( 0, 0, 0 ) )
-            local fx1=ParticleManager:CreateParticle( "particles/units/heroes/hero_pudge/pudge_swallow_release.vpcf", PATTACH_CENTER_FOLLOW , self.caster )
+            local fx1=ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_pudge/pudge_swallow_release.vpcf", PATTACH_CENTER_FOLLOW , self.caster )
             ParticleManager:SetParticleControl( fx1, 0, cpos)
             ParticleManager:ReleaseParticleIndex(fx1)
             EmitSoundOn( "Hero_Pudge.AttackHookExtend", self.caster )
@@ -78,7 +78,7 @@ function flesh_heap:OnProjectileHit_ExtraData( hTarget, vLocation,kv )
                         if hTarget:HasModifier("modifier_flesh_heap_hook_move") then
                                     hTarget:RemoveModifierByName("modifier_flesh_heap_hook_move")
                         end
-                              local fx1=ParticleManager:CreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf", PATTACH_CUSTOMORIGIN,hTarget )
+                              local fx1=ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf", PATTACH_CUSTOMORIGIN,hTarget )
                               ParticleManager:SetParticleControlEnt( fx1, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", tpos , true )
                               ParticleManager:ReleaseParticleIndex(fx1)
                               EmitSoundOn( "Hero_Pudge.AttackHookImpact", hTarget )

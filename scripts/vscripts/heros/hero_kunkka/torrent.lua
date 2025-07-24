@@ -116,7 +116,7 @@ function modifier_torrent:OnCreated()
     end
     self.rd2=self:GetAbility():GetSpecialValueFor( "rd2" )
     self.stun=self:GetAbility():GetSpecialValueFor( "stun" )
-    local particle= ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_fxset.vpcf", PATTACH_ABSORIGIN,self:GetParent())
+    local particle= ParticleManager:SafeCreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_fxset.vpcf", PATTACH_ABSORIGIN,self:GetParent())
     ParticleManager:SetParticleControl(particle, 0,self:GetParent():GetAbsOrigin())
     self:AddParticle(particle, false, false, 20, false, false)
 end
@@ -129,7 +129,7 @@ function modifier_torrent:OnDestroy()
     end
     local dam=self:GetAbility():GetSpecialValueFor( "dam" )+self:GetCaster():TG_GetTalentValue("special_bonus_kunkka_2")
     EmitSoundOnLocationForAllies(self:GetParent():GetAbsOrigin(), "Ability.Torrent", self:GetParent())
-    local particle1 = ParticleManager:CreateParticle("particles/econ/items/kunkka/kunkka_weapon_whaleblade/kunkka_spell_torrent_splash_whaleblade.vpcf", PATTACH_CUSTOMORIGIN,nil)
+    local particle1 = ParticleManager:SafeCreateParticle("particles/econ/items/kunkka/kunkka_weapon_whaleblade/kunkka_spell_torrent_splash_whaleblade.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(particle1, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle1)
     local heros = FindUnitsInRadius(

@@ -118,9 +118,9 @@ function modifier_jingu_mastery_buff:OnCreated()
     end
     self:SetStackCount(self.charges)
     self:GetParent():EmitSound("Hero_MonkeyKing.IronCudgel")
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
     self:AddParticle(particle, false, false, 15, false, true)
-    local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_tap_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_tap_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControlEnt(particle2, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_weapon_top", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(particle2, 3, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_weapon_bot", self:GetParent():GetAbsOrigin(), true)
     self:AddParticle(particle2, false, false, -1, false, false)
@@ -157,7 +157,7 @@ function modifier_jingu_mastery_buff:OnAttackLanded(tg)
 		return
     end
     if tg.attacker==self:GetParent() then
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_hit.vpcf", PATTACH_CUSTOMORIGIN, tg.target)
+        local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_hit.vpcf", PATTACH_CUSTOMORIGIN, tg.target)
         ParticleManager:SetParticleControlEnt( particle, 1, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true )
         ParticleManager:ReleaseParticleIndex(particle)
         if   not tg.target:IsBuilding() then
@@ -200,7 +200,7 @@ function modifier_jingu_mastery_debuff:OnCreated(tg)
 		return
     end
     self:SetStackCount(tg.num)
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_quad_tap_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(particle, 1, Vector(self:GetRemainingTime(),self:GetStackCount(),1))
     self:AddParticle(particle, false, false, 15, false, true)
 end

@@ -28,7 +28,7 @@ function sprout:OnSpellStart()
     local num=0
     local num1=-400
     EmitSoundOn("Hero_Furion.Sprout", caster)
-    local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(pf, 0, pos)
     ParticleManager:ReleaseParticleIndex( pf )
     AddFOWViewer(team, pos, vision_range, duration, false)

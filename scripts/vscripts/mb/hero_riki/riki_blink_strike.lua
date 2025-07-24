@@ -98,7 +98,7 @@ function imba_riki_blink_strike:OnSpellStart()
 	local pfx_name1 = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold_start.vpcf"
 	local pfx_name2 = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 
-	local pfx2 = ParticleManager:CreateParticle(pfx_name2, PATTACH_ABSORIGIN, caster)
+	local pfx2 = ParticleManager:SafeCreateParticle(pfx_name2, PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx2, 0, startpos)  --start
 	ParticleManager:SetParticleControl(pfx2, 1, endpos) --endpos
 	ParticleManager:DestroyParticle(pfx2, false)
@@ -171,7 +171,7 @@ function imba_riki_blink_strike:OnSpellStart()
 			end
 		end
 		--pfx
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_shard_fan_of_knives.vpcf", PATTACH_CUSTOMORIGIN, target)
+		local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_shard_fan_of_knives.vpcf", PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(particle, 62, Vector(1, 255, 255))
 		ParticleManager:ReleaseParticleIndex(particle)
@@ -271,7 +271,7 @@ function modifier_imba_riki_blink_strike_mark:StatusEffectPriority() return MODI
 function modifier_imba_riki_blink_strike_mark:DeclareFunctions() 	return {MODIFIER_EVENT_ON_ORDER} end
 function modifier_imba_riki_blink_strike_mark:OnCreated()
 	if IsServer() then 
-	 	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_active_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+	 	self.particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/planeshift/void_spirit_planeshift_active_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
     	ParticleManager:SetParticleControl(self.particle, 1, Vector(self:GetRemainingTime(),1,1))
     	self:AddParticle(self.particle, false, false, 15, false, true)
 		self.move = false

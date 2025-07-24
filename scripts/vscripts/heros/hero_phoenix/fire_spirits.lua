@@ -38,7 +38,7 @@ function fire_spirits:OnSpellStart()
     caster:SetHealth( caster:GetHealth() * ( 100 - self:GetSpecialValueFor( "hp" ) ) / 100 )
 end
 	caster:AddNewModifier(caster, self, "modifier_fire_spirits", {duration=self:GetSpecialValueFor( "dur" )})
-	caster.fire_spiritsfx=ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirits.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	caster.fire_spiritsfx=ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirits.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
  --   ParticleManager:SetParticleControl( caster.fire_spiritsfx, 0, caster_pos )
     ParticleManager:SetParticleControl( caster.fire_spiritsfx, 1, Vector( num, 0, 0 ) )
     ParticleManager:SetParticleControl( caster.fire_spiritsfx, 6, Vector( num, 0, 0 ) )

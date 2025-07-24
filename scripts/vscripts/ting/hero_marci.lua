@@ -263,7 +263,7 @@ function modifier_imba_marci_2_motion_down:OnDestroy()
 		end
 			
 			
-			local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pulse.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pulse.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(fx, 0, self:GetCaster():GetAbsOrigin())
 			ParticleManager:SetParticleControl(fx, 1, Vector(self.impact_radius,1,1))
 			ParticleManager:ReleaseParticleIndex(fx)
@@ -439,7 +439,7 @@ function modifier_imba_marci_2_jump:OnCreated(keys)
 			self.height = math.min(self.parent:GetAbsOrigin().z +180,self.ability:GetSpecialValueFor("height"))
 			
 			self.attimm = self.caster:TG_HasTalent("special_bonus_imba_marci_t7")
-			local nFXIndex = ParticleManager:CreateParticle( "particles/econ/items/windrunner/windranger_arcana/windranger_arcana_ambient_ground_arcs_flat.vpcf", PATTACH_WORLDORIGIN, self.parent )
+			local nFXIndex = ParticleManager:SafeCreateParticle( "particles/econ/items/windrunner/windranger_arcana/windranger_arcana_ambient_ground_arcs_flat.vpcf", PATTACH_WORLDORIGIN, self.parent )
 			ParticleManager:SetParticleControl( nFXIndex, 0, self.parent:GetAbsOrigin() )
 
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -504,7 +504,7 @@ function modifier_imba_marci_2_jump:OnDestroy()
 		end
 		--FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 		--[[
-		local nFXIndex = ParticleManager:CreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self.parent )
+		local nFXIndex = ParticleManager:SafeCreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self.parent )
 			ParticleManager:SetParticleControl( nFXIndex, 0, self.parent:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )]]
@@ -653,7 +653,7 @@ function modifier_imba_marci_2_motion:OnDestroy()
 		if has_enemy then		
 		local pos = self.parent:GetAbsOrigin()
 		--[[
-		local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pulse.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter_pulse.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(fx, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:SetParticleControl(fx, 1, Vector(250,1,1))
 		ParticleManager:ReleaseParticleIndex(fx)]]
@@ -823,7 +823,7 @@ function modifier_imba_marci_2_shard:OnIntervalThink()
 		else
 			local vLocation = GetGroundPosition( self:GetParent():GetAbsOrigin(), self:GetParent() )
 
-			local nFXIndex = ParticleManager:CreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
+			local nFXIndex = ParticleManager:SafeCreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 0, vLocation )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -1036,7 +1036,7 @@ function modifier_imba_marci_3_motion:OnDestroy()
 				
 			end	
 		
-		local nFXIndex = ParticleManager:CreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self.parent )
+		local nFXIndex = ParticleManager:SafeCreateParticle( "particles/creatures/ogre/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, self.parent )
 			ParticleManager:SetParticleControl( nFXIndex, 0, self.parent:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -1208,18 +1208,18 @@ function modifier_imba_marci_3_down:OnDestroy()
 				ApplyDamage( self.damageInfo )
 				
 			end	
-	local pfx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_marci/marci_dispose_land_aoe.vpcf", PATTACH_WORLDORIGIN, self.parent )
+	local pfx1 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_marci/marci_dispose_land_aoe.vpcf", PATTACH_WORLDORIGIN, self.parent )
 	ParticleManager:SetParticleControl( pfx1,0, self.parent:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( pfx1,1, Vector(500,500,0) )
 	ParticleManager:ReleaseParticleIndex( pfx1 )
 
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire_ring_b.vpcf", PATTACH_POINT, self.parent)
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire_ring_b.vpcf", PATTACH_POINT, self.parent)
 	ParticleManager:SetParticleControl(particle, 1, Vector(self.impact_radius, 0, 0))
 	ParticleManager:SetParticleControl(particle, 3, self.parent:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle)
 	
 	
-	local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire_rays.vpcf", PATTACH_POINT, self.parent)
+	local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_huskar/huskar_inner_fire_rays.vpcf", PATTACH_POINT, self.parent)
 	ParticleManager:SetParticleControl(particle2, 1, Vector(self.impact_radius, 0, 0))
 	ParticleManager:SetParticleControl(particle2, 3, self.parent:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(particle2)
@@ -1327,7 +1327,7 @@ function modifier_imba_marci_1_move:OnCreated(params)
 		self.force_pos = GetGroundPosition(( self.pos + self.angle * self.ability:GetSpecialValueFor("d_dis") ), nil)
 		self.force_pos.z = self.caster:GetAbsOrigin().z
 	end
-    local p1 = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local p1 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControlEnt(p1, 0, self.parent, PATTACH_ABSORIGIN, nil, self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(p1, 0, self.force_pos)
     ParticleManager:SetParticleControl(p1, 1, self.caster:GetAbsOrigin())
@@ -1432,7 +1432,7 @@ function imba_marci_4:OnSpellStart()
 	EmitSoundOn("Ability.TossImpact", self.caster)
 	self.caster:AddNewModifier(self.caster,self,"modifier_imba_marci_4_ex",{duration = 0.6})
 	self.caster:RemoveModifierByName("modifier_imba_marci_5_ex")
-	local particle= ParticleManager:CreateParticle("particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_echo_stomp_ti7.vpcf", PATTACH_CUSTOMORIGIN,nil)
+	local particle= ParticleManager:SafeCreateParticle("particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_echo_stomp_ti7.vpcf", PATTACH_CUSTOMORIGIN,nil)
     ParticleManager:SetParticleControl(particle, 0,c_pos)
 	ParticleManager:SetParticleControl(particle, 2,Vector(255,165,0))
     ParticleManager:ReleaseParticleIndex( particle )
@@ -1506,7 +1506,7 @@ function modifier_imba_marci_4_ex:OnDestroy(params)
 	
 	self.caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,1.5)
 	EmitSoundOn("Hero_Lina.DragonSlave", self.caster)
-    local p1 = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local p1 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControlEnt(p1, 0, self.caster, PATTACH_ABSORIGIN, nil, self.caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(p1, 0, self.force_pos)
     ParticleManager:SetParticleControl(p1, 1, self.caster:GetAbsOrigin())
@@ -1587,7 +1587,7 @@ if not IsServer() then return end
 	self.angle = self.caster:GetForwardVector() 
 	self.dis = self.ability:GetSpecialValueFor("distance")
 
-		self.pfx = ParticleManager:CreateParticle("particles/heroes/ting_marc/marci_5_ex2/ex2.vpcf", PATTACH_CUSTOMORIGIN, nil )
+		self.pfx = ParticleManager:SafeCreateParticle("particles/heroes/ting_marc/marci_5_ex2/ex2.vpcf", PATTACH_CUSTOMORIGIN, nil )
         ParticleManager:SetParticleControl( self.pfx, 0, self.caster:GetAbsOrigin() )
         ParticleManager:SetParticleControl( self.pfx, 1, self.pos + self.angle * self.dis)
         ParticleManager:SetParticleControl( self.pfx, 2, Vector(3,0,0))
@@ -1669,7 +1669,7 @@ function imba_marci_5:OnSpellStart()
 
 	
 	caster:AddActivityModifier("Unleash")
-	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_marci/marci_unleash_cast_rings.vpcf", PATTACH_WORLDORIGIN, caster )
+	local nFXIndex = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_marci/marci_unleash_cast_rings.vpcf", PATTACH_WORLDORIGIN, caster )
 	ParticleManager:SetParticleControl( nFXIndex, 0, caster:GetAbsOrigin() )
 	--ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -1768,7 +1768,7 @@ function modifier_imba_marci_5_pa:OnAttackLanded(keys)
 					local u_angle = keys.attacker:GetUpVector()
 							
 
-					local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_unleash_attack.vpcf", PATTACH_ABSORIGIN, keys.target)
+					local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_unleash_attack.vpcf", PATTACH_ABSORIGIN, keys.target)
 						ParticleManager:SetParticleControl(particle, 0, keys.attacker:GetAbsOrigin())
 						ParticleManager:SetParticleControl(particle, 1, keys.target:GetAbsOrigin())
 						ParticleManager:SetParticleControl(particle, 2, keys.target:GetAbsOrigin())	
@@ -1779,7 +1779,7 @@ function modifier_imba_marci_5_pa:OnAttackLanded(keys)
 					
 					if keys.attacker:Has_Aghanims_Shard() then --魔晶
 					
-						local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_unleash_pulse.vpcf", PATTACH_POINT, keys.target)
+						local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_unleash_pulse.vpcf", PATTACH_POINT, keys.target)
 						ParticleManager:SetParticleControl(particle2, 1, Vector(radius, radius, 0))
 						ParticleManager:SetParticleControl(particle2, 0, keys.target:GetAbsOrigin())
 						ParticleManager:ReleaseParticleIndex(particle2)

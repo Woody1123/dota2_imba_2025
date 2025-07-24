@@ -51,9 +51,9 @@ function modifier_natures_attendants_hp:OnCreated()
     if IsServer() then
         self.rd=self.rd+self.parent:GetCastRangeBonus()
         self.vrd= self.vrd+self.parent:GetCastRangeBonus()
-        local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+        local particle = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         self:AddParticle(particle, false, false, 20, false, false)
-        self.particle2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_count14.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+        self.particle2 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_count14.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControl(self.particle2, 0, self.parent:GetAbsOrigin())
         for num=3,11 do
             ParticleManager:SetParticleControlEnt(self.particle2, num,  self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc",  self.parent:GetAbsOrigin(), true)

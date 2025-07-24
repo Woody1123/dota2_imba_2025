@@ -29,7 +29,7 @@ function modifier_imba_dagon_passive:GetModifierPreAttack_BonusDamage() return s
 local function IMBA_Dagon_Main_Target(iItemLevel, strPfxName, fDamage, hCaster, hTarget, hAbility)
 	hCaster:EmitSound("DOTA_Item.Dagon.Activate")
 	hTarget:EmitSound("DOTA_Item.Dagon5.Target")
-	local pfx = ParticleManager:CreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(pfx, 0, hCaster, PATTACH_POINT_FOLLOW, "attach_attack1", hCaster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(iItemLevel, 0, 0))
@@ -58,7 +58,7 @@ local function IMBA_Dagon_Bounce_Target(iItemLevel, strPfxName, fDamage, hCaster
 		end
 	end
 	for i=1, #units - 1 do
-		local pfx = ParticleManager:CreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(strPfxName, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, units[i], PATTACH_POINT_FOLLOW, "attach_hitloc", units[i]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, units[i+1], PATTACH_POINT_FOLLOW, "attach_hitloc", units[i+1]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(iItemLevel, 0, 0))
@@ -84,7 +84,7 @@ function item_imba_dagon:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -92,7 +92,7 @@ function item_imba_dagon:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -114,7 +114,7 @@ function item_imba_dagon_2:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -136,7 +136,7 @@ function item_imba_dagon_3:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -158,7 +158,7 @@ function item_imba_dagon_4:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -180,7 +180,7 @@ function item_imba_dagon_5:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -203,7 +203,7 @@ function item_imba_dagon_6:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -226,7 +226,7 @@ function item_imba_dagon_7:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -249,7 +249,7 @@ function item_imba_dagon_8:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -272,7 +272,7 @@ function item_imba_dagon_9:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return
@@ -295,7 +295,7 @@ function item_imba_dagon_10:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	if target:IsIllusion() then
-        local pfx = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local pfx = ParticleManager:SafeCreateParticle("particles/items_fx/dagon.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(pfx)
 		target:Kill(self, caster)
 		return

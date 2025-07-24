@@ -81,7 +81,7 @@ function imba_lion_earth_spike:OnProjectileHit_ExtraData(target, location, keys)
 		target:AddNewModifier(caster, self, "modifier_earth_spike_motion", {duration = self:GetSpecialValueFor("knock_up_time")})
 		marker.hitted[#marker.hitted+1] = target
 		target:AddNewModifier_RS(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		for i=0, 2 do
 			ParticleManager:SetParticleControl(pfx, i, GetGroundPosition(target:GetAbsOrigin(), nil))
 		end
@@ -202,7 +202,7 @@ function imba_lion_earth_spike:OnProjectileHit_ExtraData(target, location, keys)
 		target:AddNewModifier(self:GetCaster(), self, "modifier_earth_spike_motion", {duration = self:GetSpecialValueFor("knock_up_time")})
 		EntIndexToHScript(keys.marker).hitted[#EntIndexToHScript(keys.marker).hitted + 1] = target
 		target:AddNewModifier_RS(self:GetCaster(), self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti9/lion_spell_impale_hit_ti9_spikes.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(target:GetAbsOrigin(), nil))
 		ParticleManager:ReleaseParticleIndex(pfx)
 		local spike_damage = self:GetSpecialValueFor("damage") + self:GetCaster():TG_GetTalentValue("special_bonus_imba_lion_3")
@@ -345,7 +345,7 @@ function modifier_imba_lion_hex:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		--particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf
-		--local pfx = ParticleManager:CreateParticle("particles/econ/items/lion/fish_stick/fish_stick_spell_fish.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		--local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lion/fish_stick/fish_stick_spell_fish.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		--ParticleManager:ReleaseParticleIndex(pfx)
 		--self:GetParent():EmitSound("Hero_Lion.Hex.Target")
 		self:GetParent():EmitSound("Hero_Lion.Fishstick.Target")
@@ -513,7 +513,7 @@ function modifier_imba_mana_drain_thinker:OnCreated(keys)
 	if IsServer() then 
 		self.target = EntIndexToHScript(keys.target)
 		--Effect
-		self.pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(self.pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(self.pfx, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_mouth", self:GetCaster():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(self.pfx, 2, self:GetCaster():GetForwardVector())
@@ -676,7 +676,7 @@ function imba_lion_finger_of_death:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	--if HeroItems:UnitHasItem(caster, "lion_ti8") then
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_charge_ti8.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_charge_ti8.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -731,7 +731,7 @@ function imba_lion_finger_of_death:OnSpellStart()
 		if self:GetCaster():GetName() == "npc_dota_hero_rubick" then 
 			pfx_name = "particles/units/heroes/hero_rubick/rubick_finger_of_death.vpcf"
 		end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 2, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
@@ -754,7 +754,7 @@ function imba_lion_finger_of_death:OnSpellStart()
 			damageTable.victim = enemy
 			damage_done = ApplyDamage(damageTable) --for pfx 
 			--if HeroItems:UnitHasItem(caster, "lion_ti8") then
-				local pfx_head = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_overhead_ti8.vpcf", PATTACH_ABSORIGIN, enemy)
+				local pfx_head = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_overhead_ti8.vpcf", PATTACH_ABSORIGIN, enemy)
 				local hp_pct = 1 - (enemy:GetHealthPercent() / 100)
 				ParticleManager:SetParticleControl(pfx_head, 1, Vector(hp_pct, 0, 0))
 				ParticleManager:ReleaseParticleIndex(pfx_head)
@@ -816,13 +816,13 @@ function modifier_imba_finger_of_death_grace_period:OnDeath(keys)
 	if keys.unit == self:GetParent() and self:GetParent():IsRealHero() then
 		--print("debug info ",self:GetAbility(),self:GetAbility():GetName(),keys.unit:GetName())
 		self:GetAbility():KillCredit(keys.unit)
-		local pfx_target = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_death_arcana.vpcf", PATTACH_ABSORIGIN, keys.unit)
+		local pfx_target = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_death_arcana.vpcf", PATTACH_ABSORIGIN, keys.unit)
 		ParticleManager:SetParticleControlEnt(pfx_target, 0, keys.unit, PATTACH_ABSORIGIN, nil, keys.unit:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx_target, 1, keys.unit, PATTACH_ABSORIGIN, nil, keys.unit:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx_target)
 		--particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_overhead_ti8_counter.vpcf
 		local kills = PlayerResource:GetKills(self:GetCaster():GetPlayerOwnerID())
-		local pfx_counter = ParticleManager:CreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_overhead_ti8_counter.vpcf", PATTACH_ABSORIGIN, keys.unit)
+		local pfx_counter = ParticleManager:SafeCreateParticle("particles/econ/items/lion/lion_ti8/lion_spell_finger_of_death_overhead_ti8_counter.vpcf", PATTACH_ABSORIGIN, keys.unit)
 		ParticleManager:SetParticleControlEnt(pfx_counter, 0, keys.unit, PATTACH_ABSORIGIN, nil, keys.unit:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl( pfx_counter, 11, Vector( 0, tostring(kills) or 1, 0) )
 		ParticleManager:ReleaseParticleIndex(pfx_counter)

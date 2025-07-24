@@ -67,7 +67,7 @@ function modifier_imba_rapier_super_passive:OnCreated()
 end
 	if IsServer() then
 		if not self:GetParent():IsIllusion() then
-			local pfx = ParticleManager:CreateParticle("particles/tgp/items/rapier_super/rapier_super_buff_m.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW   , self:GetParent())
+			local pfx = ParticleManager:SafeCreateParticle("particles/tgp/items/rapier_super/rapier_super_buff_m.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW   , self:GetParent())
 			ParticleManager:SetParticleControl(pfx,0,self:GetParent():GetAbsOrigin())
 			ParticleManager:SetParticleControl(pfx,1,Vector(200,0,0))
 			self:AddParticle(pfx, false, false, 15, false, true)

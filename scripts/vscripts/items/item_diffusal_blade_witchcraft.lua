@@ -35,7 +35,7 @@ function item_diffusal_blade_witchcraft:OnSpellStart()
                     end
 					hero:Purge(true, false, false, false, false)
                     if not hero:IsMagicImmune() then
-                        local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+                        local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
                         ParticleManager:ReleaseParticleIndex(pfx)
                         hero:AddNewModifier(caster, self, "modifier_item_diffusal_blade_witchcraft_debuff", {duration=self:GetSpecialValueFor( "duration" )})
                     end

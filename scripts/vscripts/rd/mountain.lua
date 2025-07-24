@@ -22,7 +22,7 @@ function mountain:OnSpellStart()
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage = dmg
         }
-                local p1 = ParticleManager:CreateParticle("particles/tgp/mountain_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                local p1 = ParticleManager:SafeCreateParticle("particles/tgp/mountain_m.vpcf", PATTACH_CUSTOMORIGIN, nil)
                 ParticleManager:SetParticleControl(p1, 0, tpos + caster:GetUpVector() * 1000)
                 ParticleManager:SetParticleControl(p1, 1,  tpos)
                 ParticleManager:SetParticleControl(p1, 2, Vector(1, 0, 0))

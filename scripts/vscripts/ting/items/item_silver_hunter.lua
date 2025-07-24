@@ -14,7 +14,7 @@ function item_imba_silver_hunter:OnSpellStart()
 	if not IsServer() then return end	
 	if self:GetCaster():HasModifier("modifier_imba_silver_invisible") then
 		self:GetCaster():EmitSound("Item.CrimsonGuard.Cast")
-    	local pfx = ParticleManager:CreateParticle("particles/world_outpost/world_outpost_radiant_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+    	local pfx = ParticleManager:SafeCreateParticle("particles/world_outpost/world_outpost_radiant_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(pfx, 1, self:GetCaster():GetAbsOrigin())		
 		ParticleManager:ReleaseParticleIndex(pfx)
 	local modifier = self:GetCaster():FindModifierByName("modifier_imba_silver_invisible")
@@ -277,7 +277,7 @@ LinkLuaModifier("modifier_item_king_passive", "ting/items/item_silver_hunter", L
 function item_imba_crown:GetIntrinsicModifierName() return "modifier_item_king_passive" end
 function item_imba_crown:OnSpellStart()
 	self:GetCaster():EmitSound("Item.CrimsonGuard.Cast")
-	    local pfx = ParticleManager:CreateParticle("particles/world_outpost/world_outpost_dire_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+	    local pfx = ParticleManager:SafeCreateParticle("particles/world_outpost/world_outpost_dire_ambient_shockwave.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(pfx, 1, self:GetCaster():GetAbsOrigin())		
 		ParticleManager:ReleaseParticleIndex(pfx)
 	self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_item_king_light",{duration = self:GetSpecialValueFor("duration")})

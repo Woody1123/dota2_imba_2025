@@ -323,7 +323,7 @@ function modifier_imba_lina_light_strike_array_thinker_son:OnCreated()
 		if self:GetAbility():HasFireSoulActive() then
 			pfx_name = "particles/econ/items/lina/lina_ti7/light_strike_array_pre_ti7.vpcf"
 		end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("aoe_radius"), self:GetAbility():GetSpecialValueFor("aoe_radius"), self:GetAbility():GetSpecialValueFor("aoe_radius")))
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -349,7 +349,7 @@ function modifier_imba_lina_light_strike_array_thinker_son:OnDestroy()
 		if self:GetAbility():HasFireSoulActive() then
 			pfx_name = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
 		end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("aoe_radius"), 0, 0))
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -439,7 +439,7 @@ function modifier_imba_fiery_soul_stacks:GetModifierAttackSpeedBonus_Constant() 
 function modifier_imba_fiery_soul_stacks:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_lina/lina_fiery_soul.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lina/lina_fiery_soul.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(3,0,0))
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -457,7 +457,7 @@ function modifier_imba_fiery_soul_active:OnCreated()
 
 	if IsServer() then
 		-- 创建粒子效果
-		local pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01a.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01a.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 5, Vector(1, 1, 1))
 		ParticleManager:SetParticleControl(pfx, 15, Vector(252, 46, 0))  -- RGB
@@ -574,7 +574,7 @@ function imba_lina_laguna_blade:OnProjectileHit(target, location)
 		else
 			enemy:EmitSound("Ability.LagunaBladeImpact")
 		end
-		local pfx = ParticleManager:CreateParticle(pfxname, PATTACH_ABSORIGIN, caster)
+		local pfx = ParticleManager:SafeCreateParticle(pfxname, PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)

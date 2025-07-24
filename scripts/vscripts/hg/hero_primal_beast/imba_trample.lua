@@ -24,7 +24,7 @@ function imba_trample:Attack()
     local sound_cast = "Hero_PrimalBeast.Trample"
     EmitSoundOn(sound_cast, caster)
     local cast_particle = "particles/units/heroes/hero_primal_beast/primal_beast_trample.vpcf"
-	self.cast_effect = ParticleManager:CreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
+	self.cast_effect = ParticleManager:SafeCreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.cast_effect, 0, caster:GetAbsOrigin()) -- 0: Spotlight position,
 	ParticleManager:SetParticleControl(self.cast_effect, 1, Vector(radius*(stacks*mag+1),1,1)) --3: shell and sprint effect position,
 	

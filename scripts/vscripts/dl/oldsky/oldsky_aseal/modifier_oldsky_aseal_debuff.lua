@@ -28,7 +28,7 @@ function modifier_oldsky_aseal_debuff:OnCreated()
     local green = Is_DATA_TG(idtable,steamid)    --绿色封印
     if green then particle1 = "particles/dlparticles/oldsky_aseal/green_p_skywrath_mage_ancient_seal_debuff.vpcf" end
 
-    local pfx = ParticleManager:CreateParticle(particle1, PATTACH_CUSTOMORIGIN, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle(particle1, PATTACH_CUSTOMORIGIN, self:GetParent())
 
 	ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)

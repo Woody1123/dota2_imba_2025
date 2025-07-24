@@ -156,7 +156,7 @@ function dlmars_rebuke:playeffects(radius,cast_direction,caught)        --特效
     local origin = caster:GetOrigin()
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, caster )
     ParticleManager:SetParticleControl( effect_cast, 0, origin )
     ParticleManager:SetParticleControl( effect_cast, 1, Vector(radius,radius,radius) )    --CP1调整大小
 
@@ -210,7 +210,7 @@ function dlmars_rebuke:playeffectshit( target, cast_direction )     --挨打特�
 	local sound_cast = "Hero_Mars.Shield.Crit"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )
 	ParticleManager:SetParticleControl( effect_cast, 0, target:GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 1, target:GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 1, cast_direction )

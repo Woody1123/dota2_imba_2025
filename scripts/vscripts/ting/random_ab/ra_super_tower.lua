@@ -33,7 +33,7 @@ function modifier_ra_super_tower_pa:OnCreated()
 				table.insert(self.tower,CDOTAGameRules.TOWER[aa])
 			end
 		end
-		--self.pfx = ParticleManager:CreateParticle("particles/econ/items/hoodwink/hood_2021_blossom/hood_2021_blossom_scurry_aura_print.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		--self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/hoodwink/hood_2021_blossom/hood_2021_blossom_scurry_aura_print.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		---ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 		--ParticleManager:SetParticleControl(self.pfx, 1, self.parent:GetAbsOrigin())
 		--self:AddParticle(self.pfx, false, false, 15, false, false)
@@ -82,7 +82,7 @@ function modifier_ra_super_tower_buff:OnCreated()
 	self.hero = {}
 	self.parent = self:GetParent()
 	
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_lich/lich_ice_age_model.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lich/lich_ice_age_model.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControlEnt(pfx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(300,300,300))
 	self:AddParticle(pfx, false, false, 15, false, false)

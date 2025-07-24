@@ -52,7 +52,7 @@ function modifier_imba_telekinesis_pfx:CheckState() return {[MODIFIER_STATE_INVI
 
 function modifier_imba_telekinesis_pfx:OnCreated()
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_marker_force.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_marker_force.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetRemainingTime() + 0.5, 0, 0))
 		ParticleManager:SetParticleControl(pfx, 2, self:GetCaster():GetAbsOrigin())

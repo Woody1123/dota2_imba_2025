@@ -45,7 +45,7 @@ function storm_bolt:OnAbilityPhaseStart()
 	local caster=self:GetCaster()
 	local offset = caster:GetAbsOrigin() + Vector( 0, 0, 1600 )
 	local name= caster:GetUnitName()=="npc_dota_hero_sven" and "attach_sword" or  "attach_attack1"
-	local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_spell_storm_bolt_lightning.vpcf", PATTACH_CUSTOMORIGIN,caster )
+	local fx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_sven/sven_spell_storm_bolt_lightning.vpcf", PATTACH_CUSTOMORIGIN,caster )
 	ParticleManager:SetParticleControlEnt( fx, 0, caster, PATTACH_POINT_FOLLOW, name,caster:GetAbsOrigin() , true )
 	ParticleManager:SetParticleControl( fx, 1, offset )
 	ParticleManager:ReleaseParticleIndex( fx )
@@ -166,7 +166,7 @@ function modifier_storm_bolt_buff:OnCreated(tg)
         return
     end
 	if self:GetCaster():TG_HasTalent("special_bonus_sven_7") then
-		local fx = ParticleManager:CreateParticle( "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_d.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent() )
+		local fx = ParticleManager:SafeCreateParticle( "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_d.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent() )
 		ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle( fx, false, false, 1, false, true )
 	end
@@ -278,7 +278,7 @@ end
 function modifier_storm_bolt_buff2:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local fx  = ParticleManager:CreateParticle( "particles/heros/axe/axe_bkb.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetCaster())
+		local fx  = ParticleManager:SafeCreateParticle( "particles/heros/axe/axe_bkb.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetCaster())
 		self:AddParticle(fx, false, false, 20, false, false)
 	end
 end

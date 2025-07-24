@@ -313,7 +313,7 @@ function imba_tidehunter_kraken_shell:IsStealable() 				return true end
 function imba_tidehunter_kraken_shell:IsNetherWardStealable()		return true end
 function imba_tidehunter_kraken_shell:OnSpellStart()
 	self:GetCaster():Purge(false, true, false, true, true)
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	ParticleManager:ReleaseParticleIndex(pfx)
 	self:GetCaster():EmitSound("DOTA_Item.Pipe.Activate")
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_imba_tidehunter_kraken_shell_time", {duration = self:GetSpecialValueFor("damage_absorb_interval")})
@@ -404,7 +404,7 @@ function modifier_imba_tidehunter_kraken_shell_purge:OnIntervalThink()
 		--print("kraken_shell damage_cleanse now ", self:GetStackCount())
 		parent:EmitSound("Hero_Tidehunter.KrakenShell")
 		self:GetCaster():Purge(false, true, false, true, true)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		self:SetStackCount(0)
 	end
@@ -439,7 +439,7 @@ function imba_tidehunter_anchor_smash:OnSpellStart()
 	--音效
 	caster:EmitSound("Hero_Tidehunter.AnchorSmash")
 	
-	local pfx = ParticleManager:CreateParticle(smash_pfx, PATTACH_ABSORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle(smash_pfx, PATTACH_ABSORIGIN, caster)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	
 	local smash_radius = ability:GetSpecialValueFor("radius")
@@ -472,7 +472,7 @@ function imba_tidehunter_anchor_smash:OnSpellStart()
 				--如果攻击次数超过3次 造成眩晕
 				if buff:GetStackCount() >= self:GetSpecialValueFor("proc_count") then 
 					--触手特效
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					for i=0, 2 do
 						ParticleManager:SetParticleControl(pfx, i, GetGroundPosition(enemy:GetAbsOrigin(), nil))
 					end
@@ -594,7 +594,7 @@ function imba_tidehunter_ravage:OnAbilityPhaseStart()
 		caster:EmitSound("Hero_Tidehunter.Taunt.BackStroke")
 		caster:StartGesture(ACT_DOTA_VICTORY)
 		-- 施法范围特效
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_anchor_hero.vpcf", PATTACH_ABSORIGIN, caster)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_anchor_hero.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		-- 添加一个不能关闭自动施法的操作指令
 		caster:AddNewModifier(caster, self, "modifier_imba_tidehunter_ravage_order", {duration = self:GetSpecialValueFor("gush_castpoint")})
@@ -653,7 +653,7 @@ function imba_tidehunter_ravage:OnSpellStart(mini)
 		caster:EmitSound(ravage_sound)
 
 		-- 特效
-		local pfx = ParticleManager:CreateParticle(ravage_pfx, PATTACH_ABSORIGIN, caster)
+		local pfx = ParticleManager:SafeCreateParticle(ravage_pfx, PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, pos)
 		for i=1,ring_count do
 			ParticleManager:SetParticleControl(pfx, i, Vector(ring_radius * i, 0 , 0))
@@ -691,7 +691,7 @@ function imba_tidehunter_ravage:OnSpellStart(mini)
 					--击飞修改器
 					enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
 					--击飞特效
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					for i=0, 2 do
 						ParticleManager:SetParticleControl(pfx, i, GetGroundPosition(enemy:GetAbsOrigin(), nil))
 					end
@@ -755,7 +755,7 @@ function modifier_imba_tidehunter_ravage_debuff:IsPurgeException() 		return true
 function modifier_imba_tidehunter_ravage_debuff:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_clinkz/clinkz_searing_arrow_trail_ember.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_clinkz/clinkz_searing_arrow_trail_ember.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 3, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -872,7 +872,7 @@ function imba_tidehunter_calling_Maelrawn:OnSpellStart()
 			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 		)
 		--特效
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_rubick/rubick_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_rubick/rubick_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		for i=0, 2 do
 			ParticleManager:SetParticleControl(pfx, i, endpos - cube_angle * cube * cube_radius)
 		end
@@ -1036,7 +1036,7 @@ function modifier_tidehunter_coming_motion:OnDestroy()
 					--击飞修改器
 					enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", knockback_table)
 					--击飞特效
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					for i=0, 2 do
 						ParticleManager:SetParticleControl(pfx, i, GetGroundPosition(enemy:GetAbsOrigin(), nil))
 					end

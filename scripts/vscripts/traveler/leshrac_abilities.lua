@@ -134,14 +134,14 @@ CreateTalents("npc_dota_hero_leshrac", "traveler/leshrac_abilities.lua")
             EmitSoundOnLocationWithCaster(pos, "Hero_Leshrac.Split_Earth", caster)
             GridNav:DestroyTreesAroundPoint(pos, radius, true)
             local effectname = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf" 
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
             ParticleManager:SetParticleControl(pfx, 0, pos)
             ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
             ParticleManager:ReleaseParticleIndex(pfx) 
         end
         function PlaySplitEarthShardEffect(  pos, radius )
             local effectname = "particles/units/heroes/hero_leshrac/leshrac_split_earth_aoe.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_WORLDORIGIN, nil)
             ParticleManager:SetParticleControl(pfx, 0, pos)
             ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1)) 
             return pfx
@@ -263,7 +263,7 @@ CreateTalents("npc_dota_hero_leshrac", "traveler/leshrac_abilities.lua")
             local pos = parent:GetAbsOrigin()
             local radius = self.radius
             local effectname = "particles/units/heroes/hero_leshrac/leshrac_diabolic_edict.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, nil)
 			local num = self.num
 			self:GetParent():Heal(self.damage*(1+caster:GetSpellAmplification(false)),self:GetCaster())
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self:GetParent(), self.damage*(1+caster:GetSpellAmplification(false)), nil)
@@ -347,7 +347,7 @@ CreateTalents("npc_dota_hero_leshrac", "traveler/leshrac_abilities.lua")
             local slow_duration = self.slow_duration
             target:EmitSound("Hero_Leshrac.Lightning_Storm")
             local effectname = "particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
-            local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, target)
+            local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, target)
             ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0,0,2000))
             ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true) 
             ParticleManager:ReleaseParticleIndex(pfx)
@@ -429,7 +429,7 @@ CreateTalents("npc_dota_hero_leshrac", "traveler/leshrac_abilities.lua")
                     break
                 else
                     enemies[i]:EmitSound("Hero_Leshrac.Lightning_Storm")
-                    local pfx = ParticleManager:CreateParticle(effectname, PATTACH_CUSTOMORIGIN, enemies[i])
+                    local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_CUSTOMORIGIN, enemies[i])
                     ParticleManager:SetParticleControl(pfx, 0, enemies[i]:GetAbsOrigin() + Vector(0,0,2000))
                     ParticleManager:SetParticleControlEnt(pfx, 1, enemies[i], PATTACH_POINT_FOLLOW, "attach_hitloc", enemies[i]:GetAbsOrigin(), true) 
                     ParticleManager:ReleaseParticleIndex(pfx)
@@ -513,7 +513,7 @@ CreateTalents("npc_dota_hero_leshrac", "traveler/leshrac_abilities.lua")
                 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NONE,FIND_ANY_ORDER,false)
             for _,enemy in pairs(enemies) do
                 EmitSoundOn("Hero_Leshrac.Pulse_Nova_Strike", enemy)
-                local pfx = ParticleManager:CreateParticle(effectname, PATTACH_ABSORIGIN, parent)
+                local pfx = ParticleManager:SafeCreateParticle(effectname, PATTACH_ABSORIGIN, parent)
                 ParticleManager:SetParticleControl(pfx, 0, enemy:GetAbsOrigin())
                 ParticleManager:SetParticleControl(pfx, 1, Vector(1,0,0))
                 ParticleManager:ReleaseParticleIndex(pfx)
@@ -604,7 +604,7 @@ function modifier_imba_leshrac_greater_lightning_storm_life:OnCreated()
 		return 
 	end
 	if IsServer() then		
-		local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(particle2, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(particle2, true, false, -1, false, false)	
 	end
@@ -663,11 +663,11 @@ function modifier_imba_leshrac_greater_lightning_storm_aura:OnCreated()
 	end
 	self.radius =  self:GetAbility():GetSpecialValueFor("radius")
 	if IsServer() then
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_nihilism_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_nihilism_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(particle, true, false, -1, false, false)	
 		
-		local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(particle2, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(particle2, true, false, -1, false, false)	
 	end
@@ -701,7 +701,7 @@ function modifier_imba_leshrac_greater_lightning_storm_debuff:OnCreated()
 	self.mgr = self:GetAbility():GetSpecialValueFor("magic_amp")*-1
 	EmitSoundOn("Hero_Leshrac.Nihilism.Target", self:GetParent())
 	if IsServer() then
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_leshrac/leshrac_scepter_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(particle, true, false, -1, false, false)	
 	end

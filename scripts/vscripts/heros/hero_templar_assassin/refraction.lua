@@ -92,7 +92,7 @@ function modifier_refraction_buff1:OnCreated()
     TG_Remove_AllModifier(self:GetParent(),"modifier_refraction_buff3")
     self:SetStackCount(self.NUM)
     local pos=self:GetParent():GetAbsOrigin()
-   local fx= ParticleManager:CreateParticle("particles/econ/items/lanaya/ta_ti9_immortal_shoulders/ta_ti9_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
+   local fx= ParticleManager:SafeCreateParticle("particles/econ/items/lanaya/ta_ti9_immortal_shoulders/ta_ti9_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
     ParticleManager:SetParticleControl(fx, 0,pos)
     ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(fx, 5,pos)
@@ -109,7 +109,7 @@ function modifier_refraction_buff1:OnRefresh()
     if not IsServer() then
         return
     end
-    local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+    local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 1, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 2, Vector(10,10,10))
@@ -148,7 +148,7 @@ function modifier_refraction_buff1:OnTakeDamage(tg)
 
     if tg.unit == self:GetParent() and tg.original_damage>5 then
         self:GetParent():EmitSound("Hero_TemplarAssassin.Refraction.Absorb")
-        local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refract_hit.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
+        local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refract_hit.vpcf", PATTACH_CUSTOMORIGIN,self:GetParent())
         ParticleManager:SetParticleControlEnt(fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc",self:GetParent():GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(fx, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)

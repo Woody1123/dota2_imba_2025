@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_item_hensin_buff",  "items/item_hensin.lua", LUA_MODIF
 function item_hensin:OnSpellStart()
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW , target)
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW , target)
     ParticleManager:ReleaseParticleIndex(particle)
     target:AddNewModifier(caster, self, "modifier_item_hensin_buff", {duration = 60})
     self:SpendCharge(0)

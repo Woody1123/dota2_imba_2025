@@ -87,7 +87,7 @@ function modifier_imba_acid_spray_th:OnCreated()
         self.tick_rate=self.ability:GetSpecialValueFor("tick_rate")
         self.gold=self.ability:GetSpecialValueFor("gold")*-1
     if IsServer() then
-            local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_CUSTOMORIGIN,nil)
+            local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_CUSTOMORIGIN,nil)
                 ParticleManager:SetParticleControl(fx,0,self.cpos)
                 ParticleManager:SetParticleControl(fx,1,Vector(self.radius,0,0))
                 self:AddParticle(fx, false, false, 4, false, false)
@@ -107,7 +107,7 @@ function modifier_imba_acid_spray_th:OnIntervalThink()
                                     --             local gold=lv*self.gold*-1
                                     --             local num=tonumber(#tostring(gold))+1
                                     --             PlayerResource:ModifyGold(target:GetPlayerOwnerID(), 0-gold, false, DOTA_ModifyGold_Unspecified)
-                                    --             local fx = ParticleManager:CreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, target)
+                                    --             local fx = ParticleManager:SafeCreateParticle("particles/tgp/alchemist/msg_gold.vpcf", PATTACH_ABSORIGIN, target)
                                     --             ParticleManager:SetParticleControl(fx, 1, Vector(1, gold, 0))
                                     --             ParticleManager:SetParticleControl(fx, 2, Vector(1,num, 0))
                                     --             ParticleManager:SetParticleControl(fx, 3, Vector(255, 208, 0))

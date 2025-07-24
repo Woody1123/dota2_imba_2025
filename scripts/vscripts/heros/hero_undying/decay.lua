@@ -47,7 +47,7 @@ function decay:OnSpellStart()
     if caster:Has_Aghanims_Shard() then
         radius=radius+150
     end
-    local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_decay.vpcf", PATTACH_CUSTOMORIGIN,caster)
+    local particle = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_undying/undying_decay.vpcf", PATTACH_CUSTOMORIGIN,caster)
     ParticleManager:SetParticleControl(particle,0,curpos)
     ParticleManager:SetParticleControl(particle,1,Vector(radius,0,0))
     ParticleManager:SetParticleControl(particle,2,curpos)

@@ -73,7 +73,7 @@ function imba_shredder_whirling_death:PlayEffects( radius, hashero )
 	local sound_target = "Hero_Shredder.WhirlingDeath.Damage"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CENTER_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CENTER_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -429,7 +429,7 @@ function imba_shredder_timber_chain:PlayEffects( point, speed, duration )
 	local sound_cast = "Hero_Shredder.TimberChain.Cast"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		0,
@@ -675,7 +675,7 @@ function modifier_imba_shredder_timber_chain:PlayEffects( target )
 	local sound_cast = "Hero_Shredder.TimberChain.Damage"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	-- Create Sound
@@ -731,7 +731,7 @@ function modifier_imba_timber_chain_thinker:OnCreated(keys)
 		self.ability = self:GetAbility()
 		if self.ability:GetAutoCastState() then
 			AddFOWViewer(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), 300, 3, true)
-			self.pfx = ParticleManager:CreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
+			self.pfx = ParticleManager:SafeCreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
 			ParticleManager:SetParticleControl(self.pfx, 1, Vector(100, 0, 0))
 			ParticleManager:SetParticleControl(self.pfx, 2, Vector(10, 0, 0))
 			ParticleManager:SetParticleControl(self.pfx, 3, Vector(100, 0, 0))
@@ -881,7 +881,7 @@ end
 function modifier_imba_shredder_reactive_armor_whirling_death:PlayEffects( radius, hashero )
 	if not IsServer() then return end
 	local particle_cast = "particles/units/heroes/hero_shredder/shredder_whirling_death_spin.vpcf"
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CENTER_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CENTER_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		1,
@@ -1574,7 +1574,7 @@ function modifier_imba_shredder_chakram_thinker:PlayEffects1()
 	direction = direction:Normalized()
 
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast1, PATTACH_ABSORIGIN_FOLLOW, self.parent )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 	--self.effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( self.effect_cast, 1, direction * self.speed )
@@ -1599,7 +1599,7 @@ function modifier_imba_shredder_chakram_thinker:PlayEffects2()
 	-- Get Resources
 	particle_cast2 = "particles/units/heroes/hero_shredder/shredder_chakram_stay.vpcf"	
 
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil )
 	--self.effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self.parent:GetOrigin() )
 	ParticleManager:SetParticleControl( self.effect_cast, 16, Vector( 0, 0, 0 ) )
@@ -1619,7 +1619,7 @@ function modifier_imba_shredder_chakram_thinker:PlayEffects3()
 	particle_cast3 = "particles/units/heroes/hero_shredder/shredder_chakram_return.vpcf"	
 	local sound_cast = "Hero_Shredder.Chakram.Return"
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast3, PATTACH_ABSORIGIN_FOLLOW, self.parent )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast3, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControlEnt(
 		self.effect_cast,

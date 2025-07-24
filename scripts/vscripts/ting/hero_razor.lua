@@ -74,7 +74,7 @@ function modifier_imba_razor_plasma_field:OnCreated(table)
 		if self:GetCaster():HasModifier("modifier_imba_razor_eye_of_the_storm") then
 			pfx = "particles/econ/items/razor/razor_ti6/razor_plasmafield_ti6.vpcf"
 		end
-		local nfx = ParticleManager:CreateParticle(pfx, PATTACH_POINT_FOLLOW, caster)
+		local nfx = ParticleManager:SafeCreateParticle(pfx, PATTACH_POINT_FOLLOW, caster)
 					ParticleManager:SetParticleControl(nfx, 0, caster:GetAbsOrigin())
 					ParticleManager:SetParticleControl(nfx, 1, Vector(speed, maxRadius, 1))
 		local enemyHit = {}
@@ -237,7 +237,7 @@ function imba_razor_static_link:Onlink(caster,target,duration,stack,att)
 	local duration = duration
 	local att = att
 	if target:TriggerSpellAbsorb( self ) then return end
-	local nfx = ParticleManager:CreateParticle("particles/units/heroes/hero_razor/razor_static_link.vpcf", PATTACH_POINT_FOLLOW, caster)
+	local nfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_razor/razor_static_link.vpcf", PATTACH_POINT_FOLLOW, caster)
 					ParticleManager:SetParticleControlEnt(nfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_static", caster:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(nfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	if att == true then
@@ -555,7 +555,7 @@ function modifier_imba_razor_unstable_current_passive:OnAbilityFullyCast(params)
 end
 function modifier_imba_razor_unstable_current_passive:Applydamage(tab)
 	if not IsServer() then return end
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_razor/razor_unstable_current.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_razor/razor_unstable_current.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 	ParticleManager:SetParticleControlEnt(pfx, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, tab.victim, PATTACH_POINT_FOLLOW, "attach_hitloc", tab.victim:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -746,7 +746,7 @@ function modifier_imba_razor_eye_of_the_storm:OnIntervalThink()
 		EmitSoundOn("Hero_razor.lightning", enemy)
 		if enemy~=nil and enemy:IsAlive() then 
 			local duration = self.duration
-			local iParticleID = ParticleManager:CreateParticle("particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local iParticleID = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(iParticleID, 0, self.caster:GetAbsOrigin() + Vector(0,0,500))
 			ParticleManager:SetParticleControlEnt(iParticleID, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 			self:AddParticle(iParticleID, false, false, 0, false, false)
@@ -954,7 +954,7 @@ function imba_razor_whip:OnSpellStart()
 							}	
 	local point = GetGroundPosition(target:GetAbsOrigin(), target)	
 	local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, point)
 		Timers:CreateTimer(0.4, function()
 			ParticleManager:DestroyParticle(pfx, false)
@@ -962,7 +962,7 @@ function imba_razor_whip:OnSpellStart()
 						end)
 					
 	local particleName2 = "particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf"
-	local pfx2 = ParticleManager:CreateParticle(particleName2, PATTACH_CUSTOMORIGIN, caster)
+	local pfx2 = ParticleManager:SafeCreateParticle(particleName2, PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx2, 0, point)
 		Timers:CreateTimer(0.05, function()
 			ParticleManager:DestroyParticle(pfx2, false)

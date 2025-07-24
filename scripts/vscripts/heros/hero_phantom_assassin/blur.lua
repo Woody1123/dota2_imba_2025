@@ -20,7 +20,7 @@ end
 function blur:OnSpellStart()
 	local caster=self:GetCaster()
     caster:EmitSound("Hero_PhantomAssassin.Blur")
-    local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local p1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(p1)
 	if not caster:HasModifier("modifier_blur_kill_cd") then
 		caster:AddNewModifier(caster, self, "modifier_blur_kill", {duration = self:GetSpecialValueFor("duration")})
@@ -167,9 +167,9 @@ function modifier_blur_buff:OnCreated()
     if not IsServer() then
         return
     end
-    local p1 = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local p1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:ReleaseParticleIndex(p1)
-    local p2 = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local p2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:AddParticle(p2, false, false, 20, false, false)
 end
 

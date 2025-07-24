@@ -82,7 +82,7 @@ function modifier_imba_swashbuckle_chargedtime:CheckState() return {[MODIFIER_ST
 function modifier_imba_swashbuckle_chargedtime:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-	   	self.pfx = ParticleManager:CreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	   	self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	    ParticleManager:SetParticleControlEnt(self.pfx, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	    ParticleManager:SetParticleControlEnt(self.pfx, 3, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	    self:AddParticle(self.pfx, false, false, -1, true, false)		
@@ -194,7 +194,7 @@ function modifier_imba_swashbuckle_chargedattack:OnIntervalThink()
 		return
 		self:Destroy()
 	end
-	self.charged_particle[self.executed_strikes] = ParticleManager:CreateParticle(self.particle, PATTACH_WORLDORIGIN, nil)
+	self.charged_particle[self.executed_strikes] = ParticleManager:SafeCreateParticle(self.particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.charged_particle[self.executed_strikes], 0, self:GetCaster():GetAbsOrigin()) 
 	ParticleManager:SetParticleControl(self.charged_particle[self.executed_strikes], 1, self.direction * self.range)
 
@@ -341,7 +341,7 @@ function imba_pangolier_shield_crash:OnSpellStart()
 				local hit_enemies = {}			
 				for slash = 1, 4 do
 					local direction = RotatePosition(Vector(0, 0, 0), QAngle(0, 90 * slash, 0), self:GetCaster():GetForwardVector())				
-					local slash_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_swashbuckler.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+					local slash_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_pangolier/pangolier_swashbuckler.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 					ParticleManager:SetParticleControl(slash_particle, 1, direction)					
 					table.insert(self.slash_particles, slash_particle)					
 					EmitSoundOnLocationWithCaster(self:GetCaster():GetAbsOrigin(), "Hero_Pangolier.Swashbuckle", self:GetCaster())
@@ -387,7 +387,7 @@ function imba_pangolier_shield_crash:OnSpellStart()
 			local buff_duration = self:GetSpecialValueFor("duration")
 			local radius = self:GetSpecialValueFor("radius")
 			self.sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 5.0}, pos, caster:GetTeamNumber(), false)
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", PATTACH_ABSORIGIN, self.sound)
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", PATTACH_ABSORIGIN, self.sound)
 			ParticleManager:SetParticleControl(pfx, 0, self.sound:GetAbsOrigin())
 			ParticleManager:SetParticleControl(pfx, 1, Vector(radius,0,0))
 			ParticleManager:ReleaseParticleIndex(pfx)
@@ -446,7 +446,7 @@ function modifier_imba_shield_crash_buff:OnCreated(kv)
 		
 		self:SetStackCount(self.damage_reduction_pct * self.stacks)
 		EmitSoundOnLocationWithCaster(self:GetCaster():GetAbsOrigin(), self.sound, self:GetCaster())
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())	
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControlEnt(self.pfx, 1, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, GetGroundPosition(caster:GetAbsOrigin(),caster), true)
 		ParticleManager:SetParticleControlEnt(self.pfx, 3, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, Vector(self.damage_reduction_pct * self.stacks,0,0), true)
 		self:AddParticle(self.pfx, false, false, -1, false, false)			
@@ -593,7 +593,7 @@ function modifier_imba_shield_crash_jump:OnDestroy()
 			self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), self.buff_modifier, {duration = self.buff_duration, stacks = damaged_heroes})
 		end			
 	end
-	local dust = ParticleManager:CreateParticle(dust_particle111, PATTACH_WORLDORIGIN, nil)
+	local dust = ParticleManager:SafeCreateParticle(dust_particle111, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(dust, 0, GetGroundPosition(self:GetCaster():GetAbsOrigin(),self:GetCaster())) 
 end
 
@@ -780,7 +780,7 @@ function imba_pangolier_gyroshell:OnAbilityPhaseStart()
 	local sound_cast = "Hero_Pangolier.Gyroshell.Cast"
 	local cast_particle = "particles/units/heroes/hero_pangolier/pangolier_gyroshell_cast.vpcf"
 	local caster = self:GetCaster()
-	self.cast_effect = ParticleManager:CreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
+	self.cast_effect = ParticleManager:SafeCreateParticle(cast_particle, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(self.cast_effect, 0, caster:GetAbsOrigin()) -- 0: Spotlight position,
 	ParticleManager:SetParticleControl(self.cast_effect, 3, caster:GetAbsOrigin()) --3: shell and sprint effect position,
 	ParticleManager:SetParticleControl(self.cast_effect, 60, caster:GetAbsOrigin()) --5: roses landing point
@@ -977,7 +977,7 @@ function modifier_imba_gyroshell_roll:OnCreated()
 		return
 	end
 	self.sprinting_effect = "particles/units/heroes/hero_pangolier/pangolier_gyroshell.vpcf"
-	self.sprint = ParticleManager:CreateParticle(self.sprinting_effect, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	self.sprint = ParticleManager:SafeCreateParticle(self.sprinting_effect, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(self.sprint, 0, self:GetCaster():GetAbsOrigin()) --origin
 
 	self:AddParticle(self.sprint, false, false, -1, true, false)

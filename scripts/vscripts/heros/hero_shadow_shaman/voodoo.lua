@@ -64,7 +64,7 @@ function modifier_voodoo_ani:OnCreated()
     if not IsServer() then
         return
     end
-    local fx = ParticleManager:CreateParticle("particles/econ/items/shadow_shaman/shadow_shaman_sheepstick/shadowshaman_voodoo_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local fx = ParticleManager:SafeCreateParticle("particles/econ/items/shadow_shaman/shadow_shaman_sheepstick/shadowshaman_voodoo_sheepstick.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(fx, false, false, 20, false, false)
     self.ani=self:GetCaster().voodooani[RandomInt(1,#self:GetCaster().voodooani)]
     local modifier_count = self:GetParent():GetModifierCount()

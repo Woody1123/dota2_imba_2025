@@ -85,7 +85,7 @@ function modifier_ranger_dr_marksmanship_effect:OnIntervalThink()
 	end
 
 	if self:GetStackCount() == 0 and not self.pfx then
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_drow/drow_marksmanship.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_drow/drow_marksmanship.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.pfx, 2, Vector(2,0,0))
 		ParticleManager:SetParticleControlEnt(self.pfx, 3, self:GetCaster(), PATTACH_POINT_FOLLOW, "bow_top", self:GetCaster():GetAbsOrigin(), true)

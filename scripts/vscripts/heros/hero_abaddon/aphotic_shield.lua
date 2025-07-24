@@ -58,7 +58,7 @@ function modifier_aphotic_shield:OnCreated()
     self.ability=self:GetAbility()
     EmitSoundOn("Hero_Abaddon.AphoticShield.Loop", self.parent)
 	if IsServer() then
-        local fx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_POINT_FOLLOW, self.parent)
+        local fx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_POINT_FOLLOW, self.parent)
 		ParticleManager:SetParticleControlEnt(fx2, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc",self.parent:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(fx2, 1,Vector(100,0,0))
 		self:AddParticle(fx2, false, false, 1, false, false)

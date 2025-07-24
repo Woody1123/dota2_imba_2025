@@ -80,7 +80,7 @@ function double_edge:OnProjectileHit_ExtraData(target, location, kv)
         }
         ApplyDamage(damageTable)
         local POS=target:GetAbsOrigin()
-        local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_centaur/centaur_double_edge.vpcf", PATTACH_CUSTOMORIGIN, target)
+        local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_centaur/centaur_double_edge.vpcf", PATTACH_CUSTOMORIGIN, target)
         ParticleManager:SetParticleControlEnt(fx, 0, target, PATTACH_POINT, "attach_hitloc", POS, true)
         ParticleManager:SetParticleControlEnt(fx, 1, caster, PATTACH_POINT, "attach_hitloc", caster:GetAbsOrigin(), true)
         ParticleManager:SetParticleControl(fx, 2, POS)

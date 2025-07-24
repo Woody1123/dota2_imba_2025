@@ -150,7 +150,7 @@ function modifier_fire_remnant_esr:OnCreated()
     self.damage=self.ability:GetSpecialValueFor("damage")+self.caster:TG_GetTalentValue("special_bonus_ember_spirit_6")
     if IsServer() then
             self.caster:AddNewModifier(self.caster, self.ability, "modifier_fire_remnant_duration", {duration=self:GetRemainingTime()})
-            local pf = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            local pf = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf", PATTACH_CUSTOMORIGIN, nil)
             ParticleManager:SetParticleControl(pf, 0, self.pos)
             ParticleManager:SetParticleControlEnt(pf, 1, self.caster, PATTACH_CUSTOMORIGIN, "attach_hitloc", self.pos, false)
             ParticleManager:SetParticleControl(pf, 2, Vector(self.act[RandomInt(1, #self.act)], 0, 0))

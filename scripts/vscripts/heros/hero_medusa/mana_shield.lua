@@ -112,7 +112,7 @@ function modifier_mana_shield:GetModifierIncomingDamage_Percentage(tg)
     end
 	self.parent:SpendMana( manacost, self.ability )
     EmitSoundOn("Hero_Medusa.ManaShield.Proc", self:GetParent())
-	local pf = ParticleManager:CreateParticle( "particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+	local pf = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(pf, 1, Vector( damage, 0, 0 ))
 	ParticleManager:ReleaseParticleIndex(pf)
 	return absorb

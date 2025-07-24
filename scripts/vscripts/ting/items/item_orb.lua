@@ -112,7 +112,7 @@ function modifier_item_imba_orb_buff:OnCreated()
 	if IsServer() then
 	self:GetParent():Purge(false, true, false, false, false)
     local pos=self:GetParent():GetAbsOrigin()
-	local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
+	local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW ,self:GetParent())
     ParticleManager:SetParticleControl(fx, 0,pos)
     ParticleManager:SetParticleControlEnt(fx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(fx, 5,pos)
@@ -127,7 +127,7 @@ function modifier_item_imba_orb_buff:GetAbsorbSpell(keys)
 	if Is_Chinese_TG(keys.ability:GetCaster(), self:GetParent())then
 		return 0
 	end
-	local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+	local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 1, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 2, Vector(10,10,10))

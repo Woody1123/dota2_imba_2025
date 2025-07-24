@@ -165,7 +165,7 @@ function modifier_blade_dance_pa:OnAttackLanded(tg)
         bVisibleToEnemies = true,
         }
         ProjectileManager:CreateLinearProjectile( Projectile )]]
-    local p = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_crit_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, tg.target)
+    local p = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_crit_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, tg.target)
     ParticleManager:SetParticleControlEnt(p, 1, tg.target, PATTACH_ABSORIGIN_FOLLOW, nil, tg.target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(p)
 	self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_blade_dance_buff",{duration = self:GetAbility():GetSpecialValueFor("dur")})
@@ -253,9 +253,9 @@ function modifier_blade_dance_move:OnCreated(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle, false, false, 20, false, false )
-    local particle2 = ParticleManager:CreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/heros/jugg/jugg_jump.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle2, false, false, 20, false, false )
     self.DIR=ToVector(tg.dir)
     self.POS=self:GetParent():GetAbsOrigin()

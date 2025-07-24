@@ -62,7 +62,7 @@ function modifier_fort_ab:OnIntervalThink()
 
             if heros~=nil then
                 for _,target in pairs(heros) do
-                    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_WORLDORIGIN, target)
+                    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_WORLDORIGIN, target)
                     ParticleManager:SetParticleControl(particle, 0,target:GetAbsOrigin()+target:GetUpVector()*120)
                     ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin()+target:GetUpVector()*2000)
                     ParticleManager:SetParticleControl(particle, 2, target:GetAbsOrigin()+target:GetUpVector()*120)
@@ -81,7 +81,7 @@ function modifier_fort_ab:OnIntervalThink()
 
 
     if self:GetParent():GetHealthPercent()<=20  then
-        local particle = ParticleManager:CreateParticle("particles/econ/events/ti6/mekanism_ti6.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/econ/events/ti6/mekanism_ti6.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:ReleaseParticleIndex(particle)
         self:GetParent():Heal( self:GetParent():GetMaxHealth()*0.3, self:GetParent() )
         self:GetParent():RemoveAbility( "fort_ab" )

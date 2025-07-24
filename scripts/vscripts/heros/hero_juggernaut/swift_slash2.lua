@@ -40,7 +40,7 @@ function swift_slash2:OnSpellStart()
 	--[[
     Timers:CreateTimer(0, function()
         target:EmitSound("DOTA_Item.AbyssalBlade.Activate")
-        local fx2 = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_CUSTOMORIGIN,target)
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_CUSTOMORIGIN,target)
         ParticleManager:SetParticleControl(fx2, 0,Vector(tpos.x+RandomInt(-700,700),tpos.y+RandomInt(-700,700),tpos.z+1000))
         ParticleManager:SetParticleControl(fx2, 1,tpos)
         ParticleManager:ReleaseParticleIndex(fx2)

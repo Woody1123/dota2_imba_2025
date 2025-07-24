@@ -166,11 +166,11 @@ function modifier_fiends_grip_debuff:OnCreated()
       if IsServer() then
             EmitSoundOn( "Hero_Bane.FiendsGrip.Cast", self:GetCaster() )
             EmitSoundOn( "Hero_Bane.FiendsGrip", self:GetParent() )
-            local pfx = ParticleManager:CreateParticle("particles/econ/items/bane/bane_fall20_immortal/bane_fall20_immortal_grip.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+            local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bane/bane_fall20_immortal/bane_fall20_immortal_grip.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
             ParticleManager:SetParticleControl(pfx, 0,self:GetParent():GetAbsOrigin())
             ParticleManager:SetParticleControl(pfx, 1,self:GetParent():GetAbsOrigin())
             self:AddParticle( pfx, false, false, -1, false, false )
-            self.pfx1 = ParticleManager:CreateParticle("particles/tgp/claw_m.vpcf", PATTACH_CUSTOMORIGIN,nil)
+            self.pfx1 = ParticleManager:SafeCreateParticle("particles/tgp/claw_m.vpcf", PATTACH_CUSTOMORIGIN,nil)
             ParticleManager:SetParticleControl(self.pfx1, 0,self:GetParent():GetAbsOrigin())
             ParticleManager:SetParticleControl(self.pfx1, 1,Vector(self.dis,0,0))
             ParticleManager:SetParticleControl(self.pfx1, 2,Vector(self:GetRemainingTime(),0,0))
@@ -195,7 +195,7 @@ end
 
 function modifier_fiends_grip_debuff:OnRefresh( )
       if IsServer()  then
-            self.pfx1 = ParticleManager:CreateParticle("particles/tgp/claw_m.vpcf", PATTACH_CUSTOMORIGIN,nil)
+            self.pfx1 = ParticleManager:SafeCreateParticle("particles/tgp/claw_m.vpcf", PATTACH_CUSTOMORIGIN,nil)
             ParticleManager:SetParticleControl(self.pfx1, 0,self:GetParent():GetAbsOrigin())
             ParticleManager:SetParticleControl(self.pfx1, 1,Vector(self.dis,0,0))
             ParticleManager:SetParticleControl(self.pfx1, 2,Vector(self:GetRemainingTime(),0,0))

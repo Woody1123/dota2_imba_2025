@@ -44,7 +44,7 @@ function imba_broodmother_spider_strikes:SpecialEvent( caster, target )
 				caster:AddNewModifier(caster, self, "modifier_imba_spider_strikes_motion", {duration = self:GetSpecialValueFor("strike_duration"), target = target:entindex()})
 				return nil						
 			end)
-			local pfx = ParticleManager:CreateParticle("particles/heros/broodmother/shovel_revealed_spiders.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local pfx = ParticleManager:SafeCreateParticle("particles/heros/broodmother/shovel_revealed_spiders.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(pfx, 0, web:GetAbsOrigin())
 			ParticleManager:SetParticleControl(pfx, 1, web:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(pfx)									
@@ -162,7 +162,7 @@ function modifier_imba_spider_strikes_immune:OnCreated()
 	if self:GetAbility() == nil then return end
 	self.scale = self:GetAbility():GetSpecialValueFor("model_scale_scepter")*-1
 	if IsServer() then
-	   	self.pfx = ParticleManager:CreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	   	self.pfx = ParticleManager:SafeCreateParticle("particles/econ/items/lifestealer/lifestealer_immortal_backbone/lifestealer_immortal_backbone_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	    ParticleManager:SetParticleControlEnt(self.pfx, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	    ParticleManager:SetParticleControlEnt(self.pfx, 3, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	    self:AddParticle(self.pfx, false, false, -1, true, false)	
@@ -399,7 +399,7 @@ function imba_broodmother_spin_web:OnSpellStart()
 		self.webs[eldest] = web
 		web:AddNewModifier(caster, self, "modifier_imba_spin_web_caster_aura", {}):SetStackCount(eldest)
 	end
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_spin_web_cast.vpcf", PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_broodmother/broodmother_spin_web_cast.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 1, pos)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetSpecialValueFor("radius"), 0, 0))
@@ -612,7 +612,7 @@ function modifier_imba_spin_web_debuff:OnIntervalThink()
 	end
 end
 function modifier_imba_spin_web_debuff:PlayEffects( radius, hashero )
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/broodmother/bm_lycosidaes/bm_lycosidaes_web_cast.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/broodmother/bm_lycosidaes/bm_lycosidaes_web_cast.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
 	self:AddParticle(pfx, false, false, 15, false, false)
 end
@@ -734,8 +734,8 @@ function modifier_imba_incapacitating_bite_debuff:OnCreated()
 	self.miss_chance = self.ability:GetSpecialValueFor("miss_chance")
 	if IsServer() then
 		self.damage_type = self.ability:GetAbilityDamageType()
-		local pfx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-		local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_poison_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_broodmother/broodmother_poison_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		self:AddParticle(pfx1, false, false, 15, false, false)
 		self:AddParticle(pfx2, false, false, 15, false, false)
 		self:StartIntervalThink(1.0)
@@ -790,7 +790,7 @@ function modifier_imba_insatiable_hunger:OnCreated()
 	self.truesight_radius = self.ability:GetSpecialValueFor("truesight_radius") + self.caster:TG_GetTalentValue("special_bonus_imba_broodmother_6")
 	if IsServer() then
 		EmitSoundOn("Hero_Broodmother.InsatiableHunger", self.parent)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 		ParticleManager:SetParticleControlEnt(pfx, 0, self.parent, PATTACH_POINT_FOLLOW, (self.parent:IsHero() and "attach_thorax" or "attach_hitloc"), self.parent:GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -923,7 +923,7 @@ function modifier_imba_broodmother_silken_bola:OnCreated()
 	self.movement_speed = self:GetAbility():GetSpecialValueFor("movement_speed")
 	self.duration = self:GetAbility():GetSpecialValueFor("duration")
 	if IsServer() then
-	   	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_silken_bola_root.vpcf", PATTACH_ABSORIGIN, self.parent)
+	   	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_broodmother/broodmother_silken_bola_root.vpcf", PATTACH_ABSORIGIN, self.parent)
 	    ParticleManager:SetParticleControl(self.pfx, 0, self.parent:GetAbsOrigin())
 	    self:AddParticle(self.pfx, false, false, -1, true, false)	
 	end    

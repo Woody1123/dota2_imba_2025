@@ -28,7 +28,7 @@ function shapeshift:OnSpellStart()
     local pos = caster:GetAbsOrigin()
     local duration=self:GetSpecialValueFor("duration")
     EmitSoundOn("Hero_Lycan.Shapeshift.Cast", caster)
-    local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
+    local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
     ParticleManager:SetParticleControl(particle, 0,pos)
     ParticleManager:ReleaseParticleIndex(particle)
     caster:AddNewModifier(caster, self, "modifier_shapeshift_buff", {duration=duration})
@@ -105,7 +105,7 @@ function modifier_shapeshift_buff:OnDestroy()
     if not IsServer() then
         return
     end
-    local particle= ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
+    local particle= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.parent)
     ParticleManager:SetParticleControl(particle, 0,self.parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 3,self.parent:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle)
@@ -165,7 +165,7 @@ function modifier_shapeshift_buff:OnAttackLanded(tg)
         tg.target:AddNewModifier_RS(self.parent, self.ability, "modifier_shapeshift_debuff", {duration=10})
     end
     if RollPseudoRandomPercentage(self.chance,0,self.parent) then
-        local p = ParticleManager:CreateParticle("particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_ti8_sword_crit_overtheshoulder.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+        local p = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_ti8_sword_crit_overtheshoulder.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControl(p, 0,self.parent:GetAbsOrigin())
         ParticleManager:SetParticleControlForward(p, 1,self.parent:GetForwardVector())
         ParticleManager:ReleaseParticleIndex(p)
@@ -202,7 +202,7 @@ function modifier_shapeshift_debuff:OnCreated()
     self.ability=self:GetAbility()
     self.caster=self:GetCaster()
     if IsServer() then
-        local p = ParticleManager:CreateParticleForPlayer("particles/econ/items/pudge/pudge_arcana/default/pudge_arcana_dismember_ground_default.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent,PlayerResource:GetPlayer(self.caster:GetPlayerOwnerID()))
+        local p = ParticleManager:SafeCreateParticleForPlayer("particles/econ/items/pudge/pudge_arcana/default/pudge_arcana_dismember_ground_default.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent,PlayerResource:GetPlayer(self.caster:GetPlayerOwnerID()))
         ParticleManager:SetParticleControl(p, 0,self.parent:GetAbsOrigin())
         self:AddParticle(p, false, false, -1, false, false)
     end

@@ -61,7 +61,7 @@ function imba_earthshaker_fissure:OnSpellStart()
 	local direc = (pos_end - pos_start):Normalized()
 	direc.z = 0
 	local sound = CreateModifierThinker(caster, self, "modifier_imba_earthshaker_fissure_thinker", {duration = 10.0}, pos_end, caster:GetTeamNumber(), false)
-	local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, pos_start)
 	ParticleManager:SetParticleControl(pfx, 1, pos_end)
 	ParticleManager:SetParticleControl(pfx, 2, Vector(fissure_duration, 0, 0))
@@ -258,7 +258,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 				
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -287,7 +287,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 				
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -316,7 +316,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 				
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -345,7 +345,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 				
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -374,7 +374,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 				
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -403,7 +403,7 @@ function modifier_imba_earthshaker_aftershock:Aftershockspecial()  --地质生�
 				local sound = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 2.0}, pos_end, caster:GetTeamNumber(), false)
 				sound:EmitSound(sound_name)
 			
-					local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+					local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 					ParticleManager:SetParticleControl(pfx, 0, pos_start)
 					ParticleManager:SetParticleControl(pfx, 1, pos_end)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(self:GetAbility():GetSpecialValueFor("fissure_duration"), 0, 0))
@@ -442,7 +442,7 @@ end
 
 function modifier_imba_earthshaker_aftershock:PlayEffects()
 	local particle_cast = "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_aftershock_v2.vpcf"
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( self.radius, self.radius, self.radius ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
@@ -515,7 +515,7 @@ function imba_earthshaker_stars_aura:Thestars(vpos, vbool)
 		if bool then
 			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_imba_earthshaker_stars_aura_caster", {})
 		end	
-		local pfx_fly = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx_fly = ParticleManager:SafeCreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx_fly, 0, caster:GetAbsOrigin() + Vector(0,0,1500))
 		ParticleManager:SetParticleControl(pfx_fly, 1, pos)
 		ParticleManager:SetParticleControl(pfx_fly, 2, Vector(self.delay,0,0))
@@ -705,7 +705,7 @@ function imba_earthshaker_echo_slam:OnSpellStart()
 			ability 		= self
 		}
 		if enemy:IS_TrueHero_TG() then
-			local pfx_screen = ParticleManager:CreateParticleForPlayer("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_aftershock_screen.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy, PlayerResource:GetPlayer(enemy:GetPlayerID()))
+			local pfx_screen = ParticleManager:SafeCreateParticleForPlayer("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_aftershock_screen.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy, PlayerResource:GetPlayer(enemy:GetPlayerID()))
 			ParticleManager:ReleaseParticleIndex(pfx_screen)
 		end
 		if ability:IsTrained() and not ability2:IsTrained() then
@@ -794,7 +794,7 @@ function imba_earthshaker_echo_slam:OnSpellStart()
 			end
 		end
 	end
-	local echo_slam_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+	local echo_slam_particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
 	if ability:IsTrained() and not ability2:IsTrained() then
 		ParticleManager:SetParticleControl(echo_slam_particle, 0, self:GetCaster():GetAbsOrigin()) 
 		ParticleManager:SetParticleControl(echo_slam_particle, 1, Vector(echo_slam_range, echo_slam_range, echo_slam_range )) 
@@ -1062,7 +1062,7 @@ function modifier_imba_earthshaker_enchant_totem_buff:OnCreated( kv )
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self.particle_cast = "particles/units/heroes/hero_earthshaker/earthshaker_totem_buff.vpcf"
-		self.effect_cast = ParticleManager:CreateParticle( self.particle_cast, PATTACH_POINT_FOLLOW, self:GetParent() )
+		self.effect_cast = ParticleManager:SafeCreateParticle( self.particle_cast, PATTACH_POINT_FOLLOW, self:GetParent() )
 
 		local attach = "attach_attack1"
 		if self:GetCaster():ScriptLookupAttachment( "attach_totem" )~=0 then attach = "attach_totem" end

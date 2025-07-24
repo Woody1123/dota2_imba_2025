@@ -83,7 +83,7 @@ function penitence:OnProjectileHit(target, location)
     if target==nil then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chen/chen_penitence.vpcf", PATTACH_POINT_FOLLOW, target)
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chen/chen_penitence.vpcf", PATTACH_POINT_FOLLOW, target)
     ParticleManager:SetParticleControl(particle, 0,target:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle)
     if not target:IsMagicImmune()  then

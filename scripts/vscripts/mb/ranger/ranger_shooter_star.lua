@@ -67,7 +67,7 @@ function ranger_shooter_star:OnSpellStart()
 	--Sound
 	caster:EmitSound("Hero_Medusa.Taunt.TI10")
 	--Effect
-	local particle = ParticleManager:CreateParticle("particles/econ/items/mars/mars_ti10_taunt/mars_ti10_taunt.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particle = ParticleManager:SafeCreateParticle("particles/econ/items/mars/mars_ti10_taunt/mars_ti10_taunt.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	--被动控制射手	
 	caster:AddNewModifier(caster, self, "modifier_ranger_shooter_star_controller", { duration = duration})

@@ -152,7 +152,7 @@ function modifier_imba_swing:OnCreated(keys)
 	if CalculateDistance(self.pos, self.caster:GetAbsOrigin()) > self.distance then
 		self.pos = self.caster:GetAbsOrigin() + GetDirection2D(self.pos, self.caster:GetAbsOrigin()) * self.distance
 	end
-	local swap_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local swap_pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(swap_pfx, 0, self.parent, PATTACH_POINT, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(swap_pfx, 1, nil, PATTACH_POINT, "attach_hitloc", self.pos, true)	
 	
@@ -208,7 +208,7 @@ function modifier_imba_swing:OnRemoved()
 		self.popup = nil
 		self.pfx_bool = true
 		self.int = false
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_powershot_channel_v2_endcap_model.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/windrunner/windranger_arcana/windranger_arcana_powershot_channel_v2_endcap_model.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(self.parent:GetAbsOrigin(), self.parent)) 
 		ParticleManager:SetParticleControl(pfx, 1, GetGroundPosition(self.pos, self.parent))
 		ParticleManager:SetParticleControlOrientation(pfx, 1, self.fv, self.rv, self.uv)
@@ -273,7 +273,7 @@ function imba_marci_grapple:OnSpellStart()
 		{
 			duration = air_duration+0.2,
 		})
-	local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_marci/marci_grapple.vpcf", PATTACH_POINT_FOLLOW, caster )
+	local pfx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_marci/marci_grapple.vpcf", PATTACH_POINT_FOLLOW, caster )
 	ParticleManager:SetParticleControlEnt(pfx,1,caster,PATTACH_POINT_FOLLOW,"attach_attack1",Vector(0,0,0),true)
 	ParticleManager:SetParticleControlEnt(pfx,2,caster,PATTACH_POINT_FOLLOW,"attach_attack2",Vector(0,0,0),true)
 	ParticleManager:ReleaseParticleIndex( pfx )
@@ -452,7 +452,7 @@ function modifier_imba_grapple_damage:OnCreated(keys)
 		return
 	end
 	local pfx_name = "particles/units/heroes/hero_marci/marci_dispose_debuff.vpcf"
-	local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_POINT_FOLLOW, self.caster )
+	local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_POINT_FOLLOW, self.caster )
 	ParticleManager:SetParticleControlEnt(pfx,0,self.parent,PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0),true )
 	ParticleManager:SetParticleControlEnt(pfx,1,self.parent,PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0),true )
 	ParticleManager:SetParticleControl(pfx, 5, Vector( self:GetDuration(), 0, 0 ) )
@@ -492,7 +492,7 @@ function modifier_imba_grapple_self:OnCreated(keys)
 end
 function modifier_imba_grapple_self:OnRemoved()
     if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_dispose_land_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_dispose_land_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(self.parent:GetAbsOrigin(), self.parent)) 
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self.impact_radius,0,0))
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -525,7 +525,7 @@ function modifier_imba_grapple_self:OnRemoved()
 		GridNav:DestroyTreesAroundPoint( self.parent:GetOrigin(), 300, true )
 		EmitSoundOnLocationWithCaster( self.parent:GetOrigin(), "Hero_Marci.Grapple.Stun", self.caster)
 		EmitSoundOnLocationWithCaster( self.parent:GetOrigin(), "Hero_Marci.Grapple.Impact.Ally", self.caster)
-		local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_dispose_aoe_damage.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_dispose_aoe_damage.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx2, 0, GetGroundPosition(self.parent:GetAbsOrigin(), self.parent)) 
 		ParticleManager:ReleaseParticleIndex(pfx2)
     end
@@ -698,7 +698,7 @@ function modifier_imba_grapple_passive:OnAbilityFullyCast(keys)
 		self.ability:UseResources(true, false, true, true)
 		print(keys.unit:TG_GetTalentValue("special_bonus_imba_marci_3"))
 		local pfx_name = "particles/units/heroes/hero_marci/marci_unleash_cast.vpcf"
-		local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent )
+		local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 		ParticleManager:ReleaseParticleIndex( pfx )
 		EmitSoundOn( "Hero_Marci.Unleash.Charged", self.parent )
 		--EmitSoundOn( "Hero_Marci.Unleash.Charged.2D", self.parent )
@@ -759,7 +759,7 @@ function modifier_imba_grapple_buff1:OnCreated(keys)
 	if not IsServer() then return end
 	if not self.effect_cast then
 		local particle_cast = "particles/units/heroes/hero_marci/marci_unleash_buff.vpcf"
-		self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_POINT_FOLLOW, self.parent )
+		self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_POINT_FOLLOW, self.parent )
 		ParticleManager:SetParticleControlEnt(self.effect_cast,1,self.parent,PATTACH_POINT_FOLLOW,"eye_l",Vector(0,0,0), true )
 		ParticleManager:SetParticleControlEnt(self.effect_cast,2,self.parent,PATTACH_POINT_FOLLOW,"eye_r",Vector(0,0,0), true )
 		ParticleManager:SetParticleControlEnt(self.effect_cast,3,self.parent,PATTACH_POINT_FOLLOW,"attach_attack1",Vector(0,0,0),true )
@@ -773,7 +773,7 @@ function modifier_imba_grapple_buff1:OnCreated(keys)
 	end
 	if not self.pfx then
 		local pfx_name = "particles/units/heroes/hero_marci/marci_unleash_stack.vpcf"
-		self.pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_OVERHEAD_FOLLOW, self.parent )
+		self.pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_OVERHEAD_FOLLOW, self.parent )
 		ParticleManager:SetParticleControl( self.pfx, 1, Vector( 0, self:GetStackCount(), 0 ) )
 		self:AddParticle(self.pfx,false, false, -1, false, false )
 	end
@@ -795,12 +795,12 @@ function modifier_imba_grapple_buff1:OnAttack( keys )
 	self:StartIntervalThink(self.int)
 	self:DecrementStackCount()
 	local pfx_name = "particles/units/heroes/hero_marci/marci_unleash_attack.vpcf"
-	local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent )
+	local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 	ParticleManager:SetParticleControlEnt(pfx,1,keys.target,PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0), true )
 	ParticleManager:ReleaseParticleIndex( pfx )	
 	if self:GetStackCount() <= 0 then
 		local pfx_name = "particles/units/heroes/hero_marci/marci_unleash_pulse.vpcf"
-		local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_WORLDORIGIN, nil )
+		local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_WORLDORIGIN, nil )
 		ParticleManager:SetParticleControl( pfx, 0, keys.target:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( pfx, 1, Vector(self.radius,self.radius,self.radius) )
 		ParticleManager:ReleaseParticleIndex( pfx )
@@ -900,7 +900,7 @@ function modifier_imba_grapple_buff3:OnCreated(keys)
 	self.hero_lifesteal = 20
 	if not IsServer() then return end
 	local pfx_name = "particles/units/heroes/hero_marci/marci_sidekick_self_buff.vpcf"
-	local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_OVERHEAD_FOLLOW, self.parent )
+	local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_OVERHEAD_FOLLOW, self.parent )
 	ParticleManager:SetParticleControl( pfx, 0, self.parent:GetAbsOrigin())
 	ParticleManager:SetParticleControl( pfx, 1, self.parent:GetAbsOrigin())
 	self:AddParticle(pfx,false, false, -1, false, false )
@@ -915,7 +915,7 @@ function modifier_imba_grapple_buff3:OnTakeDamage(keys)
 			lifesteal = lifesteal / 5
 		end
 		self:GetParent():Heal(lifesteal, self.ability)
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControl( pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end

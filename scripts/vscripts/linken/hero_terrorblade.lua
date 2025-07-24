@@ -53,14 +53,14 @@ function imba_terrorblade_demonic_power:OnSpellStart()
 	--恐怖心潮特效
 	local terror_wave_pfx = "particles/units/heroes/hero_terrorblade/terrorblade_scepter.vpcf"
 	--大圣特效 真tm契合
-	local pfx2 = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", PATTACH_ABSORIGIN, caster)
+	local pfx2 = ParticleManager:SafeCreateParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx2, 0, pos)
 	ParticleManager:SetParticleControl(pfx2, 1, Vector(self.terror_wave_radius, self.terror_wave_radius, self.terror_wave_radius))
 	ParticleManager:SetParticleControl(pfx2, 2, Vector(self.terror_wave_radius, self.terror_wave_radius, self.terror_wave_radius))
 	ParticleManager:ReleaseParticleIndex(pfx2)
 
 	caster:EmitSound(terror_wave_sound)
-	local pfx = ParticleManager:CreateParticle(terror_wave_pfx, PATTACH_ABSORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle(terror_wave_pfx, PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, pos)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	local enemy = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self.terror_wave_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_DAMAGE_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -116,7 +116,7 @@ end
 function modifier_terrorblade_demonic_power_truekill:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		self.pfx = ParticleManager:CreateParticleForPlayer("particles/heros/terrorblade/terrorblade_demonic_power_truekill.vpcf", PATTACH_EYES_FOLLOW, self:GetParent(), PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()))
+		self.pfx = ParticleManager:SafeCreateParticleForPlayer("particles/heros/terrorblade/terrorblade_demonic_power_truekill.vpcf", PATTACH_EYES_FOLLOW, self:GetParent(), PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()))
 		self:AddParticle(self.pfx, false, false, 15, false, false)
 		PlayerResource:SetCameraTarget(self:GetParent():GetPlayerOwnerID(), self:GetParent())
 	end
@@ -129,7 +129,7 @@ function modifier_terrorblade_demonic_power_truekill:OnDestroy()
 			ParticleManager:ReleaseParticleIndex( self.pfx )	
 		end
 		PlayerResource:SetCameraTarget(self:GetParent():GetPlayerID(), nil)
-		local pfx_screen = ParticleManager:CreateParticleForPlayer("particles/heros/terrorblade/terrorblade_demonic_power_truekill_tga.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), PlayerResource:GetPlayer(self:GetParent():GetPlayerID()))
+		local pfx_screen = ParticleManager:SafeCreateParticleForPlayer("particles/heros/terrorblade/terrorblade_demonic_power_truekill_tga.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), PlayerResource:GetPlayer(self:GetParent():GetPlayerID()))
 		ParticleManager:ReleaseParticleIndex( pfx_screen )
 		--if pfx_screen then
 		--	ParticleManager:DestroyParticle( pfx_screen, false )
@@ -257,7 +257,7 @@ function modifier_imba_reflection_illusion:OnIntervalThink()
 	end	
 	self:GetParent():PerformAttack(self:GetParent(), false, true, true, true, false, false, true)
 	--混沌特效
-	local pfx = ParticleManager:CreateParticle("particles/heros/chaos_knight/chaos_knight_phantasm_attack.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/heros/chaos_knight/chaos_knight_phantasm_attack.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)	
@@ -270,7 +270,7 @@ function modifier_imba_reflection_illusion:OnTakeDamage(keys)
 	if keys.attacker == self:GetParent() and keys.attacker == keys.unit and (keys.unit:IsHero() or keys.unit:IsCreep() or keys.unit:IsBoss()) and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
 		local lifesteal = keys.damage * self.life * 0.01
 		self:GetCaster():Heal(lifesteal, self:GetAbility())
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)		
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -297,7 +297,7 @@ function modifier_imba_reflection_slow:OnCreated(keys)
 		if self:GetCaster():FindAbilityByName("imba_terrorblade_reflection"):GetAutoCastState() then
 			self:SetDuration(self.duration / self:GetParent():GetAttacksPerSecond(), true)
 		end			
-		local pfx = ParticleManager:CreateParticle("particles/status_fx/status_effect_terrorblade_reflection.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/status_fx/status_effect_terrorblade_reflection.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -566,7 +566,7 @@ function imba_terrorblade_sunder:OnSpellStart()
 end
 --随机魂断颜色
 function ParticleManagercome(caster, target)
-	local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControlEnt(pfx2, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx2, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(pfx2, 15, Vector(math.random(1,255), math.random(1,255), math.random(1,255)))
@@ -576,7 +576,7 @@ function ParticleManagercome(caster, target)
 	ParticleManager:ReleaseParticleIndex(pfx2)
 end
 function ParticleManagergo(caster, target)
-	local pfx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local pfx1 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(pfx1, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx1, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(pfx1, 15, Vector(math.random(1,255), math.random(1,255), math.random(1,255)))

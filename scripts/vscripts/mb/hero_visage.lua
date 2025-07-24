@@ -112,7 +112,7 @@ function modifier_imba_gravekeepers_cloak_aura:DamageHealUnits(hUnit, fDamage)
 			if v ~= hUnit and v ~= self:GetCaster() then 
 				if string.find(v:GetClassname(),"npc_dota_visage_familiar") or v:IsControllableByAnyPlayer() then	
 					v:Heal(fDamage, self:GetAbility())
-					local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_cast_tgt.vpcf", PATTACH_CUSTOMORIGIN, v)
+					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_cast_tgt.vpcf", PATTACH_CUSTOMORIGIN, v)
 					ParticleManager:SetParticleControlEnt(pfx, 2, v, PATTACH_ABSORIGIN_FOLLOW, nil, v:GetAbsOrigin(), true)
 					ParticleManager:ReleaseParticleIndex(pfx)
 				end
@@ -152,7 +152,7 @@ function modifier_imba_gravekeepers_cloak:OnCreated()
 		if buff then
 			buff.units[parent:entindex()] = parent
 		end
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_cloak_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_cloak_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	end
 end
 
@@ -273,7 +273,7 @@ function imba_visage_grave_chill:OnSpellStart()
 	local target = self:GetCursorTarget()
     self:GetCaster():EmitSound("Hero_Visage.GraveChill.Cast")
 	target:EmitSound("Hero_Visage.GraveChill.Target")
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_cast_beams.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_cast_beams.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -301,7 +301,7 @@ end
 function modifier_imba_visage_grave_chill_debuff:OnCreated()	
 	if self:GetAbility() == nil then return end
 	if not IsServer() then return end	
-	local pfx3 = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	local pfx3 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(pfx3, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 	self:AddParticle(pfx3, false, false, -1, false, false)
 end
@@ -395,7 +395,7 @@ end
 
 function modifier_imba_visage_grave_chill_aura_buff:OnCreated()
 	if self:GetAbility() == nil then return end
-	local pfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	local pfx2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_grave_chill_caster.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControlEnt(pfx2, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
 	
 	if self:GetParent():GetName() == "npc_dota_hero_visage" then
@@ -468,7 +468,7 @@ function imba_visage_soul_assumption:OnUpgrade()
 	if not IsServer() then return end
 	
 	if self:GetLevel() >= 1 and self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()) and not self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()).pfx then
-		self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()).pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+		self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()).pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
 		self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()):AddParticle(self:GetCaster():FindModifierByNameAndCaster(self:GetIntrinsicModifierName(), self:GetCaster()).pfx, false, false, -1, false, false)
 	end
 end
@@ -584,7 +584,7 @@ function imba_visage_soul_assumption:OnProjectileHit_ExtraData(target, pos, keys
 	--击中特效
 	--local pfx_name = "particles/units/heroes/hero_visage/visage_soul_assumption_beam_hit.vpcf"
 	--------------------------------------------------------------------------------------------------
-	--local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement(pfx_name, caster), PATTACH_CUSTOMORIGIN, target)
+	--local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement(pfx_name, caster), PATTACH_CUSTOMORIGIN, target)
 	--ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	--ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, target:GetAbsOrigin(), true)
 	--ParticleManager:ReleaseParticleIndex(pfx)
@@ -643,7 +643,7 @@ function modifier_imba_visage_soul_assumption_charge:OnCreated()
 	
 	if self:GetAbility() and self:GetAbility():GetLevel() >= 1 and not self.pfx then
 		--空的能量条
-		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_visage/visage_soul_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 		self:AddParticle(self.pfx, false, false, -1, false, false)
 	end
 end
@@ -1130,7 +1130,7 @@ function modifier_imba_visage_soul_attack_debuff:OnCreated(keys)
 		--击中特效
 		--local pfx_name = "particles/items_fx/ethereal_blade.vpcf"
 		----------------------------------------------------------------------------------------------
-		--local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement(pfx_name, self:GetParent()), PATTACH_CUSTOMORIGIN, self:GetParent())
+		--local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement(pfx_name, self:GetParent()), PATTACH_CUSTOMORIGIN, self:GetParent())
 		--ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		--ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		--ParticleManager:ReleaseParticleIndex(pfx)
@@ -1224,7 +1224,7 @@ end
 
 function modifier_imba_visage_stone_form_self_cast:OnIntervalThink()
 	if not IsServer() then return end
-	self.stone_pfx = ParticleManager:CreateParticleForTeam(self.stone_pfx_name, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
+	self.stone_pfx = ParticleManager:SafeCreateParticleForTeam(self.stone_pfx_name, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber())
 	ParticleManager:SetParticleControl(self.stone_pfx, 1, Vector(0, math.ceil(self:GetRemainingTime()), 0))
 	ParticleManager:SetParticleControl(self.stone_pfx, 2, Vector(1, 0, 0))
 	ParticleManager:ReleaseParticleIndex(self.stone_pfx)

@@ -102,16 +102,16 @@ function modifier_coup_de_grace_pa:OnAttackLanded(tg)
 		return
     end
     if self.crit[tg.record] then
-		local fx = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
+		local fx = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
 		ParticleManager:SetParticleControlEnt(fx, 0, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(fx, 1, tg.target:GetAbsOrigin())
 		ParticleManager:SetParticleControlOrientation(fx, 1, -self:GetParent():GetForwardVector(), self:GetParent():GetRightVector(), self:GetParent():GetUpVector())
 		ParticleManager:ReleaseParticleIndex(fx)
     end
     if tg.target:IS_TrueHero_TG() and RollPseudoRandomPercentage(self.crit_kill,0,self:GetParent()) and not tg.target:HasModifier("modifier_droiyan_cbuff")  then
-        local fx2 = ParticleManager:CreateParticle("particles/econ/events/killbanners/screen_killbanner_compendium14_firstblood.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/events/killbanners/screen_killbanner_compendium14_firstblood.vpcf", PATTACH_ABSORIGIN, self:GetParent())
         ParticleManager:ReleaseParticleIndex(fx2)
-        local fx4 = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
+        local fx4 = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_swoop.vpcf", PATTACH_ABSORIGIN, tg.target)
         ParticleManager:SetParticleControlEnt(fx4, 0, tg.target, PATTACH_POINT_FOLLOW, "attach_hitloc", tg.target:GetAbsOrigin(), true)
         ParticleManager:SetParticleControl(fx4, 1, tg.target:GetAbsOrigin())
         ParticleManager:SetParticleControlOrientation(fx4, 1, -self:GetParent():GetForwardVector(), self:GetParent():GetRightVector(), self:GetParent():GetUpVector())

@@ -212,7 +212,7 @@ end
 
 function modifier_imba_uproar_buff_1:OnCreated(key)
     local cast_particle = "particles/units/heroes/hero_primal_beast/primal_beast_uproar_magic_resist.vpcf"
-    self.cast_effect = ParticleManager:CreateParticle(cast_particle, PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+    self.cast_effect = ParticleManager:SafeCreateParticle(cast_particle, PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
     ParticleManager:SetParticleControlEnt(self.cast_effect,2,self:GetParent(),PATTACH_OVERHEAD_FOLLOW,"absorigin",Vector(0,0,300), true )
     self:AddParticle(self.cast_effect,false, false, -1, false, false )
     if key.stack_count then

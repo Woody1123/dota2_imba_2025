@@ -85,7 +85,7 @@ function modifier_surge_buff:OnCreated()
                 end
             end
         end
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
        self:AddParticle(particle, false, false, -1, false, false)
    end
 end

@@ -194,7 +194,7 @@ function modifier_mischief_buff:OnCreated(tg)
     else
           self.MODEL=caster.mischief[RandomInt(1,#caster.mischief)]
     end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
 end
 
@@ -203,7 +203,7 @@ function modifier_mischief_buff:OnDestroy(tg)
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_disguise.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
     local caster=self:GetCaster()
     if caster:HasModifier("modifier_wukongs_command_buff3") then

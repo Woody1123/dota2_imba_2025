@@ -28,12 +28,12 @@ function phantom_strike:OnSpellStart()
     local num=0
     caster:EmitSound("Hero_PhantomAssassin.Strike.Start")
 
-    local p1 = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf", PATTACH_WORLDORIGIN, nil)
+    local p1 = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_start.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(p1, 0, caster_pos)
 	ParticleManager:ReleaseParticleIndex(p1)
     FindClearSpaceForUnit(caster, target_pos, true)
     caster:AddNewModifier(caster, self, "modifier_phantom_strike_buff", {duration = self:GetSpecialValueFor("duration")})
-    local p2 = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf", PATTACH_WORLDORIGIN, caster)
+    local p2 = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_phantom_strike_end.vpcf", PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(p2, 0, caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(p2)
     if caster:HasScepter() then

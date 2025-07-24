@@ -142,7 +142,7 @@ function imba_riki_poison_dart:PlayEffects1()
 	local particle_cast = "particles/units/heroes/hero_riki/riki_shard_sleeping_dart_cast.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 60, Vector( 0, 255, 0) )
 	ParticleManager:SetParticleControl( effect_cast, 61, Vector( 1, 0, 0 ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -272,7 +272,7 @@ function modifier_imba_riki_poison_dart_debuff:PlayEffects1()
 	local sound_cast = "Hero_Riki.SleepDart.Damage"
 	EmitSoundOn( sound_cast, self:GetParent() )
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	self:AddParticle(effect_cast, false, false, 15, false, false)
 	--ParticleManager:ReleaseParticleIndex( effect_cast )
 end

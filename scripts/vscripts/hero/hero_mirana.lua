@@ -1,7 +1,7 @@
 CreateTalents("npc_dota_hero_mirana", "hero/hero_mirana")
 
 local function StarFallAttack(ability, caster, target, damage)
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:ReleaseParticleIndex(pfx)
 	Timers:CreateTimer(0.57, function()
 		local damage = damage+(caster:GetStrength()+caster:GetIntellect(false)+caster:GetAgility())*0.75
@@ -33,7 +33,7 @@ function imba_mirana_starfall:GetAssociatedSecondaryAbilities() return "imba_mir
 
 function imba_mirana_starfall:OnSpellStart()
 	local caster = self:GetCaster()
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_mirana/mirana_starfall_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_mirana/mirana_starfall_circle.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(pfx)
 	AddFOWViewer(caster:GetTeam(), caster:GetAbsOrigin(), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("vision_duration"), true)
@@ -465,7 +465,7 @@ function modifier_imba_moonlight_shadow_fade:GetEffectAttachType() return PATTAC
 function modifier_imba_moonlight_shadow_fade:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_mirana/mirana_moonlight_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_mirana/mirana_moonlight_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
 end

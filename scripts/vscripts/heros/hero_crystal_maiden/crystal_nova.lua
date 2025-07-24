@@ -50,7 +50,7 @@ function crystal_nova:OnSpellStart()
      }
     EmitSoundOn("Hero_Ancient_Apparition.IceVortexCast", self.caster)
     AddFOWViewer( team, curpos, radius, vision_duration, false )
-    local particle = ParticleManager:CreateParticle("particles/tgp/maiden_crystal/nova_m.vpcf", PATTACH_WORLDORIGIN, nil)
+    local particle = ParticleManager:SafeCreateParticle("particles/tgp/maiden_crystal/nova_m.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl( particle, 0, curpos)
     ParticleManager:SetParticleControl( particle, 1, Vector(radius,dur,radius))
     ParticleManager:SetParticleControl( particle, 2, curpos)
@@ -78,7 +78,7 @@ function crystal_nova:OnSpellStart()
                                         target:AddNewModifier_RS(self.caster, self, "modifier_crystal_nova_debuff1", {duration=stun})
                                 end
                                 if  self.caster:TG_HasTalent("special_bonus_crystal_maiden_1") then
-                                    local fx = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                                    local fx = ParticleManager:SafeCreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", PATTACH_CUSTOMORIGIN, nil)
                                     ParticleManager:SetParticleControl(fx, 0, damageTable.victim:GetAbsOrigin())
                                     ParticleManager:ReleaseParticleIndex(fx)
                                     damageTable.victim = enemies[RandomInt(1,#enemies)]
@@ -92,7 +92,7 @@ function crystal_nova:OnSpellStart()
                     self.caster:GiveMana(ma)
                     SendOverheadEventMessage(self.caster, OVERHEAD_ALERT_MANA_ADD, self.caster,ma, nil)
                    if  not self.caster:TG_HasTalent("special_bonus_crystal_maiden_1") then
-                        local fx = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                        local fx = ParticleManager:SafeCreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", PATTACH_CUSTOMORIGIN, nil)
                         ParticleManager:SetParticleControl(fx, 0, damageTable.victim:GetAbsOrigin())
                         ParticleManager:ReleaseParticleIndex(fx)
                         damageTable.victim = enemies[RandomInt(1,#enemies)]

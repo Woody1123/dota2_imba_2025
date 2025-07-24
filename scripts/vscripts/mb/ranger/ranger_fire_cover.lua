@@ -46,7 +46,7 @@ function ranger_fire_cover:PlayEffects( point )
 	local height = 2000
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt(
 		effect_cast,
 		0,
@@ -138,7 +138,7 @@ function modifier_ranger_fire_cover_thinker:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
 
 	-- Create Particle
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
+	self.effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( self.effect_cast, 0, self:GetParent():GetOrigin() )
 	ParticleManager:SetParticleControl( self.effect_cast, 1, Vector( self.radius, 1, 1 ) )
 	ParticleManager:SetParticleControlForward( self.effect_cast, 2, self.direction + Vector(0, 0, 0.1) )
@@ -224,7 +224,7 @@ function modifier_ranger_fire_cover_buff:IsHidden()	return false end
 -- Initializations
 function modifier_ranger_fire_cover_buff:OnCreated()
 	self.ms_slow = self:GetAbility():GetSpecialValueFor( "slow_movement_speed" ) -- special value
-	local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+	local particle = ParticleManager:SafeCreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 	ParticleManager:ReleaseParticleIndex(particle)
 end
 

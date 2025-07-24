@@ -63,7 +63,7 @@ function modifier_imba_balde_mail_2_active:GetTexture() return "imba_blade_mail_
 function modifier_imba_balde_mail_2_active:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsClient() then
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/wraith_king/wraith_king_ti6_bracer/wraith_king_ti6_hellfireblast_debuff_fire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/wraith_king/wraith_king_ti6_bracer/wraith_king_ti6_hellfireblast_debuff_fire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
 end

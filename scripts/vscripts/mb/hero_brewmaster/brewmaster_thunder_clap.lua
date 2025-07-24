@@ -93,7 +93,7 @@ function modifier_imba_brewmaster_thunder_clap_motion:OnDestroy()
 		self:GetParent():InterruptMotionControllers(true)
 		
 		--落地特效
-		local smash = ParticleManager:CreateParticle(self.smash_particle, PATTACH_WORLDORIGIN, nil)
+		local smash = ParticleManager:SafeCreateParticle(self.smash_particle, PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(smash, 0, self:GetCaster():GetAbsOrigin())
 
 		--猛击音效

@@ -124,7 +124,7 @@ end
 
 function modifier_vampiric_aura_buff:OnDestroy()
     if IsServer() then
-            local particle = ParticleManager:CreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
+            local particle = ParticleManager:SafeCreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
             ParticleManager:ReleaseParticleIndex(particle)
             self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_vampiric_aura_buff2", {duration=4})
     end
@@ -162,7 +162,7 @@ function modifier_vampiric_aura_buff2:OnCreated()
 	if self:GetAbility() == nil then return end
     if IsServer() then
         self:GetParent():EmitSound("TG.king")
-        local particle = ParticleManager:CreateParticle( "particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_reincarn_style2.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle( "particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_reincarn_style2.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
         ParticleManager:SetParticleControl(particle,0,self:GetParent():GetAbsOrigin())
         ParticleManager:SetParticleControl(particle,1,Vector(4,0,0))
         ParticleManager:SetParticleControl(particle,11,self:GetParent():GetAbsOrigin())
@@ -265,20 +265,20 @@ function modifier_vampiric_aura_buff3:OnCreated()
     end
     local caster_pos=self:GetCaster():GetAbsOrigin()
 
-    local particle = ParticleManager:CreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle( "particles/heros/axe/shake.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
 
-    local weapon = ParticleManager:CreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.w)
+    local weapon = ParticleManager:SafeCreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.w)
     ParticleManager:SetParticleControl(weapon, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(weapon, 5, Vector(0,0,0))
     ParticleManager:SetParticleControl(weapon, 1, Vector(0,0,0))
     ParticleManager:SetParticleControl(weapon, 2, Vector(0,0,0))
     self:AddParticle(weapon, false, true, 15, true, false)
 
-    local head = ParticleManager:CreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_ambient_head.vpcf", PATTACH_OVERHEAD_FOLLOW , self:GetParent())
+    local head = ParticleManager:SafeCreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_ambient_head.vpcf", PATTACH_OVERHEAD_FOLLOW , self:GetParent())
     self:AddParticle(head, false, true, 15, true, false)
 
-    local body = ParticleManager:CreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_victory_stub.vpcf", PATTACH_ABSORIGIN_FOLLOW , self:GetParent())
+    local body = ParticleManager:SafeCreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_victory_stub.vpcf", PATTACH_ABSORIGIN_FOLLOW , self:GetParent())
     self:AddParticle(body, false, true, 15, true, false)
 
 end
@@ -287,7 +287,7 @@ function modifier_vampiric_aura_buff3:OnDestroy()
     if not IsServer() then
         return
     end
-    local body = ParticleManager:CreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_victory_stub.vpcf", PATTACH_ABSORIGIN_FOLLOW , self:GetParent())
+    local body = ParticleManager:SafeCreateParticle("particles/econ/items/wraith_king/wraith_king_arcana/wk_arc_victory_stub.vpcf", PATTACH_ABSORIGIN_FOLLOW , self:GetParent())
     self:AddParticle(body, false, true, 15, true, false)
     local model=self:GetCaster().KINGMOD
     if model~=nil  and #model>0  then

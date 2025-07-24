@@ -21,7 +21,7 @@ function bait:OnSpellStart()
 	local direction = (self.pos - self.caster:GetAbsOrigin()):Normalized()
 	direction.z = 0
 		local pfxname ="particles/units/heroes/hero_sniper/sniper_shard_concussive_grenade_model.vpcf"
-		local flamebreak_particle = ParticleManager:CreateParticle(pfxname, PATTACH_WORLDORIGIN, nil)
+		local flamebreak_particle = ParticleManager:SafeCreateParticle(pfxname, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(flamebreak_particle, 0, self:GetCaster():GetAbsOrigin() + Vector(0, -50, 128))
 	ParticleManager:SetParticleControl(flamebreak_particle, 1, Vector(speed,0,0))
 	ParticleManager:SetParticleControl(flamebreak_particle, 5, self:GetCursorPosition())
@@ -97,7 +97,7 @@ function bait_buff:OnCreated(keys)
 	if IsServer() then
 		self.parent:EmitSound("Hero_Axe.Battle_Hunger")
 		self.parent:StartGesture(ACT_DOTA_CAST_ABILITY_1)
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf", PATTACH_ABSORIGIN,self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf", PATTACH_ABSORIGIN,self.parent)
 		ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_mouth")))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(self.radius, self.radius, self.radius))
@@ -141,7 +141,7 @@ end
 function bait_buff:OnDestroy()
 	if IsServer() then
 		local pfxname ="particles/units/heroes/hero_sniper/sniper_shard_concussive_grenade_model.vpcf"
-		local flamebreak_particle = ParticleManager:CreateParticle(pfxname, PATTACH_WORLDORIGIN, nil)
+		local flamebreak_particle = ParticleManager:SafeCreateParticle(pfxname, PATTACH_WORLDORIGIN, nil)
 			ParticleManager:SetParticleControl(flamebreak_particle, 0, self.parent:GetAbsOrigin())
 			ParticleManager:SetParticleControl(flamebreak_particle, 1, Vector(1,0,0))
 			ParticleManager:SetParticleControl(flamebreak_particle, 5, self.parent:GetAbsOrigin())

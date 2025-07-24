@@ -49,7 +49,7 @@ function imba_chaos_knight_chaos_bolt:OnProjectileHit_ExtraData(target, pos, key
 	dmg = math.floor(dmg + 0.5)
 	local stun = self:GetSpecialValueFor("stun_min") + (self:GetSpecialValueFor("stun_max") - self:GetSpecialValueFor("stun_min")) * (RandomInt(0, 100) / 100)
 	local stun_pfx = math.floor(stun + 0.5)
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_bolt_msg.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_bolt_msg.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 	ParticleManager:SetParticleControl(pfx, 3, Vector(0, stun_pfx, 4))
 	ParticleManager:SetParticleControl(pfx, 4, Vector(stun, #tostring(stun_pfx) + 1, 0))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(0, dmg, 4))
@@ -187,7 +187,7 @@ function imba_chaos_knight_reality_rift:OnAbilityPhaseStart()
 --	end
 	for i=1, #self.target do
 		self.target[i]:EmitSound("Hero_ChaosKnight.RealityRift.Target")
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self.target[i], PATTACH_POINT_FOLLOW, "attach_hitloc", self.target[i]:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, pos)
@@ -307,7 +307,7 @@ function modifier_imba_chaos_strike_passive:OnAttackLanded(keys)
 	if IsServer() and keys.attacker == self:GetParent() and keys.target:IsUnit() and not self:GetParent():PassivesDisabled() and keys.target:IsAlive() then
 		if self.crit[keys.record] then
 			self:GetParent():Heal(keys.damage * (self:GetAbility():GetSpecialValueFor("lifesteal") / 100), self:GetAbility())
-			local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+			local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 			ParticleManager:ReleaseParticleIndex(pfx)
 		end
 		if self:GetParent():IsRealHero() and not keys.target:IsMagicImmune() and PseudoRandom:RollPseudoRandom(self:GetAbility(), self:GetAbility():GetSpecialValueFor("extra_chance")) then
@@ -374,7 +374,7 @@ function modifier_imba_phantasm_buff:OnAttackLanded(keys)
 	if IsServer() and not self.parent.phantasm and keys.attacker == self.parent and keys.target:IsAlive() and not self.parent:HasModifier("modifier_imba_phantasm_cooldown") then
 		for i=0,self.attack_count do
 			self.parent:AddNewModifier(self:GetCaster(), self.ability, "modifier_imba_phantasm_delay", {duration = 0.3, target = keys.target:entindex()})
-			local pfx = ParticleManager:CreateParticle("particles/hero/chaos_knight/chaos_knight_phantasm_attack.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			local pfx = ParticleManager:SafeCreateParticle("particles/hero/chaos_knight/chaos_knight_phantasm_attack.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControlEnt(pfx, 0, keys.target, PATTACH_ABSORIGIN_FOLLOW, nil, keys.target:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlEnt(pfx, 2, self.parent, PATTACH_ABSORIGIN_FOLLOW, nil, self.parent:GetAbsOrigin(), true)
 			ParticleManager:ReleaseParticleIndex(pfx)

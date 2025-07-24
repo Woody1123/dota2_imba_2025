@@ -188,7 +188,7 @@ function modifier_cold_feet_debuff2:OnDestroy()
     if not IsServer() then
         return
     end
-    local particle2 = ParticleManager:CreateParticle("particles/econ/events/snowman/snowman_death.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+    local particle2 = ParticleManager:SafeCreateParticle("particles/econ/events/snowman/snowman_death.vpcf", PATTACH_ABSORIGIN, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle2)   
 end
 

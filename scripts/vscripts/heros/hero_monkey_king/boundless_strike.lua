@@ -45,7 +45,7 @@ function boundless_strike:OnSpellStart()
     if cast then
         fxname="particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike.vpcf"
     end
-    local particle = ParticleManager:CreateParticle(fxname, PATTACH_CUSTOMORIGIN, self.caster)
+    local particle = ParticleManager:SafeCreateParticle(fxname, PATTACH_CUSTOMORIGIN, self.caster)
     ParticleManager:SetParticleControl(particle, 0, caster_pos)
     ParticleManager:SetParticleControlForward(particle, 0, dir)
     ParticleManager:SetParticleControl(particle, 1, end_pos)
@@ -125,7 +125,7 @@ function modifier_boundless_strike_start:OnCreated(tg)
     if cast then
         fxname="particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike_cast.vpcf"
     end
-    local particle = ParticleManager:CreateParticle(fxname, PATTACH_CUSTOMORIGIN_FOLLOW,parent)
+    local particle = ParticleManager:SafeCreateParticle(fxname, PATTACH_CUSTOMORIGIN_FOLLOW,parent)
     ParticleManager:SetParticleControl(particle, 0, pos)
     ParticleManager:SetParticleControlEnt(particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_weapon_bot",pos, true)
     ParticleManager:SetParticleControlEnt(particle, 2, parent, PATTACH_POINT_FOLLOW, "attach_weapon_top", pos, true)

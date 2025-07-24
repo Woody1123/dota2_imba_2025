@@ -56,7 +56,7 @@ function modifier_sniper_roll:OnCreated(tg)
         return
     end
 
-    local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_mechjaw/mechjaw_idle_rare.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_mechjaw/mechjaw_idle_rare.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( particle, false, false, 20, false, false )
     self.DIR=ToVector(tg.dir)
     self.POS=self:GetParent():GetAbsOrigin()

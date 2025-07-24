@@ -166,7 +166,7 @@ function imba_marci_companion_run:OnSpellStart()
 			--print("目标是单位")
 		end
 		
-		local pfx = ParticleManager:CreateParticleForPlayer("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
+		local pfx = ParticleManager:SafeCreateParticleForPlayer("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
 		ParticleManager:SetParticleControl(pfx, 1, GetGroundPosition(caster:GetAbsOrigin(), nil)) 
 		ParticleManager:SetParticleControl(pfx, 2, GetGroundPosition(self.targetcast:GetAbsOrigin(), nil))
 		if pfx then
@@ -176,7 +176,7 @@ function imba_marci_companion_run:OnSpellStart()
 				return nil
 			end)
 		end
-		local pfx2 = ParticleManager:CreateParticleForPlayer("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
+		local pfx2 = ParticleManager:SafeCreateParticleForPlayer("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
 		ParticleManager:SetParticleControl(pfx2, 1, GetGroundPosition(self.targetcast:GetOrigin(), nil)) 
 		ParticleManager:SetParticleControl(pfx2, 2, GetGroundPosition(point, nil))
 		if pfx then
@@ -186,7 +186,7 @@ function imba_marci_companion_run:OnSpellStart()
 				return nil
 			end)
 		end
-		local pfx1 = ParticleManager:CreateParticleForPlayer("particles/ui_mouseactions/range_finder_targeted_aoe.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
+		local pfx1 = ParticleManager:SafeCreateParticleForPlayer("particles/ui_mouseactions/range_finder_targeted_aoe.vpcf", PATTACH_POINT, caster, caster:GetPlayerOwner())
 		ParticleManager:SetParticleControl(pfx1, 3, Vector(landing_radius, 0, 0))
 		ParticleManager:SetParticleControl(pfx1, 2, point)
 		if pfx1 then
@@ -323,7 +323,7 @@ function modifier_imba_companion_run_move:OnRemoved()
 				end
 					
 				local pfx_name = "particles/units/heroes/hero_marci/marci_rebound_landing_zone.vpcf"
-				local pfx = ParticleManager:CreateParticle( pfx_name, PATTACH_WORLDORIGIN, nil )
+				local pfx = ParticleManager:SafeCreateParticle( pfx_name, PATTACH_WORLDORIGIN, nil )
 				ParticleManager:SetParticleControl( pfx, 0, self.pos )
 				ParticleManager:SetParticleControl( pfx, 1, Vector(self.landing_radius, self.landing_radius, self.landing_radius) )
 				ParticleManager:ReleaseParticleIndex( pfx )
@@ -476,7 +476,7 @@ function modifier_imba_companion_run_jump:OnCreated(keys)
 		self.speed = self.move_speed
 		
 		local particle_cast = "particles/units/heroes/hero_marci/marci_rebound_bounce.vpcf"
-		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.caster )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.caster )
 		ParticleManager:SetParticleControlEnt(effect_cast, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_attack1", Vector(0,0,0), true)
 		ParticleManager:SetParticleControlEnt(effect_cast, 3, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0,0,0), true)
 		self:AddParticle(effect_cast, false, false, -1, false, false)	
@@ -501,7 +501,7 @@ end
 function modifier_imba_companion_run_jump:OnRemoved()
 	if IsServer() then
 		self.parent:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_2_END,1)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_rebound_bounce_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_rebound_bounce_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 9, Vector(self.landing_radius,0,0)) 
 		ParticleManager:SetParticleControl(pfx, 10, GetGroundPosition(self.parent:GetAbsOrigin(), nil))
 		ParticleManager:ReleaseParticleIndex(pfx)
@@ -642,7 +642,7 @@ function modifier_imba_companion_run_pfx:OnCreated(keys)
 		self.target = EntIndexToHScript(keys.target)
 		
 		if not self.pfx1 then
-			self.pfx1 = ParticleManager:CreateParticle("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+			self.pfx1 = ParticleManager:SafeCreateParticle("particles/ui_mouseactions/range_finder_cone.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 			ParticleManager:SetParticleControl(self.pfx1, 1, self:GetCaster():GetAbsOrigin())
 			ParticleManager:SetParticleControl(self.pfx1, 2, self.target:GetAbsOrigin())
 		end
@@ -754,7 +754,7 @@ function imba_marci_unleash:OnAbilityPhaseStart()
         caster:AddNewModifier(caster, self, "modifier_imba_unleash_act_1", {duration = 1 })
         caster:AddNewModifier(caster, self, "modifier_imba_unleash_act_2", {duration = 1 })
         caster:AddNewModifier(caster, self, "modifier_imba_unleash_act_3", {duration = 1 })
-        self.pfx = ParticleManager:CreateParticle( "particles/marci_3.vpcf", PATTACH_WORLDORIGIN, caster )
+        self.pfx = ParticleManager:SafeCreateParticle( "particles/marci_3.vpcf", PATTACH_WORLDORIGIN, caster )
 	    ParticleManager:SetParticleControl( self.pfx, 1, caster:GetAbsOrigin()+Vector(0,0,100))
     end
     return true
@@ -784,7 +784,7 @@ function imba_marci_unleash:OnSpellStart()
 	self.restitution_cd	=	self:GetSpecialValueFor("restitution_cd")
 	self.popup = (self:GetSpecialValueFor("bj") + caster:TG_GetTalentValue("special_bonus_imba_marci_6")) / 100
 
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_marci/marci_attack_normal_punch.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_marci/marci_attack_normal_punch.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl( pfx, 2, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl( pfx, 5, Vector(1000,0,0))
@@ -861,7 +861,7 @@ function imba_marci_unleash:OnSpellStart()
 end	
 function imba_marci_unleash:PopupNumber_Marci(target, number)
 	local pfxPath = "particles/msg_fx/msg_marci_crit.vpcf"
-    local pidx    = ParticleManager:CreateParticle(pfxPath, PATTACH_ABSORIGIN_FOLLOW, target)
+    local pidx    = ParticleManager:SafeCreateParticle(pfxPath, PATTACH_ABSORIGIN_FOLLOW, target)
     local digits  = #tostring(math.floor(number)) + 1
 	local lifetime = 3.5
 	local presymbol = nil

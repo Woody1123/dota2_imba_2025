@@ -197,7 +197,7 @@ function imba_bristleback_quill_spray:start(tar,bool)
 	else
 		self.target = EntIndexToHScript(tar)
 	end
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bristleback/bristleback_quill_spray.vpcf", PATTACH_POINT, self.target)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bristleback/bristleback_quill_spray.vpcf", PATTACH_POINT, self.target)
 	ParticleManager:SetParticleControl(pfx, 60, Vector(RandomInt(0, 255), RandomInt(0, 255), RandomInt(0, 255)))
 	ParticleManager:SetParticleControl(pfx, 61, Vector(1, 0, 0))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -280,7 +280,7 @@ function modifier_spray_stack:OnCreated()
 						
 		self:SetStackCount(0)
 		self:OnRefresh()
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bristleback/bristleback_quill_spray_hit_creep.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bristleback/bristleback_quill_spray_hit_creep.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, -1, false, false)
 
@@ -388,7 +388,7 @@ function modifier_imba_bristleback_passive:GetModifierIncomingDamage_Percentage(
 		local reduce = 0
 		local ability = self.parent:FindAbilityByName("imba_bristleback_quill_spray")
 		self.parent:EmitSound("Hero_Bristleback.Bristleback")
-			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+			local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 			ParticleManager:SetParticleControlEnt(pfx, 1, self.parent, PATTACH_POINT_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlForward(pfx, 3, (keys.attacker:GetAbsOrigin() - self.parent:GetAbsOrigin()):Normalized())
 			ParticleManager:ReleaseParticleIndex(pfx)
@@ -484,7 +484,7 @@ function imba_bristleback_warpath:OnChannelFinish(bInterrupted)
 	local count = 1
 	local mod = self.caster:FindModifierByName("modifier_imba_warpath")
 	if not bInterrupted then
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf", PATTACH_POINT, self.caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf", PATTACH_POINT, self.caster)
 	ParticleManager:SetParticleControl(pfx, 60, Vector(RandomInt(0, 255), RandomInt(0, 255), RandomInt(0, 255)))
 	ParticleManager:SetParticleControl(pfx, 61, Vector(1, 0, 0))
 	ParticleManager:ReleaseParticleIndex(pfx)

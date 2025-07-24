@@ -74,7 +74,7 @@ function modifier_demonic_conversion_buff:OnCreated(keys)
 	if self.son == 0 then
 		self.hp = 5
 	end
-    local p= ParticleManager:CreateParticle("particles/units/heroes/hero_enigma/enigma_demonic_conversion.vpcf", PATTACH_ABSORIGIN,self:GetParent())
+    local p= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_enigma/enigma_demonic_conversion.vpcf", PATTACH_ABSORIGIN,self:GetParent())
     ParticleManager:SetParticleControl(p, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(p, 1, self.caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(p)

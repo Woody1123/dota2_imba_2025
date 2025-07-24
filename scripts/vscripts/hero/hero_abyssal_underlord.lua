@@ -27,7 +27,7 @@ function imba_abyssal_underlord_firestorm:OnAbilityPhaseStart()
             return 1
         end
      } )]]
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/underlord_firestorm_pre.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	self.pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/underlord_firestorm_pre.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(self.pfx, 0, pos)
 	ParticleManager:SetParticleControl(self.pfx, 1, Vector(self:GetSpecialValueFor("radius"), 1, 1))
 	return true
@@ -78,7 +78,7 @@ function modifier_imba_firestorm_thinker:OnIntervalThink()
 	local thinker = self:GetParent()
 	local ability = self:GetAbility()
 	thinker:EmitSound("Hero_AbyssalUnderlord.Firestorm")
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, thinker:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 4, Vector(ability:GetSpecialValueFor("radius"), 1, 1))
 	ParticleManager:SetParticleControl(pfx, 5, Vector(0, 0, 0))
@@ -188,7 +188,7 @@ function imba_abyssal_underlord_pit_of_malice:OnAbilityPhaseStart()
 	--if HeroItems:UnitHasItem(caster, "underlord_ti8_immortal_weapon") then
 	--	pfx_name = "particles/econ/items/underlord/underlord_ti8_immortal_weapon/underlord_ti8_immortal_pitofmalice_pre.vpcf"
 --	end
-	self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(self.pfx, 0, pos)
 	ParticleManager:SetParticleControl(self.pfx, 1, Vector(self:GetSpecialValueFor("radius"), 0, 0))
 	return true
@@ -221,7 +221,7 @@ function modifier_imba_pit_of_malice_thinker:OnCreated()
 	--	else
 			self:GetParent():EmitSound("Hero_AbyssalUnderlord.PitOfMalice")
 	--	end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetAbility():GetSpecialValueFor("radius"), 13, 0))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(500, 0, 0))
@@ -441,7 +441,7 @@ function modifier_imba_atrophy_aura_temp:GetModifierPreAttack_BonusDamage() retu
 
 function modifier_imba_atrophy_aura_temp:OnCreated(keys)
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/underlord_atrophy_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/underlord_atrophy_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(120, 0, 0))
 		self:AddParticle(pfx, false, false, 15, false, false)
@@ -491,7 +491,7 @@ function modifier_imba_atrophy_aura_permanent:GetModifierPreAttack_BonusDamage()
 
 function modifier_imba_atrophy_aura_permanent:OnCreated(keys)
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/underlord_atrophy_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/underlord_atrophy_weapon.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, Vector(120, 0, 0))
 		self:AddParticle(pfx, false, false, 15, false, false)
@@ -615,11 +615,11 @@ function modifier_imba_double_gate:OnCreated(keys)
 	if IsServer() then
 		self.target = EntIndexToHScript(keys.target)
 		self.auto_flag = keys.auto_flag
-		local pfx_caster = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx_caster = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx_caster, 2, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx_caster, 1, Vector(self:GetAbility():GetSpecialValueFor("radius"), 0, 0))
 		self:AddParticle(pfx_caster, false, false, 15, false, false)
-		local pfx_target = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_darkrift_target.vpcf", PATTACH_OVERHEAD_FOLLOW, self.target)
+		local pfx_target = ParticleManager:SafeCreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_darkrift_target.vpcf", PATTACH_OVERHEAD_FOLLOW, self.target)
 		self:AddParticle(pfx_target, false, false, 15, false, false)
 		self:GetParent():EmitSound("Hero_AbyssalUnderlord.DarkRift.Cast")
 		self.target:EmitSound("Hero_AbyssalUnderlord.DarkRift.Target")

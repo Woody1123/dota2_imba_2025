@@ -40,7 +40,7 @@ function void:OnSpellStart()
 	local duration = distance / jumpsp
 	caster:EmitSound("Hero_Nightstalker.Void")
 	caster:AddNewModifier(caster, self, "modifier_void", {duration = duration,pfx_pos=pfx_pos, direction = direction,distance=distance,sp=jumpsp})
-	local particle1 = ParticleManager:CreateParticle("particles/items_fx/abyssal_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW , caster)
+	local particle1 = ParticleManager:SafeCreateParticle("particles/items_fx/abyssal_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW , caster)
     ParticleManager:ReleaseParticleIndex(particle1)
 end
 
@@ -64,7 +64,7 @@ function modifier_void:OnCreated(tg)
 		self:GetParent():StartGesture( ACT_DOTA_CAST_ABILITY_3_END )
 		self.direction = ToVector(tg.direction)
 		self.sp = tg.sp
-		local particle= ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,nil)
+		local particle= ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_WORLDORIGIN,nil)
 		ParticleManager:SetParticleControl(particle, 0,ToVector(tg.pfx_pos))
 		ParticleManager:SetParticleControl(particle, 1, Vector(self:GetAbility():GetSpecialValueFor("rd"), 0, 0))
 		ParticleManager:SetParticleControl(particle, 2, Vector(20, 0, 0))
@@ -92,7 +92,7 @@ function modifier_void:OnDestroy()
 		self:GetParent():RemoveGesture( ACT_DOTA_CAST_ABILITY_3_END )
 		local dam=self:GetAbility():GetSpecialValueFor("dam")
 		local damt=GameRules:IsDaytime() and DAMAGE_TYPE_MAGICAL or DAMAGE_TYPE_PURE
-		local particle2 = ParticleManager:CreateParticle("particles/items_fx/abyssal_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW ,  self:GetParent())
+		local particle2 = ParticleManager:SafeCreateParticle("particles/items_fx/abyssal_blink_start.vpcf", PATTACH_ABSORIGIN_FOLLOW ,  self:GetParent())
 		ParticleManager:ReleaseParticleIndex(particle2)
 		local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil,self:GetAbility():GetSpecialValueFor("rd"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 		if #enemies>0 then
@@ -160,7 +160,7 @@ function modifier_void_debuff:OnCreated()
 	self.v=self:GetAbility():GetSpecialValueFor("v")
 	self.sp_n=self:GetAbility():GetSpecialValueFor("sp_n")
 	if IsServer() then
-		local particle =ParticleManager:CreateParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local particle =ParticleManager:SafeCreateParticle("particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle( particle, false, false, 20, false, false )
 	end
 end

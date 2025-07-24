@@ -189,7 +189,7 @@ function modifier_imba_aether_remnant_state:CreatePfx()
 	local dummy_target = GetGroundPosition( dummy_pos + dummy_direction * dummy_distance, nil )
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, dummy )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, dummy )
 	ParticleManager:SetParticleControl( effect_cast, 0, dummy_pos )
 	ParticleManager:SetParticleControl( effect_cast, 1, dummy_target )
 	ParticleManager:SetParticleControl( effect_cast, 3, dummy_pos )
@@ -328,7 +328,7 @@ function modifier_imba_aether_remnant_motion:OnCreated(kv)
 		direction = -direction:Normalized()
 
 		-- Create Particle
-		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster() )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_CUSTOMORIGIN, self:GetCaster() )
 		ParticleManager:SetParticleControl( effect_cast, 0, self.pos )
 		ParticleManager:SetParticleControlEnt(
 			effect_cast,
@@ -662,7 +662,7 @@ function modifier_imba_dissimilate_caster:PlayEffects1( point, main )
 	local radius = self.radius + 25
 
 	-- Create Particle for this team
-	local effect_cast = ParticleManager:CreateParticleForTeam(particle_cast, PATTACH_WORLDORIGIN, self:GetParent(), self:GetCaster():GetTeamNumber())
+	local effect_cast = ParticleManager:SafeCreateParticleForTeam(particle_cast, PATTACH_WORLDORIGIN, self:GetParent(), self:GetCaster():GetTeamNumber())
 	ParticleManager:SetParticleControl( effect_cast, 0, point )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, 0, 1 ) )
 	if main then
@@ -670,7 +670,7 @@ function modifier_imba_dissimilate_caster:PlayEffects1( point, main )
 	end
 
 	-- Create Particle for enemy team
-	local effect_cast2 = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetParent())
+	local effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetParent())
 	ParticleManager:SetParticleControl( effect_cast2, 0, point )
 	ParticleManager:SetParticleControl( effect_cast2, 1, Vector( radius, 0, 1 ) )
 
@@ -711,12 +711,12 @@ function modifier_imba_dissimilate_caster:PlayEffects2( point, hit )
 	local sound_hit = "Hero_VoidSpirit.Dissimilate.Stun"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetParent() )
 	ParticleManager:SetParticleControl( effect_cast, 0, point )
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( self.target_radius, 0, 0 ) )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
-	local effect_cast = ParticleManager:CreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	-- Create Sound
@@ -759,7 +759,7 @@ function imba_void_spirit_resonant_pulse:OnSpellStart()
 	caster:EmitSound("Hero_VoidSpirit.Pulse.Cast")
 	----------------------------------------------
 	--范围特效???
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(particle, 0, self:GetCaster():GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, Vector(self:GetSpecialValueFor("radius")*3, 0, 0))
 	ParticleManager:ReleaseParticleIndex(particle)
@@ -894,7 +894,7 @@ function modifier_imba_resonant_pulse:OnCreated()
 		local radius = 100
 
 		-- Create Particle
-		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_POINT_FOLLOW, self:GetParent() )
+		local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_POINT_FOLLOW, self:GetParent() )
 		ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, radius, radius ) )
 		ParticleManager:SetParticleControlEnt(
 			effect_cast,
@@ -1071,7 +1071,7 @@ function imba_void_spirit_astral_step:OnSpellStart()
 	--开始音效
 	EmitSoundOnLocationWithCaster(pos0, "Hero_VoidSpirit.AstralStep.Start", caster)
 	-- Create Particle
-	local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
+	local pfx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( pfx, 0, pos0 )
 	ParticleManager:SetParticleControl( pfx, 1, pos )
 	ParticleManager:ReleaseParticleIndex( pfx )
@@ -1168,7 +1168,7 @@ function modifier_imba_astral_step_mark:OnDestroy()
 	local sound_target = "Hero_VoidSpirit.AstralStep.MarkExplosion"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	-- Create Sound
@@ -1270,7 +1270,7 @@ function imba_void_spirit_void_cut:OnSpellStart()
 	dummy = CreateModifierThinker(caster, self, "modifier_dummy_thinker", {duration = 5,}, pos, self:GetCaster():GetTeamNumber(), false)
 	dummy:SetForwardVector(direction)
 	EmitSoundOnLocationWithCaster(pos0, "Hero_VoidSpirit.AstralStep.Start", caster)
-	local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
+	local pfx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( pfx, 0, pos0 )
 	ParticleManager:SetParticleControl( pfx, 1, pos )
 	ParticleManager:ReleaseParticleIndex( pfx )
@@ -1304,7 +1304,7 @@ function imba_void_spirit_void_cut:OnSpellStart()
     	end
     	)
     end
-	--[[local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_void_spirit/astral_step/astral_step_portal_selected.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	--[[local particle2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_void_spirit/astral_step/astral_step_portal_selected.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
 	ParticleManager:SetParticleControl(particle2, 0, self:GetCaster():GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle2, 1, self:GetCaster():GetAbsOrigin() + Vector(0,0,250))
 	ParticleManager:SetParticleControlOrientation(particle2, 1, dummy:GetForwardVector(), dummy:GetRightVector(), dummy:GetUpVector())
@@ -1338,7 +1338,7 @@ function imba_void_spirit_void_cut:Spell_VoidCut(vLocation,vRadius,vEffect)
 			--斩切音效  ........
 			local sound_cast = "Imba.void.cut.caster"
 			-- Create Particle for this team
-			local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster())
+			local effect_cast = ParticleManager:SafeCreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster())
 			ParticleManager:SetParticleControl( effect_cast, 0, vLocation )
 			ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, 0, 1 ) )
 			ParticleManager:ReleaseParticleIndex(effect_cast)

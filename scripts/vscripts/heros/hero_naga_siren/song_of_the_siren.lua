@@ -23,7 +23,7 @@ function song_of_the_siren:OnSpellStart()
     local caster_pos = caster:GetAbsOrigin()
     local target = self:GetCursorTarget()
     local stack=0
-    local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
+    local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW,caster)
     self.duration=self:GetSpecialValueFor( "duration" )+caster:TG_GetTalentValue("special_bonus_naga_siren_1")
     self.radius=self:GetSpecialValueFor( "radius" )
     ParticleManager:SetParticleControl(fx,0,  caster:GetAbsOrigin())
@@ -126,7 +126,7 @@ function modifier_song_of_the_siren_buff:OnCreated()
         return
     end 
     self.radius=self.radius+self:GetCaster():GetCastRangeBonus()
-    local fx= ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_song_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+    local fx= ParticleManager:SafeCreateParticle("particles/units/heroes/hero_siren/naga_siren_song_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
     ParticleManager:SetParticleControl(fx,0,  self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 60, Vector(math.random(0,255),math.random(0,255),math.random(0,255)))
     ParticleManager:SetParticleControl(fx, 61, Vector(1,1,1))

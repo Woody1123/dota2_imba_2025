@@ -34,7 +34,7 @@ function imba_pulverize:swash()
     local first_hero_flag=0
 
     EmitSoundOn("Hero_PrimalBeast.RockThrow.Stun", self:GetCaster())
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_primal_beast/primal_beast_pulverize_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_primal_beast/primal_beast_pulverize_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(fx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fx, 1, Vector(radius,1,1))
 	ParticleManager:ReleaseParticleIndex(fx)

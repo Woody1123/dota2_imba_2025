@@ -13,7 +13,7 @@ function item_imba_death:OnSpellStart()
 	caster:EmitSound("DOTA_Item.InvisibilitySword.Activate")
 
 
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_death_lines.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_death_lines.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)
 

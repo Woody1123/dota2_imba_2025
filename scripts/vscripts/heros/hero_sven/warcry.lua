@@ -76,7 +76,7 @@ function modifier_warcry:OnCreated( tg )
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor( "bonus_armor" )
 	self.movespeed = self:GetAbility():GetSpecialValueFor( "movespeed" )
 	if IsServer() then
-		local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_warcry_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent() )
+		local fx = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_sven/sven_warcry_buff.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent() )
 		ParticleManager:SetParticleControl(fx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControlEnt( fx, 1, self:GetParent(), PATTACH_OVERHEAD_FOLLOW, "attach_head", self:GetParent():GetAbsOrigin(), true )
 		self:AddParticle( fx, false, false, 15, false, true )

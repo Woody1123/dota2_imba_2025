@@ -129,7 +129,7 @@ end
 function modifier_imba_telekinesis_end_motion:OnDestroy()
 	if IsServer() then
 		self:GetParent():EmitSound("Hero_Rubick.Telekinesis.Target.Land")
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis_land.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis_land.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self.pos)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.pos, nil, self:GetAbility():GetSpecialValueFor("landing_stun_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -171,7 +171,7 @@ function modifier_imba_telekinesis_ally_lift:OnCreated()
 		self:GetCaster():SwapAbilities("imba_rubick_telekinesis", "imba_rubick_telekinesis_land", false, true)
 		--particles/econ/items/rubick/rubick_puppet_master/rubick_telekinesis_puppet.vpcf
 		--particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
 end
@@ -205,7 +205,7 @@ function modifier_imba_telekinesis_enemy_lift:OnCreated()
 		self.pos = GetGroundPosition(self:GetParent():GetAbsOrigin(), nil)
 		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_imba_telekinesis_start_motion", {duration = 0.2})
 		self:GetCaster():SwapAbilities("imba_rubick_telekinesis", "imba_rubick_telekinesis_land", false, true)
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
 end

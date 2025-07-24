@@ -89,7 +89,7 @@ function modifier_laser_turret:OnCreated(tg)
     if not IsServer() then 
             return 
     end
-    local p = ParticleManager:CreateParticle( "particles/econ/items/gyrocopter/gyro_ti10_immortal_missile/gyro_ti10_immortal_missile_target.vpcf", PATTACH_ABSORIGIN_FOLLOW , self.caster )
+    local p = ParticleManager:SafeCreateParticle( "particles/econ/items/gyrocopter/gyro_ti10_immortal_missile/gyro_ti10_immortal_missile_target.vpcf", PATTACH_ABSORIGIN_FOLLOW , self.caster )
     ParticleManager:SetParticleControl( p, 0, self.caster:GetAbsOrigin() )
     self:AddParticle(p, false, false, -1, false, false)
     self.team=self.parent:GetTeamNumber()

@@ -134,7 +134,7 @@ function modifier_caustic_finale_debuff:OnDeath(tg)
 	
     if tg.unit == self.parent then
         EmitSoundOn("Ability.SandKing_CausticFinale", self.parent)
-        local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf", PATTACH_ABSORIGIN, self.parent)
+        local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf", PATTACH_ABSORIGIN, self.parent)
 		ParticleManager:ReleaseParticleIndex(fx)
 		local result = self.parent:HasModifier("modifier_sand_storm_debuff")
 		if result then

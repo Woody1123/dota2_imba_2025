@@ -194,7 +194,7 @@ function modifier_ranger_sniper_assassinate_stack:PlayEffects()
 	local particle_cast = "particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
+	local effect_cast = ParticleManager:SafeCreateParticleForTeam( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
 	-- buff particle
 	self:AddParticle(
 		effect_cast,

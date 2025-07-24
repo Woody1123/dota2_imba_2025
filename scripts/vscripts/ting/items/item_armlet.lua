@@ -102,7 +102,7 @@ end
 
 function modifier_imba_armlet_active_unique:OnIntervalThink()
 	if not self.pfx then
-		self.pfx = ParticleManager:CreateParticle("particles/items_fx/armlet.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/items_fx/armlet.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	end
 	self:SetStackCount(self:GetStackCount() + 1)
 	self:GetParent():CalculateStatBonus(true)	
@@ -252,7 +252,7 @@ end
 
 function modifier_imba_armlet_v2_active_unique:OnIntervalThink()
 	if not self.pfx then
-		self.pfx = ParticleManager:CreateParticle("particles/items_fx/armlet.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.pfx = ParticleManager:SafeCreateParticle("particles/items_fx/armlet.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	end
 	local castBaseStr=self:GetParent():GetBaseStrength()
 	self.str = self:GetAbility():GetSpecialValueFor("unholy_bonus_strength")+self:GetAbility():GetSpecialValueFor("ex_str")*castBaseStr/100
@@ -305,7 +305,7 @@ function modifier_item_imba_armlet_v2_stacks:GetModifierPreAttack_CriticalStrike
 				end 
 				
 				keys.target:EmitSound("Hero_LifeStealer.Consume")
-				local infest_particle = ParticleManager:CreateParticle("particles/items3_fx/iron_talon_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
+				local infest_particle = ParticleManager:SafeCreateParticle("particles/items3_fx/iron_talon_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
 				ParticleManager:SetParticleControl(infest_particle, 0, keys.target:GetOrigin())
 				ParticleManager:SetParticleControl(infest_particle, 1, keys.target:GetOrigin())
 				ParticleManager:ReleaseParticleIndex(infest_particle)

@@ -93,7 +93,7 @@ function imba_legion_commander_overwhelming_odds:OnSpellStart()
 			FIND_ANY_ORDER, 
 			false)
 	--特效
-	local pfx = ParticleManager:CreateParticle("particles/econ/items/legion/legion_overwhelming_odds_ti7/legion_commander_odds_ti7.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/legion/legion_overwhelming_odds_ti7/legion_commander_odds_ti7.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 0, caster_pos)
 	--Pre Damage --maybe #table some memebers is nill?
 	local final_damage = damage + damage_per_unit * #units + damage_per_hero * math.max(#enemies - #units,1)
@@ -228,7 +228,7 @@ function modifier_imba_legion_commander_press_the_attack:DeclareFunctions() retu
 function modifier_imba_legion_commander_press_the_attack:OnCreated(keys)
 	if self:GetAbility()==nil then return end
 	if IsServer() then 
-		local pfx = ParticleManager:CreateParticle("particles/econ/items/legion/legion_fallen/legion_fallen_press.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/legion/legion_fallen/legion_fallen_press.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		for a=0,3 do 
 			ParticleManager:SetParticleControl(pfx,a,self:GetParent():GetAbsOrigin())
 		end 
@@ -365,7 +365,7 @@ function modifier_imba_legion_commander_moment_of_courage_passive:OnAttackLanded
 		--吸血
 		self:GetParent():Heal(keys.damage * (self:GetAbility():GetSpecialValueFor("hp_leech_percent") / 100), self:GetAbility())
 		--吸血特效
-		local pfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:ReleaseParticleIndex(pfx)
 		--吸血数值显示
 		SendOverheadEventMessage(self:GetParent(), OVERHEAD_ALERT_HEAL, self:GetParent(), keys.damage * (self:GetAbility():GetSpecialValueFor("hp_leech_percent") / 100), self:GetParent())
@@ -534,7 +534,7 @@ function modifier_imba_legion_commander_duel:OnCreated(keys)
 			if self:GetAbility():GetAutoCastState() then 
 				pfx_name = "particles/juedou/legion_dark_duel_ring.vpcf"
 			end
-			self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
+			self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_POINT_FOLLOW, self:GetParent())
 			ParticleManager:SetParticleControl(self.pfx, 1, self:GetParent():GetAbsOrigin())
 			ParticleManager:SetParticleControl(self.pfx, 60, Vector(8,299,96))
 			ParticleManager:SetParticleControl(self.pfx, 61, Vector(0,0,0))
@@ -618,7 +618,7 @@ function modifier_imba_legion_commander_duel:OnDestroy()
 			self.duel_winner:EmitSound("Hero_LegionCommander.Duel.Victory")
 			--胜利特效
 			local winner_pfx_name = "particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf"
-			local winner_pfx = ParticleManager:CreateParticle(winner_pfx_name, PATTACH_OVERHEAD_FOLLOW, self.duel_winner)
+			local winner_pfx = ParticleManager:SafeCreateParticle(winner_pfx_name, PATTACH_OVERHEAD_FOLLOW, self.duel_winner)
 			ParticleManager:ReleaseParticleIndex(winner_pfx)
 			ParticleManager:DestroyParticle(winner_pfx, false)
 			--释放强攻

@@ -62,7 +62,7 @@ function modifier_rain_of_destiny_buff:OnCreated(tg)
     self.POS=self:GetParent():GetAbsOrigin()
 
 
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_scepter_rain_of_destiny.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_oracle/oracle_scepter_rain_of_destiny.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(fx, 0,  self.POS)
     ParticleManager:SetParticleControl(fx, 1, Vector(self.rd,1,1))
     ParticleManager:SetParticleControl(fx, 2, Vector(self:GetRemainingTime(),1,1))

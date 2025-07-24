@@ -30,7 +30,7 @@ function modifier_black_dragon:OnTakeDamage(tg)
     if tg.unit == self:GetParent() then
      if RollPseudoRandomPercentage(25,0,self) then 
             local tar_pos=tg.attacker:GetAbsOrigin()
-            local pfx= ParticleManager:CreateParticle("particles/neutral_fx/black_dragon_fireball.vpcf", PATTACH_CUSTOMORIGIN,nil)
+            local pfx= ParticleManager:SafeCreateParticle("particles/neutral_fx/black_dragon_fireball.vpcf", PATTACH_CUSTOMORIGIN,nil)
             ParticleManager:SetParticleControl(pfx, 0, tar_pos)
             ParticleManager:SetParticleControl(pfx, 1, tar_pos)
             ParticleManager:SetParticleControl(pfx, 2, Vector(1,0,0))

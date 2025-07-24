@@ -25,7 +25,7 @@ modifier_imba_static_remnant_thinker = class({})
 function modifier_imba_static_remnant_thinker:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControlForward(pfx, 0, self:GetCaster():GetForwardVector())
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetCaster(), PATTACH_CUSTOMORIGIN, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
@@ -64,7 +64,7 @@ function modifier_imba_static_remnant_thinker:OnIntervalThink()
 				damage = ability:GetSpecialValueFor("sec_damage") + caster:TG_GetTalentValue("special_bonus_imba_storm_spirit_7")
 				})
 
-			local pfx = ParticleManager:CreateParticle("particles/econ/events/ti10/maelstrom_ti10.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
+			local pfx = ParticleManager:SafeCreateParticle("particles/econ/events/ti10/maelstrom_ti10.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 			--ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 			--ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(pfx, 0, self:GetParent():GetAbsOrigin())
@@ -206,7 +206,7 @@ function modifier_imba_electric_vortex_motion:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self.pos = self:GetCaster():GetAbsOrigin()
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControl(pfx, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
@@ -308,7 +308,7 @@ function modifier_imba_overload_passive:OnAttackLanded(keys)
 		end
 		caster:RemoveModifierByName("modifier_imba_overload_effect")
 		local pfx_name = "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN, keys.target)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN, keys.target)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		keys.target:EmitSound("Hero_StormSpirit.Overload")
 		local dmg = 0
@@ -366,7 +366,7 @@ function imba_storm_spirit_overload:OnProjectileHit_ExtraData(target, location, 
 		self:GetCaster():RemoveModifierByName("modifier_imba_overload_int")
 
 		local pfx_name = "particles/units/heroes/hero_stormspirit/stormspirit_overload_discharge.vpcf"
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN, target)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN, target)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		target:EmitSound("Hero_StormSpirit.Overload")
 		if not target:IsBlind() then
@@ -410,7 +410,7 @@ function modifier_imba_overload_effect:OnCreated()
 	--	if HeroItems:UnitHasItem(self:GetCaster(), "storm_spirit_overload_ti8") then
 	--		pfx_name = "particles/econ/items/storm_spirit/strom_spirit_ti8/storm_spirit_ti8_overload_gold_ambient.vpcf"
 	--	end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -493,13 +493,13 @@ function modifier_imba_ball_lightning_travel:OnCreated(keys)
 	--	end
 		self:GetParent():EmitSound(sound_name)
 		self:GetParent():EmitSound("Hero_StormSpirit.BallLightning.Loop")
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, self:GetParent())
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self.current_pos, true)
 		ParticleManager:SetParticleControlEnt(pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self.current_pos, true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 		if self:GetParent():HasAbility("imba_storm_spirit_electric_vortex") and self:GetParent():HasScepter() then
 			local ability = self:GetParent():FindAbilityByName("imba_storm_spirit_electric_vortex")
-			local pfx_range = ParticleManager:CreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
+			local pfx_range = ParticleManager:SafeCreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner())
 			ParticleManager:SetParticleControl(pfx_range, 1, Vector(ability:GetSpecialValueFor("radius"), 0, 0))
 			ParticleManager:SetParticleControl(pfx_range, 2, Vector(10, 0, 0))
 			ParticleManager:SetParticleControl(pfx_range, 3, Vector(100, 0, 0))
@@ -618,14 +618,14 @@ function electric_rave:OnSpellStart()
 	if ab  and ab:GetLevel()>0 then
 		EmitSoundOn("TG.pr", caster)
 		EmitSoundOn("Hero_StormSpirit.StaticRemnantPlant", caster)
-		local pf = ParticleManager:CreateParticle("particles/econ/events/ti10/hot_potato/disco_ball_channel.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pf = ParticleManager:SafeCreateParticle("particles/econ/events/ti10/hot_potato/disco_ball_channel.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(pf, 0,pos)
-		local pf1 = ParticleManager:CreateParticle("particles/econ/items/storm_spirit/strom_spirit_ti8/storm_spirit_ti8_overload_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pf1 = ParticleManager:SafeCreateParticle("particles/econ/items/storm_spirit/strom_spirit_ti8/storm_spirit_ti8_overload_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(pf1, 0,pos)
 		ParticleManager:SetParticleControl(pf1, 2,pos)
 		ParticleManager:SetParticleControl(pf1, 5,pos)
 		ParticleManager:ReleaseParticleIndex(pf1)
-		local pf2 = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/leshrac_disco_tnt.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		local pf2 = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_leshrac/leshrac_disco_tnt.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControl(pf2, 0,pos)
 		Timers:CreateTimer({
 			useGameTime = false,
@@ -645,7 +645,7 @@ function electric_rave:OnSpellStart()
 		if #heros>0 then
 			for _, target in pairs(heros) do
 				if target~=caster then
-					local p2 = ParticleManager:CreateParticle("particles/econ/events/ti6/maelstorm_ti6.vpcf", PATTACH_POINT_FOLLOW, target)
+					local p2 = ParticleManager:SafeCreateParticle("particles/econ/events/ti6/maelstorm_ti6.vpcf", PATTACH_POINT_FOLLOW, target)
 					ParticleManager:SetParticleControlEnt(p2, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(p2, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControl(p2, 2, Vector(1,1,1))

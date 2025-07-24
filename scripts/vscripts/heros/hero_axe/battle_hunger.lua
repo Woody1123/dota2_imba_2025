@@ -15,7 +15,7 @@ function battle_hunger:OnSpellStart(tar)
 		return
 	end
     EmitSoundOn("Hero_Axe.Battle_Hunger",  self.caster)
-    local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_axe/axe_battle_hunger_cast.vpcf", PATTACH_OVERHEAD_FOLLOW  , self.caster)
+    local particle = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_axe/axe_battle_hunger_cast.vpcf", PATTACH_OVERHEAD_FOLLOW  , self.caster)
     ParticleManager:ReleaseParticleIndex(particle)
 	if curtar:GetUnitName() == "npc_dota_imba_miniboss" then
 		curtar:AddNewModifier(self.caster, self, "modifier_battle_hunger_debuff", {duration= 12 })

@@ -136,7 +136,7 @@ function modifier_item_sky_lance_force_ally:OnCreated(params)
 	--特效
 	local pfx_name = "particles/econ/events/ti9/force_staff_ti9.vpcf"
 	
-	self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:GetParent():StartGesture(ACT_DOTA_FLAIL)
 		--	self.distance = self:GetAbility():GetSpecialValueFor("push_length")
 	--kv

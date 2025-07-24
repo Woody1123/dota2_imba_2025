@@ -105,7 +105,7 @@ function imba_puck_illusory_orb:OnProjectileHit_ExtraData(target, pos, keys)
 	end
 	if target then
 		target:EmitSound("Hero_Puck.IIllusory_Orb_Damage")
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_puck/puck_orb_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_puck/puck_orb_damage.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:ReleaseParticleIndex(pfx)
 		ApplyDamage({victim = target, attacker = self:GetCaster(), ability = self, damage = self:GetSpecialValueFor("damage"), damage_type = self:GetAbilityDamageType()})
 	end
@@ -187,7 +187,7 @@ function imba_puck_ethereal_jaunt:OnSpellStart()
 	caster:EmitSound("Hero_Puck.EtherealJaunt")
 	caster:SetOrigin(GetGroundPosition(ProjectileManager:GetLinearProjectileLocation(ability.projectile), nil))
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-	local pfx = ParticleManager:CreateParticle("particles/hero/puck/puck_ethereal_jaunt.vpcf", PATTACH_ABSORIGIN, caster)
+	local pfx = ParticleManager:SafeCreateParticle("particles/hero/puck/puck_ethereal_jaunt.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(pfx)
 	if caster:GetModifierStackCount("modifier_imba_illusory_orb_controller", nil) == 0 then
@@ -246,7 +246,7 @@ function imba_puck_waning_rift:OnSpellStart(bHalf)
 		caster:EmitSound("puck_puck_ability_rift_0"..RandomInt(1, 3))
 	end
 	caster:EmitSound("Hero_Puck.Waning_Rift")
-	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_puck/puck_waning_rift.vpcf", PATTACH_WORLDORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_puck/puck_waning_rift.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, pos_next)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(range,range,range))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -491,7 +491,7 @@ function modifier_imba_dream_coil_thinker:OnCreated()
 	--	if HeroItems:UnitHasItem(self:GetCaster(), "blossom_of_the_merry_wanderer") then
 	--		pfx_name = "particles/econ/items/puck/puck_ti10_immortal/puck_ti10_ult.vpcf"
 	--	end
-		local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
 		self:AddParticle(pfx, false, false, 15, false, false)
 		local direction = self.parent:GetForwardVector()
@@ -499,7 +499,7 @@ function modifier_imba_dream_coil_thinker:OnCreated()
 		local pos = self.parent:GetAbsOrigin() + direction * self.radius
 		self.range = {}
 		for i=1, 4 do
-			self.range[i] = ParticleManager:CreateParticle("particles/hero/puck/puck_dreamcoil_range.vpcf", PATTACH_WORLDORIGIN, nil)
+			self.range[i] = ParticleManager:SafeCreateParticle("particles/hero/puck/puck_dreamcoil_range.vpcf", PATTACH_WORLDORIGIN, nil)
 			--[[local range_pos = RotatePosition(self:GetParent():GetAbsOrigin(), QAngle(0, 90 * i, 0), pos)
 			self.range[i] = CreateModifierThinker(nil, self:GetAbility(), "modifier_imba_dream_coil_range", {}, range_pos, self:GetCaster():GetTeamNumber(), false)
 			self.range[i]:GiveVisionForBothTeam()]]
@@ -552,7 +552,7 @@ function modifier_imba_dream_coil_range:OnCreated()
 	if self:GetAbility() == nil then return end
 	if IsServer() then
 		self:StartIntervalThink(FrameTime())
-		local pfx = ParticleManager:CreateParticle("particles/hero/puck/puck_dreamcoil_range.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local pfx = ParticleManager:SafeCreateParticle("particles/hero/puck/puck_dreamcoil_range.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetAbsOrigin(), true)
 		self:AddParticle(pfx, false, false, 15, false, false)
 	end
@@ -578,7 +578,7 @@ function modifier_imba_dream_coil_enemy:OnCreated()
 	--	if HeroItems:UnitHasItem(self:GetCaster(), "blossom_of_the_merry_wanderer") then
 	--		pfx_name = "particles/econ/items/puck/puck_ti10_immortal/puck_ti10_tether.vpcf"
 	--	end
-		self.pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+		self.pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(self.pfx, 0, self:GetCaster():GetAbsOrigin())
 		ParticleManager:SetParticleControlEnt(self.pfx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), false)
 		self:AddParticle(self.pfx, false, false, 15, false, false)

@@ -111,7 +111,7 @@ end
 
 function modifier_item_satan_buff:OnCreated() 
 	if self:GetAbility() == nil then return end
-    local pfx = ParticleManager:CreateParticle("particles/items/satan/hero_levelup_ti10_godray_change.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local pfx = ParticleManager:SafeCreateParticle("particles/items/satan/hero_levelup_ti10_godray_change.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle(pfx, false, false, 100, false, false)
     
     local ab=self:GetAbility()

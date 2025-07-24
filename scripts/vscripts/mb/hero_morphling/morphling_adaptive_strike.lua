@@ -203,7 +203,7 @@ function imba_morphling_adaptive_strike:OnProjectileHit_ExtraData(target, pos, k
 	------------------------------------------------------------------------------------------------------------------------------------------ 
 	--击中特效
 	--------------------------------------------------------------------------------------------------
-	local pfx = ParticleManager:CreateParticle(ParticleManager:GetParticleReplacement(pfx_name, caster), PATTACH_CUSTOMORIGIN, target)
+	local pfx = ParticleManager:SafeCreateParticle(ParticleManager:GetParticleReplacement(pfx_name, caster), PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN_FOLLOW, nil, target:GetAbsOrigin(), true)
 	ParticleManager:ReleaseParticleIndex(pfx)

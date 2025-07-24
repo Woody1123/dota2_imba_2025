@@ -55,7 +55,7 @@ function brain_sap:OnSpellStart()
             if #heros>0 then
                   for _, hero in pairs(heros) do
                         if not hero:IsMagicImmune() then
-                                    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_bane/bane_sap.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                                    local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_bane/bane_sap.vpcf", PATTACH_CUSTOMORIGIN, nil)
                                     ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false )
                                     ParticleManager:SetParticleControlEnt( pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), false )
                                     ParticleManager:ReleaseParticleIndex(pfx)

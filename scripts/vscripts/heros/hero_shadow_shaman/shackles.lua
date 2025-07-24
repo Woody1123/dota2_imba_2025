@@ -137,17 +137,17 @@ function modifier_shackles_ctrl:OnCreated()
     if self.PL:IsMoving() then
         self.PL:Stop()
     end
- --[[  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_shackle.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.PL)
+ --[[  local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_shackle.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.PL)
     ParticleManager:SetParticleControlEnt(particle, 1, self.PL, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", self.PL:GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(particle, 1, self.PL, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", self.PL:GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(particle, 4, self.PL, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", self.PL:GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt(particle, 5, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster_pos, true)
     ParticleManager:SetParticleControlEnt(particle, 6, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster_pos, true)]]
-    local particle = ParticleManager:CreateParticle("particles/econ/items/shadow_shaman/ss_fall20_tongue/shadowshaman_shackle_net_fall20.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,  self.PL)
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/shadow_shaman/ss_fall20_tongue/shadowshaman_shackle_net_fall20.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,  self.PL)
     ParticleManager:SetParticleControlEnt(particle, 0, self.caster, PATTACH_POINT_FOLLOW  , "attach_hitloc", self.caster:GetAbsOrigin(), false)
     ParticleManager:SetParticleControlEnt(particle, 1,self.PL, PATTACH_CENTER_FOLLOW , "attach_hitloc",self.PL:GetAbsOrigin(), false)
     self:AddParticle(particle, false, false, 15, false, false)
-        local particle2 = ParticleManager:CreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.caster,self.caster:GetPlayerOwner())
+        local particle2 = ParticleManager:SafeCreateParticleForPlayer("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self.caster,self.caster:GetPlayerOwner())
         ParticleManager:SetParticleControl(particle2, 1, Vector(self.DIS, 0, 0))
         ParticleManager:SetParticleControl(particle2, 2, Vector(10, 0, 0))
         ParticleManager:SetParticleControl(particle2, 3, Vector(100, 0, 0))
@@ -243,7 +243,7 @@ function modifier_shackles_stun:OnCreated()
     if not IsServer() then
         return
     end
-    local particle = ParticleManager:CreateParticle("particles/econ/items/shadow_shaman/ss_fall20_tongue/shadowshaman_shackle_net_fall20.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,  self.PL)
+    local particle = ParticleManager:SafeCreateParticle("particles/econ/items/shadow_shaman/ss_fall20_tongue/shadowshaman_shackle_net_fall20.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW,  self.PL)
     ParticleManager:SetParticleControlEnt(particle, 0, self.caster, PATTACH_POINT_FOLLOW  , "attach_hitloc", self.caster:GetAbsOrigin(), false)
     ParticleManager:SetParticleControlEnt(particle, 1,self.PL, PATTACH_CENTER_FOLLOW , "attach_hitloc",self.PL:GetAbsOrigin(), false)
     self:AddParticle(particle, false, false, 15, false, false)

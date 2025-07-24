@@ -66,11 +66,11 @@ end
 function modifier_laser_gun_laser:OnIntervalThink()
       EmitSoundOn("Hero_Tinker.Laser", self.parent)
       local pos= self.pos+RandomVector(self.rd)
-      local fx = ParticleManager:CreateParticle( "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf", PATTACH_CUSTOMORIGIN , nil)
+      local fx = ParticleManager:SafeCreateParticle( "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf", PATTACH_CUSTOMORIGIN , nil)
       ParticleManager:SetParticleControl(fx,9,pos+Vector(RandomInt(-500, 500),RandomInt(-500, 500),1000))
       ParticleManager:SetParticleControl(fx,1,pos)
       ParticleManager:ReleaseParticleIndex(fx)
-      local fx1 = ParticleManager:CreateParticle( "particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance_explosion.vpcf", PATTACH_CUSTOMORIGIN , nil)
+      local fx1 = ParticleManager:SafeCreateParticle( "particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance_explosion.vpcf", PATTACH_CUSTOMORIGIN , nil)
       ParticleManager:SetParticleControl(fx1,0,pos)
       ParticleManager:ReleaseParticleIndex(fx1)
       local units = FindUnitsInRadius(

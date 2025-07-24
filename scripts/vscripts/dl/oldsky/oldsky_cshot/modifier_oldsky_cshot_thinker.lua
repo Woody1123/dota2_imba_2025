@@ -77,7 +77,7 @@ function modifier_oldsky_cshot_thinker:playeffects()
 
     local particle_cast1 = "particles/dlparticles/oldsky_cshot/slow_meepo_divining_rod_poof_end_explosion_ring.vpcf"
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil )
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil )
     tpos = self:GetParent():GetAbsOrigin()  tpos.z = tpos.z - 100   --调这么低光环也没贴地，估计是别的原因。原来是PATTACH的原因，absfollow就下不去.
 
     ParticleManager:SetParticleControl( effect_cast1, 0, tpos )

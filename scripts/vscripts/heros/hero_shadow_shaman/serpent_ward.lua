@@ -69,7 +69,7 @@ function modifier_serpent_ward_base:OnCreated()
     local atti= self:GetAbility():GetSpecialValueFor( "atti")+self:GetCaster():TG_GetTalentValue("special_bonus_shadow_shaman_6")
     local attrg= self:GetAbility():GetSpecialValueFor( "attrg")
     if IsServer() then
-            local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ward_spawn.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+            local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ward_spawn.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
             ParticleManager:SetParticleControlEnt( particle, 0,  self:GetParent(), PATTACH_ROOTBONE_FOLLOW, "attach_hitloc",  self:GetParent():GetAbsOrigin(), true )
             ParticleManager:ReleaseParticleIndex(particle)
     self:GetParent():SetForwardVector( TG_Direction(self:GetParent():GetAbsOrigin(),self:GetCaster():GetAbsOrigin()))
@@ -109,7 +109,7 @@ end
 
 function modifier_serpent_ward_base:OnDestroy()
     if  IsServer() then
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ward_death.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
+        local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_shadowshaman/shadowshaman_ward_death.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self:GetParent())
         ParticleManager:SetParticleControlEnt( particle, 0,  self:GetParent(), PATTACH_ROOTBONE_FOLLOW, "attach_hitloc",  self:GetParent():GetAbsOrigin(), true )
         ParticleManager:ReleaseParticleIndex(particle)
     end
@@ -192,7 +192,7 @@ function modifier_serpent_ward_eat:OnCreated(tg)
         self.POS=self:GetParent():GetAbsOrigin()
         self.POS2=ToVector(tg.pos)
         if self:GetParent().serpent_ward5~=nil and self:GetParent().serpent_ward5 then
-            local particle = ParticleManager:CreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
+            local particle = ParticleManager:SafeCreateParticle("particles/basic_ambient/generic_range_display.vpcf", PATTACH_ABSORIGIN_FOLLOW,self:GetParent())
             ParticleManager:SetParticleControl(particle, 1, Vector(self.huntrd, 0, 0))
             ParticleManager:SetParticleControl(particle, 2, Vector(10, 0, 0))
             ParticleManager:SetParticleControl(particle, 3, Vector(100, 0, 0))
@@ -212,7 +212,7 @@ function modifier_serpent_ward_eat:OnIntervalThink()
                 if  unit:HasModifier("modifier_serpent_ward_pos")  or  unit:HasModifier("modifier_serpent_ward_debuff")   then
                     return
                 end
-                local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+                local particle = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
                 ParticleManager:SetParticleControl(particle, 0,  self.POS)
                 ParticleManager:SetParticleControlEnt( particle, 1, unit, PATTACH_ROOTBONE_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true )
                 ParticleManager:ReleaseParticleIndex(particle)

@@ -156,7 +156,7 @@ function modifier_monster_killer_fury_spring_motion:OnDestroy()
 		local smash_particle = "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
 		local smash_sound = "Hero_Brewmaster.ThunderClap"
 		--落地特效
-		local smash = ParticleManager:CreateParticle(smash_particle, PATTACH_WORLDORIGIN, nil)
+		local smash = ParticleManager:SafeCreateParticle(smash_particle, PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(smash, 0, self:GetCaster():GetAbsOrigin())
 		--猛击音效
 		EmitSoundOnLocationWithCaster(self:GetCaster():GetAbsOrigin(), smash_sound, self:GetCaster())

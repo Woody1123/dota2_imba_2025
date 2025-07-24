@@ -45,7 +45,7 @@ function item_purification_potion:HealAlly( hAlliedHero )
 			hAlliedHero:Purge( false,		  true,			 false,		true,		 false )
 		end
 
-		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_CUSTOMORIGIN, hAlliedHero )
+		local nFXIndex = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_CUSTOMORIGIN, hAlliedHero )
 		ParticleManager:SetParticleControlEnt( nFXIndex, 0, hAlliedHero, PATTACH_ABSORIGIN_FOLLOW, nil, hAlliedHero:GetOrigin(), true )
 		ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.radius, self.radius, self.radius ) )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -65,7 +65,7 @@ function item_purification_potion:HealAlly( hAlliedHero )
 				}
 				ApplyDamage( damageInfo )
 
-				local nFXIndex3 = ParticleManager:CreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy )
+				local nFXIndex3 = ParticleManager:SafeCreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy )
 				ParticleManager:SetParticleControlEnt( nFXIndex3, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
 				ParticleManager:ReleaseParticleIndex( nFXIndex3 )
 			end

@@ -68,8 +68,8 @@ function modifier_dlnec_reaper_target:playeffects(t)
     local particle_cast2 = "particles/units/heroes/hero_necrolyte/necrolyte_scythe_start.vpcf"  --刀子，cp0斩向cp1
     local sound1 = "Hero_Necrolyte.ReapersScythe.Target"
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --链子
-    local effect_cast2 = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil ) --刀子
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --链子
+    local effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil ) --刀子
     local tpos1 = t:GetAbsOrigin() tpos1.z = 500
     local tpos2 = t:GetAbsOrigin()
 
@@ -108,8 +108,8 @@ function modifier_dlnec_reaper_target:playeffects_dabyss(t)
     local particle_cast2 = "particles/dlparticles/dlnec_reaper/random_necro_ti7_immortal_scythe_start.vpcf"  --自改，死神刀子，没有cp控制方向，自改成随机方向
     local sound1 = "Hero_Necrolyte.ReapersScythe.Target"
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --链子
-    local effect_cast2 = ParticleManager:CreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil ) --死神刀子
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_WORLDORIGIN, nil ) --链子
+    local effect_cast2 = ParticleManager:SafeCreateParticle( particle_cast2, PATTACH_WORLDORIGIN, nil ) --死神刀子
     local tpos1 = t:GetAbsOrigin() tpos1.z = 500
     local tpos2 = t:GetAbsOrigin()
 

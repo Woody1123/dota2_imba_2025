@@ -47,7 +47,7 @@ end
 
 function modifier_gold:SpawnGoldEntity( spawnPoint )
 	EmitGlobalSound("Item.PickUpGemWorld")
-	local nFXIndex = ParticleManager:CreateParticle( "particles/tgp/medical_m.vpcf", PATTACH_CUSTOMORIGIN, nil )
+	local nFXIndex = ParticleManager:SafeCreateParticle( "particles/tgp/medical_m.vpcf", PATTACH_CUSTOMORIGIN, nil )
 	ParticleManager:SetParticleControl( nFXIndex, 0,Vector(0,0,0))
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 400, 0, 0 ) )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -62,7 +62,7 @@ function modifier_gold:KillLoot( item, drop )
 	if drop:IsNull() then
 		return
 	end
-	local nFXIndex = ParticleManager:CreateParticle( "particles/items2_fx/veil_of_discord.vpcf", PATTACH_CUSTOMORIGIN, drop )
+	local nFXIndex = ParticleManager:SafeCreateParticle( "particles/items2_fx/veil_of_discord.vpcf", PATTACH_CUSTOMORIGIN, drop )
 	ParticleManager:SetParticleControl( nFXIndex, 0, drop:GetOrigin() )
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 35, 35, 25 ) )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )

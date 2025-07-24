@@ -23,7 +23,7 @@ function laguna_blade:OnSpellStart()
       if   tar:TG_TriggerSpellAbsorb(self)  and not self.caster:TG_HasTalent("special_bonus_lina_8")  then
 		return
 	end
-      local fx = ParticleManager:CreateParticle("particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf", PATTACH_ABSORIGIN, self.caster)
+      local fx = ParticleManager:SafeCreateParticle("particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf", PATTACH_ABSORIGIN, self.caster)
 	ParticleManager:SetParticleControlEnt(fx, 0, self.caster, PATTACH_POINT_FOLLOW, "attach_attack1", self.caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(fx, 1, tar, PATTACH_POINT_FOLLOW, "attach_hitloc", tar:GetAbsOrigin(), true)
       ParticleManager:ReleaseParticleIndex(fx)
@@ -42,7 +42,7 @@ function laguna_blade:OnSpellStart()
                   if #units>0 then
                               for _,target in pairs(units) do
                                     if not target:IsMagicImmune()  or  self.caster:HasScepter() then
-                                                local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_lina/lina_spell_laguna_blade_shard_units_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+                                                local fx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_lina/lina_spell_laguna_blade_shard_units_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
                                                 ParticleManager:SetParticleControl(fx, 0, target:GetAbsOrigin())
                                                 ParticleManager:ReleaseParticleIndex(fx)
                                                 if target==tar and self.caster:TG_HasTalent("special_bonus_lina_5") then

@@ -20,7 +20,7 @@ function imba_faceless_void_time_dilation:OnSpellStart()
 	local sound_name      = "Hero_FacelessVoid.TimeDilation.Cast.ti7"
 	--end
 	caster:EmitSound(sound_name)
-	local pfx = ParticleManager:CreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
+	local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(pfx, 1, Vector(self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("radius")))
 	ParticleManager:ReleaseParticleIndex(pfx)
@@ -45,7 +45,7 @@ function imba_faceless_void_time_dilation:OnSpellStart()
 			EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Hero_FacelessVoid.TimeDilation.Target", enemy)
 			local debuff = enemy:AddNewModifier_RS(caster, self, "modifier_imba_time_dilation_slow", {duration = self:GetSpecialValueFor("cooldown_increase")})
 			debuff:SetStackCount(cooldown_ability_per)
-			local pfx2 = ParticleManager:CreateParticle(pfx_debuff_name, PATTACH_ABSORIGIN_FOLLOW, enemy)
+			local pfx2 = ParticleManager:SafeCreateParticle(pfx_debuff_name, PATTACH_ABSORIGIN_FOLLOW, enemy)
 			ParticleManager:SetParticleControl(pfx2, 1, Vector(cooldown_ability_per, 0, 0))
 			debuff:AddParticle(pfx2, false, false, 15, false, false)
 		end

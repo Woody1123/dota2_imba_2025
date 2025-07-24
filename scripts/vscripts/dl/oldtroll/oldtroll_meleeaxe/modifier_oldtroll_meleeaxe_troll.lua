@@ -69,7 +69,7 @@ end
 function modifier_oldtroll_meleeaxe_troll:playeffects(casterpos,axepos,caster)
     local particle_cast1 = "particles/units/heroes/hero_troll_warlord/troll_warlord_whirling_axe_melee.vpcf"    --巨魔近战斧头
 
-    local effect_cast1 = ParticleManager:CreateParticle( particle_cast1, PATTACH_ABSORIGIN_FOLLOW, caster ) --巨魔近战斧头
+    local effect_cast1 = ParticleManager:SafeCreateParticle( particle_cast1, PATTACH_ABSORIGIN_FOLLOW, caster ) --巨魔近战斧头
 
     ParticleManager:SetParticleControl(effect_cast1, 0, casterpos + Vector(0, 0, 100))  --斧头起点
 	ParticleManager:SetParticleControl(effect_cast1, 1, axepos + Vector(0, 0, 100))     --斧头终点

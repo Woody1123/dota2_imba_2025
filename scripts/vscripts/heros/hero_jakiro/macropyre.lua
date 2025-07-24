@@ -138,7 +138,7 @@ function modifier_macropyre_debuff:OnCreated()
         self.root=true
         self.dir=self.caster:GetForwardVector()
         self.pos=self.stpos+self.dir*self.cast_range
-        self.pfx = ParticleManager:CreateParticle( "particles/econ/items/jakiro/jakiro_ti10_immortal/jakiro_ti10_macropyre.vpcf", PATTACH_CUSTOMORIGIN, nil )
+        self.pfx = ParticleManager:SafeCreateParticle( "particles/econ/items/jakiro/jakiro_ti10_immortal/jakiro_ti10_macropyre.vpcf", PATTACH_CUSTOMORIGIN, nil )
         ParticleManager:SetParticleControl( self.pfx, 0, self.stpos )
         ParticleManager:SetParticleControl( self.pfx, 1, self.pos)
         ParticleManager:SetParticleControl( self.pfx, 2, Vector(self:GetRemainingTime(),0,0))

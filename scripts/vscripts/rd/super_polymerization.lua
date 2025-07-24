@@ -40,7 +40,7 @@ function super_polymerization:OnSpellStart()
     end
 
     EmitSoundOn("TG.aaice", caster)
-    local p1 = ParticleManager:CreateParticle("particles/heros/jugg/jugg_dog.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+    local p1 = ParticleManager:SafeCreateParticle("particles/heros/jugg/jugg_dog.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
     ParticleManager:SetParticleControl(p1, 0, caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(p1)
     caster:AddNewModifier(self:GetCaster(), self, "modifier_super_polymerization",
@@ -90,7 +90,7 @@ function modifier_super_polymerization:OnCreated(tg)
         self.sp=tg.sp+self.sp
         self.mana=tg.mana+self.mana
     end
-    local p2 = ParticleManager:CreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local p2 = ParticleManager:SafeCreateParticle("particles/econ/courier/courier_trail_spirit/courier_trail_spirit.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     self:AddParticle( p2, false, false, 20, false, false )
 
 

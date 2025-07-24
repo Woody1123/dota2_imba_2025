@@ -114,9 +114,9 @@ function modifier_item_desolator_v2_debuff:GetModifierPhysicalArmorBonus()
     if not IsServer() then
         return
     end
-    local FX=ParticleManager:CreateParticle("particles/econ/events/ti10/hot_potato/hot_potato_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+    local FX=ParticleManager:SafeCreateParticle("particles/econ/events/ti10/hot_potato/hot_potato_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
     self:AddParticle(FX, false, false, -1, false, false)
-    local FX2=ParticleManager:CreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+    local FX2=ParticleManager:SafeCreateParticle("particles/econ/items/templar_assassin/templar_assassin_focal/templar_meld_focal_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
     self:AddParticle(FX2, false, false, -1, false, true)
     self:SetStackCount(tg.num)
 end
