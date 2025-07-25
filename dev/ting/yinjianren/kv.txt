@@ -1,0 +1,153 @@
+"DOTAAbilities"
+{
+    // 阴间人 吉利服
+    "ghillie_suit"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/yinjianren/ghillie_suit.lua"
+        "AbilityTextureName"       "yygq/ghillie_suit"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Luna.LucentBeam.Target"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "800"
+        "AbilityCastPoint"         "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90 100 110 120"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "duration"    "4 5 6 7"
+            "move_s"      "10 20 30 40"
+            "inv_time"    "3"
+        }
+    }
+    // 阴间人 狙击
+    "assassinate"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/yinjianren/assassinate.lua"
+        "AbilityTextureName"       "yygq/assassinate"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "2500"
+        "AbilityCastPoint"         "0.5"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "6"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        "AbilityValues"
+        {
+            "stun"             "1"
+            "damage"           "200"
+            "kno_distance"     "150"
+            "damage_att"       "1 1.5 2 2.5"
+            "slow_duration"    "2"
+            "all_s"            "2.5"
+        }
+    }
+    // 阴间人 诱饵
+    "bait"
+    {
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "ting/yinjianren/bait.lua"
+        "AbilityTextureName"             "yygq/bait"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_CUSTOM"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "1000 1100 1200 1300"
+        "AbilityCastPoint"               "0.0 0.0 0.0 0.0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "14"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "90 100 110 120"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.25" // generally used for damage only
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_techies/techies_suicide.vpcf"
+        }
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "stun"        "1.0 1.25 1.75 2.0"
+            "taunt"       "0"
+            "radius"      "400 450 500 550"
+            "damage"      "90 180 270 360"
+            "duration"    "2.2"
+            "hp"          "50"
+        }
+    }
+    // V.C
+    "charlie"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/yinjianren/charlie.lua"
+        "AbilityTextureName"       "yygq/charlie"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastRange"         "1200"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"                 "3"
+        "AbilityCooldown"          "60"
+        "AbilityManaCost"          "100"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "radius"      "800"
+            "count"       "2"
+            "damage"      "2"
+            "stat"        "0.5 0.6 0.7"
+            "chance"      "50"
+            "attack"      "50"
+            "kno_dis"     "10"
+            "duration"    "3"
+        }
+    }
+    // 阴间人
+    "yinjianren"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/yinjianren/yinjianren.lua"
+        "AbilityTextureName"       "yygq/yinjianren"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ALLIES_YES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "MaxLevel"                 "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "range_bonus"    "200"
+            "cd"             "1"
+            "damage"         "40"
+        }
+    }
+}

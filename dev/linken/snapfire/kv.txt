@@ -1,0 +1,323 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Ability: Snapfire Scatterblast
+    // =================================================================================================================
+    "imba_snapfire_scatterblast"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "snapfire_scatterblast"
+        "ScriptFile"               "linken/hero_snapfire.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Snapfire.Shotgun.Fire"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "800"
+        "AbilityCastPoint"         "0.15"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AnimationPlaybackRate"    "1.2" // 1.0 corresponds to cast point of 0.45 or so
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "13 12 11 10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "80 90 100 110"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"           "special_bonus_imba_snapfire_7"
+            "blast_speed"                  "3000"
+            "blast_width_initial"          "225"
+            "blast_width_end"              "550"
+            "debuff_duration"              "2.0"
+            "movement_slow_pct"            "100"
+            "point_blank_range"            "450"
+            "point_blank_dmg_bonus_pct"    "50.0"
+            "knockback_distance"           "50 100 150 200"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Snapfire Firesnap Cookie
+    // =================================================================================================================
+    "imba_snapfire_firesnap_cookie"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "snapfire_firesnap_cookie"
+        "ScriptFile"               "linken/hero_snapfire.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Snapfire.FeedCookie.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "700"
+        "AbilityCastPoint"         "0.15"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "15 13 11 9"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        "AbilityValues"
+        {
+            "projectile_speed"            "1000"
+            "pre_hop_duration"            "0.0"
+            "jump_duration"               "0.4"
+            "jump_height"                 "350"
+            "jump_horizontal_distance"    "450"
+            "pre_land_anim_time"          "0.14"
+            "landing_gesture_duration"    "0.6"
+            "impact_radius"               "400"
+            "impact_damage"               "70 140 210 280"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Snapfire Lil Shredder
+    // =================================================================================================================
+    "imba_snapfire_lil_shredder"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "snapfire_lil_shredder"
+        "ScriptFile"               "linken/hero_snapfire.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Snapfire.ExplosiveShells.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.0"
+        "AbilityCastRange"         "800"
+        "AbilityCastAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "18 16 14 12"
+        "AbilityDuration"          "12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90"
+        "HasScepterUpgrade"        "1"
+        "AbilityValues"
+        {
+            "damage"                         "30 60 90 120"
+            "buffed_attacks"                 "6"
+            "attack_speed_bonus"             "800"
+            "attack_range_bonus"             "200 250 300 350"
+            "buff_duration_tooltip"          "6"
+            "base_attack_time"               "0.9"
+            "attack_speed_slow_per_stack"    "20"
+            "slow_duration"                  "4.0"
+            "attack_speed"                   "400.0"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Snapfire Mortimer Kisses
+    // =================================================================================================================
+    "imba_snapfire_mortimer_kisses"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                           "ability_lua"
+        "AbilityTextureName"                  "snapfire_mortimer_kisses"
+        "ScriptFile"                          "linken/hero_snapfire.lua"
+        "AbilityBehavior"                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityType"                         "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetTeam"               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellImmunityType"                   "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"                "SPELL_DISPELLABLE_YES"
+        "AbilitySound"                        "Hero_Snapfire.MortimerBlob.Launch"
+        // Gobble up scepter ability not tied to any spell in regular game, for AD, associating it here.
+        "AbilityDraftUltScepterAbility"       "snapfire_gobble_up"
+        "AbilityDraftUltScepterPreAbility"    "snapfire_spit_creep"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"                    "4000"
+        "AbilityCastPoint"                    "0.2"
+        "AbilityCastAnimation"                "ACT_DOTA_CAST_ABILITY_4"
+        // Damage
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityUnitDamageType"               "DAMAGE_TYPE_MAGICAL"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                     "40"
+        "AbilityDuration"                     "3"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                     "125 150 175"
+        // Precache pfx
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts"
+            "particle"     "particles/status_fx/status_effect_snapfire_magma.vpcf"
+            "particle"     "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_impact.vpcf"
+            "particle"     "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_linger.vpcf"
+            "particle"     "particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf"
+            "particle"     "particles/units/heroes/hero_snapfire/hero_snapfire_burn_debuff.vpcf"
+            "particle"     "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
+        }
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_snapfire_1"
+            "projectile_speed"      "3500"
+            "projectile_width"      "270"
+            "impact_radius"         "375"
+            "damage_per_impact"     "400 700 1000"
+            "duration_tooltip"      "6.0"
+            "projectile_vision"     "700"
+            "turn_rate"             "160"
+            "burn_interval"         "1"
+        }
+    }
+    // +10 Mortimer Kisses Launched
+    "special_bonus_imba_snapfire_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_mortimer_kisses"
+        }
+        "AbilityValues"
+        {
+            "value"    "6"
+        }
+    }
+    // +1.5 Lil' Shredder Armor Reduction
+    "special_bonus_imba_snapfire_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_lil_shredder"
+        }
+        "AbilityValues"
+        {
+            "value"    "3.0"
+        }
+    }
+    // Scatterblast Applies {s:value}s Disarm
+    "special_bonus_imba_snapfire_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_scatterblast"
+        }
+        "AbilityValues"
+        {
+            "value"    "2.0"
+        }
+    }
+    // +{s:value}% Mortimer Kisses Movement Slow
+    "special_bonus_imba_snapfire_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_mortimer_kisses"
+        }
+        "AbilityValues"
+        {
+            "value"    "10"
+        }
+    }
+    // Firesnap Cookie Restores {s:value} Health
+    "special_bonus_imba_snapfire_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_firesnap_cookie"
+        }
+        "AbilityValues"
+        {
+            "value"    "40"
+        }
+    }
+    // Lil' Shredder Uses Your Attack Damage
+    "special_bonus_imba_snapfire_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_lil_shredder"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // +{s:value} Scatterblast Damage
+    "special_bonus_imba_snapfire_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_scatterblast"
+        }
+        "AbilityValues"
+        {
+            "value"    "100"
+        }
+    }
+    // +{s:value} Scatterblast Damage
+    "special_bonus_imba_snapfire_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_snapfire_lil_shredder"
+        }
+        "AbilityValues"
+        {
+            "value"    "3"
+        }
+    }
+}

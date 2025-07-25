@@ -1,0 +1,212 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Slark: Dark Pact
+    // =================================================================================================================
+    "imba_slark_dark_pact"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "slark_dark_pact"
+        "ScriptFile"               "mb/hero_slark.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Slark.DarkPact.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"     "ACT_INVALID"
+        "AbilityCastPoint"         "0.001 0.001 0.001 0.001"
+        "AbilityCastRange"         "325"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "6"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "0"
+        "AbilityValues"
+        {
+            "delay"                    "1.5"
+            "pulse_duration"           "1.0"
+            "radius"                   "325"
+            "LinkedSpecialBonus"       "special_bonus_imba_slark_2"
+            "total_pulses"             "10"
+            "pulse_interval"           "0.1"
+            "damage_shift_pct"         "5.0"
+            "damage_shift_duration"    "7.0"
+        }
+    }
+    // =================================================================================================================
+    // Slark: Pounce
+    // =================================================================================================================
+    "imba_slark_pounce"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "slark_pounce"
+        "ScriptFile"              "mb/hero_slark.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"         "1"
+        "AbilitySound"            "Hero_Slark.Pounce.Cast"
+        "HasScepterUpgrade"       "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "8"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "75 75 75 75"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "pounce_distance"        "700"
+            "pounce_speed"           "1600"
+            "pounce_acceleration"    "7000.0"
+            "pounce_radius"          "95"
+            "LinkedSpecialBonus"     "special_bonus_imba_slark_1"
+            "leash_radius"           "400"
+            "RequiresScepter"        "1"
+            "RequiresScepter"        "1"
+            "RequiresScepter"        "1"
+        }
+    }
+    // =================================================================================================================
+    // Slark: Essence Shift
+    // =================================================================================================================
+    "imba_slark_essence_shift"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "slark_essence_shift"
+        "ScriptFile"              "mb/hero_slark.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "agi_gain"              "4"
+            "stat_loss"             "2"
+            "LinkedSpecialBonus"    "special_bonus_imba_slark_4"
+            "agi_hold_pct"          "40"
+            "agi_hold_max"          "200"
+            "burning_mana_pct"      "5.0"
+        }
+    }
+    // =================================================================================================================
+    // Slark Shadow Dance
+    // =================================================================================================================
+    "imba_slark_shadow_dance"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "slark_shadow_dance"
+        "ScriptFile"              "mb/hero_slark.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "FightRecapLevel"         "2"
+        "AbilityType"             "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"                "3"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "75 60 45"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "120"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "HasScepterUpgrade"       "1"
+        "AbilitySound"            "Hero_Slark.ShadowDance"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"      "special_bonus_imba_slark_3"
+            "fade_time"               "2"
+            "bonus_movement_speed"    "30 40 50"
+            "bonus_regen_pct"         "5 6 7"
+            "RequiresScepter"         "1"
+            "RequiresScepter"         "1"
+        }
+    }
+    // =================================================================================================================
+    // Slark: Fish Bait (shard ability )
+    // =================================================================================================================
+    "imba_slark_fish_bait"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "slark_fish_bait"
+        "ScriptFile"               "mb/hero_slark.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        "IsGrantedByShard"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1100"
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50"
+        "AbilityValues"
+        {
+            "slow_duration"       "6"
+            "movement_speed"      "30"
+            "attack_speed"        "50"
+            "fish_bait_count"     "2"
+            "projectile_speed"    "700"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus
+    // =================================================================================================================
+    "special_bonus_imba_slark_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_slark_pounce"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.8"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Special Bonus
+    // =================================================================================================================
+    "special_bonus_imba_slark_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_slark_dark_pact"
+        }
+        "AbilityValues"
+        {
+            "value"    "120"
+        }
+    }
+}

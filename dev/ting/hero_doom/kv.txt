@@ -1,0 +1,265 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Doom Bringer: Doom
+    // =================================================================================================================
+    "imba_doom_bringer_devour"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "doom_bringer_devour"
+        // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "ScriptFile"               "ting/hero_doom.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.3 0.3 0.3 0.3"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityCooldown"          "16"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "40 50 60 70"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "300 300 300 300"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_ring.vpcf"
+            "particle"    "particles/econ/courier/courier_trail_lava/courier_trail_lava_model.vpcf"
+            "particle"    "particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade_debuff_smoke.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_bringer_doom.vpcf"
+            "particle"    "particles/status_fx/status_effect_doom.vpcf"
+        }
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilitySound"             "Hero_DoomBringer.Devour"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "bonus_gold"         "66 106 146 186"
+            "regen_p"            "0.6"
+            "gold_hero"          "666"
+            "burn_damage"        "36"
+            "burn_damage_pct"    "1.6"
+            "buff_duration"      "46"
+            "regen"              "6"
+            "shard"              "16"
+            "maxs"               "6"
+        }
+    }
+    // 可以吃远古
+    "special_bonus_imba_doom_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedAbility"
+        {
+            "01"    "imba_doom_bringer_devour"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    "imba_doom_bringer_infernal_blade"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "doom_bringer_infernal_blade"
+        "ScriptFile"               "ting/hero_doom.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityCastPoint"         "0.0 0.0 0.0 0.0"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "4"
+        "AbilityManaCost"          "40"
+        "AbilityCastRange"         "666"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_sigil_c.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact.vpcf"
+        }
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "AbilitySound"             "Hero_DoomBringer.InfernalBlade.Target"
+        "HasScepterUpgrade"        "1"
+        "AbilityValues"
+        {
+            "burn_damage"           "36"
+            "burn_damage_pct"       "3.6"
+            "burn_duration"         "3.6 4.6 5.6 6.6"
+            "LinkedSpecialBonus"    "special_bonus_imba_doom_3"
+            "per"                   "60"
+            "radius"                "600"
+            "chongneng"             "12"
+            "stackcount"            "2"
+            "Duration_SC"           "1.6"
+        }
+    }
+    // 火刀cd-1
+    "special_bonus_imba_doom_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_doom_bringer_infernal_blade"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // 火刀眩晕时间+1
+    "special_bonus_imba_doom_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_doom_bringer_infernal_blade"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.6"
+        }
+    }
+    // 火刀2充能
+    "special_bonus_imba_doom_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_doom_bringer_infernal_blade"
+        }
+        "AbilityValues"
+        {
+            "value"    "2"
+        }
+    }
+    "imba_doom_bringer_scorched_earth"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "doom_bringer_scorched_earth"
+        "ScriptFile"               "ting/hero_doom.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.0 0.0 0.0 0.0"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityCooldown"          "36"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "60 70 80 90"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "600 600 600 600"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
+            "particle"    "particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf"
+        }
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilitySound"             "Hero_DoomBringer.ScorchedEarthAura"
+        "HasScepterUpgrade"        "1"
+        "AbilityValues"
+        {
+            "damage"                      "26 36 46 56"
+            "radius"                      "266 266 266 266"
+            "bonus_movement_speed_pct"    "6 12 18 24"
+            "RequiresScepter"             "1"
+            "bonus_armor"                 "6"
+            "LinkedSpecialBonus"          "special_bonus_imba_doom_1"
+            "max_stack"                   "3 4 5 6"
+            "duration_c"                  "6"
+        }
+    }
+    // +30末日使者攻速
+    "special_bonus_imba_doom_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_doom_bringer_scorched_earth"
+        }
+        "AbilityValues"
+        {
+            "value"    "30"
+        }
+    }
+    "imba_doom_bringer_doom"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "doom_bringer_doom"
+        "ScriptFile"                "ting/hero_doom.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"           "2"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"          "0.5"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_6"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "66"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "66 166 266"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "HasScepterUpgrade"         "1"
+        "AbilityValues"
+        {
+            "duration_long"    "9"
+            "damage"           "66 132 198"
+            "radius"           "666"
+        }
+    }
+}

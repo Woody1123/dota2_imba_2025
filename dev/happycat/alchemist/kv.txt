@@ -1,0 +1,260 @@
+"DOTAAbilities"
+{
+    // 炼金
+    "imba_acid_spray"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "alchemist_acid_spray"
+        "ScriptFile"               "happycat/hero_alchemist/imba_acid_spray.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastRange"         "900"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "22.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50 80 110 140"
+        "precache"
+        {
+            "particle"    "particles/tgp/alchemist/msg_gold.vpcf"
+            "particle"    "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+        }
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "radius"               "100 200 300 400"
+            "duration"
+            {
+                "value"                                            "16"
+                "special_bonus_unique_imba_acid_spray_duration"    "+6"
+            }
+            "damage"
+            {
+                "value"                                          "40 50 60 70"
+                "special_bonus_unique_imba_acid_spray_damage"    "+20"
+            }
+            "armor_reduction"      "4 8 12 16"
+            "tick_rate"            "1.0"
+            "magical_reduction"    "5 10 15 20"
+        }
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+    }
+    "imba_unstable_concoction_throw"
+    {
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "alchemist_unstable_concoction"
+        "ScriptFile"                     "happycat/hero_alchemist/imba_unstable_concoction_throw.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"         "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "775"
+        "AbilityCastPoint"               "0"
+        "AbilityCastAnimation"           "ACT_DOTA_ALCHEMIST_CONCOCTION_THROW"
+        "AbilityCooldown"                "10"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportBonus"    "120"
+        "AbilityManaCost"                "100"
+        "precache"
+        {
+            "particle"    "particles/econ/items/alchemist/alchemist_smooth_criminal/alchemist_smooth_criminal_unstable_concoction_projectile.vpcf"
+            "particle"    "particles/generic_gameplay/generic_stunned.vpcf"
+        }
+        "AbilityValues"
+        {
+            "dmg"                   "100 150 200 250"
+            "stun"                  "0.5 1 1.5 2"
+            "dur"                   "10"
+            "LinkedSpecialBonus"    "special_bonus_imba_goblins_greed15l"
+            "rd"                    "700"
+        }
+    }
+    "imba_goblins_greed"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "alchemist_goblins_greed"
+        "ScriptFile"               "happycat/hero_alchemist/imba_goblins_greed.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "300 400 500 600"
+        "AbilityCastPoint"         "0"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityCooldown"          "60 50 40 30"
+        "precache"
+        {
+            "model"    "models/props_gameplay/treasure_chest_gold.vmdl"
+        }
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "special_bonus_imba_goblins_greed20l"    "+400"
+            "bet_mul"                                "2"
+            "special_bonus_imba_goblins_greed10l"    "+1"
+            "point"                                  "1 1 2 2"
+        }
+    }
+    "imba_chemical_rage"
+    {
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "alchemist_chemical_rage"
+        "ScriptFile"                     "happycat/hero_alchemist/imba_chemical_rage.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"                    "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"                "2"
+        "AbilitySound"                   "Hero_Alchemist.ChemicalRage.Cast"
+        "AbilityDraftUltShardAbility"    "alchemist_berserk_potion"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"               "0.0"
+        "AbilityCastAnimation"           "ACT_INVALID"
+        "HasScepterUpgrade"              "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "55.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "100 200 300"
+        "AbilityCastAnimation"           "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf"
+            "particle"    "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
+        }
+        "AbilityValues"
+        {
+            "duration"              "25.0"
+            "base_attack_time"      "1.2 1.1 1.0"
+            "bonus_health_regen"    "50 75 100"
+            "LinkedSpecialBonus"    "special_bonus_imba_goblins_greed15r"
+            "att"                   "3"
+            "dur"                   "0.2"
+        }
+    }
+    "special_bonus_imba_goblins_greed10l"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_base"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    "special_bonus_unique_imba_acid_spray_damage"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    "special_bonus_imba_goblins_greed15l"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_unstable_concoction_throw"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    "special_bonus_imba_goblins_greed15r"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_chemical_rage"
+        }
+        "AbilityValues"
+        {
+            "value"    "30"
+        }
+    }
+    "special_bonus_imba_goblins_greed20l"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_goblins_greed"
+        }
+        "AbilityValues"
+        {
+            "value"    "400"
+        }
+    }
+    "special_bonus_unique_imba_acid_spray_duration"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    "special_bonus_imba_goblins_greed25l"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_goblins_greed"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    "special_bonus_imba_goblins_greed25r"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_goblins_greed"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+}

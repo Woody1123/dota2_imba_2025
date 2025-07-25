@@ -1,0 +1,288 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // 风行
+    // =================================================================================================================
+    "focusfire"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"                "heros/hero_windrunner/focusfire.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilitySound"              "Ability.Focusfire"
+        "AbilityTextureName"        "windrunner_focusfire"
+        "HasScepterUpgrade"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"          "0.2"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "20"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "dur"
+            {
+                "value"                                     "13"
+                "special_bonus_unique_imba_windrunner_5"    "+5"
+            }
+            "attsp"
+            {
+                "value"                    "100 150 200"
+                "special_bonus_scepter"    "+80"
+            }
+            "att_range"
+            {
+                "value"                    "0"
+                "special_bonus_scepter"    "+200"
+            }
+            "msp"                "300"
+            "ch"
+            {
+                "value"                                     "40"
+                "special_bonus_unique_imba_windrunner_6"    "+10"
+            }
+            "armor"
+            {
+                "value"    "2"
+            }
+            "debuff_duration"    "3"
+        }
+    }
+    "shackleshot"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "heros/hero_windrunner/shackleshot.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_TREE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Windrunner.ShackleshotCast"
+        "AbilityTextureName"       "windrunner_shackleshot"
+        "precache"
+        {
+            "particle"    "particles/econ/items/windrunner/wr_ti8_immortal_shoulder/wr_ti8_shackleshot.vpcf"
+            "particle"    "particles/econ/items/windrunner/wr_ti8_immortal_shoulder/wr_ti8_shackleshot_pair.vpcf"
+            "model"       "models/props_tree/newbloom_tree.vmdl"
+            "model"       "maps/jungle_assets/trees/kapok/export/kapok_003.vmdl"
+            "model"       "maps/jungle_assets/trees/flytrap/jungle_flytrap01.vmdl"
+            "model"       "maps/journey_assets/props/trees/journey_armandpine/journey_armandpine_01_inspector.vmdl"
+            "model"       "models/props_tree/tree_bamboo_snow_03_destruction.vmdl"
+            "model"       "models/props_tree/tree_pine_04.vmdl"
+            "model"       "models/props_tree/cypress/tree_cypress010_inspector.vmdl"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1000"
+        "AbilityCastPoint"         "0.2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100 120 140 160"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "stun"       "1 1.5 2 2.5"
+            "stunrd"     "350"
+            "spdur"      "4"
+            "sp"         "-20 -25 -30 -35"
+            "wh"         "100"
+            "dis"        "1000"
+            "treedur"    "5"
+        }
+    }
+    // 3
+    "windrun"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "heros/hero_windrunner/windrun.lua" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilitySound"                   "Ability.Windrun"
+        // "HasScepterUpgrade"				"1"
+        "AbilityTextureName"             "windrunner_windrun"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"               "0"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "0"
+        "AbilityCharges"                 "2"
+        "AbilityChargeRestoreTime"       "9"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "100"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.1" // Mostly about dodging all attacks
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "sp"     "40 50 60 70"
+            "dur"    "3 4 5 6"
+            "rd"     "300 300 400 400"
+        }
+    }
+    // 2
+    "powershot"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "heros/hero_windrunner/powershot.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "FightRecapLevel"          "1"
+        "AbilityTextureName"       "windrunner_powershot"
+        "HasShardUpgrade"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "0"
+        "AbilityCastPoint"         "0.5"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90"
+        "precache"
+        {
+            "particle"    "particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_channel_ti6.vpcf"
+            "particle"    "particles/units/heroes/hero_windrunner/windrunner_spell_powershot_rubick.vpcf"
+            "particle"    "particles/tg_pfx/heros/wr/such1.vpcf"
+            "particle"    "particles/tg_pfx/heros/wr/su1.vpcf"
+            "particle"    "particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_ti6.vpcf"
+            "particle"    "particles/tg_pfx/heros/wr/wi1.vpcf"
+            "particle"    "particles/units/heroes/hero_windrunner/wr_taunt_kiss_heart.vpcf"
+            "particle"    "particles/econ/items/windrunner/windrunner_ti6/windrunner_ti6_powershot_dmg.vpcf"
+        }
+        "AbilityValues"
+        {
+            "dam"      "200 400 600 800"
+            "sleep"    "1 1.25 1.5 1.75"
+            "rg"       "3000"
+            "sp1"      "3000"
+            "vrd"      "300"
+            "wh"       "150"
+        }
+    }
+    // 强力击射出2发箭矢
+    "special_bonus_windrunner_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    // 强力击对友军造成同等治疗
+    "special_bonus_windrunner_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    // 风行期间隐身
+    "special_bonus_windrunner_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    // +2风行持续时间
+    "special_bonus_windrunner_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "windrun"
+        }
+    }
+    // 集中火力概率
+    "special_bonus_unique_imba_windrunner_5"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 集中火力持续时间
+    "special_bonus_unique_imba_windrunner_6"
+    {
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"          "special_bonus_base"
+        "AbilityValues"
+        {
+        }
+    }
+    // 大招可开启自动施法改变箭雨的朝向为前方
+    "special_bonus_windrunner_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    // 风步时间内有10%概率躲避所有伤害
+    "special_bonus_windrunner_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+}

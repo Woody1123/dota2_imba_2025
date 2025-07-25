@@ -1,0 +1,22 @@
+{
+    "name": "hello",
+    "type": "module",
+    "version": "1.0.0",
+    "main": "1.js",
+    "dependencies": {
+        "@types/es6-promise": "^3.3.0",
+        "easy-keyvalues": "^1.2.3",
+        "fs": "latest",
+        "path": "^0.12.7",
+        "readline-promise": "latest"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@types/node": "^22.1.0"
+    }
+}

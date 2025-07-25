@@ -1,0 +1,401 @@
+"DOTAAbilities"
+{
+    "imba_shredder_whirling_death"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "shredder_whirling_death"
+        "ScriptFile"               "linken/hero_shredder.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_TREE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityCastPoint"         "0"
+        "AbilityCooldown"          "6"
+        "AbilityManaCost"          "70"
+        "AbilityCastRange"         "350"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_whirling_death.vpcf"
+            "particle"     "particles/status_fx/status_effect_shredder_whirl.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_whirling_death_debuff.vpcf"
+        }
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_shredder_7"
+            "whirling_damage"       "150 200 250 300"
+            "duration"              "14"
+            "tree_damage_scale"     "12 18 24 30"
+            "LinkedSpecialBonus"    "special_bonus_shredder_1"
+        }
+    }
+    // 增加死亡旋风减少属性
+    "special_bonus_shredder_1"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_whirling_death"
+        }
+        "AbilityValues"
+        {
+            "value"    "7.0"
+        }
+    }
+    // 增加死亡旋风作用范围
+    "special_bonus_shredder_7"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_whirling_death"
+        }
+        "AbilityValues"
+        {
+            "value"    "150.0"
+        }
+    }
+    "imba_shredder_timber_chain"
+    {
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "shredder_timber_chain"
+        "ScriptFile"               "linken/hero_shredder.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityCooldown"          "3"
+        "AbilityManaCost"          "60 70 80 90"
+        "AbilityCastRange"         "850 1050 1250 1450"
+        "AbilityCastPoint"         "0.15"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_timberchain.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_timber_dmg.vpcf"
+        }
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "speed"                 "3000"
+            "LinkedSpecialBonus"    "special_bonus_shredder_2"
+            "radius"                "200"
+            "chain_radius"          "90"
+            "damage"                "120 140 180 220"
+            "charge_cooldown"       "4"
+            "strength_multiple"     "1 1 1.5 1.5"
+            "acc_range"             "1200"
+            "shard_range"           "1100"
+        }
+    }
+    "imba_shredder_timber_chain_destroy"
+    {
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "imba_shredder_timber_chain_destroy"
+        "ScriptFile"            "linken/hero_shredder.lua"
+        "MaxLevel"              "1"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityCooldown"       "1"
+        "AbilityManaCost"       "50"
+        "AbilityCastPoint"      "0.0"
+        "AbilityValues"
+        {
+            "direction"    "1000"
+        }
+    }
+    // 增加伐木锯链施法距离
+    "special_bonus_shredder_2"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_timber_chain"
+        }
+        "AbilityValues"
+        {
+            "value"    "1800.0"
+        }
+    }
+    "imba_shredder_reactive_armor"
+    {
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "shredder_reactive_armor"
+        "ScriptFile"              "linken/hero_shredder.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+        "AbilityCooldown"         "30"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_whirling_death_spin.vpcf"
+        }
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "stack_duration"        "10 13 16 19"
+            "LinkedSpecialBonus"    "special_bonus_shredder_4"
+            "bonus_hp_regen"        "3.5 4 4.5 5"
+            "bonus_armor"           "1.5 2 2.5 3"
+            "magic_resistance"      "2"
+            "buff_duration"         "5"
+            "LinkedSpecialBonus"    "special_bonus_shredder_3"
+            "cooldown"              "1"
+        }
+    }
+    // 增加旋风护甲触发几率
+    "special_bonus_shredder_3"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_reactive_armor"
+        }
+        "AbilityValues"
+        {
+            "value"    "25.0"
+        }
+    }
+    // 增加活体护甲叠加上限
+    "special_bonus_shredder_4"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_reactive_armor"
+        }
+        "AbilityValues"
+        {
+            "value"    "18.0"
+        }
+    }
+    // =================================================================================================================
+    // shredder: Chakram
+    // =================================================================================================================
+    "imba_shredder_chakram"
+    {
+        // Ability Technical Aspect
+        // base script folder	: scripts/vscripts
+        // base texture folder	: resource/flash3/images/spellicons
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "shredder_chakram"
+        "ScriptFile"               "linken/hero_shredder.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        // Ability General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"                 "3"
+        "AbilityCastPoint"         "0.1"
+        // Ability Resource
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "4"
+        "AbilityManaCost"          "50 70 90"
+        // Ability Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1600"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram_stay.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram_return.vpcf"
+            "particle"     "particles/status_fx/status_effect_frost.vpcf"
+        }
+        "HasScepterUpgrade"        "1"
+        "LinkedAbility"            "imba_shredder_chakram_2"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_shredder_8"
+            "radius"                "225.0"
+            "pass_damage"           "100 150 200"
+            "damage_per_second"     "100 140 180"
+            "slow"                  "5"
+            "damage_interval"       "0.5"
+            "break_distance"        "2000.0"
+            "mana_per_second"       "10 15 20"
+            "pass_slow_duration"    "0.5"
+        }
+    }
+    // =================================================================================================================
+    // shredder: Return Chakram (Lua version)
+    // =================================================================================================================
+    "imba_shredder_return_chakram"
+    {
+        // Ability Technical Aspect
+        // base script folder	: scripts/vscripts
+        // base texture folder	: resource/flash3/images/spellicons
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "shredder_return_chakram"
+        "ScriptFile"            "linken/hero_shredder.lua"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "FightRecapLevel"       "1"
+        // Ability General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"              "1"
+        // Ability Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"      "0.0 0.0 0.0 0.0"
+        // Ability Resource
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"       "0.0 0.0 0.0"
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // shredder: Chakram 2
+    // =================================================================================================================
+    "imba_shredder_chakram_2"
+    {
+        // Ability Technical Aspect
+        // base script folder	: scripts/vscripts
+        // base texture folder	: resource/flash3/images/spellicons
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "shredder_chakram_2"
+        "ScriptFile"               "linken/hero_shredder.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"          "1"
+        // Ability General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"                 "3"
+        "AbilityCastPoint"         "0.1"
+        // Ability Resource
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "4"
+        "AbilityManaCost"          "50 70 90"
+        // Ability Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1600"
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_shredder.vsndevts"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram_stay.vpcf"
+            "particle"     "particles/units/heroes/hero_shredder/shredder_chakram_return.vpcf"
+            "particle"     "particles/status_fx/status_effect_frost.vpcf"
+        }
+        "IsGrantedByScepter"       "1"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_shredder_8"
+            "radius"                "225.0"
+            "pass_damage"           "100 200 300"
+            "damage_per_second"     "100 140 180"
+            "slow"                  "5"
+            "damage_interval"       "0.5"
+            "break_distance"        "2000.0"
+            "mana_per_second"       "10 15 20"
+            "pass_slow_duration"    "0.5"
+        }
+    }
+    // =================================================================================================================
+    // shredder: Return Chakram (Lua version)
+    // =================================================================================================================
+    "imba_shredder_return_chakram_2"
+    {
+        // Ability Technical Aspect
+        // base script folder	: scripts/vscripts
+        // base texture folder	: resource/flash3/images/spellicons
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"             "ability_lua"
+        "AbilityTextureName"    "shredder_return_chakram_2"
+        "ScriptFile"            "linken/hero_shredder.lua"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "FightRecapLevel"       "1"
+        // Ability General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+        "MaxLevel"              "1"
+        // Ability Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"      "0.0 0.0 0.0 0.0"
+        // Ability Resource
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"       "0.0 0.0 0.0"
+        "AbilityValues"
+        {
+        }
+    }
+    // 增加减少主属性数值
+    "special_bonus_shredder_5"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_chakram"
+        }
+        "AbilityValues"
+        {
+            "value"    "2.0"
+        }
+    }
+    // 增加飞盘飞行速度
+    "special_bonus_shredder_8"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_chakram"
+        }
+        "AbilityValues"
+        {
+            "value"    "800.0"
+        }
+    }
+    // 减少飞盘冷却
+    "special_bonus_shredder_6"
+    {
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_shredder_chakram"
+        }
+        "AbilityValues"
+        {
+            "value"    "-2.0"
+        }
+    }
+}

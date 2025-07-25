@@ -1,0 +1,252 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Legion Commander: Overwhelming Odds
+    // =================================================================================================================
+    "imba_legion_commander_overwhelming_odds"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "legion_commander_overwhelming_odds"
+        "ScriptFile"               "mb/hero_legion_commander.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_LegionCommander.Overwhelming.Location"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "15"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1000"
+        "AbilityCastPoint"         "0.3 0.3 0.3 0.3"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100 110 120 130"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "bonus_speed_creeps"             "3"
+            "bonus_speed_heroes"             "9"
+            "duration"                       "7.0"
+            "radius"                         "330 340 350 360"
+            "buff_duration"                  "0.5"
+        }
+    }
+    // =================================================================================================================
+    // Legion Commander: Press the Attack
+    // =================================================================================================================
+    "imba_legion_commander_press_the_attack"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "legion_commander_press_the_attack"
+        "ScriptFile"                     "mb/hero_legion_commander.lua"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"         "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ALLIES_NO"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_YES"
+        "AbilitySound"                   "Hero_LegionCommander.PressTheAttack"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "700"
+        "AbilityCastPoint"               "0.2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "13.0 12.0 11.0 10.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "110"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "3.0" // Value much higher than cost.
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "duration"             "5.0"
+            "attack_speed"         "65 90 115 140"
+            "hp_regen"             "50 60 70 80"
+            "status_resistance"    "10 20 30 40"
+        }
+    }
+    // =================================================================================================================
+    // Legion Commander: Moment of Courage
+    // =================================================================================================================
+    "imba_legion_commander_moment_of_courage"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "legion_commander_moment_of_courage"
+        "ScriptFile"              "mb/hero_legion_commander.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilitySound"            "Hero_LegionCommander.Courage"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "0.2"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_legion_commander_2"
+            "buff_duration"         "1.0"
+            "hp_leech_percent"      "20 30 40 50"
+            "melee_block_pct"       "15"
+            "range_block_pct"       "10"
+            "range_block_radius"    "400 450 500 550"
+        }
+    }
+    // =================================================================================================================
+    // Legion Commander: Duel
+    // =================================================================================================================
+    "imba_legion_commander_duel"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "AbilityTextureName"             "legion_commander_duel"
+        "ScriptFile"                     "mb/hero_legion_commander.lua"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO"
+        "AbilityType"                    "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetFlags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"           "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"                "2"
+        "AbilitySound"                   "Hero_LegionCommander.Duel"
+        "HasScepterUpgrade"              "1"
+        "HasShardUpgrade"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "150"
+        "AbilityCastPoint"               "0.3 0.3 0.3 0.3"
+        "AbilityCastAnimation"           "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "65 60 55"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "75 75 75"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "3.0" // Value much higher than cost.
+        "AbilityValues"
+        {
+            "duration"                 "4.0 4.75 5.5"
+            "RequiresScepter"          "1"
+            "LinkedSpecialBonus"       "special_bonus_imba_legion_commander_3"
+            "victory_range"            "600"
+            "dark_duel_range"          "800"
+            "min_reward_damage_pct"    "35"
+            "duel_armor"               "5 7 9"
+        }
+    }
+    // + 80 overwhelming_odds damage
+    "special_bonus_imba_legion_commander_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_legion_commander_overwhelming_odds"
+        }
+        "AbilityValues"
+        {
+            "value"    "80"
+        }
+    }
+    // + 10% chance
+    "special_bonus_imba_legion_commander_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_legion_commander_moment_of_courage"
+        }
+        "AbilityValues"
+        {
+            "value"    "15"
+        }
+    }
+    // + 40 duel bonus
+    "special_bonus_imba_legion_commander_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_legion_commander_duel"
+        }
+        "AbilityValues"
+        {
+            "value"    "20"
+        }
+    }
+    // - 3s press cooldown
+    "special_bonus_imba_legion_commander_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "-3.0"
+        }
+    }
+    // + 2.0s immue press attack
+    "special_bonus_imba_legion_commander_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_legion_commander_press_the_attack"
+        }
+        "AbilityValues"
+        {
+            "value"    "2.0"
+        }
+    }
+    // + 400 Aoe press attack
+    "special_bonus_imba_legion_commander_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_legion_commander_press_the_attack"
+        }
+        "AbilityValues"
+        {
+            "value"    "400"
+        }
+    }
+}

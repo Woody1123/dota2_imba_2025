@@ -1,0 +1,284 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // DAWNBREAKER START
+    // =================================================================================================================
+    // Dawnbreaker: FIRE WREATH
+    // =================================================================================================================
+    "imba_dawnbreaker_fire_wreath"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "linken/hero_dawnbreaker.lua"
+        "AbilityTextureName"       "dawnbreaker_fire_wreath"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        // "AbilityCastRange"				"600"
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "15"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "80"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "duration"               "1.1"
+            "swipe_radius"           "360"
+            "LinkedSpecialBonus"     "special_bonus_imba_dawnbreaker_2"
+            "smash_radius"           "250"
+            "LinkedSpecialBonus"     "special_bonus_imba_dawnbreaker_2"
+            "movement_speed"         "215"
+            "total_attacks"          "3"
+            "smash_stun_duration"    "1"
+        }
+    }
+    // 充能
+    "special_bonus_imba_dawnbreaker_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_fire_wreath"
+        }
+        "AbilityValues"
+        {
+            "value"    "2.0"
+        }
+    }
+    // 伤害
+    "special_bonus_imba_dawnbreaker_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_fire_wreath"
+        }
+        "AbilityValues"
+        {
+            "value"    "75.0"
+        }
+    }
+    // =================================================================================================================
+    // Dawnbreaker Celestial Blade
+    // =================================================================================================================
+    "imba_dawnbreaker_celestial_hammer"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "linken/hero_dawnbreaker.lua"
+        "AbilityTextureName"       "dawnbreaker_celestial_hammer"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.25"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "18 16 14 12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "110"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_4"
+            "hammer_aoe_radius"     "350"
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_3"
+            "duration"              "6"
+            "slow"                  "100"
+        }
+    }
+    // 施法距离
+    "special_bonus_imba_dawnbreaker_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_celestial_hammer"
+        }
+        "AbilityValues"
+        {
+            "value"    "1000.0"
+        }
+    }
+    // 伤害
+    "special_bonus_imba_dawnbreaker_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_celestial_hammer"
+        }
+        "AbilityValues"
+        {
+            "value"    "100.0"
+        }
+    }
+    // =================================================================================================================
+    // Ability: Dawnbreaker Healing Touch
+    // =================================================================================================================
+    "imba_dawnbreaker_luminosity"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"                "linken/hero_dawnbreaker.lua"
+        "AbilityTextureName"        "dawnbreaker_luminosity"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_3"
+        "AbilityCastGestureSlot"    "DEFAULT"
+        "AbilityCastPoint"          "0.0 0.0 0.0 0.0"
+        "HasScepterUpgrade"         "1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_5"
+            "heal_pct"              "70 80 90 100"
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_6"
+            "attack_count"          "3"
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_6"
+        }
+    }
+    // 范围
+    "special_bonus_imba_dawnbreaker_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_luminosity"
+        }
+        "AbilityValues"
+        {
+            "value"    "200.0"
+        }
+    }
+    // 暴击
+    "special_bonus_imba_dawnbreaker_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_luminosity"
+        }
+        "AbilityValues"
+        {
+            "value"    "50.0"
+        }
+    }
+    // =================================================================================================================
+    // Dawnbreaker: Elated Fury // Solar Guardian
+    // =================================================================================================================
+    "imba_dawnbreaker_solar_guardian"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                      "ability_lua"
+        "ScriptFile"                     "linken/hero_dawnbreaker.lua"
+        "AbilityTextureName"             "dawnbreaker_solar_guardian"
+        "AbilityType"                    "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"          "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"              "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"                "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"               "0"
+        "AbilityCastPoint"               "1.7"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                "120 110 100"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                "150 200 250"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"    "0.25" // generally used for damage only
+        "AbilityValues"
+        {
+            "airtime_duration"      "0.8"
+            "LinkedSpecialBonus"    "special_bonus_imba_dawnbreaker_7"
+            "base"                  "8 9 10"
+            "base_damage_heal"      "7 9 11"
+            "land_stun_duration"    "1.5 1.75 2.0"
+            "min_distance"          "5000"
+        }
+    }
+    // 范围
+    "special_bonus_imba_dawnbreaker_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_solar_guardian"
+        }
+        "AbilityValues"
+        {
+            "value"    "200.0"
+        }
+    }
+    // 冷却
+    "special_bonus_imba_dawnbreaker_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_dawnbreaker_solar_guardian"
+        }
+        "AbilityValues"
+        {
+            "value"    "20.0"
+        }
+    }
+}

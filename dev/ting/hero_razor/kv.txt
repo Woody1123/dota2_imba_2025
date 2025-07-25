@@ -1,0 +1,332 @@
+"DOTAAbilities"
+{
+    // 电棍
+    "imba_razor_plasma_field"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_razor.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "MaxLevel"                 "4"
+        "AbilityTextureName"       "razor_plasma_field"
+        "AbilityCastRange"         "800"
+        // Talents
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedTalents"
+        {
+            "special_bonus_imba_razor_1"    "1"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0"
+        "AbilityCastAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "10"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "125"
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_razor/razor_plasmafield.vpcf"
+            "particle"     "particles/econ/items/razor/razor_ti6/razor_plasmafield_ti6.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        }
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_1"
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_1"
+            "radius"                "800"
+            "speed"                 "800"
+            "kno"                   "450"
+            "movespeed"             "10 20 30 40"
+            "duration_enemy"        "2"
+            "ability_link_stack"    "6"
+        }
+    }
+    // 等离子加伤害
+    "special_bonus_imba_razor_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_plasma_field"
+        }
+        "AbilityValues"
+        {
+            "value"    "100"
+        }
+    }
+    "imba_razor_static_link"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"                "ting/hero_razor.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "MaxLevel"                  "4"
+        "AbilityTextureName"        "razor_static_link"
+        // Talents
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedTalents"
+        {
+            "special_bonus_imba_razor_2"    "1"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "550"
+        "AbilityCastPoint"          "0.3"
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "30 30 25 20"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "90"
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_razor/razor_static_link.vpcf"
+            "particle"     "particles/units/heroes/hero_razor/razor_static_link_debuff.vpcf"
+            "particle"     "particles/units/heroes/hero_razor/razor_static_link_buff.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        }
+        "AbilityValues"
+        {
+            "link_duration"         "10 11 12 13"
+            "buff_duration"         "15"
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_2"
+            "link_radius"           "700 750 800 850"
+            "time"                  "3"
+            "duration_slow"         "1"
+        }
+    }
+    "special_bonus_imba_razor_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_static_link"
+        }
+        "AbilityValues"
+        {
+            "value"    "20"
+        }
+    }
+    "imba_razor_unstable_current"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_razor.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityCastPoint"         "0"
+        "AbilityCastAnimation"     "ACT_DOTA_OVERRIDE_ABILITY_1"
+        "MaxLevel"                 "4"
+        "AbilityTextureName"       "razor_unstable_current"
+        "AbilityCooldown"          "5"
+        "AbilityCastPoint"         "0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90"
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_razor/razor_base_attack.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        }
+        "LinkedTalents"
+        {
+            "special_bonus_imba_razor_5"    "1"
+            "special_bonus_imba_razor_6"    "1"
+        }
+        "AbilityValues"
+        {
+            "movespeed"             "5 10 15 20"
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_5"
+            "damage"                "100 140 180 220"
+            "chance"                "10 15 20 25"
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_6"
+            "max_sh"                "8000"
+        }
+    }
+    // 被动护盾upup
+    "special_bonus_imba_razor_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_unstable_current"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.5"
+        }
+    }
+    // 麻痹时间+0.5
+    "special_bonus_imba_razor_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_unstable_current"
+        }
+        "AbilityValues"
+        {
+            "value"    "20"
+        }
+    }
+    "imba_razor_eye_of_the_storm"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"                "ting/hero_razor.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "MaxLevel"                  "3"
+        "AbilityTextureName"        "razor_eye_of_the_storm"
+        "HasScepterUpgrade"         "1"
+        // Talents
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedTalents"
+        {
+            "special_bonus_imba_razor_4"    "1"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"          "0"
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "50"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "100 150 200"
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_razor/razor_rain_storm.vpcf"
+            "particle"     "particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        }
+        "AbilityValues"
+        {
+            "damage"                "60 120 180"
+            "duration"              "30"
+            "strike_interval"       "0.5 0.4 0.3"
+            "armor_reduction"       "1 1.5 2"
+            "LinkedSpecialBonus"    "special_bonus_imba_razor_4"
+            "debuff_duration"       "10"
+        }
+    }
+    // 打击数+1
+    "special_bonus_imba_razor_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_eye_of_the_storm"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    "imba_razor_whip"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "ScriptFile"                "ting/hero_razor.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING |DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+        "MaxLevel"                  "1"
+        "AbilityTextureName"        "razor_static_link_alt_gold_png"
+        // Talents
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedTalents"
+        {
+            "special_bonus_imba_razor_3"    "1"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "550"
+        "AbilityCastPoint"          "0.15"
+        "AbilityCastAnimation"      "ACT_DOTA_OVERRIDE_ABILITY_2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "2.5"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "30"
+        "precache"
+        {
+            "particle"     "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+            "particle"     "particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+        }
+        "HasShardUpgrade"           "1"
+        "AbilityValues"
+        {
+            "per"    "60"
+        }
+    }
+    // 消耗+盾
+    "special_bonus_imba_razor_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "LinkedAbility"
+        {
+            "01"    "imba_razor_whip"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+}

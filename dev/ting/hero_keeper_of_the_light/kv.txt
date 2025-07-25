@@ -1,0 +1,355 @@
+"DOTAAbilities"
+{
+    // 冲击波
+    // =================================================================================================================
+    // Keeper of the Light: Illuminate
+    // =================================================================================================================
+    "imba_light_illuminate"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_keeper_of_the_light.lua"
+        "AbilityTextureName"       "keeper_of_the_light_illuminate"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilitySound"             "Hero_KeeperOfTheLight.Illuminate.Discharge"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_spirit_form_ambient.vpcf"
+            "particle"    "particles/status_fx/status_effect_keeper_spirit_form.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/kotl_illuminate_cast.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact_small.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
+            "particle"    "particles/units/heroes/hero_wisp/wisp_overcharge_b.vpcf"
+            "model"       "models/courier/sw_donkey/sw_donkey_flying.vmdl"
+        }
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1800"
+        "AbilityCastPoint"         "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "11"
+        "AbilityChannelTime"       "2 3 4 5"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100 125 150 175"
+        "MaxLevel"                 "7"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "HasScepterUpgrade"        "1"
+        "HasShardUpgrade"          "1"
+        "AbilityValues"
+        {
+            "damage_count"        "10 12 14 16 18 20 22"
+            "max_channel_time"    "2 3 4 5 5 5 5"
+            "radius"              "400"
+            "range"               "1550"
+            "speed"               "1600.0"
+            "mana_cost"           "1.5"
+            "mana_cost_damage"    "40.0"
+            "stun_duration"       "0.12"
+            "mana_re"             "30"
+        }
+    }
+    // 阳炎之缚
+    // =================================================================================================================
+    // Keeper of the Light: Radiant Bind
+    // =================================================================================================================
+    "imba_light_radiant_bind"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_keeper_of_the_light.lua"
+        "AbilityTextureName"       "keeper_of_the_light_radiant_bind"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_AOE "
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "AbilitySound"             "Hero_KeeperOfTheLight.ManaLeak.Cast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.2"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_wisp/wisp_overcharge_b.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_radiant_bind_ambient.vpcf"
+        }
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "60 80 100 120"
+        "AbilityCooldown"          "17 16 15 14"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "850 900 950 1000"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "duration"               "6"
+            "slow"                   "6 7 8 9"
+            "magic_resistance"       "20 25 30 35"
+            "charge_restore_time"    "14"
+            "mana_cost"              "1 1 2 2"
+            "move_distance"          "20 30 40 50"
+            "radius"                 "350"
+        }
+    }
+    // 灵光
+    // =================================================================================================================
+    // Keeper of the Light: Will-O-Wisp
+    // =================================================================================================================
+    "imba_light_will_o_wisp"
+    {
+        "BaseClass"                "ability_lua"
+        "ScriptFile"               "ting/hero_keeper_of_the_light.lua"
+        "AbilityTextureName"       "keeper_of_the_light_will_o_wisp"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE "
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilitySound"             "Hero_KeeperOfTheLight.ManaLeak.Cast"
+        "MaxLevel"                 "3"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"         "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "50"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "250"
+        // Cast Range
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "800"
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_debuff.vpcf"
+            "particle"    "particles/status_fx/status_effect_keeper_dazzle.vpcf"
+        }
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "on_count"                "3 5 7"
+            "radius"                  "680"
+            "hit_count"               "6 10 14"
+            "off_duration"            "1"
+            "on_duration"             "1"
+            "fixed_movement_speed"    "60"
+            "miss"                    "100"
+        }
+    }
+    // 灵魂形态
+    // =================================================================================================================
+    // Keeper of the Light: Spirit Form
+    // =================================================================================================================
+    "imba_light_spirit_form"
+    {
+        "BaseClass"               "ability_lua"
+        "ScriptFile"              "ting/hero_keeper_of_the_light.lua"
+        "AbilityTextureName"      "keeper_of_the_light_spirit_form"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_NO"
+        "AbilitySound"            "Hero_KeeperOfTheLight.SpiritForm"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_6"
+        "MaxLevel"                "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_spirit_form_ambient.vpcf"
+            "particle"    "particles/econ/courier/courier_greevil_white/courier_greevil_white_ambient_3.vpcf"
+        }
+        "AbilityValues"
+        {
+            "duration"           "4"
+            "move_speed"         "25"
+            "cd"                 "8"
+            "magic"              "40"
+            "movement_speed"     "0"
+            "cast_range"         "0"
+            "illuminate_heal"    "0"
+        }
+    }
+    // 致盲之光
+    // =================================================================================================================
+    // Keeper of the Light: Blinding Light
+    // =================================================================================================================
+    "imba_light_blinding_light"
+    {
+        "BaseClass"               "ability_lua"
+        "ScriptFile"              "ting/hero_keeper_of_the_light.lua"
+        "AbilityTextureName"      "keeper_of_the_light_blinding_light"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT "
+        "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"    "SPELL_DISPELLABLE_YES"
+        "AbilitySound"            "Hero_KeeperOfTheLight.BlindingLight"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"        "1100 1100 1100 1100"
+        "AbilityCastPoint"        "0.2"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_5"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "22"
+        "precache"
+        {
+            "particle"    "particles/econ/items/keeper_of_the_light/kotl_ti10_immortal/kotl_ti10_blinding_light.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_spirit_form_ambient.vpcf"
+            "particle"    "particles/status_fx/status_effect_keeper_spirit_form.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_on.vpcf"
+            "particle"    "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+        }
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"         "150"
+        "MaxLevel"                "1"
+        "AbilityValues"
+        {
+            "miss_rate"        "50"
+            "duration"         "4"
+            "radius"           "600"
+            "damage"           "150"
+            "duration_wisp"    "22"
+        }
+    }
+    "special_bonus_imba_keeper_of_the_light_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_illuminate"
+        }
+        "AbilityValues"
+        {
+            "value"    "2"
+        }
+    }
+    // 阳炎初始
+    "special_bonus_imba_keeper_of_the_light_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_radiant_bind"
+        }
+        "AbilityValues"
+        {
+            "value"    "350"
+        }
+    }
+    // 查克拉
+    "special_bonus_imba_keeper_of_the_light_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_illuminate"
+        }
+        "AbilityValues"
+        {
+            "value"    "30.0"
+        }
+    }
+    // 阳炎
+    "special_bonus_imba_keeper_of_the_light_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_illuminate"
+        }
+        "AbilityValues"
+        {
+            "value"    "30"
+        }
+    }
+    // 光之守卫
+    "special_bonus_imba_keeper_of_the_light_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+        }
+    }
+    // 致盲敲晕
+    "special_bonus_imba_keeper_of_the_light_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_blinding_light"
+        }
+        "AbilityValues"
+        {
+            "value"    "0.5"
+        }
+    }
+    // 视野
+    "special_bonus_imba_keeper_of_the_light_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_will_o_wisp"
+        }
+        "AbilityValues"
+        {
+            "value"    "1000"
+        }
+    }
+    // 致盲之光降低80%视野
+    "special_bonus_imba_keeper_of_the_light_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_light_blinding_light"
+        }
+        "AbilityValues"
+        {
+            "value"    "600"
+        }
+    }
+}

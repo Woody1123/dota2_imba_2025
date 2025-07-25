@@ -1,0 +1,363 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Lion's Earth Spike
+    // =================================================================================================================
+    // 原版刺
+    "lion_impale"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Lion.Impale"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "700 900 1100 1300"
+        "AbilityCastPoint"         "0.3 0.3 0.3 0.3"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90 110 130 150"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "AbilityCooldown"     "10"
+            "damage"
+            {
+                "value"                          "100 200 300 400"
+                "special_bonus_unique_lion_3"    "+200"
+            }
+            "width"
+            {
+                "value"                       "180"
+                "affected_by_aoe_increase"    "1"
+            }
+            "duration"            "1.7"
+            "length_buffer"       "275"
+            "speed"               "2800"
+            "pierces_immunity"
+            {
+                "value"                          "0"
+                "special_bonus_unique_lion_2"    "+1"
+            }
+            "cone_shaped"
+            {
+                "value"                           "0"
+                "special_bonus_unique_lion_10"    "+1"
+            }
+        }
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+    }
+    "imba_lion_earth_spike"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "lion_impale"
+        "ScriptFile"                "mb/hero_lion.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"           "1"
+        "AbilityCastPoint"          "0.3"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "10.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "100 120 140 160"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "700 900 1100 1300"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_lion/lion_spell_impale.vpcf"
+            "particle"     "particles/units/heroes/hero_lion/lion_spell_impale_hit_spikes.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+        }
+        "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
+        "AbilityValues"
+        {
+            "spike_speed"           "1600"
+            "knock_up_height"       "350"
+            "knock_up_time"         "0.5"
+            "spikes_radius"         "125"
+            "LinkedSpecialBonus"    "special_bonus_imba_lion_3"
+            "stun_duration"         "1.7"
+            "extra_spike_AOE"       "800"
+            "wait_interval"         "0.35"
+        }
+    }
+    // ================================================================================================================
+    // Lion's Voodoo
+    // ================================================================================================================
+    "imba_lion_hex"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "lion_voodoo"
+        "ScriptFile"                "mb/hero_lion.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"           "1"
+        "AbilityCastPoint"          "0"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "30 24 18 12"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "125 150 175 200"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "500"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+            "model"        "models/props_gameplay/frog.vmdl"
+        }
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "duration"      "2.5 3.0 3.5 4.0"
+            "move_speed"    "50"
+        }
+    }
+    // =================================================================================================================
+    // Lion's Mana Drain
+    // =================================================================================================================
+    "imba_lion_mana_drain"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "lion_mana_drain"
+        "ScriptFile"                "mb/hero_lion.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"           "1"
+        "AbilityCastPoint"          "0.3"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
+        "HasShardUpgrade"           "1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "15 12 9 6"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "10"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "850"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+            "particle"     "particles/econ/items/lion/lion_demon_drain/lion_spell_mana_drain_demon.vpcf"
+        }
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "AbilityValues"
+        {
+            "max_channel_time"       "5"
+            "break_distance"         "1200"
+            "interval"               "0.1"
+            "LinkedSpecialBonus"     "special_bonus_imba_lion_7"
+            "aura_radius"            "1200"
+            "aura_max_mana_drain"    "0.5 1.0 1.5 2.0"
+            "mana_pct_as_damage"     "80"
+            "shard_sp"               "100 120 140 160"
+            "shard_count"            "4"
+        }
+    }
+    // =================================================================================================================
+    // Lion's Finger of Death
+    // =================================================================================================================
+    "imba_lion_finger_of_death"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                 "ability_lua"
+        "AbilityTextureName"        "lion_finger_of_death"
+        "ScriptFile"                "mb/hero_lion.lua"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+        "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"           "2"
+        "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityCastPoint"          "0"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"           "70 55 40"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "200 420 650"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "800"
+        // Precache
+        // -------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"     "particles/units/heroes/hero_lion/lion_spell_finger_of_death.vpcf"
+            "soundfile"    "soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+        }
+        "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+        "HasScepterUpgrade"         "1"
+        "AbilityValues"
+        {
+            "damage"               "400 600 800"
+            "RequiresScepter"      "1"
+            "RequiresScepter"      "1"
+            "damage_delay"         "0.2"
+            "mana_add_duration"    "5"
+            "mana_increase_pct"    "50"
+            "cd"                   "70 55 40"
+            "RequiresScepter"      "1"
+            "base_mana_cost"       "200 420 650"
+        }
+    }
+    // +20死亡一指击杀叠层
+    "special_bonus_imba_lion_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_finger_of_death"
+        }
+        "AbilityValues"
+        {
+            "value"    "40"
+        }
+    }
+    // -3s Earth Spike Cooldown
+    "special_bonus_imba_lion_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_earth_spike"
+        }
+        "AbilityValues"
+        {
+            "value"    "-3"
+        }
+    }
+    // +140 Earth Spike Damage
+    "special_bonus_imba_lion_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_earth_spike"
+        }
+        "AbilityValues"
+        {
+            "value"    "200"
+        }
+    }
+    // Finger Of Death Add Max Health
+    "special_bonus_imba_lion_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_finger_of_death"
+        }
+        "AbilityValues"
+        {
+            "value"    "70"
+        }
+    }
+    // Mana Drain Recovery Allies Mana
+    "special_bonus_imba_lion_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // +300范围巫术
+    "special_bonus_imba_lion_6"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_hex"
+        }
+        "AbilityValues"
+        {
+            "value"    "300"
+        }
+    }
+    // + 100 Mana Drain Mana Recovery
+    "special_bonus_imba_lion_7"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_lion_mana_drain"
+        }
+        "AbilityValues"
+        {
+            "value"    "100"
+        }
+    }
+}

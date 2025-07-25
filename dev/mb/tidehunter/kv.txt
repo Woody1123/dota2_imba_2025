@@ -1,0 +1,325 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // Tidehunter: Gush
+    // =================================================================================================================
+    "imba_tidehunter_gush"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "tidehunter_gush"
+        "ScriptFile"               "mb/hero_tidehunter.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "1"
+        "HasScepterUpgrade"        "1"
+        "AbilitySound"             "Ability.GushCast"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1000"
+        "AbilityCastPoint"         "0.3 0.3 0.3 0.3"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12"
+        "AbilityDuration"          "2.5"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "90 100 110 120"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"     "special_bonus_imba_tidehunter_1"
+            "projectile_speed"       "2500"
+            "movement_speed"         "-50"
+            "negative_armor"         "4 5 6 7"
+            "speed"                  "1500"
+            "LinkedSpecialBonus"     "special_bonus_imba_tidehunter_5"
+            "RequiresScepter"        "1"
+            "negative_resistance"    "1 2 3 4"
+            "knockback_distance"     "100"
+        }
+    }
+    // =================================================================================================================
+    // Tidehunter: Kraken Shell
+    // =================================================================================================================
+    "imba_tidehunter_kraken_shell"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"               "ability_lua"
+        "AbilityTextureName"      "tidehunter_kraken_shell"
+        "ScriptFile"              "mb/hero_tidehunter.lua"
+        "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+        "AbilitySound"            "Hero_Tidehunter.KrakenShell"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"         "40.0"
+        "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityValues"
+        {
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "CalculateSpellDamageTooltip"    "0"
+            "damage_absorb_interval"         "5.0"
+            "damage_absorb_pct"              "25"
+        }
+    }
+    // =================================================================================================================
+    // Tidehunter: Anchor Smash
+    // =================================================================================================================
+    "imba_tidehunter_anchor_smash"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "tidehunter_anchor_smash"
+        "ScriptFile"               "mb/hero_tidehunter.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Hero_Tidehunter.AnchorSmash"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "375"
+        "AbilityCastPoint"         "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "3"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "30 40 50 60"
+        "HasShardUpgrade"          "1"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityValues"
+        {
+            "special_bonus_Shard"            "+75"
+            "CalculateSpellDamageTooltip"    "0"
+            "reduction_duration"             "6.0 6.0 6.0 6.0"
+            "radius"                         "375"
+            "proc_count"                     "2"
+        }
+    }
+    // =================================================================================================================
+    // Tidehunter: Ravage
+    // =================================================================================================================
+    "imba_tidehunter_ravage"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "tidehunter_ravage"
+        "ScriptFile"               "mb/hero_tidehunter.lua"
+        "AbilityType"              "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"          "2"
+        "AbilitySound"             "Ability.Ravage"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "0"
+        "AbilityCastPoint"         "0.2"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "80"
+        // Damage.
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"            "200 300 400"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "150 225 325"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_tidehunter_4"
+            "speed"                 "1650"
+            "duration"              "3.0 3.2 3.4"
+            "knockback_duration"    "0.2"
+            "knockback_height"      "350"
+            "ring_count"            "5"
+            "gush_count"            "6 7 8"
+            "negative_armor"        "1 2 3"
+            "gush_castpoint"        "1"
+        }
+    }
+    // =================================================================================================================
+    // Tidehunter: calling Maelrawn  (IMBA Shard Ability)
+    // =================================================================================================================
+    "imba_tidehunter_calling_Maelrawn"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "tidehunter/diving_helmet/tidehunter_gush_gold"
+        "ScriptFile"               "mb/hero_tidehunter.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Ability.Ravage"
+        "IsGrantedByShard"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1250"
+        "AbilityCastPoint"         "0.3"
+        "AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "20.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50"
+        "AbilityValues"
+        {
+            "LinkedSpecialBonus"    "special_bonus_imba_tidehunter_4"
+            "speed"                 "1650"
+            "duration"              "1.75"
+            "cube_count"            "5"
+            "negative_armor"        "1"
+            "drag_chance"           "5"
+            "width"                 "375"
+        }
+    }
+    "imba_tidehunter_coming"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"                "ability_lua"
+        "AbilityTextureName"       "tidehunter/diving_helmet/tidehunter_gush_gold"
+        "ScriptFile"               "mb/hero_tidehunter.lua"
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitDamageType"    "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        "MaxLevel"                 "1"
+        "FightRecapLevel"          "1"
+        "AbilitySound"             "Ability.Ravage"
+        "IsGrantedByShard"         "1"
+        // Casting
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "1200"
+        "AbilityCastPoint"         "0.1"
+        // Time
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "12.0"
+        // Cost
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "50"
+        "AbilityValues"
+        {
+            "mini_ravage"    "35"
+        }
+    }
+    // additional gush damage
+    "special_bonus_imba_tidehunter_1"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_gush"
+        }
+        "AbilityValues"
+        {
+            "value"    "140"
+        }
+    }
+    // absorb damage and heal self
+    "special_bonus_imba_tidehunter_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_kraken_shell"
+        }
+        "AbilityValues"
+        {
+            "value"    "1"
+        }
+    }
+    // Anchor Smash damage reduction
+    "special_bonus_imba_tidehunter_3"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_anchor_smash"
+        }
+        "AbilityValues"
+        {
+            "value"    "-35"
+        }
+    }
+    // ravage --> point aoe
+    "special_bonus_imba_tidehunter_4"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_ravage"
+        }
+        "AbilityValues"
+        {
+            "value"             "300"
+            "value_autocast"    "2"
+        }
+    }
+    // additional gush aoe
+    "special_bonus_imba_tidehunter_5"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_gush"
+        }
+        "AbilityValues"
+        {
+            "value"    "140"
+        }
+    }
+    "special_bonus_imba_tidehunter_8"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_undefined"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "LinkedAbility"
+        {
+            "01"    "imba_tidehunter_anchor_smash"
+        }
+        "AbilityValues"
+        {
+            "value"    "40"
+        }
+    }
+}

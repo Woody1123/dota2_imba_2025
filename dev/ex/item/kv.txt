@@ -1,0 +1,1015 @@
+"DOTAAbilities"
+{
+    // =================================================================================================================
+    // 点金手
+    // =================================================================================================================
+    "item_hand_of_midas"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                        "65" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
+        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"          "600"
+        "AbilityCastPoint"          "0.0"
+        "AbilityCooldown"           "90.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"           "0"
+        "ItemCost"                  "2300"
+        "ItemShopTags"              "attack_speed;hard_to_tag"
+        "ItemQuality"               "common"
+        "ItemAliases"               "handofmidas"
+        "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"         "1"
+        "AbilitySharedCooldown"     "handofmidas"
+        "AbilityValues"
+        {
+            "bonus_attack_speed"    "40"
+            "xp_multiplier"         "1.85"
+            "bonus_gold"            "160"
+        }
+    }
+    "item_recipe_moon_shard"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "246" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"               "models/props_gameplay/recipe.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "0"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_moon_shard"
+        "ItemRequirements"
+        {
+            "01"    "item_hyperstone;item_hyperstone;item_hyperstone"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Moon Shard
+    // =================================================================================================================
+    "item_moon_shard"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "247" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                 "4000"
+        "ItemShopTags"             "attack_speed"
+        "ItemQuality"              "consumable"
+        "ItemAliases"              "moon shard"
+        "ShouldBeSuggested"        "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "bonus_attack_speed"             "180"
+            "bonus_night_vision"             "400"
+            "consumed_bonus"                 "180"
+            "consumed_bonus_night_vision"    "200"
+        }
+    }
+    // =================================================================================================================
+    // 血棘
+    // =================================================================================================================
+    "item_bloodthorn"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "250" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "FightRecapLevel"          "1"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "900"
+        "AbilityCastPoint"         "0.0"
+        "AbilityCooldown"          "15.0"
+        "AbilitySharedCooldown"    "orchid malevolence"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        "ItemCost"                 "6875"
+        "ItemShopTags"             "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+        "ItemQuality"              "epic"
+        "ItemAliases"              "orchid malevolence"
+        "ItemDeclarations"         "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"        "1"
+        "AbilityValues"
+        {
+            "bonus_intellect"           "25"
+            "bonus_attack_speed"        "85"
+            "bonus_damage"              "30"
+            "bonus_mana_regen"          "5.5"
+            "silence_damage_percent"    "30"
+            "silence_duration"          "5"
+            "target_crit_multiplier"    "130"
+            "tooltip_crit_chance"       "100"
+        }
+    }
+    // =================================================================================================================
+    // 紫苑
+    // =================================================================================================================
+    "item_orchid"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "98" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "FightRecapLevel"          "1"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "900"
+        "AbilityCastPoint"         "0.0"
+        "AbilityCooldown"          "18.0"
+        "AbilitySharedCooldown"    "orchid malevolence"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "100"
+        "ItemCost"                 "3875"
+        "ItemShopTags"             "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+        "ItemQuality"              "rare"
+        "ItemAliases"              "orchid malevolence;silence"
+        "ItemDeclarations"         "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"        "1"
+        "AbilityValues"
+        {
+            "bonus_intellect"           "25"
+            "bonus_attack_speed"        "30"
+            "bonus_damage"              "30"
+            "bonus_mana_regen"          "5.5"
+            "silence_damage_percent"    "30"
+            "silence_duration"          "5"
+        }
+    }
+    // =================================================================================================================
+    // 侦察
+    // =================================================================================================================
+    "item_ward_observer"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "42" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "Model"                         "models/props_gameplay/observer_ward_bundle.vmdl"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "500"
+        "AbilityCastPoint"              "0.0"
+        "AbilityCooldown"               "1.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemAliases"                   "observer ward"
+        "ItemStackable"                 "1"
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemStockMax"                  "8"
+        "ItemStockInitial"              "3"
+        "ItemStockTime"                 "80.0"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES"
+        "ItemSupport"                   "1"
+        "IsTempestDoubleClonable"       "0"
+        "ShouldBeInitiallySuggested"    "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "lifetime"                    "360"
+            "vision_range_tooltip"        "1600"
+            "health"                      "200"
+            "duration_minutes_tooltip"    "6"
+        }
+    }
+    // =================================================================================================================
+    // 岗哨
+    // =================================================================================================================
+    "item_ward_sentry"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "43" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        "Model"                         "models/props_gameplay/sentry_ward_bundle.vmdl"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "500"
+        "AbilityCastPoint"              "0.0"
+        "AbilityCooldown"               "1.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "50"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemAliases"                   "sentry ward"
+        "ItemStackable"                 "1"
+        "ItemPurchasable"               "1"
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemStockMax"                  "20"
+        "ItemStockInitial"              "3"
+        "ItemStockTime"                 "30"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES"
+        "ItemSupport"                   "1"
+        "IsTempestDoubleClonable"       "0"
+        "ShouldBeInitiallySuggested"    "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "lifetime"                    "420"
+            "vision_range"                "0"
+            "true_sight_range"            "1000"
+            "health"                      "200"
+            "duration_minutes_tooltip"    "7"
+        }
+    }
+    // =================================================================================================================
+    // Recipe: Ward Dispenser
+    // =================================================================================================================
+    "item_recipe_ward_dispenser"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "217" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"               "models/props_gameplay/recipe.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "0"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemPurchasable"     "0"
+        "ItemResult"          "item_ward_dispenser"
+        "ItemRequirements"
+        {
+            "01"    "item_ward_sentry;item_ward_observer"
+            "02"    "item_ward_sentry;item_ward_dispenser"
+            "03"    "item_ward_dispenser;item_ward_observer"
+            "04"    "item_ward_dispenser;item_ward_dispenser"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Ward Dispenser
+    // =================================================================================================================
+    "item_ward_dispenser"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                         "218" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+        "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"     "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                   "75"
+        "ItemQuality"                "common"
+        "ItemAliases"                "ward"
+        "ItemShareability"           "ITEM_FULLY_SHAREABLE_STACKING"
+        "ItemPurchasable"            "0"
+        "ItemDisassembleRule"        "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "IsTempestDoubleClonable"    "0"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"           "1000"
+        "AbilityCooldown"            "0"
+        "AbilityValues"
+        {
+            "bonus_health"                         "1"
+            "observer_cost"                        "75"
+            "sentry_cost"                          "100"
+            "lifetime_observer"                    "360"
+            "lifetime_sentry"                      "480"
+            "creation_delay"                       "0"
+            "observer_vision_range_tooltip"        "1400"
+            "observer_duration_minutes_tooltip"    "6"
+            "true_sight_range"                     "1000"
+        }
+    }
+    // =================================================================================================================
+    // 雾
+    // =================================================================================================================
+    "item_smoke_of_deceit"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                         "188" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "Model"                      "models/props_gameplay/smoke.vmdl"
+        "Effect"                     "particles/generic_gameplay/dropped_smoke.vpcf"
+        "FightRecapLevel"            "1"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"            "1.0"
+        "AbilityCastRange"           "1200"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                   "80"
+        "ItemShopTags"               "consumable"
+        "ItemQuality"                "consumable"
+        "ItemAliases"                "smoke of deceit"
+        "ItemStackable"              "1"
+        "ItemShareability"           "ITEM_FULLY_SHAREABLE"
+        "ItemPermanent"              "0"
+        "ItemInitialCharges"         "1"
+        "ItemDisplayCharges"         "1"
+        "ItemStockMax"               "4"
+        "ItemStockTime"              "120.0"
+        "ItemDeclarations"           "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemSupport"                "1"
+        "ItemAlertable"              "1"
+        "IsTempestDoubleClonable"    "0"
+        "AbilityValues"
+        {
+            "application_radius"      "1200"
+            "visibility_radius"       "800"
+            "bonus_movement_speed"    "15"
+            "duration"                "35.0"
+        }
+    }
+    // =================================================================================================================
+    // 羊
+    // =================================================================================================================
+    "item_sheepstick"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "96" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "FightRecapLevel"          "2"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES_STRONG"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "800"
+        "AbilityCastPoint"         "0.0"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "22.0"
+        "AbilitySharedCooldown"    "hex;sheepstick;scythe of vyse"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "250"
+        "ItemCost"                 "5675"
+        "ItemShopTags"             "int;regen_mana;agi;hard_to_tag"
+        "ItemQuality"              "rare"
+        "ItemAliases"              "hex;sheepstick;scythe of vyse"
+        "ItemDeclarations"         "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"        "1"
+        "AbilityValues"
+        {
+            "bonus_strength"          "10"
+            "bonus_agility"           "10"
+            "bonus_intellect"         "35"
+            "bonus_mana_regen"        "9.0"
+            "sheep_duration"          "3.5"
+            "sheep_movement_speed"    "140"
+        }
+    }
+    // =================================================================================================================
+    // Guardian Greaves
+    // =================================================================================================================
+    "item_guardian_greaves"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                       "231" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "FightRecapLevel"          "1"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "40"
+        "AbilityCastRange"         "1200"
+        "AbilitySharedCooldown"    "guardian greaves"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "0"
+        "ItemCost"                 "4975"
+        "ItemShopTags"             "int;armor;regen_health;hard_to_tag"
+        "ItemQuality"              "rare"
+        "ItemAliases"              "guardian greaves"
+        "ItemDeclarations"         "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemAlertable"            "1"
+        "ShouldBeSuggested"        "1"
+        "AbilityValues"
+        {
+            "bonus_movement"             "50"
+            "bonus_mana"                 "250"
+            "bonus_all_stats"            "5"
+            "bonus_armor"                "6"
+            "aura_health_regen"          "2.5"
+            "aura_health_regen_bonus"    "16"
+            "aura_armor_bonus"           "10"
+            "aura_bonus_threshold"       "20"
+        }
+    }
+    // =================================================================================================================
+    // Poor Man's Shield
+    // =================================================================================================================
+    "item_poor_mans_shield"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                         "71" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"                      "models/props_gameplay/neutral_box.vmdl"
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                   "300"
+        "ItemShopTags"               "agi;block"
+        "ItemQuality"                "common"
+        "ItemAliases"                "pms;poor man's shield"
+        "ItemPurchasable"            "1"
+        "ItemIsNeutralDrop"          "0"
+        "ItemDroppable"              "1"
+        "ItemSellable"               "1"
+        "ItemKillable"               "1"
+        "IsTempestDoubleClonable"    "0"
+        "AbilityValues"
+        {
+            "bonus_agility"          "8"
+            "damage_block_melee"     "20"
+            "damage_block_ranged"    "10"
+            "block_chance"           "50"
+            "block_chance_hero"      "100"
+        }
+    }
+    // =================================================================================================================
+    // Iron Talon
+    // =================================================================================================================
+    "item_iron_talon"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                         "239" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+        "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetFlags"     "DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES"
+        "AbilityCastRange"           "350"
+        "AbilityCastPoint"           "0.0"
+        "AbilityCooldown"            "15.0"
+        "Model"                      "models/props_gameplay/neutral_box.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"            "0"
+        "ItemCost"                   "600"
+        "ItemShopTags"               "damage"
+        "ItemQuality"                "common"
+        "ItemAliases"                "quelling blade"
+        "ItemPurchasable"            "1"
+        "ItemIsNeutralDrop"          "0"
+        "ItemDroppable"              "1"
+        "ItemSellable"               "1"
+        "ItemKillable"               "1"
+        "IsTempestDoubleClonable"    "0"
+        "AbilityValues"
+        {
+            "bonus_attack_speed"        "15"
+            "quelling_range_tooltip"    "350"
+            "cast_range_ward"           "450"
+            "creep_damage_pct"          "50"
+            "bonus_armor"               "2"
+            "alternative_cooldown"      "4"
+        }
+    }
+    // =================================================================================================================
+    // Faerie Fire
+    // =================================================================================================================
+    "item_faerie_fire"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "237" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.0"
+        "AbilityCooldown"               "5.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "70"
+        "ItemShopTags"                  "damage"
+        "ItemQuality"                   "consumable"
+        "ItemAliases"                   "faerie fire"
+        "ItemStackable"                 "0"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemHideCharges"               "1"
+        "IsTempestDoubleClonable"       "0"
+        "ShouldBeInitiallySuggested"    "1"
+        // Sounden
+        // -------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                 "Item.PickUpRingShop"
+        "UIDropSound"                   "Item.DropRingShop"
+        "WorldDropSound"                "Item.DropRingWorld"
+        "AbilityValues"
+        {
+            "bonus_damage"    "4"
+            "hp_restore"      "150"
+        }
+    }
+    // =================================================================================================================
+    // Enchanted Mango
+    // =================================================================================================================
+    "item_enchanted_mango"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "216" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "Model"                         "models/props_gameplay/mango.vmdl"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "400"
+        "AbilityCastPoint"              "0.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "70"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemAliases"                   "enchanted mango"
+        "ItemStackable"                 "1"
+        "ItemStackableMax"              "3"
+        "ItemInitialCharges"            "1"
+        "ItemPermanent"                 "0"
+        "IsTempestDoubleClonable"       "0"
+        "ItemInitiallySellable"         "1"
+        "ItemSellable"                  "0"
+        "ShouldBeInitiallySuggested"    "1"
+        "AbilityValues"
+        {
+            "hp_regen"            "1"
+            "replenish_amount"    "150"
+        }
+    }
+    // =================================================================================================================
+    // Recipe: Magic Wand
+    // =================================================================================================================
+    "item_recipe_magic_wand"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "35" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"               "models/props_gameplay/recipe.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "150"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_magic_wand"
+        "ItemRequirements"
+        {
+            "01"    "item_magic_stick;"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // 魔杖
+    // =================================================================================================================
+    "item_magic_wand"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "36" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "Model"                         "models/props_gameplay/magic_wand.vmdl"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "13.0"
+        "AbilitySharedCooldown"         "magicwand"
+        "AbilityCastRange"              "1200"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+        "ItemQuality"                   "common"
+        "ItemAliases"                   "magic wand"
+        "ItemRequiresCharges"           "1"
+        "ItemDisplayCharges"            "1"
+        "ShouldBeSuggested"             "1"
+        "ShouldBeInitiallySuggested"    "1"
+        "ItemInitialCharges"            "30"
+        "AbilityValues"
+        {
+            "max_charges"           "30"
+            "charge_radius"         "1200"
+            "bonus_all_stats"       "3"
+            "restore_per_charge"    "15"
+        }
+    }
+    // =================================================================================================================
+    // 魔瓶
+    // =================================================================================================================
+    "item_bottle"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                            "41" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "Model"                         "models/props_gameplay/bottle_blue.vmdl"
+        "ModelAlternate"                "models/props_gameplay/bottle_empty.vmdl"
+        "FightRecapLevel"               "1"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.5"
+        "AbilityCastRange"              "350"
+        "AbilityCastPoint"              "0.0"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "725"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "common"
+        "ItemAliases"                   "bottle"
+        "ItemStackable"                 "0"
+        "ItemShareability"              "ITEM_PARTIALLY_SHAREABLE"
+        "ItemPermanent"                 "1"
+        "ItemInitialCharges"            "3"
+        "ItemDisplayCharges"            "1"
+        "IsTempestDoubleClonable"       "0"
+        "ShouldBeSuggested"             "1"
+        "ShouldBeInitiallySuggested"    "1"
+        "AbilityValues"
+        {
+            "health_restore"    "175"
+            "mana_restore"      "100"
+            "restore_time"      "1.5"
+            "max_charges"       "3"
+        }
+    }
+    // 圣洁吊坠图纸
+    // 圣洁吊坠
+    "item_recipe_holy_locket"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "268" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "2000"
+        "ItemShopTags"        ""
+        // Sound
+        // -------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"       "Item.PickUpRingShop"
+        "UIDropSound"         "Item.DropRingShop"
+        "WorldDropSound"      "Item.DropRingWorld"
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_holy_locket"
+        "ItemRequirements"
+        {
+            "01"    "item_magic_wand"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Dust
+    // =================================================================================================================
+    "item_dust"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                         "40" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "Model"                      "models/props_gameplay/dust.vmdl"
+        "Effect"                     "particles/generic_gameplay/dropped_dust.vpcf"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"            "5"
+        "AbilityCastRange"           "1600"
+        "SpellDispellableType"       "SPELL_DISPELLABLE_YES"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"            "0"
+        "ItemCost"                   "80"
+        "ItemShopTags"               "consumable"
+        "ItemQuality"                "consumable"
+        "ItemAliases"                "dust of appearance"
+        "ItemStackable"              "1"
+        "ItemShareability"           "ITEM_FULLY_SHAREABLE"
+        "ItemPermanent"              "0"
+        "ItemInitialCharges"         "1"
+        "ItemDeclarations"           "DECLARE_PURCHASES_TO_TEAMMATES"
+        "ItemSupport"                "1"
+        "IsTempestDoubleClonable"    "0"
+        "AbilityValues"
+        {
+            "duration"     "12"
+            "radius"       "1600"
+            "movespeed"    "-30"
+        }
+    }
+    "item_recipe_witch_blade"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "533" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"               "models/props_gameplay/recipe.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "1600"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_witch_blade"
+        "ItemRequirements"
+        {
+            "01"    "item_blitz_knuckles;"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    "item_recipe_mage_slayer"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "597" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "Model"               "models/props_gameplay/recipe.vmdl"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "1900"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_mage_slayer"
+        "ItemRequirements"
+        {
+            "01"    "item_cloak;"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    "item_recipe_invis_sword"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                  "183" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"            "2000"
+        "ItemShopTags"        ""
+        // Recipe
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"          "1"
+        "ItemResult"          "item_invis_sword"
+        "ItemRequirements"
+        {
+            "01"    "item_shadow_amulet*;"
+        }
+        "AbilityValues"
+        {
+        }
+    }
+    // =================================================================================================================
+    // Blink dagger
+    // =================================================================================================================
+    "item_overwhelming_blink"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                           "600" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"             "1200"
+        "AbilityOvershootCastRange"    "960"
+        "AbilityCastPoint"             "0.0"
+        "AbilityCooldown"              "9.0"
+        "AbilityManaCost"              "0"
+        "AbilitySharedCooldown"        "blink"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                     "6800"
+        "ItemShopTags"                 "teleport"
+        "ItemQuality"                  "component"
+        "ItemAliases"                  "blink dagger"
+        // "SideShop"						"1"
+        "ItemDeclarations"             "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"            "1"
+        "AbilityValues"
+        {
+            "blink_range"              "1200"
+            "blink_damage_cooldown"    "1.0"
+            "blink_range_clamp"        "960"
+            "bonus_strength"           "25"
+            "radius"                   "800"
+            "movement_slow"            "80"
+            "attack_slow"              "50"
+            "duration"                 "6"
+            "damage_pct"               "300"
+        }
+    }
+    // =================================================================================================================
+    // Blink dagger
+    // =================================================================================================================
+    "item_swift_blink"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                           "603" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"             "2000"
+        "AbilityOvershootCastRange"    "960"
+        "AbilityCastPoint"             "0.0"
+        "AbilityCooldown"              "8.0"
+        "AbilityManaCost"              "0"
+        "AbilitySharedCooldown"        "blink"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                     "6800"
+        "ItemShopTags"                 "teleport"
+        "ItemQuality"                  "component"
+        "ItemAliases"                  "blink dagger"
+        // "SideShop"						"1"
+        "ItemDeclarations"             "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"            "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "blink_range"              "2000"
+            "blink_damage_cooldown"    "2.0"
+            "blink_range_clamp"        "960"
+            "bonus_agility"            "25"
+            "bonus_movement"           "80"
+            "bonus_agi_active"         "70"
+            "duration"                 "6"
+        }
+    }
+    // =================================================================================================================
+    // Blink dagger
+    // =================================================================================================================
+    "item_arcane_blink"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "ID"                           "604" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"             "2000"
+        "AbilityOvershootCastRange"    "960"
+        "AbilityCastPoint"             "0.0"
+        "AbilityCooldown"              "8.0"
+        "AbilityManaCost"              "0"
+        "AbilitySharedCooldown"        "blink"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                     "6800"
+        "ItemShopTags"                 "teleport"
+        "ItemQuality"                  "component"
+        "ItemAliases"                  "blink dagger"
+        // "SideShop"						"1"
+        "ItemDeclarations"             "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"            "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "blink_range"              "2000"
+            "blink_damage_cooldown"    "2.0"
+            "blink_range_clamp"        "960"
+            "bonus_intellect"          "25"
+            "duration"                 "6"
+            "cast_pct_improvement"     "50"
+            "manacost_reduction"       "50"
+            "debuff_amp"               "40"
+        }
+    }
+    "item_gem"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityCastRange"           "99999"
+        "Model"                      "models/props_gameplay/gem01.vmdl"
+        "Effect"                     "particles/generic_gameplay/dropped_gem.vpcf"
+        "AbilityCooldown"            "25"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "ItemCost"                   "80000"
+        "ItemShopTags"               "see_invis"
+        "ItemQuality"                "component"
+        "ItemAliases"                "gem of true sight"
+        "ItemSellable"               "0"
+        "ItemInitiallySellable"      "1"
+        "ItemShareability"           "ITEM_FULLY_SHAREABLE"
+        "ItemDeclarations"           "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemStockMax"               "1"
+        "ItemStockTime"              "600.0"
+        "ItemSupport"                "1"
+        "ItemKillable"               "0"
+        "AllowedInBackpack"          "0"
+        "IsTempestDoubleClonable"    "0"
+        // Sound
+        // -------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"              "Item.PickUpGemShop"
+        "UIDropSound"                "Item.DropGemShop"
+        "WorldDropSound"             "Item.DropGemWorld"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "radius"           "900"
+            "active_radius"
+            {
+                "value"                       "750"
+                "affected_by_aoe_increase"    "1"
+            }
+            "duration"         "6"
+        }
+    }
+    "item_wind_waker"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"          "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"    "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityUnitTargetType"    "DOTA_UNIT_TARGET_CUSTOM"
+        "FightRecapLevel"          "1"
+        "SpellDispellableType"     "SPELL_DISPELLABLE_YES"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"         "550"
+        "AbilityCastPoint"         "0.0"
+        // Stats
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"          "22"
+        "AbilitySharedCooldown"    "cyclone"
+        // Item Info
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"          "175"
+        "ItemCost"                 "6825"
+        "ItemShopTags"             "int;regen_mana;move_speed;hard_to_tag"
+        "ItemQuality"              "rare"
+        "ItemAliases"              "cyclone;wind waker;ww"
+        "ItemDeclarations"         "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ShouldBeSuggested"        "1"
+        // Special
+        // -------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "bonus_movement_speed"    "30"
+            "bonus_mana_regen"        "3.0"
+            "bonus_intellect"         "35"
+            "cyclone_duration"        "2.5"
+            "tooltip_drop_damage"     "50"
+            "tornado_speed"           "360"
+        }
+    }
+}
