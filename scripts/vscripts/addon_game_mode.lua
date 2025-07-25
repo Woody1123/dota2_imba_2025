@@ -5,10 +5,11 @@ if L_TG == nil then
 	require("tools/memory")
 end
 require('tools/tg_utils')
+require('tools/timers')
 require('game')
 require('precache')
 require('tools/notifications')
-require('tools/timers')
+
 require('tools/util')
 require('tools/network')
 require('tools/pseudorandom')

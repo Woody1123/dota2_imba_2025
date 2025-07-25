@@ -5,6 +5,20 @@
 	//=================================================================================================================
 	"npc_dota_hero_arc_warden"
 	{
+        "Ability1"		"arc_warden_flux"
+        "Ability2"		"arc_warden_magnetic_field"
+        "Ability3"		"arc_warden_spark_wraith"
+        "Ability4"		"generic_hidden"
+        "Ability5"		"generic_hidden"
+        "Ability6"		"arc_warden_tempest_double"
+        "Ability10"		"special_bonus_unique_arc_warden_5"
+        "Ability11"		"special_bonus_hp_225"
+        "Ability12"		"special_bonus_unique_arc_warden_4"
+        "Ability13"		"special_bonus_unique_arc_warden_3"
+        "Ability14"		"special_bonus_unique_arc_warden"
+        "Ability15"		"special_bonus_unique_arc_warden_2"
+        "Ability16"		"special_bonus_unique_arc_warden_7"
+        "Ability17"		"special_bonus_unique_arc_warden_6"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"Model"		"models/heroes/arc_warden/arc_warden.vmdl"
@@ -33,20 +47,6 @@
 
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
-		"Ability1"		"arc_warden_flux"
-		"Ability2"		"arc_warden_magnetic_field"
-		"Ability3"		"arc_warden_spark_wraith"
-		"Ability4"		"generic_hidden"
-		"Ability5"		"generic_hidden"
-		"Ability6"		"arc_warden_tempest_double"
-		"Ability10"		"special_bonus_unique_arc_warden_5"
-		"Ability11"		"special_bonus_hp_225"
-		"Ability12"		"special_bonus_unique_arc_warden_4"
-		"Ability13"		"special_bonus_unique_arc_warden_3"
-		"Ability14"		"special_bonus_unique_arc_warden"
-		"Ability15"		"special_bonus_unique_arc_warden_2"
-		"Ability16"		"special_bonus_unique_arc_warden_7"
-		"Ability17"		"special_bonus_unique_arc_warden_6"
 
 		"AbilityDraftAbilities"
 		{

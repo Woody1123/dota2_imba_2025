@@ -986,7 +986,15 @@ function L_TG:OnPlayerChat(tg)
 		
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------
-		if GameRules:IsCheatMode() or IsInToolsMode()  then
+		local is_debug_mode = GameRules:IsCheatMode() or IsInToolsMode()
+		local player_count = 0
+		for i = 0, 23 do
+			if PlayerResource:IsValidPlayer(i) then
+				player_count = player_count + 1
+			end
+		end
+
+		if is_debug_mode or player_count < 4 then
 			if str == "-ai_start" then
 				if AI_MODE== true then
 					AI_START = true
