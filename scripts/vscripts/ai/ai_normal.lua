@@ -23,6 +23,13 @@ function ai_normal:OnCreated()
 		end
 		return 60  -- 每 60 秒检查一次
 	end)
+	Timers:CreateTimer(0, function()
+		if ai_normal and ai_normal.TryEnableToggleAbilities then
+			ai_normal:TryEnableToggleAbilities()
+		end
+		return 60  -- 每 60 秒检查一次
+	end)
+
 end
 
 function ai_normal:OnIntervalThink()
@@ -503,12 +510,6 @@ function ai_normal:TryEnableToggleAbilities()
 	end
 end
 
-Timers:CreateTimer(0, function()
-	if ai_normal and ai_normal.TryEnableToggleAbilities then
-		ai_normal:TryEnableToggleAbilities()
-	end
-	return 60  -- 每 60 秒检查一次
-end)
 
 
 
