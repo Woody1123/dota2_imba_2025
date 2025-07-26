@@ -164,6 +164,8 @@ function Precache( context )
 	end
 
 	--特效
+	PrecacheResource("particle", "particles/item_custom/butterfly_execon/drow_frost_arrow_launch_b_monarch.vpcf", context)
+	PrecacheResource("particle", "particles/heroes/hero_death_prophet/death_prophet_scepter_attack.vpcf", context)
 	PrecacheResource("particle", "particles/econ/items/ogre_magi/ogre_magi_arcana/ogre_magi_arcana_stunned.vpcf", context)
 	PrecacheResource("particle", "particles/winter_fx/winter_present_projectile.vpcf", context)
 	PrecacheResource("particle", "particles/econ/items/clinkz/clinkz_maraxiform/clinkz_ti9_summon_projectile_arrow.vpcf", context)
