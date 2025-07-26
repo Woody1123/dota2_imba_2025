@@ -85,14 +85,19 @@ function Is_Chinese_TG(tar1, tar2)
 end
 
 
-function TableContainsKey( t, kv )
-    for k, v in pairs( t ) do
-        if k == kv then
-            return true
-        end
-    end
-        return false
-  end
+function TableContainsKey(t, kv)
+	if type(t) ~= "table" then
+		print("[TableContainsKey] Warning: input is not a table", t)
+		return false
+	end
+	for k, _ in pairs(t) do
+		if k == kv then
+			return true
+		end
+	end
+	return false
+end
+
 
 
 
