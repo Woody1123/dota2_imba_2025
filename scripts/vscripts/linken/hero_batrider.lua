@@ -1,6 +1,8 @@
 ------2020.11.20--by--你收拾收拾准备出林肯吧
 CreateTalents("npc_dota_hero_batrider", "linken/hero_batrider")
-
+if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
+	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
+end
 
 function CalculateDistance(ent1, ent2)
 	local pos1 = ent1

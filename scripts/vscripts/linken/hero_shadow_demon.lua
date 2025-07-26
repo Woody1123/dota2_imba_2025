@@ -1,6 +1,8 @@
 ----------------------2021/5/10 by 你收拾收拾准备出林肯吧
 CreateTalents("npc_dota_hero_shadow_demon", "linken/hero_shadow_demon")
-
+if DOTA_DAMAGE_FLAG_BYPASSES_BLOCK == nil then
+	DOTA_DAMAGE_FLAG_BYPASSES_BLOCK = 8
+end
 
 imba_shadow_demon_disruption = class({})
 
