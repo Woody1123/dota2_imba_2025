@@ -125,7 +125,7 @@ end
 
 
 --判断敌我军力差距
-function AI_CHECK_SITUATION(hero) 
+function AI_CHECK_SITUATION(hero)
 	local level = 0
 	local enemy_level = 0
 	local friend_level = 0
@@ -169,11 +169,11 @@ function AI_CHECK_SITUATION(hero)
 				end
 			end
 	end
-	
+
 		table.insert(unit_table,friend_table)
 		table.insert(unit_table,enemy_table)
 		local f_e	= friend_level-enemy_level
-		
+
 		table.insert(unit_table,f_e)
 		table.insert(unit_table,friend_num-enemy_num)
 	return unit_table
@@ -187,34 +187,34 @@ function AI_MOVEABOUT(hero,level,per,pos)
 	local lv = level
 	local pos_good = Vector(-6000,-6000,256)--spawner_creep:GetGoodCreepSpawn()
 	local pos_bad = Vector(6000,6000,256)--spawner_creep:GetBadCreepSpawn()
-	
-	
+
+
 	if  health_per < 20 then
 		hero:MoveToPosition(hero:GetTeam()==2 and pos_good or pos_bad)
 		hero.action_lv = 30
 		hero.stat = 4	-- 逃命
-		return 
+		return
 	end
-	
+
 	if hero.ai.unit_table[4] < -3 and lv <= 3 then
 		hero:MoveToPosition(hero:GetTeam()==2 and pos_good or pos_bad)
 		hero.action_lv = 3
 		hero.stat = 3	-- 人太少了 并且不在塔下 跑路
-		return 
+		return
 	end
-	
+
 	if hero.stat == 1 and pos~=nil then
 		local dir=TG_Direction(hero:GetAbsOrigin(),pos)
 		local next_pos = GetGroundPosition(hero:GetAbsOrigin() + dir * 200, hero)
 		hero:MoveToPosition(next_pos)
 		pos = nil
 		return
-	end                     	
-	
+	end
+
 	if (health_per<=per and lv <= 2)  then	--低血后退
 		hero:MoveToPosition(hero:GetTeam()==3 and pos_bad or pos_good)
-		hero.action_lv = 1 
-		hero.stat = 3	
+		hero.action_lv = 1
+		hero.stat = 3
 	else
 		if lv>=-3 then		--干架
 			if hero.attacker_target then
@@ -226,16 +226,16 @@ function AI_MOVEABOUT(hero,level,per,pos)
 			else --走位
 			hero:MoveToPosition(hero:GetTeam()==2 and pos_good or pos_bad)
 			hero.stat = 2
-		end	
+		end
 	end
 end
 
 
---AI的难度与等级最大等级有关 
-function AI_LVLUP(hero) 
+--AI的难度与等级最大等级有关
+function AI_LVLUP(hero)
 	if hero:GetLevel()%5==0 then
 
-		local lv = hero:GetLevel()/5 
+		local lv = hero:GetLevel()/5
 		if not hero.ai or not hero.ai.ability_table or not hero.ai.item_table or not hero.ai.talent_table or not hero.ai.veteran_talent_table then return end
 
 		if lv <=4 then
@@ -249,16 +249,16 @@ function AI_LVLUP(hero)
 				ADD_ITEM(lv,hero,hero.ai.item_table)
 				LEARN_TALENT(lv-4,hero,hero.ai.talent_table)
 			--	hero.ai:add_item(lv,hero,hero.ai.item_table)
-				--hero.ai:learn_talent(lv-4,hero,hero.ai.talent_table)	
+				--hero.ai:learn_talent(lv-4,hero,hero.ai.talent_table)
 				else
 				if lv<=8 then
 					ADD_ITEM(lv,hero,hero.ai.item_table)
 					LEARN_VETERAN_TALENT(lv-6,hero,hero.ai.veteran_talent_table)
 				--	hero:add_item(lv,hero,hero.ai.item_table)
-					--hero.ai:learn_veteran_talent(lv-6,hero,hero.ai.veteran_talent_table)	
+					--hero.ai:learn_veteran_talent(lv-6,hero,hero.ai.veteran_talent_table)
 				end
 			end
-		end	
+		end
 	end
 end
 --ai到了指定等级获得的装备技能升级天赋符文等
@@ -267,21 +267,21 @@ function LEARN_ABILITY(lv,hero,ability_table)
 			if ab then
 				ab:SetLevel(lv)
 			end
-		end	
+		end
 end
 
-function ADD_ITEM(lv,hero,item_table)   
+function ADD_ITEM(lv,hero,item_table)
 	if lv <= 6 then
 	hero:AddItemByName(item_table[lv])	--普通物品
 	end
 	if lv == 7 then				--中立物品
-		
+
 	end
-end 
+end
 
-function LEARN_TALENT(lv,hero,talent_table)   	
+function LEARN_TALENT(lv,hero,talent_table)
 
-	
+
 	for i = (lv-1)*4+1, lv*4 do
 		local ab = hero:FindAbilityByName(talent_table[i])
 		if ab then

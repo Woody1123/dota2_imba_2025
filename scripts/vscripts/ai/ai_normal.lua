@@ -490,15 +490,21 @@ function ai_normal:TryUseAbilities()
 	end
 end
 
-
 function ai_normal:TryEnableToggleAbilities()
+	print("[AI] 自动开启技能:")
 	local hero = self.parent
 	if not hero or not hero:IsAlive() then return end
 
 	for i = 0, 5 do
 		local ability = hero:GetAbilityByIndex(i)
-		if ability
-				and ability:IsToggle()
+
+		-- 跳过空的技能槽
+		if not ability then
+			-- print("技能槽", i, "为空，跳过")
+			goto continue
+		end
+
+		if ability:IsToggle()
 				and not ability:GetToggleState()
 				and ability:IsFullyCastable()
 				and ability:IsActivated()
@@ -507,13 +513,17 @@ function ai_normal:TryEnableToggleAbilities()
 			print("[AI] 自动开启 toggle 技能:", ability:GetAbilityName())
 			ability:ToggleAbility()
 		end
+
+		::continue::
 	end
 end
 
 
 
 
+
 function ai_normal:OnRespawn()
+	ai_normal:TryEnableToggleAbilities()
 	self.castOnRespawnDone = false
 end
 
