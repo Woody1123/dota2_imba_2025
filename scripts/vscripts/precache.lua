@@ -41,7 +41,7 @@ function Awake()
 
 	LinkLuaModifier("modifier_tower1_def", "towers/tower1_defense.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier("modifier_tower1_def_arua", "towers/tower1_defense.lua", LUA_MODIFIER_MOTION_NONE)
-	
+
 	LinkLuaModifier("modifier_unit_remove", "modifier/modifier_unit_remove.lua", LUA_MODIFIER_MOTION_NONE )
    -- LinkLuaModifier("modifier_generic_knockback_lua", "mb/generic/modifier_generic_knockback_lua.lua", LUA_MODIFIER_MOTION_BOTH )
     LinkLuaModifier("modifier_generic_invisible_lua", "mb/generic/modifier_generic_invisible_lua.lua", LUA_MODIFIER_MOTION_NONE )
