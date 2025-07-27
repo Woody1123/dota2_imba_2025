@@ -1,3 +1,4 @@
+
 item_butterfly_ex = class({})
 LinkLuaModifier("modifier_butterfly_ex_passive", "ting/items/item_butterfly_ex", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_butterfly_ex_damage", "ting/items/item_butterfly_ex", LUA_MODIFIER_MOTION_NONE)
@@ -15,8 +16,9 @@ function item_butterfly_ex:OnProjectileHit(target, location, keys)
 	caster:PerformAttack(target, true, true, true, false, false, false, true)
 	self.ex = true
 	caster:RemoveModifierByName("modifier_butterfly_ex_damage")
-    return true	
+    return true
 end
+
 
 modifier_butterfly_ex_agi = class({})
 function modifier_butterfly_ex_agi:IsDebuff()			return false end
@@ -67,7 +69,7 @@ function modifier_butterfly_ex_passive:OnCreated()
 		self.p =
 			{
 				Ability = self.ability,
-				EffectName = "particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf",
+				EffectName = "particles/item_custom/butterfly_execon/drow_frost_arrow_launch_b_monarch.vpcf",
 				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
 				iMoveSpeed = 2000,
 				bDrawsOnMinimap = false,
@@ -113,7 +115,7 @@ function modifier_butterfly_ex_passive:OnAttackLanded(tg)
 
 					local projectile_info = {
 						Ability = self.ability,
-						EffectName = "particles/items/butterfly_ex/butterfly_execon/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf",
+						EffectName = "particles/item_custom/butterfly_execon/drow_frost_arrow_launch_b_monarch.vpcf",
 						iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
 						iMoveSpeed = 2000,
 						bDrawsOnMinimap = false,
