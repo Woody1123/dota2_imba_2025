@@ -20,18 +20,18 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"10"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"max_stun"					"1.5"
+				"max_stun"					"1.25"
 				"recent_duration"			"3.0"
 				"max_distance"			"1100"
 				"knockback_distance"			"350"
 				"illusion_duration"			"6.0"
-				"max_damage"					"450"
+				"max_damage"					"400"
 				"normal_punch_illusion_delay"   "0.25"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -72,7 +72,7 @@
 				{
 					"value"		"325 400 475 550"
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_unique_dark_seer_2" "+100"
+					"special_bonus_unique_dark_seer_2" "+75"
 				}
 				"duration"				"0.3 0.4 0.5 0.6"
 				"damage"				"70 130 190 250"
@@ -131,7 +131,7 @@
 			}
 			"duration"				
 			{
-				"value"										"21 24 27 30"
+				"value"										"20 22 24 26"
 			}
 
 			"tick_interval"									"0.2"
@@ -204,23 +204,24 @@
 			}
 			"trail_duration"		
 			{
-				"value" 					"7"
-				"RequiresShard"			"1"
+				"special_bonus_shard" 	"7"
 			}
 			"trail_move_slow"		
 			{
-				"value" 					"-50"
-				"RequiresShard"			"1"
+				"special_bonus_shard"	"-35"
 			}
 			"trail_damage"			
 			{
-				"value" 					"40"
-				"RequiresShard"			"1"
+				"special_bonus_shard"	"40"
 			}
 			"trail_damage_interval"		
 			{
-				"value" 				"0.5"
-				"RequiresShard"			"1"
+				"special_bonus_shard"	"0.5"
+			}
+			"aoe_radius"
+			{
+				"special_bonus_unique_dark_seer_3"	"350"
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -234,15 +235,18 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Dark_Seer.Wall_of_Replica_Start"
-
-		"AbilityDraftUltScepterAbility"		"dark_seer_normal_punch"
+		"AbilityDraftExtraAbilities"
+		{
+			"dark_seer_normal_punch" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
+		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
@@ -259,11 +263,15 @@
 		"AbilityValues"
 		{
 				"duration"				"30.0"
-				"replica_damage_outgoing"	"-30 -15 0"
+				"replica_damage_outgoing"	
+				{
+					"value"				"-30 -20 -10"
+					"special_bonus_unique_dark_seer_7"		"+15"
+				}
 				"tooltip_outgoing"	
 				{
-					"value"		"70 85 100"
-				"special_bonus_unique_dark_seer_7" "+20"
+					"value"		"70 80 90"
+					"special_bonus_unique_dark_seer_7" "+15"
 				}
 				"replica_damage_incoming"	"100"
 				"tooltip_replica_total_damage_incoming"	
@@ -278,17 +286,20 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"replica_scale"	"0"
-				"movement_slow"					"50 60 70"
+				"movement_slow"					"40"
 				"slow_duration"				
 				{
 					"value"		"1"
 				}	
 				"scepter_length_multiplier"				
 				{
-					"value"		"2"
-					"RequiresScepter"		"1"
+					"special_bonus_scepter"		"2"
 				}
 				"wall_damage"				"25 40 55"
+				"cooldown_reduction"
+				{
+					"special_bonus_unique_dark_seer_13"		"40"
+				}
 		}
 	}
 
@@ -306,7 +317,7 @@
 
 		"AbilityValues"
 		{
-			"int_to_atkspd"				".5"
+			"int_to_atkspd"				"1.0"
 		}
 	}
 	//=================================================================================================================
@@ -320,14 +331,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"radius"		
 			{
-				"value"			"900"
+				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"movement_speed_pct"	"8"
+			"movement_speed_pct"	"7"
 		}
 	}
 	//=================================================================================================================
@@ -343,115 +356,37 @@
 
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"AbilityValues"
+		{
+			"str_agi_average_tooltip"
+			{
+				"dynamic_value"		"true"
+			}
+		}
 	}
 	
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Dark Seer Innate Aggrandize
 	//=================================================================================================================
-	"special_bonus_unique_dark_seer"
+	"dark_seer_aggrandize"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_NONE"	
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
-			"value"
+			"heal_pct_base"					"10.0"
+			"heal_pct_per_level"			"1.5"
+			"heal_pct_tooltip"
 			{
-				"value" "350"
-				"ad_linked_abilities" "dark_seer_surge"
-				"affected_by_aoe_increase"	"1"
+				"dynamic_value"						"true"
 			}
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_13"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "40"
-				"ad_linked_abilities" "dark_seer_wall_of_replica"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_dark_seer_14"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

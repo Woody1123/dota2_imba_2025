@@ -28,7 +28,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22.0 18.0 14.0 10.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,6 +37,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+				"AbilityCooldown"
+				{
+					"value"									"22.0 18.0 14.0 10.0"
+					"special_bonus_unique_earth_spirit_7"	"-3.0"
+				}
 				"radius"				
 				{
 					"value"	"180"	// NOTE: This radius must match the radius for geomagnetic grip
@@ -50,8 +54,8 @@
 				}
 				"rock_damage"			
 				{
-					"value"			"120 180 240 300"
-					"special_bonus_unique_earth_spirit_6"	"+100"
+					"value"			"110 180 250 320"
+					"special_bonus_unique_earth_spirit_6"	"+80"
 				}	
 				"move_slow"				"50"
 				"duration"			"1.25 2.5 3.25 4"
@@ -71,7 +75,7 @@
 				}
 				
 				
-				"creep_multiplier"		"1.4"
+				"creep_multiplier"		"1.0"
 		}
 	}
 
@@ -111,22 +115,32 @@
 				}
 				"speed"					"1000"
 				"rock_speed"			"1600"
+				"allied_hero_speed"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"1900"
+				}
 				"distance"				
 				{
-					"value"		"750.0"
-				"special_bonus_unique_earth_spirit_4" "+200"
+					"value"		"800"
+					"special_bonus_unique_earth_spirit_4" "+150"
 				}
 				"rock_distance_multiplier"	"2"
+				"allied_hero_multiplier"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"2.5"
+				}
 				"delay"					"0.6"
 				"damage"				
 				{
-					"value"		"60"
-				"special_bonus_unique_earth_spirit" "+110"
+					"value"		"60 70 80 90"
+					"special_bonus_unique_earth_spirit" "+180"
 				}
 				"stun_duration"			
 				{
 					"value"		"0.3 0.5 0.7 0.9"
-				"special_bonus_unique_earth_spirit_3" "+0.5"
+					"special_bonus_unique_earth_spirit_3" "+0.3"
 				}
 				"rock_bonus_duration"	"0.3 0.5 0.7 0.9"
 				"damage_str"			"100"
@@ -138,6 +152,26 @@
 				{
 					"value"						"1"
 					"special_bonus_facet_earth_spirit_stepping_stone"	"=0"
+				}
+				"can_roll_over_allied_heroes"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"1"
+				}
+				"allied_bonus_movespeed"
+				{
+					"value"											"0 0 0 0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"15 20 25 30"
+				}
+				"allied_bonus_movespeed_duration"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"4.0"
+				}
+				"allied_bonus_stun_duration"
+				{
+					"value"											"0"
+					"special_bonus_facet_earth_spirit_ready_to_roll"	"0.3 0.5 0.7 0.9"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -182,8 +216,8 @@
 					"value"		"180"	// NOTE: This radius must match the radius for boulder smash
 					"affected_by_aoe_increase"	"1"		
 				}
-				"rock_damage"			"50 125 200 275"
-				"duration"			"2 2.5 3 3.5"
+				"rock_damage"			"70 140 210 280"
+				"duration"				"2 2.5 3 3.5"
 				"pull_units_per_second_heroes"		"600"
 				"pull_units_per_second"		"900"
 				"speed"					"800"
@@ -204,7 +238,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"Innate"						"1"
 		"MaxLevel"						"7"
 		"AbilitySound"					"Hero_EarthSpirit.StoneRemnant.Impact"
@@ -253,7 +287,7 @@
 			"AbilityManaCost"
 			{
 				"value"							"0"
-				"special_bonus_facet_earth_spirit_stepping_stone"		"+15"
+				"special_bonus_facet_earth_spirit_stepping_stone"		"0"
 			}
 			"AbilityCooldown"
 			{
@@ -264,6 +298,10 @@
 			{
 				"value"							"18"
 				"special_bonus_facet_earth_spirit_stepping_stone"		"=4"
+			}
+			"is_stepping_stone"
+			{
+				"special_bonus_facet_earth_spirit_stepping_stone"		"=1"
 			}
 		}
 	}
@@ -331,15 +369,18 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_EarthSpirit.Magnetize.Cast"
 
-		"AbilityDraftPreAbility"		"earth_spirit_stone_caller"
-		"AbilityDraftUltScepterAbility" "earth_spirit_petrify"
+		"AbilityDraftExtraAbilities"
+		{
+			"earth_spirit_stone_caller" ""
+			"earth_spirit_petrify" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -367,7 +408,7 @@
 			}
 			"damage_per_second"	
 			{
-				"value"									"40 80 120"
+				"value"									"45 85 125"
 				"special_bonus_unique_earth_spirit_8"			"+30%"
 			}		
 			
@@ -432,7 +473,6 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"	
-		"ad_linked_abilities"			"earth_spirit_magnetize"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 	}
 
 	//=================================================================================================================
@@ -469,7 +509,6 @@
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"	
-		"ad_linked_abilities"			"earth_spirit_geomagnetic_grip"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 	}
 
 	//=================================================================================================================
@@ -483,6 +522,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"	
 	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_earth_spirit_7"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"	
+	}
+
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================

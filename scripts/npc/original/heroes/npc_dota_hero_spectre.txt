@@ -22,13 +22,9 @@
 		"AbilityCastRange"				"1800"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 20 18 16"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130 140 150 160"
+		"AbilityManaCost"				"110 120 130 140"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -70,7 +66,12 @@
 				"dagger_grace_period"	"1.0"
 				"applies_desolate"
 				{
-					"special_bonus_facet_spectre_forsaken"	"=1"					
+					"value"				"0"					
+				}
+				"AbilityCooldown"
+				{
+					"value"				"22 20 18 16"
+					"special_bonus_unique_spectre" "-4"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -87,6 +88,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySound"					"Hero_Spectre.Desolate"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -94,18 +96,31 @@
 		{
 			"bonus_damage"
 			{
-				"value"									"20 35 50 65"
-				"special_bonus_unique_spectre_2"		"+12"
+				"value"									"25 40 55 70"
+				"special_bonus_unique_spectre_2"		"+15"
+				"special_bonus_facet_spectre_forsaken"	"x2"			// if changing this, change bonus_damage_multiplier_tooltip
+			}
+			"bonus_damage_multiplier_tooltip"
+			{
+				"value"									"0"
+				"special_bonus_facet_spectre_forsaken"	"+2"
 			}
 			"radius"
 			{
-				"value"				"400"
-				"special_bonus_unique_spectre_desolate_radius"			"-100"
+				"value"				"350"
 			}
 			"only_creep_allies_damage_pct"
 			{
 				"value"						"0"
-				"special_bonus_facet_spectre_forsaken"	"+40"
+			}
+			"illusions_can_apply"
+			{
+				"value"									"1"
+				"special_bonus_facet_spectre_forsaken"	"=0"
+			}
+			"illusion_damage_outgoing"
+			{
+				"special_bonus_unique_spectre_4"	"+25"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -121,6 +136,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "HasShardUpgrade"               "1"
+		"IsBreakable"					"1"
 
 
 		// Special
@@ -129,7 +145,7 @@
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"8 12 16 20"
+				"value"		"7 11 15 19"
 				"special_bonus_unique_spectre_5"		"+5"
 			}
 			"min_radius"			
@@ -180,8 +196,6 @@
 		"IsGrantedByScepter"			"1"
 		"MaxLevel"						"1"
 
-		"AbilityDraftPreAbility"		"spectre_reality"
-
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3"
@@ -199,7 +213,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"7.0"
+				"duration"					"6.0"
 				"illusion_damage_outgoing"	"-20"
 				"tooltip_outgoing"	"80"
 				"illusion_damage_incoming"	"100"
@@ -221,7 +235,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -229,10 +243,12 @@
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"3"
 		"AbilitySound"					"Hero_Spectre.Haunt"
-		
 
-		"AbilityDraftPreAbility"		"spectre_reality"
-		"AbilityDraftUltScepterAbility"		"spectre_haunt"
+		"AbilityDraftExtraAbilities"
+		{
+			"spectre_reality" ""
+			"spectre_haunt" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -241,7 +257,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"60 55 50"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -251,8 +267,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"5.0 6.0 7.0"
-				"illusion_damage_outgoing"	"-60 -40 -20"
+				"duration"					"6.0"
+				"illusion_damage_outgoing"
+				{
+					"value"					"-60 -40 -20"
+					"special_bonus_unique_spectre_4"	"+25"
+				}
 				"tooltip_outgoing"	"40 60 80"
 				"illusion_damage_incoming"	"100 100 100"
 				"tooltip_illusion_total_damage_incoming"	"200 200 200"
@@ -273,13 +293,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"MaxLevel"						"1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -293,8 +317,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"										"3.0"
-				"special_bonus_facet_spectre_twist_the_knife"	"=1.0"
+				"value"										"1.5"
 			}
 		}
 	}
@@ -308,109 +331,5 @@
 
 		"MaxLevel"						"1"
 		"Innate"						"1"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "4"
-				"ad_linked_abilities" "spectre_spectral_dagger"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "30"
-				"ad_linked_abilities" "spectre_haunt"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "5"
-				"ad_linked_abilities" "spectre_dispersion"
-			}
-		}
-	}
-
-		//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_spectre_desolate_radius"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

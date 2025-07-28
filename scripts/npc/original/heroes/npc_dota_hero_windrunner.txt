@@ -18,7 +18,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1200"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"125"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
 			"wind_strength"		"240"
 			"radius"			
 			{
-				"value"		"1000"
+				"value"		"900"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
@@ -53,6 +53,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
@@ -62,10 +63,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.15"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -77,13 +74,17 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"											"16 14 12 10"
+			}
 			"fail_stun_duration"
 			{
 				"value" "0.6"
 			}
 			"stun_duration"
 			{
-				"value" "1.6 2.1 2.6 3.1"
+				"value" "1.75 2.25 2.75 3.25"
 				"special_bonus_unique_windranger_6" "+0.75"
 			}
 			"shackle_distance"
@@ -96,12 +97,27 @@
 			}
 			"shackle_count"
 			{
-				"value" "1"
+				"value" 									"1"
+				"special_bonus_facet_windrunner_tangled"	"=0"
 			}
 			"shackle_angle"
 			{
 				"value" "23"
 			}
+
+			"bonus_damage_per_hero"
+			{
+				"special_bonus_facet_windrunner_tangled"	"40"
+			}
+			"bonus_damage_per_other_pct"
+			{
+				"special_bonus_facet_windrunner_tangled"	"50"
+			}
+			"damage_buff_duration"
+			{
+				"special_bonus_facet_windrunner_tangled"	"3 4 5 6"
+			}
+		
 		}
 	}
 
@@ -121,7 +137,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2600"
+		"AbilityCastRange"				"3000"
 		"AbilityCastPoint"				"0.0"
 		
 		// Time		
@@ -132,7 +148,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"90 100 110 120"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -145,10 +161,13 @@
 				}
 				"slow"	
 				{
-					"value"				"20 25 30 35"
-					"special_bonus_unique_windranger_powershot_slow"				"+20"
+					"value"	"20 25 30 35"
 				}
-				"slow_duration"	"4"
+				"slow_duration"	
+				{
+					"value"															"4"
+					"special_bonus_unique_windranger_powershot_slow"				"+1"
+				}
 				"damage_reduction"		
 				{
 					"value"				"15"
@@ -161,8 +180,12 @@
 					"value"		"125 125 125 125"
 					"affected_by_aoe_increase"	"1"
 				}
-				"arrow_range"			"3000"
-				"arrow_speed"			"3000.0 3000.0 3000.0 3000.0"
+				"arrow_range"			
+				{
+					"value"		"3000"
+				}
+
+				"arrow_speed"			"3000"
 				"tree_width"
 				{
 					"value"						"50.0"
@@ -175,6 +198,16 @@
 				}
 
 				"vision_duration"		"3.34 3.34 3.34 3.34"
+
+				"min_execute_threshold"
+				{
+					"special_bonus_facet_windrunner_killshot"	"5"
+				}
+
+				"max_execute_threshold"
+				{
+					"special_bonus_facet_windrunner_killshot"	"9 10 11 12"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -198,7 +231,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15 14 13 12"
 		"AbilityDuration"				"3 4 5 6"
 	
 		// Cost
@@ -226,25 +258,26 @@
 			}
 			"scepter_movespeed_bonus_pct"			
 			{
-				"RequiresScepter" "1"
-				"value"			"0"
+				"special_bonus_scepter"			"0"
 			}
 			"physical_damage_pct"
 			{
-				"value"				"0"
 				"special_bonus_scepter"		"-45"
 			}
 			"cannot_be_dispelled"
 			{
-				"value"						"0"
 				"special_bonus_unique_windranger_windrun_undispellable"			"+1"
 			}
 			"ally_movespeed_bonus_pct"
 			{
-				"value"				"0"
 				"special_bonus_facet_windrunner_tailwind"	"=15"				
 			}
 			"duration"					"3 4 5 6"
+			"AbilityCooldown"
+			{
+				"value"									"15 14 13 12"
+				"special_bonus_unique_windranger_4"		"-2"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -256,7 +289,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -264,7 +297,10 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Ability.Focusfire"
-		"AbilityDraftUltShardAbility"		"windrunner_gale_force"
+		"AbilityDraftExtraAbilities"
+		{
+			"windrunner_gale_force" "shard"
+		}
 
 
 		// Casting
@@ -275,7 +311,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 50 30"
+		
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -285,6 +321,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"			"70 50 30"
+				"special_bonus_facet_windrunner_whirlwind" "=70 =60 =50"
+			}
+
 			"AbilityDuration"				
 			{
 				"value"		"20.0 20.0 20.0"
@@ -301,8 +343,9 @@
 			}
 			"focusfire_damage_reduction"	
 			{
-				"value"						"-30"
-				"special_bonus_unique_windranger_8"		"+12"
+				"value"						"-25"
+				"special_bonus_facet_windrunner_whirlwind" "-5"
+				"special_bonus_unique_windranger_8"		"+10"
 			}
 			"focusfire_fire_on_the_move"	"1"
 			"process_procs"
@@ -316,17 +359,19 @@
 			}
 			"duration_increase_per_kill"
 			{
-				"value"		"0"
-				"special_bonus_unique_windranger_2"		"+2"
-				"RequiresFacet"		"windrunner_whirlwind"	
-
+				"special_bonus_facet_windrunner_whirlwind"
+				{
+					"special_bonus_unique_windranger_2"		"+2"
+				}
 			}
 			"cooldown_reduction_per_kill"
 			{
-				"value"		"0"
 				"special_bonus_unique_windranger_2"		"+18"
-				"RequiresFacet"		"windrunner_tailwind"	
-
+			}
+			"bonus_range"
+			{
+				"value"				"0"
+				"special_bonus_facet_windrunner_whirlwind"		"+125"
 			}
 			
 			"unfocused_cancel_initial_cooldown"		"0.5"
@@ -349,124 +394,6 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "18"
-				"ad_linked_abilities" "windrunner_focusfire"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"windrunner_powershot"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"windrunner_windrun"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2.5"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2"
-				"ad_linked_abilities" "windrunner_shackleshot"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_windrun_undispellable"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-		//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_windranger_powershot_slow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-
-	//=================================================================================================================
 	// Ability: Innate Like The Wind (min movespeed)
 	//=================================================================================================================
 	"windrunner_easy_breezy"
@@ -482,10 +409,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"min_movespeed"		"240"
-			"max_movespeed"		"600"
+			"min_movespeed"		
+			{
+				"value"						"240"
+			}
+			"max_movespeed"		
+			{
+				"value"						"600"
+			}			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-
 }

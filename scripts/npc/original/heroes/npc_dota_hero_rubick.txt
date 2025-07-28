@@ -40,7 +40,7 @@
 				"lift_duration"				
 				{
 					"value"			"0.95 1.2 1.45 1.7"
-					"special_bonus_unique_rubick_7" "+0.4"
+					"special_bonus_unique_rubick_7" "+0.5"
 				}
 				"stun_duration"				
 				{
@@ -61,24 +61,25 @@
 				"fall_duration"				"0.3 0.3 0.3 0.3"  // the portion of the lift that is falling
 				"shard_max_land_distance_bonus_pct"			
 				{
-					"value"				"35"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"35"
 				}			
 				"shard_cooldown_reduction_pct"			
 				{
-					"value"			"0"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"0"
 				}					
 				"shard_teammate_throw_delay"			
 				{
-					"value"			"0.5"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"0.5"
 				}
 				"AbilityCooldown"				
 				{
-					"value"		"24 21 18 15"
-					"special_bonus_unique_rubick_4"			"-4"
-				}	
+					"value"		"23 20 17 14"
+					"special_bonus_unique_rubick_4"			"-5"
+				}
+				"landing_damage"
+				{
+					"special_bonus_unique_rubick_8"		"150"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
@@ -150,13 +151,9 @@
 		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110 120 130 140"
+		"AbilityManaCost"				"110 125 140 155"
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
@@ -182,7 +179,6 @@
 					"value"			"5 15 25 35"
 					"CalculateSpellDamageTooltip"	"0"
 					"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-				"special_bonus_unique_rubick_2" "+12"
 				}
 				"duration"					"10.0 10.0 10.0 10.0"
 				"radius"					
@@ -191,6 +187,11 @@
 					"affected_by_aoe_increase"	"1"
 				}			
 				"jump_delay"				"0.25 0.25 0.25 0.25"
+				"AbilityCooldown"
+				{
+					"value"								"16 14 12 10"
+					"special_bonus_unique_rubick_3"		"-5"
+				}
 		}
 	}	
 
@@ -207,6 +208,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastGestureSlot"		"DEFAULT"
+		"IsBreakable"					"1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -232,13 +234,14 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"				"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"cast_range"				"60 120 180 240"
-			"spell_amp"					"14 18 22 26"
+			"spell_amp"					"11 16 21 26"
 
 			"aoe_bonus"
 			{
@@ -265,14 +268,33 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage_pct"				"100"
-			"bonus_damage_pct_tooltip"		"1"
-			"magic_resist_pct"				"50"
-			"magic_resist_pct_tooltip"		"0.5"
+			"one_tooltip"					"1"
+			"bonus_damage_pct"				
+			{
+				"value"									"75"	
+				"special_bonus_unique_rubick_2" 		"+25"
+			}
+			"bonus_damage_pct_tooltip"		
+			{
+				"value"									"0.75"
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}
+			"magic_resist_pct"				
+			{
+				"value"									"75"	
+				"special_bonus_unique_rubick_2" 		"+25"
+			}			
+			"magic_resist_pct_tooltip"		
+			{
+				"value"									"0.75"
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}			
 		}
 	}
 
@@ -291,7 +313,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Rubick.SpellSteal.Cast"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"1"
 
 		"HasScepterUpgrade"			"1"
@@ -321,8 +343,7 @@
 			"stolen_debuff_amp"				"10 20 30"
 			"cast_range_scepter"			
 			{
-				"value"						"1400"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"1400"
 			}
 
 			"duration"
@@ -332,8 +353,15 @@
 
 			"stolen_mana_reduction"
 			{
-				"value"						"0"
-				"special_bonus_facet_rubick_frugal_filch"	"30 45 60"				
+				"special_bonus_facet_rubick_frugal_filch"	"50 65 80"				
+			}
+			"stolen_spell_cooldown_percent"
+			{
+				"special_bonus_unique_rubick_6"			"25"
+			}
+			"spell_amp_percent"
+			{
+				"special_bonus_unique_rubick_5"			"40"
 			}
 		}
 	}	
@@ -397,130 +425,15 @@
 		"MaxLevel"						"0"
 		"AbilityCastAnimation"			"ACT_INVALID"
 	}
-
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Rubick: Hidden 4
 	//=================================================================================================================
-	"special_bonus_unique_rubick"
+	"rubick_hidden4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "5"
-				"ad_linked_abilities" "rubick_fade_bolt"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"	
-
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "40"
-				"ad_linked_abilities" "rubick_spell_steal"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "25"
-				"ad_linked_abilities" "rubick_spell_steal"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_rubick_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "150"
-				"ad_linked_abilities" "rubick_telekinesis"
-			}
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"AbilityCastAnimation"			"ACT_INVALID"
 	}
 }

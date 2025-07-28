@@ -17,11 +17,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
+		"AbilityCooldown"				"18 16 14 12"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4 0.4 0.4"
+		"AbilityCastPoint"				"0.35"
+		"AnimationPlaybackRate"			"1.2"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -33,16 +34,16 @@
 		{
 				"radius"					
 				{
-					"value"		"400 400 400 400"
+					"value"		"325 350 375 400"
 					"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_brewmaster_7" "+200"
 				}
-				"damage"					"75 150 225 300"
+				"damage"					"80 160 240 320"
 				"movement_slow"				"15 30 45 60"
 				"attack_speed_slow"			"15 30 45 60"
 				"duration"					
 				{
-					"value"				"4.0"
+					"value"								"4.0"
+					"special_bonus_unique_brewmaster_7" "+1.5"
 				}	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -111,7 +112,7 @@
 		"AbilityCastPoint"				"0.2"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 19 16 13"
+		"AbilityCooldown"				"19 17 15 13"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -137,49 +138,44 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"extra_duration"					"3"
-			"projectile_speed"					
+			"projectile_speed"
 			{
 				"value"							"1600"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=900"
-				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=950"
 			}
-			"projectile_width"				
+			"projectile_width"
 			{
 				"value"							"250"	
 				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"+100"
 				"affected_by_aoe_increase"	"1"
 			}
-			"barrel_width"				
+			"barrel_width"
 			{
-				"value"							"0"	
 				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=75"
 				"affected_by_aoe_increase"	"1"
 			}
 			"barrel_impact_damage"
 			{
-				"value"					"0"
-				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"50 75 100 125"
-				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
+				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"40 70 100 130"
 				"DamageTypeTooltip"					"DAMAGE_TYPE_PHYSICAL"
 
 			}
 			"AbilityCastRange"				
 			{
-				"value"						"700"
+				"value"															"700"
 				"special_bonus_facet_brewmaster_roll_out_the_barrel"			"=950"
-				"RequiresFacet"									"brewmaster_roll_out_the_barrel"
 			}
 			"min_movement"				
 			{
-				"value"								"0"
-				"special_bonus_facet_brewmaster_drunken_master"				"-20"
-				"RequiresFacet"									"ardent_spirits"
+				"special_bonus_facet_brewmaster_drunken_master"				"-15"
 			}
 			"max_movement"				
 			{
-				"value"								"0"
 				"special_bonus_facet_brewmaster_drunken_master"				"50"
-				"RequiresFacet"									"ardent_spirits"
+			}
+			"fear_duration"
+			{
+				"special_bonus_unique_brewmaster_4"							"1.5"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -195,15 +191,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilitySound"					"Hero_Brewmaster.Brawler.Crit"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-
-		"MaxLevel"						"5"
-		"Innate"						"1"
-		"RequiredLevel"					"-1"
-		
+	
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
 
-		"AbilityDraftScepterAbility"		"brewmaster_primal_companion"
+		"AbilityDraftExtraAbilities"
+		{
+			"brewmaster_primal_companion" "scepter"
+		}
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -217,23 +212,42 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"dodge_chance"		"10 15 20 25 30"
+			"dodge_chance"		"15 20 25 30"
 			"crit_chance"				"20"
 			"active_multiplier"			
 			{
 				"value"						"2.5"
 				"special_bonus_unique_brewmaster_8"		"+1"
 			}
-			"crit_multiplier"			"120 135 150 165 180"
-			"attack_speed"	"10 15 20 25 30"
-			"magic_resist"	"4 8 12 16 20"
-			"armor"		"1 3 5 7 9"
-			"movespeed"				"5 10 15 20 25"
+			"crit_multiplier"			"120 140 160 180"
+			"attack_speed"	"10 15 20 25"
+			"magic_resist"	"5 10 15 20"
+			"armor"		"2 4 6 8"
+			"movespeed"				"10 15 20 25"
 			"slow_duration"				"2"
-			"bonus_move_speed"		"4 6 8 10 12"
-			"bonus_status_resist"	"4 8 12 16 20"
+			"bonus_move_speed"		"4 6 8 10"
+			"bonus_status_resist"	"5 10 15 20"
 			
 		}
+	}
+
+	//=================================================================================================================
+	// Brewmaster: Ultimate Hangover
+	//=================================================================================================================
+	"brewmaster_belligerent"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_NONE"	
+		"MaxLevel"						"1"
+		"Innate"						"1"
+
+		"AbilityValues"
+		{
+			"damage_pct"				"25"
+			"damage_duration_split"		"15"
+			"damage_duration_respawn"	"45"
+			
+		}		
 	}
 
 	//=================================================================================================================
@@ -244,7 +258,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Brewmaster.PrimalSplit.Spawn"
@@ -272,7 +286,7 @@
 			"duration"					
 			{
 				"value"			"16 18 20"
-				"special_bonus_shard"		"+12"
+				"special_bonus_shard"		"+8"
 			}
 			
 			"split_duration"			"0.6"
@@ -305,6 +319,11 @@
 			{
 				"value"									"0"
 				"special_bonus_unique_brewmaster_2"		"+10"
+			}
+			"give_brawler_passive"
+			{
+				"value"					"0"
+				"special_bonus_unique_brewmaster_6"				"=1"
 			}
 		}
 	}
@@ -343,7 +362,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Brewmaster.PrimalSplit.Spawn"
@@ -467,7 +486,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"magic_resist"			"50" //NOTE: IS HARDCODED, PLUMB THROUGH TO CODE IF CHANGE IS NEEDED!!!!
+			"magic_resist"			"80"
 		}
 	}
 
@@ -480,11 +499,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			"bonus_building_damage"
 			{
-				"value" "80 140 200"
+				"value" "50 100 150"
 			}
 		}
 	}
@@ -551,14 +571,9 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityValues"
 		{
-			"duration_hero"
-			{
-				"value" "3 4 5"
-			}
-			"duration_unit"
-			{
-				"value" "16 16 16 16"
-			}
+			"duration_hero"  "3 4 5"
+			"duration_unit"  "16 16 16 16"
+			"landing_damage"			"75"
 		}
 	}
 
@@ -589,7 +604,7 @@
 			}
 			"bonus_movement_speeed"
 			{
-				"value" "20 30 40"
+				"value" "25 35 45"
 			}
 			"duration"
 			{
@@ -614,6 +629,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			"damage"
@@ -622,7 +638,7 @@
 			}
 			"radius"
 			{
-				"value" "220 220 220"
+				"value" "250 250 250"
 			}
 		}
 	}
@@ -680,105 +696,9 @@
 		"AbilityValues"
 		{
 			"AbilityCastRange"			"150"
-			"damage"					"50 100 150"
-			"pull_distance"				"300 500 700"
+			"damage"					"75 150 225"
+			"pull_distance"				"450 575 700"
 			"pull_duration"				"0.5"
 		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"		"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1.5"
-				"ad_linked_abilities" "brewmaster_cinder_brew"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"		"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "brewmaster_primal_split && brewmaster_drunken_brawler"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_brewmaster_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

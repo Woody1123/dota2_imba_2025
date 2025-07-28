@@ -13,6 +13,7 @@
 		"AbilitySound"					"Hero_Lycan.SummonWolves"
 
         "HasShardUpgrade"               "1"
+        "RestrictValuesToMaxLevel"		"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -32,11 +33,11 @@
 		{
 			"AbilityManaCost"				
 			{
-				"value"			"115 120 125 130"
-				"special_bonus_facet_lycan_spirit_wolves" "-50"
+				"value"			"115 120 125 130 130 130"
+				"special_bonus_facet_lycan_spirit_wolves" "-50"				
 			}
 			
-			"wolf_index"				"1 2 3 4"
+			"wolf_index"				"1 2 3 4 5 6"
 			"wolf_duration"				
 			{
 				"value"					"50"
@@ -45,20 +46,20 @@
 
 			"wolf_bat"					
 			{
-				"value"					"1.2 1.1 1.0 0.9"
-				"RequiresFacet"				"lycan_pack_leader"
+				"value"					"1.2 1.1 1.0 0.9 0.9 0.9"
+				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"				
 			}
 			"wolf_damage"
 			{
-				"value"							"23 29 35 41"
+				"value"							"23 29 35 41 47 53"
 				"special_bonus_unique_lycan_3"	"+10"
-				"RequiresFacet"				"lycan_pack_leader"
+				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"				
 			}
 			"wolf_hp"					
 			{
-				"value"	"325 375 425 475"
-				"special_bonus_unique_lycan_7"	"+350"
-				"RequiresFacet"				"lycan_pack_leader"
+				"value"	"325 375 425 475 525 575"
+				"special_bonus_facet_lycan_spirit_wolves" "=0 =0 =0 =0 =0 =0"
+				"special_bonus_unique_lycan_7"	"+350"				
 			}
 			"bonus_health"
 			{
@@ -70,54 +71,63 @@
 				"value"			"0"
 				"special_bonus_unique_lycan_3"	"+10"
 			}
+			"bonus_armor"
+			{
+				"value"			"0 0 0 0 5 10"				
+			}
 			"bash_chance"				"15"
 			"bash_duration"				"1.0"
 			"wolf_count"			
 			{
-				"value"			"2 2 2 2"
+				"value"			"2"
 				"special_bonus_unique_lycan_2" "+2"
 			}
 
 			"is_lone_wolf"	
 			{
-				"value"					"0"
 				"special_bonus_facet_lycan_spirit_wolves"					"+1"
 			}
 			"back_distance"
 			{
-				"value"						"0"
 				"special_bonus_facet_lycan_spirit_wolves"					"+150"
 			}
 			"side_distance"
 			{
-				"value"						"0"
 				"special_bonus_facet_lycan_spirit_wolves"					"+75"
 			}
 			"model_scale"
 			{
-				"value"						"0"
 				"special_bonus_facet_lycan_spirit_wolves"					"-15"
 			}
 			"invis_level"				
 			{
-				"value"						"0"
 				"special_bonus_facet_lycan_spirit_wolves"					"0.05"
 			}
 			"health_per_wolf"				
 			{
-				"value"							"50 100 150 200"	
-				"special_bonus_unique_lycan_7"	"+250"
-				"RequiresFacet"					"lycan_spirit_wolves"
+				"special_bonus_facet_lycan_spirit_wolves"
+				{
+					"value"							"60 120 180 240"	
+					"special_bonus_unique_lycan_7"	"+250"
+				}
 			}
 			"damage_per_wolf"				
 			{
-				"value"					"8 14 20 26"	
-				"special_bonus_unique_lycan_3"	"+8"
-				"RequiresFacet"					"lycan_spirit_wolves"
+				"special_bonus_facet_lycan_spirit_wolves"
+				{
+					"value"							"6 12 18 24"
+					"special_bonus_unique_lycan_3"	"+6"
+				}
 			}
 			"death_fx_time"
 			{
 				"special_bonus_facet_lycan_spirit_wolves"					"1.0"
+			}
+
+			"max_level"
+			{
+				"value"					"4"
+				"special_bonus_facet_lycan_alpha_wolves" "+2"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -132,7 +142,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP_HERO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		
@@ -148,7 +158,6 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"300"
-		"AbilityCooldown"				"110 100 90"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -162,13 +171,17 @@
 		"AbilityValues"
 		{
 			"lifesteal_percent"		"40"
-			"creep_penalty"			"0.4"
 			"lifesteal_range"		
 			{
 				"value"		"1200"		
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_range"		"150"		
+			"attack_range"		"150"
+			"AbilityCooldown"
+			{
+				"value"							"110 100 90"
+				"special_bonus_unique_lycan_8"	"-15"
+			}
 		}
 	}
 
@@ -183,6 +196,7 @@
 		"AbilitySound"					"Hero_Lycan.Howl"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"RestrictValuesToMaxLevel"		"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -225,6 +239,12 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"fear_duration"		"0"
+
+			"max_level"
+			{
+				"value"					"4"
+				"special_bonus_facet_lycan_alpha_wolves" "-1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastGestureSlot"	"DEFAULT" 
@@ -238,6 +258,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"RestrictValuesToMaxLevel"		"1"
+		"IsBreakable"					"1"
 		
 		// Casting
 		"AbilityValues"
@@ -251,6 +273,12 @@
 			{
 				"value"			"1 3 5 7"
 			}
+
+			"max_level"
+			{
+				"value"					"4"
+				"special_bonus_facet_lycan_alpha_wolves" "-1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -263,17 +291,15 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Lycan.Shapeshift.Cast"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		"AbilityDraftUltScepterAbility"		"lycan_wolf_bite"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"110 100 90"
+		"AbilityDraftExtraAbilities"
+		{
+			"lycan_wolf_bite" "scepter"
+		}
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -286,7 +312,7 @@
 			"duration"
 			{
 				"value"				"25"
-				"special_bonus_unique_lycan_1"	"+6"
+				"special_bonus_unique_lycan_1"	"+7"
 			}
 			"speed"				"550"
 			"bonus_night_vision"		"1000"
@@ -304,6 +330,11 @@
 				"value"				"0"
 				"special_bonus_facet_lycan_pack_leader"			"+5"
 			}
+			"AbilityCooldown"
+			{
+				"value"							"110 100 90"
+				"special_bonus_unique_lycan_8"	"-15"
+			}
 		}
 	}
 
@@ -318,6 +349,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"IsBreakable"					"1"
 		
 	
 		// Special
@@ -359,121 +391,76 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_shapeshift"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_feral_impulse"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_howl"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lycan_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lycan_summon_wolves"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
 	
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Lycan Summon Wolves: Bash
 	//=================================================================================================================
-	"special_bonus_unique_lycan_8"
+	"lycan_summon_wolves_bash"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
-			"value"
-			{
-				"value" "15"
-				"ad_linked_abilities" "lycan_shapeshift"
-			}
-		}
+			"bash_chance"			"20"
+			"bash_damage"			"50"
+			"bash_duration"			".5"
+		}		
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Lycan Summon Wolves: Hamstring
 	//=================================================================================================================
-	"special_bonus_unique_lycan_howl_armor"
+	"lycan_summon_wolves_hamstring"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityCooldown"				"8"
+		"AbilityCastRange"				"150"
+		"IsBreakable"					"1"
+
+		"AbilityValues"
+		{
+			"root_duration"				"0.5"
+			"damage_boost"				"50"
+			"damage_boost_stacks"		"4"
+			"damage_boost_duration"		"12"
+		}		
 	}
 
+
+	//=================================================================================================================
+	// Lycan Summon Wolves: Geist Form
+	//=================================================================================================================
+	"lycan_summon_wolves_hightail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"				"50"
+
+
+		"AbilityValues"
+		{
+			"duration"				"6"
+			"evasion"				"100"
+			"min_movespeed"			"550"
+			"bonus_attack_speed"	"20"
+		}		
+	}
 	
 	//=================================================================================================================
 	// Lycan Innate Apex Predator
@@ -486,9 +473,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"damage_amp_per_level"			"2"
+			"extra_damage_tooltip"
+			{
+				"dynamic_value"				"true"
+			}
 		}
 	}
 }

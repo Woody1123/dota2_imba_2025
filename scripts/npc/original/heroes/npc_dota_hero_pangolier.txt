@@ -32,13 +32,13 @@
 				"AbilityCooldown"				
 				{	
 					"value"				"21 18 15 12"
-					"special_bonus_unique_pangolier_4"	"-2.5"
+					"special_bonus_unique_pangolier_4"	"-4"
 				}
 				"dash_range"			"400 500 600 700"
 				"range"					
 				{
 					"value"			"700"
-					"special_bonus_unique_pangolier"	"+250"
+					"special_bonus_unique_pangolier"	"+200"
 				}
 				"damage"				
 				{
@@ -54,12 +54,12 @@
 				"attack_interval"		"0.1 0.1 0.1 0.1"
 				"start_radius"
 				{
-					"value"		"140"
+					"value"		"155"
 					"affected_by_aoe_increase"	"1"		
 				}
 				"end_radius"
 				{
-					"value"			"140"
+					"value"			"155"
 					"affected_by_aoe_increase"	"1"		
 				}
 				"strikes"				
@@ -107,7 +107,7 @@
 		{
 			"damage"
 			{
-				"value"					"60 120 180 240"
+				"value"					"70 130 190 250"
 				"CalculateSpellDamageTooltip"	"1"
 				"special_bonus_unique_pangolier_shield_crash_radius"		"+125"
 
@@ -116,7 +116,7 @@
 			"hero_shield"
 			{
 				"value"	"50 100 150 200"
-				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+100"
+				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+90"
 
 			}
 			"duration"				"10"
@@ -136,10 +136,26 @@
 			{
 				"value"					"18 16 14 12"
 			}
-			"max_damage_increase_pct"				
+			"min_damage_increase_pct"				
 			{
 				"value"					"0"
 				"special_bonus_facet_pangolier_double_jump"			"=30"
+			}
+			"max_damage_increase_pct"				
+			{
+				"value"					"0"
+				"special_bonus_facet_pangolier_double_jump"			"=40"
+			}
+
+			"min_barrier_increase_pct_tooltip"
+			{
+				"special_bonus_facet_pangolier_double_jump"			"=30"
+			}
+
+			"max_barrier_increase_pct_tooltip"
+			{
+				"value"					"0"
+				"special_bonus_facet_pangolier_double_jump"			"=40"
 			}
 			"jump_duration"			"0.4"
 			"jump_duration_gyroshell"	"0.75"
@@ -151,27 +167,19 @@
 			"slow_duration"	"3"
 			"parry_swashbuckles"
 			{
-				"value"				"0"
 				"special_bonus_facet_pangolier_auto_swashbuckle"	"+2"
-				"RequiresFacet"			"pangolier_auto_swashbuckle"
 			}
 			"parry_chance"
 			{
-				"value"				"0"
 				"special_bonus_facet_pangolier_auto_swashbuckle"	"+50"
-				"RequiresFacet"			"pangolier_auto_swashbuckle"
 			}
 			"parry_cooldown"
 			{
-				"value"				"0"
 				"special_bonus_facet_pangolier_auto_swashbuckle"	"+2"
-				"RequiresFacet"			"pangolier_auto_swashbuckle"
 			}
 			"parry_damage_threshold"
 			{
-				"value"				"0"
 				"special_bonus_facet_pangolier_auto_swashbuckle"	"+25"
-				"RequiresFacet"			"pangolier_auto_swashbuckle"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -187,6 +195,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsBreakable"					"1"
 		
 		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -202,6 +211,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsBreakable"					"1"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -231,10 +241,12 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"1"
-
-		"AbilityDraftUltShardAbility"		"pangolier_rollup"
+		"AbilityDraftExtraAbilities"
+		{
+			"pangolier_rollup" "shard"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -251,7 +263,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 150 200"
+		"AbilityDamage"					"75 150 225"
 
         "precache"
 		{
@@ -262,54 +274,55 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage_pct"				"100"
-				"AbilityCooldown"				
-				{	
-					"value"			"90 85 80"
-					"special_bonus_unique_pangolier_5"	"-16"
-				}
-				"cast_time_tooltip"		"1.2"
-				"tick_interval"			"0.05"
-				"forward_move_speed"	
-				{
-					"value"		"550"
-					"special_bonus_facet_pangolier_thunderbolt"	"+115"
-				}
-				"turn_rate_boosted"		
-				{
-					"value"			"165"
-					"special_bonus_facet_pangolier_thunderbolt"	"+115"
-				}
-				"turn_rate"				
-				{
-					"value"		"120"
-					"special_bonus_facet_pangolier_thunderbolt"	"+110"
-				}
-				"radius"				
-				{
-					"value"			"400"
-					"affected_by_aoe_increase"	"1"		
-				}			
-				"hit_radius"			
-				{
-					"value"		"150"
-					"affected_by_aoe_increase"	"1"		
-				}			
-				"bounce_duration"		"0.4"
-				"stun_duration"			"0.8 1.0 1.2"
-				"knockback_radius"		
-				{
-					"value"			"150"
-					"affected_by_aoe_increase"	"1"		
-				}			
-				"duration"				
-				{
-					"value"		"10"
-					"special_bonus_unique_pangolier_6"	"+2"
-					"special_bonus_facet_pangolier_thunderbolt"	"-2"
-				}
-				"jump_recover_time"		"0.25"
-				"shield_crash_cooldown"			"9 6 3"
+			"damage_pct"				"100"
+			"AbilityCooldown"				
+			{	
+				"value"			"90 85 80"
+				"special_bonus_unique_pangolier_5"	"-15"
+			}
+			"cast_time_tooltip"		"1.2"
+			"tick_interval"			"0.05"
+			"forward_move_speed"	
+			{
+				"value"		"550"
+				"special_bonus_facet_pangolier_thunderbolt"	"+115"
+			}
+			"turn_rate_boosted"		
+			{
+				"value"			"165"
+				"special_bonus_facet_pangolier_thunderbolt"	"+40%"
+			}
+			"turn_rate"				
+			{
+				"value"		"120"
+				"special_bonus_facet_pangolier_thunderbolt"	"+40%"
+			}
+			"radius"				
+			{
+				"value"			"400"
+				"affected_by_aoe_increase"	"1"		
+			}			
+			"hit_radius"			
+			{
+				"value"		"150"
+				"affected_by_aoe_increase"	"1"		
+			}			
+			"bounce_duration"		"0.4"
+			"stun_duration"			"0.8 1.0 1.2"
+			"knockback_radius"		
+			{
+				"value"			"150"
+				"affected_by_aoe_increase"	"1"		
+			}			
+			"duration"				
+			{
+				"value"		"10"
+				"special_bonus_unique_pangolier_6"	"+2"
+				"special_bonus_facet_pangolier_thunderbolt"	"-1"
+			}
+			"jump_recover_time"		"0.25"
+			"shield_crash_cooldown"			"9 6 3"
+			"magic_resistance"				"60"				
 		}
 	}
 
@@ -323,6 +336,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -343,7 +357,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -412,9 +426,10 @@
 					"value"			"150"
 					"affected_by_aoe_increase"	"1"		
 				}			
-				"duration"				"2.75"
+				"duration"				"2.25"
 				"jump_recover_time"		"0.25"
 				"rollup_bounce_duration"				"0.75"
+				"magic_resistance"				"60"
 		}
 	}
 

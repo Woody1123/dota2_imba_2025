@@ -29,7 +29,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130"
+		"AbilityManaCost"				"115"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,6 +55,19 @@
 				"value"														"21 18 15 12"
 				"special_bonus_unique_morphling_waveform_cooldown"			"-40%"
 			}
+			"pct_damage"
+			{
+				"value"										"0"
+				"special_bonus_facet_morphling_agi"			"+50"
+				"special_bonus_unique_morphling_4"			"+75"
+				"CalculateSpellDamageTooltip"				"0"
+				"DamageTypeTooltip"							"DAMAGE_TYPE_PHYSICAL"
+			}
+			"process_procs"
+			{
+				"value" "0"
+				"special_bonus_unique_morphling_4"			"+1"
+			}
 		}
 	}
 	
@@ -72,7 +85,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Morphling.AdaptiveStrike"
-		"LinkedAbility"					"morphling_adaptive_strike_str"
 
 
 		// Casting
@@ -98,104 +110,52 @@
 				
 				"AbilityCooldown"
 				{
-					"value"									"16 14 12 10"
+					"value"								"17 14 11 8"
+					"special_bonus_unique_morphling_7"	"-3"
 				}
 				"damage_base"								
 				{
-					"value"					"55 65 75 85"
-					"CalculateSpellDamageTooltip"	"1"
+					"value"								"25 50 75 100"
+					"CalculateSpellDamageTooltip"		"1"
 				}
 				"damage_min"					
 				{
-					"value"					"0.5"
-					"CalculateSpellDamageTooltip"	"0"
+					"value"								"0.5"
+					"CalculateSpellDamageTooltip"		"0"
 				}
 				"damage_max"					
 				{
-					"value"				"1.0 1.5 2.0 2.5"
-					"CalculateSpellDamageTooltip"	"0"
-				}
-				"projectile_speed"					"1150"
-				"shared_cooldown"					"3"
-		}
-	}
-	
-	//=================================================================================================================
-	// Morphling: Adaptive Strike
-	//=================================================================================================================
-	"morphling_adaptive_strike_str"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Morphling.AdaptiveStrike"
-		"LinkedAbility"					"morphling_adaptive_strike_agi"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 700 800 900"
-		"AbilityCastPoint"				"0.25"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 50 60 70"		
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"AbilityCooldown"
-				{
-					"value"									"16 14 12 10"
+					"value"								"1.0 1.5 2.0 2.5"
+					"CalculateSpellDamageTooltip"		"0"
 				}
 				"stun_min"						
 				{
-					"value" "0.5"
-					"special_bonus_unique_morphling_10" "+0.8"
+					"value"								"0"
+					"special_bonus_facet_morphling_str"	"0.5"
 				}
 				"stun_max"						
 				{
-					"value"	"1.2 1.6 2.0 2.4"
-					"special_bonus_unique_morphling_10"	"+0.8"
+					"value"								"0"
+					"special_bonus_facet_morphling_str"	"2.4"
 				}
 				"knockback_min"					
 				{
-					"value"								"0"
-					"special_bonus_facet_morphling_agi"			"=100"
-					"RequiresFacet"					"morphling_agi"
+					"value"								"50"
 				}
 				"knockback_max"					
 				{
-					"value"								"0"
-					"special_bonus_facet_morphling_agi"			"=500"
-					"RequiresFacet"					"morphling_agi"
+					"value"								"350"
 				}
-				"projectile_speed"					"1150"
-				"shared_cooldown"					"3"
+				"knockback_duration"
+				{
+					"value"								"0.5"
+				}
+				"projectile_speed"						"1150"
+				"extra_targets"
+				{
+					"value"								"0"					
+				}
 		}
-	}
-	
-	//=================================================================================================================
-	// Morphling: Morph (Attribute Shift)
-	//=================================================================================================================
-	"morphling_morph"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 
 	//=================================================================================================================
@@ -219,12 +179,11 @@
 		"AbilityValues"
 		{
 			"points_per_tick"		"1"
-			"morph_cooldown"		"0.2 0.1 0.06 0.05"
-			"morph_rate_tooltip"	"5 10 15 20"
+			"morph_cooldown"		"0.25 0.12 0.08 0.06"
+			"morph_rate_tooltip"	"4 8 12 16"
 			"mana_cost"				
 			{
-				"value"						"5 10 15 20"
-				"special_bonus_unique_morphling_morph_no_manacost"		"-100%"
+				"value"						"10"
 				"special_bonus_shard"		"-50%"
 			}
 			"castable_while_stunned"
@@ -256,12 +215,11 @@
 		"AbilityValues"
 		{
 			"points_per_tick"		"1"
-			"morph_cooldown"		"0.2 0.1 0.06 0.05"
-			"morph_rate_tooltip"	"5 10 15 20"
+			"morph_cooldown"		"0.25 0.12 0.08 0.06"
+			"morph_rate_tooltip"	"4 8 12 16"
 			"mana_cost"				
 			{
-				"value"						"5 10 15 20"
-				"special_bonus_unique_morphling_morph_no_manacost"		"-100%"
+				"value"						"10"
 				"special_bonus_shard"		"-50%"
 			}
 			"castable_while_stunned"
@@ -280,7 +238,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
 	}
 
@@ -294,12 +252,16 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"agi_pct_at_max_cooldown_speed"			"175"
-			"agi_pct_at_min_cooldown_speed"			"50"
-			"min_cooldown_speed_pct"			"0"
-			"max_cooldown_speed_pct"			"50"
+			"agi_per_one_spell_amp"			"4"
+			"one_percent_tooltip"			"1"
+			"spell_amp_tooltip"
+			{
+				"dynamic_value"				"true"
+			}
 		}
 	}
 	
@@ -310,7 +272,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
@@ -340,48 +302,40 @@
 		{
 			"duration"
 			{
-				"value"						"24"
-				"special_bonus_unique_morphling_8" "+16"
+				"value"								"24"
+				"special_bonus_unique_morphling_8" "+12"
 			}
             "scepter_stat_steal"
 			{
-				"value"						"20"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"20"
 			}
 			"scepter_spell_amplify"	
 			{
-				"value"						"25"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"25"
 			}
 			"scepter_attack_speed"	
 			{
-				"value"						"70"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"70"
 			}
 			"scepter_status_resist"	
 			{
-				"value"						"40"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"40"
 			}
 			"scepter_additional_stats"
 			{
-				"value"						"20"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"20"
 			}
 			"scepter_cooldown_reduction"	
 			{
-				"value"						"0"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"0"
 			}
 			"scepter_illusion_outgoing"
 			{
-				"value"						"100"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"100"
 			}
 			"scepter_illusion_incoming"
 			{
-				"value"						"300"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"						"300"
 			}
 		}		
 	}
@@ -393,7 +347,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -405,7 +359,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"2"
 	}
 
 	//=================================================================================================================
@@ -478,83 +432,9 @@
 
 		"AbilityValues"
 		{
-			"percent_to_increment"			"50.0"
-			"bonus_all_stats_per_level_of_attributes"	"2"		// if changing this, also change bonus_all_stats_pct_tooltip
-			"bonus_all_stats_pct_tooltip"	"100"
+			"percent_to_increment"							"50.0"
+			"bonus_primary_stat_per_level_of_attributes"	"3"
+			"bonus_int_per_level_of_attributes"				"0"
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_morphling_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"morphling_waveform"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-				
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_morphling_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "morphling_waveform"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_morphling_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_morphling_10"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "morphling_morph_agi"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_morphling_waveform_cooldown"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
 }

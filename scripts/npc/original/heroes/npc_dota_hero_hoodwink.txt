@@ -22,7 +22,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1100"
 		"AbilityCastPoint"				"0.2"
 		
 		// Time		
@@ -45,8 +45,8 @@
 				}
 				"damage"				"200"
 				"mark_duration"			"7.0"
-				"slow_pct"				"20"
-				"spell_amp"				"20"
+				"slow_pct"				"25"
+				"spell_amp"				"25"
 				"status_resistance"		"0"
 				"spread"				
 				{
@@ -127,34 +127,34 @@
 		"AbilityCooldown"				"16 14 12 10"
 		"AbilityCastRange"				"575"
 		"AbilityCastPoint"				"0.2"
-		"AbilityManaCost"				"70 75 80 85"
+		"AbilityManaCost"				"70 80 90 100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{		
-				"bonus_range"			"125 200 275 350"
+				"bonus_range"			"100"
 				"acorn_shot_damage"		
 				{
-					"value"		"55 90 125 160"
+					"value"		"45 90 135 180"
 					"CalculateSpellDamageTooltip"	"0"
 				}
 				"base_damage_pct"		
 				{
-					"value"		"75"
+					"value"		"80"
 					"CalculateSpellDamageTooltip"	"0"
 				}
 				"bounce_count"			
 				{
 					"value"			"2 3 4 5"
-				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"
+					"special_bonus_unique_hoodwink_acorn_shot_bounces" "+1"
 				}
 				"bounce_range"			
 				{
 					"value"		"525"
 					"affected_by_aoe_increase"	"1"	
 				}
-				"debuff_duration"		"0.35"
+				"debuff_duration"		"0.3"
 				"slow"					"100"
 				"bounce_delay"			"0.1"
 				"projectile_speed"			"2200"
@@ -168,7 +168,10 @@
 					"value"									"0"
 					"special_bonus_facet_hoodwink_treebounce_trickshot"	"+1"
 				}
-			
+				"AbilityCharges"
+				{
+					"special_bonus_unique_hoodwink_acorn_shot_charges"	"2"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -190,10 +193,6 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -208,7 +207,7 @@
 				"value"		"265"
 				"affected_by_aoe_increase"	"1"	
 			}
-			"debuff_duration"		"1.4 1.6 1.8 2.0"
+			"debuff_duration"		"1.5 1.7 1.9 2.1"
 			"projectile_speed"	"1300"
 			"total_damage"
 			{
@@ -218,6 +217,12 @@
 			}
 			"animation_rate"	"0.3"
 			"visual_height"		"50"
+			
+			"AbilityCooldown"
+			{
+				"value"												"15 14 13 12"
+				"special_bonus_unique_hoodwink_bushwhack_cooldown"	"-2"
+			}
 		}
 	}
 
@@ -238,7 +243,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.0"
-		"AbilityCharges"				"2"
+
 		"AbilityChargeRestoreTime"		"30 24 18 12"
 		
 		// Cost
@@ -255,7 +260,11 @@
 				"value"						"3.5 4.0 4.5 5.0"
 				"special_bonus_unique_hoodwink_scurry_duration" "+1"
 			}
-
+			"AbilityCharges"				
+			{
+				"value"											"2"
+				"special_bonus_unique_hoodwink_scurry_charges"	"+1"		// NOTE: If changing this, change the charges added in OnAbilityUpgrade
+			}
 			"decoy_duration"					"6.0"
 			"decoy_detonate_radius"				
 			{
@@ -271,13 +280,13 @@
 			"cast_range"						
 			{
 				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200"				
+				"special_bonus_facet_hoodwink_hunter"	"75 150 225 300"
 			}
 
 			"attack_range"
 			{
 				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200"				
+				"special_bonus_facet_hoodwink_hunter"	"75 150 225 300"
 			}
 
 			"radius_increase"
@@ -287,6 +296,7 @@
 
 			"heal_amount"						"0"
 			"heal_movement"						"0"
+			"evasion_multiplier"	"2.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -302,11 +312,14 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Mirana.ArrowCast"
-
-		"AbilityDraftUltScepterAbility"		"hoodwink_decoy"
+		"AbilityDraftExtraAbilities"
+		{
+			"hoodwink_decoy" "scepter"
+			"hoodwink_hunters_boomerang" "shard"
+		}
 		"AbilityDraftUltShardAbility"		"hoodwink_hunters_boomerang"
 
 		"HasScepterUpgrade"				"1"
@@ -318,7 +331,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45"
+
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -328,6 +341,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"									"45"
+				"special_bonus_facet_hoodwink_hipshot"	"x0.5"
+			}
 			"arrow_speed"		
 			{
 				"value"			"2200"
@@ -348,23 +366,70 @@
 			}
 			"max_charge_time"
 			{
-				"value"						"3.0"
-				"special_bonus_scepter"		"-25%"
+				"value"									"3.0"
+				"special_bonus_facet_hoodwink_hipshot"	"x0.75"
 			}			
 			"max_damage"
 			{
-				"value"				"550 900 1250"
-				"special_bonus_unique_hoodwink_sharpshooter_damage"		"+125"
+				"value"				"600 975 1350"
+				"special_bonus_unique_hoodwink_sharpshooter_damage"		"+400"
+				"special_bonus_facet_hoodwink_hipshot"	"x0.75"
 			}
-			"recoil_distance"			"350"
+			"recoil_distance"
+			{
+				"value"										 "350"
+			}
 			"recoil_height"				"75"
 			"recoil_duration"			"0.4"
-			"max_slow_debuff_duration"	"5.0"
-			"misfire_time"				"5.0"
-			"slow_move_pct"				"30 40 50"
-			"turn_rate"					"60"
+			"max_slow_debuff_duration"
+			{
+				"value"									"5.0"
+				"special_bonus_facet_hoodwink_hipshot"	"x0.75"
+			}
+			"misfire_time"
+			{
+				"value"									"5.0"
+				"special_bonus_facet_hoodwink_hipshot"	"x0.75"
+			}
+			"slow_move_pct"
+			{
+				"value"					"30 40 50"
+				"special_bonus_scepter"	"+20"
+			}
+			"turn_rate"
+			{
+				"value"									"60"
+				"special_bonus_facet_hoodwink_hipshot"	"x1.33"
+			}
+			"turn_rate_tooltip"
+			{
+				"special_bonus_facet_hoodwink_hipshot"	"33"
+			}
+			"vision_along_indicator"
+			{
+				"value"												"0"
+				"special_bonus_unique_hoodwink_sharpshooter_vision"	"=1"
+			}
+			"vision_radius_buffer"
+			{
+				"value"												"0"
+				"special_bonus_unique_hoodwink_sharpshooter_vision"	"+35"
+			}
 			"base_power"				"0.2"
-	
+			"quick_draw_tooltip_pct_cooldown_reduction"
+			{
+				"value"									"0"
+				"special_bonus_facet_hoodwink_hipshot"	"50"	// TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+			}
+			"quick_draw_tooltip_efficacy_pct"
+			{
+				"value"									"0"
+				"special_bonus_facet_hoodwink_hipshot"	"25"	// TOOLTIP ONLY, special_bonus_facet_hoodwink_hipshot values should be set to ( 100 - value ) / 100
+			}
+			"pierce_debuff_immunity"
+			{
+				"special_bonus_unique_hoodwink_sharpshooter_pure_damage"	"1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_6"
 	}
@@ -377,7 +442,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -399,6 +464,7 @@
 		"DependentOnAbility"			"hoodwink_sharpshooter"
 		"Innate"						"1"
  		"MaxLevel"						"4"
+		"IsBreakable"					"1"
 
  		"AbilityValues"
  		{
@@ -408,111 +474,7 @@
 				"affected_by_aoe_increase"	"1"	
 			}
 
-			"redirect_chance"	"15 20 25 30"		
+			"redirect_chance"	"14 21 28 35"
  		}
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Acorn Shot Charges
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_acorn_shot_charges"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2"
-				"ad_linked_abilities" "hoodwink_acorn_shot"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Sharpshooter Pure Damage
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_sharpshooter_pure_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "hoodwink_sharpshooter"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Talent: Hoodwink Sharpshooter Bonus Damage
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_sharpshooter_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Bushwhack Cooldown
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_bushwhack_cooldown"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2"
-				"ad_linked_abilities" "hoodwink_bushwhack"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Bushwhack Damage
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_bushwhack_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Scurry Duration
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_scurry_duration"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Talent: Hoodwink Scurry Duration
-	//=================================================================================================================
-  	"special_bonus_unique_hoodwink_acorn_shot_bounces"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
 	}
 }

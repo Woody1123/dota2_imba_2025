@@ -52,17 +52,15 @@
 			"hop_height"				"83"
 			"shard_enrage_duration"
 			{
-				"value"				"1.5"
-				"RequiresShard"		"1"
+				"special_bonus_shard"				"1.4"
 			}
 			"fury_swipe_stacks_on_hit"
 			{
-				"value"				"0"
 				"special_bonus_unique_ursa_earthshock_furyswipes"			"+2"
 			}
 			"AbilityCooldown"				
 			{
-				"value"				"14 12 10 8"
+				"value"				"15 13 11 9"
 				"special_bonus_unique_ursa_3"	"=0.25"
 			}
 			"AbilityCharges"		
@@ -72,7 +70,7 @@
 			}
 			"AbilityChargeRestoreTime"
 			{
-				"value"	"14 12 10 8"
+				"value"				"15 13 11 9"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -116,7 +114,7 @@
 				"special_bonus_unique_ursa_7" "+3"
 				}
 				"attack_speed_bonus_pct"	"400"
-				"slow_resist"			"10 20 30 40"
+				"slow_resist"				"25"
 		}
 	}
 	
@@ -131,6 +129,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"IsBreakable"					"1"
 				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -139,13 +138,13 @@
 				"bonus_reset_time"				
 				{
 					"value"						"8 12 16 20"
-					"special_bonus_unique_ursa_4" "+20"
+					"special_bonus_unique_ursa_4" "+12"
 				}
-				"bonus_reset_time_roshan"		"10"
+				"bonus_reset_time_roshan"		"8"
 				"damage_per_stack"				
 				{
 					"value"					"13 21 29 37"
-				"special_bonus_unique_ursa" "+10"
+					"special_bonus_unique_ursa" "+5"
 				}
 				"stun_stack_count"
 				{
@@ -170,7 +169,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
@@ -186,7 +185,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 50 30"
+						
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -196,20 +195,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{			
+			"AbilityCooldown"
+			{
+				"value"					"70 50 30"
+				"special_bonus_scepter"	"=30 =24 =18"
+			}
+			
 			"damage_reduction"			"80"
 			"status_resistance"
 			{
 				"value"							"50"
-				"special_bonus_unique_ursa_8"			"+20"
+				"special_bonus_unique_ursa_8"			"+25"
 			}
 			"duration"
 			{
 				"value"							"4 4.5 5"
-			}
-			"cooldown_scepter"
-			{
-				"value"						"30 24 18"
-				"RequiresScepter"			"1"
 			}
 			"aoe_radius"
 			{
@@ -239,116 +239,19 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"ursa_enrage"				
 		"Innate"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
 			"health_as_damage_pct"	
 			{
-				"value"	"1.5"
+				"value"	"1.2 1.3 1.4 1.5"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "20"
-				"ad_linked_abilities" "ursa_fury_swipes"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "10"
-				"ad_linked_abilities" "ursa_enrage"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_ursa_earthshock_furyswipes"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 
 	//=================================================================================================================
@@ -361,10 +264,12 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"ursa_enrage"
+
 		"AbilityValues"
 		{
-			"debuff_amp"				"20"
+			"debuff_amp"				"14 16 18 20"
 
 		}
 	}	

@@ -20,12 +20,12 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
+		// "RestrictValuesToMaxLevel"		"1"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"11 10 9 8"
 		"AbilityManaCost"				"90 95 100 105"
 			
 		// Stats
@@ -36,19 +36,32 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"			"11 10 9 8"
+				"special_bonus_unique_night_stalker_4"	"-1"
+			}
 			"damage"			
 			{
-				"value"		"80 160 240 320"
-				"special_bonus_unique_night_stalker_4"	"+80"
+				"value"		"80 160 240 320 400"
+				"special_bonus_facet_night_stalker_voidbringer"	"+0"
 			}
 			"duration_day"			"1.25"
-			"duration_night"		"2.5 3 3.5 4"
-			"movespeed_slow"		"-50"
-			"attackspeed_slow"		"-50"
-			"vision_penalty"		
+			"duration_night"
 			{
-				"value"			"100 200 300 400"
-				"affected_by_aoe_increase"	"1"
+				"value"											"1.6 2.2 2.8 3.4 4.0"
+				"special_bonus_facet_night_stalker_voidbringer"	"+0"
+			}
+			"movespeed_slow"		
+			{
+				"value"					"50"
+				"special_bonus_facet_night_stalker_voidbringer" "=50 =50 =50 =50 =60"
+			}
+				
+			"attackspeed_slow"		
+			{
+				"value"					"50"
+				"special_bonus_facet_night_stalker_voidbringer" "=50 =50 =50 =50 =60"
 			}
 
 			"invisible_damage_pers"
@@ -58,11 +71,31 @@
 			}
 
 			"invisible_damage_tickrate"	".1"
-			
+			"max_level"
+			{
+				"value"					"4"
+				"special_bonus_facet_night_stalker_voidbringer" "+1"
+			}
+			"max_level_tooltip"
+			{
+				"special_bonus_facet_night_stalker_voidbringer" "=5"
+			}
 			"disable_vision"
 			{
 				"value"			"0"
 				"special_bonus_facet_night_stalker_blinding_void" "1"				
+			}
+			"cast_radius"
+			{
+				"value"					"0"
+				"special_bonus_facet_night_stalker_voidbringer" "=0 =0 =0 =0 =350"
+				"affected_by_aoe_increase"			"1"
+			}
+			"cast_radius_tooltip"
+			{
+				"value"	"0"
+				"special_bonus_facet_night_stalker_voidbringer" "=350"
+				"affected_by_aoe_increase"			"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -106,25 +139,19 @@
 			"duration_day"
 			{
 				"value"				"3.0"
-				"special_bonus_scepter" "=0"
+				//"special_bonus_scepter" "=0"
 			}
 
 			"duration_night"
 			{
 				"value"				"4.5 5 5.5 6.0"
-				"special_bonus_scepter"	"=0"
+				//"special_bonus_scepter"	"=0"
 			}
 
-			"mana_pers_day"
+			"mana_pct_cost"
 			{
 				"value"			"0"
 				"special_bonus_scepter" "6"
-			}
-
-			"mana_pers_night"
-			{
-				"value"			"0"
-				"special_bonus_scepter"	"4"
 			}
 
 			"mana_interval"		"1"
@@ -165,49 +192,59 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "HasShardUpgrade"               "1"
-
+		"IsBreakable"					"1"
+        //"RestrictValuesToMaxLevel"		"1"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_movement_speed_pct_night"	
 			{
-				"value"			"22 28 34 40"
+				"value"			"22 28 34 40 40"
+				"special_bonus_facet_night_stalker_dayswap"				"=10 =22 =28 =34 =40"
 			}
 			"bonus_attack_speed_night"			
 			{
-				"value"			"20 40 60 80"
+				"value"			"20 40 60 80 80"
+				"special_bonus_facet_night_stalker_dayswap"				"=15 =35 =55 =75 =95"
 				"special_bonus_unique_night_stalker_2"	"+100"
 			}
 			"bonus_status_resist_night"			
 			{
-				"value"			"0"
-				"special_bonus_unique_night_stalker_hunter_status_resist"	"+35"
+				"special_bonus_unique_night_stalker_hunter_status_resist"	"+20"
 			}
 			"shard_hp_restore_pct"
 			{
-				"value"				"30"
-				"RequiresShard"		"1"
+				"special_bonus_shard"		"25"
 			}
 			"shard_mana_restore_pct"
 			{
-				"value"				"25"
-				"RequiresShard"		"1"
+				"special_bonus_shard"		"25"
 			}
 			"AbilityManaCost"	
 			{
-				"value"	"0"
-				"special_bonus_shard"	"+50"
+				"special_bonus_shard"		"+50"
 			}
 			"shard_cooldown"
 			{ 
-				"value"				"30"
-				"RequiresShard"		"1"
+				"special_bonus_shard"		"35"
 			}
 			"shard_cast_range"
 			{
-				"value"				"125"
-				"RequiresShard"		"1"
+				"special_bonus_shard"		"125"
+			}
+			"max_level"
+			{
+				"value"				"4"
+				"special_bonus_facet_night_stalker_dayswap"				"+1"
+			}
+			"max_level_tooltip"
+			{
+				"special_bonus_facet_night_stalker_dayswap"				"=5"
+			}
+			"gives_free_level"
+			{
+				"special_bonus_facet_night_stalker_dayswap"				"+1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
@@ -221,7 +258,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Nightstalker.Darkness"
@@ -231,7 +268,6 @@
 		"AbilityCastPoint"				"0.3 0.3 0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
-		"AbilityCooldown"				"140 135 130"
 		"AbilityManaCost"				"125 175 225"
 			
 		// Special
@@ -241,13 +277,18 @@
 			"duration"				
 			{
 				"value"			"30.0"
-				"special_bonus_unique_night_stalker_7"	"+8"
+				"special_bonus_unique_night_stalker_7"	"+5"
 			}
 			"bonus_damage"			
 			{
 				"value"			"50 100 150"
-				"special_bonus_unique_night_stalker_3"	"+30"
+				"special_bonus_unique_night_stalker_3"	"+25"
 				"CalculateSpellDamageTooltip"	"0"
+			}
+			"AbilityCooldown"
+			{
+				"value"									"140 135 130"
+				"special_bonus_unique_night_stalker"	"-40"
 			}
 		}
 	}
@@ -267,7 +308,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"hp_regen_during_night_pct"				"40"
+			"hp_regen_during_night_pct"				"20"
 			"hp_regen_during_day_pct"				"20"
 		}
 	}
@@ -288,103 +329,8 @@
 		{
 			"daytime_start" 	".75"
 			"daytime_change"	"-15"
+			"roshan_initial_move_timer_override"	"1199" // Have Roshan start moving at 20 minutes instead of at 15.
 			"tooltip_nighttime_change"	"15" // Should match daytime_change, just so we can have different tooltips
 		}
-	}
-
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "50"
-				"ad_linked_abilities" "night_stalker_darkness"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_hunter_status_resist"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_night_stalker_crippling_fear_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"		
 	}
 }

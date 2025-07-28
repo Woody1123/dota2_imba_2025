@@ -58,17 +58,17 @@
 			"radius"								
 			{
 				"value"		"350"
-				"affected_by_aoe_increase"	"1"		
+				"affected_by_aoe_increase"	"1"
 			}
 			"damage_per_buff"				
 			{
 				"value"					"0"
-				"special_bonus_unique_oracle_damage_per_purge"			"+60"
+				"special_bonus_unique_oracle_damage_per_purge"			"+80"
 			}	
 			"heal_per_debuff"
 			{
 				"value"					"0"
-				"special_bonus_unique_oracle_damage_per_purge"			"+60"
+				"special_bonus_unique_oracle_damage_per_purge"			"+80"
 			}
 			"purge_constantly"
 			{
@@ -96,7 +96,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500 600 700 800"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 		
 		// Time		
@@ -141,10 +141,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"850"
 		"AbilityCastPoint"				"0.10"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -156,9 +152,19 @@
 		{
 				"damage"				"90 180 270 360"
 				"heal_per_second"		"15 25 35 45"
-				"total_heal_tooltip"	"135 225 315 405"
+				"total_heal_tooltip"	"150 250 350 450"
 				"duration"				"10"
 				"tick_rate"				"0.1"
+				"damage_modifier"
+				{
+					"value"				"1"
+					"special_bonus_unique_oracle_8"	"+25%"
+				}
+				"AbilityCooldown"
+				{
+					"value"							"2.5"
+					"special_bonus_unique_oracle_5"	"-1"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	} 
@@ -170,7 +176,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"	
@@ -179,8 +185,10 @@
 		"AbilitySound"					"Hero_Oracle.FalsePromise.Cast"
 
         "HasScepterUpgrade"               "1"
-
-		"AbilityDraftUltShardAbility"		"oracle_rain_of_destiny"
+		"AbilityDraftExtraAbilities"
+		{
+			"oracle_rain_of_destiny" "shard"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -211,18 +219,15 @@
 			}
 			"shard_fade_time"
 			{
-				"value"								"0.15"
-				"RequiresShard"						"1"
+				"special_bonus_scepter"				"0.15"
 			}
 			"shard_spell_amp_bonus"
 			{
-				"value"								"25"
-				"RequiresShard"						"1"
+				"special_bonus_scepter"				"30"
 			}
 			"shard_bat_bonus"
 			{
-				"value"								"0.25"
-				"RequiresShard"						"1"
+				"special_bonus_scepter"				"0.25"
 			}
 			"AbilityCooldown"
 			{
@@ -231,7 +236,6 @@
 			}			
 			"bonus_armor"
 			{
-				"value"								"0"
 				"special_bonus_unique_oracle_9"		"+8"
 			}	
 			"heal_amp_pct"
@@ -279,11 +283,11 @@
 				"duration"				"10"
 				"damage"				
 				{
-					"value"					"40"
+					"value"					"30"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"tick_rate"				"1.0"
-				"heal_amp"				"20"
+				"heal_amp"				"15"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 	}
@@ -300,9 +304,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"spell_amplification"		"0.5"
+			"spell_amplification"		"1.0"
 		}
 	}
 
@@ -317,9 +323,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"heal_amplification"		"1.0"
+			"heal_amplification"		"0.75"
 		}
 	}
 	//=================================================================================================================
@@ -334,129 +342,4 @@
 		"MaxLevel"						"1"
 		"Innate"						"1"
 	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0.4"
-				"ad_linked_abilities" "oracle_fortunes_end"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "oracle_purifying_flames"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2.5"
-				"ad_linked_abilities" "oracle_fortunes_end"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "30"
-				"ad_linked_abilities" "oracle_purifying_flames"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-		//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_oracle_damage_per_purge"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	
-	
 }

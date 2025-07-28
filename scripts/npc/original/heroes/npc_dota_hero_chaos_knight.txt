@@ -45,13 +45,21 @@
 				"value"					"1.75 2.25 2.75 3.25"
 				"special_bonus_unique_chaos_knight_3"	"+0.6"
 			}
-			"damage_min"				"90 120 150 180"
-			"damage_max"				"150 230 310 390"		
+
+			"damage_min"				
+			{
+				"value"					"90 120 150 180"
+			}
+			"damage_max"				
+			{
+				"value"					"155 240 325 410"		
+			}
+
 			"fake_bolt_distance"		"675"
 
 			"AbilityCastRange"				
 			{
-				"value"							"500"
+				"value"							"600"
 				"special_bonus_shard"			"+0"
 			}
 			"AbilityCooldown"				
@@ -67,7 +75,12 @@
 			"illusion_damage_reduction_pct"
 			{
 				"value"							"0"
-				"special_bonus_shard"			"=30"
+				"special_bonus_shard"			"=15"
+			}
+			"bounce_range_pct"	
+			{
+		
+				"special_bonus_facet_chaos_knight_cloven_chaos"		"=70"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -137,27 +150,27 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_ChaosKnight.ChaosStrike"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"IsBreakable"					"1"
 		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"chance"				
-				{
-						"value"				"33.33"
-						"special_bonus_unique_chaos_knight_5"		"+10"
-				}
-				"crit_min"				"125"
-				"crit_max"				"140 175 210 245"
-				"lifesteal"					
-				{
-					"value"					"24 36 48 60"
-					"special_bonus_unique_chaos_knight_6"		"+35"
-				}
+			"chance"				
+			{
+					"value"				"33.33"
+					"special_bonus_unique_chaos_knight_5"		"+10"
+			}
+			"crit_min"				"120"
+			"crit_max"				"140 180 220 260"
+			"lifesteal"					
+			{
+				"value"					"24 36 48 60"
+				"special_bonus_unique_chaos_knight_6"		"+30"
+			}
 
-				"creep_multiplier"					"2.0"
-				"creep_lifesteal_reduction_pct"		"70"
+			"creep_multiplier"					"1.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -170,7 +183,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
 
         "HasScepterUpgrade"			"1"
@@ -207,12 +220,12 @@
 			"outgoing_damage_tooltip"		"100"
 			"incoming_damage"
 			{
-				"value"						"225"
+				"value"						"250"
 
 			}
 			"incoming_damage_tooltip"
 			{
-				"value"						"325"
+				"value"						"350"
 			}		
 			"invuln_duration"				"0.5"
 			"vision_radius"					
@@ -239,9 +252,11 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"aura_radius"			
+			"aura_radius"
 			{
 				"value"		"1200"
 				"affected_by_aoe_increase"	"1"
@@ -249,6 +264,7 @@
 			"damage_reduction_pct"	"20"
 		}
 	}
+
 	//=================================================================================================================
 	// Chaos Knight: Innate Infinite Chaos (create bonus illusions)
 	//=================================================================================================================
@@ -257,120 +273,33 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"bonus_illusion_chance"				"50"
-			"bonus_illusion_count"				"1"
+			"bonus_illusion_chance"		"50"
+			"bonus_illusion_count"		"1"
 		}
 	}
 
-
-	
-
 	//=================================================================================================================
-	// Chaos Knight: Innate Spell Refund
+	// Chaos Knight: Fundamental Forging
 	//=================================================================================================================
-	"chaos_knight_innate_spell_refund"
+	"chaos_knight_fundamental_forging"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
+
 		"AbilityValues"
 		{
-			"refund_percent"			"33"
-			"refund_chance"				"50"
-			"chance_for_extra_illusion_tooltip"	"50"
-			"extra_illusion_number_tooltip"		"1"
+			"trinket_options_current"	"2"
+			"trinket_options_next"		"2"
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"		
-
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_chaos_knight_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

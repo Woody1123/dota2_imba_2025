@@ -3,6 +3,41 @@
     "Version"       "1"
 
 	//=================================================================================================================
+	// Lone Druid: Gift Bearer
+	//=================================================================================================================
+	"lone_druid_gift_bearer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+
+		"AbilityValues"
+		{	
+			"reroll"				"1"
+		}
+	}
+
+	//=================================================================================================================
+	// Lone Druid: Bear necessity
+	//=================================================================================================================
+	"lone_druid_bear_necessities"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"lone_druid_true_form"
+		"AbilityValues"
+		{	
+			"item_slots"				"3"
+			"bonus_stat_percent"		"45 55 65 75"
+		}
+	}	
+
+	//=================================================================================================================
 	// Lone Druid: Summon Spirit Bear
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
@@ -12,10 +47,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"DisplayAdditionalHeroes"	"1"
 		"AbilitySound"					"Hero_LoneDruid.SpiritBear.Cast"
-		"Innate"					"1"
-		"RequiredLevel"				"-1"
-		"MaxLevel"					"5"
-		"HasScepterUpgrade"			"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -23,33 +54,33 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"160 150 140 130 120"
+		"AbilityCooldown"				"150 140 130 120"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75"
+		"AbilityManaCost"				"75 75 75 75"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			
-			"bear_hp"			"800 1100 1400 1700 2000"					
-			"bear_regen_tooltip"	"4 5 6 7 8"
+			"bear_hp"			"1100 1400 1700 2000"					
+			"bear_regen_tooltip"	"5 6 7 8"
 			"bear_bat"
 			{
-				"value"					"1.85 1.75 1.65 1.55 1.45"
+				"value"					"1.75 1.65 1.55 1.45"
 				//"special_bonus_unique_lone_druid_10"	"-0.1"
 			}
-			"bear_armor"				"0 0 2 4 6"
+			"bear_armor"				"0 2 4 6"
 			"backlash_damage"			
 			{
 				"value"					"20.0"
 			}
 			"bear_movespeed"			
 			{
-				"value"			"300 300 330 360 390"
-				"special_bonus_unique_lone_druid_11"		"+25"
+				"value"			"300 330 360 390"
+				"special_bonus_unique_lone_druid_11"		"+30"
 
 			}
 			"bear_magic_resistance"
@@ -67,7 +98,13 @@
 				"special_bonus_unique_lone_druid_2"	"+7"
 			}
 			"damage_gain_per_druid_level"			"5"
-			"hp_gain_per_druid_level"				"90"
+			"hp_gain_per_druid_level"				"100"
+
+			"bear_attack_leash_range"
+			{
+				"value"					"1100"
+				"special_bonus_facet_lone_druid_unbearable"			"+500"
+			}
 
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -130,6 +167,7 @@
 		"AbilityCastGestureSlot"		"DEFAULT"
 
 		"AbilityCastRange"			"1200"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -211,29 +249,25 @@
 				"only_affects_player_units"	"1"
 				"shard_radius"
 				{
-					"value"					"700"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"700"
 					"affected_by_aoe_increase"	"1"
 				}
 				"shard_movement_speed_pct"				
 				{
-					"value"					"15"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"15"
 				}
 				"shard_attack_speed"				
 				{
-					"value"				"40"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"40"
 				}
 				"shard_duration"				
 				{
-					"value"				"5.0"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"5.0"
 				}
 				"AbilityCooldown"				
 				{
 					"value"				"38 32 26 20"
-					"special_bonus_unique_lone_druid_4"			"-7"
+					"special_bonus_unique_lone_druid_4"			"-5"
 				}
 		}
 	}
@@ -270,6 +304,7 @@
 				{
 					"value"		"375"
 					"affected_by_aoe_increase"	"1"
+					"special_bonus_unique_lone_druid_savage_roar_aoe"				"+150"
 				}
 				"bonus_speed"			"20"
 				"duration"				"0.8 1.2 1.6 2.0"
@@ -286,7 +321,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_LoneDruid.TrueForm.Cast"
 
@@ -317,14 +352,11 @@
 			{
 				"value"					"500 1000 1500"
 				"special_bonus_facet_lone_druid_unbearable"			"-100%"
-				"RequiresFacet"							"lone_druid_bear_with_me"
 				//"special_bonus_unique_lone_druid_7"	"+1000"
 			}
-			"base_attack_time"			
+			"attack_speed_pct"			
 			{
-				"value"					"0"
-				"special_bonus_facet_lone_druid_unbearable"			"0.1"
-				"RequiresFacet"							"lone_druid_unbearable"
+				"special_bonus_facet_lone_druid_unbearable"			"+15"
 			}
 			"duration"					
 			{
@@ -344,7 +376,7 @@
 			"entangling_claws_cooldown_reduction_pct"
 			{
 				"value"										"0"
-				"special_bonus_facet_lone_druid_unbearable"			"50"
+				"special_bonus_facet_lone_druid_unbearable"			"75"
 			}
 			
 		}
@@ -358,7 +390,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
 		// Casting
@@ -466,15 +498,15 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		//"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"LoneDruid_SpiritBear.Entangle"
+		"IsBreakable"					"1"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"60"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -504,7 +536,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		//"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -611,7 +643,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		//"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			"spell_resistance"

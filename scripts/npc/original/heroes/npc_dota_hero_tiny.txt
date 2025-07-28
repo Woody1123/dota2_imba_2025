@@ -20,14 +20,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"23 20 17 14"
-
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90 100 110 120"
+		"AbilityManaCost"				"95 110 125 140"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,18 +39,23 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"tick_interval"				"0.3"
-				"total_duration"			"1.4"
+				"total_duration"			"1.5"
 				"tick_count"			"5"
 				"stun_duration"				"0.3"
 				"projectile_speed"		"1200"
 				"avalanche_damage"			
 				{
-					"value"				"80 160 240 320"
-					"special_bonus_unique_tiny"			"+80"
+					"value"				"100 190 280 370"
+					"special_bonus_unique_tiny"			"+100"
 				}
 				"toss_damage_bonus_pct"		
 				{
-					"value"				"100"
+					"value"				"0"
+				}
+				"AbilityCooldown"
+				{
+					"value"							"23 20 17 14"
+					"special_bonus_unique_tiny_3"	"-8"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -72,7 +72,6 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		
 		// Casting
@@ -86,7 +85,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110 120 130 140"
+		"AbilityManaCost"				"110 125 140 155"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -96,7 +95,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"				"1.4"
+				"duration"				"1.25"
 				"grab_radius"			
 				{
 					"value"			"300"
@@ -104,13 +103,13 @@
 				"radius"				
 				{
 					"value"		"275"
-					"special_bonus_facet_tiny_crash_landing"				"=450"
+					"special_bonus_facet_tiny_crash_landing"				"=400"
 					"affected_by_aoe_increase"	"1"
 				}
 				"bonus_damage_pct"		"0"
 				"toss_damage"	
 				{
-					"value"				"80 160 240 320"
+					"value"				"90 180 270 360"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"AbilityCharges"		
@@ -127,12 +126,12 @@
 				"land_attack_slow"
 				{
 					"value"						"0"
-					"special_bonus_facet_tiny_crash_landing"				"25 30 35 40"
+					"special_bonus_facet_tiny_crash_landing"				"15 25 35 45"
 				}
 				"bonus_land_damage_pct"
 				{
 					"value"						"0"
-					"special_bonus_facet_tiny_crash_landing"				"25 30 35 40"
+					"special_bonus_facet_tiny_crash_landing"				"20"
 				}
 				"land_debuff_duration"
 				{
@@ -157,6 +156,7 @@
 		"MaxLevel"						"4"
 		"FightRecapLevel"				"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
 		"DependentOnAbility"			"tiny_grow"
 
 		// Stats
@@ -190,8 +190,12 @@
 		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
 		"LinkedAbility"					"tiny_toss_tree"
         "HasShardUpgrade"               "1"
-        "AbilityDraftScepterAbility"    "tiny_tree_channel"
 		"MaxLevel"						"4"
+
+		"AbilityDraftExtraAbilities"
+		{
+			"tiny_tree_channel" "scepter"
+		}
 
 
 		// Stats
@@ -223,13 +227,13 @@
 			"bonus_damage"
 			{
 				"value"							"10 20 30 40"				
-				"special_bonus_unique_tiny_7"		"+70"
+				"special_bonus_unique_tiny_7"		"+60"
 			}
 			"bonus_damage_buildings"
 			{
-				"value"							"40 55 70 85"
+				"value"							"30 40 50 60"
 			}
-			"attack_range"				"350"
+			"attack_range"				"300"
 			"splash_width"
 			{
 				"value"				"200"
@@ -351,7 +355,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySound"					"Tiny.Grow"
 		"AbilityCastAnimation"		"ACT_INVALID"
@@ -360,49 +364,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_armor"				"10 17 24"
+				"bonus_armor"				"5 10 15"
 				"bonus_damage"			
 				{
-					"value"					"60 120 180"
+					"value"					"55 110 165"
 					"CalculateSpellDamageTooltip"	"0"
 				}
 				"attack_speed_reduction"	
 				{
-					"value"		"-30"
-					"special_bonus_unique_tiny_6" "+10"
+					"value"		"-35"
+					"special_bonus_unique_tiny_6" "+8"
 				}
 				"toss_bonus_damage"
 				{
-					"value"					"100 250 400"
+					"value"					"50 175 300"
 					"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 				}
-				"move_speed"		"10 20 30"
+				"move_speed"		"15"
 		}
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
 	//=================================================================================================================
 	// Rocksteady
 	//=================================================================================================================
@@ -431,90 +412,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"Innate"			"1"
-		"MaxLevel"			"1"
+		"Innate"						"1"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"str_to_slow_resist_pct"			"25"
+			"str_to_slow_resist_pct"			"20"
 			"str_to_status_resist_pct"			"10"
 		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "8"
-				"ad_linked_abilities" "tiny_avalanche"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "tiny_toss"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tiny_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"tiny_grow"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
 	}
 }

@@ -45,7 +45,7 @@
 			}
 			"radius"						
 			{
-				"value" 					"240"
+				"value" 					"260"
 				"affected_by_aoe_increase"	"1"
 			}
 
@@ -60,16 +60,15 @@
 			"strike_damage_bonus"
 			{
 				"value"						"0"
-				"special_bonus_unique_disruptor_consecutive_strike_damage"			"+10"
+				"special_bonus_unique_disruptor_consecutive_strike_damage"			"+15"
 			}
 			"slow_duration"
 			{
-				"value"						"0.4"
-				"special_bonus_unique_disruptor" ".5"
+				"value"										"0.3"
+				"special_bonus_facet_disruptor_thunderstorm" "x2"		// if changing this, change loc string (current says doubled)
 			}
-
 			"slow_amount"					"100"
-			"shard_ground_delay"			"5"
+			"shard_ground_delay"			"4"
 
 			"hits_units_inside_kinetic"
 			{
@@ -89,7 +88,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -127,9 +125,14 @@
 			"max_damage"				
 			{
 				"value"											"100 160 220 280"
-				"special_bonus_unique_disruptor_9"				"275"
+				"special_bonus_unique_disruptor_9"				"+300"
 			}
-			"max_distance"					"1400"
+			"damage_to_distance_pct"					
+			{
+				"value"					"20 25 30 35"
+				"special_bonus_unique_disruptor_9"				"+10"
+
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -182,7 +185,7 @@
 				"duration"					
 				{
 					"value"				"2.6 3.2 3.8 4.4"
-				"special_bonus_unique_disruptor_5" "+2"
+					"special_bonus_unique_disruptor_5" "+1"
 				}
 				"damage_per_second"			"0"
 		}
@@ -209,32 +212,37 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
+		"AbilityManaCost"				"50"
 		"AbilityCooldown"				"0"
-		"AbilityCharges"				"2"		
+
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 900 900 900"
+		"AbilityCastRange"				"1050 1050 1050 1050"
 
 		"AbilityValues"
 		{
 			"AbilityChargeRestoreTime"
 			{
-				"value"					"20 18 16 14"
+				"value"					"20 17 14 11"
 				"special_bonus_unique_disruptor_2" "-3"
 			}
 
 			"radius"					"350"
 
+			"AbilityCharges"				
+			{
+				"value"					"2"		
+				"special_bonus_unique_disruptor_5"	"+1"
+			}
 			"formation_time"			
 			{
-				"value"				"0.75"					
+				"value"				"0.4"					
 			}
 			"duration"
 			{
 				"value"					"2.6 3.2 3.8 4.4"
-				"special_bonus_unique_disruptor_5"	"+2"
+				
 			}
 			"wall_width"				
 			{	
@@ -252,7 +260,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -293,13 +301,15 @@
 				"pulses"					
 				{
 					"value"			"20"
-				"special_bonus_unique_disruptor_7" "+6"
 				}
-				"damage_max"				"200 275 350"
+				"damage_max"
+				{
+					"value"							"200 275 350"
+					"special_bonus_unique_disruptor" "+60"
+				}
 				"duration"					
 				{
 					"value"					"6.0"
-				"special_bonus_unique_disruptor_7" "+1.5"
 				}
 		}
 	}
@@ -312,27 +322,60 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"	
 		"Innate"						"1"
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"5"
+		"IsBreakable"					"1"
 		
+		"RestrictValuesToMaxLevel"		"1"
+
+		"DependentOnAbility"			"disruptor_static_storm"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
 		"AbilityValues"
 		{
 			"damage_threshold"			"250"
 			"effect_radius"				
 			{
 				"value"			"400"
+				"special_bonus_unique_disruptor_7"	"+150"
 				"affected_by_aoe_increase"	"1"
 			}
 			"knockback"					
 			{
 				"value"			"300"
+				"special_bonus_unique_disruptor_7"	"+150"
 				"affected_by_aoe_increase"	"1"
 			}
 			"knockback_duration"		".2"
 			"damage_reset_interval"		"7"
+			"AbilityCastRange"
+			{
+				"special_bonus_facet_disruptor_conduit"										"=600"
+			}
+			"current_hp_as_damage"
+			{
+				"special_bonus_facet_disruptor_conduit"										"=10"
+			}
+			"manual_cooldown"
+			{
+				"special_bonus_facet_disruptor_conduit"										"26 20 14 8"
+			}
+			"AbilityManaCost"
+			{
+				"special_bonus_facet_disruptor_conduit"										"=50"
+			}
+			"max_level"	
+			{
+				"value"								"1"
+				"special_bonus_facet_disruptor_conduit"										"=4"
+			}
+
 		}
 	}
 
@@ -362,7 +405,6 @@
 			"value"
 			{
 				"value" "3"
-				"ad_linked_abilities" "disruptor_kinetic_field"
 			}
 		}
 	}

@@ -34,7 +34,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"24"
+		"AbilityManaCost"				"22"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,35 +44,31 @@
 				"damage"					
 				{
 					"value"					"4 8 12 16"
-					"special_bonus_unique_viper_7"	"+20%"
+					"special_bonus_unique_viper_7"	"+15%"
 				}	
 
 				"movement_speed"			
 				{
 					"value"					"3 6 9 12"
-					"special_bonus_unique_viper_7"	"+20%"
+					"special_bonus_unique_viper_7"	"+15%"
 				}
 				"magic_resistance"			
 				{
 					"value"			"4 6 8 10"
-					"special_bonus_unique_viper_4"	"+4"
 				}
-				"max_stacks"			"5"
+				"max_stacks"			"6"
 				"bonus_range"			"25"
 				"shard_armor_reduction"
 				{
-					"special_bonus_shard"				"1"
-					"RequiresShard"		"1"
+					"special_bonus_shard"			"1"
 				}
 				"shard_building_dmg_pct"
 				{
 					"special_bonus_shard"			"40"
-					"RequiresShard"		"1"
 				}
 				"shard_bonus_max_stacks"
 				{
 					"special_bonus_shard"			"2"
-					"RequiresShard"		"1"
 				}
 				"expiration_damage_radius"	
 				{
@@ -137,7 +133,18 @@
 				}
 				"attack_slow"		"30 40 50 60"
 				"duration"			"6.5 7 7.5 8"
-				"projectile_speed"	"2000"
+				"projectile_speed"	"2400"
+				"radius_increase"			
+				{
+					"value"					"0"
+					"special_bonus_unique_viper_nethertoxin_radius"						"+25"
+				}		
+				"expand_interval"			
+				{
+					"value"					"0"
+					"special_bonus_unique_viper_nethertoxin_radius"						"+0.5"
+				}
+				
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -154,10 +161,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"hero_viper.CorrosiveSkin"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"-1"
-		"Innate"						"1"
 		"HasScepterUpgrade"				"1"
+		"IsBreakable"					"1"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -170,16 +175,15 @@
 			"duration"					"4.0"
 			"bonus_attack_speed"
 			{
-				"value"								"3 6 14 22 30"
-				"special_bonus_unique_viper_6"		"+20"
+				"value"								"8 16 24 32"
 			}
 			"bonus_magic_resistance"	
 			{
-				"value"								"5 10 15 20 25"
+				"value"								"10 15 20 25"
 			}
 			"damage"
 			{
-				"value"					"3 6 14 22 30"
+				"value"					"8 16 24 32"
 				"special_bonus_unique_viper_1"	"+20"
 			}
 			"max_range"
@@ -189,25 +193,22 @@
 			}
 			"effect_multiplier_distance"
 			{
-				"value"						"500"
+				"special_bonus_scepter"		"500"
 				"affected_by_aoe_increase"	"1"
-				"RequiresScepter"		"1"
 			}
 			"effect_multiplier"
 			{
-				"value"						"4"
-				"RequiresScepter"		"1"
+				"special_bonus_scepter"		"4"
 			}
 			"nethertoxin_bonus_pct"		
 			{
-				"value"					"0"
 				"special_bonus_facet_viper_caustic_bath"					"=100"
 			}
 			"nethertoxin_bonus_pct_max_duration_tooltip"
 			{
-				"value"										"0"
 				"special_bonus_facet_viper_caustic_bath"		"=4.0"
 			}
+			
 			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -216,39 +217,33 @@
 	//=================================================================================================================
 	// Viper: Innate Corrosive Skin - Vile
 	//=================================================================================================================
-	"viper_innate_corrosive_skin_vile"
+	"viper_predator"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"additional_duration"		"1.0"
-		}
-	}
-	//=================================================================================================================
-	// Viper: Innate Corrosive Skin - Virulent
-	//=================================================================================================================
-	"viper_innate_corrosive_skin_virulent"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
+		"Innate"						"1"
+		"IsBreakable"					"1"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-			"bonus_status_resistance"			"3"
+			"damage_base"				
+			{
+				"value"					"0.15"
+				"special_bonus_unique_viper_predator_damage"		"+0.2"
+			}
+			"damage_per_level"			"0.05"
+			"total_damage_per_missing_health"
+			{
+				"dynamic_value"			"true"
+			}
 		}
-	}		
+	}	
 
 	//=================================================================================================================
 	// Viper: Viper Strike
@@ -260,15 +255,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"hero_viper.viperStrike"
-
-		"AbilityDraftUltScepterAbility" "viper_nose_dive"
+		"AbilityDraftExtraAbilities"
+		{
+			"viper_nose_dive" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -288,14 +285,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"				"6"
+			"duration"			
+			{
+				"value"								"6"
+				"special_bonus_unique_viper_4"		"+1"
+			}
 			"damage"
 			{
 				"value"				"70 110 150"
 				"special_bonus_unique_viper_2"	"+80"
 			}
 			"bonus_movement_speed"	"-60 -70 -80"
-			"bonus_attack_speed"	"-80 -120 -160"
+			"bonus_attack_speed"	"-100 -140 -180"
 
 			"AbilityCooldown"
 			{
@@ -368,113 +369,4 @@
 		"AbilityCastAnimation"		"ACT_DOTA_VIPER_DIVE"
 		"AbilityCastGestureSlot"	"DEFAULT"
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "80"
-				"ad_linked_abilities" "viper_viper_strike"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "viper_poison_attack"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-	
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_viper_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}		
 }

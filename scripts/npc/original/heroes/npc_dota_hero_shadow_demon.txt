@@ -42,7 +42,7 @@
 				"illusion_duration"			"11 12 13 14"
 				"illusion_outgoing_damage"	"-80.0 -70.0 -60.0 -50.0"
 				"illusion_outgoing_tooltip"	"20.0 30.0 40.0 50.0"
-				"illusion_flat_damage"				"30 40 50 60"
+				"illusion_flat_damage"				"25 40 55 70"
 				"illusion_incoming_damage"	"200"
 				"tooltip_total_illusion_incoming_damage"	"300"
 				"AbilityCooldown"				
@@ -58,11 +58,6 @@
 				"AbilityChargeRestoreTime"		"26 24 22 20"
 				"illusion_bounty_base"		"0"
 				"illusion_bounty_growth"	"2"
-				"can_cast"
-				{
-					"value"			"0"
-					"special_bonus_facet_shadow_demon_disruption_cast"			"+1"
-				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -160,7 +155,6 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDuration"				"10"
-		"AbilityCooldown"				"2.5"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -198,11 +192,21 @@
 					"value"		"200"
 					"affected_by_aoe_increase"	"1"
 				}
+				"vision_radius"
+				{
+					"value"		"300"
+					"affected_by_aoe_increase"	"1"
+				}
 				"speed"					"1200"
 				"hit_damage"			
 				{
-					"value"			"30 40 50 60"
-				"special_bonus_unique_shadow_demon_4" "+15%"
+					"value"			"24 36 48 60"
+					"special_bonus_unique_shadow_demon_4" "+15%"
+				}
+				"AbilityCooldown"
+				{
+					"value"									"2.5"
+					"special_bonus_unique_shadow_demon_3"	"-1"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -241,19 +245,19 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"2"
 		"HasScepterUpgrade"			"1"
 		"AbilitySound"					"Hero_ShadowDemon.DemonicPurge.Cast"
-
-		"AbilityDraftUltShardAbility"	"shadow_demon_demonic_cleanse"
+		"AbilityDraftExtraAbilities"
+		{
+			"shadow_demon_demonic_cleanse" "shard"
+		}
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"6.0"
-		"AbilityCooldown"				"60"
-
+		"AbilityDuration"				"5.0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -273,18 +277,17 @@
 			}
 			"max_charges"
 			{
-				"value" "2"
-				"RequiresScepter" "1"
+				"special_bonus_scepter" "2"
+			}
+			"AbilityCooldown"
+			{
+				"value"									"70 65 60"
+				"special_bonus_unique_shadow_demon_9"	"-30"
 			}
 			"charge_restore_time"
 			{
-				"value" "60"
-				"RequiresScepter" "1"
-			}
-			"charge_restore_time_tooltip_scepter"
-			{
-				"value" "60"
-				"RequiresScepter" "1"
+				"special_bonus_scepter"					"70 65 60"
+				"special_bonus_unique_shadow_demon_9"	"-30"
 			}
 			"max_slow"
 			{
@@ -310,31 +313,26 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		"IsGrantedByShard"			"1"
+		"MaxLevel"						"1"
+		"IsGrantedByShard"				"1"
 		"AbilitySound"					"Hero_ShadowDemon.DemonicPurge.Cast"
-
-		// override max level so we don't need to mark this as ult
-		"DependentOnAbility"			"shadow_demon_demonic_purge"
-		"MaxLevel"					"3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"6.0"
+		"AbilityDuration"				"5.0"
 		"AbilityCooldown"				"60"
 
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"150"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -342,23 +340,7 @@
 		{
 				"purge_damage"		
 				{
-					"value"	"300 450 600"
-				"special_bonus_unique_shadow_demon_1" "+150"
-				}
-				"max_charges"		
-				{	
-					"value"					"2"
-					"RequiresScepter"			"1"
-				}
-				"charge_restore_time"		
-				{
-					"value"				"60"
-					"RequiresScepter"			"1"
-				}
-				"charge_restore_time_tooltip_scepter"		
-				{
-					"value"				"60"
-					"RequiresScepter"			"1"
+					"value"		"450"
 				}
 		}
 	}
@@ -378,7 +360,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30 25 20 15"
+		"AbilityCooldown"				"26 22 18 14"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -397,8 +379,8 @@
 			
 			"health_lost"		
 			{
-				"value"							"0"
-				"special_bonus_facet_shadow_demon_promulgate"			"=15"				
+				"value"							"0 0 0 0"
+				"special_bonus_facet_shadow_demon_promulgate"			"=9 =11 =13 =15"				
 			}
 			
 			
@@ -428,97 +410,12 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"stack"			"2"
+			"stack"			"2.5"
 			"duration"		"8"
 		}
-	}	
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "shadow_demon_shadow_poison"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "30"
-				"ad_linked_abilities" "shadow_demon_demonic_purge"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_shadow_demon_disseminate_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"							"special_bonus_base"
-	}
-
-
 }

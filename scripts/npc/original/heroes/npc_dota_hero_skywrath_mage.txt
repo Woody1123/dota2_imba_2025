@@ -20,7 +20,6 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"875"
 		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
 		
 		// Time		
@@ -29,25 +28,34 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95"
+		"AbilityManaCost"				"70"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+				"AbilityCastRange"
+				{
+					"value"								"875"
+					"special_bonus_unique_skywrath_6"	"+125"
+				}
+				"pierce_spell_immunity"
+				{
+					"special_bonus_unique_skywrath_6"	"1"
+				}
 				"bolt_speed"			"500"
 				"bolt_vision"			"325"
-				"bolt_damage"			"75 95 115 135"
+				"bolt_damage"			"60 90 120 150"
 				"int_multiplier"		
 				{
 					"value"		"1.5"
-					"special_bonus_unique_skywrath_2"	"+0.5"
+					"special_bonus_unique_skywrath_2"	"+1.5"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"vision_duration"		"3.34"
 				"extra_bolt_search_radius"
 				{
-					"value"				"700"
+					"value"				"500"
 					"affected_by_aoe_increase"	"1"
 				}
 				
@@ -100,6 +108,10 @@
 					"value"	"1600"
 					"affected_by_aoe_increase"	"1"
 				}
+				"launch_global"
+				{
+					"special_bonus_unique_skywrath_4"	"1"
+				}
 				"slow_radius"		
 				{
 					"value"			"250"
@@ -108,7 +120,11 @@
 				"speed"				"800 800 800 800"
 				"damage"			"120 180 240 300"
 				"slow_duration"		"4.0"
-				"movement_speed_pct"	"40"
+				"movement_speed_pct"	
+				{
+					"value"				"40"
+					"special_bonus_unique_skywrath_concussive_shot_slow"		"+15"
+				}
 				"shot_vision"
 				{
 					"value"			"300"
@@ -117,11 +133,9 @@
 				"vision_duration"		"3.34"
 				"scepter_radius"		
 				{
-					"value"	"700"
-					"RequiresScepter"	"1"
+					"special_bonus_scepter"	"500"
 					"affected_by_aoe_increase"	"1"
 				}
-				"creep_damage_pct"		"75"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -145,10 +159,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700 750 800 850"
 		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -167,9 +177,13 @@
 				"seal_duration"			"3.0 4.0 5.0 6.0"
 				"scepter_radius"		
 				{
-					"value"		"700"
+					"special_bonus_scepter"		"500"
 					"affected_by_aoe_increase"	"1"
-					"RequiresScepter"	"1"
+				}
+				"AbilityCooldown"
+				{
+					"value"								"14"
+					"special_bonus_unique_skywrath"		"-7"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -185,14 +199,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 
 		"HasScepterUpgrade"			"1"
-		"HasShardUpgrade"			"1"
-
-		"AbilityDraftUltShardAbility" "skywrath_mage_shield_of_the_scion"
+		"AbilityDraftExtraAbilities"
+		{
+			"skywrath_mage_shield_of_the_scion" "shard"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -227,8 +242,7 @@
 				"damage_interval"		"0.1"
 				"scepter_radius"		
 				{
-					"value"		"700"
-					"RequiresScepter"	"1"
+					"special_bonus_scepter"		"500"
 					"affected_by_aoe_increase"	"1"
 				}
 		}
@@ -243,6 +257,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -252,7 +267,7 @@
 			"bonus_intelligence"		"0"
 			"damage_barrier_base"		"10"
 			"damage_barrier_per_level"	"1"
-			"barrier_duration"			"15"
+			"barrier_duration"			"12"
 		}
 	}
 
@@ -265,6 +280,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -276,7 +292,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Necrolyte's Sadist
+	// Ability: Skywrath Mage: Ruin And Restoration
 	//=================================================================================================================
 	"skywrath_mage_ruin_and_restoration"
 	{
@@ -286,121 +302,15 @@
 		"MaxLevel"						"4"
 		"Innate"						"1"
 		"DependentOnAbility"			"skywrath_mage_mystic_flare"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
 			"spell_lifesteal"	
 			{
-				"value"		"20 30 40 50"
-				"special_bonus_unique_skywrath_arcane_bolt_lifesteal"			"+15"
+				"value"		"25 30 35 40"
+				"special_bonus_unique_skywrath_arcane_bolt_lifesteal"			"+20"
 			}
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "7"
-				"ad_linked_abilities" "skywrath_mage_ancient_seal"
-			}
-		}
-	}
-
-	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "skywrath_mage_concussive_shot"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "skywrath_mage_arcane_bolt"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_skywrath_arcane_bolt_lifesteal"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-
 }

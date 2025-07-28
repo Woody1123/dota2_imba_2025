@@ -38,12 +38,11 @@
 			"damage_min"
 			{
 				"value"				"35 40 45 50"
-				"special_bonus_unique_razor_4"	"+30"								
+								
 			}
 			"damage_max"
 			{
 				"value"				"80 115 150 185"
-				"special_bonus_unique_razor_4"	"+30"														
 			}
 			"radius"					
 			{
@@ -52,8 +51,16 @@
 			}
 			"total_ability_time"		"2.2"
 			"slow_min"				"5"
-			"slow_max"				"25 30 35 40"
-			"slow_duration"				"1.5"
+			"slow_max"			
+			{
+				"value" 															"25 30 35 40"
+				"special_bonus_unique_razor_plasmafield_max_slow"					"+20"
+			}
+			"slow_duration"				
+			{
+				"value"								"1.5"
+				"special_bonus_unique_razor_4"		"+0.75"
+			}
 			"second_ring_delay"
 			{
 				"value"						"0"
@@ -119,15 +126,20 @@
 				"value"						"0"
 				"special_bonus_unique_razor_static_link_aspd"				"+1"
 			}
+			"move_speed_factor"
+			{
+				"value"				"0"
+				"special_bonus_shard"			"+1"
+			}
 			"pull_speed"			
 			{
 				"value"					"0"
-				"special_bonus_shard"		"+75"
+				"special_bonus_shard"		"0"
 			}
 			"min_pull_range"
 						{
 				"value"					"0"
-				"special_bonus_shard"		"+175"
+				"special_bonus_shard"		"0"
 			}
 			"AbilityCastRange"
 			{
@@ -147,7 +159,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -157,7 +170,7 @@
 			"strike_target_count"	"3"
 			"strike_damage"			
 			{
-				"value"													"40 80 120 160"
+				"value"													"50 90 130 170"
 				"special_bonus_unique_razor_storm_surge_damage_and_slow"			"+25%"
 			}
 			"strike_move_slow_pct"
@@ -175,8 +188,15 @@
 			"strike_internal_cd"	
 			{
 				"value"										"3.0"
-				"special_bonus_unique_razor_3"				"-1"
+				//"special_bonus_unique_razor_3"				"-1"
 			}
+			"strike_cd_reduction_during_storm"
+			{
+				"value"										"0"
+				"special_bonus_facet_razor_thunderhead"			"=2.5"
+			}
+
+
 			"hit_targets_inside_eye_of_the_storm"
 			{
 				"value"		"0"
@@ -203,11 +223,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"movespeed_per_level_pct"				"1"
+			"movement_speed_tooltip"
+			{
+				"dynamic_value"						"true"
+			}
 		}
 	}
 
@@ -221,7 +246,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -280,105 +305,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"spell_amp_damage_divisor"	"20"
-			"spell_amp_mult"			"1"
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
+			"spell_amp_mult"			"1.25"
+			"total_spell_amp"
 			{
-				"value" "6"
-				"ad_linked_abilities" "razor_static_link"
+				"dynamic_value"			"true"
 			}
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "30"
-				"ad_linked_abilities" "razor_plasma_field"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor_plasmafield_second_ring"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================	
-	"special_bonus_unique_razor_static_link_aspd"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_razor_storm_surge_damage_and_slow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}		
 }

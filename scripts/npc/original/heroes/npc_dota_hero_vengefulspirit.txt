@@ -22,10 +22,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,12 +34,12 @@
 			"magic_missile_speed"	"1350"
 			"magic_missile_stun"	
 			{
-				"value"			"1.4 1.5 1.6 1.7"
+				"value"			"1.2 1.4 1.6 1.8"
 				"special_bonus_unique_vengeful_spirit_1"	"+0.3"				
 			}
 			"magic_missile_damage"
 			{
-				"value"	"90 180 270 360"
+				"value"	"85 170 255 340"
 
 			}
 			"AbilityCastRange"
@@ -56,6 +52,11 @@
 			{
 				"value"	"0"
 				"special_bonus_facet_vengefulspirit_avenging_missile"	"+0.75"
+			}
+			"AbilityCooldown"
+			{
+				"value"										"16 14 12 10"
+				"special_bonus_unique_vengeful_spirit_5"	"-2"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -71,6 +72,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"IsBreakable"					"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -92,18 +94,15 @@
 			}
 			"scepter_illusion_damage_out_pct"
 			{
-				"value" "100"
-				"RequiresScepter" "1"
+				"special_bonus_scepter" "100"
 			}
 			"scepter_illusion_damage_in_pct"
 			{
-				"value" "100"
-				"RequiresScepter" "1"
+				"special_bonus_scepter" "115"
 			}
 			"scepter_illusion_ms_bonus_pct"
 			{
-				"value" "0"
-				"RequiresScepter" "1"
+				"special_bonus_scepter" "0"
 			}
 		}
 	}
@@ -150,7 +149,7 @@
 				"armor_reduction"	
 				{
 					"value"			"-3 -4 -5 -6"
-				"special_bonus_unique_vengeful_spirit_4" "+-5"
+				"special_bonus_unique_vengeful_spirit_4" "+-4"
 				}
 				"attack_reduction"
 				{
@@ -165,7 +164,7 @@
 				"steal_pct"
 				{
 					"value"				"0"
-					"special_bonus_unique_vengeful_spirit_wave_of_terror_steal"		"+20"
+					"special_bonus_unique_vengeful_spirit_wave_of_terror_steal"		"+25"
 				}
 			
 		}
@@ -179,7 +178,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
@@ -192,13 +191,9 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800 950 1100"
+		"AbilityCastRange"				"850 975 1100"
 		"AbilityCastPoint"				"0.4"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 40 30"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -222,6 +217,11 @@
 			{	
 				"value"							"150 300 450"
 				"special_bonus_unique_vengeful_spirit_swap_damage"			"+150"
+			}
+			"AbilityCooldown"
+			{
+				"value"										"46 38 30"
+				"special_bonus_unique_vengeful_spirit_9"	"-18"
 			}
 		}
 	}
@@ -259,124 +259,8 @@
 		"Innate"						"1"
 		"AbilityValues"
 		{
-			"bonus_damage"			"10"
-		}
-	}	
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "200"
-				"ad_linked_abilities" "vengefulspirit_magic_missile"
-			}
+			"bonus_damage"			"20"
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "2"
-				"ad_linked_abilities" "vengefulspirit_magic_missile"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "18"
-				"ad_linked_abilities" "vengefulspirit_nether_swap"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_missile_castrange"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_swap_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}		
-	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_vengeful_spirit_wave_of_terror_steal"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
-
 }
 

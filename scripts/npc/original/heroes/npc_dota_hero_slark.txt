@@ -64,7 +64,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		
@@ -87,7 +87,7 @@
 				}
 				"radius"		
 				{
-					"value"			"250"
+					"value"			"225"
 					"affected_by_aoe_increase"	"1"
 				}
 		}
@@ -110,10 +110,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"AbilityCastPoint"				"0.001 0.001 0.001 0.001"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9.0 8.0 7.0 6.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -138,6 +134,11 @@
 				"total_pulses"			"10"
 				"pulse_interval"		"0.1"
 				"self_damage_pct"			"30"
+				"AbilityCooldown"
+				{
+					"value"							"9.0 8.0 7.0 6.0"
+					"special_bonus_unique_slark_6"	"-0.5"
+				}
 		}
 	}
 
@@ -154,11 +155,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slark.Pounce.Cast"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"               "1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 20 16 12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -169,8 +169,15 @@
 		"AbilityValues"
 		{
 			"pounce_damage"			"0"
-			"pounce_distance"		"700"
-			"pounce_speed"			"933.33"
+			"pounce_distance"		
+			{
+				"value"				"700"
+			}
+
+			"pounce_speed"			
+			{
+				"value"					"933.33"
+			}
 			"pounce_acceleration"	"7000.0"
 			"pounce_radius"			
 			{
@@ -178,8 +185,8 @@
 			}
 			"leash_duration"		
 			{
-				"value"			"2.5 2.75 3 3.25"
-				"special_bonus_unique_slark" "+0.5"
+				"value"							"2.5 2.75 3 3.25"
+				"special_bonus_unique_slark"	"+0.5"
 			}
 			"leash_radius"
 			{
@@ -187,23 +194,23 @@
 			}
 			"max_charges"			
 			{
-				"value"	"2"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"	"2"
 			}
 			"charge_restore_time"
 			{
-				"value"	"12"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"	"12"
 			}
 			"pounce_distance_scepter"		
 			{
-				"value"		"900"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"		"900"
 			}
 			"essence_stacks"
 			{
-				"value"						"0"
 				"special_bonus_facet_slark_leeching_leash"	"1 2 3 4"				
+			}
+			"AbilityCooldown"
+			{
+				"value"							"24 20 16 12"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -220,6 +227,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"4"
+		"IsBreakable"					"1"
 		
 
 		// Special
@@ -234,8 +242,8 @@
 			"stat_loss"					"1"
 			"duration"
 			{
-				"value"					"20 40 60 80"
-				"special_bonus_unique_slark_4" "+40"
+				"value"					"15 35 55 75"
+				"special_bonus_unique_slark_4" "+35"
 			}
 			"steal_radius"			
 			{
@@ -250,6 +258,9 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
+	//=================================================================================================================
+	// Slark: Barracuda
+	//=================================================================================================================
 	"slark_barracuda"
 	{
 		// General
@@ -258,25 +269,36 @@
 		"MaxLevel"						"4"
 		"Innate"						"1"
 		"DependentOnAbility"			"slark_shadow_dance"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
-			"bonus_movement_speed"		"4 24 36 48"
+			"bonus_movement_speed"		"6 24 36 48"
 			"bonus_regen"			
 			{
-				"value"				"8 60 90 120"
+				"value"				"5 70 100 130"
 				"special_bonus_unique_slark_8"	"+50"
 			}
 			
 			"linger_search_radius"
 			{
-				"special_bonus_facet_slark_dark_reef_renegade" "1200"
+				"special_bonus_facet_slark_dark_reef_renegade" "900"
 			}
 
 			"linger_duration"
 			{
-				"special_bonus_facet_slark_dark_reef_renegade" "0.5 1 1.5 2"
+				"special_bonus_facet_slark_dark_reef_renegade" "2"
 			}
+
+			"corruption_armor"
+			{
+				"special_bonus_facet_slark_dark_reef_renegade"	"-1 -2 -3 -4"
+			}
+			"corruption_duration"
+			{
+				"special_bonus_facet_slark_dark_reef_renegade"	"2.0"
+			}
+
 			"activation_delay"			"0.5"
 			"neutral_disable"			"2.0"
 		}
@@ -289,18 +311,20 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Slark.ShadowDance"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		"AbilityDraftUltShardAbility"		"slark_depth_shroud"
+		"AbilityDraftExtraAbilities"
+		{
+			"slark_depth_shroud" "shard"
+		}
 		"MaxLevel"						"3"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 50 40"
+		"AbilityCooldown"				"50 40 30"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -313,120 +337,13 @@
 			"duration"					
 			{	
 				"value"			"4 4.25 4.5"
-				"special_bonus_unique_slark_3" "+1"
+				"special_bonus_unique_slark_3" "+1.25"
 			}
 			"fade_time"					"0"
-			
-			
-
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-		//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
+			"attack_speed"
 			{
-				"value" "0.5"
-				"ad_linked_abilities" "slark_dark_pact"
+				"special_bonus_unique_slark_7"	"100"
 			}
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "80"
-				"ad_linked_abilities" "slark_shadow_dance"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slark_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		"ad_linked_abilities"			"slark_shadow_dance"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.		
 	}
 }

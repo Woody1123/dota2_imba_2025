@@ -23,11 +23,6 @@
 		"AbilityCastRange"				"1400"
 		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"23 20 17 14"
-
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
@@ -54,18 +49,20 @@
 				"turn_rate_slow"			"0"
 				"aghs_shard_move_slow"	
 				{
-					"value"					"40"
-					"RequiresShard"			"1"
+					"special_bonus_shard"					"50"
 				}
 				"aghs_shard_damage"			
 				{
-					"value"					"60"
-					"RequiresShard"			"1"
+					"special_bonus_shard"					"85"
 				}
 				"aghs_shard_depth"			
 				{
-					"value"						"300"
-					"RequiresShard"				"1"
+					"special_bonus_shard"					"300"
+				}
+				"AbilityCooldown"
+				{
+					"value"							"23 20 17 14"
+					"special_bonus_unique_tusk_5"	"-6"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -106,11 +103,6 @@
 		"AbilityCastRange"				"1150"
 		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 19 17 15"
-
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75 75 75 75"
@@ -127,6 +119,7 @@
 				"snowball_speed"			"575 600 625 650"
 				"snowball_damage_bonus"		"40 65 90 115"
 				"stun_duration"				"0.6 0.8 1.0 1.2"
+				"stun_duration_bonus"		"0.2"
 				"snowball_windup_radius"	
 				{
 					"value"	"100"
@@ -151,6 +144,11 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"snowball_speed_bonus"		"50"
+				"AbilityCooldown"
+				{
+					"value"							"21 19 17 15"
+					"special_bonus_unique_tusk_6"	"-8"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -254,12 +252,16 @@
 		{
 			"bonus_damage"
 			{
-				"value"						"20 45 70 95"		
-				"special_bonus_unique_tusk_3"		"+25"
+				"value"						"25 50 75 100"		
 			}
 			"movement_slow"				"75"
 			"slow_duration"				"0.5"
-			"debuff_duration"			"5"
+			"debuff_duration"			
+			{
+				"value"					"6"
+				"special_bonus_unique_tusk_3"		"+2"
+
+			}
 			"radius"				
 			{
 				"value"	"350"
@@ -275,7 +277,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET| DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
@@ -291,7 +293,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 21 18 15"
+		"AbilityCooldown"				"23 20 17 14"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -302,17 +304,22 @@
 		"AbilityValues"
 		{
 			"AbilityCastRange"			"900"
-			"buff_duration"				"5.0"
+			"alt_cast_castrange_pct"		"50"
+			"buff_duration"				
+			{
+				"value"								"6.0"
+				"special_bonus_unique_tusk_3"		"+2"
+			}
 			"pull_duration"				"0.2"
 			
 			"min_distance"				"250"
 			"max_distance"				"1200"
 
-			"movespeed_bonus"			"25"
+			"movespeed_bonus"			"11 14 17 20"
 			"attackdamage_bonus"
 			{
-				"value"								"20 45 70 95"
-				"special_bonus_unique_tusk_3"		"+25"
+				"value"								"20 50 80 110"
+
 			}
 		}
 	}
@@ -325,7 +332,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"AbilityTextureName"			"tusk_frozen_sigil"
 
-		"MaxLevel"						"5"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"tusk_walrus_punch"
 		"Innate"						"1"
 
 		"AbilityValues"
@@ -335,7 +343,7 @@
 				"value"	"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_speed_slow"		"10 20 30 40 50"
+			"attack_speed_slow"		"15 35 55 75"
 		}
 	}
 
@@ -352,11 +360,13 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
-
-		"AbilityDraftUltScepterAbility"		"tusk_walrus_kick"
+		"AbilityDraftExtraAbilities"
+		{
+			"tusk_walrus_kick" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -366,7 +376,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 15 10"
+		"AbilityCooldown"				"16 13 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -385,9 +395,13 @@
 				"air_time"					
 				{
 					"value"				"1.0"
-				"special_bonus_unique_tusk_7" "+0.5"
+				"special_bonus_unique_tusk_7" "+0.75"
 				}
 				"push_length"				"1000"
+				"proc_chance"
+				{
+					"special_bonus_unique_tusk_4"	"12"
+				}
 		}
 	}
 
@@ -430,12 +444,12 @@
 		"AbilityValues"
 		{
 				"air_time"					"1.0"
-				"push_length"				"1400"
+				"push_length"				"1200"
 				"move_slow"					"40"
-				"slow_duration"				"4"
+				"slow_duration"				"2"
 				"damage"					
 				{
-					"value"					"350"
+					"value"					"550"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"search_radius"					
@@ -445,110 +459,5 @@
 				}
 				"creep_cooldown_reduction_pct"	"50"
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "12"
-				"ad_linked_abilities" "tusk_walrus_punch"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "6"
-				"ad_linked_abilities" "tusk_ice_shards"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "8"
-				"ad_linked_abilities" "tusk_snowball"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_tusk_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
 	}
 }

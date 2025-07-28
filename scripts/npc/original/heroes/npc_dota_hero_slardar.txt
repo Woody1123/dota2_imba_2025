@@ -14,6 +14,7 @@
 		"Innate"						"1"
 		"HasScepterUpgrade"				"1"
 		"DependentOnAbility"			"slardar_amplify_damage"
+		"IsBreakable"					"1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -22,21 +23,25 @@
 			"river_speed"					"18"
 			"puddle_regen"				
 			{
-				"value"						"2 4 6 8"
+				"value"						"2.5 5.0 7.5 10.0"
 				"special_bonus_scepter"		"+22"
 			}
 			"puddle_armor"				
 			{
-				"value"						"1 2 3 4"
-				"special_bonus_scepter"		"+11"
+				"value"						"3 4 5 6"
+				"special_bonus_scepter"		"+10"
 			}
 			"puddle_status_resistance"			
 			{
-				"value"						"40"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"		"40"
 			}
-            "river_speed_tooltip"			"18"
-			"river_damage"					"8 16 24 32"
+			"river_damage"
+			{
+				"value"								"8 16 24 32"
+				"special_bonus_unique_slardar_6"	"+12"
+			}
+			"scepter_puddle_radius_tooltip"				"80"
+			"scepter_puddle_duration_increase_tooltip"	"5"
 		}
 	}
 	
@@ -68,15 +73,17 @@
 			"AbilityCooldown"
 			{
 				"value"									"29 25 21 17"
-				"special_bonus_unique_slardar_7"		"-2"
+				
 			}	
-			"bonus_speed"								"25 30 35 40"
-			"duration"						"10"
+			"bonus_speed"								"10 18 26 34"
+			"duration"						
+			{
+				"value"						"10"
+				"special_bonus_unique_slardar_7"		"+2"
+			}
 			"speed_burst_percent"
 			{
-				"value"							"0"
 				"special_bonus_facet_slardar_leg_day"		"+8"
-				"RequiresFacet"				"slardar_leg_day"
 			}
 			"speed_burst_duration"
 			{
@@ -86,7 +93,7 @@
 			"speed_burst_max_duration"
 			{
 				"value"							"0"
-				"special_bonus_facet_slardar_leg_day"		"2.0"
+				"special_bonus_facet_slardar_leg_day"		"2.5"
 			}
 			"slow_resistance_tooltip"
 			{
@@ -108,7 +115,6 @@
 		"MaxLevel"						"1"
 		"FightRecapLevel"				"1"
 		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
 
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -139,18 +145,12 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slardar.Slithereen_Crush"
-        "HasScepterUpgrade"			"1"
         "HasShardUpgrade"               "1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.25"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7"
-
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -173,7 +173,6 @@
 				"crush_extra_slow"				
 				{
 					"value"	"-20 -25 -30 -35"
-					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 				}
 				"crush_attack_slow_tooltip"		"-20 -25 -30 -35"
 				"crush_extra_slow_duration"		"3 4 5 6"
@@ -185,12 +184,12 @@
 				"puddle_duration"		
 				{
 					"value"					"7"
-					"special_bonus_scepter"	"+8"
+					"special_bonus_scepter"	"+5"
 				}
 				"puddle_radius"		
 				{
-					"value"				"250"
-					"special_bonus_scepter"	"+350"
+					"value"					"250"
+					"special_bonus_scepter"	"x1.8"
 					"affected_by_aoe_increase"	"1"
 				}
 				"crush_damage"			
@@ -200,14 +199,17 @@
 				}
 				"shard_amp_duration"			
 				{
-					"value"				"5.0"
-					"RequiresShard"					"1"
+					"special_bonus_shard"			"5.0"
 				}
 				"shard_bonus_radius"			
 				{
-					"value"				"0"
-					"RequiresShard"					"1"
+					"special_bonus_shard"			"0"
 					// "affected_by_aoe_increase" explicitly removed here so shard aoe increase doesn't double dip with base radius increase
+				}
+				"AbilityCooldown"
+				{
+					"value"								"7"
+					"special_bonus_unique_slardar_4"	"-3"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -225,6 +227,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"AbilitySound"					"Hero_Slardar.Bash"
+		"IsBreakable"					"1"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -237,7 +240,7 @@
 			"bonus_damage"			
 			{
 				"value"		"50 100 150 200"
-				"special_bonus_unique_slardar_2"	"+50"
+				"special_bonus_unique_slardar_2"	"+40"
 			}
 			"duration"				"1.1"
 			"attack_count"			"3"
@@ -252,7 +255,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -286,7 +289,7 @@
 			"armor_reduction"		
 			{ 
 				"value"				"-10 -15 -20"
-				"special_bonus_unique_slardar_5"	"-3"
+				"special_bonus_unique_slardar_5"	"-4"
 			}
 			"duration"
 			{
@@ -299,12 +302,14 @@
 			}
 			"puddle_radius"
 			{
-				"value"			"100"
+				"value"						"100"
+				"special_bonus_scepter"		"x1.8"
 				"affected_by_aoe_increase"	"1"
 			}
 			"puddle_duration"
 			{
-				"value"			"8"
+				"value"						"7"
+				"special_bonus_scepter"		"+5"
 			}
 			"has_self_buff"
 			{
@@ -314,109 +319,8 @@
 			"armor_pct"
 			{
 				"value"			"0"
-				"special_bonus_facet_slardar_brineguard"		"+40"
+				"special_bonus_facet_slardar_brineguard"		"+50"
 			}
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-	
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0"
-				"ad_linked_abilities" "slardar_amplify_damage"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "3"
-				"ad_linked_abilities" "slardar_slithereen_crush"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"slardar_amplify_damage"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_slardar_slithereen_crush_stun"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
 }

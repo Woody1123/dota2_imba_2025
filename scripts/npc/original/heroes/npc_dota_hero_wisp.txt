@@ -15,8 +15,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"LinkedAbility"					"wisp_tether_break"
-		
-
+		"HasShardUpgrade"               "1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -59,20 +58,28 @@
 				"self_bonus"				"0"
 				"slow"				
 				{
-					"value"			"10 20 30 40 "
+					"value"			"15 30 45 60"
 					"special_bonus_unique_wisp_11"			"+15"
 				}
 				"slow_duration"				"0.2"
-				"shard_bonus_spell_lifesteal"
+				"damage"
 				{
-					"value"			"10"
-					"RequiresShard"	"1"
+					"value"					"0"
+					"special_bonus_shard"	"+120"
 				}
-				"damage"			"15 25 35 45"
+				"damage_to_heal"
+				{
+					"value"					"0"
+					"special_bonus_shard"	"50"
+				}
 				"tick_rate"			"0.5"
 				"tether_attack_damage_pct"
 				{
 					"special_bonus_unique_wisp_4" "=75"
+				}
+				"tethered_unit_damage"
+				{
+					"special_bonus_unique_wisp_8"	"12"
 				}
 		}
 	}
@@ -139,7 +146,7 @@
 			"scepter_slow_pct"
 			{
 				"value"			"0"
-				"special_bonus_scepter"			"+15"
+				"special_bonus_scepter"			"+25"
 			}
 			"scepter_slow_duration"
 			{
@@ -167,7 +174,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-        "HasShardUpgrade"               "1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -199,28 +205,31 @@
 				"bonus_armor"
 				{
 					"value"				"0"
-					"special_bonus_facet_wisp_medigun" "3 6 9 12"
+					"special_bonus_facet_wisp_medigun" "4 7 10 13"
 				}
 				"bonus_mres"
 				{
 					"value"				"0"
-					"special_bonus_facet_wisp_medigun" "10 15 20 25"
+					"special_bonus_facet_wisp_medigun" "12 18 24 30"
 				}
 				"hp_regen"			
 				{
 					"value"			"0.5 0.6 0.7 0.8"
 					"special_bonus_unique_wisp_10"	"+0.2"
 				}
-				"duration"			"8"
-				"shard_bonus_slow_resistance"
+				"duration"		
 				{
-					"value"			"30"
-					"RequiresShard"	"1"
+					"value"			"8"
+					"special_bonus_unique_wisp_overcharge_duration"		"+1.5"
 				}
-				"shard_bonus_spell_lifesteal"
+				"spell_lifesteal"
 				{
-					"value"			"10"
-					"RequiresShard"	"1"
+					"value"			"0"
+				}
+				"unslowable"
+				{
+					"value"							"0"
+					"special_bonus_unique_wisp_9"	"+1"
 				}
 		}
 	}	
@@ -232,7 +241,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
@@ -242,10 +251,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
  		"AbilityCastAnimation"			"ACT_INVALID"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100 90 80"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -259,6 +264,11 @@
 			"return_time"
 			{
 				"value" "12.0 12.0 12.0"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"90 80 70"
+				"special_bonus_unique_wisp_6"	"-30"
 			}
 		}
 	}
@@ -337,128 +347,18 @@
 		}
 	}
 
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp"
+	"wisp_essence_conduction"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"Innate"						"1"		
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"wisp_tether"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityValues"
 		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "wisp_tether"
-			}
+				"consume_speed"	"2"
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "30"
-				"ad_linked_abilities" "wisp_relocate"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "12"
-				"ad_linked_abilities" "wisp_tether"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "400"
-				"ad_linked_abilities" "wisp_tether"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_10"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"wisp_overcharge"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_wisp_11"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

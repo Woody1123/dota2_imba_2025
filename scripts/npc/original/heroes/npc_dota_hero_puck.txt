@@ -51,7 +51,7 @@
 			"damage"			
 			{		
 				"value"										"75 150 225 300"
-				"special_bonus_unique_puck_orb_damage"		"+50"
+				"special_bonus_unique_puck_orb_damage"		"+40"
 			}
 			"AbilityCooldown"
 			{
@@ -83,21 +83,29 @@
 				"value"								"0"
 				"special_bonus_facet_puck_curveball"			"0.6"
 			}
-			"orb_particle_offset_z"
-			{
-				"value"								"0"
-				"special_bonus_facet_puck_curveball"			"80.0"
-			}
 			"vector_reticle_distance"
 			{
 				"value"								"0"
-				"special_bonus_facet_puck_curveball"			"300.0"
+				"special_bonus_facet_puck_curveball"			"200.0"
 			}
 			"vector_reticle_radius"
 			{
 				"value"								"0"
-				"special_bonus_facet_puck_curveball"			"50.0"
+				"special_bonus_facet_puck_curveball"			"0.0"
 			}
+			"increase_per_sec"
+			{
+				"special_bonus_facet_puck_curveball"			"0"
+			}
+			"damage_over_time_pct"
+			{
+				"special_bonus_facet_puck_curveball"			"=5"
+			}
+			"damage_interval"
+			{
+				"special_bonus_facet_puck_curveball"			"=0.5"
+			}
+
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -125,15 +133,27 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"		
-		"Innate"					"1"
-		"MaxLevel"					"1"
+		"Innate"						"1"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"mana_restore_pct"				"2"
-			"hp_restore_pct"				"2"
-			"dodged_spell_multiplier"		"3"
+			"mana_restore_base"				"10"
+			"hp_restore_base"				"10"
+			
+			"mana_restore_pct"				
+			{
+				"value"						"2"
+			}
+			"hp_restore_pct"				
+			{
+				"value"						"2"
+			}
+			"dodged_spell_multiplier"		"3.5"
+
 		}
 	}
 
@@ -160,11 +180,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 15 14 13"
-
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 110 120 130"
@@ -176,13 +191,13 @@
 				"radius"				
 				{
 					"value"					"400"
-					"special_bonus_unique_puck_rift_radius"		"+300"
+					"special_bonus_unique_puck_rift_radius"		"+350"
 					"affected_by_aoe_increase"	"1"
 				}
 				"silence_duration"		
 				{
-					"value"					"2.0 2.5 3.0 3.5"
-					"special_bonus_unique_puck_7"	"+1.0"
+					"value"							"2.0 2.5 3.0 3.5"
+					"special_bonus_unique_puck_7"	"+1.25"
 				}
 				"damage"				
 				{
@@ -191,8 +206,8 @@
 				}
 				"max_distance"			
 				{
-					"value"					"400"
-					"special_bonus_unique_puck_rift_radius"		"+300"
+					"value"					"350"
+					"special_bonus_unique_puck_rift_radius"		"+350"
 				}
 
 				"push_pull_enabled"
@@ -203,30 +218,27 @@
 
 				"knock_distance"
 				{
-					"value"						"0"
 					"affected_by_aoe_increase"	"1"
 					"special_bonus_facet_puck_jostling_rift"	"+75 +100 +125 +150"
-					"RequiresFacet"			"puck_jostling_rift"
 				}
 				"knock_duration"
 				{
-					"value"						"0"
 					"special_bonus_facet_puck_jostling_rift"	"0.3"
-					"RequiresFacet"			"puck_jostling_rift"
 				}
 				
 				"pull_distance"
 				{
-					"value"						"0"
 					"affected_by_aoe_increase"	"1"
 					"special_bonus_facet_puck_jostling_rift"	"+75 +100 +125 +150"
-					"RequiresFacet"			"puck_jostling_rift"
 				}
 				"pull_duration"
 				{
-					"value"						"0"
 					"special_bonus_facet_puck_jostling_rift"	"0.3"
-					"RequiresFacet"			"puck_jostling_rift"
+				}
+				"AbilityCooldown"
+				{
+					"value"									"16 15 14 13"
+					"special_bonus_unique_puck_2"			"-3"
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -261,13 +273,11 @@
 				"duration"					"1 1.75 2.5 3.25"
 				"shard_attack_range_bonus"
 				{
-					"RequiresShard"				"1"
-					"value"						"0"
+					"special_bonus_shard"						"0"
 				}
 				"shard_bonus_damage"
 				{
-					"RequiresShard"				"1"
-					"value"						"35"
+					"special_bonus_shard"						"20"
 				}
 				"AbilityCooldown"			
 				{
@@ -285,7 +295,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -302,11 +312,10 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"75"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200"
+		"AbilityManaCost"				"125 175 225"
 				
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -317,13 +326,19 @@
 
 		"AbilityValues"
 		{
-				"coil_duration"				"6.0"
+				"AbilityCooldown"				
+				{
+					"value"				"75"
+					"special_bonus_unique_puck"		"-15"
+				}
+
+				"coil_duration"				"5 5.5 6"
 				"coil_break_radius"			"600"
 				"stun_duration"				"0.5"
 				"coil_initial_damage"
 				{	
 					"value"					"175 250 325"
-					"special_bonus_unique_puck_coil_damage"			"+150"
+					"special_bonus_unique_puck_coil_damage"			"+200"
 				}
 				"coil_stun_duration"		
 				{
@@ -332,7 +347,7 @@
 				"coil_break_damage"			
 				{
 					"value"					"200 300 400"
-					"special_bonus_unique_puck_coil_damage"			"+175"
+					"special_bonus_unique_puck_coil_damage"			"+200"
 				}
 				"coil_radius"				
 				{
@@ -354,117 +369,10 @@
 					"value"					"0"
 					"special_bonus_scepter"			"+90"
 				}
-
+				"pierces_debuff_immunity"
+				{
+					"special_bonus_unique_puck_5"	"1"
+				}
 		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"puck_dream_coil"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		"AbilityValues"
-		{
-				"value"				"10"
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "3"
-				"ad_linked_abilities" "puck_waning_rift"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "puck_dream_coil"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_orb_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_coil_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_puck_rift_radius"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

@@ -45,12 +45,16 @@
 			"stun_duration"
 			{
 				"value" 							"0.3 0.5 0.7 0.9"
-				"special_bonus_shard"		"+0.30"
-			}		
+				"special_bonus_shard"				"+0.30"		// if updating this, update shard_bonus_stun_duration_tooltip
+			}
+			"shard_bonus_stun_duration_tooltip"
+			{
+				"value"								"0.30"		// if updating this, update stun_duration
+			}
 			"damage"
 			{
 				"value"								"55 70 85 100"
-				"special_bonus_unique_enigma_5"		"+40"
+				"special_bonus_unique_enigma_5"		"+50"
 			}
 			"stun_instances"
 			{
@@ -76,6 +80,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilitySound"					"Hero_Enigma.Demonic_Conversion"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -107,7 +112,7 @@
 				"value"			"180 200 220 240"
 			}
 			"life_extension"		"2.0 2.0 2.0 2.0"
-			"eidelon_base_damage"		"20 28 38 47"
+			"eidelon_base_damage"		"16 27 38 49"
 			"eidolon_damage_spread"			"4"
 			
 			"eidolon_bonus_damage"
@@ -127,11 +132,11 @@
 			"allied_damage_pct"			"45"
 			"self_modelscale"			"-40"
 			"spawn_offset"				"100"
-			"current_health_pct"		"4"
+			"current_health_pct"		"3"
 			"eidolon_xp_bounty"					"10"
-			"eidolon_gold_bounty_min"			"14"
+			"eidolon_gold_bounty_min"			"17"
 			"eidolon_gold_bounty_max"			"20"
-			"non_splitting_bounty_reduction"		"50"
+			"non_splitting_bounty_reduction"		"50"		// if changing this, change non_splitting_bounty_reduction_tooltip
 
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -194,7 +199,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"2"
@@ -244,24 +249,20 @@
 			"animation_rate"		"0.2"
 			"scepter_pct_damage"
 			{
-				"value"					"4"
-				"RequiresScepter"		"1"
+				"special_bonus_scepter"			"4"
 			}
 			"scepter_radius"	
 			{
-				"value"					"1200"
-				"RequiresScepter"			"1"
-					"affected_by_aoe_increase"	"1"
+				"special_bonus_scepter"			"1200"
+				"affected_by_aoe_increase"	"1"
 			}
 			"scepter_drag_speed"			
 			{
-				"value"					"175"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"			"175"
 			}
 			"scepter_pull_rotate_speed"	
 			{
-				"value"					"0.1"
-				"RequiresScepter"			"1"
+				"special_bonus_scepter"			"0.1"
 			}
 		}
 	}
@@ -355,11 +356,12 @@
 
 	"enigma_gravity_well"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_NONE"	
-
-		"MaxLevel"						"1"
+		"DependentOnAbility"			"enigma_black_hole"
+		"MaxLevel"						"4"
 		"Innate"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -373,7 +375,7 @@
 				"value"		"200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"damage_reduction"	"15"
+			"damage_reduction"	"9 11 13 15"
 		}
 	}
 	//=================================================================================================================
@@ -387,11 +389,13 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
-				"damage_threshold"				"350"
+				"damage_threshold"				"375"
 				"damage_reset_interval"			"7"
 				"eidolon_spawns"				"1"
+				"non_splitting_bounty_reduction_tooltip"	"50"		// tooltip only, non_splitting_bounty_reduction is real value
 		}
 	}
 	//=================================================================================================================
@@ -404,7 +408,10 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"enigma_black_hole"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
 			"radius"			
@@ -412,7 +419,7 @@
 				"value"		"600"
 				"affected_by_aoe_increase"	"1"
 			}
-			"speed_bonus"		"15"
+			"speed_bonus"		"8 12 16 20"
 			"vision_cone"		"0.08715"
 		}
 	}	

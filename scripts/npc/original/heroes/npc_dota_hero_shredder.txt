@@ -1,4 +1,3 @@
-// Abilities for shredder
 "DOTAAbilities"
 {
     "Version"       "1"
@@ -49,7 +48,7 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"move_slow_pct"	"30"
-				"building_dmg_pct"	"40"
+				"building_dmg_pct"	"50"
 				"debuff_linger_duration"	"2.0"
 		}
 	}
@@ -99,13 +98,13 @@
 				"stat_loss_pct"				
 				{
 					"value"			"13"
-					"special_bonus_unique_timbersaw_5"	"+3"
+					"special_bonus_unique_timbersaw_5"	"+2.5"
 
 				}
 				"stat_loss_univ"
 				{
 					"value"			"5"
-					"special_bonus_unique_timbersaw_5"	"+3"
+					"special_bonus_unique_timbersaw_5"	"+2.5"
 				}
 				"duration"
 				{
@@ -163,56 +162,39 @@
 					"value"			"2200 2400 2600 2800"
 					"special_bonus_unique_timbersaw_3"	"+75%"
 				}
-				"damage"			"50 95 140 185"
+				"damage"			"45 100 155 210"
 
 				"tree_splinter_count"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"10"
-					"RequiresFacet"					"shredder_shredder"
 				}
 				"tree_splinter_distance"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"700"
-					"RequiresFacet"					"shredder_shredder"
 					"affected_by_aoe_increase"	"1"
 				}					
 
 				"tree_splinter_width"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"100"
-					"RequiresFacet"					"shredder_shredder"
 					"affected_by_aoe_increase"	"1"
 				}
 				"tree_splinter_speed"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"1600"
-					"RequiresFacet"					"shredder_shredder"
 				}
 				"tree_splinter_damage"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"20 40 60 80"
-					"RequiresFacet"					"shredder_shredder"
 				}
 				"tree_splinter_slow_duration"
 				{
-					"value"						"0"
-					"special_bonus_facet_shredder_shredder"				"0.75"
-					"RequiresFacet"					"shredder_shredder"
+					"special_bonus_facet_shredder_shredder"				"1.0"
 				}
 				"tree_splinter_slow_pct"
 				{
-					"value"						"0"
 					"special_bonus_facet_shredder_shredder"				"30 40 50 60"
-					"RequiresFacet"					"shredder_shredder"
 				}
-
-
-
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -229,6 +211,7 @@
 		"HasScepterUpgrade"				"1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"4"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -237,8 +220,8 @@
 			"bonus_armor"						"0.4 0.5 0.6 0.7"
 			"bonus_hp_regen"					
 			{
-				"value"																	"0.3 0.4 0.5 0.6"
-				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.2"
+				"value"																	"0.4 0.5 0.6 0.7"
+				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.25"
 
 			}
 			
@@ -259,56 +242,45 @@
 
 			"AbilityManaCost"				
 			{
-				"value"						"0"
-				"special_bonus_scepter"				"+200"
+				"special_bonus_scepter"			"+200"
 			}
 			"AbilityCooldown"				
 			{
-				"value"  		"45"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"45"
 			}
 			"initial_shield"
 			{
-				"value"  		"200"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"200"
 			}
 			"shield_per_sec"
 			{
-				"value"  		"100"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"100"
 			}
 			"shield_per_sec_per_enemy"
 			{
-				"value"  		"75"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"  		"75"
 			}
 			"max_shield"
 			{
-				"value"		"800"
-				"RequiresScepter"				"1"
-
+				"special_bonus_scepter"			"800"
 			}
 			"duration"
 			{
-				"value"	"8"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"8"
 			}
 			"radius"
 			{
-				"value"	"600"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
 			"explosion_radius"
 			{
-				"value"	"600"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"600"
 				"affected_by_aoe_increase"	"1"
 			}
 			"base_explosion"
 			{
-				"value"	"200"
-				"RequiresScepter"				"1"
+				"special_bonus_scepter"	"200"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -322,15 +294,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Shredder.Chakram.Cast"
 		"LinkedAbility"					"shredder_chakram_2"
-
-		"AbilityDraftUltShardAbility"		"shredder_flamethrower"
+		"AbilityDraftExtraAbilities"
+		{
+			"shredder_flamethrower" "shard"
+		}
 
 
 		// Casting
@@ -345,7 +319,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 125 175"		
+		"AbilityManaCost"				"100 140 180"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -359,7 +333,7 @@
 				}
 				"pass_damage"
 				{
-					"value"						"110 155 200"
+					"value"						"100 150 200"
 				}
 				"damage_per_second"		
 				{
@@ -381,13 +355,11 @@
 				"slow_health_percentage"	"5"
 				"castpoint_scepter"		
 				{
-					"value"			"0.15"
-					"RequiresScepter"	"1"
+					"special_bonus_scepter"			"0.15"
 				}
 				"second_chakram"
 				{
 					"value"			"0"
-					"special_bonus_facet_shredder_second_chakram"	"+1"
 				}
 		}
 	}
@@ -420,7 +392,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 125 175"
+		"AbilityManaCost"				"100 140 180"
 
 
 		// Special
@@ -438,7 +410,7 @@
 				}
 				"pass_damage"
 				{
-					"value"						"110 155 200"
+					"value"						"100 150 200"
 					"special_bonus_facet_shredder_second_chakram"	"-30%"
 				}
 				"damage_per_second"		
@@ -480,7 +452,6 @@
 				"second_chakram"
 				{
 					"value"			"0"
-					"special_bonus_facet_shredder_second_chakram"	"+1"
 				}
 		}
 	}
@@ -493,7 +464,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"DependentOnAbility"			"shredder_chakram"
 
 
@@ -537,7 +508,6 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -550,7 +520,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.2"
 		
 		// Time		
@@ -559,7 +529,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 140 180"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -571,7 +541,7 @@
 					"value"		"125"
 					"affected_by_aoe_increase"	"1"	
 				}
-				"damage"				"110 155 200"	
+				"damage"				"100 150 200"	
 				"spread"				
 				{
 					"value"		"350"
@@ -605,99 +575,19 @@
 		"MaxLevel"						"4"
 		"Innate"						"1"
 		"DependentOnAbility"			"shredder_chakram"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"mana_restore"					"3 4 5 6"
-				"cooldown_reduction"					"0.0"
+			"mana_restore"					"4 6 8 10"
+
+			"health_restore"
+			{
+				"value"														"0"
+				"special_bonus_unique_timbersaw_exposure_therapy_health"	"+10"
+			}
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"	
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	
-	}	
-
-
-
-
 }

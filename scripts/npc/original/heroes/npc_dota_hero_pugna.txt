@@ -22,7 +22,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
 
 
 		// Cost
@@ -33,6 +32,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				
+			{
+				"value"					"5"
+				"special_bonus_unique_pugna_4"			"-1"
+			}
+
 			"structure_damage_mod"		"65"
 			"delay"						"0.8"
 			"radius"					
@@ -43,7 +48,7 @@
 			"blast_damage"
 			{
 				"value"	"95 170 245 320"
-				"special_bonus_unique_pugna_2" "+160"
+				"special_bonus_unique_pugna_2" "+180"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -65,7 +70,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"475 550 625 700"
+		"AbilityCastRange"				"550 600 650 700"
 		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
 		
 		// Time		
@@ -84,7 +89,7 @@
 			"bonus_movement_speed_allies"		
 			{
 				"value"						"0"
-				"special_bonus_unique_pugna_decrepify_ally_movespeed"		"+10"
+				"special_bonus_unique_pugna_decrepify_ally_movespeed"		"+30"
 			}
 			"bonus_spell_damage_pct"	
 			{
@@ -95,7 +100,7 @@
 			"AbilityDuration"				
 			{
 				"value"				"3.5"
-				"special_bonus_unique_pugna_5" "+1.0"
+				"special_bonus_unique_pugna_5" "+1.5"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -121,7 +126,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
-		"AbilityDuration"				"18 22 26 30"
+		"AbilityDuration"				"21 24 27 30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -140,7 +145,7 @@
 			"mana_multiplier"
 			{
 				"value"			"1 1.2 1.4 1.6"
-				"special_bonus_unique_pugna_3"		"+1.75"
+				"special_bonus_unique_pugna_3"		"+1.9"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
 			"mana_regen"				"0"
@@ -148,19 +153,19 @@
 			"health_restore_pct"
 			{
 				"value"					"0"
-				"special_bonus_facet_pugna_siphoning_ward" "+25"				
+				"special_bonus_facet_pugna_siphoning_ward" "+30"				
 			}
 
 			"mana_restore_pct"
 			{
 				"value"					"0"
-				"special_bonus_facet_pugna_siphoning_ward" "+25"				
+				"special_bonus_facet_pugna_siphoning_ward" "+40"				
 			}
 
 			"attacks_to_destroy"
 			{
 				"value"				"4 4 4 4"
-				"special_bonus_unique_pugna_6"		"+3"
+				"special_bonus_unique_pugna_6"		"+2"
 			}
 			"spell_damage_reduction"
 			{
@@ -189,7 +194,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -227,7 +232,7 @@
 		{
 			"health_drain"
 			{
-				"value"					"160 240 320"
+				"value"					"150 250 350"
 				"CalculateSpellDamageTooltip"	"1"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
@@ -240,49 +245,42 @@
 
 			"ally_healing"
 			{
-				"value"					"120 210 300"
+				"value"					"150 250 350"
 			}
-			"health_to_mana_rate"	"50"
+			"health_to_mana_rate"		"0"
 			"tick_rate"					"0.25 0.25 0.25"
 			"drain_buffer"				"200"
 			"shard_damage_pct_from_ward"
 			{
-				"value"				"75"
-				"RequiresShard"		"1"
+				"special_bonus_shard"			"75"
 			}
 			"bonus_heal_pct"
 			{
-				"value"					"0"
 				"special_bonus_unique_pugna_1"			"+20"
 			}
 			"spell_amp_drain_rate"
 			{
-				"value"						"0"
 				"special_bonus_scepter"		"+8"
 			}
 			"spell_amp_drain_max"
 			{
-				"value"						"0"
 				"special_bonus_scepter"		"+75"
 			}
 			"spell_amp_drain_rate_ward"
 			{
-				"value"						"0"
 				"special_bonus_scepter"		"+4"
 			}
 			"spell_amp_drain_duration"
 			{
-				"value"						"0"
 				"special_bonus_scepter"		"+8"
 			}			
 			"max_spell_amp_drain_pct"
 			{
-				"value"						"0"
 				"special_bonus_scepter"		"+100"
 			}	
 			"AbilityCooldown"				
 			{
-				"value"						"7"		
+				"value"						"7"
 				"special_bonus_scepter"		"-50%"
 			}
 		}
@@ -306,109 +304,4 @@
 			}
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "20"
-				"ad_linked_abilities" "pugna_life_drain"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "pugna_nether_blast"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1.5"
-				"ad_linked_abilities" "pugna_decrepify"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_pugna_decrepify_ally_movespeed"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
 }

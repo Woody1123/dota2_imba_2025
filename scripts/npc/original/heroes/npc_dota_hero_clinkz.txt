@@ -41,17 +41,20 @@
 				"special_bonus_unique_clinkz_7"			"+40"
 			}
 	
-			"duration"						"3.5"
+			"duration"						
+			{
+				"value"									"3.5"
+				"special_bonus_unique_clinkz_1"			"+0.75"
+
+			}
 			"attack_range_bonus"			
 			{
 				"value"												"200"
-				"special_bonus_facet_clinkz_suppressive_fire"			"+100"
 			}
 			"AbilityCooldown"				
 			{
-				"value"								"30 25 20 15"
-				"special_bonus_unique_clinkz_4"		"-9"
-
+				"value"												"30 25 20 15"
+				"special_bonus_unique_clinkz_4"						"-9"
 			}
 			"strafe_skeleton_radius"					
 			{
@@ -62,12 +65,12 @@
 			"debuff_duration"					
 			{
 				"value"							"0"
-				"special_bonus_facet_clinkz_suppressive_fire"			"=1.0"
+				"special_bonus_facet_clinkz_suppressive_fire"			"=2.0"
 			}
 			"blind_pct"
 			{
 				"value"							"0"
-				"special_bonus_facet_clinkz_suppressive_fire"			"=5"
+				"special_bonus_facet_clinkz_suppressive_fire"			"=30"
 			}
 
 			
@@ -119,6 +122,7 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"archers_use_barrage"		"0"
+
 		}
 	}
 
@@ -167,10 +171,13 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Clinkz.WindWalk"
-		"AbilityDraftUltShardAbility"	"clinkz_burning_barrage"
+		"AbilityDraftExtraAbilities"
+		{
+			"clinkz_burning_barrage" "shard"
+		}
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -186,7 +193,7 @@
 		{
 			"duration"					"35 40 45"
 			"fade_time"					"0.6 0.6 0.6"
-			"move_speed_bonus_pct"		"25 40 55"
+			"move_speed_bonus_pct"		"25 35 45"
 			"skeleton_count"			
 			{
 				"value"								"2 3 4"
@@ -209,7 +216,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"						"1"
@@ -225,7 +232,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"80"
+		"AbilityCooldown"				"70"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -271,8 +278,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Clinkz.DeathPact"
-		"AbilityDraftScepterAbility" 	"clinkz_burning_army"
-		"HasScepterUpgrade"				"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -296,8 +301,8 @@
 			"duration"				"45"
 			"AbilityCharges"				
 			{
-				"value"				"1 1 2 2"
-				"special_bonus_unique_clinkz_9"		"+1"
+				"value"								"1 1 2 2"
+				"special_bonus_unique_clinkz_9"		"+1"		// NOTE: If changing/removing this, change the charges added in OnAbilityUpgrade
 			}
 			"AbilityChargeRestoreTime"
 			{
@@ -333,9 +338,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Clinkz.DeathPact"
-		"AbilityDraftUltScepterAbility" "clinkz_burning_army"
+		"AbilityDraftExtraAbilities"
+		{
+			"clinkz_burning_army" "scepter"
+		}
 		"MaxLevel"						"4"
 		"Innate"						"1"
+		"HasScepterUpgrade"				"1"
+
 		"DependentOnAbility"			"clinkz_wind_walk"
 
 		// Casting
@@ -365,11 +375,14 @@
 			"skeleton_health"
 			{
 				"value"					"8"
+				"special_bonus_scepter"			"+4"
 			}
 
 			"skeleton_health_tooltip"
 			{
 				"value"					"2"
+				"special_bonus_scepter"			"+1"
+
 			}
 			"skeleton_building_damage_reduction"			"25"
 			"attack_rate"			"1.6"
@@ -386,7 +399,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -425,15 +438,13 @@
 			"damage_bonus"					
 			{
 				"value"					"15 25 35 45"		
-				"special_bonus_unique_clinkz_1"			"+15"
 			}
 			"ground_duration"				"5"				
 			"slow_movement_speed"			"-16 -19 -22 -25"
 			"slow_duration"					"2.5"
 			"has_multishot"	
 			{
-				"value"						"0"
-				"special_bonus_unique_clinkz_3"		"+1"
+				"special_bonus_unique_clinkz_3"		"1"
 			}
 			"impact_damage"					
 			{
@@ -454,97 +465,5 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"0"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-		
-		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base" 
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "clinkz_wind_walk"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_10"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"					"special_bonus_base"
 	}
 }

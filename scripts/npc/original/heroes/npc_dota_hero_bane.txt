@@ -25,12 +25,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"28 21 14 7"
+		"AbilityCooldown"				"22 17 12 7"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
+		"AbilityManaCost"				"100 110 120 130"
 
 
 		// Special
@@ -81,7 +81,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"625"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -93,12 +92,11 @@
 			"brain_sap_damage"				
 			{
 				"value"									"90 160 230 300"
-				"special_bonus_unique_bane_2"			"+250"
+				"special_bonus_unique_bane_2"			"+275"
 			}
 			"AbilityCooldown"
 			{	
 				"value"	"17 15 13 11"
-				"special_bonus_unique_bane_8"			"-3"
 				"special_bonus_shard"				"-3"
 			}
 			"shard_radius"
@@ -110,6 +108,11 @@
 			{
 				"special_bonus_shard"				"+30"
 			}			
+			"AbilityCastRange"				
+			{
+				"value"						"625"
+				"special_bonus_unique_bane_8"			"+125"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -121,7 +124,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -197,7 +200,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500 550 600 650"
+		"AbilityCastRange"				"550 600 650 700"
 		"AbilityCastPoint"				"0.4"
 
 		// Time		
@@ -227,7 +230,7 @@
 			"bonus_attack_speed"
 			{
 				"value"						"0"
-				"special_bonus_facet_bane_dream_stalker"	"40 50 60 70"
+				"special_bonus_facet_bane_dream_stalker"	"40 60 80 100"
 			}
 			"is_vector_targeted"
 			{
@@ -239,7 +242,7 @@
 			"walk_speed"
 			{
 				"value"						"0"
-				"special_bonus_facet_bane_sleepwalk"	"+75"
+				"special_bonus_facet_bane_sleepwalk"	"+110"
 			}
 			"turn_rate"						"200"
 		}
@@ -267,101 +270,5 @@
 
 		"MaxLevel"						"1"
 		"Innate"						"1"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"bane_brain_sap"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "5"
-				"ad_linked_abilities" "bane_fiends_grip"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"bane_nightmare"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"bane_brain_sap"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "5"
-				"ad_linked_abilities" "bane_fiends_grip"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_10"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"							"special_bonus_base"		
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bane_11"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"							"special_bonus_base"		
 	}
 }

@@ -69,7 +69,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"		
+		"AbilityManaCost"				"50 55 60 65"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -91,7 +91,11 @@
 				"value"					"35 65 95 125"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"duration"						"12"
+			"duration"					
+			{
+				"value"					"12"
+			}
+
 			"damage_amp"
 			{
 				"value"				"6 8 10 12"
@@ -130,6 +134,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySound"					"Hero_Beastmaster.Call.Boar"
+		"LinkedAbility"					"beastmaster_call_of_the_wild_hawk"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -137,7 +142,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -150,10 +154,10 @@
 			
 			"duration"							"60"
 			"boar_base_max_health"				"300 450 600 750"
-			"boar_base_damage"					"20 35 50 65"
+			"boar_base_damage"					"25 40 55 70"
 			"boar_total_damage_tooltip"
 			{
-				"value"										"20 35 50 65"
+				"value"										"25 40 55 70"
 				"special_bonus_unique_beastmaster_2"		"+30"
 				"CalculateSpellDamageTooltip"				"0"
 			}
@@ -166,6 +170,12 @@
 			"boar_base_movespeed"				"320 330 340 350"
 			"boar_moveslow_tooltip"				"10 18 26 34"
 			"boar_poison_duration_tooltip"		"3.0"
+
+			"AbilityCooldown"
+			{
+				"value"									"30"
+				"special_bonus_unique_beastmaster_3"	"-5"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -258,10 +268,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilitySound"					"Hero_Beastmaster.Call.Hawk"
-		"AbilityDraftPreAbility"			"beastmaster_call_of_the_wild_boar"
+		"LinkedAbility"					"beastmaster_call_of_the_wild_boar"
+
+		"AbilityDraftExtraAbilities"
+		{
+			"beastmaster_call_of_the_wild_boar" ""
+		}
 
         "HasShardUpgrade"               "1"
-
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -276,7 +290,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"						"25"
+			"duration"
+			{
+				"value"						"25"
+				"special_bonus_shard"		"+5"
+			}
 			"hawk_base_max_health"			"200 325 450 625"
 			"hawk_base_gold_bounty"			"30 40 50 60"
 			"hawk_base_vision_range"		"600 650 700 750"
@@ -284,8 +302,8 @@
 			"hawk_base_magic_resist"		"30 40 50 60"
 			"AbilityCooldown"
 			{
-				"value"						"45 40 35 30"	
-				"special_bonus_shard"		"-10"
+				"value"									"45 40 35 30"
+				"special_bonus_unique_beastmaster_3"	"-5"
 			}
 			"attack_radius"			
 			{
@@ -299,7 +317,7 @@
 			}
 			"dive_damage"				
 			{
-				"value"		"60 90 120 150"
+				"value"		"50 80 110 140"
 				"special_bonus_unique_beastmaster_2" "+30"
 			}
 			"dive_root_duration"		"0.25 0.5 0.75 1.0"
@@ -374,6 +392,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsBreakable"					"1"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -418,15 +437,13 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"IsBreakable"					"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
-		"Innate"						"1"
-		"RequiredLevel"					"-1"
-		"MaxLevel"						"5"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -439,13 +456,13 @@
 			}
 			"bonus_attack_speed"
 			{
-				"value"									"5 10 25 40 55"
-				"special_bonus_unique_beastmaster_4"		"+10"
+				"value"									"15 30 45 60"
+				"special_bonus_unique_beastmaster_4"	"+15"
 			}
 			"attack_speed_per_unit"		
 			{
 				"value"									"0"
-				"special_bonus_facet_beastmaster_wild_hunt"		"1 2 3 4 5"				
+				"special_bonus_facet_beastmaster_wild_hunt"		"3 4 5 6" 				
 			}
 			"berserk_duration"						
 			{
@@ -455,7 +472,7 @@
 			"berserk_bonus_attack_speed"
 			{
 				"value"								"0"
-				"special_bonus_facet_beastmaster_beast_mode"			"8 16 24 32 40"				
+				"special_bonus_facet_beastmaster_beast_mode"			"20 30 40 50"				
 			}
 			"AbilityCooldown"
 			{
@@ -466,10 +483,6 @@
 			{
 				"value"				"0"
 				"special_bonus_facet_beastmaster_beast_mode"		"=35"				
-			}
-			"magic_resist"
-			{
-				"special_bonus_unique_beastmaster_3"	"5"
 			}
 			"bonus_damage"
 			{
@@ -485,7 +498,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -495,8 +508,10 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Beastmaster.Primal_Roar"
-
-		"AbilityDraftUltScepterAbility"		"beastmaster_drums_of_slom"
+		"AbilityDraftExtraAbilities"
+		{
+			"beastmaster_drums_of_slom" "scepter"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -524,7 +539,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"					"2.75 3.25 3.75"
+			"duration"					"3 3.5 4"
 			"damage"					
 			{
 				"value"			"150 225 300"
@@ -552,7 +567,7 @@
 			"push_duration"				"1.0"
 			"slow_duration"				"3 3.5 4"
 			"movement_speed"			"40"
-			"movement_speed_duration"			"3.0 3.5 4"
+			"movement_speed_duration"			"2"
 			"AbilityCooldown"
 			{ 
 				"value"				"90 75 60"
@@ -577,6 +592,8 @@
 		"AbilitySound"					"Hero_ElderTitan.EchoStomp"
 		"IsGrantedByScepter"			"1"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
@@ -593,15 +610,16 @@
 			}
 			"max_stacks"					"20"
 			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.4"
+			"min_drum_hit_interval"			"0.5"
 			"max_drum_hit_interval"			"3"
 
 			"base_damage"						
 			{
-				"value"			"90"
+				"value"			"80"
 				"CalculateSpellDamageTooltip" "1"
 			}
-			"heal_pct"						"25"
+			"heal_pct"						"20"
+			"creep_damage_pct"				"100"
 			"creep_heal_pct"				"5"
 			"aura_radius"					
 			{
@@ -609,43 +627,29 @@
 				"affected_by_aoe_increase"	"1"
 			}
 		}
-	}	
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_beastmaster_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Beastmaster: King of the Jungle
 	//=================================================================================================================
-	"special_bonus_unique_beastmaster_3"
+	"beastmaster_rugged"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+		"Innate"						"1"
+		"IsBreakable"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_block_pct_fifty_tooltip"		"50"
+			"damage_block_pct_vs_creeps"		"100"
+		}
 	}
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_beastmaster_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"		
-	}
 
 	//=================================================================================================================
 	// Ability: Special Bonus
@@ -671,47 +675,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_hp"				"250"
 		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_beastmaster_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"		
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_beastmaster_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_beastmaster_wild_axe_cooldown"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 }

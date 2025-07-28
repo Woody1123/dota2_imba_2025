@@ -25,11 +25,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"4.0"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 80 120 160"
+		"AbilityDuration"				"4.0"			
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,7 +34,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
-
+		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -56,6 +52,7 @@
 			}
 			"slow_movement_speed"	"-25"
 			"slow_attack_speed_primary"		"-30 -40 -50 -60"
+			"damage"			"40 80 120 160"
 			"aoe_damage"			
 			{
 				"value"			"80 120 160 200"
@@ -105,14 +102,15 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"Innate"						"1"
-		"MaxLevel"						"1"
-				
+        "RestrictValuesToMaxLevel"		"1"
+		"DependentOnAbility"			"lich_chain_frost"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1500"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -120,11 +118,35 @@
 		{
 			"radius"
 			{
-				"value"		"1200 "
+				"value"		"1500 "
 				"affected_by_aoe_increase"		"1"
 			}
 			"mana_restore_pct_from_creep"		"2.5"
-			"mana_restore_pct_from_hero"		"15"
+			"mana_restore_pct_from_hero"		"25"
+			"max_level"
+			{
+				"value"				"1"
+				"special_bonus_facet_lich_ritualist"				"=4"
+			}
+			"AbilityCooldown"		
+			{
+				"value"				"60 50 40 30"				
+			}
+			
+				
+			"health_conversion"		
+			{
+			
+				"value"									"0"
+				"special_bonus_facet_lich_ritualist"	"=0 =70 =85 =100"
+			}
+			"xp_multiplier"
+			{
+				"value"									"0"
+				"special_bonus_facet_lich_ritualist"	"=0 =100 =125 =150"
+
+			}
+
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -136,7 +158,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED "
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -154,31 +176,47 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 60 70 80"
-		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityManaCost"				
+			{
+				"value"			"25"
+			}
+		
 			"AbilityChannelTime"
 			{
 				"value" "1.10 1.4 1.7 2.0"
-				"special_bonus_unique_lich_2" "+0.4"
+				"special_bonus_unique_lich_2" "+0.3"
 			}
 			"channel_duration"
 			{
 				"value" "1.10 1.4 1.7 2.0"
-				"special_bonus_unique_lich_2" "+0.4"
-			}
+				"special_bonus_unique_lich_2" "+0.3"
+			}		
 			"destination"		"32 38 44 50"
-			"mana_drain"		"12"
+			"mana_drain"		"20"
 			"aoe_scepter"
 			{
 				"special_bonus_scepter" "+400"
 					"affected_by_aoe_increase"	"1"
 			}
-			"creep_duration_multiplier"				"2"
-			"creep_damage"					"250"
+			"damage"
+			{
+				"special_bonus_facet_lich_cryophobia"		"15 20 25 30"
+				"CalculateSpellDamageTooltip"				"0"
+				"DamageTypeTooltip"							"DAMAGE_TYPE_MAGICAL"
+			}
+			"slow_resistance"
+			{
+				"special_bonus_facet_lich_cryophobia"				"50"
+			}
+			"post_gaze_debuff_duration_multiplier"
+			{
+				"special_bonus_facet_lich_cryophobia"				"=2"
+			}
+
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -271,7 +309,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.2"
 
 		// Time		
@@ -288,7 +326,7 @@
 		{
 			"damage_reduction"
 			{
-				"value"	"30 40 50 60"
+				"value"	"45 50 55 60"
 				"CalculateSpellDamageTooltip"	"0"
 				"special_bonus_unique_lich_8"	"+10"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
@@ -308,7 +346,7 @@
 			}
 			"duration"
 			{
-				"value"	"5 6 7 8"
+				"value"	"4 5 6 7"
 				"special_bonus_unique_lich_4"	"+4"
 			}
 			"health_regen"
@@ -336,7 +374,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -345,8 +383,10 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Lich.ChainFrost"
-
-		"AbilityDraftUltShardAbility"		"lich_ice_spire"
+		"AbilityDraftExtraAbilities"
+		{
+			"lich_ice_spire" "shard"
+		}
 
 		
 		// Casting
@@ -378,12 +418,13 @@
 			"bonus_jump_damage"		
 			{
 				"value"			"15 20 25"
+				"special_bonus_unique_lich_jump_damage"	"+100"
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"jumps"					"10 10 10"
 			"jump_range"			
 			{
-				"value"			"600"
+				"value"			"550"
 				"affected_by_aoe_increase"	"1"
 			}
 			"slow_movement_speed"	"-65"
@@ -398,7 +439,7 @@
 			}
 			"has_unlimited_jumps"
 			{
-				"special_bonus_unique_lich_5"	"+1"
+				"value"							"0"
 			}
 			"should_fire_chain_frost_on_death"
 			{
@@ -416,87 +457,11 @@
 			}
 			"frostbound_duration"						
 			{
-				"value"							"0"
-				"special_bonus_facet_lich_frostbound"			"=2.5 =3.5 =4.5"				
+				"value"							"2"
+				"special_bonus_facet_lich_frostbound"			"=2 =2.75 =3.5"				
 			}
 		}			
 	}
-
-//=================================================================================================================
-	// Lich: Ice Rite
-	//=================================================================================================================
-	"lich_variant_ice_rite"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Ability.FrostNova"
-		"MaxLevel"						"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"hero_kill_spire_health"			"8"
-			"hero_health_tooltip"				"4"
-			"creep_kill_spire_health"			"2"
-			"creep_health_tooltip"				"1"
-			"spire_duration"					"20"
-			"bonus_intelligence_per_stack"		"3"
-			"gold_bounty"						"5"
-			
-		}
-	}
-
-
-	//=================================================================================================================
-	// Lich: Innate Chain Frost - Projectile Speed
-	//=================================================================================================================
-	"lich_innate_chain_frost_projectile_speed"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"additional_projectile_speed"		"150"	// Only applies to bounce projectile speed, not initial projectile speed
-		}
-	}
-
-	//=================================================================================================================
-	// Lich: Innate Chain Frost - Bounces
-	//=================================================================================================================
-	"lich_innate_chain_frost_bounces"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"additional_jumps"			"2"
-		}
-	}	
 
 
 	//=================================================================================================================
@@ -537,123 +502,13 @@
 			"bonus_movespeed"			"-25"
 			"aura_radius"				
 			{
-				"value"		"750"
+				"value"						"550"
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_hero_attacks"			"5"
-			"max_creep_attacks"			"10"
+			"max_hero_attacks"			"4"
+			"max_creep_attacks"			"8"
 			"duration"					"15.0"
 			"slow_duration"				"0.5"				
 		}
-	}
-	
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lich_frost_shield"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "0.4"
-				"ad_linked_abilities" "lich_sinister_gaze"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lich_frost_nova"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lich_frost_shield"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "1"
-				"ad_linked_abilities" "lich_chain_frost"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_6"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lich_frost_nova"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_7"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ad_linked_abilities"			"lich_chain_frost"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_lich_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
-		"ad_linked_abilities"			"lich_frost_shield"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
 	}
 }

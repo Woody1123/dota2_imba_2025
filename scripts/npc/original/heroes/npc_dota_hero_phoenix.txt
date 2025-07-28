@@ -52,13 +52,12 @@
 				"damage_per_second"		
 				{
 					"value"				"20 40 60 80"
-					"special_bonus_unique_phoenix_dive_damage"		"+20"
 				}
 				
 				"burn_tick_interval"	"0.2"
 				"slow_movement_speed_pct"	
 				{
-					"value"		"16 19 22 25"
+					"value"		"10 15 20 25"
 				"special_bonus_unique_phoenix_6" "+25"
 				}
 				"dive_duration"			"2.0"
@@ -122,7 +121,7 @@
 					"affected_by_aoe_increase"	"1"		
 				}
 				"duration"			"4.0"
-				"attackspeed_slow"	"-65 -90 -115 -140"
+				"attackspeed_slow"	"-50 -80 -110 -140"			// NOTE: also update phoenix_launch_fire_spirit attackspeed_slow
 				"damage_per_second"				
 				{
 					"value"		"20 40 60 80"
@@ -187,23 +186,27 @@
 				"turn_rate"					"25"
 				"shard_move_slow_pct"			
 				{
-					"value"				"10"
-					"RequiresShard"				"1"
+					"special_bonus_shard"		"10"
 				}
 				"focal_point_max_multiplier"					// 0 disables
 				{
 					"value"										"0"
-					"special_bonus_facet_phoenix_hotspot"	"150"
+					"special_bonus_facet_phoenix_hotspot"		"160"
 				}
 				"focal_point_start_length_pct"
 				{
 					"value"										"0"
-					"special_bonus_facet_phoenix_hotspot"	"50"
+					"special_bonus_facet_phoenix_hotspot"		"50"
 				}
 				"focal_point_full_length_tooltip_only"
 				{
 					"value"										"0"
-					"special_bonus_facet_phoenix_hotspot"	"1200"
+					"special_bonus_facet_phoenix_hotspot"		"1200"
+				}
+				"focal_point_blind_stack_multiplier"
+				{
+					"value"										"0"
+					"special_bonus_facet_phoenix_hotspot"		"+2"		// int only for now, doesn't make sense to have a float number of stacks
 				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -247,7 +250,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -288,23 +291,21 @@
 				"stun_duration"		
 				{
 					"value"			"1.6 2 2.4"
-				"special_bonus_unique_phoenix_2" "+0.5"
+					"special_bonus_unique_phoenix_2" "+0.6"
 				}
 				"max_hero_attacks"	
 				{
 					"value"			"6 8 10"
-				"special_bonus_unique_phoenix_1" "+2"
+					"special_bonus_unique_phoenix_1" "+2"
 				}
 				"max_hero_attacks_scepter"	
 				{
-					"value"	"7 10 13"
-					"RequiresScepter"	"1"
-				"special_bonus_unique_phoenix_1" "+2"
+					"special_bonus_scepter"	"7 10 13"
+					"special_bonus_unique_phoenix_1" "+2"
 				}
 				"cast_range_tooltip_scepter"
 				{
-					"value"			"500"
-					"RequiresScepter"	"1"
+					"special_bonus_scepter"			"500"
 				}
 		}
 	}
@@ -317,7 +318,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -349,7 +350,7 @@
 					"affected_by_aoe_increase"	"1"		
 				}
 				"duration"			"4.0"
-				"attackspeed_slow"	"-80 -100 -120 -140"
+				"attackspeed_slow"	"-50 -80 -110 -140"					// NOTE: also update phoenix_fire_spirits attackspeed_slow
 				"damage_per_second"				
 				{
 					"value"			"20 40 60 80"
@@ -372,14 +373,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			"radius"					
 			{
-				"value"			"450"
+				"value"			"400"
 				"affected_by_aoe_increase"	"1"
 			}
-			"damage_pct"				"6"
+			"damage_pct"				"4.5"
 		}
 	}
 	//=================================================================================================================
@@ -392,11 +394,16 @@
 
 		"MaxLevel"						"1"
 		"Innate"						"1"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
-			"blind_per_second"	"2"
-			"blind_duration"	"5"	
+			"blind_per_second"	
+			{
+				"value"				"2"
+				"special_bonus_unique_phoenix_blinding_sun_misschance"		"+0.5"
+			}
+			"blind_duration"	"4"	
 		}
 	}
 	//=================================================================================================================
@@ -481,7 +488,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"special_bonus_base"
 	}
-
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_phoenix_blinding_sun_misschance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+	}
 
 	
 }

@@ -22,10 +22,9 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"375 425 475 525"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		"AbilityCooldown"				"5"
-		"AbilityManaCost"				"65 70 75 80"
+		"AbilityManaCost"				"75 80 85 90"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -40,7 +39,7 @@
 			"bonus_damage"			
 			{
 				"value"					"100 170 240 310"
-				"special_bonus_unique_bounty_hunter_2"	"+275"
+				"special_bonus_unique_bounty_hunter_2"	"+250"
 			}
 			"speed"					"1000 1000 1000 1000"
 			"bounce_aoe"			
@@ -50,18 +49,11 @@
 			"slow_duration"			
 			{
 				"value"				"0.35"
-				"special_bonus_unique_bounty_hunter_5"		"+0.65"
-			}
-			"scepter_cast_range"
-			{
-
-				"value"				"700"
-				"RequiresScepter"	"1"
+				"special_bonus_unique_bounty_hunter_5"		"+0.6"
 			}
 			"scepter_cooldown"
 			{
-				"value"				"6"
-				"RequiresScepter"	"1"
+				"special_bonus_scepter"				"6"
 			}
 
 			"passthrough_damage"
@@ -76,6 +68,12 @@
 			
 			"cast_range"			"375 425 475 525"
 			"slow"					"100"		
+			
+			"AbilityCastRange"
+			{
+				"value"				"375 425 475 525"
+				"special_bonus_scepter"	"=600"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -85,7 +83,7 @@
 	//=================================================================================================================
 	"bounty_hunter_jinada"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_BREAK_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySound"					"Hero_BountyHunter.Jinada"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
@@ -94,7 +92,8 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"	
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"IsBreakable"					"1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -106,8 +105,7 @@
 		{
 			"bonus_damage"
 			{
-				"value"			"60 100 140 180"
-				"special_bonus_unique_bounty_hunter_4"	"+30"
+				"value"			"70 105 140 175"
 			}
 			"gold_steal"
 			{
@@ -132,16 +130,15 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		//"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySound"					"Hero_BountyHunter.WindWalk"
-		"AbilityDraftShardAbility"		"bounty_hunter_wind_walk_ally"
 
-        "HasShardUpgrade"               "1"
-		"AbilityCastRange"				"650"
+		"AbilityDraftExtraAbilities"
+		{
+			"bounty_hunter_wind_walk_ally" "shard"
+		}
+
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
@@ -167,13 +164,11 @@
 				}
 				"AbilityChargeRestoreTime"		
 				{
-					"value"	"15 14 13 12"
-					"RequiresShard"		"1"
+					"special_bonus_shard"	"15 14 13 12"
 				}
 				"ally_fade_time"
 				{
-					"value"			"1.0"
-					"RequiresShard"		"1"
+					"special_bonus_shard"	"0.5"
 				}
 				"damage_reduction_pct"
 				{
@@ -216,7 +211,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"fade_time"					"1.0"
+			"fade_time"					"0.5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
@@ -231,7 +226,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -256,7 +251,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"target_damage_amp"	"8 14 20"
+				"target_damage_amp"	"8 12 16"
 				"bonus_gold_radius"		
 				{
 					"value"		"1200"
@@ -265,16 +260,16 @@
 				"bonus_gold_self"		
 				{
 					"value"		"130 225 320"
-					"special_bonus_unique_bounty_hunter_3"	"+45"
+					"special_bonus_unique_bounty_hunter_3"	"+50"
 				}
 				"bonus_gold"			
 				{
 					"value"		"40 80 120"
-					"special_bonus_unique_bounty_hunter_3"	"+45"
+					"special_bonus_unique_bounty_hunter_3"	"+50"
 				}
-				"duration"				"30.0 30.0 30.0"
+				"duration"				"25"
 				"gold_steal"			"0.3 0.4 0.5"
-				"bonus_move_speed_pct"	"16 20 24"
+				"bonus_move_speed_pct"	"12 16 20"
 		}
 	}
 
@@ -286,7 +281,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_TemplarAssassin.Trap"
@@ -333,9 +328,11 @@
 		"DependentOnAbility"			"bounty_hunter_track"
 		"MaxLevel"						"4"
 		"Innate"						"1"
+		"IsBreakable"					"1"
+
 		"AbilityValues"
 		{
-			"gold_steal"					"4 8 12 16"
+			"gold_steal"					"4 11 18 25"
 		}
 
 	}
@@ -354,110 +351,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_killstreak_bounty"				"10"
+			"bonus_killstreak_bounty"				"20"
 		}
 	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"					"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"			
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_8"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "500"
-				"ad_linked_abilities" "bounty_hunter_track"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_9"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
-	}
-
-	
 }

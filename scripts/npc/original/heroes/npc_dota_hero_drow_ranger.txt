@@ -44,59 +44,42 @@
 			"frost_arrows_movement_speed"	"-10 -20 -30 -40"
 			"damage"
 			{
-				"value"						"6 12 18 24"
-				"special_bonus_unique_drow_ranger_2"			"+15"
+				"value"						"10 15 20 25"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"shard_regen_reduction_pct_per_stack"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+10"
-				"RequiresScepter"					"1"
 			}
 			"shard_bonus_damage_per_stack"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+18"
-				"RequiresScepter"					"1"
 			}
 			"shard_stack_duration"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+7.0"
-				"RequiresScepter"					"1"
 			}
 			"shard_burst_radius"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+650"
-				"RequiresScepter"					"1"
 				"affected_by_aoe_increase"	"1"
 			}
 			"shard_burst_damage_per_stack"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+60"
-				"DamageTypeTooltip"						"DAMAGE_TYPE_MAGICAL"
-				"RequiresScepter"					"1"
+				"DamageTypeTooltip"					"DAMAGE_TYPE_MAGICAL"
 			}
 			"shard_burst_move_slow_pct"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+40"
-				"RequiresScepter"					"1"
 			}
 			"shard_burst_slow_duration"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+2.0"
-				"RequiresScepter"					"1"
 			}
 			"shard_max_stacks"
 			{
-				"value"								"0"
 				"special_bonus_scepter"				"+9"
-				"RequiresScepter"					"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -136,14 +119,19 @@
 				"value"				"3"
 				"special_bonus_unique_drow_ranger_8"		"+1"
 			}			
-			"arrow_count_per_wave"				"4"
+			"arrow_count_per_wave"			
+			{
+				"value"											"4"
+				"special_bonus_unique_drow_ranger_2"			"+1"
+
+			}
 			"arrow_damage_pct"
 			{
 				"value"										"100 120 140 160"
 				"special_bonus_unique_drow_ranger_1"		"+25"
 			}
 			"arrow_width"					"90"
-			"arrow_speed"					"1200"
+			"arrow_speed"					"1300"
 			"arrow_range_multiplier"	"1.75"
 			"arrow_angle"					"50"
             "bypass_block"              "1"
@@ -155,7 +143,7 @@
 			"multishot_movespeed"						
 			{
 				"value"										"0"
-				"special_bonus_facet_drow_ranger_sidestep"			"40"
+				"special_bonus_facet_drow_ranger_sidestep"			"25"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_3"
@@ -221,7 +209,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -241,12 +228,16 @@
 				"bonus_movespeed"		
 				{
 					"value"					"0"
-					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+40"
+					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+50"
 				}
 				"AbilityCooldown"
 				{
 					"value"											"19 17 15 13"
-					"special_bonus_unique_drow_ranger_7"			"-3"
+				}
+				"AbilityManaCost"
+				{
+					"value"										"70"
+					"special_bonus_unique_drow_ranger_7"		"=0"
 				}
 				"miss_chance"
 				{
@@ -267,25 +258,27 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS "
 		"Innate"						"1"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
+		"DependentOnAbility"			"drow_ranger_marksmanship"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"trueshot_agi_bonus_self"	"2"
-				"trueshot_agi_bonus_allies"	"1"
-				"trueshot_aspd_bonus_creeps"	
-				{
-					"value"			"0"
-					"special_bonus_facet_1"	"+3"
-				}
 				"radius"						
 				{
 					"value"			"1200"
 					"affected_by_aoe_increase"	"1"
+				}
+				"trueshot_agi_bonus_base"			"4 8 12 16"
+				"trueshot_agi_bonus_per_level"		"1"
+				"trueshot_agi_bonus_allies_pct"		"50"
+				"agi_bonus_pct_tooltip"
+				{
+					"dynamic_value"						"true"
 				}
 
 		}
@@ -301,12 +294,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-
-		"AbilityDraftUltShardAbility"		"drow_ranger_glacier"
+		"AbilityDraftExtraAbilities"
+		{
+			"drow_ranger_glacier" "shard"
+		}
+		"IsBreakable"					"1"
 
 		//"HasScepterUpgrade"			"1"
 
@@ -316,10 +312,10 @@
 		{
 			"chance"
 			{
-				"value"										"20 30 40"
+				"value"										"30 35 40"
 				"special_bonus_unique_drow_ranger_3"		"+10"
 			}
-			"bonus_damage"		"40 60 80"
+			"bonus_damage"		"50 70 90"
 			"disable_range"		"400"
 		}
 	}
@@ -372,7 +368,7 @@
 				"attack_range_bonus"		"200"
 				"multishot_arrow_bonus"		"1"
 				"knockback_duration"		"0.1"
-				"knockback_distance"		"175"
+				"knockback_distance"		"225"
 				"knockback_height"			"50"
 				"z_speed_override"			"800"
 		}
@@ -402,9 +398,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
-			"damage_bonus"		"20"
+			"damage_bonus"		"30"
 			"bonus_miss_chance"		"0"
 		}
 	}
