@@ -55,10 +55,23 @@ if not ParticleManager.SafeCreateParticle then
 			return -1
 		end
 
-		if not owner or (type(owner.IsNull) == "function" and owner:IsNull()) then
-			print("[ParticleManager] ❌ 绑定单位无效:", pfx_path)
-			return -1
+
+		-- 绑定单位校验（仅当 attach_type 需要时）
+		local no_owner_needed = {
+			[PATTACH_CUSTOMORIGIN] = true,
+			[PATTACH_CUSTOMORIGIN_FOLLOW] = true,
+			[PATTACH_WORLDORIGIN] = true
+		}
+
+		if not no_owner_needed[attach_type] then
+			if not owner or (type(owner.IsNull) == "function" and owner:IsNull()) then
+				print("[SafeCreateParticle] pfx =", pfx_path, "attach_type =", tostring(attach_type), "owner =", tostring(owner))
+				print("[ParticleManager] ❌ 绑定单位无效:", pfx_path)
+				return -1
+			end
 		end
+
+
 
 		local success, result = pcall(function()
 			local particle = ParticleManager:CreateParticle(pfx_path, attach_type, owner)
@@ -139,6 +152,66 @@ if not ParticleManager.SafeCreateParticleForTeam then
 	end
 end
 
+if not ParticleManager.SafeCreateParticleForPlayer then
+	function ParticleManager:SafeCreateParticleForPlayer(pfx_path, attach_type, owner, player, cp_table)
+		-- 粒子路径检查
+		if type(pfx_path) ~= "string" or pfx_path == "" then
+			print("[ParticleManager] ❌ 粒子路径无效:", tostring(pfx_path))
+			return -1
+		end
+
+		-- 附着类型不需要绑定单位的情况
+		local no_owner_needed = {
+			[PATTACH_CUSTOMORIGIN] = true,
+			[PATTACH_CUSTOMORIGIN_FOLLOW] = true,
+			[PATTACH_WORLDORIGIN] = true
+		}
+
+		-- 校验绑定单位（必要时）
+		if not no_owner_needed[attach_type] then
+			if not owner or (type(owner.IsNull) == "function" and owner:IsNull()) then
+				print("[ParticleManager] ❌ 绑定单位无效:", pfx_path)
+				return -1
+			end
+		end
+
+		-- 校验玩家对象
+		if not player then
+			print("[ParticleManager] ❌ 玩家对象无效:", pfx_path)
+			return -1
+		end
+
+		local success, result = pcall(function()
+			local particle = ParticleManager:CreateParticleForPlayer(pfx_path, attach_type, owner, player)
+
+			if cp_table and type(cp_table) == "table" then
+				for i, value in pairs(cp_table) do
+					if type(value) == "userdata" and tostring(value):find("Vector") then
+						ParticleManager:SetParticleControl(particle, i, value)
+					elseif type(value) == "table" and value.ent and value.pos then
+						ParticleManager:SetParticleControlEnt(particle, i, value.ent, PATTACH_ABSORIGIN_FOLLOW, nil, false)
+						ParticleManager:SetParticleControl(particle, i, value.pos)
+					end
+				end
+			end
+
+			-- 默认 3 秒后销毁
+			Timers:CreateTimer(3.0, function()
+				ParticleManager:DestroyParticle(particle, false)
+				ParticleManager:ReleaseParticleIndex(particle)
+			end)
+
+			return particle
+		end)
+
+		if not success then
+			print("[ParticleManager] ❌ 粒子创建失败:", pfx_path, "错误：", result)
+			return -1
+		end
+
+		return result
+	end
+end
 
 
 function Precache( context )

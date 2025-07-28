@@ -122,7 +122,6 @@ end
 
 function item_imba_mist_relics_passive:OnTakeDamage( keys )
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
-		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
 
 		if keys.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
 		local life = self.lifesteal
@@ -201,7 +200,6 @@ end
 
 function item_imba_satanic_passive:OnTakeDamage( keys )
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
-		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
 
 		if keys.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
 		local life = self.lifesteal
@@ -284,7 +282,6 @@ function item_imba_thirst_passive:OnAttackLanded(keys)
 	end
 
 	if keys.attacker == self:GetParent() and (keys.target:IsHero() or keys.target:IsCreep() or keys.target:IsBoss()) then
-		print("CreateParticle Unit:", owner, owner and owner:GetName() or "nil or null")
 
 		local life = self.lifesteal
 			if self:GetParent():HasModifier("item_imba_thirst_buff") then

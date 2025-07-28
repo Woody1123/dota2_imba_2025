@@ -302,7 +302,7 @@ local RecommendedItems = {
 	},
 	agi = {
 		melee = {"item_premium_power_treads","item_imba_harpoon","item_imba_thirst","item_butterfly_ex","item_greater_crit2","item_battle_fury"},
-		ranged = {"item_premium_power_treads","item_imba_harpoon","item_imba_thirst","item_butterfly_ex","item_greater_crit2","item_battle_fury"},
+		ranged = {"item_premium_power_treads","item_bkb","item_imba_thirst","item_butterfly_ex","item_greater_crit2","item_battle_fury"},
 	},
 	int = {
 		melee = {"item_premium_power_treads","item_imba_gungnir","item_bkb","item_imba_thirst","item_greater_crit2","item_skadi_v2"},
