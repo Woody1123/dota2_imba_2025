@@ -2276,6 +2276,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "blade_dance"
+            "value" "10"
         }
     }
     // +2%守卫回血
@@ -2289,6 +2290,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "healing_ward"
+             "value" "2"
         }
     }
     // -6秒居合斩CD
@@ -6321,6 +6323,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "surge"
+            "value" "1"
         }
     }
     // 对自身释放离子外壳时获得15%的伤害减免
@@ -8037,6 +8040,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "flame_guard"
+            "value"  "60"
         }
     }
     // 龙骑士
@@ -8226,6 +8230,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "breathe_fire"
+            "value" "20"
         }
     }
     // +3火焰爆破次数
@@ -13701,7 +13706,6 @@
                      {
                          "value"    "150"
                      }
-                      "value"    "150"
                  }
 
     }
