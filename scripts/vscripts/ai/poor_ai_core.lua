@@ -5,32 +5,21 @@
 function AI_ADDBOTS()
 	LinkLuaModifier("ai_normal", "ai/ai_normal.lua", LUA_MODIFIER_MOTION_NONE)
 
-	-- 自定义：获取所有英雄名称列表（你自己实现）
-	local allHeroes = GetAllHeroNames()
+	-- 固定英雄名
+	local hero_name = "npc_dota_hero_bristleback"
 
-	-- 打乱英雄顺序函数
-	local function ShuffleTable(t)
-		for i = #t, 2, -1 do
-			local j = RandomInt(1, i)
-			t[i], t[j] = t[j], t[i]
-		end
-	end
-	ShuffleTable(allHeroes)
-
-	-- 分队英雄列表（可以根据你想法调整）
+	-- 分队英雄列表
 	local hero_tab_good = {}
 	local hero_tab_bad = {}
 	for i = 1, 10 do
-		table.insert(hero_tab_good, allHeroes[i])
-	end
-	for i = 11, 20 do
-		table.insert(hero_tab_bad, allHeroes[i])
+		table.insert(hero_tab_good, hero_name)
+		table.insert(hero_tab_bad, hero_name)
 	end
 
 	-- 统计当前bot数量
 	local function CountBotsOnTeam(team)
 		local count = 0
-		for i = 0, DOTA_MAX_PLAYERS-1 do
+		for i = 0, DOTA_MAX_PLAYERS - 1 do
 			if PlayerResource:IsValidPlayerID(i) and PlayerResource:IsFakeClient(i) and PlayerResource:GetTeam(i) == team then
 				count = count + 1
 			end
@@ -38,37 +27,60 @@ function AI_ADDBOTS()
 		return count
 	end
 
-	-- 补足天辉队bot到10个
 	local goodNeed = 10 - CountBotsOnTeam(DOTA_TEAM_GOODGUYS)
 	local badNeed = 10 - CountBotsOnTeam(DOTA_TEAM_BADGUYS)
 
-	local ai_player = 0
-
-	-- 添加天辉bot，补足缺口
-	for k = 1, goodNeed do
-		local h = hero_tab_good[k]
-		if h then
-			Timers:CreateTimer(3 * k, function()
-				Tutorial:AddBot(h, "", "", true) -- 天辉
-				ai_player = ai_player + 1
-				AI_ON(ai_player)
-				return nil
-			end)
-		end
+	-- 使用自定义创建方法（不依赖 Tutorial:AddBot）
+	for i = 1, goodNeed do
+		Timers:CreateTimer(i * 0.3, function()
+			CreateCustomAIHero(hero_name, DOTA_TEAM_GOODGUYS)
+		end)
 	end
 
-	-- 添加夜魇bot，补足缺口
-	for k = 1, badNeed do
-		local h = hero_tab_bad[k]
-		if h then
-			Timers:CreateTimer(3 * k, function()
-				Tutorial:AddBot(h, "", "", false) -- 夜魇
-				ai_player = ai_player + 1
-				AI_ON(ai_player)
-				return nil
-			end)
-		end
+	for i = 1, badNeed do
+		Timers:CreateTimer(i * 0.3 + 3, function()
+			CreateCustomAIHero(hero_name, DOTA_TEAM_BADGUYS)
+		end)
 	end
+end
+
+function CreateCustomAIHero(hero_name, team)
+	print('创建 AI 英雄')
+
+	local spawn_pos = team == DOTA_TEAM_GOODGUYS and Vector(-6000, -6000, 256) or Vector(6000, 6000, 256)
+	local hero = CreateUnitByName(hero_name, spawn_pos, true, nil, nil, team)
+
+	if not hero then
+		print("[AI] 英雄创建失败")
+		return
+	end
+
+	hero:SetControllableByPlayer(0, false)
+	hero:SetPlayerID(-1)
+	hero:SetAcquisitionRange(800)
+	hero:SetIdleAcquire(true)
+	hero.is_custom_ai = true
+
+	-- 等级与经验
+	hero:AddExperience(GetXPNeededToReachNextLevel(4), DOTA_ModifyXP_Unspecified, false, false)
+
+	-- AI 逻辑挂载
+	if hero.ai == nil then
+		print("[AI] 挂载 ai_normal")
+		LinkLuaModifier("ai_normal", "ai/ai_normal.lua", LUA_MODIFIER_MOTION_NONE)
+		hero.ai = hero:AddNewModifier(hero, nil, "ai_normal", {})
+	end
+
+	-- 其他初始化
+	hero:AddNewModifier(hero, nil, "modifier_item_ultimate_scepter_consumed", {})
+	hero:AddNewModifier(hero, nil, "modifier_item_aghanims_shard", {})
+end
+
+
+
+
+function GetAllHeroNames()
+	return { "npc_dota_hero_bristleback" }
 end
 
 function AI_ON(ai_player)
