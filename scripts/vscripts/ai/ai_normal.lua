@@ -17,24 +17,28 @@ function ai_normal:OnCreated()
 	self.beingTargetedByTower = false
 
 	self:StartIntervalThink(0.5)
-	Timers:CreateTimer(0, function()
-		if ai_normal and ai_normal.TryEnableToggleAbilities then
-			ai_normal:TryEnableToggleAbilities()
-		end
-		return 60  -- 每 60 秒检查一次
-	end)
-	Timers:CreateTimer(0, function()
-		if ai_normal and ai_normal.TryEnableToggleAbilities then
-			ai_normal:TryEnableToggleAbilities()
-		end
-		return 60  -- 每 60 秒检查一次
-	end)
 
+	-- 每 60 秒尝试一次自动开启 toggle 技能
+	Timers:CreateTimer(0, function()
+		if self and self.TryEnableToggleAbilities and self:GetParent():IsAlive() then
+			print("[AI] 周期性检查 toggle 技能开启")
+			self:TryEnableToggleAbilities()
+		end
+		return 10
+	end)
 end
+
 
 function ai_normal:OnIntervalThink()
 	if not IsServer() then return end
 
+
+	local parent = self:GetParent()
+	local playerID = parent:GetPlayerOwnerID()
+	-- 玩家控制则跳过 AI
+	if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
+		return
+	end
 	local hero = self.parent
 	if self.castUntil and GameRules:GetGameTime() < self.castUntil then
 		print("[AI] 技能释放前摇中，跳过操作")
@@ -189,47 +193,50 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 	end
 
 	for _, item in ipairs(usableItems) do
-		local behavior = item:GetBehaviorInt()
 		local name = item:GetName()
 		local target = enemies[1]
 
-		if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-			local success = hero:CastAbilityOnTarget(target, item, -1)
-			if not success then
-				-- 释放失败，尝试对自己释放（如果对自己释放有效）
-				success = hero:CastAbilityOnTarget(hero, item, -1)
-				if success then
-					print("[AI] 物品", name, "对敌方释放失败，改为对自己释放")
-				end
-			else
-				print("[AI] 使用物品", name, "对单位", target:GetUnitName())
-			end
-			if success then return end
+		-- 检查物品是否可释放
+		if item:IsCooldownReady() and item:IsFullyCastable() then
+			local behavior = item:GetBehaviorInt()
 
-		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
-			local success = hero:CastAbilityOnPosition(target:GetAbsOrigin(), item, -1)
-			if not success then
-				-- 对自己身上释放（点目标物品一般不能对自己施法，但部分物品允许）
-				local pos = hero:GetAbsOrigin()
-				success = hero:CastAbilityOnPosition(pos, item, -1)
-				if success then
-					print("[AI] 物品", name, "对敌方释放失败，改为对自己位置释放")
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
+				local success = hero:CastAbilityOnTarget(target, item, -1)
+				if not success then
+					-- 对敌释放失败，尝试对自己
+					success = hero:CastAbilityOnTarget(hero, item, -1)
+					if success then
+						print("[AI] 物品", name, "对敌方释放失败，改为对自己释放")
+					end
+				else
+					print("[AI] 使用物品", name, "对单位", target:GetUnitName())
 				end
-			else
-				print("[AI] 使用物品", name, "对位置", tostring(target:GetAbsOrigin()))
-			end
-			if success then return end
+				if success then return end
 
-		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-			-- 无目标物品只对敌人释放
-			hero:CastAbilityNoTarget(item, -1)
-			print("[AI] 使用无目标物品", name)
-			local castPoint = item:GetCastPoint() or 0
-			local buffer = 0.05
-			self.castUntil = GameRules:GetGameTime() + castPoint + buffer
-			return
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+				local success = hero:CastAbilityOnPosition(target:GetAbsOrigin(), item, -1)
+				if not success then
+					local pos = hero:GetAbsOrigin()
+					success = hero:CastAbilityOnPosition(pos, item, -1)
+					if success then
+						print("[AI] 物品", name, "对敌方释放失败，改为对自己位置释放")
+					end
+				else
+					print("[AI] 使用物品", name, "对位置", tostring(target:GetAbsOrigin()))
+				end
+				if success then return end
+
+			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+				hero:CastAbilityNoTarget(item, -1)
+				--print("[AI] 使用无目标物品", name)
+				local castPoint = item:GetCastPoint() or 0
+				local buffer = 0.05
+				self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+				return
+			end
 		end
 	end
+
 end
 
 
@@ -422,33 +429,49 @@ function ai_normal:TryUseAbilities()
 	local targetPos = target:GetAbsOrigin()
 
 	for i = 0, 15 do
+		-- 获取第 i 个技能
 		local ability = hero:GetAbilityByIndex(i)
+
+		-- 检查技能是否有效、已学习、冷却结束、可以释放
 		if ability and ability:GetLevel() > 0 and ability:IsCooldownReady() and ability:IsFullyCastable() then
+			-- 获取技能行为标志
 			local behavior = ability:GetBehaviorInt()
+
+			-- 获取技能释放距离
 			local castRange = ability:GetCastRange(hero:GetAbsOrigin(), nil)
 			if not castRange or castRange <= 0 then castRange = 600 end
 
-			-- 跳过不够蓝的技能
-			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then goto continue end
+			-- 跳过魔法不足的技能
+			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then
+				print("[AI] 跳过技能（魔法不足）:", ability:GetName())
+				goto continue
+			end
 
 			-- 跳过被动技能
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then goto continue end
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then
+				print("[AI] 跳过技能（被动）:", ability:GetName())
+				goto continue
+			end
 
-			-- 检查是否属于“CD短 + 不耗蓝”的技能（只在重生触发一次）
+			-- 跳过CD短、无蓝耗的技能（只在复活后释放一次）
 			local isNoMana = ability:GetManaCost(ability:GetLevel()) == 0
 			local isShortCD = ability:GetCooldown(ability:GetLevel()) <= 3
 			if isNoMana and isShortCD then
-				if self.castOnRespawnDone then
-					goto continue
-				else
-					self.castOnRespawnDone = true
-				end
+				goto continue
+				--if self.castOnRespawnDone then
+				--	print("[AI] 跳过技能（CD短+无蓝，已触发）:", ability:GetName())
+				--	goto continue
+				--else
+				--	self.castOnRespawnDone = true
+				--	print("[AI] 触发技能（CD短+无蓝）:", ability:GetName())
+				--end
 			end
 
+			-- 获取施法前摇和缓冲时间
 			local castPoint = ability:GetCastPoint() or 0
 			local buffer = 0.05
 
-			-- 切换技能尝试开启
+			-- 切换型技能（例如 toggled aura 类）
 			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 then
 				if not ability:GetToggleState() then
 					hero:CastAbilityToggle(ability, -1)
@@ -457,77 +480,89 @@ function ai_normal:TryUseAbilities()
 				goto continue
 			end
 
-			-- 单位目标技能
+			-- 单位目标技能（CastAbilityOnTarget）
 			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
 				if (hero:GetAbsOrigin() - targetPos):Length2D() <= castRange then
 					local success = hero:CastAbilityOnTarget(target, ability, -1)
 					if success then
 						self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+						print("[AI] 释放单位目标技能:", ability:GetName())
 					end
 					return
+				else
+					print("[AI] 单位目标技能距离不足:", ability:GetName())
 				end
 			end
 
-			-- 点目标技能
+			-- 点目标技能（CastAbilityOnPosition）
 			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
 				local success = hero:CastAbilityOnPosition(targetPos, ability, -1)
 				if success then
 					self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+					print("[AI] 释放点目标技能:", ability:GetName())
 				end
 				return
 			end
 
-			-- 无目标技能
+			-- 无目标技能（CastAbilityNoTarget）
 			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
 				local success = hero:CastAbilityNoTarget(ability, -1)
 				if success then
 					self.castUntil = GameRules:GetGameTime() + castPoint + buffer
+					print("[AI] 释放无目标技能:", ability:GetName())
 				end
 				return
 			end
 		end
+
 		::continue::
 	end
-end
 
+end
 function ai_normal:TryEnableToggleAbilities()
-	print("[AI] 自动开启技能:")
+	print("[AI] 尝试自动开启 toggle 技能")
+
 	local hero = self.parent
-	if not hero or not hero:IsAlive() then return end
+	if not hero or not hero:IsAlive() then
+		print("[AI] 英雄对象无效或已死亡，跳过")
+		return
+	end
 
 	for i = 0, 5 do
 		local ability = hero:GetAbilityByIndex(i)
 
-		-- 跳过空的技能槽
 		if not ability then
-			-- print("技能槽", i, "为空，跳过")
+			print(string.format("[AI] 技能槽 %d：空", i))
 			goto continue
 		end
 
+		-- 打印技能状态信息
+		print(string.format(
+				"[AI] 技能槽 %d：%s | IsToggle=%s | IsToggledOn=%s | Level=%d | IsActivated=%s | IsFullyCastable=%s",
+				i,
+				ability:GetAbilityName(),
+				tostring(ability:IsToggle()),
+				tostring(ability:GetToggleState()),
+				ability:GetLevel(),
+				tostring(ability:IsActivated()),
+				tostring(ability:IsFullyCastable())
+		))
+
+		-- 满足条件的技能自动开启
 		if ability:IsToggle()
 				and not ability:GetToggleState()
-				and ability:IsFullyCastable()
 				and ability:IsActivated()
 				and ability:GetLevel() > 0 then
+			-- 可选地判断是否 FullyCastable，部分 toggle 技能可能不需要
+			-- and ability:IsFullyCastable()
 
-			print("[AI] 自动开启 toggle 技能:", ability:GetAbilityName())
+			print("[AI] >>> 自动开启 toggle 技能:", ability:GetAbilityName())
 			ability:ToggleAbility()
 		end
 
 		::continue::
 	end
 end
-
-
-
-
-
-function ai_normal:OnRespawn()
-	ai_normal:TryEnableToggleAbilities()
-	self.castOnRespawnDone = false
-end
-
-
 
 
 function ai_normal:AttackTarget(target)
