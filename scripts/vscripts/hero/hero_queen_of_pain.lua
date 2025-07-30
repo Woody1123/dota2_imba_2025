@@ -76,7 +76,11 @@ function modifier_imba_shadow_strike_base_slow:IsPurgable() 		return true end
 function modifier_imba_shadow_strike_base_slow:IsPurgeException() 	return true end
 function modifier_imba_shadow_strike_base_slow:GetEffectAttachType() return PATTACH_ABSORIGIN_FOLLOW end
 function modifier_imba_shadow_strike_base_slow:DeclareFunctions() return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE} end
-function modifier_imba_shadow_strike_base_slow:GetModifierMoveSpeedBonus_Percentage() return (0 - self:GetAbility():GetSpecialValueFor("movement_slow")) end
+function modifier_imba_shadow_strike_base_slow:GetModifierMoveSpeedBonus_Percentage()
+	local ability = self:GetAbility()
+	if not ability then return 0 end
+	return 0 - ability:GetSpecialValueFor("movement_slow")
+end
 
 function modifier_imba_shadow_strike_base_slow:OnCreated()
 	if self:GetAbility() == nil then return end

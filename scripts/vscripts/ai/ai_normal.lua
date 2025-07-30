@@ -520,7 +520,7 @@ function ai_normal:TryUseAbilities()
 
 end
 function ai_normal:TryEnableToggleAbilities()
-	print("[AI] 尝试自动开启 toggle 技能")
+	--print("[AI] 尝试自动开启 toggle 技能")
 
 	local hero = self.parent
 	if not hero or not hero:IsAlive() then
@@ -537,16 +537,6 @@ function ai_normal:TryEnableToggleAbilities()
 		end
 
 		-- 打印技能状态信息
-		print(string.format(
-				"[AI] 技能槽 %d：%s | IsToggle=%s | IsToggledOn=%s | Level=%d | IsActivated=%s | IsFullyCastable=%s",
-				i,
-				ability:GetAbilityName(),
-				tostring(ability:IsToggle()),
-				tostring(ability:GetToggleState()),
-				ability:GetLevel(),
-				tostring(ability:IsActivated()),
-				tostring(ability:IsFullyCastable())
-		))
 
 		-- 满足条件的技能自动开启
 		if ability:IsToggle()
