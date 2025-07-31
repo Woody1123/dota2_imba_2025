@@ -63,6 +63,7 @@ function Get_Profile(panel, childName, id, steamid) {
 
 }
 
+
 //=============================================================================
 //=============================================================================
 function _ScoreboardUpdater_UpdatePlayerPanel(scoreboardConfig, playersContainer, playerId, localPlayerTeamId) {
@@ -158,22 +159,22 @@ function _ScoreboardUpdater_UpdatePlayerPanel(scoreboardConfig, playersContainer
                 var itemPanelName = "_dynamic_item_" + i;
                 var itemPanel = playerItemsContainer.FindChild(itemPanelName);
                 if (itemPanel === null) {
-					if (playerItems.inventory[i]) {
-                    itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
-					itemPanel.itemname = playerItems.inventory[i].item_name
-					}else
-					{
-                    itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
-					itemPanel.itemname = "life_stealer_empty_1"
-					}
+                    if (playerItems.inventory[i]) {
+                        itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
+                        itemPanel.itemname = playerItems.inventory[i].item_name
+                    }else
+                    {
+                        itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
+                        itemPanel.itemname = "life_stealer_empty_1"
+                    }
                 }
 
             }
 
         }
     }
-	
-	var playerItemsContainer = playerPanel.FindChildInLayoutFile("PlayerBackbagContainer");
+
+    var playerItemsContainer = playerPanel.FindChildInLayoutFile("PlayerBackbagContainer");
     if (playerItemsContainer) {
         var playerItems = Game.GetPlayerItems(playerId);
         if (playerItems) {
@@ -182,69 +183,69 @@ function _ScoreboardUpdater_UpdatePlayerPanel(scoreboardConfig, playersContainer
                 var itemPanelName = "_dynamic_item_" + i;
                 var itemPanel = playerItemsContainer.FindChild(itemPanelName);
                 if (itemPanel === null) {
-					if (playerItems.inventory[i]) {
-                    itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
-					itemPanel.itemname = playerItems.inventory[i].item_name
-					}else
-					{
-                    itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
-					itemPanel.itemname = "life_stealer_empty_1"
-					}
+                    if (playerItems.inventory[i]) {
+                        itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
+                        itemPanel.itemname = playerItems.inventory[i].item_name
+                    }else
+                    {
+                        itemPanel = $.CreatePanel("DOTAItemImage", playerItemsContainer, itemPanelName);
+                        itemPanel.itemname = "life_stealer_empty_1"
+                    }
                 }
 
             }
 
         }
     }
-	
-	var playerNeutraContainer = playerPanel.FindChildInLayoutFile("PlayerNeutraContainer");
-	if (playerNeutraContainer) {
-		var playerItems = Game.GetPlayerItems(playerId);
-		
+
+    var playerNeutraContainer = playerPanel.FindChildInLayoutFile("PlayerNeutraContainer");
+    if (playerNeutraContainer) {
+        var playerItems = Game.GetPlayerItems(playerId);
+
         var extra_item_1 = CustomNetTables.GetTableValue("extra_item", playerId.toString()).extra_1;
-		var extra_item_2 = CustomNetTables.GetTableValue("extra_item", playerId.toString()).extra_2;
-		var extra_item = [extra_item_1,extra_item_2]
+        var extra_item_2 = CustomNetTables.GetTableValue("extra_item", playerId.toString()).extra_2;
+        var extra_item = [extra_item_1,extra_item_2]
 
-		 for (var i = 0; i < extra_item.length; i++) {
-					var itemPanelName = "_dynamic_item_neutra" +i;
-					var itemPanel = playerNeutraContainer.FindChild(itemPanelName);
-					if (itemPanel === null) {
-						if (extra_item[i]==="") {
-						itemPanel = $.CreatePanel("DOTAAbilityImage", playerNeutraContainer, itemPanelName);
-						itemPanel.AddClass("ability");
-						itemPanel.abilityname = "";
-						}else
-						{
+        for (var i = 0; i < extra_item.length; i++) {
+            var itemPanelName = "_dynamic_item_neutra" +i;
+            var itemPanel = playerNeutraContainer.FindChild(itemPanelName);
+            if (itemPanel === null) {
+                if (extra_item[i]==="") {
+                    itemPanel = $.CreatePanel("DOTAAbilityImage", playerNeutraContainer, itemPanelName);
+                    itemPanel.AddClass("ability");
+                    itemPanel.abilityname = "";
+                }else
+                {
 
-						
-						itemPanel = $.CreatePanel("DOTAItemImage", playerNeutraContainer, itemPanelName);
-						itemPanel.itemname = extra_item[i].toString()
-						}
-					}
-		 }
 
+                    itemPanel = $.CreatePanel("DOTAItemImage", playerNeutraContainer, itemPanelName);
+                    itemPanel.itemname = extra_item[i].toString()
+                }
+            }
         }
 
-	
+    }
+
+
     var rdAbilityContainer = playerPanel.FindChildInLayoutFile("RdAbilityContainer");
     if (rdAbilityContainer) {
         var playerItems = Game.GetPlayerItems(playerId);
         if (playerItems) {
-			var ab = CustomNetTables.GetTableValue("rd_skills", "RDSK");
-			if (ab != null && ab[playerId] != null) {
-				var rdabilityPanel = rdAbilityContainer.FindChild("RA_END");
+            var ab = CustomNetTables.GetTableValue("rd_skills", "RDSK");
+            if (ab != null && ab[playerId] != null) {
+                var rdabilityPanel = rdAbilityContainer.FindChild("RA_END");
                 if (rdabilityPanel === null) {
                     rdabilityPanel = $.CreatePanel("DOTAAbilityImage", rdAbilityContainer, "RA_END");
-					rdabilityPanel.AddClass("ability");
-					rdabilityPanel.abilityname = ab[playerId];
-					rdabilityPanel.SetPanelEvent('onmouseover', function() {
-						$.DispatchEvent("DOTAShowAbilityTooltip", rdabilityPanel, rdabilityPanel.abilityname);
-					});
-					rdabilityPanel.SetPanelEvent('onmouseout', function() {
-						$.DispatchEvent("DOTAHideAbilityTooltip", rdabilityPanel);
-					});
+                    rdabilityPanel.AddClass("ability");
+                    rdabilityPanel.abilityname = ab[playerId];
+                    rdabilityPanel.SetPanelEvent('onmouseover', function() {
+                        $.DispatchEvent("DOTAShowAbilityTooltip", rdabilityPanel, rdabilityPanel.abilityname);
+                    });
+                    rdabilityPanel.SetPanelEvent('onmouseout', function() {
+                        $.DispatchEvent("DOTAHideAbilityTooltip", rdabilityPanel);
+                    });
                 }
-			}
+            }
 
         }
     }
