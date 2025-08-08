@@ -205,66 +205,74 @@ function custom_events:OnHero_Set(_, j)
 	end
 end
 
-
 function custom_events:On_Hero(k,j)
-	local PL=PlayerResource:GetPlayer(j.id)
-	if PL then
-		local HERO=PL:GetAssignedHero()
-		local NAME=HERO:GetName()
-		if HERO and HERO:IS_TrueHero_TG() then
-			for i = 0, HERO:GetAbilityCount() - 1 do
-				local ab = HERO:GetAbilityByIndex(i)
-				if ab then
-					HERO:RemoveAbilityByHandle(ab)
-				end
+	local playerID = j.id
+	local pl = PlayerResource:GetPlayer(playerID)
+	if not pl then return end
+
+	local hero = pl:GetAssignedHero()
+	if not hero or not hero:IS_TrueHero_TG() then return end
+
+	local heroName = hero:GetName()
+	local setNum = tostring(j.num)
+
+	-- 构造重建用的英雄名，格式根据你KV命名规则调整
+	local newHeroName = heroName .. "_set" .. setNum
+
+	-- 记录一下之前等级，经验，金钱等，如果需要的话
+	local level = hero:GetLevel()
+	local xp = hero:GetCurrentXP()
+	local gold = PlayerResource:GetGold(playerID)
+
+	-- 先移除旧英雄
+	hero:RemoveSelf()
+
+	-- 用 ReplaceHeroWith 创建新英雄
+	PlayerResource:ReplaceHeroWith(playerID, newHeroName, 0, 0)
+
+	-- 延迟初始化，给新英雄设置等级、金钱、技能点等
+	Timers:CreateTimer(0.1, function()
+		local newHero = PlayerResource:GetSelectedHeroEntity(playerID)
+		if newHero then
+			-- 还原等级和经验
+			newHero:AddExperience(xp, 0, false, false)
+			if newHero:GetLevel() < level then
+				newHero:SetLevel(level)
 			end
-			local modifier_count = HERO:GetModifierCount()
-			if modifier_count>0 then
-				for i = 0, modifier_count do
-					local modifier_name = HERO:GetModifierNameByIndex(i)
-					if modifier_name and not Is_DATA_TG(NOT_MODIFIER_BUFF,modifier_name) then
-						HERO:RemoveModifierByName(modifier_name)
+
+			-- 还原金钱
+			PlayerResource:SetGold(playerID, gold, false)
+
+			-- 给技能点数：等级 = 技能点数
+			newHero:SetAbilityPoints(newHero:GetLevel())
+			newHero:CalculateStatBonus(true)
+
+			-- 如果你有需要给新技能额外初始化
+			for i = 0, newHero:GetAbilityCount() - 1 do
+				local ab = newHero:GetAbilityByIndex(i)
+				if ab and ab:GetLevel() == 0 and ab.Set_InitialUpgrade then
+					local tbl = ab.Set_InitialUpgrade()
+					if tbl then
+						ab:SetLevel(tbl.LV or 1)
+						ab:UseResources(tbl.MANA or false, false, tbl.GOLD or false, tbl.CD or false)
 					end
 				end
 			end
-			local T=HEROSK[NAME]
-			local ab=T[tostring(j.num)]
-			for a=1,30 do
-				local n=ab[tostring(a)]
-				if n then
-					HERO:AddAbility(n)
-				end
+
+			-- 清理某些modifier，或者调用额外初始化
+			if newHero:HasModifier("modifier_helide") then
+				newHero:RemoveModifierByName("modifier_helide")
 			end
-			if TableContainsKey(HeroTalentName,NAME) then
-				CDOTA_PlayerResource.TG_HERO[j.id+1].TALENT_NAME=HeroTalentName[NAME][tostring(j.num)]
-			else
-				CDOTA_PlayerResource.TG_HERO[j.id+1].TALENT_NAME=NAME
-			end
-			HERO.HERO_SELECT=true
-			HERO:SetAbilityPoints(HERO:GetLevel())
-			HERO:CalculateStatBonus(true)
-			for i = 0, 9 do
-				local AB = HERO:GetAbilityByIndex(i)
-				if AB~=nil then
-					local AB_NAME = AB:GetAbilityName()
-					local AB_LV = AB:GetLevel()
-					if AB_LV == 0 then
-						local TABLE=AB.Set_InitialUpgrade()
-						if TABLE~=nil then
-							AB:SetLevel(TABLE.LV or 1)
-							AB:UseResources(TABLE.MANA or false, false,TABLE.GOLD or false,TABLE.CD or false)
-						end
-					end
-				end
-			end
-			HERO.Random_Skill = nil
-			custom_events:OnAbility_Set(nil, { id=j.id, roll=1 })
-			if HERO:HasModifier("modifier_helide") then
-				HERO:RemoveModifierByName("modifier_helide")
-			end
+
+			-- 标记英雄选中状态
+			newHero.HERO_SELECT = true
+
+			-- 调用你现有的OnAbility_Set事件
+			custom_events:OnAbility_Set(nil, { id = playerID, roll = 1 })
 		end
-	end
+	end)
 end
+
 
 
 
