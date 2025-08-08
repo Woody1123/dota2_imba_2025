@@ -1,4 +1,4 @@
-max_tip = 6
+max_tip = 6;
 var num = 1;
 var max_t = 17;
 var panel = $.GetContextPanel()
