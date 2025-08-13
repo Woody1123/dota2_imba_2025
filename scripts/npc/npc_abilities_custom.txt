@@ -117,6 +117,20 @@
             "value"    "500"
         }
     }
+      // 霜冻之箭物理易伤增加10%
+        "special_bonus_drow_ranger_2"
+        {
+            // General
+            // -------------------------------------------------------------------------------------------------------------
+            "BaseClass"          "special_bonus_base"
+            "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+            "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
+            "AbilityValues"
+            {
+                "ad_linked_ability"    "multishot"
+                "value"    "10"
+            }
+        }
     "special_bonus_imba_test"
     {
         // General
@@ -660,6 +674,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "slug"
+            "value"    "25"
         }
     }
     // +1枪挂榴弹伤害系数
@@ -715,6 +730,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "sniper_roll"
+            "value"    "1"
         }
     }
     // 无人机经过的敌方会使友军获得隐身效果
@@ -741,6 +757,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "grenade"
+            "value"    "50"
         }
     }
     // =================================================================================================================
@@ -1251,6 +1268,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "echo_stomp"
+            "value"    "1"
         }
     }
     // +600游魂移动速度
@@ -1640,6 +1658,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "torrent"
+            "value"    "1"
         }
     }
     // +100潮汐使者攻击力
@@ -1898,6 +1917,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "3"
         }
     }
     // 移除命运煞令蓝耗
@@ -1987,6 +2007,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "300"
         }
     }
     // =================================================================================================================
@@ -3300,6 +3321,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "0.15"
         }
     }
     // 老姐
@@ -3471,6 +3493,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "2"
         }
     }
     // 推进没有距离上限
@@ -3503,6 +3526,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "0.5"
         }
     }
     // 触发大招击退时提升自己20%移速
@@ -3513,6 +3537,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "20"
         }
     }
     // 魅惑的野怪无视技能免疫
@@ -3722,6 +3747,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "storm_bolt"
+            "value"    "1"
         }
     }
     // 处于守望者之剑范围内时战吼CD降低70%
@@ -3735,6 +3761,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "warcry"
+            "value"    "70"
         }
     }
     // 战吼可以驱散天堂缴械
@@ -5199,6 +5226,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "crystal_nova"
+            "value"    "25"
         }
     }
     // 冰封禁制还会传递伤害
@@ -5225,6 +5253,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "brilliance_aura"
+            "value"    "3"
         }
     }
     // 奥术光环被杀死还会提高目标40%的蓝耗
@@ -5238,6 +5267,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "brilliance_aura"
+            "value"    "40"
         }
     }
     // +1秒极寒领域时间
@@ -5462,7 +5492,7 @@
             "armor_res"    "3"
         }
     }
-    // 减伤
+    // 减伤10
     "special_bonus_axe_1"
     {
         // -------------------------------------------------------------------------------------------------------------
@@ -5472,6 +5502,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "counter_helix"
+            "value" "10"
         }
     }
     // 嘲讽不再消耗魔法
@@ -5492,7 +5523,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
-        "value" "10"
+        "value"    "10"
         }
     }
     // 战斗饥渴会获得目标6秒的视野
@@ -5503,6 +5534,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "6"
         }
     }
     // 战斗饥渴会驱散一次目标的增益效果
@@ -5523,6 +5555,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "5"
         }
     }
     // 斩杀
@@ -6132,6 +6165,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1"
         }
     }
     // 丛林之舞树木被摧毁不会眩晕
@@ -6369,6 +6403,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "5"
         }
     }
     // 友方英雄穿过光墙还会获得2秒奔腾效果
@@ -6381,6 +6416,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "2"
         }
     }
     // 双倍奔腾速度
@@ -6407,6 +6443,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "15"
         }
     }
     // 认真一拳无视林肯莲花
@@ -6432,6 +6469,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "50"
         }
     }
     // 穿越者
@@ -6617,19 +6655,7 @@
         {
         }
     }
-    // 霜冻之箭物理易伤增加10%
-    "special_bonus_drow_ranger_2"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_base"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityValues"
-        {
-            "ad_linked_ability"    "multishot"
-        }
-    }
+
     // 数箭齐发施法范围提高至全图
     "special_bonus_drow_ranger_3"
     {
@@ -6941,6 +6967,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "30"
         }
     }
     // +吃墓碑恢复1000生命
@@ -6953,6 +6980,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1000"
         }
     }
     // -2噬魂CD
@@ -7274,6 +7302,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "purification_new"
+            "value"    "50"
         }
     }
     // +1秒天国恩赐持续时间
@@ -8304,6 +8333,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1"
         }
     }
     // +20% 龙炎伤害百分比
@@ -8570,6 +8600,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "350"
         }
     }
     // 救赎使目标受到的伤害提高25%
@@ -8582,6 +8613,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "25"
         }
     }
     // 额外增加一个技能-考验-
@@ -8618,6 +8650,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "5"
         }
     }
     // 神力恩泽额外降低敌军15%的魔法抗性
@@ -8630,6 +8663,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "15"
         }
     }
     // -上帝之手使目标获得1.5秒无敌并且每次都会恢复全部血量
@@ -8642,6 +8676,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1.5"
         }
     }
     // 陈再受到致命伤害时自动被传回泉水并刷新TPCD(120秒内置冷却)
@@ -8654,6 +8689,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "120"
         }
     }
     // 狼人
@@ -9989,6 +10025,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "epicenter"
+            "value"    "10"
         }
     }
     // 白牛
@@ -10179,6 +10216,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "0"
         }
     }
     // +20%巨力重击概率
@@ -10219,6 +10257,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "250"
         }
     }
     // +1000大招施法距离
@@ -10431,6 +10470,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "300"
         }
     }
     // 对友军释放无光之盾自身也会获得
@@ -10722,6 +10762,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "0"
         }
     }
     // 祸乱
@@ -10894,6 +10935,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1"
         }
     }
     // 移除蚀脑的施法前摇
@@ -10918,6 +10960,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "15"
         }
     }
     // 噩梦使友军移速提高30%
@@ -10930,6 +10973,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "30"
         }
     }
     // 蚀脑会恢复伤害20%的魔法
@@ -10942,6 +10986,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "20"
         }
     }
     // 梦魇
@@ -11124,6 +11169,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "200"
         }
     }
     // 开膛手继承A杖加血效果
@@ -11160,6 +11206,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "15"
         }
     }
     // 肢解额外对目标300范围随机单位释放
@@ -11172,6 +11219,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "300"
         }
     }
     // 肢解释放完毕后还会获得90点攻击速度
@@ -11184,6 +11232,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "90"
         }
     }
     // 杰森
@@ -11398,6 +11447,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "40"
         }
     }
     // 普攻附带40%智力魔法伤害（炽魂）
@@ -11410,6 +11460,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "40"
         }
     }
     // 神灭斩对主目标造成的伤害30%治疗自身
@@ -11422,6 +11473,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "30"
         }
     }
     // +0.5秒光击阵击飞时间
@@ -11649,6 +11701,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "50"
         }
     }
     // 授予力量额外提高60施法距离
@@ -11659,6 +11712,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "60"
         }
     }
     // 巨角冲撞途中获得30%伤害减免
@@ -11669,6 +11723,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "30"
         }
     }
     // 两极反转中的磁场范围提高至全图
@@ -11689,6 +11744,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "30"
         }
     }
     // 炼金
@@ -11833,6 +11889,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "15"
         }
     }
     // 不稳定化合物弹射1次
@@ -11843,6 +11900,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1"
         }
     }
     // 提高10%符文拾取的金钱
@@ -11853,6 +11911,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "10"
         }
     }
     // 化学狂暴额外获得8点护甲
@@ -11863,6 +11922,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "8"
         }
     }
     // 化学狂暴额外获得20%状态抗性
@@ -11873,6 +11933,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "20"
         }
     }
     // 金钱箱数量+1
@@ -11883,6 +11944,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "1"
         }
     }
     // 额外降低化学狂暴0.1攻击间隔
@@ -11894,6 +11956,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "chemical_rage"
+            "value"    "0.1"
         }
     }
     // 冰龙
@@ -12061,6 +12124,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "120"
         }
     }
     // 极寒之拥结束后获得2秒技能免疫
@@ -12071,6 +12135,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "2"
         }
     }
     // 提高10%碎裂冲击附带0.7秒眩晕
@@ -12081,6 +12146,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "10"
         }
     }
     // 提高碎裂冲击速度和范围
@@ -12101,6 +12167,7 @@
         "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
         "AbilityValues"
         {
+            "value"    "5"
         }
     }
     // 严寒烧灼A杖不消耗魔法
@@ -13558,7 +13625,7 @@
         }
         "AbilityValues"
         {
-            "value"    "0.15"
+            "value"    "0.1"
         }
     }
     // cast shadow strike will attack 800 radius enemies
@@ -14238,6 +14305,7 @@
         }
         "AbilityValues"
         {
+            "value"    "50"
         }
     }
     // -0.9 Firestorm Interval
@@ -14812,7 +14880,7 @@
         }
         "AbilityValues"
         {
-            "value"    "10.0"
+            "value"    "10"
         }
     }
     // -0.3 Battery Assault Interval
@@ -16334,6 +16402,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_split_earth"
+            "value"    "75"
         }
     }
     // ====================================
@@ -16347,6 +16416,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_lightning_storm"
+            "value"    "2"
         }
     }
     // ====================================
@@ -16360,6 +16430,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_lightning_storm"
+            "value"    "1"
         }
     }
     // ====================================
@@ -16373,10 +16444,11 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_pulse_nova"
+            "value"    "100"
         }
     }
     // ====================================
-    // 天赋5:+100脉冲新星伤害
+    // 天赋:+100脉冲新星伤害
     // ====================================
     "special_bonus_imba_leshrac_5"
     {
@@ -16400,6 +16472,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_diabolic_edict"
+            "value"    "5"
         }
     }
     // ====================================
@@ -16413,6 +16486,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_diabolic_edict"
+            "value"    "20"
         }
     }
     // ====================================================================================================================
@@ -16738,7 +16812,7 @@
         }
     }
     // ====================================
-    // 天赋1:+0.8s炎阳索持续时间
+    // 天赋:+0.8s炎阳索持续时间
     // ====================================
     "special_bonus_imba_ember_spirit_1"
     {
@@ -16748,10 +16822,11 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_ember_spirit_searing_chains"
+            "value"    "0.8"
         }
     }
     // ====================================
-    // 天赋2:+40无影拳对英雄伤害
+    // 天赋:+40无影拳对英雄伤害
     // ====================================
     "special_bonus_imba_ember_spirit_2"
     {
@@ -16761,10 +16836,11 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_ember_spirit_sleight_of_fist"
+            "value"    "40"
         }
     }
     // ====================================
-    // 天赋3:烈火罩自我驱散
+    // 天赋:烈火罩自我驱散
     // ====================================
     "special_bonus_imba_ember_spirit_3"
     {
@@ -16777,7 +16853,7 @@
         }
     }
     // ====================================
-    // 天赋4:残焰灼烧敌人-对600范围的敌人每秒造成45点伤害
+    // 天赋:残焰灼烧敌人-对600范围的敌人每秒造成45点伤害
     // ====================================
     "special_bonus_imba_ember_spirit_4"
     {
@@ -16788,6 +16864,7 @@
         {
             "ad_linked_ability"    "imba_ember_spirit_fire_remnant"
             "ad_linked_ability"    "imba_ember_spirit_fire_remnant"
+            "value"    "45"
         }
     }
     // ====================================
@@ -16801,6 +16878,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_ember_spirit_fire_remnant"
+            "value"    "400"
         }
     }
     // ====================================
@@ -16819,7 +16897,7 @@
         }
     }
     // ====================================
-    // 天赋7:残焰提供400范围的高空视野
+    // 天赋:残焰提供400范围的高空视野
     // ====================================
     "special_bonus_imba_ember_spirit_7"
     {
@@ -16829,6 +16907,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_ember_spirit_fire_remnant"
+            "value"    "400"
         }
     }
     // ////////////////////////////////////////////////////////随机自定义
