@@ -250,6 +250,8 @@ function Precache( context )
 	PrecacheResource("particle", "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_ogre_magi/ogre_magi_fire_shield.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo.vpcf", context)
+	PrecacheResource("particle", "particles/econ/items/windrunner/windranger_arcana/windranger_arcana_focusfire_attack.vpcf", context)
+	PrecacheResource("particle", "particles/tgp/claw_c6.vpcf", context)
 
 
 	PrecacheResource( "model", "models/heroes/tiny/tiny_01/tiny_01.vmdl", context )
@@ -274,7 +276,9 @@ function Precache( context )
 	PrecacheResource( "model", "models/heroes/dragon_knight_persona/dk_persona_shoulder_pauldrons.vmdl", context )
 	PrecacheResource( "model", "models/heroes/dragon_knight_persona/dk_persona_weapon_full.vmdl", context )
 	PrecacheResource( "model", "models/heroes/vengeful/vengeful_terror_head.vmdl", context )
-
+	PrecacheResource( "model", "models/props_gameplay/divine_sentinel/divine_sentinel_cube.vmdl", context )
+	PrecacheResource( "model", "models/items/venomancer/ward/venomancer_hydra_snakeward/venomancer_hydra_snakeward.vmdl", context )
+	PrecacheModel("models/heroes/venomancer/venomancer_ward.vmdl", context)
 	--[[
 			PrecacheResource( "model", "*.vmdl", context )
 			PrecacheResource( "soundfile", "*.vsndevts", context )
