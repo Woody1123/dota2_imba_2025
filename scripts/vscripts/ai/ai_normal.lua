@@ -16,7 +16,7 @@ function ai_normal:OnCreated()
 	self.beingTargetedByTower = false
 	self.castUntil = 0
 
-	-- 缓存古代建筑和塔
+	-- 缓存古代建筑、塔和兵营
 	self:CacheEnemyBuildings()
 
 	-- 缓存英雄属性类型，避免重复计算
@@ -38,7 +38,7 @@ function ai_normal:OnCreated()
 
 	self:StartIntervalThink(0.5)
 
-	-- 每 10 秒尝试自动开启 toggle 技能（不用太频繁）
+	-- 每 10 秒尝试自动开启 toggle 技能
 	Timers:CreateTimer(0, function()
 		if self and self.TryEnableToggleAbilities and self.parent:IsAlive() then
 			self:TryEnableToggleAbilities()
@@ -81,7 +81,7 @@ function ai_normal:OnIntervalThink()
 	-- 自动升级技能
 	self:TryLevelUpAbilities()
 
-	-- 分帧执行：交替使用技能和物品，降低压力
+	-- 分帧执行：交替使用技能和物品
 	self.frameCount = (self.frameCount + 1) % 2
 	if self.frameCount == 0 then
 		self:TryUseAbilities()
@@ -89,42 +89,47 @@ function ai_normal:OnIntervalThink()
 		self:TryUseItemsOnEnemyInRange()
 	end
 
-	-- 单位搜索和攻击逻辑，降低调用频率
+	-- 单位搜索和攻击逻辑
 	if now >= self.nextUnitSearchTime then
 		self.nextUnitSearchTime = now + self.unitSearchInterval
 		self:SearchAndAttack()
 	end
 end
 
--- 缓存敌方古代建筑和塔
+-- 缓存敌方古代建筑、塔和兵营
 function ai_normal:CacheEnemyBuildings()
 	local hero = self.parent
 	local team = hero:GetTeamNumber()
 
-	-- 缓存敌方古代建筑
+	-- 缓存古代建筑
 	local ancientNames = {
 		["npc_dota_goodguys_fort"] = true,
 		["npc_dota_badguys_fort"] = true,
 	}
 	self.cachedAncient = nil
-	local buildings = FindUnitsInRadius(team, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE,
+
+	local buildings = FindUnitsInRadius(team, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE,
 			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING,
 			DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	for _, b in ipairs(buildings) do
-		if b:IsAlive() and ancientNames[b:GetUnitName()] then
+		if b and b:IsAlive() and ancientNames[b:GetUnitName()] then
 			self.cachedAncient = b
 			break
 		end
 	end
 
-	-- 缓存敌方塔列表（一次缓存，后面直接使用）
+	-- 缓存敌方塔
 	self.cachedEnemyTowers = {}
-	local towers = FindUnitsInRadius(team, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE,
-			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING,
-			DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-	for _, t in ipairs(towers) do
-		if t:IsAlive() and string.find(t:GetUnitName(), "tower") then
-			table.insert(self.cachedEnemyTowers, t)
+	-- 缓存敌方兵营
+	self.cachedEnemyBarracks = {}
+	for _, b in ipairs(buildings) do
+		if b and b:IsAlive() then
+			local name = b:GetUnitName()
+			if string.find(name, "tower") then
+				table.insert(self.cachedEnemyTowers, b)
+			elseif string.find(name, "barracks") then
+				table.insert(self.cachedEnemyBarracks, b)
+			end
 		end
 	end
 end
@@ -132,6 +137,7 @@ end
 -- 查找并攻击逻辑
 function ai_normal:SearchAndAttack()
 	local hero = self.parent
+	if not hero or not hero:IsAlive() then return end
 
 	-- 查找附近敌方英雄
 	local enemyHeroes = FindUnitsInRadius(
@@ -145,7 +151,7 @@ function ai_normal:SearchAndAttack()
 			FIND_CLOSEST,
 			false
 	)
-	if #enemyHeroes > 0 then
+	if enemyHeroes and #enemyHeroes > 0 then
 		self:AttackTarget(enemyHeroes[1])
 		return
 	end
@@ -162,28 +168,57 @@ function ai_normal:SearchAndAttack()
 			FIND_CLOSEST,
 			false
 	)
-	if #enemyCreeps > 0 then
+	if enemyCreeps and #enemyCreeps > 0 then
 		self:AttackTarget(enemyCreeps[1])
 		return
 	end
 
-	-- 攻击附近敌方塔（用缓存过滤alive且在范围内的）
-	for _, tower in ipairs(self.cachedEnemyTowers) do
-		if tower:IsAlive() and (hero:GetAbsOrigin() - tower:GetAbsOrigin()):Length2D() <= 1200 then
-			self:AttackTarget(tower)
-			return
+	-- 攻击附近敌方塔（安全版）
+	if self.cachedEnemyTowers then
+		local validTowers = {}
+		for _, tower in ipairs(self.cachedEnemyTowers) do
+			if tower and IsValidEntity(tower) and tower:IsAlive() then
+				table.insert(validTowers, tower)
+			end
+		end
+		self.cachedEnemyTowers = validTowers  -- 更新缓存，只保留存活单位
+
+		for _, tower in ipairs(self.cachedEnemyTowers) do
+			if (hero:GetAbsOrigin() - tower:GetAbsOrigin()):Length2D() <= 1200 then
+				self:AttackTarget(tower)
+				return
+			end
+		end
+	end
+
+	-- 攻击附近敌方兵营（安全版）
+	if self.cachedEnemyBarracks then
+		local validBarracks = {}
+		for _, barracks in ipairs(self.cachedEnemyBarracks) do
+			if barracks and IsValidEntity(barracks) and barracks:IsAlive() then
+				table.insert(validBarracks, barracks)
+			end
+		end
+		self.cachedEnemyBarracks = validBarracks  -- 更新缓存，只保留存活单位
+
+		for _, barracks in ipairs(self.cachedEnemyBarracks) do
+			if (hero:GetAbsOrigin() - barracks:GetAbsOrigin()):Length2D() <= 1200 then
+				self:AttackTarget(barracks)
+				return
+			end
 		end
 	end
 
 	-- 移动到敌方古代建筑
 	if self.cachedAncient and self.cachedAncient:IsAlive() then
 		hero:MoveToPosition(self.cachedAncient:GetAbsOrigin())
+		return
 	end
 
 	self.lastTarget = nil
 end
 
--- 攻击目标（控制攻击命令间隔，避免过频繁）
+-- 攻击目标
 function ai_normal:AttackTarget(target)
 	local now = GameRules:GetGameTime()
 	if not target or not target:IsAlive() then
@@ -197,15 +232,13 @@ function ai_normal:AttackTarget(target)
 	end
 end
 
--- 自动升级技能（优先升级未满级技能）
+-- 自动升级技能
 function ai_normal:TryLevelUpAbilities()
 	local hero = self.parent
 	local level = hero:GetLevel()
 	local abilityPoints = hero:GetAbilityPoints()
 
-	if abilityPoints <= 0 then
-		return
-	end
+	if abilityPoints <= 0 then return end
 
 	for i = 0, 15 do
 		local ability = hero:GetAbilityByIndex(i)
@@ -232,9 +265,7 @@ end
 -- 尝试使用技能
 function ai_normal:TryUseAbilities()
 	local hero = self.parent
-	if not hero or not hero:IsAlive() or hero:IsStunned() or hero:IsSilenced() then
-		return
-	end
+	if not hero or not hero:IsAlive() or hero:IsStunned() or hero:IsSilenced() then return end
 
 	local searchRange = 1000
 	local enemies = FindUnitsInRadius(
@@ -259,20 +290,13 @@ function ai_normal:TryUseAbilities()
 			local castRange = ability:GetCastRange(hero:GetAbsOrigin(), nil)
 			if not castRange or castRange <= 0 then castRange = 600 end
 
-			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then
-				goto continue
-			end
+			if ability:GetManaCost(ability:GetLevel()) > hero:GetMana() then goto continue end
 
-			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then
-				goto continue
-			end
+			if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then goto continue end
 
-			-- 跳过CD短且无蓝的技能（避免频繁释放）
 			local isNoMana = ability:GetManaCost(ability:GetLevel()) == 0
 			local isShortCD = ability:GetCooldown(ability:GetLevel()) <= 3
-			if isNoMana and isShortCD then
-				goto continue
-			end
+			if isNoMana and isShortCD then goto continue end
 
 			local castPoint = ability:GetCastPoint() or 0
 			local buffer = 0.05
@@ -313,7 +337,6 @@ function ai_normal:TryUseAbilities()
 					return
 				end
 			end
-
 		end
 
 		::continue::
@@ -359,9 +382,7 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 		end
 	end
 
-	if maxCastRange <= 0 or #usableItems == 0 then
-		return
-	end
+	if maxCastRange <= 0 or #usableItems == 0 then return end
 
 	local enemies = FindUnitsInRadius(
 			hero:GetTeamNumber(),
@@ -375,9 +396,7 @@ function ai_normal:TryUseItemsOnEnemyInRange()
 			false
 	)
 
-	if #enemies == 0 then
-		return
-	end
+	if #enemies == 0 then return end
 
 	for _, item in ipairs(usableItems) do
 		local name = item:GetName()
@@ -448,14 +467,10 @@ function ai_normal:TryBuyItems()
 	end
 
 	local itemGroup = RecommendedItems[attrType]
-	if not itemGroup then
-		return
-	end
+	if not itemGroup then return end
 
 	local itemList = itemGroup[attackType]
-	if not itemList then
-		return
-	end
+	if not itemList then return end
 
 	local currentGold = hero:GetGold()
 
@@ -469,7 +484,7 @@ function ai_normal:TryBuyItems()
 					hero:SpendGold(cost, DOTA_ModifyGold_PurchaseItem)
 					print("[AI] 购买物品:", itemName)
 				end
-				return -- 每次只买一个
+				return
 			end
 		end
 	end
@@ -536,4 +551,3 @@ function GetHeroType(hero)
 	local attackType = hero:IsRangedAttacker() and "ranged" or "melee"
 	return attrType, attackType
 end
-
