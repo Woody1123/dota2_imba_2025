@@ -3,8 +3,6 @@
 
 "DOTAUnits"
 {
-    "max_hero_id" "999"
-	"Version"	"1"
 	"npc_dummy_unit"
 	{
 		// General
@@ -2098,11 +2096,11 @@
 		"Ability4"					"roshan_upup"	// Ability 4.roshan_inherent_buffs
 		"Ability5"					""		// Ability 5.roshan_devotion
 		"Ability6"					"mars_arena_of_blood"
-		
+
 		"Ability7"					""
 		"Ability8"					""
 		"Ability9"					"spectre_dispersion"
-		
+
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"			// Physical protection.
@@ -2293,7 +2291,7 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
 		"MovementSpeed"				"0"			// Speed
 		"MovementTurnRate"			"0.5"		// Turning rate.
-	
+
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"31"		// Experience earn.
@@ -2313,7 +2311,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1200"		// Range of vision during day light.
@@ -2600,10 +2598,10 @@
 		"MinimapIconSize"			"320"
 		"Level"						"1"
 		"wearable"					"14293"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -2673,7 +2671,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -2684,7 +2682,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Good Tower 1 MID
@@ -2699,10 +2697,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -2772,7 +2770,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -2783,7 +2781,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Good Tower 1 BOT
@@ -2798,10 +2796,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -2871,7 +2869,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -2882,7 +2880,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Good Tower 2 TOP
@@ -2900,7 +2898,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -2970,7 +2968,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -2981,7 +2979,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Good Tower 2 MID
@@ -2996,10 +2994,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"2"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3069,7 +3067,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3080,7 +3078,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 
 //=================================================================================
@@ -3096,10 +3094,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"2"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3169,7 +3167,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3180,7 +3178,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 
 //=================================================================================
@@ -3196,10 +3194,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3269,7 +3267,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3280,7 +3278,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 //=================================================================================
 // Creeps: Good Tower 3 MID
 //=================================================================================
@@ -3294,10 +3292,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					"oldtroll_fervor"			// Ability 3.
@@ -3367,7 +3365,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3378,7 +3376,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Good Tower 3 BOT
@@ -3393,10 +3391,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3466,7 +3464,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3477,7 +3475,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 
 
@@ -3496,10 +3494,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"4"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3569,7 +3567,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3580,7 +3578,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 1 TOP
@@ -3596,10 +3594,10 @@
 		"MinimapIconSize"			"320"
 		"Level"						"1"
 		"wearable"					"14294"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3669,7 +3667,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3680,7 +3678,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 1 MID
@@ -3695,10 +3693,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3768,7 +3766,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3779,7 +3777,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 //=================================================================================
 // Creeps: Bad Tower 1 BOT
 //=================================================================================
@@ -3793,10 +3791,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_siege"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3866,7 +3864,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3877,7 +3875,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 2 TOP
@@ -3892,10 +3890,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"2"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -3965,7 +3963,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -3976,7 +3974,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 2 MID
@@ -3991,10 +3989,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"2"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -4064,7 +4062,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4075,7 +4073,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 2 BOT
@@ -4090,10 +4088,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"2"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -4163,7 +4161,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4174,7 +4172,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 3 TOP
@@ -4189,10 +4187,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -4262,7 +4260,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4273,7 +4271,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 3 MID
@@ -4288,10 +4286,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					"oldtroll_fervor"			// Ability 3.
@@ -4341,7 +4339,7 @@
 		"ProjectileCollisionSize"	"50"
 		"RingRadius"				"120"
 		"HealthBarOffset"			"280"
-		
+
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
@@ -4361,7 +4359,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4372,8 +4370,8 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-		
-	}	
+
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 3 BOT
@@ -4388,10 +4386,10 @@
 		"MinimapIcon"				"minimap_tower90"
 		"MinimapIconSize"			"320"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -4461,7 +4459,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4472,7 +4470,7 @@
 			"attack_normal_range"	"0"
 			"attack_long_range"		"500"
 		}
-	}	
+	}
 
 //=================================================================================
 // Creeps: Bad Tower 4
@@ -4487,10 +4485,10 @@
 		"MinimapIcon"				"minimap_tower45"
 		"MinimapIconSize"			"320"
 		"Level"						"4"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"creep_siege"			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -4560,7 +4558,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1900"		// Range of vision during day light.
@@ -4663,7 +4661,7 @@
 		"VisionDaytimeRange"		"2600"		// Range of vision during day light.
 		"VisionNighttimeRange"		"2600"		// Range of vision at night time.
 	}
-	
+
 	//=================================================================================
 	// Creeps: Bad Guys Fort
 	//=================================================================================
@@ -4680,7 +4678,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
 		"Ability2"					"fort_ab"			// Ability 2.
 		"Ability3"					"creep_siege"			// Ability 3.
@@ -4694,7 +4692,7 @@
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"		// Physical protection.
 		"MagicalResistance"				"80"			// Magical protection.
-		
+
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -6818,8 +6816,8 @@
 		//----------------------------------------------------------------
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	}
-	
-	
+
+
 	"npc_dota_trap_hook"
 	{
 		// General
@@ -9186,7 +9184,7 @@
 	// Warlock: Golem 1
 	//=================================================================================
 	"npc_dota_warlock_golem_1"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9200,7 +9198,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9217,13 +9215,13 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
-		"AttackDamageMax"			"0"		// Damage range max.	
+		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9245,8 +9243,8 @@
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9262,13 +9260,13 @@
 		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
 		//Inventory
 		"HasInventory"				"0"
-	}	
-	
+	}
+
 	//=================================================================================
 	// Warlock: Golem 2
 	//=================================================================================
 	"npc_dota_warlock_golem_2"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9281,7 +9279,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9298,13 +9296,13 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"140"		// Damage range min.
-		"AttackDamageMax"			"160"		// Damage range max.	
+		"AttackDamageMax"			"160"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9326,8 +9324,8 @@
 		"StatusHealth"				"6000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9344,12 +9342,12 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
-	
+
 	//=================================================================================
 	// Warlock: Golem 3
 	//=================================================================================
 	"npc_dota_warlock_golem_3"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9362,7 +9360,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9379,13 +9377,13 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
-		"AttackDamageMax"			"0"		// Damage range max.	
+		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9407,8 +9405,8 @@
 		"StatusHealth"				"9000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9424,7 +9422,7 @@
 		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
 		//Inventory
 		"HasInventory"				"0"
-	}	
+	}
 
 
 
@@ -9432,7 +9430,7 @@
 	// Warlock: Golem 1 (Scepter Upgraded)
 	//=================================================================================
 	"npc_dota_warlock_golem_scepter_1"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9444,7 +9442,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9455,19 +9453,19 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"			// Physical protection.
-		"MagicalResistance"				"33"	
+		"MagicalResistance"				"33"
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
-		"AttackDamageMax"			"0"		// Damage range max.	
+		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"1.1"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9489,8 +9487,8 @@
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9507,13 +9505,13 @@
 
 		//Inventory
 		"HasInventory"				"0"
-	}	
-	
+	}
+
 	//=================================================================================
 	// Warlock: Golem 2 (Scepter Upgraded)
 	//=================================================================================
 	"npc_dota_warlock_golem_scepter_2"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9525,7 +9523,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9536,19 +9534,19 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"			// Physical protection.
-		"MagicalResistance"				"33"	
+		"MagicalResistance"				"33"
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
-		"AttackDamageMax"			"0"		// Damage range max.	
+		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"1.0"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9570,8 +9568,8 @@
 		"StatusHealth"				"6000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9588,12 +9586,12 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
-	
+
 	//=================================================================================
 	// Warlock: Golem 3 (Scepter Upgraded)
 	//=================================================================================
 	"npc_dota_warlock_golem_scepter_3"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -9605,7 +9603,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -9616,19 +9614,19 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"		// Physical protection.
-		"MagicalResistance"				"33"	
+		"MagicalResistance"				"33"
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
-		"AttackDamageMax"			"0"		// Damage range max.	
+		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"0.9"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -9650,8 +9648,8 @@
 		"StatusHealth"				"9000"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -9667,9 +9665,9 @@
 		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
 		//Inventory
 		"HasInventory"				"0"
-	}	
+	}
 
-	
+
 		//------------------------------------------------------------------------------------
 	//- Unit for exorcism ability                                    -
 	//------------------------------------------------------------------------------------
@@ -9684,16 +9682,16 @@
 	    "ModelScale"        "1"
 	    "Level"             "1"
 	    "FormationRank"     "0"
-	    
+
 	    // Abilities
 	    //----------------------------------------------------------------
 	    "Ability1"          ""
-	    
+
 	    // Armor
 	    //----------------------------------------------------------------
 	    "ArmorPhysical"         "0"
 	    "MagicalResistance"     "0"
-	    
+
 	    // Attack
 	    //----------------------------------------------------------------
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -9705,37 +9703,37 @@
 	    "AttackAcquisitionRange"    "900"
 	    "AttackRange"           "10"
 	    "ProjectileSpeed"       "500"
-	    
+
 	    // Bounty
 	    //----------------------------------------------------------------
 	    "BountyGoldMin"         "26.0"
 	    "BountyGoldMax"         "38.0"
-	    
+
 	    // Movement
 	    //----------------------------------------------------------------
 	    "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
 	    "MovementSpeed"         "400"
 	    "MovementTurnRate"      "0.2"
-	    
+
 	    // Status
 	    //----------------------------------------------------------------
 	    "StatusHealth"          "65"
 	    "StatusHealthRegen"     "0.25"
 	    "StatusManaRegen"        "-"
-	    
+
 	    // Vision
 	    //----------------------------------------------------------------
 	    "VisionDaytimeRange"        "0"
 	    "VisionNighttimeRange"      "0"
-	    
+
 	    // Attack Damage types
 	    //----------------------------------------------------------------
 	    "AttackType"        "normal"
 	    "ArmorType"         "light"
-	    
+
 	    "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
 	    "HealthBarOffset"       "140"
-	    
+
 	    // Creature Data
 	    //----------------------------------------------------------------
 	}
@@ -9751,10 +9749,10 @@
 		"SoundSet"					"Creep_Bad_Melee"					// Name of sound set.
 		"ModelScale" 					".93"
 		"Level"						"3"
-			
+
 		// Abilities
 		//----------------------------------------------------------------
-			
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -9823,14 +9821,14 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-			
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-			
+
 		//Inventory
-	}	
+	}
 //=================================================================================
 // Creeps: Bad Melee UPGRADED
 //=================================================================================
@@ -9843,10 +9841,10 @@
 		"SoundSet"					"Creep_Bad_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.12"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -9915,14 +9913,14 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-		
+
 		//Inventory
-	}	
+	}
 	//=================================================================================
 // Creeps: Bad Melee Mega
 //=================================================================================
@@ -9935,10 +9933,10 @@
 		"SoundSet"					"Creep_Bad_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.12"
 		"Level"						"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -10007,14 +10005,14 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-		
+
 		//Inventory
-	}	
+	}
 	//=================================================================================
 // Creeps: Good Melee
 //=================================================================================
@@ -10027,10 +10025,10 @@
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale" 					"0.93"
 		"Level"						"3"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -10099,14 +10097,14 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-		
+
 		//Inventory
-	}	
+	}
 	//=================================================================================
 // Creeps: Good Melee Super
 //=================================================================================
@@ -10115,14 +10113,14 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer.vmdl"	// Model.	
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.12"
 		"Level"						"1"
-		
+
 			// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -10191,12 +10189,12 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-		
+
 		//Inventory
 	}
 	//=================================================================================
@@ -10207,14 +10205,14 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.	
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee_Mega"					// Name of sound set.
 		"ModelScale"				"1.12"
 		"Level"						"1"
-		
+
 			// Abilities
 		//----------------------------------------------------------------
-		
+
 		"Ability1"					"creep_irresolute"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
@@ -10283,97 +10281,106 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"750"		// Range of vision during day light.
 		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-		
+
 		//Inventory
 	}
-	 "npc_dota_imba_boss"
-        {
-            // General
-            "BaseClass"             "npc_dota_creature"                   // 不继承npc_dota_miniboss，直接用基础类
-            "Model"                 "models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"
-            "SoundSet"              "ShadowShaman_Ward"
-            "ModelScale"            "4"
-            "Level"                 "30"
-            "IsAncient"             "1"
-            "IsBossCreature"        "1"
-            "CanBeDominated"        "0"
+	"npc_dota_imba_boss"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/venomancer/venomancer_ward.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"ShadowShaman_Ward"
+		"ModelScale" 				"4"
+		//"ConsideredHero"			"1"
+		"Level"						"30"
+		"IsAncient"					"1"
 
-            // Abilities
-            "Ability1"              "neutral_spell_immunity"
-            "Ability2"              "miniboss_unyielding_shield"
-            "Ability3"              "miniboss_reflect"
-            "Ability4"              ""
+		"IsBossCreature"				"1"
+		"CanBeDominated"			"0"
 
-            // Armor
-            "ArmorPhysical"         "20"
-            "MagicalResistance"     "55"
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"neutral_spell_immunity"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
 
-            // Attack
-            "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-            "AttackDamageMin"       "28"
-            "AttackDamageMax"       "28"
-            "AttackRate"            "0.9"
-            "AttackAnimationPoint"  "0.6"
-            "AttackAcquisitionRange" "500"
-            "AttackRange"           "500"
-            "ProjectileModel"       "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
-            "ProjectileSpeed"       "750"
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"3"			// Physical protection.
 
-            // Bounds
-            "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
-            "RingRadius"            "110"
-            "HealthBarOffset"       "400"
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"28"		// Damage range min.
+		"AttackDamageMax"			"28"		// Damage range max.
 
-            // Bounty
-            "BountyXP"              "300"
-            "BountyGoldMin"         "300"
-            "BountyGoldMax"         "300"
+		"AttackRate"				"0.9"		// Speed of attack.
+		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"500"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"		// Particle system model for projectile.
+		"ProjectileSpeed"			"750"		// Speed of projectile.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"215"
 
-            // Movement
-            "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
-            "MovementSpeed"         "0"
-            "MovementTurnRate"      "1.0"
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"300"		// Experience earn.
+		"BountyGoldMin"				"300"		// Gold earned min.
+		"BountyGoldMax"				"300"		// Gold earned max.
 
-            // Status
-            "StatusHealth"          "1100"
-            "StatusHealthRegen"     "20"
-            "StatusMana"            "300"
-            "StatusManaRegen"       "0.5"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"			// Speed
+		"MovementTurnRate"			"1.0"			// Turning rate.
 
-            // Vision
-            "VisionDaytimeRange"    "1400"
-            "VisionNighttimeRange"  "1400"
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1100"		// Base health.
+		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusMana"				"300"		// Base mana.
+		"StatusManaRegen"			"0.5"		// Mana regeneration rate.
 
-            // Team
-            "TeamName"              "DOTA_TEAM_NEUTRALS"
-            "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-            "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_HERO"
-            "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		//Inventory
+		"HasInventory"				"1"
 
-            // Inventory
-            "HasInventory"          "1"
-        }
-	
-	
+	}
+
+
 	"npc_dota_imba_miniboss"
 	{
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
+		"Model"						"models/props_gameplay/divine_sentinel/divine_sentinel_cube.vmdl"	// Model.
 		"SoundSet"					""					// Name of sound set.
 		"ModelScale"				"0.7"
 		"Level"						"30"
 		"IsAncient"					"1"
 		"CanBeDominated"			"0"
 		//"ConsideredHero"			"1"
-		
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					""	// Ability 1.
@@ -10408,7 +10415,7 @@
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air		
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
 		"MovementSpeed"				"0"			// Speed
 		// Status
 		//----------------------------------------------------------------
@@ -10421,7 +10428,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"900"		// Range of vision during day light.
@@ -10430,17 +10437,17 @@
 		// Inventory
 		//----------------------------------------------------------------
 		"HasInventory"				"1"
-	}	
-	
+	}
+
 	//建筑马甲
 	"npc_dota_imba_miniboss_token"
 	{
 		// General
 		//
 		"BaseClass"					"npc_dota_building"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
+		"Model"						"models/props_nature/lily_flower00.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
-		
+
 		// Abilities
 		//----------------------------------------------------------------
 
@@ -10516,16 +10523,16 @@
 		"VisionDaytimeRange"		"0"		// Range of vision during day light.
 		"VisionNighttimeRange"		"0"		// Range of vision at night time.
 	}
-	
-	
+
+
 	"npc_dota_imba_mid"
 	{
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
+		"Model"						"models/props/traps/barking_dog/barking_dog.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
-		
+
 		// Abilities
 		//----------------------------------------------------------------
 
@@ -10601,13 +10608,13 @@
 		"VisionDaytimeRange"		"0"		// Range of vision during day light.
 		"VisionNighttimeRange"		"0"		// Range of vision at night time.
 	}
-	
+
 	"npc_cat"
 	{
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_neutral"	// Class of entity of link to.
-		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_flagbearer_mega.vmdl"	// Model.
+		"Model"						"models/items/juggernaut/ward/fortunes_tout/fortunes_tout.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"					"1"
