@@ -118,7 +118,6 @@ function modifier_imba_antimage_mana_break:OnAttackLanded(keys)
 	end
 	
 	keys.target:Script_ReduceMana((math.max(0, mana_burn)),self:GetAbility())
-	print("抽蓝")
 	local total_manaloss = mana - keys.target:GetMana()
 	local dmg = total_manaloss * self:GetAbility():GetSpecialValueFor("damage_per_burn")
 	if keys.attacker:IsIllusion() then
@@ -467,7 +466,7 @@ function imba_antimage_mana_void:IsRefreshable() 			return true end
 function imba_antimage_mana_void:IsStealable() 				return true end
 
 function imba_antimage_mana_void:GetAOERadius()	return self:GetSpecialValueFor("mana_void_aoe_radius") end
-function imba_antimage_mana_void:GetCooldown(i) return self.BaseClass.GetCooldown(self, i) + self:GetCaster():TG_GetTalentValue("special_bonus_imba_antimage_3") end
+function imba_antimage_mana_void:GetCooldown(i) return self.BaseClass.GetCooldown(self, i) - self:GetCaster():TG_GetTalentValue("special_bonus_imba_antimage_3") end
 function imba_antimage_mana_void:GetIntrinsicModifierName() return "modifier_imba_mana_void_passive" end
 function imba_antimage_mana_void:OnAbilityPhaseStart()
 	self:GetCaster():EmitSound("Hero_Antimage.ManaVoidCast")

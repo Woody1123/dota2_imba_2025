@@ -207,7 +207,7 @@ function imba_puck_waning_rift:IsHiddenWhenStolen() 	return false end
 function imba_puck_waning_rift:IsRefreshable() 			return true end
 function imba_puck_waning_rift:IsStealable() 			return true end
 function imba_puck_waning_rift:GetCastRange() if IsClient() then return self:GetSpecialValueFor("radius") end end
-function imba_puck_waning_rift:GetCooldown(i) return (self.BaseClass.GetCooldown(self, -1) + self:GetCaster():TG_GetTalentValue("special_bonus_imba_puck_2")) end
+function imba_puck_waning_rift:GetCooldown(i) return (self.BaseClass.GetCooldown(self, -1) - self:GetCaster():TG_GetTalentValue("special_bonus_imba_puck_2")) end
 function imba_puck_waning_rift:GetAOERadius()	return self:GetSpecialValueFor("radius") end
 LinkLuaModifier("modifier_imba_waning_rift_silenced", "heros/hero_puck/hero_puck.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imba_waning_rift_agh", "heros/hero_puck/hero_puck.lua", LUA_MODIFIER_MOTION_NONE)

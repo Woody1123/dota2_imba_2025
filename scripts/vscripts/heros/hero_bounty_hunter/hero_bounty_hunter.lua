@@ -16,16 +16,17 @@ end
 function imba_bounty_hunter_shuriken_toss:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-	local sp =self:GetSpecialValueFor("speed")
+	local speed = self:GetSpecialValueFor("speed")
+
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_BountyHunter.Shuriken", caster)
-	local info =
-	{
+
+	local info = {
 		Target = target,
 		Source = caster,
 		Ability = self,
 		EffectName = "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss.vpcf",
-		iMoveSpeed = sp*5,
-		vSourceLoc= caster:GetAbsOrigin(),
+		iMoveSpeed = speed * 5,
+		vSourceLoc = caster:GetAbsOrigin(),
 		bDrawsOnMinimap = false,
 		bDodgeable = true,
 		bIsAttack = false,
@@ -34,18 +35,29 @@ function imba_bounty_hunter_shuriken_toss:OnSpellStart()
 		bProvidesVision = false,
 	}
 	ProjectileManager:CreateTrackingProjectile(info)
-	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), Vector(0,0,0), nil, 250000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_UNITS_EVERYWHERE, false)
+
+	local enemies = FindUnitsInRadius(
+			caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			FIND_UNITS_EVERYWHERE,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_ALL,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			FIND_ANY_ORDER,
+			false
+	)
+
 	for _, enemy in pairs(enemies) do
 		if enemy:HasModifier("modifier_imba_track") and enemy ~= target then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_BountyHunter.Shuriken", caster)
-			local info =
-			{
+			local extraInfo = {
 				Target = enemy,
 				Source = caster,
 				Ability = self,
 				EffectName = "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss.vpcf",
-				iMoveSpeed = sp/2,
-				vSourceLoc= caster:GetAbsOrigin(),
+				iMoveSpeed = speed / 2,
+				vSourceLoc = caster:GetAbsOrigin(),
 				bDrawsOnMinimap = false,
 				bDodgeable = true,
 				bIsAttack = false,
@@ -54,66 +66,69 @@ function imba_bounty_hunter_shuriken_toss:OnSpellStart()
 				flExpireTime = GameRules:GetGameTime() + 30,
 				bProvidesVision = false,
 			}
-			ProjectileManager:CreateTrackingProjectile(info)
+			ProjectileManager:CreateTrackingProjectile(extraInfo)
 		end
 	end
 end
 
 function imba_bounty_hunter_shuriken_toss:OnProjectileHit(hTarget, vLocation)
-	if not hTarget or not self then
-		return
-	end
-	if hTarget:TG_TriggerSpellAbsorb(self) then
-		return
-	end
-	local ability = self:GetCaster():FindAbilityByName("imba_bounty_hunter_jinada")
-	local ability2 = self:GetCaster():FindAbilityByName("imba_bounty_hunter_track")
-	local damage = self:GetSpecialValueFor("damage")
+	if not hTarget or not self then return end
+
+	if hTarget:TG_TriggerSpellAbsorb(self) then return end
+
 	local caster = self:GetCaster()
-	local target = hTarget
+	local jinada = caster:FindAbilityByName("imba_bounty_hunter_jinada")
+	local track = caster:FindAbilityByName("imba_bounty_hunter_track")
+	local damage = self:GetSpecialValueFor("damage")
+
 	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Hero_BountyHunter.Shuriken.Impact", hTarget)
-	if caster:TG_HasTalent("special_bonus_imba_bounty_hunter_1") and ability and ability:GetLevel() > 0 then
-		if ability:IsCooldownReady() then
+
+	if caster:TG_HasTalent("special_bonus_imba_bounty_hunter_1") and jinada and jinada:GetLevel() > 0 then
+		if jinada:IsCooldownReady() then
 			if self:GetAutoCastState() then
-				damage = damage*ability:GetSpecialValueFor("crit_damage")*0.01
-				local steal = damage*(1+math.abs(caster:GetSpellAmplification(false)))*0.1 + ability:GetSpecialValueFor("gold_steal")
-				target:EmitSound("Hero_BountyHunter.Jinada")
-				target:AddNewModifier(caster, ability, "modifier_imba_jinada_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
+				damage = damage * jinada:GetSpecialValueFor("crit_damage") * 0.01
+				local steal = damage * (1 + math.abs(caster:GetSpellAmplification(false))) * 0.1 + jinada:GetSpecialValueFor("gold_steal")
+				hTarget:EmitSound("Hero_BountyHunter.Jinada")
+				hTarget:AddNewModifier(caster, jinada, "modifier_imba_jinada_slow", {duration = jinada:GetSpecialValueFor("slow_duration")})
+
 				local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
-				ParticleManager:SetParticleControl(pfx,0,Vector(100,0,0))
+				ParticleManager:SetParticleControl(pfx, 0, Vector(100, 0, 0))
 				ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 				ParticleManager:ReleaseParticleIndex(pfx)
-				PlayerResource:ModifyGold(target:GetPlayerOwnerID(), (0 - steal), false, DOTA_ModifyGold_Unspecified)
-				PopupNumbers(target, "gold", Vector(255, 200, 33), 1.0,(0 -steal), 1)
+
+				PlayerResource:ModifyGold(hTarget:GetPlayerOwnerID(), -steal, false, DOTA_ModifyGold_Unspecified)
+				PopupNumbers(hTarget, "gold", Vector(255, 200, 33), 1.0, -steal, 1)
 				PlayerResource:ModifyGold(caster:GetPlayerOwnerID(), steal, true, DOTA_ModifyGold_Unspecified)
 				PopupNumbers(caster, "gold", Vector(255, 200, 33), 1.0, steal, 0)
-				ability:UseResources(true,  false,true, true)
-				if ability2 and ability2:GetLevel() > 0 and caster:TG_HasTalent("special_bonus_imba_bounty_hunter_3")then
-					local buff = target:AddNewModifier(caster, ability2, "modifier_imba_track", {duration = caster:TG_GetTalentValue("special_bonus_imba_bounty_hunter_3")})
+
+				jinada:UseResources(true, false, true, true)
+
+				if track and track:GetLevel() > 0 and caster:TG_HasTalent("special_bonus_imba_bounty_hunter_3") then
+					local buff = hTarget:AddNewModifier(caster, track, "modifier_imba_track", {duration = caster:TG_GetTalentValue("special_bonus_imba_bounty_hunter_3")})
 					if caster:HasScepter() then
 						buff:SetStackCount(1)
 					end
 				end
 			else
-				caster:AddNewModifier(caster,self,"modifier_imba_shuriken_toss_flag",{duration = 1})
+				caster:AddNewModifier(caster, self, "modifier_imba_shuriken_toss_flag", {duration = 1})
 				caster:PerformAttack(hTarget, true, true, true, false, false, false, true)
 				caster:RemoveModifierByName("modifier_imba_shuriken_toss_flag")
 			end
 		end
 	end
-	
-	local damageTable = {
-						victim = target,
-						attacker = caster,
-						damage = damage,
-						damage_type = self:GetAbilityDamageType(),
-						damage_flags = DOTA_DAMAGE_FLAG_NONE, --Optional.
-						ability = self, --Optional.
-						}
-						
-	ApplyDamage(damageTable)
-	target:AddNewModifier(caster, self, "modifier_imba_stunned", {duration = self:GetSpecialValueFor("mini_stun")})
-	target:AddNewModifier(caster, self, "modifier_imba_shuriken_toss_chain", {duration = self:GetSpecialValueFor("chain_duration")})
+
+	ApplyDamage({
+		victim = hTarget,
+		attacker = caster,
+		damage = damage,
+		damage_type = self:GetAbilityDamageType(),
+		damage_flags = DOTA_DAMAGE_FLAG_NONE,
+		ability = self,
+	})
+
+	hTarget:AddNewModifier(caster, self, "modifier_imba_stunned", {duration = self:GetSpecialValueFor("mini_stun")})
+	hTarget:AddNewModifier(caster, self, "modifier_imba_shuriken_toss_chain", {duration = self:GetSpecialValueFor("chain_duration")})
+
 	return true
 end
 
@@ -211,46 +226,69 @@ function modifier_imba_jinada_passive:OnAttackLanded(keys)
 	if not IsServer() then
 		return
 	end
-	if keys.attacker ~= self:GetParent() or self:GetParent():PassivesDisabled() or keys.target:IsOther() or keys.target:IsBuilding() or not keys.target:IsAlive() or self:GetParent():IsIllusion() then
+
+	local parent = self:GetParent()
+	local attacker = keys.attacker
+	local target = keys.target
+	local ab = self:GetAbility()
+
+	-- 提前排除无效情况，快速返回
+	if attacker ~= parent or parent:PassivesDisabled() or parent:IsIllusion() or not target:IsAlive() or target:IsOther() or target:IsBuilding() then
 		return
 	end
-	local ab = self:GetAbility()
-	local parent = self:GetParent()
-	if self.crit[keys.record] then
-		local damage = keys.damage*0.1
-		if not keys.target:IsTrueHero() then
-			damage = 10
+
+	local crit_hit = self.crit[keys.record]
+	if crit_hit then
+		-- 计算伤害部分
+		local base_damage = keys.damage * 0.1
+		if not target:IsTrueHero() then
+			base_damage = 10
 		end
-		keys.target:EmitSound("Hero_BountyHunter.Jinada")
-		keys.target:AddNewModifier(parent, ab, "modifier_imba_jinada_slow", {duration = ab:GetSpecialValueFor("slow_duration")})
-		local pfx = ParticleManager:SafeCreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, keys.target)
-		ParticleManager:SetParticleControl(pfx,0,Vector(100,0,0))
-		ParticleManager:SetParticleControlEnt(pfx, 1, keys.attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.attacker:GetAbsOrigin(), true)
+
+		-- 减少粒子特效频率，只暴击时播放
+		target:EmitSound("Hero_BountyHunter.Jinada")
+		target:AddNewModifier(parent, ab, "modifier_imba_jinada_slow", {duration = ab:GetSpecialValueFor("slow_duration")})
+
+		local pfx = ParticleManager:CreateParticle("particles/econ/items/bounty_hunter/bounty_hunter_ti9_immortal/bh_ti9_immortal_jinada.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl(pfx, 0, Vector(100, 0, 0))
+		ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(pfx)
-		PlayerResource:ModifyGold(keys.target:GetPlayerOwnerID(), (0 - (ab:GetSpecialValueFor("gold_steal")+damage)), false, DOTA_ModifyGold_Unspecified)
-		PopupNumbers(keys.target, "gold", Vector(255, 200, 33), 1.0, (ab:GetSpecialValueFor("gold_steal")+damage), 1)
-		PlayerResource:ModifyGold(parent:GetPlayerOwnerID(), (ab:GetSpecialValueFor("gold_steal")+damage), true, DOTA_ModifyGold_Unspecified)
-		PopupNumbers(parent, "gold", Vector(255, 200, 33), 1.0, (ab:GetSpecialValueFor("gold_steal")+damage), 0)
-		local stack=self:GetStackCount()
-		self:SetStackCount(stack+((ab:GetSpecialValueFor("gold_steal")+damage)))
-		local ability = parent:FindAbilityByName("imba_bounty_hunter_track")
-		if ability and ability:GetLevel() > 0 and parent:TG_HasTalent("special_bonus_imba_bounty_hunter_3") then
-			local buff = keys.target:AddNewModifier(parent, ability, "modifier_imba_track", {duration = parent:TG_GetTalentValue("special_bonus_imba_bounty_hunter_3")})
-			if parent:HasScepter() then
-				buff:SetStackCount(1)
+
+		local gold_steal = ab:GetSpecialValueFor("gold_steal") + base_damage
+
+		-- 合并金币修改和弹窗调用
+		PlayerResource:ModifyGold(target:GetPlayerOwnerID(), -gold_steal, false, DOTA_ModifyGold_Unspecified)
+		PlayerResource:ModifyGold(parent:GetPlayerOwnerID(), gold_steal, true, DOTA_ModifyGold_Unspecified)
+		PopupNumbers(target, "gold", Vector(255, 200, 33), 1.0, gold_steal, 1)
+		PopupNumbers(parent, "gold", Vector(255, 200, 33), 1.0, gold_steal, 0)
+
+		-- 更新堆叠
+		self:SetStackCount(self:GetStackCount() + gold_steal)
+
+		-- 加轨迹效果的modifier，避免重复添加
+		local ability_track = parent:FindAbilityByName("imba_bounty_hunter_track")
+		if ability_track and ability_track:GetLevel() > 0 and parent:TG_HasTalent("special_bonus_imba_bounty_hunter_3") then
+			if not target:HasModifier("modifier_imba_track") then
+				local buff = target:AddNewModifier(parent, ability_track, "modifier_imba_track", {duration = parent:TG_GetTalentValue("special_bonus_imba_bounty_hunter_3")})
+				if parent:HasScepter() and buff then
+					buff:SetStackCount(1)
+				end
 			end
-		end	
-	end
-	
-	if keys.target:IsTrueHero() then
-		PlayerResource:ModifyGold(keys.target:GetPlayerOwnerID(), (0 - (ab:GetSpecialValueFor("gold_steal"))), false, DOTA_ModifyGold_Unspecified)
-		PopupNumbers(keys.target, "gold", Vector(255, 200, 33), 1.0, (ab:GetSpecialValueFor("gold_steal")), 1)
-		PlayerResource:ModifyGold(parent:GetPlayerOwnerID(), (ab:GetSpecialValueFor("gold_steal")), true, DOTA_ModifyGold_Unspecified)
-		PopupNumbers(parent, "gold", Vector(255, 200, 33), 1.0, (ab:GetSpecialValueFor("gold_steal")), 0)
-		local stack2=self:GetStackCount()
-		self:SetStackCount(stack2+(ab:GetSpecialValueFor("gold_steal")))
+		end
+	else
+		-- 非暴击，只有真实英雄才处理金币
+		if target:IsTrueHero() then
+			local gold_steal = ab:GetSpecialValueFor("gold_steal")
+			PlayerResource:ModifyGold(target:GetPlayerOwnerID(), -gold_steal, false, DOTA_ModifyGold_Unspecified)
+			PlayerResource:ModifyGold(parent:GetPlayerOwnerID(), gold_steal, true, DOTA_ModifyGold_Unspecified)
+			PopupNumbers(target, "gold", Vector(255, 200, 33), 1.0, gold_steal, 1)
+			PopupNumbers(parent, "gold", Vector(255, 200, 33), 1.0, gold_steal, 0)
+
+			self:SetStackCount(self:GetStackCount() + gold_steal)
+		end
 	end
 
+	-- 移除crit记录，减少表索引开销
 	self.crit[keys.record] = nil
 end
 

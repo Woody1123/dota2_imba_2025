@@ -67,30 +67,33 @@ function magic_missile:OnSpellStart()
 end
 
 
-function magic_missile:OnProjectileHit( target, location)
-	local caster=self:GetCaster()
-	if target == nil  then
-		return 
-	end
-    if  target:TG_TriggerSpellAbsorb(self) or (target:IsMagicImmune() and not caster:TG_HasTalent("special_bonus_vengefulspirit_1"))then
+function magic_missile:OnProjectileHit(target, location)
+    local caster = self:GetCaster()
+    if not target then return end
+
+    if target:TG_TriggerSpellAbsorb(self) or (target:IsMagicImmune() and not caster:TG_HasTalent("special_bonus_vengefulspirit_1")) then
         return
-    end 
+    end
+
     if not caster:HasModifier("modifier_magic_missile_cd") then
         caster:AddNewModifier(caster, self, "modifier_magic_missile_cd", {duration=2})
         EmitSoundOn("Hero_VengefulSpirit.MagicMissileImpact", target)
-    end 
-    local magic_missile_stun = self:GetSpecialValueFor( "magic_missile_stun" )
-    local magic_missile_damage = self:GetSpecialValueFor( "magic_missile_damage" )+caster:TG_GetTalentValue("special_bonus_vengefulspirit_5")
-        local damage = {
-            victim = target,
-            attacker = caster,
-            damage = magic_missile_damage*self.num,
-            damage_type = DAMAGE_TYPE_MAGICAL,
-            ability = self,
-        }
-        ApplyDamage( damage )
-		target:AddNewModifier(caster, self, "modifier_stunned", {duration=magic_missile_stun})
-	return true
+    end
+
+    local magic_missile_stun = self:GetSpecialValueFor("magic_missile_stun")
+    local magic_missile_damage = self:GetSpecialValueFor("magic_missile_damage") + caster:TG_GetTalentValue("special_bonus_vengefulspirit_5")
+    local num = self.num or 1  -- 避免 nil
+    local damage = {
+        victim = target,
+        attacker = caster,
+        damage = magic_missile_damage * num,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        ability = self,
+    }
+    ApplyDamage(damage)
+    target:AddNewModifier(caster, self, "modifier_stunned", {duration = magic_missile_stun})
+
+    return true
 end
 
 modifier_magic_missile_buff=class({})

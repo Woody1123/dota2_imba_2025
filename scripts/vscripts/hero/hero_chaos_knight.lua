@@ -37,53 +37,84 @@ function imba_chaos_knight_chaos_bolt:OnProjectileHit_ExtraData(target, pos, key
 	if not target or target:TG_TriggerSpellAbsorb(self) or target:IsMagicImmune() then
 		return
 	end
+
 	local caster = self:GetCaster()
 	target:EmitSound("Hero_ChaosKnight.ChaosBolt.Impact")
-	--[[
-	1: 0, damage, 4
-	2: duration, sizeof_damage + 1, 0
-	3: 8, duration, 0
-	4: duration, sizeof_duration + 1, 0
-	]]
-	local dmg = self:GetSpecialValueFor("damage_min") + (self:GetSpecialValueFor("damage_max") - self:GetSpecialValueFor("damage_min")) * (RandomInt(0, 100) / 100)
+
+	-- 计算伤害，按 min-max 随机取值
+	local damage_min = self:GetSpecialValueFor("damage_min")
+	local damage_max = self:GetSpecialValueFor("damage_max")
+	local dmg = damage_min + (damage_max - damage_min) * (RandomInt(0, 100) / 100)
 	dmg = math.floor(dmg + 0.5)
-	local stun = self:GetSpecialValueFor("stun_min") + (self:GetSpecialValueFor("stun_max") - self:GetSpecialValueFor("stun_min")) * (RandomInt(0, 100) / 100)
+
+	-- 计算晕眩时间，按 min-max 随机取值
+	local stun_min = self:GetSpecialValueFor("stun_min")
+	local stun_max = self:GetSpecialValueFor("stun_max")
+	local stun = stun_min + (stun_max - stun_min) * (RandomInt(0, 100) / 100)
 	local stun_pfx = math.floor(stun + 0.5)
+
+	-- 创建显示伤害与晕眩时间的粒子特效
 	local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_bolt_msg.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 	ParticleManager:SetParticleControl(pfx, 3, Vector(0, stun_pfx, 4))
 	ParticleManager:SetParticleControl(pfx, 4, Vector(stun, #tostring(stun_pfx) + 1, 0))
 	ParticleManager:SetParticleControl(pfx, 1, Vector(0, dmg, 4))
 	ParticleManager:SetParticleControl(pfx, 2, Vector(stun, #tostring(dmg) + 1, 0))
 	ParticleManager:ReleaseParticleIndex(pfx)
-	ApplyDamage({attacker = caster, victim = target, damage = dmg, ability = self, damage_type = self:GetAbilityDamageType()})
+
+	-- 造成伤害
+	ApplyDamage({
+		attacker = caster,
+		victim = target,
+		damage = dmg,
+		ability = self,
+		damage_type = self:GetAbilityDamageType()
+	})
+
 	if target:IsAlive() then
 		target:AddNewModifier_RS(caster, self, "modifier_imba_stunned", {duration = stun})
-		if self:GetSpecialValueFor("stun_max") > stun and not target:HasModifier("modifier_imba_chaos_bolt_confuse_thinker") then
-			target:AddNewModifier(caster, self, "modifier_imba_chaos_bolt_confuse_thinker", {duration = (self:GetSpecialValueFor("stun_max") - stun)})
+
+		-- 如果晕眩时间小于最大晕眩，且目标没有confuse thinker则添加
+		if stun < stun_max and not target:HasModifier("modifier_imba_chaos_bolt_confuse_thinker") then
+			target:AddNewModifier(caster, self, "modifier_imba_chaos_bolt_confuse_thinker", {duration = stun_max - stun})
 		end
 	end
-	local enemy = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, self:GetCastRange(pos, target) + caster:GetCastRangeBonus(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-	if #enemy >= 1 then
-		if PseudoRandom:RollPseudoRandom(self, self:GetSpecialValueFor("bounce_chance") + caster:TG_GetTalentValue("special_bonus_imba_chaos_knight_1")) then
+
+	-- 搜索附近敌人用于弹射
+	local bounce_range = self:GetCastRange(pos, target) + caster:GetCastRangeBonus()
+	local enemies = FindUnitsInRadius(
+			caster:GetTeamNumber(),
+			pos,
+			nil,
+			bounce_range,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+			FIND_ANY_ORDER,
+			false
+	)
+
+	if #enemies >= 1 then
+		local bounce_chance = self:GetSpecialValueFor("bounce_chance") + caster:TG_GetTalentValue("special_bonus_imba_chaos_knight_1")
+		if PseudoRandom:RollPseudoRandom(self, bounce_chance) then
 			local new_target = nil
-			new_target = enemy[1]
-			for i=1, #enemy do
-				if enemy[i] ~= target then
-					new_target = enemy[i]
+			-- 找第一个不是当前target的单位
+			for _, enemy in ipairs(enemies) do
+				if enemy ~= target then
+					new_target = enemy
 					break
 				end
 			end
+			-- 如果没找到则继续弹射给当前target（一般不会）
 			if not new_target then
 				new_target = target
 			end
-			local pfx_name = "particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf"
+
 			if new_target then
-				local info =
-				{
+				local info = {
 					Target = new_target,
 					Source = target,
 					Ability = self,
-					EffectName = pfx_name,
+					EffectName = "particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf",
 					iMoveSpeed = self:GetSpecialValueFor("chaos_bolt_speed"),
 					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
 					bDrawsOnMinimap = false,
@@ -99,14 +130,6 @@ function imba_chaos_knight_chaos_bolt:OnProjectileHit_ExtraData(target, pos, key
 			end
 		end
 	end
-	--[[elseif #enemy == 1 then
-		while self:GetSpecialValueFor("bounce_chance") >= RandomInt(0, 100) do
-			print("123")
-			dmg = dmg + self:GetSpecialValueFor("damage_min") + (self:GetSpecialValueFor("damage_max") - self:GetSpecialValueFor("damage_min")) * (RandomInt(0, 100) / 100)
-		end
-		dmg = math.floor(dmg + 0.5)
-
-	end]]
 end
 
 modifier_imba_chaos_bolt_confuse_thinker = class({})
@@ -162,85 +185,122 @@ end
 function imba_chaos_knight_reality_rift:OnAbilityPhaseStart()
 	self.target = {}
 	local caster = self:GetCaster()
+
 	caster:EmitSound("Hero_ChaosKnight.RealityRift")
 	caster:EmitSound("Hero_ChaosKnight.RealityRift.Cast")
+
 	local target = self:GetCursorTarget()
 	local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	local random_dis_min = RandomInt(math.min(((math.max(distance,1000)-1000)/10),60),100)
+
+	-- 计算随机距离比例，范围限制在 [min, 100]
+	local random_dis_min = RandomInt(math.min(((math.max(distance, 1000) - 1000) / 10), 60), 100)
 	print(random_dis_min)
-	local distance_random = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() * random_dis_min/100
+
+	local distance_random = distance * random_dis_min / 100
 	local direction = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-	direction.z = 0
+	direction.z = 0  -- 忽略高度差
+
 	self.direction = direction
+
 	local pos = GetGroundPosition(caster:GetAbsOrigin() + direction * distance_random, nil)
 	self.pos = pos
+
 	self.target[1] = target
-	local enemy = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self:GetCastRange(caster:GetAbsOrigin(), target) + caster:GetCastRangeBonus(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + (caster:TG_HasTalent("special_bonus_imba_chaos_knight_2") and DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES or 0), FIND_ANY_ORDER, false)
-	for i=1, #enemy do
-		if enemy[i] ~= target and PseudoRandom:RollPseudoRandom(self, self:GetSpecialValueFor("pull_chance")) then
-			self.target[#self.target + 1] = enemy[i]
+
+	-- 查找附近敌人，满足条件概率加入额外目标
+	local enemies = FindUnitsInRadius(
+			caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			self:GetCastRange(caster:GetAbsOrigin(), target) + caster:GetCastRangeBonus(),
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_NO_INVIS + (caster:TG_HasTalent("special_bonus_imba_chaos_knight_2") and DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES or 0),
+			FIND_ANY_ORDER,
+			false
+	)
+
+	for _, enemy in ipairs(enemies) do
+		if enemy ~= target and PseudoRandom:RollPseudoRandom(self, self:GetSpecialValueFor("pull_chance")) then
+			table.insert(self.target, enemy)
 		end
 	end
+
 	local pfx_name = "particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
-	--if HeroItems:UnitHasItem(caster, "chaos_knight_ti7_shield") then
-	--	pfx_name = "particles/hero/chaos_knight/chaos_knight_ti7_reality_rift.vpcf"
---	end
-	for i=1, #self.target do
-		self.target[i]:EmitSound("Hero_ChaosKnight.RealityRift.Target")
+	-- 可以在这里判断是否装备了特殊皮肤然后替换粒子
+
+	-- 为所有目标创建特效和播放声音
+	for _, tgt in ipairs(self.target) do
+		tgt:EmitSound("Hero_ChaosKnight.RealityRift.Target")
 		local pfx = ParticleManager:SafeCreateParticle(pfx_name, PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, self.target[i], PATTACH_POINT_FOLLOW, "attach_hitloc", self.target[i]:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, tgt, PATTACH_POINT_FOLLOW, "attach_hitloc", tgt:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 2, pos)
 		ParticleManager:SetParticleControlForward(pfx, 2, direction)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end
+
 	return true
 end
 
 function imba_chaos_knight_reality_rift:OnSpellStart()
 	local caster = self:GetCaster()
-	local casters = {}
-	casters[1] = caster
+	local casters = {caster}
 	local target = self.target[1]
+
+	-- 如果目标触发魔法吸收，则技能中断
 	if target:TG_TriggerSpellAbsorb(self) then
 		return
 	end
-	local modifier=
-		{
-			outgoing_damage=0,
-			incoming_damage=100,
-			bounty_base=0,
-			bounty_growth=0,
-			outgoing_damage_structure=0,
-			outgoing_damage_roshan=0,
-		}
-	local illusions=CreateIllusions(caster, caster, modifier, 1, 0, true, true)
-	illusions[1]:AddNewModifier(caster, self, "modifier_kill", {duration=self:GetSpecialValueFor("duration")})
-	illusions[1]:AddNewModifier(caster, self, "modifier_chaos_illusions", {duration=self:GetSpecialValueFor("duration")})
-	
+
+	-- 创建修改过伤害和经验的幻象
+	local illusionModifier = {
+		outgoing_damage = 0,
+		incoming_damage = 100,
+		bounty_base = 0,
+		bounty_growth = 0,
+		outgoing_damage_structure = 0,
+		outgoing_damage_roshan = 0,
+	}
+	local illusions = CreateIllusions(caster, caster, illusionModifier, 1, 0, true, true)
+
+	illusions[1]:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})
+	illusions[1]:AddNewModifier(caster, self, "modifier_chaos_illusions", {duration = self:GetSpecialValueFor("duration")})
+
 	Timers:CreateTimer(0.1, function()
 		illusions[1]:MoveToTargetToAttack(target)
 		return nil
 	end)
-	casters[2] = illusions[1]
-	local ck = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for i=1, #ck do
-		if ck[i]:GetPlayerOwnerID() == caster:GetPlayerOwnerID() and ck[i]:IsIllusion() then
-			casters[#casters + 1] = ck[i]
+	table.insert(casters, illusions[1])
+
+	-- 找出所有玩家拥有的幻象加入列表
+	local allUnits = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3000,
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_NONE,
+			FIND_ANY_ORDER,
+			false)
+
+	for _, unit in ipairs(allUnits) do
+		if unit:GetPlayerOwnerID() == caster:GetPlayerOwnerID() and unit:IsIllusion() then
+			table.insert(casters, unit)
 		end
 	end
-	for i=1, #casters do
-		FindClearSpaceForUnit(casters[i], self.pos + self.direction * -64, false)
-		casters[i]:MoveToTargetToAttack(target)
-		--print(#casters)
+
+	-- 将所有相关单位传送到指定位置并攻击目标
+	for _, u in ipairs(casters) do
+		FindClearSpaceForUnit(u, self.pos + self.direction * -64, false)
+		u:MoveToTargetToAttack(target)
 	end
-	
+
+	-- 传送目标到另一侧，朝向施法者，停止移动并添加Debuff
 	FindClearSpaceForUnit(target, self.pos + self.direction * 64, false)
 	target:Stop()
 	target:MoveToNPC(caster)
 	target:Stop()
 	target:SetForwardVector((caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized())
-	for i=1, #self.target do
+
+	for i = 1, #self.target do
 		if self.target[i] ~= target then
 			FindClearSpaceForUnit(self.target[i], self.pos + self.direction * 64, false)
 			self.target[i]:Stop()

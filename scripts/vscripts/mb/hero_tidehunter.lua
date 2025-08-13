@@ -1007,49 +1007,6 @@ function modifier_tidehunter_coming_motion:OnDestroy()
 			ab:OnSpellStart(self:GetAbility():GetSpecialValueFor("mini_ravage")*0.01)
 		end
 		end
-		--[[
-		local enemies = FindUnitsInRadius(
-        self:GetCaster():GetTeamNumber(),
-        self:GetCaster():GetAbsOrigin(),
-        nil,
-        self.impact_radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        FIND_ANY_ORDER,
-        false)
-		
-		for _,enemy in pairs(enemies) do
-			if not enemy:IsMagicImmune()  then
-					enemy:EmitSound("Hero_Tidehunter.RavageDamage")
-					-- 击飞参数
-					local knockback_table =
-					{
-						knockback_duration = 0.5,
-						duration = 0.5,
-						knockback_distance = 0,
-						knockback_height = 400,
-					}
-					if enemy:HasModifier("modifier_knockback") then 
-						enemy:RemoveModifierByName("modifier_knockback")
-					end
-					--击飞修改器
-					enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", knockback_table)
-					--击飞特效
-					local pfx = ParticleManager:SafeCreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
-					for i=0, 2 do
-						ParticleManager:SetParticleControl(pfx, i, GetGroundPosition(enemy:GetAbsOrigin(), nil))
-					end
-						-- 落地造成伤害
-						Timers:CreateTimer(0.2, function()
 
-						--击飞特效移除
-						ParticleManager:ReleaseParticleIndex(pfx)
-						-- 击飞落地后眩晕
-						enemy:AddNewModifier_RS(enemy, nil, "modifier_stunned", {duration = self.stun_duraion-0.5})
-						end)
-				end
-		end
-	end]]
 end		
 		

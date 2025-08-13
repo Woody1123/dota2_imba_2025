@@ -64,15 +64,6 @@ function imba_phantom_lancer_spirit_lance:OnSpellStart(keys)
 	self:GetCaster():EmitSound("Hero_PhantomLancer.SpiritLance.Throw")
 
 
-	--[[caster:RemoveModifierByName("modifier_imba_phantom_edge")
-	local ability = caster:FindAbilityByName("imba_phantom_lancer_phantom_edge")
-	caster:AddNewModifier(caster, ability, "modifier_imba_phantom_edge", {})
-
-	caster:RemoveModifierByName("modifier_imba_juxtapose_passive")
-	local ability2 = caster:FindAbilityByName("imba_phantom_lancer_juxtapose")
-	caster:AddNewModifier(caster, ability2, "modifier_imba_juxtapose_passive", {})]]
-
-
 	local pfx_name = "particles/units/heroes/hero_phantom_lancer/phantomlancer_spiritlance_projectile.vpcf"
 	local speed = self:GetSpecialValueFor("lance_speed")
 
@@ -712,19 +703,32 @@ function modifier_imba_phantom_edge_move:GetModifierMoveSpeed_Absolute()
   	return self:GetAbility():GetSpecialValueFor("bonus_speed") + self:GetCaster():TG_GetTalentValue("special_bonus_imba_phantom_lancer_7")
 end
 function modifier_imba_phantom_edge_move:OnAttack(keys)
-	if not IsServer() then
+	if not IsServer() then return end
+	local parent = self:GetParent()
+	local ability = self:GetAbility()
+
+	-- 校验关键对象
+	if not keys.attacker or not keys.target or not parent or not ability then
 		return
 	end
-	if keys.attacker ~= self:GetParent() or keys.target:IsBuilding() then
+
+	-- 确认攻击者是自己，目标不是建筑
+	if keys.attacker ~= parent or keys.target:IsBuilding() then
 		return
 	end
-	self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_phantom_edge_add", {duration = self.agility_duration})
-	keys.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_imba_phantom_edge_debuff", {duration = self.agility_duration})
-	--if PseudoRandom:RollPseudoRandom(self:GetAbility(), self.shard) and self:GetParent():Has_Aghanims_Shard() then
-	--	keys.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_stunned", {duration = self.shard_duration})
-	--end
+
+	-- 默认持续时间
+	local duration = self.agility_duration or ability:GetSpecialValueFor("bonus_duration") or 1
+
+	-- 给自己添加加成
+	parent:AddNewModifier(parent, ability, "modifier_imba_phantom_edge_add", {duration = duration})
+
+	-- 给目标添加减益
+	keys.target:AddNewModifier(parent, ability, "modifier_imba_phantom_edge_debuff", {duration = duration})
+
 	self:Destroy()
 end
+
 function modifier_imba_phantom_edge_move:OnDestroy(keys)
 	if IsServer() then
 		if self.pfx then
