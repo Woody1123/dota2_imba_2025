@@ -226,6 +226,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "phantom_strike"
+            "value"    "60"
         }
     }
     // -1秒幻影突袭CD
@@ -239,7 +240,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "phantom_strike"
-            "value"  "1"
+            "value"    "1"
         }
     }
     // 3技能增加35%闪避
@@ -253,6 +254,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "blur"
+             "value"    "3"
         }
     }
     // 释放魅影突袭获得0.4秒无敌
@@ -279,6 +281,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "coup_de_grace"
+            "value"    "200"
         }
     }
     // +100大招暴击倍数
@@ -292,6 +295,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "coup_de_grace"
+            "value"    "100"
         }
     }
 }
