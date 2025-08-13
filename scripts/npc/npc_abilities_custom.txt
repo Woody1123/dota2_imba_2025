@@ -102,6 +102,20 @@
 
 "DOTAAbilities"
 {
+
+ // +500魔法箭施法距离
+    "special_bonus_vengefulspirit_2"
+    {
+        // General
+        // -------------------------------------------------------------------------------------------------------------
+        "BaseClass"          "special_bonus_base"
+        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
+        "AbilityValues"
+        {
+            "ad_linked_ability"    "magic_missile"
+        }
+    }
     "special_bonus_imba_test"
     {
         // General
@@ -3192,6 +3206,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "chilling_touch"
+            "value" "100"
         }
     }
     // +300寒霜之触攻击距离
@@ -3205,6 +3220,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "chilling_touch"
+             "value" "300"
         }
     }
     // +雪球暴击倍率
@@ -3231,6 +3247,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "ice_blast"
+            "value" "1"
         }
     }
     // 冰霜旋涡伤害增加
@@ -10540,19 +10557,7 @@
         {
         }
     }
-    // +500魔法箭施法距离
-    "special_bonus_vengefulspirit_2"
-    {
-        // General
-        // -------------------------------------------------------------------------------------------------------------
-        "BaseClass"          "special_bonus_base"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityType"        "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityValues"
-        {
-            "ad_linked_ability"    "magic_missile"
-        }
-    }
+
     // -5秒移形换位冷却
     "special_bonus_vengefulspirit_3"
     {
@@ -16276,6 +16281,7 @@
         "AbilityValues"
         {
             "ad_linked_ability"    "imba_leshrac_pulse_nova"
+            "value" "100"
         }
     }
     // ====================================
