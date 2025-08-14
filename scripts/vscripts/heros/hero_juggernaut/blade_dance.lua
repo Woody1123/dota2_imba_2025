@@ -16,48 +16,7 @@ function blade_dance:GetIntrinsicModifierName()
 end
 
 function blade_dance:OnSpellStart()
-  --[[    local caster = self:GetCaster()   废弃
-    local cur_pos=self:GetCursorPosition()
-    local caster_pos=caster:GetAbsOrigin()
-  local dis=TG_Distance(caster_pos,cur_pos)
-    local dir=TG_Direction(cur_pos,caster_pos)
-    if dis>800 then
-        dis=800
-    end
-    local time=dis/1500
-    local dir_table={}
-    local sp=2000
-    local pos1 = RotatePosition(caster_pos, QAngle(0, 15, 0), caster_pos + dir)
-    local pos2 = RotatePosition(caster_pos, QAngle(0, -15, 0), caster_pos + dir)
-    local dir1=TG_Direction(pos1,caster_pos)
-    local dir2=TG_Direction(pos2,caster_pos)
-    table.insert (dir_table , dir)
-    caster.JUMP=false
-    caster:EmitSound("TG.juggjump")
-    caster:SetForwardVector(TG_Direction(cur_pos,caster_pos))
-    caster:AddNewModifier(caster, self, "modifier_blade_dance_move", {duration=time,dir=dir})
-        caster:EmitSound("TG.jugginv")
-        for num=1,#dir_table do
-            local Projectile =
-		    {
-			Ability = self,
-			EffectName = "particles/heros/jugg/jugg_shockwave.vpcf",
-			vSpawnOrigin = caster_pos,
-			fDistance = 3000,
-			fStartRadius = 300,
-			fEndRadius =300,
-			Source = caster,
-			bHasFrontalCone = false,
-            bReplaceExisting = false,
-            fExpireTime = GameRules:GetGameTime() + 10.0,
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			vVelocity =dir_table[num]*sp,
-			bProvidesVision = false,
-            }
-            TG_CreateProjectile({id=0,team=caster:GetTeamNumber(),owner=caster,p=Projectile})
-        end]]
+
 end
 
 --[[

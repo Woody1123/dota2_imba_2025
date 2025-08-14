@@ -279,17 +279,29 @@ end
 
 function imba_antimage_spell_shield:GetIntrinsicModifierName() return "modifier_imba_antimage_spell_shield_passive" end
 function imba_antimage_spell_shield:OnUpgrade()
-	local modifier = self:GetCaster():FindModifierByName( "modifier_antimage_counterspell" )
-	local modifier2 = self:GetCaster():FindModifierByName( "modifier_imba_antimage_spell_shield_passive" )
+	local caster = self:GetCaster()
 
-	self:GetCaster():FindAbilityByName("antimage_counterspell"):SetLevel(self:GetLevel())
+	-- 确保马甲技能存在
+	local counterspell = caster:FindAbilityByName("antimage_counterspell")
+	if not counterspell then
+		counterspell = caster:AddAbility("antimage_counterspell")
+		counterspell:SetHidden(true)  -- 保证它在 UI 中依旧不可见
+	end
+
+	-- 同步等级
+	counterspell:SetLevel(self:GetLevel())
+
+	-- 刷新 modifier
+	local modifier  = caster:FindModifierByName("modifier_antimage_counterspell")
+	local modifier2 = caster:FindModifierByName("modifier_imba_antimage_spell_shield_passive")
 	if modifier then
 		modifier:ForceRefresh()
 	end
 	if modifier2 then
 		modifier2:ForceRefresh()
-	end	
+	end
 end
+
 function imba_antimage_spell_shield:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = caster:FindAbilityByName("antimage_counterspell")

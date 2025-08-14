@@ -37,22 +37,6 @@ function swift_slash2:OnSpellStart()
 	if ab and ab:GetLevel() >=1 then
 		   caster:AddNewModifier(caster, ab, "modifier_omni_slash_buff",{duration=0.3,target = target:entindex()})
 	end
-	--[[
-    Timers:CreateTimer(0, function()
-        target:EmitSound("DOTA_Item.AbyssalBlade.Activate")
-        local fx2 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_CUSTOMORIGIN,target)
-        ParticleManager:SetParticleControl(fx2, 0,Vector(tpos.x+RandomInt(-700,700),tpos.y+RandomInt(-700,700),tpos.z+1000))
-        ParticleManager:SetParticleControl(fx2, 1,tpos)
-        ParticleManager:ReleaseParticleIndex(fx2)
-        caster:PerformAttack(target, true, true, true, false, true, false, false)
-        num=num+1
-        if num>=att_num then
-            return nil
-        else
-            return 0.1
-        end
-    end)
-    FindClearSpaceForUnit( caster, tpos, true )
-	]]
+
     caster:MoveToTargetToAttack(target)
 end

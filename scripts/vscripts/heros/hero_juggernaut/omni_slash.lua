@@ -102,35 +102,49 @@ function modifier_omni_slash_buff:OnCreated(tg)
         self:OnIntervalThink()
         self:StartIntervalThink(i)
 end
-
 function modifier_omni_slash_buff:OnIntervalThink()
+    -- 检查目标是否存在且有效
+    if not self.target or self.target:IsNull() or not self.target:IsAlive() then
+        self:Destroy()
+        return
+    end
+
     self:SetStackCount(self:GetRemainingTime())
     EmitSoundOn("Hero_Juggernaut.Attack", self.parent)
-    FindClearSpaceForUnit(self.parent, self.target:GetAbsOrigin()+RandomVector(666), true)
-    local dir= TG_Direction(self.target:GetAbsOrigin(),self.parent:GetAbsOrigin())
+
+    FindClearSpaceForUnit(self.parent, self.target:GetAbsOrigin() + RandomVector(666), true)
+
+    local dir = TG_Direction(self.target:GetAbsOrigin(), self.parent:GetAbsOrigin())
+
     local p1 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControlEnt(p1, 0, self.parent, PATTACH_ABSORIGIN, nil, self.parent:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(p1, 1,  self.target:GetAbsOrigin())
     ParticleManager:SetParticleControl(p1, 2,  self.target:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(p1)
+
     local p2 = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_omni_dash.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControlEnt(p2, 0, self.parent, PATTACH_ABSORIGIN, nil, self.parent:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(p2, 1,  self.target:GetAbsOrigin())
     ParticleManager:SetParticleControl(p2, 2,  self.target:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(p2)
+
     self.parent:SetForwardVector(dir)
     self.parent:SetAttacking(self.target)
     self.parent:SetForceAttackTarget(self.target)
+
     local pfx_tgt = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(pfx_tgt, 0, self.parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(pfx_tgt, 1, self.target:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pfx_tgt)
+
     local pfx_trail = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_trail.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(pfx_trail, 0, self.parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(pfx_trail, 1, self.target:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pfx_trail)
+
     self.parent:PerformAttack(self.target, false, true, true, false, true, false, true)
 end
+
 
 function modifier_omni_slash_buff:OnDestroy()
     if not IsServer() then

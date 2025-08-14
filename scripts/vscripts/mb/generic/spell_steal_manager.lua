@@ -265,7 +265,6 @@ imba_rubick_spell_steal_interactions_reference.binding = {
     --------------------------------------------------------------------------------
     --Banned ability
     --Juggment
-    --{"imba_juggernaut_omni_slash","imba_juggernaut_swift_slash","juggernaut",-1,-1,-1},
     --Shredder  伐木机
     {"imba_timbersaw_chakram","imba_timbersaw_return_chakram","shredder",-1,-1,-1},
     {"imba_timbersaw_chakram_2",nil,"shredder",-1,-1,-1},

@@ -145,28 +145,3 @@ end
 function modifier_blade_fury_buff:GetModifierMagicalResistanceBonus()
         return 60
 end
---[[
-modifier_blade_fury_buff2= class({})
-
-function modifier_blade_fury_buff2:IsHidden()
-	return false
-end
-
-function modifier_blade_fury_buff2:IsPurgable()
-	return false
-end
-
-function modifier_blade_fury_buff2:IsPurgeException()
-	return false
-end
-
-function modifier_blade_fury_buff2:DeclareFunctions()
-    return
-    {
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
- }
-end
-
-function modifier_blade_fury_buff2:GetModifierMagicalResistanceBonus()
-        return 100
-end]]

@@ -38,24 +38,7 @@ function swift_slash:OnSpellStart()
     local time=dis/1500
     caster:EmitSound("TG.juggjump")
     caster:EmitSound("TG.jugginv")
- --[[   caster.JUMP=true
-    local pfx_tgt = ParticleManager:SafeCreateParticle("particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt.vpcf", PATTACH_WORLDORIGIN, nil)
-    ParticleManager:SetParticleControl(pfx_tgt, 0, caster_pos)
-    ParticleManager:SetParticleControl(pfx_tgt, 1, target_pos)
-    ParticleManager:ReleaseParticleIndex(pfx_tgt)
-   if not target:IsMagicImmune() then      废弃
-    local Knockback ={
-        should_stun = true,
-        knockback_duration = 0.2,
-        duration = 0.2,
-        knockback_distance = 0,
-        knockback_height = 400,
-        center_x =  caster:GetAbsOrigin().x,
-        center_y =  caster:GetAbsOrigin().y,
-        center_z =  caster:GetAbsOrigin().z
-    }
-    target:AddNewModifier(caster,self, "modifier_knockback", Knockback)
-end  ]]
+
     local Projectile = 
     {
         Ability = self,
@@ -146,14 +129,7 @@ function modifier_swift_slash_move:OnDestroy()
 
     if  IsServer() then
         self:GetParent():RemoveHorizontalMotionController(self)
-    --[[    if self:GetParent().JUMP==true then         废弃
-            local target_pos=self.Target:GetAbsOrigin()
-            local caster_pos=self:GetParent():GetAbsOrigin()
-            local dis=TG_Distance(caster_pos,target_pos)
-            local dir=TG_Direction(caster_pos,target_pos)
-            local time=dis/2000
-            self:GetParent():AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_swift_slash_move2", {duration=time,dir=dir,dis=dis})
-        end]]
+
     end 
 end
 

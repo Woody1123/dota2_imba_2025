@@ -46,55 +46,90 @@ function ai_normal:OnCreated()
 		return 10
 	end)
 end
-
 function ai_normal:OnIntervalThink()
 	if not IsServer() then return end
 
 	local hero = self.parent
-	if not hero or not hero:IsAlive() then return end
+	if not hero or not hero:IsAlive() then
+		if self.debug then print("[AI] Hero dead or nil, skipping AI") end
+		return
+	end
 
 	local now = GameRules:GetGameTime()
+	local playerID = hero:GetPlayerOwnerID()
 
 	-- 玩家控制跳过 AI
-	local playerID = hero:GetPlayerOwnerID()
 	if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsFakeClient(playerID) then
+		if self.debug then print("[AI] Hero controlled by player, skipping AI") end
 		return
 	end
 
-	-- 技能释放锁定时间内跳过操作
+	-- 技能锁定：前摇/通道技能
+	local castAbility = hero:GetCurrentActiveAbility()
+	if castAbility then
+		if hero:IsChanneling() or hero:IsCastingAbility() then
+			local castPoint = castAbility:GetCastPoint() or 0
+			self.castUntil = now + castPoint + 0.2  -- buffer 避免被打断
+			if self.debug then
+				print(string.format("[AI] Locking AI for '%s', cast point %.2f, until %.2f",
+						castAbility:GetAbilityName(), castPoint, self.castUntil))
+			end
+			return
+		end
+	end
+
+	-- 技能释放锁定时间
 	if self.castUntil and now < self.castUntil then
-		return
-	end
-
-	-- 通道技能锁定
-	if hero:IsChanneling() then
-		self.castUntil = now + 3.0
+		if self.debug then
+			print(string.format("[AI] Skill lock active until %.2f, skipping", self.castUntil))
+		end
 		return
 	end
 
 	-- 每 buyInterval 秒尝试购买一次
-	if now - self.lastBuyTime >= self.buyInterval then
+	self.lastBuyTime = self.lastBuyTime or 0
+	if now - self.lastBuyTime >= (self.buyInterval or 10) then
+		if self.debug then print("[AI] Trying to buy items") end
 		self:TryBuyItems()
 		self.lastBuyTime = now
 	end
 
 	-- 自动升级技能
-	self:TryLevelUpAbilities()
+	self.abilitiesLeveled = self.abilitiesLeveled or false
+	if not self.abilitiesLeveled then
+		if self.debug then print("[AI] Trying to level up abilities") end
+		self:TryLevelUpAbilities()
+		self.abilitiesLeveled = true
+	end
 
-	-- 分帧执行：交替使用技能和物品
-	self.frameCount = (self.frameCount + 1) % 2
-	if self.frameCount == 0 then
+	-- 分帧执行：技能和物品交替
+	self.frameCount = (self.frameCount or 0) + 1
+	if self.frameCount % 2 == 0 then
+		if self.debug then print("[AI] Frame using abilities") end
 		self:TryUseAbilities()
 	else
+		if self.debug then print("[AI] Frame using items") end
 		self:TryUseItemsOnEnemyInRange()
 	end
 
 	-- 单位搜索和攻击逻辑
+	self.nextUnitSearchTime = self.nextUnitSearchTime or 0
 	if now >= self.nextUnitSearchTime then
-		self.nextUnitSearchTime = now + self.unitSearchInterval
+		self.nextUnitSearchTime = now + (self.unitSearchInterval or 0.5)
+		if self.debug then print("[AI] Searching and attacking units") end
 		self:SearchAndAttack()
 	end
 end
+
+-- 可在 hero 重生或初始化 AI 时重置状态
+function ai_normal:ResetAI()
+	self.lastBuyTime = 0
+	self.nextUnitSearchTime = 0
+	self.frameCount = 0
+	self.castUntil = 0
+	self.abilitiesLeveled = false
+end
+
 
 -- 缓存敌方古代建筑、塔和兵营
 function ai_normal:CacheEnemyBuildings()
